@@ -5,21 +5,6 @@ import Reveal from "@/components/Reveal";
 export default function Home() {
   return (
     <>
-<div className="util"><div className="wrap">
-  <div className="creds">
-    <span><i className="dot"></i>DEA-Registered</span>
-    <span><i className="dot"></i>EPA-Compliant</span>
-    <span><i className="dot"></i>HIPAA &amp; DOT</span>
-    <span><i className="dot"></i>Nationwide mail-back</span>
-  </div>
-  <div className="right">
-    <a href="#">Track a shipment</a>
-    <a href="#">Partner login</a>
-    <a href="tel:5019042929"><strong>501-904-2929</strong></a>
-  </div>
-</div></div>
-
-
 <Header />
       <main id="main">
 

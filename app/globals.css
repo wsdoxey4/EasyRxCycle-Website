@@ -58,7 +58,18 @@ nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;hei
 nav.main a:hover::after{right:0;}
 .hactions{margin-left:auto;display:flex;align-items:center;gap:12px;}
 .hactions .shoplink{font-family:'Poppins';font-weight:600;font-size:14.5px;color:var(--teal);}
-.menu-btn{display:none;}
+.menu-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:40px;padding:0 10px;background:none;border:1px solid var(--line);border-radius:9px;cursor:pointer;}
+.menu-btn span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.25s;}
+.menu-btn.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-btn.is-open span:nth-child(2){opacity:0;}
+.menu-btn.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:flex;flex-direction:column;padding:8px 26px 22px;background:#fff;border-top:1px solid var(--line);box-shadow:0 24px 34px -22px rgba(0,60,76,.35);}
+.mobile-nav>a{font-family:'Poppins';font-weight:600;font-size:16px;color:var(--ink);padding:14px 2px;border-bottom:1px solid var(--line);}
+.mobile-nav>a:hover{color:var(--teal);}
+.mobile-nav .mn-shop{color:var(--teal);}
+.mobile-nav .mn-cta{margin-top:16px;border-bottom:none;justify-content:center;color:#04321f;}
+@media(min-width:961px){.mobile-nav{display:none!important;}}
+@media(max-width:960px){.menu-btn{display:flex;}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;background:
