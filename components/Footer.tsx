@@ -1,6 +1,15 @@
+import NewsletterForm from "@/components/NewsletterForm";
+
 export default function Footer() {
   return (
     <footer className="site"><div className="wrap">
+  <div className="fnews">
+    <div className="fnews-copy">
+      <h5>Compliance, in your inbox</h5>
+      <p>Regulation updates, disposal tips &amp; offers &mdash; no spam, unsubscribe anytime.</p>
+    </div>
+    <NewsletterForm />
+  </div>
   <div className="fgrid">
     <div className="brand">
       <img className="logo-w" src="/images/logo-white.png" alt="Easy Rx Cycle" />
