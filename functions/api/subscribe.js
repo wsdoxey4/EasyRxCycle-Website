@@ -6,7 +6,7 @@ const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, header
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
 
 export function onRequestGet({ env }) {
-  return json({ ok: true, configured: { hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN), resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM) } });
+  return json({ ok: true, configured: { hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN), resend: Boolean(env.RESEND_API_KEY && (env.NEWSLETTER_FROM || env.RESEND_FROM)) } });
 }
 
 export async function onRequestPost({ request, env }) {
@@ -24,7 +24,7 @@ export async function onRequestPost({ request, env }) {
     try {
       await fetch("https://api.resend.com/emails", { method: "POST",
         headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ from: env.RESEND_FROM, to: email, subject: "You're on the list — Easy Rx Cycle", html: welcome() }) });
+        body: JSON.stringify({ from: env.NEWSLETTER_FROM || env.RESEND_FROM, to: email, subject: "You're on the list — Easy Rx Cycle", html: welcome() }) });
       results.resend = "sent";
     } catch { results.resend = "error"; }
   }
