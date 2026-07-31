@@ -61,7 +61,7 @@ const jsonLd = {
       "@id": `${SITE.url}/#organization`,
       name: SITE.name,
       url: SITE.url,
-      logo: abs("/images/logo.png"),
+      logo: abs("/images/logo-mark.png"),
       description: SITE.description,
       telephone: SITE.phone,
       email: SITE.email,
