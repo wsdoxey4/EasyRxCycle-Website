@@ -117,7 +117,7 @@ export default function Home() {
       <a className="btn btn-ghost go" href="#">Get a quote</a>
     </div>
   </div>
-  <p className="partnerline">A GPO, distributor, or 3PL? <a href="#partners">Partner with us &rarr;</a></p>
+  <p className="partnerline">A GPO, distributor, broker, or 3PL? <a href="#partners">Partner with us &rarr;</a></p>
 </div></section>
 
 
@@ -238,7 +238,7 @@ export default function Home() {
   <div className="shead reveal">
     <span className="eyebrow">Partners &amp; channels</span>
     <h2>Sell it, spec it, or plug us in.</h2>
-    <p>GPOs, distributors, and 3PLs add DEA-compliant destruction to their lineup &mdash; and we make onboarding painless. You bring the accounts; we handle the compliance, the kits, and the paperwork.</p>
+    <p>GPOs, distributors, brokers, and 3PLs add DEA-compliant destruction to their lineup &mdash; and we make onboarding painless. You bring the accounts; we handle the compliance, the kits, and the paperwork.</p>
   </div>
   <div className="pcards">
     <div className="pcard reveal">
@@ -258,6 +258,12 @@ export default function Home() {
       <h4>3PLs &amp; fulfillment</h4>
       <p>Be your clients&rsquo; DEA / RCRA destruction back-end &mdash; as a referral partner or fully white-labeled under your own brand.</p>
       <span className="tag">Referral or white-label</span>
+    </div>
+    <div className="pcard reveal">
+      <div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="5.5" cy="12" r="2.3" stroke="#6fdcae" strokeWidth="1.7"/><circle cx="18.5" cy="12" r="2.3" stroke="#6fdcae" strokeWidth="1.7"/><path d="M8 12h6.5M12.5 9l3 3-3 3" stroke="#6fdcae" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
+      <h4>Brokers</h4>
+      <p>Place DEA-compliant destruction with your book of accounts. We fulfill and document; you earn on every referral &mdash; no license or infrastructure required.</p>
+      <span className="tag">Referral commission</span>
     </div>
   </div>
   <div className="pcta">

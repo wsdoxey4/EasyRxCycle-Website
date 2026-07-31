@@ -207,7 +207,7 @@ nav.main a:hover::after{right:0;}
 .partners .shead h2{color:#fff;}
 .partners .eyebrow{color:#6fdcae;}
 .partners .shead p{color:#a3c0c6;margin-top:15px;}
-.pcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
+.pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px;margin-top:46px;}
 .pcard{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.11);border-radius:18px;padding:28px;transition:.18s;}
 .pcard:hover{background:rgba(255,255,255,.075);transform:translateY(-4px);border-color:rgba(51,192,137,.55);}
 .pcard .ic{width:48px;height:48px;border-radius:13px;background:rgba(51,192,137,.15);display:grid;place-items:center;margin-bottom:18px;}
@@ -220,7 +220,7 @@ nav.main a:hover::after{right:0;}
 .pcta .cap a{color:#fff;font-family:'Poppins';font-weight:600;}
 .recall{margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);color:#9ab8bf;font-size:14.5px;}
 .recall b{color:#fff;}
-@media(max-width:860px){.pcards{grid-template-columns:1fr;}}
+@media(max-width:520px){.pcards{grid-template-columns:1fr;}}
 
 /* footer */
 footer.site{background:var(--ink);color:#aebfc4;margin-top:0;}
