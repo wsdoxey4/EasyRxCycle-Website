@@ -1,0 +1,7 @@
+# Easy Rx Cycle · 301 redirect map (Cloudflare Pages). Preserves SEO + existing
+# users from the old HubSpot site. Grows as pages ship; the full 461-URL map
+# (redirect-map.csv) is applied + auto-tested BEFORE the domain is pointed here.
+/our-solutions/speciality-services/mail-back-controlled-substance-waste /our-solutions/controlled-substance-destruction 301
+/our-solutions/specialty-services/mail-back-controlled-substance-waste /our-solutions/controlled-substance-destruction 301
+/our-solutions/speciality-services/pick-up-controlled-and-non-controlled-substance-waste-disposal /our-solutions/controlled-substance-destruction 301
+/blog /resources 301
