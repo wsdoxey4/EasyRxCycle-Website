@@ -106,7 +106,7 @@ export default function Page() {
               handled for you and a Certificate of Destruction on every order. No pickups, no contracts.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/#solutions">
+              <a className="btn btn-primary" href="/#quote">
                 Shop destruction kits <span className="ar">→</span>
               </a>
               <a className="btn btn-ghost" href="/#quote">

@@ -16,8 +16,8 @@ export default function Home() {
     <h1>Regulated waste,<br /><span className="em">destroyed &amp; documented.</span></h1>
     <p className="sub">DEA-registered mail-back kits and on-site destruction for every stream of pharma and medical waste. Fill it, seal it, ship it &mdash; and get your Certificate of Destruction. No pickups, no contracts.</p>
     <div className="cta">
-      <a className="btn btn-primary" href="#">Shop mail-back kits <span className="ar">&rarr;</span></a>
-      <a className="btn btn-ghost" href="#">Get a custom quote</a>
+      <a className="btn btn-primary" href="/#quote">Shop mail-back kits <span className="ar">&rarr;</span></a>
+      <a className="btn btn-ghost" href="/#quote">Get a custom quote</a>
     </div>
     <div className="trustrow">
       <div className="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V5l7-3z" stroke="#005770" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>DEA non-retrievable destruction</div>
@@ -89,7 +89,7 @@ export default function Home() {
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Auto-ship and save 20% &mdash; cancel anytime</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Flat-rate, no surprise fees, no contract</li>
       </ul>
-      <a className="btn btn-primary go" href="#">Shop kits <span className="ar">&rarr;</span></a>
+      <a className="btn btn-primary go" href="/#quote">Shop kits <span className="ar">&rarr;</span></a>
     </div>
     <div className="lane">
       <span className="tag">Custom quote &middot; enterprise</span>
@@ -100,7 +100,7 @@ export default function Home() {
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#005770" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Multi-site rollups &amp; consolidated billing</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#005770" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Instant estimate &mdash; invoice, PO &amp; W-9 ready</li>
       </ul>
-      <a className="btn btn-ghost go" href="#">Get a quote</a>
+      <a className="btn btn-ghost go" href="/#quote">Get a quote</a>
     </div>
   </div>
   <p className="partnerline">A GPO, distributor, broker, or 3PL? <a href="#partners">Partner with us &rarr;</a></p>
@@ -114,14 +114,14 @@ export default function Home() {
     <p className="lead">Destruction only &mdash; done right and documented. (We don&rsquo;t handle pathological, chemo bulk, or chemical waste.)</p>
   </div>
   <div className="grid8">
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 3l7 7-2 2-7-7 2-2z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 5L4 13v3h3l8-8" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8 12l2 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Sharps disposal</h4><p>Mail-back sharps &amp; needle kits, every size.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#005770" strokeWidth="1.7"/><path d="M12 9V4M9.5 13.5L5 16M14.5 13.5L19 16" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><circle cx="12" cy="4" r="1.4" fill="#33C089"/><circle cx="5" cy="17" r="1.4" fill="#33C089"/><circle cx="19" cy="17" r="1.4" fill="#33C089"/></svg></div><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="3" width="10" height="18" rx="3" stroke="#005770" strokeWidth="1.7"/><path d="M7 10h10" stroke="#005770" strokeWidth="1.6"/><path d="M10 6.5h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Pharmaceutical</h4><p>Non-controlled Rx &amp; expired meds.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="#005770" strokeWidth="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#005770" strokeWidth="1.7"/><circle cx="12" cy="15" r="1.6" fill="#33C089"/></svg></div><h4>Controlled substances</h4><p>DEA Form 41/222, non-retrievable.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 3h4v5l4 9a2 2 0 01-1.8 3H7.8A2 2 0 016 17l4-9V3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8.5 14h7" stroke="#33C089" strokeWidth="1.7"/></svg></div><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharma.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M10 14a2 2 0 002 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Trace chemo</h4><p>Yellow-container trace chemo waste.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#33C089" strokeWidth="1.6"/></svg></div><h4>Medication kits</h4><p>At-home &amp; take-back deactivation.</p></a>
-    <a className="svc" href="#"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0113.7-5.6M20 12A8 8 0 016.3 17.6" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div><h4>Reverse distribution</h4><p>Credit-eligible returns &amp; recalls.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 3l7 7-2 2-7-7 2-2z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 5L4 13v3h3l8-8" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8 12l2 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Sharps disposal</h4><p>Mail-back sharps &amp; needle kits, every size.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#005770" strokeWidth="1.7"/><path d="M12 9V4M9.5 13.5L5 16M14.5 13.5L19 16" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><circle cx="12" cy="4" r="1.4" fill="#33C089"/><circle cx="5" cy="17" r="1.4" fill="#33C089"/><circle cx="19" cy="17" r="1.4" fill="#33C089"/></svg></div><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="3" width="10" height="18" rx="3" stroke="#005770" strokeWidth="1.7"/><path d="M7 10h10" stroke="#005770" strokeWidth="1.6"/><path d="M10 6.5h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Pharmaceutical</h4><p>Non-controlled Rx &amp; expired meds.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="#005770" strokeWidth="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#005770" strokeWidth="1.7"/><circle cx="12" cy="15" r="1.6" fill="#33C089"/></svg></div><h4>Controlled substances</h4><p>DEA Form 41/222, non-retrievable.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 3h4v5l4 9a2 2 0 01-1.8 3H7.8A2 2 0 016 17l4-9V3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8.5 14h7" stroke="#33C089" strokeWidth="1.7"/></svg></div><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharma.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M10 14a2 2 0 002 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Trace chemo</h4><p>Yellow-container trace chemo waste.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#33C089" strokeWidth="1.6"/></svg></div><h4>Medication kits</h4><p>At-home &amp; take-back deactivation.</p></a>
+    <a className="svc" href="/#quote"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0113.7-5.6M20 12A8 8 0 016.3 17.6" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div><h4>Reverse distribution</h4><p>Credit-eligible returns &amp; recalls.</p></a>
   </div>
 </div></section>
 
@@ -152,7 +152,7 @@ export default function Home() {
     <span className="pill">Hospitals &amp; health systems</span><span className="pill">Surgery centers</span><span className="pill">Pharmacies</span>
     <span className="pill">Long-term care</span><span className="pill">Hospice</span><span className="pill">Med spas</span><span className="pill">Dialysis</span>
     <span className="pill">Urgent care</span><span className="pill">Tattoo &amp; body art</span><span className="pill">Labs</span><span className="pill">Home patients</span>
-    <span className="pill more"><a href="#" style={{color:"#fff"}}>See all 50+ industries &rarr;</a></span>
+    <span className="pill more"><a href="/#quote" style={{color:"#fff"}}>See all 50+ industries &rarr;</a></span>
   </div>
 </div></section>
 
@@ -253,9 +253,9 @@ export default function Home() {
     </div>
   </div>
   <div className="pcta">
-    <a className="btn btn-primary" href="#">Become a partner <span className="ar">&rarr;</span></a>
+    <a className="btn btn-primary" href="/#quote">Become a partner <span className="ar">&rarr;</span></a>
     <a className="btn btn-outline-w" href="#">Partner login</a>
-    <span className="cap">or <a href="#">download our capability statement &rarr;</a></span>
+    <span className="cap">or <a href="/capabilities">download our capability statement &rarr;</a></span>
   </div>
   <p className="recall"><b>Pharmaceutical manufacturer?</b> Ask about standing <b>recall-destruction partnerships</b> &mdash; pre-negotiated and ready to activate the moment a recall hits.</p>
 </div></section>
