@@ -34,8 +34,11 @@ export async function onRequestPost({ request, env }) {
 
   // --- HubSpot ---
   if (env.HUBSPOT_PRIVATE_TOKEN) {
-    try { results.hubspot = await upsertContact(env.HUBSPOT_PRIVATE_TOKEN, d); }
-    catch { results.hubspot = "error"; }
+    try {
+      const c = await upsertContact(env.HUBSPOT_PRIVATE_TOKEN, d);
+      results.hubspot = c.status;
+      if (c.id) results.deal = await createDeal(env, c.id, d);
+    } catch { results.hubspot = "error"; }
   } else if (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID) {
     try {
       const r = await fetch(
@@ -82,6 +85,29 @@ async function upsertContact(token, d) {
     r = await fetch("https://api.hubapi.com/crm/v3/objects/contacts",
       { method: "POST", headers: h, body: JSON.stringify({ properties: props }) });
   }
+  let id = null;
+  try { const j = await r.json(); id = j.id || null; } catch { /* no body */ }
+  return { status: r.status, id };
+}
+
+// Create a deal for this request, associated to the contact.
+async function createDeal(env, contactId, d) {
+  const properties = {
+    dealname: `RFQ — ${d.name}${d.org ? " · " + d.org : ""}`,
+    description: summary(d),
+    pipeline: env.HUBSPOT_PIPELINE || "default",
+    dealstage: env.HUBSPOT_DEALSTAGE || "appointmentscheduled",
+  };
+  const r = await fetch("https://api.hubapi.com/crm/v3/objects/deals", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${env.HUBSPOT_PRIVATE_TOKEN}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      properties,
+      associations: [
+        { to: { id: contactId }, types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: 3 }] },
+      ],
+    }),
+  });
   return r.status;
 }
 
