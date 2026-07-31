@@ -42,7 +42,7 @@ export default function Header() {
           </nav>
           <div className="hactions">
             <a className="shoplink" href="/#solutions">Shop</a>
-            <a className="btn btn-primary" href="/get-a-quote">
+            <a className="btn btn-primary" href="/#quote">
               Get a quote <span className="ar">→</span>
             </a>
             <button

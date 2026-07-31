@@ -109,7 +109,7 @@ export default function Page() {
               <a className="btn btn-primary" href="/#solutions">
                 Shop destruction kits <span className="ar">→</span>
               </a>
-              <a className="btn btn-ghost" href="/get-a-quote">
+              <a className="btn btn-ghost" href="/#quote">
                 Get a custom quote
               </a>
             </div>
@@ -282,7 +282,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#solutions">Shop destruction kits <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a custom quote</a>
+                <a className="btn btn-outline-w" href="/#quote">Get a custom quote</a>
               </div>
             </div>
           </div>
