@@ -299,7 +299,7 @@ export default function Home() {
       <footer className="site"><div className="wrap">
   <div className="fgrid">
     <div className="brand">
-      <img className="logo-w" src="/images/logo-full.png" alt="Easy Rx Cycle" />
+      <img className="logo-w" src="/images/logo-white.png" alt="Easy Rx Cycle" />
       <p>Trusted pharma &amp; medical waste disposal experts. DEA-registered destruction, documented on every order.</p>
     </div>
     <div><h5>Solutions</h5><ul><li><a href="#">Sharps disposal</a></li><li><a href="#">Biohazard / RMW</a></li><li><a href="#">Pharmaceutical waste</a></li><li><a href="#">Controlled substances</a></li><li><a href="#">Reverse distribution</a></li></ul></div>
