@@ -32,6 +32,7 @@ export default function Home() {
     <a className="btn btn-primary" href="#">Get a quote <span className="ar">&rarr;</span></a>
   </div>
 </div></header>
+      <main id="main">
 
 
 <section className="hero"><div className="wrap">
@@ -294,7 +295,8 @@ export default function Home() {
 </div></section>
 
 
-<footer className="site"><div className="wrap">
+</main>
+      <footer className="site"><div className="wrap">
   <div className="fgrid">
     <div className="brand">
       <img className="logo-w" src="/images/logo.png" alt="Easy Rx Cycle" />

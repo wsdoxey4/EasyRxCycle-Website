@@ -255,3 +255,13 @@ footer a:hover{color:#fff;}
   .why4{grid-template-columns:1fr;}
   .fgrid{grid-template-columns:1fr;}
 }
+
+/* --- accessibility & polish --- */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:var(--teal);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;font-family:'Poppins';font-weight:600;font-size:14px;}
+.skip-link:focus{left:0;}
+:focus-visible{outline:3px solid var(--emer);outline-offset:2px;border-radius:5px;}
+::selection{background:var(--emer);color:#04321f;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+  .reveal{opacity:1!important;transform:none!important;}
+}
