@@ -15,7 +15,7 @@ export const SITE = {
   phone: "+1-501-904-2929",
   phoneDisplay: "501-904-2929",
   email: "sales@easyrxcycle.com",
-  ogImage: "/images/logo-mark.png",
+  ogImage: "/images/logo-full.png",
   services: [
     "Sharps disposal",
     "Biohazard / regulated medical waste disposal",
