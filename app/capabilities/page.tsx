@@ -79,7 +79,7 @@ export default function Page() {
             </p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/#partners">Partner with us <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/#solutions">Get a quote</a>
+              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
             </div>
           </div>
         </section>
@@ -155,7 +155,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#partners">Partner with us <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/#solutions">Get a quote</a>
+                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
               </div>
             </div>
           </div>

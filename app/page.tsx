@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import QuoteSection from "@/components/QuoteSection";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
@@ -268,11 +269,13 @@ export default function Home() {
       <div className="phone">Talk to a specialist &middot; 501-904-2929</div>
     </div>
     <div className="b">
-      <a className="btn btn-onteal" href="#">Shop mail-back kits <span className="ar">&rarr;</span></a>
-      <a className="btn btn-outline-w" href="#">Get a custom quote</a>
+      <a className="btn btn-onteal" href="#quote">Shop mail-back kits <span className="ar">&rarr;</span></a>
+      <a className="btn btn-outline-w" href="#quote">Get a custom quote</a>
     </div>
   </div>
 </div></section>
+
+<QuoteSection />
 
 
 </main>

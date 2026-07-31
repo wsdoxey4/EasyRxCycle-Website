@@ -112,7 +112,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#solutions">Shop mail-back kits <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/#solutions">Get a quote</a>
+                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
               </div>
             </div>
           </div>
