@@ -1,27 +1,24 @@
 // Cloudflare Pages Function — RFQ intake → HubSpot + Resend.
-// Config via Pages env vars (never in code):
-//   HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID   (HubSpot Forms API — non-secret IDs)
-//   RESEND_API_KEY, RESEND_FROM            (RESEND_FROM must be a verified domain)
-//   RFQ_NOTIFY_EMAIL                        (where sales alerts go; defaults to RESEND_FROM)
+// HubSpot (either works):
+//   Private App:  HUBSPOT_PRIVATE_TOKEN            (pat-… secret; upserts a Contact via CRM API)
+//   or Forms API: HUBSPOT_PORTAL_ID + HUBSPOT_FORM_GUID   (non-secret)
+// Resend:
+//   RESEND_API_KEY (secret), RESEND_FROM (verified domain), RFQ_NOTIFY_EMAIL (sales inbox)
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
-const json = (obj, status = 200) =>
-  new Response(JSON.stringify(obj), { status, headers: { ...CORS, "Content-Type": "application/json" } });
+const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { ...CORS, "Content-Type": "application/json" } });
 
-export function onRequestOptions() {
-  return new Response(null, { headers: CORS });
-}
+export function onRequestOptions() { return new Response(null, { headers: CORS }); }
 
-// GET = health/config check (no secrets leaked, just booleans)
 export function onRequestGet({ env }) {
   return json({
     ok: true,
     configured: {
-      hubspot: Boolean(env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID),
+      hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN || (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID)),
       resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
     },
   });
@@ -30,22 +27,20 @@ export function onRequestGet({ env }) {
 export async function onRequestPost({ request, env }) {
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, error: "Bad request" }, 400); }
-
-  // honeypot: real users leave this empty; bots fill it
-  if (d.company_website) return json({ ok: true });
-
+  if (d.company_website) return json({ ok: true });            // honeypot
   if (!d.name || !d.email) return json({ ok: false, error: "Name and email are required." }, 400);
 
   const results = {};
 
-  // 1) HubSpot Forms API
-  if (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID) {
+  // --- HubSpot ---
+  if (env.HUBSPOT_PRIVATE_TOKEN) {
+    try { results.hubspot = await upsertContact(env.HUBSPOT_PRIVATE_TOKEN, d); }
+    catch { results.hubspot = "error"; }
+  } else if (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID) {
     try {
       const r = await fetch(
         `https://api.hsforms.com/submissions/v3/integration/submit/${env.HUBSPOT_PORTAL_ID}/${env.HUBSPOT_FORM_GUID}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        { method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             fields: [
               { name: "email", value: d.email },
@@ -55,14 +50,13 @@ export async function onRequestPost({ request, env }) {
               { name: "message", value: summary(d) },
             ],
             context: { pageUri: d.pageUri || "", pageName: "Request a Quote" },
-          }),
-        }
+          }) }
       );
       results.hubspot = r.status;
     } catch { results.hubspot = "error"; }
   }
 
-  // 2) Resend — notify sales + confirm to requester
+  // --- Resend ---
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
     try {
       await send(env, env.RFQ_NOTIFY_EMAIL || env.RESEND_FROM, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d));
@@ -71,7 +65,24 @@ export async function onRequestPost({ request, env }) {
     } catch { results.resend = "error"; }
   }
 
-  return json({ ok: true, configured: Boolean(env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
+  return json({ ok: true, configured: Boolean(env.HUBSPOT_PRIVATE_TOKEN || env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
+}
+
+// Upsert a HubSpot contact by email via the CRM API (private-app token).
+async function upsertContact(token, d) {
+  const props = {
+    email: d.email, firstname: d.name, company: d.org || "", phone: d.phone || "", message: summary(d),
+  };
+  const h = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
+  // update if exists (by email)…
+  let r = await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${encodeURIComponent(d.email)}?idProperty=email`,
+    { method: "PATCH", headers: h, body: JSON.stringify({ properties: props }) });
+  // …otherwise create
+  if (r.status === 404) {
+    r = await fetch("https://api.hubapi.com/crm/v3/objects/contacts",
+      { method: "POST", headers: h, body: JSON.stringify({ properties: props }) });
+  }
+  return r.status;
 }
 
 function summary(d) {
@@ -85,8 +96,7 @@ function summary(d) {
 }
 function send(env, to, subject, html) {
   return fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    method: "POST", headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({ from: env.RESEND_FROM, to, subject, html }),
   });
 }
@@ -94,7 +104,7 @@ function esc(s = "") { return String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;",
 function notifyHtml(d) {
   return `<h2>New quote request</h2>
   <p><b>Name:</b> ${esc(d.name)}<br><b>Org:</b> ${esc(d.org)}<br><b>Email:</b> ${esc(d.email)}<br><b>Phone:</b> ${esc(d.phone)}</p>
-  <p><b>Role/ICP:</b> ${esc(d.role)}<br><b>Streams:</b> ${esc(d.streams)}<br><b>Volume:</b> ${esc(d.volume)}</p>
+  <p><b>Role/ICP:</b> ${esc(d.role)}<br><b>Streams:</b> ${esc(d.streams)}<br><b>Volume:</b> ${esc(d.volume)}<br><b>Marketing:</b> ${esc(d.consent)}</p>
   <p><b>Message:</b><br>${esc(d.message)}</p>`;
 }
 function confirmHtml(d) {
