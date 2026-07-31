@@ -1,38 +1,28 @@
-// Cloudflare Pages Function — RFQ intake → HubSpot + Resend.
-// HubSpot (either works):
-//   Private App:  HUBSPOT_PRIVATE_TOKEN            (pat-… secret; upserts a Contact via CRM API)
-//   or Forms API: HUBSPOT_PORTAL_ID + HUBSPOT_FORM_GUID   (non-secret)
-// Resend:
-//   RESEND_API_KEY (secret), RESEND_FROM (verified domain), RFQ_NOTIFY_EMAIL (sales inbox)
+// Cloudflare Pages Function — RFQ intake → HubSpot (contact + deal) + Resend (client + sales emails).
+// Env: HUBSPOT_PRIVATE_TOKEN | (HUBSPOT_PORTAL_ID+HUBSPOT_FORM_GUID);
+//      RESEND_API_KEY, RESEND_FROM (verified), RFQ_NOTIFY_EMAIL; optional HUBSPOT_PIPELINE/HUBSPOT_DEALSTAGE.
 
-const CORS = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
+const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
 const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { ...CORS, "Content-Type": "application/json" } });
 
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
 
 export function onRequestGet({ env }) {
-  return json({
-    ok: true,
-    configured: {
-      hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN || (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID)),
-      resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
-    },
-  });
+  return json({ ok: true, configured: {
+    hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN || (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID)),
+    resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
+  } });
 }
 
 export async function onRequestPost({ request, env }) {
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, error: "Bad request" }, 400); }
-  if (d.company_website) return json({ ok: true });            // honeypot
+  if (d.company_website) return json({ ok: true });                 // honeypot
   if (!d.name || !d.email) return json({ ok: false, error: "Name and email are required." }, 400);
 
   const results = {};
 
-  // --- HubSpot ---
+  // --- HubSpot: contact + associated deal ---
   if (env.HUBSPOT_PRIVATE_TOKEN) {
     try {
       const c = await upsertContact(env.HUBSPOT_PRIVATE_TOKEN, d);
@@ -41,29 +31,23 @@ export async function onRequestPost({ request, env }) {
     } catch { results.hubspot = "error"; }
   } else if (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID) {
     try {
-      const r = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${env.HUBSPOT_PORTAL_ID}/${env.HUBSPOT_FORM_GUID}`,
+      const r = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${env.HUBSPOT_PORTAL_ID}/${env.HUBSPOT_FORM_GUID}`,
         { method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fields: [
-              { name: "email", value: d.email },
-              { name: "firstname", value: d.name },
-              { name: "company", value: d.org || "" },
-              { name: "phone", value: d.phone || "" },
-              { name: "message", value: summary(d) },
-            ],
-            context: { pageUri: d.pageUri || "", pageName: "Request a Quote" },
-          }) }
-      );
+          body: JSON.stringify({ fields: [
+            { name: "email", value: d.email }, { name: "firstname", value: d.name },
+            { name: "company", value: d.org || "" }, { name: "phone", value: d.phone || "" },
+            { name: "message", value: summary(d) },
+          ], context: { pageUri: d.pageUri || "", pageName: "Request a Quote" } }) });
       results.hubspot = r.status;
     } catch { results.hubspot = "error"; }
   }
 
-  // --- Resend ---
+  // --- Resend: sales alert + client confirmation ---
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
+    const salesTo = env.RFQ_NOTIFY_EMAIL || env.RESEND_FROM;
     try {
-      await send(env, env.RFQ_NOTIFY_EMAIL || env.RESEND_FROM, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d));
-      await send(env, d.email, "We got your request — Easy Rx Cycle", confirmHtml(d));
+      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d), d.email);
+      await send(env, d.email, "We received your request — Easy Rx Cycle", confirmHtml(d), salesTo);
       results.resend = "sent";
     } catch { results.resend = "error"; }
   }
@@ -71,74 +55,95 @@ export async function onRequestPost({ request, env }) {
   return json({ ok: true, configured: Boolean(env.HUBSPOT_PRIVATE_TOKEN || env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
 }
 
-// Upsert a HubSpot contact by email via the CRM API (private-app token).
+// ---- HubSpot helpers ----
 async function upsertContact(token, d) {
-  const props = {
-    email: d.email, firstname: d.name, company: d.org || "", phone: d.phone || "", message: summary(d),
-  };
+  const props = { email: d.email, firstname: d.name, company: d.org || "", phone: d.phone || "", message: summary(d) };
   const h = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
-  // update if exists (by email)…
   let r = await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${encodeURIComponent(d.email)}?idProperty=email`,
     { method: "PATCH", headers: h, body: JSON.stringify({ properties: props }) });
-  // …otherwise create
-  if (r.status === 404) {
-    r = await fetch("https://api.hubapi.com/crm/v3/objects/contacts",
-      { method: "POST", headers: h, body: JSON.stringify({ properties: props }) });
-  }
-  let id = null;
-  try { const j = await r.json(); id = j.id || null; } catch { /* no body */ }
+  if (r.status === 404) r = await fetch("https://api.hubapi.com/crm/v3/objects/contacts", { method: "POST", headers: h, body: JSON.stringify({ properties: props }) });
+  let id = null; try { const j = await r.json(); id = j.id || null; } catch {}
   return { status: r.status, id };
 }
-
-// Create a deal for this request, associated to the contact.
 async function createDeal(env, contactId, d) {
   const properties = {
     dealname: `RFQ — ${d.name}${d.org ? " · " + d.org : ""}`,
     description: summary(d),
     pipeline: env.HUBSPOT_PIPELINE || "default",
+    dealstage: env.HUBSPOT_DEALSTAGE || "1091643915", // Client Submited Quote Form
   };
-  // "Client Submited Quote Form" in the Mail Back Program pipeline (override via env if the pipeline changes).
-  properties.dealstage = env.HUBSPOT_DEALSTAGE || "1091643915";
   const h = { Authorization: `Bearer ${env.HUBSPOT_PRIVATE_TOKEN}`, "Content-Type": "application/json" };
-  const r = await fetch("https://api.hubapi.com/crm/v3/objects/deals", {
-    method: "POST", headers: h, body: JSON.stringify({ properties }),
-  });
+  const r = await fetch("https://api.hubapi.com/crm/v3/objects/deals", { method: "POST", headers: h, body: JSON.stringify({ properties }) });
   const j = await r.json().catch(() => ({}));
-  let assoc = "n/a";
-  if (j.id) {
-    try {
-      const a = await fetch(`https://api.hubapi.com/crm/v4/objects/deals/${j.id}/associations/default/contacts/${contactId}`, { method: "PUT", headers: h });
-      assoc = "assoc:" + a.status;
-    } catch { assoc = "assoc-failed"; }
-  }
-  return { status: r.status, id: j.id || null, assoc };
+  if (j.id) { try { await fetch(`https://api.hubapi.com/crm/v4/objects/deals/${j.id}/associations/default/contacts/${contactId}`, { method: "PUT", headers: h }); } catch {} }
+  return { status: r.status, id: j.id || null };
 }
 
 function summary(d) {
   return [
-    d.role && `Role/ICP: ${d.role}`,
-    d.streams && `Waste streams: ${d.streams}`,
-    d.volume && `Volume: ${d.volume}`,
-    d.consent && `Marketing: ${d.consent}`,
-    d.message && `Message: ${d.message}`,
+    d.role && `Role/ICP: ${d.role}`, d.streams && `Waste streams: ${d.streams}`,
+    d.volume && `Volume: ${d.volume}`, d.consent && `Marketing: ${d.consent}`,
+    d.message && `Message: ${d.message}`, d.pageUri && `Source: ${d.pageUri}`,
   ].filter(Boolean).join("\n");
 }
-function send(env, to, subject, html) {
-  return fetch("https://api.resend.com/emails", {
-    method: "POST", headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: env.RESEND_FROM, to, subject, html }),
-  });
+
+// ---- Resend ----
+function send(env, to, subject, html, replyTo) {
+  const body = { from: env.RESEND_FROM, to, subject, html };
+  if (replyTo && replyTo !== to) body.reply_to = replyTo;
+  return fetch("https://api.resend.com/emails", { method: "POST",
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify(body) });
 }
+
+// ---- branded email templates ----
 function esc(s = "") { return String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
-function notifyHtml(d) {
-  return `<h2>New quote request</h2>
-  <p><b>Name:</b> ${esc(d.name)}<br><b>Org:</b> ${esc(d.org)}<br><b>Email:</b> ${esc(d.email)}<br><b>Phone:</b> ${esc(d.phone)}</p>
-  <p><b>Role/ICP:</b> ${esc(d.role)}<br><b>Streams:</b> ${esc(d.streams)}<br><b>Volume:</b> ${esc(d.volume)}<br><b>Marketing:</b> ${esc(d.consent)}</p>
-  <p><b>Message:</b><br>${esc(d.message)}</p>`;
+function shell(preheader, inner) {
+  return `<!doctype html><html><body style="margin:0;background:#f5faf8;font-family:Arial,Helvetica,sans-serif;color:#123A44;">
+<span style="display:none;max-height:0;overflow:hidden;opacity:0">${esc(preheader)}</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5faf8;padding:24px 12px;"><tr><td align="center">
+  <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4ecea;">
+    <tr><td style="background:#005770;padding:16px 28px;">
+      <span style="color:#fff;font-size:19px;font-weight:bold;">Easy <span style="color:#7ad3ab;">Rx</span> Cycle</span>
+    </td></tr>
+    <tr><td style="padding:28px;">${inner}</td></tr>
+    <tr><td style="background:#0c2f38;padding:18px 28px;color:#9fb4b9;font-size:12px;line-height:1.6;">
+      Easy Rx Cycle &middot; <a href="tel:5019042929" style="color:#9fd7c8;text-decoration:none;">501-904-2929</a> &middot; <a href="mailto:sales@easyrxcycle.com" style="color:#9fd7c8;text-decoration:none;">sales@easyrxcycle.com</a><br>
+      <span style="color:#6f8990;">DEA-Registered &middot; EPA-Compliant &middot; HIPAA &amp; DOT &middot; Nationwide mail-back</span>
+    </td></tr>
+  </table>
+</td></tr></table></body></html>`;
+}
+function detailsTable(d) {
+  const rows = [
+    ["Organization", d.org], ["Email", d.email], ["Phone", d.phone], ["You are", d.role],
+    ["Waste streams", d.streams], ["Volume", d.volume], ["Marketing", d.consent], ["Message", d.message],
+  ].filter(([, v]) => v);
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:6px;">${
+    rows.map(([k, v]) => `<tr>
+      <td style="padding:9px 0;border-bottom:1px solid #eef3f1;color:#55646B;font-size:13px;width:128px;vertical-align:top;">${esc(k)}</td>
+      <td style="padding:9px 0;border-bottom:1px solid #eef3f1;color:#123A44;font-size:14px;">${esc(v)}</td></tr>`).join("")}</table>`;
 }
 function confirmHtml(d) {
-  return `<div style="font-family:Arial,sans-serif;color:#123A44">
-  <h2 style="color:#005770">Thanks, ${esc(d.name)} — we've got it.</h2>
-  <p>A specialist will reach out shortly with your quote. For anything urgent, call <b>501-904-2929</b>.</p>
-  <p style="color:#55646B">Easy Rx Cycle · Regulated waste destruction, made simple.</p></div>`;
+  const inner = `
+    <h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">Thanks, ${esc(d.name)} &mdash; we&rsquo;ve got it.</h1>
+    <p style="margin:0 0 18px;color:#55646B;font-size:15px;line-height:1.55;">A specialist will reach out shortly with your quote. Here&rsquo;s a copy of what you sent us:</p>
+    ${detailsTable(d)}
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:24px;"><tr><td style="background:#33C089;border-radius:9px;">
+      <a href="tel:5019042929" style="display:inline-block;padding:12px 22px;color:#04321f;font-weight:bold;text-decoration:none;font-size:15px;">Call us &middot; 501-904-2929</a>
+    </td></tr></table>
+    <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">No pickups, no contracts &mdash; just compliant destruction, documented on every order.</p>`;
+  return shell("We received your quote request — a specialist will follow up shortly.", inner);
+}
+function notifyHtml(d) {
+  const first = esc((d.name || "").split(" ")[0] || "there");
+  const inner = `
+    <span style="display:inline-block;background:#eafaf3;color:#1c9d6c;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">New quote request</span>
+    <h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${esc(d.name)}${d.org ? " &middot; " + esc(d.org) : ""}</h1>
+    <p style="margin:0 0 14px;color:#55646B;font-size:14px;">Submitted via the website RFQ form. Contact + deal created in HubSpot.</p>
+    ${detailsTable(d)}
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr>
+      <td style="background:#005770;border-radius:9px;"><a href="mailto:${esc(d.email)}" style="display:inline-block;padding:12px 20px;color:#fff;font-weight:bold;text-decoration:none;font-size:14px;">Reply to ${first}</a></td>
+      ${d.phone ? `<td width="10">&nbsp;</td><td style="border:1px solid #d3e3df;border-radius:9px;"><a href="tel:${esc(d.phone)}" style="display:inline-block;padding:12px 20px;color:#005770;font-weight:bold;text-decoration:none;font-size:14px;">Call ${esc(d.phone)}</a></td>` : ""}
+    </tr></table>`;
+  return shell(`New RFQ from ${d.name}${d.org ? " · " + d.org : ""}`, inner);
 }
