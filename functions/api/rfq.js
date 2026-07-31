@@ -37,7 +37,7 @@ export async function onRequestPost({ request, env }) {
     try {
       const c = await upsertContact(env.HUBSPOT_PRIVATE_TOKEN, d);
       results.hubspot = c.status;
-      if (c.id) { try { results.deal = await createDeal(env, c.id, d); } catch { results.deal = "error"; } }
+      if (c.id) { try { const dl = await createDeal(env, c.id, d); results.deal = dl.status; } catch { results.deal = "error"; } }
     } catch { results.hubspot = "error"; }
   } else if (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID) {
     try {
@@ -96,19 +96,22 @@ async function createDeal(env, contactId, d) {
     dealname: `RFQ — ${d.name}${d.org ? " · " + d.org : ""}`,
     description: summary(d),
     pipeline: env.HUBSPOT_PIPELINE || "default",
-    dealstage: env.HUBSPOT_DEALSTAGE || "appointmentscheduled",
   };
+  // "Client Submited Quote Form" in the Mail Back Program pipeline (override via env if the pipeline changes).
+  properties.dealstage = env.HUBSPOT_DEALSTAGE || "1091643915";
+  const h = { Authorization: `Bearer ${env.HUBSPOT_PRIVATE_TOKEN}`, "Content-Type": "application/json" };
   const r = await fetch("https://api.hubapi.com/crm/v3/objects/deals", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${env.HUBSPOT_PRIVATE_TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      properties,
-      associations: [
-        { to: { id: contactId }, types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: 3 }] },
-      ],
-    }),
+    method: "POST", headers: h, body: JSON.stringify({ properties }),
   });
-  return r.status;
+  const j = await r.json().catch(() => ({}));
+  let assoc = "n/a";
+  if (j.id) {
+    try {
+      const a = await fetch(`https://api.hubapi.com/crm/v4/objects/deals/${j.id}/associations/default/contacts/${contactId}`, { method: "PUT", headers: h });
+      assoc = "assoc:" + a.status;
+    } catch { assoc = "assoc-failed"; }
+  }
+  return { status: r.status, id: j.id || null, assoc };
 }
 
 function summary(d) {
