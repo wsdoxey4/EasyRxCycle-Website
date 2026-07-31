@@ -37,7 +37,7 @@ export async function onRequestPost({ request, env }) {
     try {
       const c = await upsertContact(env.HUBSPOT_PRIVATE_TOKEN, d);
       results.hubspot = c.status;
-      if (c.id) results.deal = await createDeal(env, c.id, d);
+      if (c.id) { try { results.deal = await createDeal(env, c.id, d); } catch { results.deal = "error"; } }
     } catch { results.hubspot = "error"; }
   } else if (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID) {
     try {
