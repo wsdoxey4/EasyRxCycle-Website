@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { SITE, abs, ANALYTICS} from "@/lib/site";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import Tracker from "@/components/Tracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -105,6 +106,7 @@ export default function RootLayout({
           </noscript>
         )}
         <Analytics />
+        <Tracker />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

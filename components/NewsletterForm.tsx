@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/track";
 
 export default function NewsletterForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -23,7 +24,7 @@ export default function NewsletterForm() {
         body: JSON.stringify(data),
       });
       const j = await r.json().catch(() => ({ ok: false }));
-      if (j.ok) setStatus("ok");
+      if (j.ok) { setStatus("ok"); trackEvent("newsletter_signup", { form: "newsletter" }); }
       else { setStatus("error"); setErr(j.error || "Something went wrong."); }
     } catch {
       setStatus("error");
