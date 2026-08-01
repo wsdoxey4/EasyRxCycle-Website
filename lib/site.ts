@@ -30,3 +30,10 @@ export const SITE = {
 
 export const abs = (path: string) =>
   path.startsWith("http") ? path : `${SITE.url}${path.startsWith("/") ? "" : "/"}${path}`;
+
+export const ANALYTICS = {
+  on: process.env.NEXT_PUBLIC_ANALYTICS === "true",
+  gtm: process.env.NEXT_PUBLIC_GTM_ID || "",
+  ga4: process.env.NEXT_PUBLIC_GA4_ID || "",
+  clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "",
+};

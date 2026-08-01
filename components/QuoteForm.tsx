@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/lib/track";
+
 import { useState } from "react";
 
 const ROLES = [
@@ -43,7 +45,7 @@ export default function QuoteForm() {
         body: JSON.stringify(data),
       });
       const j = await r.json().catch(() => ({ ok: false }));
-      if (j.ok) setStatus("ok");
+      if (j.ok) { setStatus("ok"); trackEvent("generate_lead", { form: "rfq", currency: "USD" }); }
       else { setStatus("error"); setErr(j.error || "Something went wrong."); }
     } catch {
       setStatus("error");

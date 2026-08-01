@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { SITE, abs } from "@/lib/site";
+import { SITE, abs, ANALYTICS} from "@/lib/site";
 import "./globals.css";
+import Analytics from "@/components/Analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -98,6 +99,12 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {ANALYTICS.on && ANALYTICS.gtm && (
+          <noscript>
+            <iframe src={`https://www.googletagmanager.com/ns.html?id=${ANALYTICS.gtm}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} />
+          </noscript>
+        )}
+        <Analytics />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

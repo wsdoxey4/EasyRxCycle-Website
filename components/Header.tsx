@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/track";
 
 const NAV = [
   { label: "Solutions", href: "/#solutions" },
@@ -25,7 +26,7 @@ export default function Header() {
           <div className="right">
             <a href="#">Track a shipment</a>
             <a href="#">Partner login</a>
-            <a href="tel:5019042929"><strong>501-904-2929</strong></a>
+            <a href="tel:5019042929" onClick={() => trackEvent("click_to_call")}><strong>501-904-2929</strong></a>
           </div>
         </div>
       </div>
