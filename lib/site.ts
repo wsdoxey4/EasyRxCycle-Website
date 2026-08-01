@@ -32,8 +32,8 @@ export const abs = (path: string) =>
   path.startsWith("http") ? path : `${SITE.url}${path.startsWith("/") ? "" : "/"}${path}`;
 
 export const ANALYTICS = {
-  on: process.env.NEXT_PUBLIC_ANALYTICS === "true",
+  on: process.env.NEXT_PUBLIC_ANALYTICS !== "false",
   gtm: process.env.NEXT_PUBLIC_GTM_ID || "",
-  ga4: process.env.NEXT_PUBLIC_GA4_ID || "",
+  ga4: process.env.NEXT_PUBLIC_GA4_ID || "G-DBFLW3D87G",
   clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
 };
