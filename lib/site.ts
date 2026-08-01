@@ -35,5 +35,5 @@ export const ANALYTICS = {
   on: process.env.NEXT_PUBLIC_ANALYTICS === "true",
   gtm: process.env.NEXT_PUBLIC_GTM_ID || "",
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "",
-  clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "",
+  clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
 };
