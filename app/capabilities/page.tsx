@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TrustBar from "@/components/TrustBar";
+import StatsBand from "@/components/StatsBand";
 import Reveal from "@/components/Reveal";
 import { SITE, abs } from "@/lib/site";
 
@@ -39,23 +41,34 @@ const badge = (label: string) => (
   </span>
 );
 
-const streams = [
-  "Sharps disposal",
-  "Biohazard / regulated medical waste",
-  "Pharmaceutical waste (non-controlled)",
-  "Controlled substance destruction",
-  "RCRA hazardous pharmaceutical waste",
-  "Trace chemotherapy waste",
-  "Medication disposal kits",
-  "Pharmaceutical reverse distribution",
+const streams: [string, string][] = [
+  ["Sharps disposal", "/our-solutions/sharps-disposal"],
+  ["Biohazard / regulated medical waste", "/our-solutions/biohazard-waste-disposal"],
+  ["Pharmaceutical waste (non-controlled)", "/our-solutions/pharmaceutical-waste-disposal"],
+  ["Controlled substance destruction", "/our-solutions/controlled-substance-destruction"],
+  ["RCRA hazardous pharmaceutical waste", "/our-solutions/rcra-hazardous-pharmaceutical-waste"],
+  ["Trace chemotherapy waste", "/our-solutions/trace-chemotherapy-waste"],
+  ["Medication disposal kits", "/our-solutions/medication-disposal-kit"],
+  ["Pharmaceutical reverse distribution", "/our-solutions/reverse-distribution"],
+];
+
+// Credential detail — "types now"; actual numbers/permits/certs added later (shown "on request" until then).
+// Only credentials confirmed as genuinely held are listed.
+const creds = [
+  { t: "DEA registration", d: "Registered to receive and destroy controlled substances (Schedules II–V) — the credential that makes controlled take-back legal.", s: "Registration # verified on request" },
+  { t: "EPA compliance", d: "RCRA-compliant handling and destruction of hazardous pharmaceutical waste to federal environmental standards.", s: "EPA ID on request" },
+  { t: "DOT / PHMSA", d: "Hazardous-materials shipping compliance for regulated waste in transit — trained, packaged, and manifested correctly.", s: "Trained & compliant" },
+  { t: "HIPAA & BAA", d: "We handle protected health information to HIPAA standards and sign a Business Associate Agreement for covered clients.", s: "BAA available on request" },
+  { t: "Registered legal entity", d: "Easy Rx Cycle is a registered DBA of Arkansas Redistributors, LLC — a compliant, established business operating since 2018.", s: "DBA on file (Arkansas)" },
+  { t: "Company data & identifiers", d: "The vendor-setup data your procurement or AP team needs to onboard us — classification and business identifiers on file.", s: "NAICS 562119 · DUNS 10-953-4447" },
 ];
 
 const downloads = [
-  { t: "Capability statement", d: "One-page overview for procurement & GPOs." },
-  { t: "Line card", d: "Every SKU, service, and waste stream." },
-  { t: "W-9", d: "For AP to set us up as a vendor." },
-  { t: "Insurance (COI)", d: "Certificate of insurance on request." },
-  { t: "Sample Certificate of Destruction", d: "See exactly what you receive." },
+  { t: "Capability statement", d: "One-page overview for procurement & GPOs.", h: "/resources/capability-statement" },
+  { t: "Compliance checklist", d: "Stay audit-ready across every waste stream.", h: "/resources/medical-waste-compliance-checklist" },
+  { t: "Line card", d: "Every service and waste stream on one page.", h: "/resources/line-card" },
+  { t: "Sample Certificate of Destruction", d: "See exactly what you receive.", h: "/resources/sample-certificate-of-destruction" },
+  { t: "W-9", d: "For AP to set us up as a vendor — request from our team.", h: "/contact" },
 ];
 
 export default function Page() {
@@ -78,13 +91,17 @@ export default function Page() {
               nationwide. Here&rsquo;s the full picture for your procurement team, GPO, or compliance officer.
             </p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/#partners">Partner with us <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/partners">Partner with us <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/#quote">Get a quote</a>
             </div>
           </div>
         </section>
 
-        <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+        <section className="sec" style={{ paddingTop: "clamp(34px,4vw,52px)" }}>
+          <div className="wrap"><StatsBand heading="A DEA-registered destruction company since 2018" /></div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(40px,5vw,68px)" }}>
           <div className="wrap">
             <div className="shead">
               <span className="eyebrow">Credentials &amp; compliance</span>
@@ -92,8 +109,45 @@ export default function Page() {
               <p className="lead">The registrations and standards that let us destroy regulated waste legally in all 50 states.</p>
             </div>
             <div className="badges" style={{ marginTop: "26px" }}>
-              {["DEA-Registered", "EPA-Compliant", "DOT / PHMSA", "RCRA Handling", "HIPAA & BAA", "NABP DDA", "Non-retrievable destruction"].map(badge)}
+              {["DEA-Registered", "EPA-Compliant", "DOT / PHMSA", "RCRA Handling", "HIPAA & BAA", "Non-retrievable destruction"].map(badge)}
             </div>
+            <div className="credgrid">
+              {creds.map((c) => (
+                <div className="credcard" key={c.t}>
+                  <h4>{c.t}</h4>
+                  <p>{c.d}</p>
+                  <span className="credstat">{c.s}</span>
+                </div>
+              ))}
+            </div>
+            <p className="lead" style={{ marginTop: "22px", maxWidth: "62ch", fontSize: "15px" }}>
+              Full registration numbers, permits, and certificates are provided to qualified buyers, procurement teams, and
+              compliance officers on request. <a href="/get-a-quote" style={{ color: "var(--teal)", fontWeight: 600 }}>Request our compliance packet</a>.
+            </p>
+          </div>
+        </section>
+
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap" style={{ maxWidth: "860px" }}>
+            <div className="shead">
+              <span className="eyebrow">Documentation &amp; security</span>
+              <h2>Every destruction, documented and secured.</h2>
+              <p className="lead">Your paperwork is the proof an auditor asks for — so we treat it that way.</p>
+            </div>
+            <ul className="covers" style={{ marginTop: "24px" }}>
+              {[
+                "A Certificate of Destruction issued on every order",
+                "DEA Form 41, Form 222, and manifests prepared where they apply",
+                "Documents emailed and mailed to you, retained per DEA requirements",
+                "Records kept access-controlled, backed up, and in a fireproof safe",
+                "Secure client portal for self-serve document access — coming soon",
+              ].map((t) => (
+                <li key={t}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -105,10 +159,10 @@ export default function Page() {
               <p className="lead">Destruction only — we do not handle pathological, chemo bulk, or chemical waste.</p>
             </div>
             <ul className="covers" style={{ marginTop: "28px" }}>
-              {streams.map((s) => (
-                <li key={s}>
+              {streams.map(([label, href]) => (
+                <li key={label}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  <span dangerouslySetInnerHTML={{ __html: s }} />
+                  <a href={href} style={{ color: "inherit", fontWeight: 500 }}>{label}</a>
                 </li>
               ))}
             </ul>
@@ -135,7 +189,7 @@ export default function Page() {
             </div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               {downloads.map((d) => (
-                <a className="svc" href="#" key={d.t}>
+                <a className="svc" href={d.h} key={d.t}>
                   <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#005770" strokeWidth="1.7" /><path d="M9 12h6M9 16h4M9 8h6" stroke="#8aa6ac" strokeWidth="1.5" strokeLinecap="round" /></svg></div>
                   <h4>{d.t}</h4>
                   <p>{d.d}</p>
@@ -143,6 +197,10 @@ export default function Page() {
               ))}
             </div>
           </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "0" }}>
+          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "0" }}>
@@ -154,7 +212,7 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/#partners">Partner with us <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/partners">Partner with us <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/#quote">Get a quote</a>
               </div>
             </div>

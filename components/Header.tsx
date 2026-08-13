@@ -19,11 +19,15 @@ const MENU: Item[] = [
         { t: "Trace Chemo", h: "/our-solutions/trace-chemotherapy-waste" },
       ]},
       { title: "Products & programs", links: [
+        { t: "Build a mail-back program", h: "/build-your-program" },
         { t: "Medication Disposal Kits", h: "/our-solutions/medication-disposal-kit" },
         { t: "Reverse Distribution", h: "/our-solutions/reverse-distribution" },
-        { t: "Mail-back kits (Shop)", h: "/#quote" },
-        { t: "Scheduled pickup", h: "/#quote" },
-        { t: "Auto-ship (save 20%)", h: "/#quote" },
+        { t: "Mail-back kits (Shop)", h: "/shop" },
+        { t: "Auto-ship (save 20%)", h: "/shop" },
+        { t: "Scheduled pickup", h: "/get-a-quote" },
+        { t: "Pricing", h: "/pricing" },
+        { t: "Cost calculator", h: "/cost-calculator" },
+        { t: "How it works", h: "/how-it-works" },
       ]},
       { title: "Compliance", links: [
         { t: "DEA Forms 41 / 222", h: "/resources/dea-form-41-222" },
@@ -34,73 +38,103 @@ const MENU: Item[] = [
     ],
   },
   {
-    label: "Who We Serve", href: "/#industries", cols: 4,
+    // 2-level SEO-research slugs (/who-we-serve/{slug}). ✅ = built; others planned (batch 2).
+    label: "Who We Serve", href: "/who-we-serve/", cols: 4,
     mega: [
       { title: "Healthcare & providers", links: [
-        { t: "Physician offices", h: "/who-we-serve/healthcare-facilities-care-providers/physician-offices-and-clinics" },
-        { t: "Dental clinics", h: "/who-we-serve/healthcare-facilities-care-providers/dental-clinics" },
-        { t: "Surgery centers", h: "/who-we-serve/healthcare-facilities-care-providers/surgery-centers" },
-        { t: "Urgent care", h: "/who-we-serve/healthcare-facilities-care-providers/urgent-care-centers" },
-        { t: "Long-term care", h: "/who-we-serve/healthcare-facilities-care-providers/long-term-care-facilities" },
-        { t: "Hospice", h: "/who-we-serve/healthcare-facilities-care-providers/hospice-care" },
+        { t: "Physician offices", h: "/who-we-serve/physician-offices/" },      // ✅
+        { t: "Dental practices", h: "/who-we-serve/dental/" },                   // ✅
+        { t: "Surgery centers (ASC)", h: "/who-we-serve/asc/" },                 // ✅
+        { t: "LTC & nursing homes", h: "/who-we-serve/nursing-homes/" },         // ✅
+        { t: "Urgent care", h: "/who-we-serve/urgent-care/" },
+        { t: "Hospice", h: "/who-we-serve/hospice/" },
       ]},
       { title: "Pharmacies", links: [
-        { t: "Retail & drug stores", h: "/who-we-serve/pharmacies/retail-pharmacies-and-drug-stores" },
-        { t: "Chain pharmacies", h: "/who-we-serve/pharmacies/chain-pharmacies" },
-        { t: "340B pharmacies", h: "/who-we-serve/pharmacies/340b-pharmacies" },
-        { t: "Specialty pharmacies", h: "/who-we-serve/pharmacies/speciality-pharmacies" },
-        { t: "Compounding", h: "/who-we-serve/pharmacies/compounding-pharmacies" },
-        { t: "Mail-order", h: "/who-we-serve/pharmacies/mail-order-pharmacies" },
+        { t: "Retail & independent", h: "/who-we-serve/retail-pharmacy/" },      // ✅
+        { t: "340B pharmacies", h: "/who-we-serve/340b-pharmacy/" },             // ✅
+        { t: "Chain pharmacies", h: "/who-we-serve/chain-pharmacy/" },
+        { t: "Specialty pharmacies", h: "/who-we-serve/specialty-pharmacy/" },
+        { t: "Mail-order", h: "/who-we-serve/mail-order-pharmacy/" },
+        { t: "503B outsourcing", h: "/who-we-serve/503b-pharmacy/" },
       ]},
       { title: "Vet & emergency", links: [
-        { t: "Veterinary clinics", h: "/who-we-serve/veterinary-services/veterinarian-clinics" },
-        { t: "Equine facilities", h: "/who-we-serve/veterinary-services/equine-facilities" },
-        { t: "EMS / ambulance", h: "/who-we-serve/emergency-services/ambulance-services" },
-        { t: "Fire departments", h: "/who-we-serve/emergency-services/fire-departments" },
+        { t: "Veterinary & equine", h: "/who-we-serve/veterinary/" },            // ✅
+        { t: "EMS & fire", h: "/who-we-serve/ems-fire/" },                       // ✅
+        { t: "Oncology / infusion", h: "/who-we-serve/oncology-infusion/" },
+        { t: "Home health", h: "/who-we-serve/home-health/" },
       ]},
       { title: "Manufacturers & labs", links: [
-        { t: "Pharma manufacturers", h: "/who-we-serve/manufacturers-distributors/pharmaceutical-manufacturers" },
-        { t: "3PLs", h: "/who-we-serve/manufacturers-distributors/third-party-logistics" },
-        { t: "GPOs", h: "/who-we-serve/manufacturers-distributors/group-purchasing-organizations" },
-        { t: "Research labs", h: "/who-we-serve/universities-and-research-labs/research-labs" },
-        { t: "See all 50+ industries →", h: "/who-we-serve" },
+        { t: "Pharma manufacturers", h: "/who-we-serve/pharma-manufacturers/" },
+        { t: "Research labs", h: "/who-we-serve/research-labs/" },
+        { t: "Dialysis centers", h: "/who-we-serve/dialysis/" },
+        { t: "Diagnostic / clinical labs", h: "/who-we-serve/clinical-labs/" },
+        { t: "See all industries →", h: "/who-we-serve/" },
       ]},
     ],
   },
   {
-    label: "Resources", href: "/resources", cols: 2,
+    label: "Resources", href: "/resources", cols: 3,
     mega: [
-      { title: "Guides", links: [
-        { t: "Compliance guides", h: "/resources#compliance" },
-        { t: "How-to guides", h: "/resources#howto" },
-        { t: "Blog", h: "/blog" },
-        { t: "FAQ", h: "/resources#faq" },
+      { title: "Guides & articles", links: [
+        { t: "The guide library (60+)", h: "/resources/guides" },
+        { t: "DEA Forms 222, 41 & COD", h: "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained" },
+        { t: "Sharps disposal by state", h: "/blog/how-to-dispose-of-sharps-containers-a-complete-guide-by-state" },
+        { t: "Pharmaceutical waste management", h: "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast" },
+        { t: "FAQ — common questions", h: "/faq" },
+        { t: "Read the blog →", h: "/blog/" },
+      ]},
+      { title: "Compliance", links: [
+        { t: "DEA Form 41 / 222", h: "/resources/dea-form-41-222" },
+        { t: "USP 800", h: "/resources/usp-800" },
+        { t: "Certificate of Destruction", h: "/resources/certificate-of-destruction" },
+        { t: "OSHA / Bloodborne training", h: "/resources/bloodborne-training" },
       ]},
       { title: "Downloads", links: [
         { t: "W-9", h: "/resources#downloads" },
         { t: "Capability statement", h: "/capabilities" },
         { t: "Sample Certificate of Destruction", h: "/resources#downloads" },
+        { t: "Line card / sell sheet", h: "/resources#downloads" },
       ]},
     ],
   },
   {
-    label: "Partners", href: "/#partners", cols: 1,
+    label: "Partners", href: "/partners", cols: 1,
     mega: [
       { title: "Channels", links: [
-        { t: "GPOs", h: "/#partners" },
-        { t: "Distributors & wholesalers", h: "/#partners" },
-        { t: "Brokers", h: "/#partners" },
-        { t: "3PLs", h: "/#partners" },
-        { t: "Become a partner", h: "/#partners" },
-        { t: "Partner login", h: "#" },
+        { t: "All partner programs", h: "/partners" },
+        { t: "GPOs", h: "/partners/gpos" },
+        { t: "Distributors & wholesalers", h: "/partners/distributors-wholesalers" },
+        { t: "3PLs & fulfillment", h: "/partners/3pls-fulfillment" },
+        { t: "Brokers", h: "/partners/brokers" },
+        { t: "Partner toolkit", h: "/partners/toolkit" },
+        { t: "Become a partner", h: "/contact" },
       ]},
     ],
   },
-  { label: "Capabilities", href: "/capabilities" },
+  {
+    label: "Company", href: "/about-us", cols: 2,
+    mega: [
+      { title: "About Easy Rx Cycle", links: [
+        { t: "Why us", h: "/why-us" },
+        { t: "Case studies", h: "/case-studies" },
+        { t: "About us", h: "/about-us" },
+        { t: "Our team", h: "/our-team" },
+        { t: "Capabilities & credentials", h: "/capabilities" },
+      ]},
+      { title: "How we work & support", links: [
+        { t: "How it works", h: "/how-it-works" },
+        { t: "FAQ", h: "/faq" },
+        { t: "Contact us", h: "/contact" },
+      ]},
+    ],
+  },
+  { label: "Locations", href: "/locations/" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [sub, setSub] = useState<string | null>("Solutions");
+  const close = () => setOpen(false);
   return (
     <>
       <div className="util">
@@ -112,8 +146,8 @@ export default function Header() {
             <span><i className="dot" />Nationwide mail-back</span>
           </div>
           <div className="right">
-            <a href="#">Track a shipment</a>
-            <a href="#">Partner login</a>
+            <a href="/contact">Contact</a>
+            <a href="/partners">Partners</a>
             <a href="tel:5019042929" onClick={() => trackEvent("click_to_call")}><strong>501-904-2929</strong></a>
           </div>
         </div>
@@ -142,7 +176,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="hactions">
-            <a className="shoplink" href="/#quote">Shop</a>
+            <a className="shoplink" href="/shop">Shop</a>
             <a className="btn btn-primary" href="/#quote">Get a quote <span className="ar">→</span></a>
             <button type="button" className={`menu-btn${open ? " is-open" : ""}`} aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
               <span /><span /><span />
@@ -151,10 +185,39 @@ export default function Header() {
         </div>
 
         {open && (
-          <nav className="mobile-nav">
-            {MENU.map((it) => <a key={it.label} href={it.href} onClick={() => setOpen(false)}>{it.label}</a>)}
-            <a className="mn-shop" href="/#quote" onClick={() => setOpen(false)}>Shop</a>
-            <a className="btn btn-primary mn-cta" href="/#quote" onClick={() => setOpen(false)}>Get a quote <span className="ar">→</span></a>
+          <nav className="mobile-nav" id="mobile-nav">
+            {MENU.map((it) =>
+              it.mega ? (
+                <div className="mn-group" key={it.label}>
+                  <button
+                    type="button"
+                    className={`mn-top${sub === it.label ? " is-open" : ""}`}
+                    aria-expanded={sub === it.label}
+                    onClick={() => setSub((v) => (v === it.label ? null : it.label))}
+                  >
+                    {it.label}
+                    <span className="mn-caret" aria-hidden="true">▾</span>
+                  </button>
+                  {sub === it.label && (
+                    <div className="mn-panel">
+                      {it.mega.map((col) => (
+                        <div className="mn-col" key={col.title}>
+                          <h5>{col.title}</h5>
+                          {col.links.map((l) => (
+                            <a key={l.t} href={l.h} onClick={close}>{l.t}</a>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <a className="mn-top mn-link" key={it.label} href={it.href} onClick={close}>{it.label}</a>
+              )
+            )}
+            <a className="mn-top mn-link" href="/build-your-program" onClick={close}>Build a program</a>
+            <a className="mn-top mn-link" href="/shop" onClick={close}>Shop</a>
+            <a className="btn btn-primary mn-cta" href="/#quote" onClick={close}>Get a quote <span className="ar">→</span></a>
           </nav>
         )}
       </header>

@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MobileCTA from "@/components/MobileCTA";
+import TrustBar from "@/components/TrustBar";
+import CaseStudyProof from "@/components/CaseStudyProof";
+import ExitIntentGuide from "@/components/ExitIntentGuide";
 import Reveal from "@/components/Reveal";
+import ServiceStates from "@/components/ServiceStates";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/our-solutions/controlled-substance-destruction";
@@ -106,12 +111,8 @@ export default function Page() {
               handled for you and a Certificate of Destruction on every order. No pickups, no contracts.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/#quote">
-                Shop destruction kits <span className="ar">→</span>
-              </a>
-              <a className="btn btn-ghost" href="/#quote">
-                Get a custom quote
-              </a>
+              <a className="btn btn-primary" href="/shop/controlled-substance-mail-back-kit">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
             </div>
           </div>
         </section>
@@ -183,6 +184,13 @@ export default function Page() {
         </section>
 
         {/* how it works */}
+        {/* SOLUTION-DEEPDIVE */}
+        <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Controlled destruction, in depth.</h2><p class=\"lead\">On-site waste, expired inventory, and the records that keep every event audit-ready under the DEA non-retrievable standard.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>On-site wasted & partial doses</h3><p>Drug wasted at the point of care — the partial vial, the leftover in a syringe after a dose.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Partial/wasted CII&ndash;CV doses</li><li>Leftover drug in syringes or vials</li><li>Discontinued patient doses</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Full sealed inventory for return (reverse distribution)</li><li>Non-controlled drug waste (pharmaceutical stream)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — waste must be witnessed and logged, then rendered non-retrievable; it may not simply be discarded.</p><p class=\"ws-meta\"><b>How to dispose</b> — An on-site controlled-substance destruction system or witnessed mail-back kit with a documented log.<span class=\"ws-tip\"><b>Tip:</b> Two-person witnessing at the moment of waste is the practice that survives an audit — record it in real time, not later.</span></p></div><div class=\"wstream\"><h3>Expired & unwanted inventory</h3><p>Stock that has expired or is no longer needed and cannot be returned for credit.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Expired CII&ndash;CV inventory</li><li>Recalled or discontinued controls</li><li>Non-creditable returns</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Creditable, in-date manufacturer returns (reverse distribution first)</li><li>Patient's own medication (take-back/mail-back)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — inventory destroyed on-site or transferred to a registrant for destruction; a DEA Form 41 documents surrendered/destroyed stock.</p><p class=\"ws-meta\"><b>How to dispose</b> — Registrant-to-registrant destruction with the Form 41 prepared and archived.<span class=\"ws-tip\"><b>Tip:</b> Schedule I and II transfers require a DEA Form 222 — keep the executed forms with your records.</span></p></div><div class=\"wstream\"><h3>Records & the non-retrievable standard</h3><p>Destruction is only compliant if it is documented and truly irreversible.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Witnessed waste logs</li><li>Form 41 for destroyed/surrendered stock</li><li>Certificates of Destruction retained</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Flushing or drain disposal (never compliant)</li><li>Trashing controls in general waste</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA 'non-retrievable' means the drug cannot be reconstituted or reclaimed — permanently and irreversibly destroyed.</p><p class=\"ws-meta\"><b>How to dispose</b> — Use a method verified to meet the non-retrievable standard, with a Certificate of Destruction on every event.<span class=\"ws-tip\"><b>Tip:</b> Keep controlled-substance destruction records for at least two years — longer where your state requires it.</span></p></div></div></div></section>" }} />
+
+        <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for DEA registrants</span><h3>The Controlled Substance Destruction Guide</h3><p>The DEA non-retrievable standard, Form 41 & 222, witnessed waste, and how a registrant destroys controls right — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/controlled-substance-destruction-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+        </section>
+
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
             <div className="shead">
@@ -220,20 +228,19 @@ export default function Page() {
               <h2>Built for everyone who handles controls.</h2>
             </div>
             <div className="pills">
-              {[
-                "Independent pharmacies",
-                "Retail &amp; chain pharmacies",
-                "340B &amp; specialty pharmacies",
-                "Hospitals &amp; health systems",
-                "LTC / nursing homes",
-                "Hospice",
-                "Pain management",
-                "Veterinary",
-                "TRT &amp; IV / ketamine clinics",
-                "Correctional facilities",
-              ].map((t) => (
-                <span className="pill" key={t} dangerouslySetInnerHTML={{ __html: t }} />
-              ))}
+              <a className="pill" href="/who-we-serve/503b-pharmacy/" dangerouslySetInnerHTML={{ __html: "503B outsourcing facilities" }} />
+              <a className="pill" href="/who-we-serve/animal-shelters/" dangerouslySetInnerHTML={{ __html: "Animal shelters" }} />
+              <a className="pill" href="/who-we-serve/clinical-trials/" dangerouslySetInnerHTML={{ __html: "Clinical trial sites" }} />
+              <a className="pill" href="/who-we-serve/correctional/" dangerouslySetInnerHTML={{ __html: "Correctional facilities" }} />
+              <a className="pill" href="/who-we-serve/correctional-pharmacy/" dangerouslySetInnerHTML={{ __html: "Correctional pharmacies" }} />
+              <a className="pill" href="/who-we-serve/endoscopy-gi/" dangerouslySetInnerHTML={{ __html: "Endoscopy &amp; GI" }} />
+              <a className="pill" href="/who-we-serve/hospice/" dangerouslySetInnerHTML={{ __html: "Hospice" }} />
+              <a className="pill" href="/who-we-serve/hospitals/" dangerouslySetInnerHTML={{ __html: "Hospitals &amp; health systems" }} />
+              <a className="pill" href="/who-we-serve/iv-hydration-ketamine/" dangerouslySetInnerHTML={{ __html: "IV hydration &amp; ketamine" }} />
+              <a className="pill" href="/who-we-serve/pain-management/" dangerouslySetInnerHTML={{ __html: "Pain management" }} />
+              <a className="pill" href="/who-we-serve/plastic-surgery/" dangerouslySetInnerHTML={{ __html: "Plastic surgery" }} />
+              <a className="pill" href="/who-we-serve/asc/" dangerouslySetInnerHTML={{ __html: "Surgery centers (ASC)" }} />
+              <a className="pill" href="/who-we-serve/" dangerouslySetInnerHTML={{ __html: "All industries &rarr;" }} />
             </div>
           </div>
         </section>
@@ -271,6 +278,13 @@ export default function Page() {
           </div>
         </section>
 
+        <CaseStudyProof solution="controlled-substance-destruction" />
+        <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "0" }}>
+          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+        </section>
+
+        <ServiceStates service="controlled-substance-destruction" label="Controlled Substance Destruction" />
+
         {/* CTA */}
         <section className="sec" style={{ paddingTop: "0" }}>
           <div className="wrap">
@@ -288,6 +302,8 @@ export default function Page() {
           </div>
         </section>
       </main>
+      <ExitIntentGuide slug="controlled-substance-destruction-guide" />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/controlled-substance-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
       <Footer />
       <Reveal />
     </>

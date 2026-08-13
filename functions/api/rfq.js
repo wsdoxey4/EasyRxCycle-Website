@@ -52,6 +52,14 @@ export async function onRequestPost({ request, env }) {
     } catch { results.resend = "error"; }
   }
 
+  // --- Portal: partner applications also land in the operating platform (admin Requests) ---
+  if (/^\s*partner/i.test(d.role || "")) {
+    try { const r = await toPortal(env, d); results.portal = r.status; } catch { results.portal = "error"; }
+  }
+
+  // --- Portal: EVERY quote request lands in Leads & Journeys (visibility + convert-to-order) ---
+  try { const rq = await toPortalQuote(env, d); results.quote = rq.status; } catch { results.quote = "error"; }
+
   return json({ ok: true, configured: Boolean(env.HUBSPOT_PRIVATE_TOKEN || env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
 }
 
@@ -85,6 +93,38 @@ function summary(d) {
     d.volume && `Volume: ${d.volume}`, d.consent && `Marketing: ${d.consent}`,
     d.message && `Message: ${d.message}`, d.pageUri && `Source: ${d.pageUri}`,
   ].filter(Boolean).join("\n");
+}
+
+// ---- Portal (operating platform): partner apps → access_requests (admin dashboard) ----
+function partnerRoleWanted(role = "") {
+  const s = role.toLowerCase();
+  if (s.includes("gpo")) return "gpo";
+  if (s.includes("distributor") || s.includes("wholesaler")) return "distributor";
+  if (s.includes("3pl") || s.includes("fulfillment")) return "3pl";
+  if (s.includes("broker") || s.includes("rep")) return "broker";
+  return "other";
+}
+function toPortal(env, d) {
+  const url = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
+  const key = env.PORTAL_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhcWNnempnY2RicXpodHhjbHl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxNDA5NDAsImV4cCI6MjEwMTcxNjk0MH0.cGTC-8c_99is5l38O6CmqmrSE4y71FiylFzQuBTqgvM";
+  return fetch(`${url}/rest/v1/access_requests`, {
+    method: "POST",
+    headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+    body: JSON.stringify({ email: d.email, full_name: d.name, company: d.org || null, role_wanted: partnerRoleWanted(d.role) }),
+  });
+}
+function toPortalQuote(env, d) {
+  const url = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
+  const key = env.PORTAL_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhcWNnempnY2RicXpodHhjbHl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxNDA5NDAsImV4cCI6MjEwMTcxNjk0MH0.cGTC-8c_99is5l38O6CmqmrSE4y71FiylFzQuBTqgvM";
+  return fetch(`${url}/rest/v1/quote_requests`, {
+    method: "POST",
+    headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+    body: JSON.stringify({
+      name: d.name, email: d.email, company: d.org || null, phone: d.phone || null,
+      role: d.role || null, streams: d.streams || null, volume: d.volume || null, message: d.message || null,
+      source: "website", page_uri: d.pageUri || null, utm: d.utm || null,
+    }),
+  });
 }
 
 // ---- Resend ----

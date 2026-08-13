@@ -1,0 +1,185 @@
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import MobileCTA from "@/components/MobileCTA";
+import Reveal from "@/components/Reveal";
+import ExitIntentGuide from "@/components/ExitIntentGuide";
+import TrustBar from "@/components/TrustBar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { SITE, abs } from "@/lib/site";
+
+const PATH = "/who-we-serve/pain-management";
+const TITLE = "Pain Management Controlled Substance & Medical Waste Disposal";
+const DESC = "Pain management clinic medical waste disposal \u2014 compliant controlled substance & medical waste disposal for pain management, mail-back or pickup, with a Certificate of Destruction. No contract.";
+
+export const metadata: Metadata = {
+  title: TITLE, description: DESC, alternates: { canonical: PATH },
+  openGraph: { type: "website", title: `${TITLE} — ${SITE.name}`, description: DESC, url: abs(PATH), images: [{ url: SITE.ogImage }] },
+};
+
+const faqs = [
+  { q: "How do pain management clinics dispose of controlled substances?", a: "Through a DEA-registered reverse distributor or mail-back kit \u2014 controls are destroyed non-retrievable and documented on Form 41, with procedure sharps handled separately." },
+  { q: "How is diversion risk minimized at a pain clinic?", a: "Controls are logged, secured, and destroyed non-retrievable with witnessed documentation, which is central to a pain clinic\u2019s DEA compliance." },
+  { q: "Do you handle procedure sharps and injections?", a: "Yes \u2014 injection and procedure sharps go in OSHA/DOT-compliant containers alongside the controlled-drug program." },
+  { q: "How long must records be kept?", a: "At least two years \u2014 DEA Form 41, Certificates of Destruction, and controlled-drug logs, available for inspection." },
+  { q: "How do we dispose of expired or wasted opioids?", a: "Rendered non-retrievable through a DEA-compliant method with a Form 41 and witnessed waste logs — never trashed or flushed. This is the area the DEA examines most in pain management." },
+  { q: "What documentation do we need for the DEA?", a: "Witnessed wasting logs plus Certificates of Destruction and Form 41 keep your controlled records audit-ready." },
+  { q: "Are procedure sharps handled like any sharps?", a: "Yes — epidural, nerve-block, and injection sharps go in an FDA-cleared sharps container and a sharps mail-back kit." },
+  { q: "Do we need a contract?", a: "No — no contract, no minimums." }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Service", "@id": `${abs(PATH)}#service`, name: "Pain management \u2014 Controlled Substance & Medical Waste Disposal", serviceType: "Medical & pharmaceutical waste disposal", description: DESC, provider: { "@id": `${SITE.url}/#organization` }, areaServed: { "@type": "Country", name: "United States" }, audience: { "@type": "Audience", audienceType: "Pain management" }, url: abs(PATH) },
+    { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+  ],
+};
+
+const check = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+);
+
+export default function Page() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Header />
+      <main id="main">
+        <section className="subhero">
+          <div className="wrap">
+            <Breadcrumbs items={[{ name: "Who We Serve", href: "/who-we-serve/" }, { name: "Pain management" }]} />
+            <span className="eyebrow">Pain management</span>
+            <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Controlled Substance & Medical Waste Disposal for <span style=\"color:var(--teal)\">pain management.</span>" }} />
+            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Pain management clinic medical waste disposal lives or dies on controlled-substance compliance \u2014 these clinics handle high volumes of Schedule II\u2013V drugs that must be destroyed non-retrievable and documented on Form 41. We handle the controls, the procedure sharps, and the DEA paperwork, with a Certificate of Destruction on every order." }} />
+            <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
+              <a className="btn btn-primary" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/build-your-program?facility=physician">Build a program</a>
+            </div>
+            <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">What you deal with</span><h2 dangerouslySetInnerHTML={{ __html: "What you actually throw out." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "From Controlled substances (Schedules II\u2013V) to Injection & procedure sharps \u2014 here\u2019s what pain management generates — and how each stream stays compliant." }} /></div>
+            <ul className="covers">
+              {["Controlled substances (Schedules II\u2013V)", "Injection & procedure sharps", "Wasted & expired controls", "Expired & discontinued medications", "Controlled-drug log & DEA Form 41"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every pain management clinic waste stream, explained.</h2><p class="lead">Pain management clinics handle controlled substances more than almost any outpatient setting — opioids and sedatives, plus procedure sharps from injections and nerve blocks. The DEA watches this specialty closely, so non-retrievable destruction and a clean wasting trail aren't optional. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Controlled substances</h3><p>Your defining stream — Schedule II–V opioids and sedatives, expired and wasted.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused Schedule II–V drugs</li><li>Wasted &amp; partial doses</li><li>Surrendered controlled stock</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, complete a DEA Form 41 for surrendered controls, keep witnessed waste logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit, to DEA standards.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Sharps</h3><p>Injection and procedure sharps — epidurals, nerve blocks, joint injections.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection &amp; procedure needles</li><li>Epidural &amp; nerve-block sharps</li><li>Syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired non-controlled medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired non-controlled Rx</li><li>Non-controlled injectables</li><li>Samples</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Procedure and injection-site waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked gauze</li><li>Contaminated PPE</li><li>Procedure waste</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div></div><p class="wsfoot">As a DEA-registered destruction company we handle your controlled and non-controlled waste non-retrievable, with Form 41 and witnessed logs, and a Certificate of Destruction. No contract. <a href="/resources/pain-management-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
+          <div className="wrap">
+            <div className="guideband">
+              <div className="gb-body">
+                <span className="eyebrow">Free guide · for pain management</span>
+                <h3>The Pain Management Clinic's Guide to Compliant Waste Disposal</h3>
+                <p>Controlled substances are the whole game — non-retrievable destruction, Form 41, wasting logs, plus sharps & biohazard. Includes a checklist, cheat sheet & FAQ.</p>
+              </div>
+              <div className="gb-cta">
+                <a className="btn btn-primary" href="/resources/pain-management-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <span className="gb-note">Free PDF · instant download</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">How it works</span><h2>Simple, documented, on your schedule.</h2></div>
+            <div className="flow">
+              <div className="step"><div className="n">1</div><h4>Set up your program</h4><p>We size containers to your volume and set a mail-back or pickup cadence.</p></div>
+              <div className="step"><div className="n">2</div><h4>Fill &amp; seal</h4><p>Use the labeled containers; segregate each stream at the point of use.</p></div>
+              <div className="step"><div className="n">3</div><h4>Ship or pickup</h4><p>Prepaid mail-back label or a scheduled pickup — whatever fits your volume.</p></div>
+              <div className="step"><div className="n">4</div><h4>Get your COD</h4><p>We destroy it and email your Certificate of Destruction, archived to your account.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap" style={{ maxWidth: "820px" }}>
+            <div className="shead"><span className="eyebrow">Compliance</span><h2>Compliance, covered.</h2></div>
+            <ul className="covers" style={{ marginTop: "22px" }}>
+              {["OSHA Bloodborne Pathogens Standard for sharps", "DEA-registered non-retrievable destruction (Form 41)", "Certificate of Destruction on every order"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="sec relhub" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
+            <div className="relcols">
+              <div className="relcol"><h3>Related industries</h3><ul>
+                <li><a href="/who-we-serve/asc">Surgery centers (ASC)</a></li>
+                <li><a href="/who-we-serve/physician-offices">Physician offices</a></li>
+                <li><a href="/who-we-serve/endoscopy-gi">Endoscopy & GI</a></li>
+                <li><a href="/who-we-serve/trt-clinics">TRT clinics</a></li>
+                <li><a href="/who-we-serve/">All industries we serve →</a></li>
+              </ul></div>
+              <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
+                <li><a href="/our-solutions/controlled-substance-destruction">Controlled substance destruction</a></li>
+                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste disposal</a></li>
+              </ul></div>
+              <div className="relcol"><h3>Guides &amp; articles</h3><ul>
+                <li><a href="/resources/pain-management-waste-disposal-guide">Free Pain management guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-substances">How to dispose of controlled substances</a></li>
+                <li><a href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained">Destroying controlled drugs: Forms 222, 41 & COD</a></li>
+              </ul></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap" style={{ maxWidth: "820px" }}>
+            <div className="shead"><span className="eyebrow">FAQ</span><h2>Pain management disposal questions.</h2></div>
+            <div className="faq" style={{ marginTop: "30px" }}>
+              {faqs.map((f) => (<details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>))}
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "clamp(20px,3vw,32px)" }}>
+          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "0" }}>
+          <div className="wrap">
+            <div className="finalcta">
+              <div>
+                <h2>Get a compliant quote.</h2>
+                <p>Sharps disposal, Pharmaceutical waste, Controlled substance destruction &mdash; segregated, destroyed, and documented, with no contract.</p>
+                <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
+              </div>
+              <div className="b">
+                <a className="btn btn-onteal" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <ExitIntentGuide slug="pain-management-waste-disposal-guide" />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Other" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=physician" }} />
+      <Footer />
+      <Reveal />
+    </>
+  );
+}

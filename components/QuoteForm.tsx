@@ -2,7 +2,7 @@
 
 import { trackEvent } from "@/lib/track";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ROLES = [
   "Physician / medical office", "Dental practice", "Veterinary", "Hospital / health system",
@@ -18,6 +18,13 @@ const VOLUMES = ["Single site — standard volume", "Single site — high volume
 export default function QuoteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [err, setErr] = useState("");
+  const [role, setRole] = useState("");
+
+  // Pre-fill the industry from a ?role= param (ICP pages link here with their industry).
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search).get("role");
+    if (p && ROLES.includes(p)) setRole(p);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -72,7 +79,7 @@ export default function QuoteForm() {
       <label>Work email*<input name="email" type="email" required autoComplete="email" /></label>
       <label>Phone<input name="phone" type="tel" autoComplete="tel" /></label>
       <label className="full">What best describes you?
-        <select name="role" defaultValue=""><option value="" disabled>Select…</option>{ROLES.map((r) => <option key={r}>{r}</option>)}</select>
+        <select name="role" value={role} onChange={(e) => setRole(e.target.value)}><option value="" disabled>Select…</option>{ROLES.map((r) => <option key={r}>{r}</option>)}</select>
       </label>
       <div className="full">
         <span className="fld-label">Waste streams (select any)</span>

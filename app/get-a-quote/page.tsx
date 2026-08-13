@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
+import TrustBar from "@/components/TrustBar";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/get-a-quote";
@@ -50,6 +51,10 @@ export default function Page() {
             <span className="eyebrow">Same-day quotes</span>
             <h1 className="ph1">Tell us what you generate.<br /><span style={{ color: "var(--teal)" }}>We&rsquo;ll scope it fast.</span></h1>
           </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "0", paddingBottom: "clamp(20px,3vw,32px)" }}>
+          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(36px,5vw,60px)" }}>
