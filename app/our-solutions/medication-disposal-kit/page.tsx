@@ -48,7 +48,8 @@ export default function Page() {
       <Header />
       <main id="main">
         <section className="subhero">
-          <div className="wrap">
+          <div className="wrap sol-hero">
+            <div className="sol-hero-copy">
             <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Medication Disposal Kits" }]} />
             <span className="eyebrow">Medication disposal kits · mail-back</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "The mail-back medication disposal kit. <span style=\"color:var(--teal)\">Fill it, seal it, ship it.</span>" }} />
@@ -57,6 +58,8 @@ export default function Page() {
               <a className="btn btn-primary" href="/shop/medication-mail-back-kit">Shop a kit <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
             </div>
+            </div>
+            <div className="sol-hero-media"><img src="/images/products/medication-disposal-kit.webp" alt="Easy Rx Cycle medication disposal mail-back kit" /></div>
           </div>
         </section>
 

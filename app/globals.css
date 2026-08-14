@@ -1219,3 +1219,8 @@ header.site .wrap{position:relative;}
 .cs-prog-chip:hover{background:var(--teal);color:#fff;}
 .cs-prog-note{font-size:13.5px;color:var(--muted,#55646b);margin:13px 0 0;}
 @media(max-width:560px){.cs-ba-row{grid-template-columns:1fr;gap:6px;}}
+
+/* Solution hero: copy + product image */
+.sol-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center;}
+.sol-hero-media img{display:block;width:100%;height:auto;border-radius:16px;}
+@media(max-width:820px){.sol-hero{grid-template-columns:1fr;}.sol-hero-media{max-width:480px;margin:6px auto 0;}}

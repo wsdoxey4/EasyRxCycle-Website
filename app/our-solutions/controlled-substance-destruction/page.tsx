@@ -97,7 +97,8 @@ export default function Page() {
       <main id="main">
         {/* hero */}
         <section className="subhero">
-          <div className="wrap">
+          <div className="wrap sol-hero">
+            <div className="sol-hero-copy">
             <nav className="crumb" aria-label="Breadcrumb">
               <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#solutions">Solutions</a>{" "}
               <span aria-hidden="true">/</span> <span>Controlled Substance Destruction</span>
@@ -114,6 +115,8 @@ export default function Page() {
               <a className="btn btn-primary" href="/shop/controlled-substance-mail-back-kit">Shop a kit <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
             </div>
+            </div>
+            <div className="sol-hero-media"><img src="/images/products/controlled-kit.webp" alt="Easy Rx Cycle controlled substance mail-back kit" /></div>
           </div>
         </section>
 

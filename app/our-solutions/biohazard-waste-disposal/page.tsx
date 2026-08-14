@@ -48,7 +48,8 @@ export default function Page() {
       <Header />
       <main id="main">
         <section className="subhero">
-          <div className="wrap">
+          <div className="wrap sol-hero">
+            <div className="sol-hero-copy">
             <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Biohazard / RMW" }]} />
             <span className="eyebrow">Biohazard · regulated medical waste (RMW)</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Regulated medical waste, <span style=\"color:var(--teal)\">handled right.</span>" }} />
@@ -57,6 +58,8 @@ export default function Page() {
               <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit">Shop a kit <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
             </div>
+            </div>
+            <div className="sol-hero-media"><img src="/images/products/biohazard-kit.webp" alt="Easy Rx Cycle biohazard mail-back kit" /></div>
           </div>
         </section>
 
