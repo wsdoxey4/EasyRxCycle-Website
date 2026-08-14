@@ -39,17 +39,17 @@ export const PRODUCTS: Product[] = [
   {"sku": "ERX-HAZ-18G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "18 Gallon", "cents": 47500, "category": "hazardous", "restricted": true}
 ];
 
-export type Category = { key: string; label: string; blurb: string; note?: string };
+export type Category = { key: string; label: string; blurb: string; note?: string; image?: string };
 
 export const CATEGORIES: Category[] = [
-  { key: "sharps", label: "Sharps mail-back kit", blurb: "Needles, syringes, lancets & pen needles. FDA-cleared containers, 1-quart to 28-gallon." },
-  { key: "biohazard", label: "Biohazard / RMW mail-back kit", blurb: "Red-bag regulated medical waste — gauze, gloves, cultures & contaminated PPE." },
-  { key: "pharma", label: "Pharmaceutical waste mail-back kit", blurb: "Non-hazardous expired & unused pharmaceuticals, destroyed and documented." },
-  { key: "medication", label: "Medication disposal kit (mail-back)", blurb: "Ship medications back to us for DEA-compliant destruction and a Certificate of Destruction." },
-  { key: "medication-onsite", label: "Medication disposal kit (on-site)", blurb: "Deactivate & render medications non-retrievable on-site — no return shipping needed." },
-  { key: "chemo", label: "Trace chemo mail-back kit", blurb: "Trace/RCRA-empty chemotherapy waste per USP 800 — vials, tubing, gowns & gloves." },
-  { key: "controlled", label: "Controlled substance mail-back kit", blurb: "DEA-compliant mail-back for Schedules II–V, sized by weight. Non-retrievable destruction." },
-  { key: "hazardous", label: "Hazardous (RCRA) mail-back kit", blurb: "RCRA-hazardous pharmaceutical waste (P/U-listed & characteristic), destroyed to EPA rules." },
+  { key: "sharps", label: "Sharps mail-back kit", blurb: "Needles, syringes, lancets & pen needles. FDA-cleared containers, 1-quart to 28-gallon.", image: "/images/products/sharps.webp" },
+  { key: "biohazard", label: "Biohazard / RMW mail-back kit", blurb: "Red-bag regulated medical waste — gauze, gloves, cultures & contaminated PPE.", image: "/images/products/biohazard.webp" },
+  { key: "pharma", label: "Pharmaceutical waste mail-back kit", blurb: "Non-hazardous expired & unused pharmaceuticals, destroyed and documented.", image: "/images/products/pharmaceutical.webp" },
+  { key: "medication", label: "Medication disposal kit (mail-back)", blurb: "Ship medications back to us for DEA-compliant destruction and a Certificate of Destruction.", image: "/images/products/medication-disposal.webp" },
+  { key: "medication-onsite", label: "Medication disposal kit (on-site)", blurb: "Deactivate & render medications non-retrievable on-site — no return shipping needed.", image: "/images/products/medication-disposal.webp" },
+  { key: "chemo", label: "Trace chemo mail-back kit", blurb: "Trace/RCRA-empty chemotherapy waste per USP 800 — vials, tubing, gowns & gloves.", image: "/images/products/trace-chemo.webp" },
+  { key: "controlled", label: "Controlled substance mail-back kit", blurb: "DEA-compliant mail-back for Schedules II–V, sized by weight. Non-retrievable destruction.", image: "/images/products/controlled.webp" },
+  { key: "hazardous", label: "Hazardous (RCRA) mail-back kit", blurb: "RCRA-hazardous pharmaceutical waste (P/U-listed & characteristic), destroyed to EPA rules.", image: "/images/products/rcra.webp" },
 ];
 
 export const FREE_SHIP_THRESHOLD_CENTS = 5000; // free shipping over $50

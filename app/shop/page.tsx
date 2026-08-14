@@ -90,7 +90,7 @@ export default function Page() {
                     const kit = KIT_BY_CATEGORY[key];
                     return (
                       <a className="kitcard" key={key} href={`/shop/${kit.slug}`}>
-                        <div className="kitcard-img" aria-hidden="true"><span>{cat(key).label.split(" ")[0]}</span></div>
+                        <div className="kitcard-img">{cat(key).image ? <img src={cat(key).image} alt={cat(key).label} loading="lazy" width={1200} height={800} /> : <span aria-hidden="true">{cat(key).label.split(" ")[0]}</span>}</div>
                         <div className="kitcard-body">
                           <h3>{cat(key).label}</h3>
                           <p>{kit.cardBlurb}</p>
