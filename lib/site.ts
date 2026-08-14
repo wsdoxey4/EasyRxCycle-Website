@@ -6,7 +6,7 @@
 export const SITE = {
   name: "Easy Rx Cycle",
   // Canonical origin. Set to https://easyrxcycle.com at launch via env.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://easyrxcycle-website.pages.dev",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://easyrxcycle-website.pages.dev",
   // Staging stays noindex until we flip this to "true" in production.
   indexable: process.env.NEXT_PUBLIC_INDEXABLE === "true",
   tagline: "Regulated Waste Destruction, Made Simple",
