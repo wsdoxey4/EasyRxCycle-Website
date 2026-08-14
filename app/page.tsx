@@ -29,21 +29,11 @@ export default function Home() {
   <div className="hcard">
     <div className="kit ph" title="Placeholder illustration — swap for a real kit photo">
       <div className="chip">Auto-ship &middot; save 20%</div>
-      <span className="klabel">Controlled substance mail-back</span>
-      <div className="kname">5&nbsp;lb Destruction Kit</div>
+      <span className="klabel">Mail-back kits</span>
+      <div className="kname">Every regulated stream</div>
       <div className="kmeta">Prepaid, DEA-compliant, non-retrievable &mdash; ships flat-rate, nationwide.</div>
       
-      <svg viewBox="0 0 320 150" style={{marginTop:"18px", width:"100%", height:"auto"}} xmlns="http://www.w3.org/2000/svg">
-        <rect x="70" y="30" width="180" height="98" rx="6" fill="#eaf5f0" stroke="#bfe0d3" strokeWidth="2"/>
-        <path d="M70 52 h180" stroke="#bfe0d3" strokeWidth="2"/>
-        <rect x="96" y="66" width="128" height="46" rx="4" fill="#fff" stroke="#cfe0dc" strokeWidth="1.5"/>
-        <rect x="104" y="74" width="70" height="7" rx="3.5" fill="#005770"/>
-        <rect x="104" y="86" width="52" height="6" rx="3" fill="#9fb4bb"/>
-        <rect x="104" y="97" width="40" height="6" rx="3" fill="#9fb4bb"/>
-        <circle cx="200" cy="89" r="14" fill="#33C089"/>
-        <path d="M194 89l4 4 8-8" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <path d="M160 30V16" stroke="#bfe0d3" strokeWidth="2"/>
-      </svg>
+      <div className="hero-rotator" role="img" aria-label="Easy Rx Cycle mail-back kits for every regulated waste stream"><img src="/images/products/sharps.webp" alt="" /><img src="/images/products/biohazard.webp" alt="" /><img src="/images/products/pharmaceutical.webp" alt="" /><img src="/images/products/controlled.webp" alt="" /><img src="/images/products/rcra.webp" alt="" /><img src="/images/products/trace-chemo.webp" alt="" /><img src="/images/products/medication-disposal.webp" alt="" /></div>
       <div className="steps3">
         <div className="s"><b>Fill</b><span>Load the kit</span></div>
         <div className="s"><b>Seal</b><span>Prepaid label</span></div>
