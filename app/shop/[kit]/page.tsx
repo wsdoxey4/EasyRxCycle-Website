@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
-import { inCategory, money } from "@/lib/shop";
+import { inCategory, money, CATEGORIES } from "@/lib/shop";
 import { KITS, KIT_BY_SLUG } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
 
@@ -38,6 +38,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
   if (!k) notFound();
   const path = `/shop/${k.slug}`;
   const sizes = inCategory(k.category);
+  const img = k.img || CATEGORIES.find((c) => c.key === k.category)?.image;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,8 +71,8 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           <div className="wrap">
             <div className="pdp">
               <div className="pdp-media">
-                {k.img
-                  ? <img src={k.img} alt={k.name} className="pdp-photo" />
+                {img
+                  ? <img src={img} alt={k.name} className="pdp-photo" />
                   : <div className="pdp-ph" aria-hidden="true"><span>{k.name.split(" ")[0]}</span><small>Product photo coming soon</small></div>}
               </div>
               <div className="pdp-buy">
