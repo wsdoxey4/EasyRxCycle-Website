@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
 import type { LeadMagnet } from "@/lib/leadMagnets";
 import { GUIDE_LINKS } from "@/lib/guideLinks";
+import { GUIDE_BODIES } from "@/lib/guideBodies";
 
 const check = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -12,6 +13,7 @@ const check = (
 
 export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
   const gl = GUIDE_LINKS[m.slug];
+  const body = m.body ?? GUIDE_BODIES[m.slug];
   return (
     <>
       <Header />
@@ -48,6 +50,19 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
             </div>
           </div>
         </section>
+
+        {body && body.length > 0 && (
+          <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+            <div className="wrap lm-body" style={{ maxWidth: "760px" }}>
+              {body.map((b) => (
+                <div className="lm-body-block" key={b.h}>
+                  <h2>{b.h}</h2>
+                  <p>{b.p}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {gl && (
           <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>

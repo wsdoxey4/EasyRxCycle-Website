@@ -12,6 +12,7 @@ export type LeadMagnet = {
   audience: string;
   industry?: string;    // HubSpot Industry value for segmentation (ICP guides)
   cover?: string;       // /images/guides/{slug}.jpg — cover preview image
+  body?: { h: string; p: string }[]; // unique ungated on-page content (SEO — beats a thin capture page)
 };
 
 export const MAGNETS: LeadMagnet[] = [
