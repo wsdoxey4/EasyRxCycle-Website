@@ -47,6 +47,7 @@ export type Stream = {
 
 const cities = (s: StateInfo) => s.cities.join(", ");
 const last = (s: StateInfo) => s.cities[s.cities.length - 1];
+const gov = (s: StateInfo) => s.agency ?? `${s.name}'s environmental agency`;
 
 const stdLadder = [
   { tag: "std" as const, size: "Small", note: (s: StateInfo) => `Single-site practices and clinics in ${s.cities[0]} with routine volume.` },
@@ -82,7 +83,7 @@ const sharps: Stream = {
     { h: "Get documentation", p: "We treat the waste and archive your disposal record to your account." },
   ],
   compHeading: (s) => `${s.name} & federal sharps rules, handled.`,
-  compIntro: (s) => `Sharps are a regulated medical waste. Federally, OSHA's Bloodborne Pathogens Standard (29 CFR 1910.1030) governs how sharps are contained and handled to protect workers, and the DOT (49 CFR) governs how they ship. In ${s.name}, state medical-waste regulations — administered by ${s.name}'s health or environmental agency — set container, labeling, and treatment requirements. Easy Rx Cycle's approved containers and prepaid, DOT-compliant mail-back keep you compliant with all of them, with documentation on every order.`,
+  compIntro: (s) => `Sharps are a regulated medical waste. Federally, OSHA's Bloodborne Pathogens Standard (29 CFR 1910.1030) governs how sharps are contained and handled to protect workers, and the DOT (49 CFR) governs how they ship. In ${s.name}, state medical-waste regulations — administered by the ${gov(s)} — set container, labeling, and treatment requirements. Easy Rx Cycle's approved containers and prepaid, DOT-compliant mail-back keep you compliant with all of them, with documentation on every order.`,
   compBullets: (s) => [
     { label: "OSHA", text: "Bloodborne Pathogens Standard — 29 CFR 1910.1030 containment & handling" },
     { label: "DOT", text: "49 CFR compliant packaging & prepaid return shipping" },
@@ -144,7 +145,7 @@ const biohazard: Stream = {
     { h: "Get documentation", p: "We treat the waste — autoclave then landfill, or incineration — and archive your record." },
   ],
   compHeading: (s) => `${s.name} & federal RMW rules, handled.`,
-  compIntro: (s) => `Regulated medical waste is governed federally by OSHA's Bloodborne Pathogens Standard (29 CFR 1910.1030) for worker protection and by the DOT (49 CFR) for transport. In ${s.name}, state medical-waste regulations — administered by ${s.name}'s health or environmental agency — define what is regulated and how it must be contained and treated. Easy Rx Cycle's compliant containers, prepaid DOT shipping, and permitted treatment (autoclave-then-landfill or incineration) keep you compliant with all of them, documented on every order.`,
+  compIntro: (s) => `Regulated medical waste is governed federally by OSHA's Bloodborne Pathogens Standard (29 CFR 1910.1030) for worker protection and by the DOT (49 CFR) for transport. In ${s.name}, state medical-waste regulations — administered by the ${gov(s)} — define what is regulated and how it must be contained and treated. Easy Rx Cycle's compliant containers, prepaid DOT shipping, and permitted treatment (autoclave-then-landfill or incineration) keep you compliant with all of them, documented on every order.`,
   compBullets: (s) => [
     { label: "OSHA", text: "Bloodborne Pathogens Standard — 29 CFR 1910.1030" },
     { label: "DOT", text: "49 CFR compliant packaging & prepaid return shipping" },
@@ -206,7 +207,7 @@ const pharmaceutical: Stream = {
     { h: "Get documentation", p: "We destroy the waste compliantly and archive your record to your account." },
   ],
   compHeading: (s) => `${s.name} & federal pharmaceutical rules, handled.`,
-  compIntro: (s) => `Pharmaceutical waste splits into three lanes, and mixing them is the most common compliance error. Non-controlled, non-hazardous drugs are the routine pharmaceutical stream. Controlled substances fall under the DEA (Form 41/222, non-retrievable destruction), and drugs that are also hazardous waste fall under the EPA's RCRA rules (40 CFR, including the Subpart P management standard). In ${s.name}, the ${s.name} Board of Pharmacy and the state environmental agency add their own requirements. Easy Rx Cycle sorts and routes each lane correctly — and documents every order.`,
+  compIntro: (s) => `Pharmaceutical waste splits into three lanes, and mixing them is the most common compliance error. Non-controlled, non-hazardous drugs are the routine pharmaceutical stream. Controlled substances fall under the DEA (Form 41/222, non-retrievable destruction), and drugs that are also hazardous waste fall under the EPA's RCRA rules (40 CFR, including the Subpart P management standard). In ${s.name}, the ${s.name} Board of Pharmacy and the ${gov(s)} add their own requirements. Easy Rx Cycle sorts and routes each lane correctly — and documents every order.`,
   compBullets: (s) => [
     { label: "Non-controlled", text: "routine pharmaceutical destruction, documented" },
     { label: "DEA", text: "controlled substances routed to controlled destruction (Form 41/222)" },
@@ -268,7 +269,7 @@ const traceChemo: Stream = {
     { h: "Get documentation", p: "Trace chemo is incinerated and your disposal record is archived to your account." },
   ],
   compHeading: (s) => `${s.name} & federal trace-chemo rules, handled.`,
-  compIntro: (s) => `Chemotherapy waste splits by how much drug remains. “Trace” waste — RCRA-empty containers and trace-contaminated materials — goes in yellow containers for incineration. Bulk or P-listed chemo (for example, discarded product or certain hazardous drugs) is a RCRA hazardous waste and must be managed as such. Federally, OSHA and USP General Chapter <800> govern safe handling of hazardous drugs, and the DOT governs transport. In ${s.name}, the state environmental agency and the ${s.name} Board of Pharmacy add their requirements. Easy Rx Cycle sorts and routes each correctly, documented on every order.`,
+  compIntro: (s) => `Chemotherapy waste splits by how much drug remains. “Trace” waste — RCRA-empty containers and trace-contaminated materials — goes in yellow containers for incineration. Bulk or P-listed chemo (for example, discarded product or certain hazardous drugs) is a RCRA hazardous waste and must be managed as such. Federally, OSHA and USP General Chapter <800> govern safe handling of hazardous drugs, and the DOT governs transport. In ${s.name}, the ${gov(s)} and the ${s.name} Board of Pharmacy add their requirements. Easy Rx Cycle sorts and routes each correctly, documented on every order.`,
   compBullets: (s) => [
     { label: "USP <800>", text: "hazardous-drug handling & containment" },
     { label: "Trace vs. bulk", text: "yellow-container trace incineration; bulk/P-listed routed to RCRA" },
@@ -329,7 +330,7 @@ const rcra: Stream = {
     { h: "Get documentation", p: "Incinerated at a permitted facility; your manifest and record are archived to your account." },
   ],
   compHeading: (s) => `${s.name} & federal RCRA rules, handled.`,
-  compIntro: (s) => `Some drugs are also hazardous waste under the EPA's Resource Conservation and Recovery Act (RCRA, 40 CFR). They fall on the P-list (acutely hazardous), U-list, or exhibit a characteristic (ignitable, corrosive, reactive, toxic — the D-codes). Healthcare facilities manage them under the Subpart P standard for hazardous waste pharmaceuticals. In ${s.name}, the state environmental agency — which may be more stringent than the federal floor — and the ${s.name} Board of Pharmacy add requirements. Easy Rx Cycle identifies, segregates, manifests, and destroys each hazardous drug correctly, documented on every order.`,
+  compIntro: (s) => `Some drugs are also hazardous waste under the EPA's Resource Conservation and Recovery Act (RCRA, 40 CFR). They fall on the P-list (acutely hazardous), U-list, or exhibit a characteristic (ignitable, corrosive, reactive, toxic — the D-codes). Healthcare facilities manage them under the Subpart P standard for hazardous waste pharmaceuticals. In ${s.name}, the ${gov(s)} — which may be more stringent than the federal floor — and the ${s.name} Board of Pharmacy add requirements. Easy Rx Cycle identifies, segregates, manifests, and destroys each hazardous drug correctly, documented on every order.`,
   compBullets: (s) => [
     { label: "EPA / RCRA", text: "P-, U-, and D-listed hazardous waste (40 CFR)" },
     { label: "Subpart P", text: "hazardous waste pharmaceuticals management standard" },

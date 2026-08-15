@@ -2,7 +2,63 @@
 // major metros per state. Regulatory framing in the template uses the (accurate) state Board of
 // Pharmacy + the federal rules — no invented state statutes.
 
-export type StateInfo = { name: string; abbr: string; slug: string; cities: string[] };
+export type StateInfo = { name: string; abbr: string; slug: string; cities: string[]; agency?: string };
+
+// Real per-state environmental / medical-waste regulator (harvested from vetted per-state content).
+// Every state also has a Board of Pharmacy (universally accurate) referenced separately in templates.
+export const AGENCY: Record<string, string> = {
+  alabama: "Alabama Department of Environmental Management (ADEM)",
+  alaska: "Alaska Department of Environmental Conservation (DEC)",
+  arizona: "Arizona Department of Environmental Quality (ADEQ)",
+  arkansas: "Arkansas Division of Environmental Quality (DEQ)",
+  california: "California Department of Public Health (CDPH)",
+  colorado: "Colorado Department of Public Health & Environment (CDPHE)",
+  connecticut: "Connecticut Department of Energy & Environmental Protection (DEEP)",
+  delaware: "Delaware Department of Natural Resources & Environmental Control (DNREC)",
+  "washington-dc": "DC Department of Energy & Environment (DOEE)",
+  florida: "Florida Department of Health (DOH)",
+  georgia: "Georgia Environmental Protection Division (EPD)",
+  hawaii: "Hawaii Department of Health",
+  idaho: "Idaho Department of Environmental Quality (DEQ)",
+  illinois: "Illinois Environmental Protection Agency (IEPA)",
+  indiana: "Indiana Department of Environmental Management (IDEM)",
+  iowa: "Iowa Department of Natural Resources (DNR)",
+  kansas: "Kansas Department of Health & Environment (KDHE)",
+  kentucky: "Kentucky Energy & Environment Cabinet",
+  louisiana: "Louisiana Department of Environmental Quality (LDEQ)",
+  maine: "Maine Department of Environmental Protection (DEP)",
+  maryland: "Maryland Department of the Environment (MDE)",
+  massachusetts: "Massachusetts Department of Environmental Protection (MassDEP)",
+  michigan: "Michigan Department of Environment, Great Lakes & Energy (EGLE)",
+  minnesota: "Minnesota Pollution Control Agency (MPCA)",
+  mississippi: "Mississippi Department of Environmental Quality (MDEQ)",
+  missouri: "Missouri Department of Natural Resources (DNR)",
+  montana: "Montana Department of Environmental Quality (DEQ)",
+  nebraska: "Nebraska Department of Environment & Energy (NDEE)",
+  nevada: "Nevada Division of Environmental Protection (NDEP)",
+  "new-hampshire": "New Hampshire Department of Environmental Services (DES)",
+  "new-jersey": "New Jersey Department of Environmental Protection (NJDEP)",
+  "new-mexico": "New Mexico Environment Department (NMED)",
+  "new-york": "New York State Department of Environmental Conservation (DEC)",
+  "north-carolina": "North Carolina Department of Environmental Quality (DEQ)",
+  "north-dakota": "North Dakota Department of Environmental Quality (DEQ)",
+  ohio: "Ohio Environmental Protection Agency (Ohio EPA)",
+  oklahoma: "Oklahoma Department of Environmental Quality (DEQ)",
+  oregon: "Oregon Department of Environmental Quality (DEQ)",
+  pennsylvania: "Pennsylvania Department of Environmental Protection (DEP)",
+  "rhode-island": "Rhode Island Department of Environmental Management (DEM)",
+  "south-carolina": "South Carolina Department of Environmental Services (DES)",
+  "south-dakota": "South Dakota Department of Agriculture & Natural Resources (DANR)",
+  tennessee: "Tennessee Department of Environment & Conservation (TDEC)",
+  texas: "Texas Commission on Environmental Quality (TCEQ)",
+  utah: "Utah Department of Environmental Quality (DEQ)",
+  vermont: "Vermont Department of Environmental Conservation (DEC)",
+  virginia: "Virginia Department of Environmental Quality (DEQ)",
+  washington: "Washington State Department of Health",
+  "west-virginia": "West Virginia Department of Environmental Protection (DEP)",
+  wisconsin: "Wisconsin Department of Natural Resources (DNR)",
+  wyoming: "Wyoming Department of Environmental Quality (DEQ)",
+};
 
 export const STATES: StateInfo[] = [
   { name: "Alabama", abbr: "AL", slug: "alabama", cities: ["Birmingham", "Montgomery", "Huntsville", "Mobile"] },
@@ -58,5 +114,8 @@ export const STATES: StateInfo[] = [
   { name: "Wyoming", abbr: "WY", slug: "wyoming", cities: ["Cheyenne", "Casper", "Laramie", "Gillette"] },
 ];
 
-export const stateBySlug = (slug: string) => STATES.find((s) => s.slug === slug);
+export const stateBySlug = (slug: string): StateInfo | undefined => {
+  const s = STATES.find((x) => x.slug === slug);
+  return s ? { ...s, agency: AGENCY[slug] } : undefined;
+};
 export const stateSlugs = () => STATES.map((s) => s.slug);
