@@ -26,7 +26,7 @@ const faqs = [
   { q: "What is a reverse distributor?", a: "A reverse distributor is a DEA-registered company that takes back expired, unused, and returnable pharmaceuticals from pharmacies, hospitals, and manufacturers — recovering manufacturer credit on what's returnable and compliantly destroying the rest, with full chain-of-custody documentation." },
   { q: "How does credit recovery work?", a: "We sort your inventory into credit-eligible (returnable to the manufacturer or wholesaler for financial credit) and non-returnable. Returnable items are processed for credit; everything else is rendered non-retrievable, with a Certificate of Destruction to prove it." },
   { q: "Do you handle DEA Form 222 and Form 41?", a: "Yes. We handle Form 222 for Schedule II transfers and prepare Form 41 for controlled substances surrendered for destruction — so the paperwork is done correctly and your records are audit-ready." },
-  { q: "Can you process both controlled and non-controlled?", a: "Yes — controlled substances (Schedules II–V) and non-controlled pharmaceuticals both route through reverse distribution, each handled to its own DEA and EPA requirements." },
+  { q: "Can you process both controlled and non-controlled?", a: "Yes — controlled substances (Schedules I–V) and non-controlled pharmaceuticals both route through reverse distribution, each handled to its own DEA and EPA requirements." },
   { q: "Who uses reverse distribution?", a: "Retail, chain, 340B, specialty, and mail-order pharmacies; hospitals and health systems; long-term care; and pharmaceutical manufacturers managing returns and recalls." },
 ];
 
@@ -70,7 +70,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we process</span><h2>Returnable to credit. The rest, destroyed.</h2><p className="lead">Every category of pharmaceutical return — sorted, credited, or destroyed and documented.</p></div>
             <ul className="covers">
-              {["Credit-eligible returns processed", "Non-returnable rendered non-retrievable", "Controlled substances (Schedules II–V)", "Non-controlled &amp; expired Rx", "Manufacturer recalls &amp; overstock", "DEA Form 222 &amp; 41 handled"].map((t) => (
+              {["Credit-eligible returns processed", "Non-returnable rendered non-retrievable", "Controlled substances (Schedules I–V)", "Non-controlled &amp; expired Rx", "Manufacturer recalls &amp; overstock", "DEA Form 222 &amp; 41 handled"].map((t) => (
                 <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
               ))}
             </ul>

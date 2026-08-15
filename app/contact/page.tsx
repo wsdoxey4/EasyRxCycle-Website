@@ -71,6 +71,11 @@ export default function Page() {
               <span className="badge">No contract</span>
               <span className="badge">Certificate of Destruction</span>
             </div>
+            <div style={{ marginTop: "clamp(24px,3vw,34px)", color: "var(--slate)", fontSize: "15px", lineHeight: 1.7 }}>
+              <strong style={{ color: "var(--ink)", fontFamily: "Poppins", fontWeight: 600 }}>{SITE.legalName} · DBA {SITE.name}</strong><br />
+              Little Rock, Arkansas · serving all 50 states<br />
+              {SITE.hours} — call or email; do not mail waste to our office. Every kit ships with a prepaid return label to our permitted facility.
+            </div>
           </div>
         </section>
 

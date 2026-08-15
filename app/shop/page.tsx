@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { CATEGORIES, fromPrice, money, inCategory } from "@/lib/shop";
+import { CATEGORIES, fromPrice, money, inCategory, isShoppable } from "@/lib/shop";
 import { COLLECTIONS, KIT_BY_CATEGORY, KITS } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
 
@@ -29,15 +29,21 @@ const faqs = [
 
 const cat = (k: string) => CATEGORIES.find((c) => c.key === k)!;
 
-// Product + Offer schema for every kit (rich results / Shopping eligibility).
+// Product schema for every kit (rich results). Shopping-ineligible kits (controlled/hazardous/chemo)
+// keep a Product node but emit NO Offer/AggregateOffer, so Google never auto-lists them.
 const productLd = KITS.map((kit) => {
   const prices = inCategory(kit.category).map((p) => p.cents / 100);
-  return {
+  const img = kit.img || cat(kit.category).image;
+  const base: Record<string, unknown> = {
     "@type": "Product", name: kit.name, description: kit.cardBlurb,
     brand: { "@type": "Brand", name: SITE.name }, category: "Medical waste disposal",
     url: abs(`/shop/${kit.slug}`),
-    offers: { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: Math.min(...prices).toFixed(2), highPrice: Math.max(...prices).toFixed(2), offerCount: prices.length, availability: "https://schema.org/InStock" },
+    ...(img ? { image: [abs(img)] } : {}),
   };
+  if (isShoppable({ category: kit.category })) {
+    base.offers = { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: Math.min(...prices).toFixed(2), highPrice: Math.max(...prices).toFixed(2), offerCount: prices.length, availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition" };
+  }
+  return base;
 });
 
 const jsonLd = {

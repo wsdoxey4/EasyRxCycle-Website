@@ -32,7 +32,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tag: "Passed clean, ~20–30% lower cost, switched every site in under a week",
     title: "How a Southeast Veterinary Group Closed a Controlled-Substance Gap — and Cut Costs ~25%",
     desc: "A multi-location Southeast veterinary group fixed a controlled-substance documentation gap, passed its audit clean, and cut disposal costs ~20–30% — switched over in under a week, no contract.",
-    stakes: "Veterinary practices carry Schedule II–V drugs and euthanasia solution the DEA scrutinizes closely — a thin controlled-substance paper trail is exactly what turns an inspection into a finding.",
+    stakes: "Veterinary practices carry Schedule I–V drugs and euthanasia solution the DEA scrutinizes closely — a thin controlled-substance paper trail is exactly what turns an inspection into a finding.",
     challenge: "A multi-location Southeast veterinary group was managing controlled drugs — sedatives, ketamine, euthanasia solution — under a national hauler, but the way expired and wasted controls were documented left a gap heading into an audit. It was also costing more than it should.",
     approach: "We switched every site onto prepaid mail-back kits with no contract — live in under a week — and stood up DEA-compliant, non-retrievable controlled-substance destruction with Form 41 and witnessed logs, alongside sharps and pharmaceutical waste.",
     result: "They came through their audit clean with a complete Certificate-of-Destruction trail — and cut disposal costs roughly 20–30% versus their old hauler, with no contract to stay locked into.",

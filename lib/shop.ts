@@ -2,6 +2,15 @@
 // Restricted kits (controlled/hazardous) require a DEA Pharmaceutical Manifest (collected post-checkout).
 export type Product = { sku: string; family: string; size: string; cents: number; category: string; restricted: boolean };
 
+// Categories that must NEVER enter a Google Shopping / Merchant Center feed.
+// Google policy: controlled/recreational drugs are PROHIBITED; RCRA-hazardous and chemotherapy
+// waste fall under Dangerous Products. These stay sellable on our own site (organic + cart) but
+// are excluded from any Google feed and stripped of buy-online Offer schema to avoid auto-listing.
+// NOTE: this is broader than the `restricted` flag (which is controlled+hazardous only) — it also
+// excludes chemo. Build every Merchant feed from isShoppable() === true.
+export const SHOPPING_INELIGIBLE = new Set(["controlled", "hazardous", "chemo"]);
+export const isShoppable = (p: { category: string }) => !SHOPPING_INELIGIBLE.has(p.category);
+
 export const PRODUCTS: Product[] = [
   {"sku": "ERX-SHP-01QT-EA", "family": "Sharps Mail-Back Kit", "size": "1 Quart", "cents": 5500, "category": "sharps", "restricted": false},
   {"sku": "ERX-SHP-125G-EA", "family": "Sharps Mail-Back Kit", "size": "1.25 Gallon", "cents": 9500, "category": "sharps", "restricted": false},
@@ -48,7 +57,7 @@ export const CATEGORIES: Category[] = [
   { key: "medication", label: "Medication disposal kit (mail-back)", blurb: "Ship medications back to us for DEA-compliant destruction and a Certificate of Destruction.", image: "/images/products/medication-disposal.webp" },
   { key: "medication-onsite", label: "Medication disposal kit (on-site)", blurb: "Deactivate & render medications non-retrievable on-site — no return shipping needed.", image: "/images/products/medication-disposal.webp" },
   { key: "chemo", label: "Trace chemo mail-back kit", blurb: "Trace/RCRA-empty chemotherapy waste per USP 800 — vials, tubing, gowns & gloves.", image: "/images/products/trace-chemo.webp" },
-  { key: "controlled", label: "Controlled substance mail-back kit", blurb: "DEA-compliant mail-back for Schedules II–V, sized by weight. Non-retrievable destruction.", image: "/images/products/controlled.webp" },
+  { key: "controlled", label: "Controlled substance mail-back kit", blurb: "DEA-compliant mail-back for Schedules I–V, sized by weight. Non-retrievable destruction.", image: "/images/products/controlled.webp" },
   { key: "hazardous", label: "Hazardous (RCRA) mail-back kit", blurb: "RCRA-hazardous pharmaceutical waste (P/U-listed & characteristic), destroyed to EPA rules.", image: "/images/products/rcra.webp" },
 ];
 

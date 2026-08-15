@@ -55,7 +55,7 @@ const streams: [string, string][] = [
 // Credential detail — "types now"; actual numbers/permits/certs added later (shown "on request" until then).
 // Only credentials confirmed as genuinely held are listed.
 const creds = [
-  { t: "DEA registration", d: "Registered to receive and destroy controlled substances (Schedules II–V) — the credential that makes controlled take-back legal.", s: "Registration # verified on request" },
+  { t: "DEA registration", d: "Registered to receive and destroy controlled substances (Schedules I–V) — the credential that makes controlled take-back legal.", s: "Registration # verified on request" },
   { t: "EPA compliance", d: "RCRA-compliant handling and destruction of hazardous pharmaceutical waste to federal environmental standards.", s: "EPA ID on request" },
   { t: "DOT / PHMSA", d: "Hazardous-materials shipping compliance for regulated waste in transit — trained, packaged, and manifested correctly.", s: "Trained & compliant" },
   { t: "HIPAA & BAA", d: "We handle protected health information to HIPAA standards and sign a Business Associate Agreement for covered clients.", s: "BAA available on request" },

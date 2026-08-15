@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
   const faqs = [
     { q: `How do I dispose of controlled substances in ${s.name}?`, a: `Use a DEA-registered reverse distributor or mail-back kit. Controls are rendered non-retrievable and documented on DEA Form 41 (plus a Form 222 for Schedule II), with a Certificate of Destruction. We serve ${cityList} and everywhere across ${s.name}.` },
     { q: `Who regulates controlled substance disposal in ${s.name}?`, a: `The DEA governs controlled substances federally (registration, Forms 222/41, non-retrievable destruction). In ${s.name}, the ${board} adds state licensing and recordkeeping rules, and the EPA plus ${s.name}'s environmental agency apply where a drug is also a hazardous waste. We handle disposal to all of them.` },
-    { q: `Is Easy Rx Cycle a DEA-registered reverse distributor for ${s.name}?`, a: `Yes — we're DEA-registered to handle Schedule II–V controlled-substance destruction across ${s.name} and nationwide, with full chain-of-custody documentation.` },
+    { q: `Is Easy Rx Cycle a DEA-registered reverse distributor for ${s.name}?`, a: `Yes — we're DEA-registered to handle Schedule I–V controlled-substance destruction across ${s.name} and nationwide, with full chain-of-custody documentation.` },
     { q: `Can a ${s.name} pharmacy recover credit on expired controlled Rx?`, a: `Yes — reverse distribution processes returnable stock for manufacturer credit and compliantly destroys the rest. It's a common way ${s.name} pharmacies recover value on expired or unsellable inventory.` },
     { q: `How long should ${s.name} registrants keep destruction records?`, a: `The DEA requires controlled-substance records be kept at least two years, and the ${board} may require longer. Every Easy Rx Cycle order is archived to your account, so your Form 41 and Certificate of Destruction are ready the moment an inspector asks.` },
     { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — mail-back reaches every ZIP in ${s.name}, from ${s.cities[0]} to ${lastCity}, and scheduled pickup is available for higher-volume sites across the state.` },
@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
               <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Controlled Substance Destruction", href: `${BASE}/` }, { name: s.name }]} />
               <span className="eyebrow">Controlled substances · {s.name}</span>
               <h1 className="ph1">Controlled substance destruction in <span style={{ color: "var(--teal)" }}>{s.name}.</span></h1>
-              <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>Non-retrievable destruction of expired, unused, and returned controlled medications for {cityList} and communities across {s.name} — Schedules II–V, with DEA Form 41 &amp; 222 handled for you and a Certificate of Destruction on every order. No pickups to wait on, no contracts.</p>
+              <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>Non-retrievable destruction of expired, unused, and returned controlled medications for {cityList} and communities across {s.name} — Schedules I–V, with DEA Form 41 &amp; 222 handled for you and a Certificate of Destruction on every order. No pickups to wait on, no contracts.</p>
               <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
                 <a className="btn btn-primary" href={SHOP}>Shop a kit <span className="ar">→</span></a>
                 <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
         {/* what we take */}
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
-            <div className="shead"><span className="eyebrow">What we destroy</span><h2>Every controlled medication you need gone in {s.name}.</h2><p className="lead">Schedules II–V, rendered non-retrievable and documented.</p></div>
+            <div className="shead"><span className="eyebrow">What we destroy</span><h2>Every controlled medication you need gone in {s.name}.</h2><p className="lead">Schedules I–V, rendered non-retrievable and documented.</p></div>
             <ul className="covers">
               {["Expired controlled substances", "Unused & returned Rx", "Schedule II narcotics", "Schedule III–V medications", "Patient-returned controls (LTC / hospice)", "Pharmacy overstock & recalls", "Returnable stock for manufacturer credit", "Certificate of Destruction on every order"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
             </ul>

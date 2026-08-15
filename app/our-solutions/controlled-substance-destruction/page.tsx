@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "Which controlled substances can I send?",
-    a: "Schedules II–V, including expired, unused, and returned controlled medications. We do not accept RCRA-hazardous, chemotherapy, or pathological waste — those route to their own streams.",
+    a: "Schedules I–V, including expired, unused, and returned controlled medications. We do not accept RCRA-hazardous, chemotherapy, or pathological waste — those route to their own streams.",
   },
   {
     q: "Do I get a Certificate of Destruction?",
@@ -103,7 +103,7 @@ export default function Page() {
               <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#solutions">Solutions</a>{" "}
               <span aria-hidden="true">/</span> <span>Controlled Substance Destruction</span>
             </nav>
-            <span className="eyebrow">Controlled substances · Schedules II–V</span>
+            <span className="eyebrow">Controlled substances · Schedules I–V</span>
             <h1 className="ph1">
               Controlled substance destruction, <span style={{ color: "var(--teal)" }}>DEA-compliant by mail.</span>
             </h1>
@@ -126,7 +126,7 @@ export default function Page() {
             <div className="shead">
               <span className="eyebrow">What we destroy</span>
               <h2>Every controlled medication you need gone.</h2>
-              <p className="lead">Schedules II–V, rendered non-retrievable and documented.</p>
+              <p className="lead">Schedules I–V, rendered non-retrievable and documented.</p>
             </div>
             <ul className="covers">
               {[

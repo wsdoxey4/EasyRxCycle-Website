@@ -28,7 +28,7 @@ const groups: { title: string; faqs: { q: string; a: string }[] }[] = [
     { q: "Is return shipping included?", a: "Yes. Mail-back kits are prepaid both ways — the price includes shipping to you and the prepaid return label. Orders over $50 also ship free outbound." },
   ]},
   { title: "Controlled substances & compliance", faqs: [
-    { q: "Can you destroy controlled substances?", a: "Yes. As a DEA-registered reverse distributor we destroy Schedule II–V controlled substances to the DEA non-retrievable standard, with chain-of-custody and a Certificate of Destruction." },
+    { q: "Can you destroy controlled substances?", a: "Yes. As a DEA-registered reverse distributor we destroy Schedule I–V controlled substances to the DEA non-retrievable standard, with chain-of-custody and a Certificate of Destruction." },
     { q: "Do you handle DEA Form 41 and reverse distribution?", a: "Yes — we handle the reverse-distribution and Form 41 paperwork for controlled substances surrendered for destruction, so your records are audit-ready." },
     { q: "What is a Certificate of Destruction?", a: "It's your proof that waste was compliantly destroyed — audit-ready documentation for DEA, EPA, OSHA, and state inspections, provided on every order." },
     { q: "What waste streams do you handle?", a: "Controlled substances, pharmaceutical waste, sharps, biohazard/regulated medical waste, trace chemotherapy (USP 800), RCRA-hazardous pharmaceutical waste, medication disposal kits, and pharmaceutical reverse distribution." },

@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
-import { inCategory, money, CATEGORIES } from "@/lib/shop";
+import { inCategory, money, CATEGORIES, isShoppable } from "@/lib/shop";
 import { KITS, KIT_BY_SLUG } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
 
@@ -39,19 +39,27 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
   const path = `/shop/${k.slug}`;
   const sizes = inCategory(k.category);
   const img = k.img || CATEGORIES.find((c) => c.key === k.category)?.image;
+  // Shopping-ineligible kits (controlled / hazardous / chemo) keep a Product node for organic rich
+  // results but emit NO Offer schema, so Google free-listings / auto-crawl never lists them.
+  const shoppable = isShoppable({ category: k.category });
+
+  const product: Record<string, unknown> = {
+    "@type": "Product", "@id": `${abs(path)}#product`, name: k.name, description: k.desc,
+    brand: { "@type": "Brand", name: SITE.name }, category: "Medical waste disposal", url: abs(path),
+    ...(img ? { image: [abs(img)] } : {}),
+  };
+  if (shoppable) {
+    product.offers = sizes.map((s) => ({
+      "@type": "Offer", sku: s.sku, mpn: s.sku, name: `${k.name} — ${s.size}`, price: (s.cents / 100).toFixed(2),
+      priceCurrency: "USD", availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition",
+      url: abs(path), seller: { "@id": `${SITE.url}/#organization` },
+    }));
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Product", "@id": `${abs(path)}#product`, name: k.name, description: k.desc,
-        brand: { "@type": "Brand", name: SITE.name }, category: "Medical waste disposal", url: abs(path),
-        offers: sizes.map((s) => ({
-          "@type": "Offer", sku: s.sku, name: `${k.name} — ${s.size}`, price: (s.cents / 100).toFixed(2),
-          priceCurrency: "USD", availability: "https://schema.org/InStock", url: abs(path),
-          seller: { "@id": `${SITE.url}/#organization` },
-        })),
-      },
+      product,
       { "@type": "FAQPage", "@id": `${abs(path)}#faq`, mainEntity: k.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     ],
   };

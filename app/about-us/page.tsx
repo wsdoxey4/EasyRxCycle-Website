@@ -104,7 +104,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle</span><h2>Every stream, one accountable partner.</h2><p className="lead">If your healthcare business generates it, we destroy it — compliantly and documented.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(4,1fr)" }}>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4>Controlled substances</h4><p>Schedules II–V, DEA non-retrievable destruction.</p></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4>Controlled substances</h4><p>Schedules I–V, DEA non-retrievable destruction.</p></a>
               <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4>Pharmaceutical waste</h4><p>Expired &amp; unused non-hazardous Rx.</p></a>
               <a className="svc" href="/our-solutions/sharps-disposal"><h4>Sharps</h4><p>Needles, syringes, lancets &amp; pen needles.</p></a>
               <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>

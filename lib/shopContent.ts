@@ -71,7 +71,7 @@ export const KITS: Kit[] = [
     whoFor: "Physician offices, pharmacies, long-term care, clinics, and any site retiring non-controlled, non-hazardous medications.",
     faqs: [
       { q: "What goes in a pharmaceutical waste kit vs. a hazardous kit?", a: "Non-hazardous, non-controlled medications go in this kit. RCRA-hazardous drugs (certain P- and U-listed and characteristic wastes) go in the hazardous kit, and controlled substances go in the controlled substance kit." },
-      { q: "Can I put controlled substances in this kit?", a: "No — controlled substances (Schedules II–V) require the controlled substance mail-back kit, which is handled to DEA non-retrievable standards." },
+      { q: "Can I put controlled substances in this kit?", a: "No — controlled substances (Schedules I–V) require the controlled substance mail-back kit, which is handled to DEA non-retrievable standards." },
       { q: "Is destruction documented?", a: "Yes. Every order is destroyed and documented with a Certificate of Destruction for your DEA, EPA, and state compliance records." },
     ],
     pillar: { href: "/our-solutions/pharmaceutical-waste-disposal", label: "Pharmaceutical waste disposal — how it works" },
@@ -127,14 +127,14 @@ export const KITS: Kit[] = [
   {
     slug: "controlled-substance-mail-back-kit", category: "controlled", name: "Controlled Substance Mail-Back Kit", keyword: "controlled substance mail-back kit",
     title: "Controlled Substance Mail-Back Kit — DEA-Compliant, By Weight",
-    desc: "Buy a controlled substance mail-back kit online — DEA-compliant destruction of Schedules II–V, sized by weight from 5 to 100 lbs. Non-retrievable destruction, Certificate of Destruction, no contract.",
-    tagline: "Schedules II–V — DEA-compliant, non-retrievable destruction.",
-    cardBlurb: "DEA-compliant mail-back for Schedules II–V, sized by weight. Four sizes.",
-    intro: "The controlled substance mail-back kit provides DEA-compliant destruction of Schedule II–V medications, sized by weight rather than volume. Seal the controls in the tamper-evident inner liner, close the mailer, and return it with the prepaid label. Contents are rendered non-retrievable at our DEA-registered facility with full chain-of-custody, and you receive a Certificate of Destruction. For quantities over 100 lbs, request a custom quote.",
+    desc: "Buy a controlled substance mail-back kit online — DEA-compliant destruction of Schedules I–V, sized by weight from 5 to 100 lbs. Non-retrievable destruction, Certificate of Destruction, no contract.",
+    tagline: "Schedules I–V — DEA-compliant, non-retrievable destruction.",
+    cardBlurb: "DEA-compliant mail-back for Schedules I–V, sized by weight. Four sizes.",
+    intro: "The controlled substance mail-back kit provides DEA-compliant destruction of Schedule I–V medications, sized by weight rather than volume. Seal the controls in the tamper-evident inner liner, close the mailer, and return it with the prepaid label. Contents are rendered non-retrievable at our DEA-registered facility with full chain-of-custody, and you receive a Certificate of Destruction. For quantities over 100 lbs, request a custom quote.",
     included: ["Tamper-evident, weight-rated controlled-substance mailer", "Prepaid outbound and return shipping label", "Chain-of-custody and sealing instructions", "Certificate of Destruction with non-retrievable attestation"],
     whoFor: "Pharmacies, hospitals, LTC and hospice, pain management, veterinary, and DEA registrants retiring controlled substances.",
     faqs: [
-      { q: "Which schedules can I send?", a: "The kit accepts Schedule II–V controlled substances for non-retrievable destruction. Kits are sized by weight — 5, 10, 20, or up to 100 lbs. Over 100 lbs, request a custom quote." },
+      { q: "Which schedules can I send?", a: "The kit accepts Schedule I–V controlled substances for non-retrievable destruction. Kits are sized by weight — 5, 10, 20, or up to 100 lbs. Over 100 lbs, request a custom quote." },
       { q: "How is destruction documented?", a: "Controls are rendered non-retrievable with chain-of-custody, and you receive a Certificate of Destruction attesting to compliant destruction for your DEA records." },
       { q: "Do I need any paperwork?", a: "We'll provide the destruction documentation you need for your records after processing. If you have questions about your registration or reporting, call us at 501-904-2929." },
     ],

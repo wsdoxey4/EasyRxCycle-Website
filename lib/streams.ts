@@ -225,7 +225,7 @@ const pharmaceutical: Stream = {
     { href: "/who-we-serve/", label: "All industries →" },
   ],
   related: (s) => [
-    { href: "/our-solutions/controlled-substance-destruction/" + s.slug + "/", h: `Controlled destruction in ${s.name}`, p: "DEA Schedules II–V, non-retrievable." },
+    { href: "/our-solutions/controlled-substance-destruction/" + s.slug + "/", h: `Controlled destruction in ${s.name}`, p: "DEA Schedules I–V, non-retrievable." },
     { href: "/our-solutions/rcra-hazardous-pharmaceutical-waste/", h: "RCRA hazardous", p: "Subpart P & hazardous pharmaceutical waste." },
     { href: `/locations/${s.slug}/`, h: `All services in ${s.name}`, p: "Every waste stream we handle statewide." },
   ],
@@ -381,7 +381,7 @@ const medication: Stream = {
   heroLead: (s) => `DEA-compliant medication mail-back kits for ${cities(s)} and communities across ${s.name} — a simple, prepaid way for pharmacies, facilities, and patients to dispose of unused and expired medications, including controlled substances, with destruction documentation on every kit.`,
   takesHeading: (s) => `Every patient medication, handled in ${s.name}.`,
   takesLead: "Unused and expired consumer medications, destroyed and documented.",
-  takes: ["Unused & expired prescriptions", "Controlled substances (Schedules II–V)", "Over-the-counter medications", "Pills, capsules & tablets", "Liquids & patches", "Patient / consumer take-back"],
+  takes: ["Unused & expired prescriptions", "Controlled substances (Schedules I–V)", "Over-the-counter medications", "Pills, capsules & tablets", "Liquids & patches", "Patient / consumer take-back"],
   ladder: [
     { tag: "std" as const, size: "Envelope", note: (s: StateInfo) => `Prepaid mail-back envelopes for patients and small sites in ${s.cities[0]}.` },
     { tag: "std" as const, size: "Kit", note: (s: StateInfo) => `Larger mail-back kits for busy ${s.name} pharmacies and facilities.` },
@@ -398,7 +398,7 @@ const medication: Stream = {
   compIntro: (s) => `The DEA's take-back framework (21 CFR 1317) lets patients dispose of unused medications — including controlled substances — through authorized mail-back packages and collection receptacles, rendered non-retrievable. Pharmacies, hospitals, and long-term care facilities in ${s.name} use these kits to offer patient take-back and to handle patient-returned meds compliantly, and the ${s.name} Board of Pharmacy adds recordkeeping requirements. Easy Rx Cycle provides DEA-compliant mail-back and destruction, with a Certificate of Destruction on every kit.`,
   compBullets: (s) => [
     { label: "DEA", text: "take-back mail-back & non-retrievable destruction (21 CFR 1317)" },
-    { label: "Controlled OK", text: "accepts Schedules II–V alongside non-controlled meds" },
+    { label: "Controlled OK", text: "accepts Schedules I–V alongside non-controlled meds" },
     { label: `${s.name}`, text: "Board of Pharmacy recordkeeping requirements" },
     { label: "Certificate", text: "Certificate of Destruction archived on every kit" },
   ],
@@ -418,7 +418,7 @@ const medication: Stream = {
   ],
   faqs: (s) => [
     { q: `How do patients dispose of medications in ${s.name}?`, a: `The simplest compliant way is a DEA-authorized mail-back envelope or kit — patients place unused and expired meds inside, seal it, and mail it for non-retrievable destruction. Pharmacies and facilities in ${cities(s)} and across ${s.name} offer these to their patients.` },
-    { q: `Can medication mail-back kits take controlled substances in ${s.name}?`, a: `Yes — the DEA take-back framework (21 CFR 1317) allows controlled substances (Schedules II–V) in authorized mail-back packages, right alongside non-controlled meds. Every kit ends with a Certificate of Destruction.` },
+    { q: `Can medication mail-back kits take controlled substances in ${s.name}?`, a: `Yes — the DEA take-back framework (21 CFR 1317) allows controlled substances (Schedules I–V) in authorized mail-back packages, right alongside non-controlled meds. Every kit ends with a Certificate of Destruction.` },
     { q: `Does my ${s.name} pharmacy need a special license to offer mail-back?`, a: `Offering DEA-authorized patient mail-back packages does not require becoming a collector — we supply the compliant kits and handle destruction. The ${s.name} Board of Pharmacy sets recordkeeping expectations, which our documentation covers.` },
     { q: `What can't go in a medication mail-back kit?`, a: `Sharps, hazardous (RCRA) drugs, and business-generated controlled inventory belong in their own streams — all of which we also provide in ${s.name}. Mail-back kits are for patient/consumer medications.` },
     { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — mail-back reaches every ZIP in ${s.name}, from ${s.cities[0]} to ${last(s)}, and multi-site take-back programs are available across the state.` },
@@ -478,7 +478,7 @@ const reverse: Stream = {
   faqs: (s) => [
     { q: `What is reverse distribution in ${s.name}?`, a: `Reverse distribution is the process of returning expired and unsellable pharmaceuticals to recover manufacturer credit, and compliantly destroying what isn't creditable. ${s.name} pharmacies use it to recover value on inventory that would otherwise be a total loss. We serve ${cities(s)} and statewide.` },
     { q: `How does a ${s.name} pharmacy recover credit on expired Rx?`, a: `Send your expired and short-dated stock to a reverse distributor. Returnable product is processed and submitted to manufacturers for credit under their return policies; the rest is destroyed with documentation. We handle both.` },
-    { q: `Do you handle controlled-substance returns in ${s.name}?`, a: `Yes — as a DEA-registered reverse distributor we accept Schedule II–V returns, with Form 222 for Schedule II transfers and Form 41 for destroyed stock, and ARCOS reporting where required.` },
+    { q: `Do you handle controlled-substance returns in ${s.name}?`, a: `Yes — as a DEA-registered reverse distributor we accept Schedule I–V returns, with Form 222 for Schedule II transfers and Form 41 for destroyed stock, and ARCOS reporting where required.` },
     { q: `What isn't creditable?`, a: `Opened, adulterated, or non-returnable product, and most controlled substances, generally can't be returned for credit — but they still must be destroyed compliantly. Our process sorts creditable from destroy-only so nothing is mishandled in ${s.name}.` },
     { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — we process returns for pharmacies and facilities everywhere in ${s.name}, from ${s.cities[0]} to ${last(s)}.` },
   ],

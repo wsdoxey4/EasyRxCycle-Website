@@ -40,7 +40,7 @@ const STREAMS = [
   { slug: "sharps-disposal", name: "Sharps disposal", blurb: "Needles, syringes & lancets.", waste: "Needles, syringes, lancets, insulin pens, and any contaminated sharps" },
   { slug: "biohazard-waste-disposal", name: "Biohazard / RMW", blurb: "Red-bag regulated medical waste.", waste: "Blood-soaked items, PPE, gauze, cultures, and other non-sharps regulated medical waste" },
   { slug: "pharmaceutical-waste-disposal", name: "Pharmaceutical waste", blurb: "Expired & non-controlled Rx.", waste: "Expired and unused non-controlled, non-hazardous medications and OTC drugs" },
-  { slug: "controlled-substance-destruction", name: "Controlled substance destruction", blurb: "DEA non-retrievable destruction.", waste: "Expired or unusable controlled substances (DEA Schedules II–V)" },
+  { slug: "controlled-substance-destruction", name: "Controlled substance destruction", blurb: "DEA non-retrievable destruction.", waste: "Expired or unusable controlled substances (DEA Schedules I–V)" },
   { slug: "rcra-hazardous-pharmaceutical-waste", name: "RCRA hazardous", blurb: "P-, U- & D-listed drug waste.", waste: "Drugs that are also hazardous waste — P-, U-, or D-listed (e.g. warfarin, nicotine)" },
   { slug: "trace-chemotherapy-waste", name: "Trace chemo waste", blurb: "Yellow-container trace chemo.", waste: "RCRA-empty chemo vials/syringes and trace-contaminated PPE (yellow container)" },
   { slug: "medication-disposal-kit", name: "Medication disposal kits", blurb: "Patient & consumer take-back.", waste: "Patient- or consumer-returned medications, including controlled substances (take-back)" },

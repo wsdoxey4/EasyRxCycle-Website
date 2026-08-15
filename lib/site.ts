@@ -15,6 +15,16 @@ export const SITE = {
   phone: "+1-501-904-2929",
   phoneDisplay: "501-904-2929",
   email: "sales@easyrxcycle.com",
+  legalName: "Arkansas Redistributors, LLC",
+  foundingYear: "2018",
+  hours: "Mon–Fri 8am–5pm CT",
+  address: {
+    street: "1200 South Spring Street",
+    city: "Little Rock",
+    region: "AR",
+    postalCode: "72202",
+    country: "US",
+  },
   ogImage: "/images/logo-full.png",
   services: [
     "Sharps disposal",
