@@ -140,6 +140,20 @@ export default function Page() {
           <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Chemo waste guides</span><h2>Learn more about chemo waste.</h2></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/blog/chemotherapy-waste-disposal-guide"><h4>Chemo disposal guide</h4><p>Trace vs. bulk, yellow container, USP 800, cost.</p></a>
+              <a className="svc" href="/blog/chemotherapy-waste-disposal-trace-vs-bulk"><h4>Trace vs. bulk</h4><p>The split that decides where it goes.</p></a>
+              <a className="svc" href="/blog/yellow-container-chemo-waste-what-goes-in-it"><h4>The yellow container</h4><p>Exactly what belongs in it.</p></a>
+              <a className="svc" href="/resources/usp-800"><h4>USP 800</h4><p>Hazardous-drug handling standards.</p></a>
+              <a className="svc" href="/blog/hazardous-pharmaceutical-waste-disposal-guide"><h4>Bulk / RCRA-hazardous chemo</h4><p>When chemo is a hazardous waste.</p></a>
+              <a className="svc" href="/blog/medical-waste-color-codes"><h4>Color codes</h4><p>Yellow, black, red &amp; blue explained.</p></a>
+            </div>
+          </div>
+        </section>
+
         <ServiceStates service="trace-chemotherapy-waste" label="Trace Chemotherapy Waste" />
 
         <section className="sec" style={{ paddingTop: "0" }}>
