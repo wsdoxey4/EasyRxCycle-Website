@@ -508,6 +508,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/what-is-biohazard-waste",
     "/blog/how-to-choose-a-medical-waste-disposal-company",
     "/blog/osha-medical-waste-requirements",
+    "/blog/hipaa-compliant-medical-waste-disposal",
+    "/blog/medical-waste-violations-and-fines",
     "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast",
     "/blog/how-to-dispose-of-controlled-drugs-for-ambulance-services",
     "/blog/how-to-dispose-of-controlled-drugs-for-surgery-center",
