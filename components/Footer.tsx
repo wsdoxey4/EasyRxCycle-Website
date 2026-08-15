@@ -12,7 +12,7 @@ export default function Footer() {
   </div>
   <div className="fgrid">
     <div className="brand">
-      <img className="logo-w" src="/images/logo-white.png" alt="Easy Rx Cycle" />
+      <img className="logo-w" src="/images/logo-white.png" alt="Easy Rx Cycle" width={4796} height={819} />
       <p>Trusted pharma &amp; medical waste disposal experts. DEA-registered destruction, documented on every order.</p>
     </div>
     <div><h5>Solutions</h5><ul><li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li><li><a href="/our-solutions/biohazard-waste-disposal">Biohazard / RMW</a></li><li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste</a></li><li><a href="/our-solutions/controlled-substance-destruction">Controlled substances</a></li><li><a href="/our-solutions/reverse-distribution">Reverse distribution</a></li><li><a href="/build-your-program">Build a program</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/cost-calculator">Cost calculator</a></li></ul></div>

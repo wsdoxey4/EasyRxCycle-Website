@@ -156,7 +156,7 @@ export default function Header() {
       <header className="site">
         <div className="wrap">
           <a href="/" aria-label="Easy Rx Cycle home">
-            <img className="logo" src="/images/logo-full.png" alt="Easy Rx Cycle" />
+            <img className="logo" src="/images/logo-full.png" alt="Easy Rx Cycle" width={4796} height={819} />
           </a>
           <nav className="main">
             {MENU.map((it) => (

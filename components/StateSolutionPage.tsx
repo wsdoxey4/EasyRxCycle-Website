@@ -62,7 +62,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
           {stream.image ? (
             <div className="wrap sol-hero">
               <div className="sol-hero-copy">{heroCopy}</div>
-              <div className="sol-hero-media"><img src={stream.image} alt={`${stream.imageAlt ?? stream.name} for ${s.name}`} /></div>
+              <div className="sol-hero-media"><img src={stream.image} alt={`${stream.imageAlt ?? stream.name} for ${s.name}`} width={1200} height={656} /></div>
             </div>
           ) : (
             <div className="wrap">{heroCopy}</div>

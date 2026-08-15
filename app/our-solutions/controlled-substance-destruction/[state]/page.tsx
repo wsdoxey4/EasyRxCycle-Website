@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
                 <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
               </div>
             </div>
-            <div className="sol-hero-media"><img src="/images/products/controlled-kit.webp" alt={`Easy Rx Cycle controlled substance mail-back kit for ${s.name}`} /></div>
+            <div className="sol-hero-media"><img src="/images/products/controlled-kit.webp" alt={`Easy Rx Cycle controlled substance mail-back kit for ${s.name}`} width={1200} height={656} /></div>
           </div>
         </section>
 

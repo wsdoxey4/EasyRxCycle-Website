@@ -1,7 +1,7 @@
-@font-face{font-family:'Poppins';font-weight:400;font-style:normal;font-display:swap;src:url('/fonts/Poppins-Regular.ttf') format('truetype');}
-@font-face{font-family:'Poppins';font-weight:600;font-style:normal;font-display:swap;src:url('/fonts/Poppins-SemiBold.ttf') format('truetype');}
-@font-face{font-family:'Poppins';font-weight:700;font-style:normal;font-display:swap;src:url('/fonts/Poppins-Bold.ttf') format('truetype');}
-@font-face{font-family:'InterV';font-weight:100 900;font-style:normal;font-display:swap;src:url('/fonts/Inter-Variable.ttf') format('truetype');}
+@font-face{font-family:'Poppins';font-weight:400;font-style:normal;font-display:swap;src:url('/fonts/Poppins-Regular.woff2') format('woff2'),url('/fonts/Poppins-Regular.ttf') format('truetype');}
+@font-face{font-family:'Poppins';font-weight:600;font-style:normal;font-display:swap;src:url('/fonts/Poppins-SemiBold.woff2') format('woff2'),url('/fonts/Poppins-SemiBold.ttf') format('truetype');}
+@font-face{font-family:'Poppins';font-weight:700;font-style:normal;font-display:swap;src:url('/fonts/Poppins-Bold.woff2') format('woff2'),url('/fonts/Poppins-Bold.ttf') format('truetype');}
+@font-face{font-family:'InterV';font-weight:100 900;font-style:normal;font-display:swap;src:url('/fonts/Inter-Variable.woff2') format('woff2'),url('/fonts/Inter-Variable.ttf') format('truetype');}
 
 :root{
   --teal:#005770; --teal-700:#004357; --emer:#33C089; --emer-600:#1fa774; --mint:#5BC79A;
