@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const s = stateBySlug(state);
   if (!s) return {};
   const path = `${BASE}/${s.slug}`;
-  const title = `Medical Waste Disposal in ${s.name} | Mail-Back & Pickup`;
-  const desc = `DEA-registered medical waste disposal in ${s.name} — sharps, biohazard, pharmaceutical, controlled, RCRA and chemo, by mail-back or scheduled pickup for ${s.cities[0]} and statewide. A ${s.name} compliance partner, with a Certificate of Destruction on every order.`;
+  const title = `Medical Waste Disposal in ${s.name} | Mail-Back`;
+  const desc = `DEA-registered medical waste disposal in ${s.name} — sharps, biohazard, pharmaceutical, controlled, RCRA & chemo — by mail-back or pickup for ${s.cities[0]} and statewide.`;
   return {
     title, description: desc, alternates: { canonical: path },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description: desc, url: abs(path), images: [{ url: SITE.ogImage }] },

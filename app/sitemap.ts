@@ -647,10 +647,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/locations/wyoming",
     "/locations/washington-dc",
   ]; // extend as more ICP and geo pages ship
-  return routes.map((path) => ({
-    url: `${SITE.url}${path}`,
-    lastModified: new Date("2026-07-31"),
-    changeFrequency: "weekly",
-    priority: path === "/" ? 1 : 0.7,
-  }));
+  return routes.map((path) => {
+    // trailingSlash:true — emit canonical (trailing-slash) URLs so the sitemap never self-redirects
+    const p = path === "/" ? "/" : path.endsWith("/") ? path : `${path}/`;
+    return {
+      url: `${SITE.url}${p}`,
+      lastModified: new Date("2026-07-31"),
+      changeFrequency: "weekly" as const,
+      priority: path === "/" ? 1 : 0.7,
+    };
+  });
 }

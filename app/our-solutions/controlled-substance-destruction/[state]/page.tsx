@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const s = stateBySlug(state);
   if (!s) return {};
   const path = `${BASE}/${s.slug}`;
-  const title = `Controlled Substance Destruction in ${s.name} | Mail-Back & Pickup`;
-  const desc = `DEA-registered controlled substance destruction in ${s.name} — non-retrievable mail-back kits (5 lb / 10 lb) and scheduled pickup for ${s.cities[0]} and statewide, with DEA Form 41 & 222 handled and a Certificate of Destruction on every order.`;
+  const title = `Controlled Substance Destruction in ${s.name}`;
+  const desc = `DEA-registered controlled substance destruction in ${s.name}. Non-retrievable mail-back & pickup for ${s.cities[0]} and statewide, with a Certificate of Destruction.`;
   return {
     title, description: desc, alternates: { canonical: path },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description: desc, url: abs(path), images: [{ url: SITE.ogImage }] },
