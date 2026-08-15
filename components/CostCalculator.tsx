@@ -30,6 +30,7 @@ export default function CostCalculator() {
   const [current, setCurrent] = useState("");
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState(false);
 
   const f = VOL.find((v) => v.key === vol)!.f;
   const est = useMemo(() => {
@@ -54,13 +55,15 @@ export default function CostCalculator() {
     if (busy) return;
     const fd = new FormData(e.currentTarget);
     if (fd.get("company_website")) { setDone(true); return; }
-    setBusy(true);
+    setBusy(true); setErr(false);
     const streams = STREAMS.filter((s) => sel[s.key]).map((s) => s.label).join(", ");
     const msg = `Cost estimate — streams: ${streams}; volume: ${vol}; est ~$${Math.round(monthlyAuto)}/mo (auto-ship)${cur ? `; current spend $${cur}/mo` : ""}`;
     try {
-      await fetch("/api/lead-magnet", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: fd.get("name"), email: fd.get("email"), org: fd.get("org"), magnet: "Cost estimate", title: msg }) });
-    } catch {}
+      const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: fd.get("name") || fd.get("org") || "Website visitor", email: fd.get("email"), org: fd.get("org"), role: "Cost calculator lead", streams, volume: vol, message: msg, pageUri: "/cost-calculator", company_website: fd.get("company_website") }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || j.ok === false) { setBusy(false); setErr(true); return; }
+    } catch { setBusy(false); setErr(true); return; }
     trackEvent("generate_lead", { lead_source: "cost_calculator" });
     setBusy(false); setDone(true);
   }
@@ -126,6 +129,7 @@ export default function CostCalculator() {
                 <input name="org" placeholder="Organization (optional)" autoComplete="organization" />
                 <input type="text" name="company_website" tabIndex={-1} aria-hidden="true" style={{ position: "absolute", left: "-9999px" }} />
                 <button className="btn btn-primary" disabled={busy}>{busy ? "Sending…" : "Email me this estimate + a quote"} <span className="ar">→</span></button>
+                {err && <p className="calc-note" style={{ color: "#b23b32", marginTop: "8px" }}>Couldn&rsquo;t send just now — please call 501-904-2929 or email sales@easyrxcycle.com.</p>}
               </form>
             ) : (
               <div className="calc-thanks">✓ Sent — a specialist will follow up with your exact quote.</div>
