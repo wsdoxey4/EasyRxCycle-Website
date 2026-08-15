@@ -1275,3 +1275,9 @@ header.site .wrap{position:relative;}
 .lm-body-block:first-child{margin-top:0;}
 .lm-body-block h2{font-size:clamp(19px,2.2vw,24px);}
 .lm-body-block p{color:var(--slate);font-size:16px;line-height:1.65;margin-top:8px;}
+.ctable{width:100%;border-collapse:collapse;font-size:15px;}
+.ctable th,.ctable td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+.ctable thead th{font-family:Poppins;font-weight:600;font-size:13px;color:var(--ink);background:var(--cloud);}
+.ctable tbody th{font-family:Poppins;font-weight:600;color:var(--ink);width:32%;}
+.ctable td{color:var(--slate);}
+.ctable td.us{color:var(--ink);font-weight:600;}
