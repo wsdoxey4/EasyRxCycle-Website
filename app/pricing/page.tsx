@@ -56,7 +56,7 @@ export default function Page() {
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "26px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop">Shop kits &amp; prices <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a custom quote</a>
+              <a className="btn btn-ghost" href="/medical-waste-disposal-cost">What does it cost?</a>
             </div>
           </div>
         </section>
