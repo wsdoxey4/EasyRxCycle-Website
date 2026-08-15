@@ -499,6 +499,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained",
     "/blog/drug-diversion-in-healthcare-prevention-and-disposal",
+    "/blog/controlled-substance-inventory-and-recordkeeping",
     "/blog/best-reverse-distributors-a-comparison",
     "/blog/reverse-distribution-for-controlled-substances",
     "/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs",

@@ -286,6 +286,20 @@ export default function Page() {
           <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Controlled substance guides</span><h2>Get the DEA details right.</h2></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained"><h4>How to destroy controlled drugs</h4><p>Forms 222, 41 &amp; the COD explained.</p></a>
+              <a className="svc" href="/blog/dea-form-41-requirements-and-pdf"><h4>DEA Form 41</h4><p>Requirements and the PDF.</p></a>
+              <a className="svc" href="/blog/how-to-fill-out-dea-form-222"><h4>DEA Form 222</h4><p>How to fill it out, step by step.</p></a>
+              <a className="svc" href="/blog/controlled-substance-inventory-and-recordkeeping"><h4>Inventory &amp; recordkeeping</h4><p>Biennial inventory, logs, and retention.</p></a>
+              <a className="svc" href="/blog/drug-diversion-in-healthcare-prevention-and-disposal"><h4>Drug diversion</h4><p>Prevention, detection &amp; the disposal blind spot.</p></a>
+              <a className="svc" href="/blog/reverse-distribution-for-controlled-substances"><h4>Controlled-substance returns</h4><p>Reverse distribution for controls.</p></a>
+            </div>
+          </div>
+        </section>
+
         <ServiceStates service="controlled-substance-destruction" label="Controlled Substance Destruction" />
 
         {/* CTA */}
