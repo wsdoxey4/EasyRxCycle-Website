@@ -21,6 +21,23 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
   const path = `${base}/${s.slug}`;
   const h1 = stream.h1(s);
   const faqs = stream.faqs(s);
+  const primaryHref = stream.shop ?? "/get-a-quote";
+  const secondary = stream.shop
+    ? { label: "Get a quote", href: "/get-a-quote" }
+    : { label: "Talk to us", href: "tel:5019042929" };
+
+  const heroCopy = (
+    <>
+      <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: stream.name, href: `${base}/` }, { name: s.name }]} />
+      <span className="eyebrow">{stream.eyebrow} · {s.name}</span>
+      <h1 className="ph1">{h1.pre} <span style={{ color: "var(--teal)" }}>{h1.accent}</span></h1>
+      <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>{stream.heroLead(s)}</p>
+      <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
+        <a className="btn btn-primary" href={primaryHref}>{stream.kitLabel} <span className="ar">→</span></a>
+        <a className="btn btn-ghost" href={secondary.href}>{secondary.label}</a>
+      </div>
+    </>
+  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -42,19 +59,14 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
       <main id="main">
         {/* hero */}
         <section className="subhero">
-          <div className="wrap sol-hero">
-            <div className="sol-hero-copy">
-              <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: stream.name, href: `${base}/` }, { name: s.name }]} />
-              <span className="eyebrow">{stream.eyebrow} · {s.name}</span>
-              <h1 className="ph1">{h1.pre} <span style={{ color: "var(--teal)" }}>{h1.accent}</span></h1>
-              <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>{stream.heroLead(s)}</p>
-              <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-                <a className="btn btn-primary" href={stream.shop}>{stream.kitLabel} <span className="ar">→</span></a>
-                <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
-              </div>
+          {stream.image ? (
+            <div className="wrap sol-hero">
+              <div className="sol-hero-copy">{heroCopy}</div>
+              <div className="sol-hero-media"><img src={stream.image} alt={`${stream.imageAlt ?? stream.name} for ${s.name}`} /></div>
             </div>
-            <div className="sol-hero-media"><img src={stream.image} alt={`${stream.imageAlt} for ${s.name}`} /></div>
-          </div>
+          ) : (
+            <div className="wrap">{heroCopy}</div>
+          )}
         </section>
 
         {/* what we take */}
@@ -66,6 +78,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
         </section>
 
         {/* kit ladder */}
+        {stream.ladder && (
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Mail-back kits</span><h2>Pick a size. We handle the rest.</h2><p className="lead">Prepaid, compliant, and documented — shipped to any {s.name} address.</p></div>
@@ -80,6 +93,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
             </div>
           </div>
         </section>
+        )}
 
         {/* lead magnet */}
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -146,15 +160,15 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href={stream.shop}>{stream.kitLabel} <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-onteal" href={primaryHref}>{stream.kitLabel} <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href={secondary.href}>{secondary.label}</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug={stream.guideSlug} />
-      <MobileCTA primary={{ label: stream.kitLabel, href: stream.shop }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: stream.kitLabel, href: primaryHref }} secondary={secondary} />
       <Footer />
       <Reveal />
     </>
