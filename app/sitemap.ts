@@ -504,6 +504,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/how-to-use-a-reverse-distributor-for-safe-drug-disposal",
     "/blog/what-is-a-reverse-distributor-a-simple-guide-for-pharmacies-and-healthcare-facilities",
     "/blog/biohazardous-waste-disposal-for-healthcare-facilities",
+    "/blog/what-is-biohazard-waste",
     "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast",
     "/blog/how-to-dispose-of-controlled-drugs-for-ambulance-services",
     "/blog/how-to-dispose-of-controlled-drugs-for-surgery-center",
