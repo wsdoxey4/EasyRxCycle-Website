@@ -49,20 +49,23 @@ export default function Page() {
       <Header />
       <main id="main">
         <section className="subhero">
-          <div className="wrap">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Reverse Distribution" }]} />
-            <span className="eyebrow">Reverse distribution · returns + destruction</span>
-            <h1 className="ph1">
-              Recover credit. Destroy the rest. <span style={{ color: "var(--teal)" }}>Prove it&rsquo;s gone.</span>
-            </h1>
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>
-              DEA-registered reverse distribution for expired, unused, and returnable pharmaceuticals — we recover manufacturer
-              credit on what&rsquo;s returnable and compliantly destroy the rest. Form 222 &amp; 41 handled, Certificate of Destruction every time.
-            </p>
-            <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="tel:5019042929">Talk to a specialist</a>
+          <div className="wrap sol-hero">
+            <div className="sol-hero-copy">
+              <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Reverse Distribution" }]} />
+              <span className="eyebrow">Reverse distribution · returns + destruction</span>
+              <h1 className="ph1">
+                Recover credit. Destroy the rest. <span style={{ color: "var(--teal)" }}>Prove it&rsquo;s gone.</span>
+              </h1>
+              <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>
+                DEA-registered reverse distribution for expired, unused, and returnable pharmaceuticals — we recover manufacturer
+                credit on what&rsquo;s returnable and compliantly destroy the rest. Form 222 &amp; 41 handled, Certificate of Destruction every time.
+              </p>
+              <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
+                <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-ghost" href="tel:5019042929">Talk to a specialist</a>
+              </div>
             </div>
+            <div className="sol-hero-media"><img src="/images/products/pharmaceutical.webp" alt="Returnable pharmaceutical inventory processed by Easy Rx Cycle reverse distribution" width={1200} height={800} /></div>
           </div>
         </section>
 
