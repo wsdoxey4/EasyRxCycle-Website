@@ -137,6 +137,20 @@ export default function Page() {
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Biohazard guides</span><h2>Learn more about biohazard waste.</h2></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/blog/what-is-biohazard-waste"><h4>What is biohazard waste?</h4><p>Types, examples, and the red-bag rules.</p></a>
+              <a className="svc" href="/blog/biohazard-waste-management"><h4>Biohazard waste management</h4><p>The full program, step by step.</p></a>
+              <a className="svc" href="/blog/medical-waste-color-codes"><h4>Medical waste color codes</h4><p>Red, yellow, black &amp; blue explained.</p></a>
+              <a className="svc" href="/blog/biohazard-waste-disposal-cost"><h4>What it costs</h4><p>Real prices and how to pay less.</p></a>
+              <a className="svc" href="/blog/biohazardous-waste-disposal-for-healthcare-facilities"><h4>Disposal for facilities</h4><p>The six waste types and treatment methods.</p></a>
+              <a className="svc" href="/blog/osha-medical-waste-requirements"><h4>OSHA requirements</h4><p>Bloodborne pathogens &amp; compliance.</p></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap" style={{ maxWidth: "820px" }}>
             <div className="shead"><span className="eyebrow">FAQ</span><h2>Biohazard &amp; RMW questions.</h2></div>
             <div className="faq" style={{ marginTop: "30px" }}>
