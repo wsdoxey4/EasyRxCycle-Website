@@ -203,7 +203,7 @@ export const STREAM_WAVE: Record<string, number> = {
   "reverse-distribution": 3,
 };
 // Bump to 2, then 3, as each wave's differentiated content is reviewed and ready.
-export const LIVE_WAVE = 1;
+export const LIVE_WAVE = 2;
 export const streamIndexable = (slug: string) => (STREAM_WAVE[slug] ?? 99) <= LIVE_WAVE;
 
 export const stateBySlug = (slug: string): StateInfo | undefined => {
