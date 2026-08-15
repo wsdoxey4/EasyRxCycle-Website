@@ -18,6 +18,18 @@ export const clusters: Cluster[] = [
 export const CLUSTER_LABEL: Record<string, string> = Object.fromEntries(clusters.map((c) => [c.key, c.label]));
 export const CLUSTER_PILLAR: Record<string, string> = Object.fromEntries(clusters.map((c) => [c.key, c.pillar]));
 
+// Cluster -> its free guide (lead magnet) for the blog "go deeper" internal link.
+export const CLUSTER_GUIDE: Record<string, string> = {
+  controlled: "controlled-substance-destruction-guide",
+  reverse: "reverse-distribution-guide",
+  sharps: "sharps-disposal-compliance-guide",
+  biohazard: "biohazard-rmw-disposal-guide",
+  pharma: "pharmaceutical-waste-disposal-guide",
+  medkit: "medication-mail-back-kit-guide",
+  chemo: "trace-chemotherapy-waste-guide",
+  rcra: "rcra-hazardous-drug-waste-guide",
+};
+
 export const posts: Post[] = [
   { slug: "how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained", cluster: "controlled", title: "How to Properly Destroy Controlled Drugs: DEA Forms 222, 41 & COD Explained", excerpt: "When you need Form 222 vs. Form 41, what a Certificate of Destruction proves, and the steps that keep you audit-ready." },
   { slug: "how-to-dispose-of-controlled-drugs-for-veterinary-clinic", cluster: "controlled", title: "How to Dispose of Controlled Drugs for a Veterinary Clinic", excerpt: "Ketamine, euthanasia solution, gabapentin — the compliant way for vet clinics to dispose of controlled drugs." },
