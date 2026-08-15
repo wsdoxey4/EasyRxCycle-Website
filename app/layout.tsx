@@ -77,6 +77,7 @@ const jsonLd = {
         addressRegion: SITE.address.region,
         addressCountry: SITE.address.country,
       },
+      sameAs: ["https://www.linkedin.com/company/easy-rx-cycle"],
       areaServed: { "@type": "Country", name: "United States" },
       contactPoint: {
         "@type": "ContactPoint",

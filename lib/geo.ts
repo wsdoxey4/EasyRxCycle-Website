@@ -202,8 +202,8 @@ export const STREAM_WAVE: Record<string, number> = {
   "trace-chemotherapy-waste": 3,
   "reverse-distribution": 3,
 };
-// Bump to 2, then 3, as each wave's differentiated content is reviewed and ready.
-export const LIVE_WAVE = 2;
+// Waves 1-3 cover all 8 streams; LIVE_WAVE=3 = fully rolled out (every stream indexed).
+export const LIVE_WAVE = 3;
 export const streamIndexable = (slug: string) => (STREAM_WAVE[slug] ?? 99) <= LIVE_WAVE;
 
 export const stateBySlug = (slug: string): StateInfo | undefined => {
