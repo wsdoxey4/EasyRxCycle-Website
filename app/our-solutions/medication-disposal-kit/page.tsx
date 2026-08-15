@@ -145,6 +145,20 @@ export default function Page() {
           <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Medication disposal guides</span><h2>Learn more about medication disposal.</h2></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/blog/drug-take-back-programs-how-they-work"><h4>Drug take-back programs</h4><p>Kiosks vs. mail-back, and how to find one.</p></a>
+              <a className="svc" href="/blog/how-to-dispose-of-expired-medications-at-home"><h4>Dispose of expired meds at home</h4><p>Take-back, mail-back, deactivation, the flush list.</p></a>
+              <a className="svc" href="/blog/glp-1-pen-disposal"><h4>GLP-1 pen disposal</h4><p>How to dispose of Ozempic-type pens safely.</p></a>
+              <a className="svc" href="/blog/how-to-dispose-of-insulin-needles-at-home"><h4>Insulin needle disposal</h4><p>Sharps containers, mail-back, drop-off.</p></a>
+              <a className="svc" href="/blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle"><h4>Deactivation kits compared</h4><p>Drug Buster vs. Rx Destroyer vs. us.</p></a>
+              <a className="svc" href="/blog/diabetic-needle-disposal"><h4>Diabetic needle disposal</h4><p>The compliant options for at-home sharps.</p></a>
+            </div>
+          </div>
+        </section>
+
         <ServiceStates service="medication-disposal-kit" label="Medication Disposal Kit" />
 
         <section className="sec" style={{ paddingTop: "0" }}>

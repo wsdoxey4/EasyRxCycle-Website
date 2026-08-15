@@ -509,6 +509,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/what-is-a-reverse-distributor-a-simple-guide-for-pharmacies-and-healthcare-facilities",
     "/blog/biohazardous-waste-disposal-for-healthcare-facilities",
     "/blog/what-is-biohazard-waste",
+    "/blog/medical-waste-disposal-guide",
     "/blog/biohazard-waste-management",
     "/blog/medical-waste-color-codes",
     "/blog/biohazard-waste-disposal-cost",

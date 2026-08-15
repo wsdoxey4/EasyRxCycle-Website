@@ -150,6 +150,20 @@ export default function Page() {
           <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Pharmaceutical waste guides</span><h2>Learn more about pharma waste.</h2></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast"><h4>Pharmaceutical waste management</h4><p>The five types of drug waste and the rules for each.</p></a>
+              <a className="svc" href="/blog/hazardous-vs-non-hazardous-pharmaceutical-waste"><h4>Hazardous vs. non-hazardous</h4><p>How to tell the two apart and segregate them.</p></a>
+              <a className="svc" href="/blog/pharmaceutical-waste-segregation-guide"><h4>Segregation guide</h4><p>Which drug goes in which container.</p></a>
+              <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste"><h4>RCRA Subpart P</h4><p>P/U-listed drugs and the management standard.</p></a>
+              <a className="svc" href="/blog/who-regulates-pharmaceutical-waste-dea-epa-osha"><h4>Who regulates it</h4><p>DEA, EPA, and OSHA — and what each covers.</p></a>
+              <a className="svc" href="/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs"><h4>Recover credit on expired drugs</h4><p>Reverse distribution for returnable stock.</p></a>
+            </div>
+          </div>
+        </section>
+
         <ServiceStates service="pharmaceutical-waste-disposal" label="Pharmaceutical Waste Disposal" />
 
         <section className="sec" style={{ paddingTop: "0" }}>
