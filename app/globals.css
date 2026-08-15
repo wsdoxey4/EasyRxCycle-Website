@@ -272,7 +272,7 @@ footer a:hover{color:#fff;}
 .note{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.05em;color:#c98a00;text-transform:uppercase;}
 
 @media(max-width:960px){
-  nav.main,.hactions .shoplink{display:none;}
+  nav.main,.hactions .shoplink,.hactions .btn-primary{display:none;}
   .hero .wrap{grid-template-columns:1fr;gap:36px;}
   .grid8,.flow,.why4{grid-template-columns:repeat(2,1fr);}
   .quotes{grid-template-columns:1fr;}
@@ -1149,7 +1149,7 @@ header.site .wrap{position:relative;}
 @media(max-width:760px){
   .util .creds{display:none;}
   .util .right{margin-left:auto;gap:0;}
-  .util .right a[href="/contact"],.util .right a[href="/#partners"]{display:none;}
+  .util .right a[href="/contact"],.util .right a[href="/partners"]{display:none;}
   .util a[href^="tel"]{white-space:nowrap;}
 }
 /* 4) SEO parity: don't HIDE the pricing blurb on mobile — reflow it full-width instead. */

@@ -1,0 +1,62 @@
+// Real per-state data for location pages. Facts only: name, abbreviation, slug, and 4 real
+// major metros per state. Regulatory framing in the template uses the (accurate) state Board of
+// Pharmacy + the federal rules — no invented state statutes.
+
+export type StateInfo = { name: string; abbr: string; slug: string; cities: string[] };
+
+export const STATES: StateInfo[] = [
+  { name: "Alabama", abbr: "AL", slug: "alabama", cities: ["Birmingham", "Montgomery", "Huntsville", "Mobile"] },
+  { name: "Alaska", abbr: "AK", slug: "alaska", cities: ["Anchorage", "Fairbanks", "Juneau", "Wasilla"] },
+  { name: "Arizona", abbr: "AZ", slug: "arizona", cities: ["Phoenix", "Tucson", "Mesa", "Scottsdale"] },
+  { name: "Arkansas", abbr: "AR", slug: "arkansas", cities: ["Little Rock", "Fayetteville", "Fort Smith", "Jonesboro"] },
+  { name: "California", abbr: "CA", slug: "california", cities: ["Los Angeles", "San Diego", "San Francisco", "Sacramento"] },
+  { name: "Colorado", abbr: "CO", slug: "colorado", cities: ["Denver", "Colorado Springs", "Aurora", "Fort Collins"] },
+  { name: "Connecticut", abbr: "CT", slug: "connecticut", cities: ["Hartford", "New Haven", "Stamford", "Bridgeport"] },
+  { name: "Delaware", abbr: "DE", slug: "delaware", cities: ["Wilmington", "Dover", "Newark", "Middletown"] },
+  { name: "District of Columbia", abbr: "DC", slug: "washington-dc", cities: ["Washington"] },
+  { name: "Florida", abbr: "FL", slug: "florida", cities: ["Jacksonville", "Miami", "Tampa", "Orlando"] },
+  { name: "Georgia", abbr: "GA", slug: "georgia", cities: ["Atlanta", "Augusta", "Savannah", "Columbus"] },
+  { name: "Hawaii", abbr: "HI", slug: "hawaii", cities: ["Honolulu", "Hilo", "Kailua", "Kaneohe"] },
+  { name: "Idaho", abbr: "ID", slug: "idaho", cities: ["Boise", "Meridian", "Nampa", "Idaho Falls"] },
+  { name: "Illinois", abbr: "IL", slug: "illinois", cities: ["Chicago", "Aurora", "Naperville", "Springfield"] },
+  { name: "Indiana", abbr: "IN", slug: "indiana", cities: ["Indianapolis", "Fort Wayne", "Evansville", "South Bend"] },
+  { name: "Iowa", abbr: "IA", slug: "iowa", cities: ["Des Moines", "Cedar Rapids", "Davenport", "Iowa City"] },
+  { name: "Kansas", abbr: "KS", slug: "kansas", cities: ["Wichita", "Overland Park", "Kansas City", "Topeka"] },
+  { name: "Kentucky", abbr: "KY", slug: "kentucky", cities: ["Louisville", "Lexington", "Bowling Green", "Owensboro"] },
+  { name: "Louisiana", abbr: "LA", slug: "louisiana", cities: ["New Orleans", "Baton Rouge", "Shreveport", "Lafayette"] },
+  { name: "Maine", abbr: "ME", slug: "maine", cities: ["Portland", "Lewiston", "Bangor", "Augusta"] },
+  { name: "Maryland", abbr: "MD", slug: "maryland", cities: ["Baltimore", "Columbia", "Germantown", "Rockville"] },
+  { name: "Massachusetts", abbr: "MA", slug: "massachusetts", cities: ["Boston", "Worcester", "Springfield", "Cambridge"] },
+  { name: "Michigan", abbr: "MI", slug: "michigan", cities: ["Detroit", "Grand Rapids", "Ann Arbor", "Lansing"] },
+  { name: "Minnesota", abbr: "MN", slug: "minnesota", cities: ["Minneapolis", "Saint Paul", "Rochester", "Duluth"] },
+  { name: "Mississippi", abbr: "MS", slug: "mississippi", cities: ["Jackson", "Gulfport", "Southaven", "Hattiesburg"] },
+  { name: "Missouri", abbr: "MO", slug: "missouri", cities: ["Kansas City", "St. Louis", "Springfield", "Columbia"] },
+  { name: "Montana", abbr: "MT", slug: "montana", cities: ["Billings", "Missoula", "Great Falls", "Bozeman"] },
+  { name: "Nebraska", abbr: "NE", slug: "nebraska", cities: ["Omaha", "Lincoln", "Bellevue", "Grand Island"] },
+  { name: "Nevada", abbr: "NV", slug: "nevada", cities: ["Las Vegas", "Henderson", "Reno", "North Las Vegas"] },
+  { name: "New Hampshire", abbr: "NH", slug: "new-hampshire", cities: ["Manchester", "Nashua", "Concord", "Dover"] },
+  { name: "New Jersey", abbr: "NJ", slug: "new-jersey", cities: ["Newark", "Jersey City", "Paterson", "Trenton"] },
+  { name: "New Mexico", abbr: "NM", slug: "new-mexico", cities: ["Albuquerque", "Las Cruces", "Rio Rancho", "Santa Fe"] },
+  { name: "New York", abbr: "NY", slug: "new-york", cities: ["New York City", "Buffalo", "Rochester", "Albany"] },
+  { name: "North Carolina", abbr: "NC", slug: "north-carolina", cities: ["Charlotte", "Raleigh", "Greensboro", "Durham"] },
+  { name: "North Dakota", abbr: "ND", slug: "north-dakota", cities: ["Fargo", "Bismarck", "Grand Forks", "Minot"] },
+  { name: "Ohio", abbr: "OH", slug: "ohio", cities: ["Columbus", "Cleveland", "Cincinnati", "Toledo"] },
+  { name: "Oklahoma", abbr: "OK", slug: "oklahoma", cities: ["Oklahoma City", "Tulsa", "Norman", "Broken Arrow"] },
+  { name: "Oregon", abbr: "OR", slug: "oregon", cities: ["Portland", "Salem", "Eugene", "Bend"] },
+  { name: "Pennsylvania", abbr: "PA", slug: "pennsylvania", cities: ["Philadelphia", "Pittsburgh", "Allentown", "Harrisburg"] },
+  { name: "Rhode Island", abbr: "RI", slug: "rhode-island", cities: ["Providence", "Warwick", "Cranston", "Pawtucket"] },
+  { name: "South Carolina", abbr: "SC", slug: "south-carolina", cities: ["Charleston", "Columbia", "Greenville", "Myrtle Beach"] },
+  { name: "South Dakota", abbr: "SD", slug: "south-dakota", cities: ["Sioux Falls", "Rapid City", "Aberdeen", "Brookings"] },
+  { name: "Tennessee", abbr: "TN", slug: "tennessee", cities: ["Nashville", "Memphis", "Knoxville", "Chattanooga"] },
+  { name: "Texas", abbr: "TX", slug: "texas", cities: ["Houston", "San Antonio", "Dallas", "Austin"] },
+  { name: "Utah", abbr: "UT", slug: "utah", cities: ["Salt Lake City", "West Valley City", "Provo", "Ogden"] },
+  { name: "Vermont", abbr: "VT", slug: "vermont", cities: ["Burlington", "Montpelier", "Rutland", "South Burlington"] },
+  { name: "Virginia", abbr: "VA", slug: "virginia", cities: ["Virginia Beach", "Richmond", "Norfolk", "Arlington"] },
+  { name: "Washington", abbr: "WA", slug: "washington", cities: ["Seattle", "Spokane", "Tacoma", "Vancouver"] },
+  { name: "West Virginia", abbr: "WV", slug: "west-virginia", cities: ["Charleston", "Huntington", "Morgantown", "Parkersburg"] },
+  { name: "Wisconsin", abbr: "WI", slug: "wisconsin", cities: ["Milwaukee", "Madison", "Green Bay", "Kenosha"] },
+  { name: "Wyoming", abbr: "WY", slug: "wyoming", cities: ["Cheyenne", "Casper", "Laramie", "Gillette"] },
+];
+
+export const stateBySlug = (slug: string) => STATES.find((s) => s.slug === slug);
+export const stateSlugs = () => STATES.map((s) => s.slug);
