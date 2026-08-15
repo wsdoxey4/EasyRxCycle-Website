@@ -114,6 +114,40 @@ export const STATES: StateInfo[] = [
   { name: "Wyoming", abbr: "WY", slug: "wyoming", cities: ["Cheyenne", "Casper", "Laramie", "Gillette"] },
 ];
 
+// Statewide pharmaceutical EPR / drug take-back laws (manufacturer-funded statewide collection
+// via kiosks + mail-back), with enactment year. Exactly 8 states as of Aug 2026.
+// Sources: Product Stewardship Institute (productstewardship.us); Legislative Analysis & Public
+// Policy Assoc., "Drug Take-Back and Disposal Programs: Summary of State Laws" (2025).
+export const TAKE_BACK_LAW: Record<string, number> = {
+  vermont: 2016, massachusetts: 2016, california: 2018, "new-york": 2018,
+  washington: 2018, oregon: 2019, maine: 2021, illinois: 2022,
+};
+
+// Home-generated sharps in household trash: "ban" = prohibited, must use a program/mail-back/drop-off;
+// "conditional" = restricted where curbside sharps service exists. All other states generally allow
+// sharps in trash ONLY inside an approved puncture-resistant container, subject to local rules.
+// Sources: LAPPA sharps-disposal summary; CA (Medical Waste Mgmt Act), MA (105 CMR 480, 2012), WA.
+export const SHARPS_TRASH_BAN: Record<string, "ban" | "conditional"> = {
+  california: "ban", massachusetts: "ban", washington: "conditional",
+};
+
+// Rollout waves — control what is INDEXED (sitemap + robots), never what is built (URLs always
+// resolve so 301s land). Wave 1 = streams that inherit rankings from the old HubSpot site via 301s
+// + the state hubs. Wave 2 = other sellable streams. Wave 3 = net-new / quote-only streams.
+export const STREAM_WAVE: Record<string, number> = {
+  "sharps-disposal": 1,
+  "biohazard-waste-disposal": 1,
+  "pharmaceutical-waste-disposal": 1,
+  "medication-disposal-kit": 2,
+  "controlled-substance-destruction": 3,
+  "rcra-hazardous-pharmaceutical-waste": 3,
+  "trace-chemotherapy-waste": 3,
+  "reverse-distribution": 3,
+};
+// Bump to 2, then 3, as each wave's differentiated content is reviewed and ready.
+export const LIVE_WAVE = 1;
+export const streamIndexable = (slug: string) => (STREAM_WAVE[slug] ?? 99) <= LIVE_WAVE;
+
 export const stateBySlug = (slug: string): StateInfo | undefined => {
   const s = STATES.find((x) => x.slug === slug);
   return s ? { ...s, agency: AGENCY[slug] } : undefined;

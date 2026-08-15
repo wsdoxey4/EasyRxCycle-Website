@@ -1258,3 +1258,14 @@ header.site .wrap{position:relative;}
 .hero-rotator img:nth-child(7){animation-delay:27s}
 @keyframes heroRotate{0%{opacity:0}2%{opacity:1}12%{opacity:1}14.28%{opacity:0}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero-rotator img{animation:none;opacity:0}.hero-rotator img:first-child{opacity:1}}
+
+/* Per-state regulatory snapshot (StateSnapshot.tsx) — differentiated location content */
+.statesnap{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:22px 24px;margin-top:22px;}
+.statesnap-h{font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+.statesnap dl{margin:0;display:grid;gap:0;}
+.statesnap-row{display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--line);}
+.statesnap-row:first-child{border-top:0;}
+.statesnap dt{font-weight:600;color:var(--ink);font-size:14.5px;}
+.statesnap dd{margin:0;color:var(--slate);font-size:14.5px;line-height:1.5;}
+.statesnap-note{margin:16px 0 0;color:var(--slate);font-size:13px;border-top:1px dashed var(--line);padding-top:12px;}
+@media(max-width:640px){.statesnap-row{grid-template-columns:1fr;gap:3px;}}

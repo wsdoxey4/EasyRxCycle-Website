@@ -7,8 +7,9 @@ import CaseStudyProof from "@/components/CaseStudyProof";
 import ExitIntentGuide from "@/components/ExitIntentGuide";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import StateSnapshot from "@/components/StateSnapshot";
 import { SITE, abs } from "@/lib/site";
-import { STATES, stateBySlug, stateSlugs } from "@/lib/geo";
+import { STATES, stateBySlug, stateSlugs, streamIndexable } from "@/lib/geo";
 import { notFound } from "next/navigation";
 
 const BASE = "/our-solutions/controlled-substance-destruction";
@@ -27,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const desc = `DEA-registered controlled substance destruction in ${s.name}. Non-retrievable mail-back & pickup for ${s.cities[0]} and statewide, with a Certificate of Destruction.`;
   return {
     title, description: desc, alternates: { canonical: path },
+    robots: streamIndexable("controlled-substance-destruction") ? undefined : { index: false, follow: true },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description: desc, url: abs(path), images: [{ url: SITE.ogImage }] },
   };
 }
@@ -141,6 +143,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
               <li>{check}<span><strong>EPA / {s.name}:</strong> hazardous-drug rules where applicable</span></li>
               <li>{check}<span><strong>DOT:</strong> compliant packaging &amp; prepaid return shipping</span></li>
             </ul>
+            <StateSnapshot s={s} />
           </div>
         </section>
 

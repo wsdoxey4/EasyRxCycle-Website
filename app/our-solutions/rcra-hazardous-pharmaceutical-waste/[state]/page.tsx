@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import StateSolutionPage from "@/components/StateSolutionPage";
-import { stateBySlug, stateSlugs } from "@/lib/geo";
+import { stateBySlug, stateSlugs, streamIndexable } from "@/lib/geo";
 import { STREAMS } from "@/lib/streams";
 import { SITE, abs } from "@/lib/site";
 import { notFound } from "next/navigation";
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const description = STREAM.metaDesc(s);
   return {
     title, description, alternates: { canonical: path },
+    robots: streamIndexable(STREAM.slug) ? undefined : { index: false, follow: true },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description, url: abs(path), images: [{ url: SITE.ogImage }] },
   };
 }

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
+import { streamIndexable } from "@/lib/geo";
 
 export const dynamic = "force-static";
 
@@ -647,7 +648,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/locations/wyoming",
     "/locations/washington-dc",
   ]; // extend as more ICP and geo pages ship
-  return routes.map((path) => {
+  // Wave gating: keep pillars + hubs, but drop state-spoke URLs whose stream is above the live
+  // wave (those pages still build + resolve for 301s, but stay out of the index until their wave).
+  const live = routes.filter((path) => {
+    const seg = path.split("/").filter(Boolean); // e.g. ["our-solutions","sharps-disposal","texas"]
+    if (seg[0] === "our-solutions" && seg.length === 3) return streamIndexable(seg[1]);
+    return true;
+  });
+  return live.map((path) => {
     // trailingSlash:true — emit canonical (trailing-slash) URLs so the sitemap never self-redirects
     const p = path === "/" ? "/" : path.endsWith("/") ? path : `${path}/`;
     return {

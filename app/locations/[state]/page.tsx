@@ -5,6 +5,7 @@ import MobileCTA from "@/components/MobileCTA";
 import TrustBar from "@/components/TrustBar";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import StateSnapshot from "@/components/StateSnapshot";
 import { SITE, abs } from "@/lib/site";
 import { STATES, stateBySlug, stateSlugs } from "@/lib/geo";
 import { notFound } from "next/navigation";
@@ -150,6 +151,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
               <li>{check}<span><strong>{board}</strong> — adds state licensing and recordkeeping for pharmacies and drug handlers.</span></li>
             </ul>
             <p className="lead" style={{ marginTop: "20px" }}>We keep your {s.name} program aligned to all of them — the right container for each stream, DOT-compliant transport, DEA-registered controlled destruction, and a documented Certificate of Destruction on every order. When rules change, we tell you.</p>
+            <StateSnapshot s={s} />
           </div>
         </section>
 

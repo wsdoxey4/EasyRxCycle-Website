@@ -6,6 +6,7 @@ import CaseStudyProof from "@/components/CaseStudyProof";
 import ExitIntentGuide from "@/components/ExitIntentGuide";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import StateSnapshot from "@/components/StateSnapshot";
 import { SITE, abs } from "@/lib/site";
 import type { StateInfo } from "@/lib/geo";
 import type { Stream } from "@/lib/streams";
@@ -116,6 +117,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
             <ul className="covers" style={{ marginTop: "22px" }}>
               {stream.compBullets(s).map((b) => (<li key={b.label}>{check}<span><strong>{b.label}:</strong> {b.text}</span></li>))}
             </ul>
+            <StateSnapshot s={s} />
           </div>
         </section>
 
