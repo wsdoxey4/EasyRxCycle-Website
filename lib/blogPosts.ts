@@ -31,6 +31,7 @@ export const CLUSTER_GUIDE: Record<string, string> = {
 };
 
 export const posts: Post[] = [
+  { slug: "drug-diversion-in-healthcare-prevention-and-disposal", cluster: "controlled", title: "Drug Diversion in Healthcare: Prevention, Detection & Disposal", excerpt: "Where diversion happens, how facilities prevent and detect it, and why documented non-retrievable destruction closes the loop." },
   { slug: "how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained", cluster: "controlled", title: "How to Properly Destroy Controlled Drugs: DEA Forms 222, 41 & COD Explained", excerpt: "When you need Form 222 vs. Form 41, what a Certificate of Destruction proves, and the steps that keep you audit-ready." },
   { slug: "how-to-dispose-of-controlled-drugs-for-veterinary-clinic", cluster: "controlled", title: "How to Dispose of Controlled Drugs for a Veterinary Clinic", excerpt: "Ketamine, euthanasia solution, gabapentin — the compliant way for vet clinics to dispose of controlled drugs." },
   { slug: "how-to-dispose-of-controlled-drugs-for-ambulance-services", cluster: "controlled", title: "How to Dispose of Controlled Drugs for Ambulance Services", excerpt: "Field opioids and sedatives, mobile-unit disposal options, and the DEA forms EMS teams need." },
