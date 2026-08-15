@@ -154,6 +154,20 @@ export default function Page() {
           <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
         </section>
 
+        <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Learn more</span><h2>Reverse distribution guides.</h2></div>
+            <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
+              <a className="svc" href="/blog/what-is-a-reverse-distributor-a-simple-guide-for-pharmacies-and-healthcare-facilities"><h4>What is a reverse distributor?</h4><p>The simple guide for pharmacies and facilities.</p></a>
+              <a className="svc" href="/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs"><h4>Recover credit on expired drugs</h4><p>The return process and how the credit works.</p></a>
+              <a className="svc" href="/blog/reverse-distribution-for-controlled-substances"><h4>Controlled-substance returns</h4><p>Form 222/41, ARCOS, and DEA-registered handling.</p></a>
+              <a className="svc" href="/blog/how-to-use-a-reverse-distributor-for-safe-drug-disposal"><h4>How to use a reverse distributor</h4><p>The five-step process, start to finish.</p></a>
+              <a className="svc" href="/blog/best-reverse-distributors-a-comparison"><h4>Comparing reverse distributors</h4><p>What actually matters when you choose one.</p></a>
+              <a className="svc" href="/compare/reverse-distributor-alternative"><h4>Reverse distributor alternative</h4><p>Returns + destruction + every stream, one vendor.</p></a>
+            </div>
+          </div>
+        </section>
+
         <ServiceStates service="reverse-distribution" label="Reverse Distribution" />
 
         <section className="sec" style={{ paddingTop: "0" }}>

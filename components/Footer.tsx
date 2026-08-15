@@ -25,7 +25,7 @@ export default function Footer() {
   <div className="fbar">
     <div>&copy; 2026 Easy Rx Cycle. All rights reserved.</div>
     <div className="fpolicy"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/shipping-policy">Shipping</a><a href="/returns">Returns</a></div>
-    <div className="fcreds"><span>DEA-REGISTERED</span><span>EPA-COMPLIANT</span><span>HIPAA &amp; DOT</span><span>RCRA</span></div>
+    <div className="fcreds"><span>DEA-REGISTERED</span><span>EPA-COMPLIANT</span><span>HIPAA &amp; DOT</span><span>RCRA</span><span>NWRA MEMBER</span></div>
   </div>
 </div></footer>
   );
