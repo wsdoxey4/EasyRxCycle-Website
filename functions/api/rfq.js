@@ -44,7 +44,9 @@ export async function onRequestPost({ request, env }) {
 
   // --- Resend: sales alert + client confirmation ---
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
-    const salesTo = env.RFQ_NOTIFY_EMAIL || "william@easyrxcycle.com";
+    // Always alert BOTH William and sales (plus any addresses in RFQ_NOTIFY_EMAIL), deduped.
+    const extra = env.RFQ_NOTIFY_EMAIL ? String(env.RFQ_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : [];
+    const salesTo = Array.from(new Set([...extra, "william@easyrxcycle.com", "sales@easyrxcycle.com"]));
     // Optional PDF (e.g. cost-estimate) generated client-side and passed through as base64.
     const atts = (d.attachment && d.attachment.content && d.attachment.filename)
       ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]

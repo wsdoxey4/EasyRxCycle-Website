@@ -28,9 +28,10 @@ export async function onRequestPost({ request, env }) {
         headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
         body: JSON.stringify({ from, to: email, subject: "You're on the list — Easy Rx Cycle", html: welcome() }) });
       // internal alert to William with the new subscriber's info
+      const notify = Array.from(new Set([...(env.LEAD_NOTIFY_EMAIL ? String(env.LEAD_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : []), "william@easyrxcycle.com", "sales@easyrxcycle.com"]));
       await fetch("https://api.resend.com/emails", { method: "POST",
         headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ from: env.RESEND_FROM, to: env.LEAD_NOTIFY_EMAIL || "william@easyrxcycle.com", reply_to: email,
+        body: JSON.stringify({ from: env.RESEND_FROM, to: notify, reply_to: email,
           subject: `New newsletter subscriber — ${email}`, html: subNotify(email, d) }) });
       results.resend = "sent";
     } catch { results.resend = "error"; }

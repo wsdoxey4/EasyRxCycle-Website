@@ -33,7 +33,8 @@ export async function onRequestPost({ request, env }) {
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
     try {
       await send(env, d.email, `Your guide is ready — ${magnet}`, downloadHtml(d.name, magnet, link, d.bullets));
-      await send(env, env.LEAD_NOTIFY_EMAIL || "william@easyrxcycle.com", `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
+      const notify = Array.from(new Set([...(env.LEAD_NOTIFY_EMAIL ? String(env.LEAD_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : []), "william@easyrxcycle.com", "sales@easyrxcycle.com"]));
+      await send(env, notify, `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
     } catch {}
   }
 
