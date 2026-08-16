@@ -57,4 +57,5 @@ export const ANALYTICS = {
   gtm: process.env.NEXT_PUBLIC_GTM_ID || "",
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "G-DBFLW3D87G",
   clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
+  hubspot: process.env.NEXT_PUBLIC_HUBSPOT_ID || "49645219",  // HubSpot page tracking (CRM attribution for known contacts)
 };

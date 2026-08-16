@@ -32,6 +32,9 @@ export default function Analytics() {
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${ANALYTICS.clarity}");
         `}</Script>
       )}
+      {ANALYTICS.hubspot && (
+        <Script id="hs-script-loader" src={`https://js.hs-scripts.com/${ANALYTICS.hubspot}.js`} strategy="afterInteractive" />
+      )}
     </>
   );
 }
