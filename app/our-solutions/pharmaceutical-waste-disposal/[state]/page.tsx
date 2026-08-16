@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const description = STREAM.metaDesc(s);
   return {
     title, description, alternates: { canonical: path },
-    robots: streamIndexable(STREAM.slug) ? undefined : { index: false, follow: true },
+    robots: (SITE.indexable && streamIndexable(STREAM.slug)) ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description, url: abs(path), images: [{ url: SITE.ogImage }] },
   };
 }

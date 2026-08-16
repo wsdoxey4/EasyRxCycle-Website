@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const desc = `DEA-registered controlled substance destruction in ${s.name}. Non-retrievable mail-back & pickup for ${s.cities[0]} and statewide, with a Certificate of Destruction.`;
   return {
     title, description: desc, alternates: { canonical: path },
-    robots: streamIndexable("controlled-substance-destruction") ? undefined : { index: false, follow: true },
+    robots: (SITE.indexable && streamIndexable("controlled-substance-destruction")) ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description: desc, url: abs(path), images: [{ url: SITE.ogImage }] },
   };
 }
