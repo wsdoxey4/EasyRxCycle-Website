@@ -26,7 +26,7 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Organization", name: "Easy Rx Cycle" }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -46,7 +46,7 @@ export default function Page() {
               <span className="eyebrow">RCRA hazardous</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Hazardous Pharmaceutical Waste Disposal: The Complete Guide")} />
               <div className="byline">
-                <span className="who">Easy Rx Cycle Team</span><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>7 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Some of the most common drugs on your shelf &mdash; warfarin, nicotine patches, epinephrine &mdash; aren&rsquo;t just pharmaceutical waste. They&rsquo;re <strong>hazardous</strong> waste under EPA rules, and disposing of them like ordinary drugs is a RCRA violation. Here&rsquo;s how to identify hazardous pharmaceutical waste and dispose of it compliantly.")} />

@@ -20,7 +20,7 @@ const faqs = [{"q": "Can I mail back controlled substances?", "a": "Yes. Under D
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Organization", name: "Easy Rx Cycle" }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-16", dateModified: "2026-08-16", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-16", dateModified: "2026-08-16", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -40,7 +40,7 @@ export default function Page() {
               <span className="eyebrow">Medication disposal</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Mail-Back Kit vs. Deactivation Pouch vs. Drop Box: A Clear Comparison")} />
               <div className="byline">
-                <span className="who">Easy Rx Cycle Team</span><span className="dot-sep" /><span>Aug 16, 2026</span>
+                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 16, 2026</span>
                 <span className="dot-sep" /><span>5 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("There are three common ways to dispose of unused and expired medication: DEA-authorized mail-back envelopes and kits, in-home drug deactivation pouches, and collection drop-boxes or kiosks. They work very differently, accept different things, and suit different users. Here is a neutral, practical comparison so you can pick the right one.")} />

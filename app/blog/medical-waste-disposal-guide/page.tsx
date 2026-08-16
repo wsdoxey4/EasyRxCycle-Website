@@ -26,7 +26,7 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Organization", name: "Easy Rx Cycle" }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -46,7 +46,7 @@ export default function Page() {
               <span className="eyebrow">Complete guide</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Medical Waste Disposal: Types, Methods &amp; How It Works")} />
               <div className="byline">
-                <span className="who">Easy Rx Cycle Team</span><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>8 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("&ldquo;Medical waste&rdquo; isn&rsquo;t one thing &mdash; it&rsquo;s six regulated streams, each with its own container, rules, and destruction method. Put something in the wrong one and you either risk a violation or overpay. This guide breaks down every type, how each is disposed of, what it costs, and how to choose a provider.")} />

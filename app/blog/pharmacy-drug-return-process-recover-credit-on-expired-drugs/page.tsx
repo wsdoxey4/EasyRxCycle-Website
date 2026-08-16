@@ -26,7 +26,7 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Organization", name: "Easy Rx Cycle" }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -46,7 +46,7 @@ export default function Page() {
               <span className="eyebrow">Reverse Distribution</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("The Pharmacy Drug Return Process: Recover Credit on Expired Drugs")} />
               <div className="byline">
-                <span className="who">Easy Rx Cycle Team</span><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most facilities treat expired inventory as a write-off. It doesn&rsquo;t have to be. Reverse distribution is how pharmacies and healthcare facilities turn returnable expired and short-dated stock back into <strong>manufacturer credit</strong> &mdash; and compliantly destroy the rest. Here&rsquo;s exactly how the return process works and how to get the most back.")} />

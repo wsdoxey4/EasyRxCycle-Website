@@ -26,7 +26,7 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Organization", name: "Easy Rx Cycle" }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-15", dateModified: "2026-08-15", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -46,7 +46,7 @@ export default function Page() {
               <span className="eyebrow">Compliance · hazardous drugs</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("USP 800: The Complete Guide to Hazardous Drug Handling")} />
               <div className="byline">
-                <span className="who">Easy Rx Cycle Team</span><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>7 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("USP &lt;800&gt; is the standard that governs how healthcare handles hazardous drugs &mdash; and it&rsquo;s one of the most-searched, least-understood compliance topics in the field. If your staff touch anything on the NIOSH list, it applies to you. Here&rsquo;s the whole standard in plain English, and how the disposal piece fits.")} />

@@ -38,6 +38,18 @@ export const SITE = {
   ],
 } as const;
 
+// Primary content author — used for E-E-A-T (Person schema + visible byline on
+// guides and blog posts). linkedin drives the schema `sameAs` + the profile link.
+export const AUTHOR = {
+  name: "William Doxey",
+  role: "Chief Operating Officer",
+  path: "/author/william-doxey",
+  // TODO: William's exact personal LinkedIn profile URL (e.g. https://www.linkedin.com/in/william-doxey)
+  linkedin: "",
+  bio:
+    "William Doxey is the Chief Operating Officer of Easy Rx Cycle, a DEA-registered pharmaceutical and medical waste destruction company operating since 2018. He works hands-on across controlled substance destruction, reverse distribution, and RCRA-hazardous pharmaceutical waste, and writes these guides to make regulated-waste compliance practical for the people who handle it every day.",
+} as const;
+
 export const abs = (path: string) =>
   path.startsWith("http") ? path : `${SITE.url}${path.startsWith("/") ? "" : "/"}${path}`;
 

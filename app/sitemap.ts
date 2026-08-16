@@ -495,6 +495,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources/usp-800",
     "/resources/certificate-of-destruction",
     "/resources/bloodborne-training",
+    "/glossary",
+    "/author/william-doxey",
     // blog
     "/blog",
     "/blog/reverse-distribution-vs-destruction",

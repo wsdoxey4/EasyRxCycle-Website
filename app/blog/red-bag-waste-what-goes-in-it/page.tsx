@@ -27,7 +27,7 @@ const faqs = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: "Red Bag Waste: What Goes In It (and What Doesn't)", description: DESC, author: { "@type": "Person", name: "Easy Rx Cycle Team" }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-07-20", dateModified: "2026-07-31", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: "Red Bag Waste: What Goes In It (and What Doesn't)", description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-07-20", dateModified: "2026-07-31", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -45,7 +45,7 @@ export default function Page() {
               <span className="eyebrow">Biohazard</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Red Bag Waste: What Goes In It (and What Doesn&rsquo;t)" }} />
               <div className="byline">
-                <span className="who">Easy Rx Cycle Team</span>
+                <a className="who" href="/author/william-doxey">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
