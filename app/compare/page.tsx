@@ -38,6 +38,53 @@ export default function Page() {
                 </a>
               ))}
             </div>
+
+            <div className="prose" style={{ marginTop: "clamp(40px,5vw,64px)", maxWidth: "760px" }}>
+              <h2>What actually matters when you compare disposal vendors</h2>
+              <p>
+                Medical-waste providers are easy to make look alike on a slide and hard to compare in practice. Five
+                things separate them, and they are the questions to ask before you sign anything:
+              </p>
+              <ul>
+                <li>
+                  <strong>DEA registration for destruction.</strong> Only a DEA-registered destruction company or
+                  reverse distributor can render controlled substances non-retrievable under 21 CFR 1317. Many haulers
+                  broker this to a third party or denature on site — ask who actually destroys the drug and who signs
+                  the documentation.
+                </li>
+                <li>
+                  <strong>Published pricing vs. quote-gated.</strong> Most of the field hides pricing behind a sales
+                  call. We publish prices on our{" "}
+                  <a href="/shop">mail-back kits</a> and post a{" "}
+                  <a href="/medical-waste-disposal-cost">cost breakdown by stream</a> so you can compare before you talk
+                  to anyone.
+                </li>
+                <li>
+                  <strong>Contract terms.</strong> Long auto-renewing agreements with early-termination fees are common
+                  in this industry. Ask about contract length, renewal, and price-escalation clauses — ours are
+                  no-contract.
+                </li>
+                <li>
+                  <strong>Stream coverage under one roof.</strong> A vendor strong in sharps may not touch controlled
+                  substances, RCRA-hazardous drugs, or reverse distribution — leaving you to juggle two or three
+                  contracts. We cover <a href="/our-solutions">every regulated stream</a> a facility generates.
+                </li>
+                <li>
+                  <strong>Documentation.</strong> A Certificate of Destruction on every order, plus DEA Form 41/222
+                  handling where the schedule requires it, is what proves compliance in an audit — not a pickup receipt.
+                </li>
+              </ul>
+
+              <h2>Where Easy Rx Cycle fits</h2>
+              <p>
+                We are a DEA-registered destruction company with published pricing, no contract, and coverage across
+                all eight regulated streams by mail-back or scheduled pickup. That combination is genuinely uncommon —
+                the national haulers own scale and local pickup routes; the reverse distributors own returns; the
+                product companies own a single kit. The honest comparisons above lay out, vendor by vendor, where each
+                is strong and where a DEA-registered, transparent, single-vendor model is the better fit. When another
+                provider is the right call for your situation, the comparison will say so.
+              </p>
+            </div>
           </div>
         </section>
       </main>

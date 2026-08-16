@@ -87,6 +87,50 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+          <div className="wrap" style={{ maxWidth: "760px" }}>
+            <div className="shead" style={{ textAlign: "left" }}><span className="eyebrow">Before you reach out</span><h2>What to expect when you contact us.</h2></div>
+            <div className="prose">
+              <h2>How we size a quote</h2>
+              <p>
+                Pricing on regulated waste comes down to what you generate and how much of it. Have a rough sense of your
+                streams and monthly volume ready and we can quote quickly. We handle all eight streams &mdash; controlled
+                substances (Schedule II&ndash;V), non-controlled pharmaceuticals, RCRA-hazardous drugs, chemotherapy and other
+                trace or bulk hazardous waste, sharps, biohazard and red-bag waste, and pharmaceutical returns. If you are not
+                sure how something is classified, describe it and a specialist will sort it out. There is no contract to sign and
+                no obligation to move forward after a quote.
+              </p>
+
+              <h2>Mail-back or pickup &mdash; how we route you</h2>
+              <p>
+                Lower-volume sites and single locations are usually served best by our mail-back program: a compliant kit ships
+                to you with a prepaid return label to our permitted facility, so you only pay when you are ready to return it.
+                Higher-volume facilities, multi-site operators, and streams that are impractical to mail are typically better on
+                scheduled pickup. We will point you to whichever fits your volume and streams rather than force one model &mdash;
+                many clients use a mix across locations. Controlled-substance destruction follows DEA chain-of-custody
+                requirements under 21 CFR part 1317 either way.
+              </p>
+
+              <h2>What to have ready</h2>
+              <p>
+                To get you a same-day answer, it helps to know your facility type (pharmacy, clinic, hospital, long-term care,
+                veterinary, lab, or other), your location, the streams you need covered, and roughly how much you accumulate in a
+                month. If you handle controlled substances, note that so we can confirm the right documentation and destruction
+                path. You do not need a DEA registration number to request a quote.
+              </p>
+
+              <h2>Service area and getting set up</h2>
+              <p>
+                We serve all 50 states. Once you decide to move forward, onboarding a new facility is straightforward: we confirm
+                your streams and service model, get the right documentation in place, and get kits shipping or a pickup scheduled.
+                Every completed destruction comes back with a Certificate of Destruction for your records and audit trail. Please
+                do not mail waste to our office address &mdash; all returns go to our permitted facility on the prepaid label
+                included with your kit.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
       <Reveal />

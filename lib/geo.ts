@@ -202,8 +202,14 @@ export const STREAM_WAVE: Record<string, number> = {
   "trace-chemotherapy-waste": 3,
   "reverse-distribution": 3,
 };
-// Waves 1-3 cover all 8 streams; LIVE_WAVE=3 = fully rolled out (every stream indexed).
-export const LIVE_WAVE = 3;
+// Waves 1-3 cover all 8 streams. STAGED ROLLOUT to avoid dropping all 408 geo-spokes on Google at once
+// (scaled-content/doorway risk on a freshly-migrated domain). Bump this ONE number to widen indexing:
+//   LIVE_WAVE=1 at cutover  -> sharps + biohazard + pharma spokes index (~153, the streams that inherit
+//                              rankings via 301s). Blog/guide/pillar content for ALL streams still indexes
+//                              (only the templated [state] spokes are gated), so nothing winnable is hidden.
+//   LIVE_WAVE=2 after ~2-3 wks of clean indexing (GSC shows spokes indexed, no manual actions) -> + medication.
+//   LIVE_WAVE=3 after another ~2-3 wks -> + controlled, rcra, trace chemo, reverse (all 408 spokes live).
+export const LIVE_WAVE = 1;
 export const streamIndexable = (slug: string) => (STREAM_WAVE[slug] ?? 99) <= LIVE_WAVE;
 
 export const stateBySlug = (slug: string): StateInfo | undefined => {

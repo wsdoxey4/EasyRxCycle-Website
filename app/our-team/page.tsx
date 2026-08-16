@@ -83,6 +83,48 @@ export default function Page() {
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+          <div className="wrap" style={{ maxWidth: "760px" }}>
+            <div className="shead" style={{ textAlign: "left" }}><span className="eyebrow">Our approach</span><h2>Why a DEA-registered destruction partner is different.</h2></div>
+            <div className="prose">
+              <h2>Registered destruction, not just hauling</h2>
+              <p>
+                Plenty of vendors will pick up waste. Far fewer are set up to destroy controlled substances under their own DEA
+                registration and stand behind that chain of custody. That distinction matters when an inspector asks where your
+                Schedule II&ndash;V drugs went. Our team is built around compliant destruction across all eight regulated streams,
+                with the controlled-substance side governed by DEA rules under 21 CFR part 1317 and reverse-distribution and
+                transfer documentation handled on DEA Form 222 and Form 41 where those apply.
+              </p>
+
+              <h2>Documentation that holds up in an audit</h2>
+              <p>
+                Compliance is really a documentation problem. Our team&rsquo;s job is to make sure the paperwork exists, is
+                accurate, and is easy to produce when you need it. Every completed destruction returns a Certificate of
+                Destruction tied to your facility, so your records line up with what actually happened to the waste. Alongside
+                that, we help you keep the surrounding pieces straight &mdash; hazardous-waste handling under EPA RCRA and the
+                pharmaceutical rules at 40 CFR part 266 subpart P, DOT packaging for shipments classified as UN3291, and the
+                worker-safety expectations of OSHA&rsquo;s bloodborne pathogens standard at 29 CFR 1910.1030.
+              </p>
+
+              <h2>One accountable partner for every stream</h2>
+              <p>
+                Most facilities end up juggling separate vendors for pharmaceuticals, sharps, hazardous drugs, and returns &mdash;
+                which means separate manifests, separate invoices, and gaps where responsibility gets murky. Our team is
+                structured to be the single point of accountability across all of it. When something needs answering, you are not
+                chasing four companies to find out who has your paperwork.
+              </p>
+
+              <h2>Built to keep you audit-ready</h2>
+              <p>
+                The team spans operations, logistics, e-commerce, and regulatory and DEA compliance so that the day-to-day of
+                getting waste destroyed and the documentation behind it move together. Healthcare handling protected health
+                information can operate under a business associate agreement consistent with HIPAA. And because there is no forced
+                contract, the relationship stays earned &mdash; the work has to be right every time.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
           <div className="wrap">
             <div className="finalcta">
               <div>

@@ -97,6 +97,52 @@ export default function Page() {
               <a href="/resources" style={{ color: "var(--teal)", fontWeight: 600 }}>free compliance guides</a>, or{" "}
               <a href="/get-a-quote" style={{ color: "var(--teal)", fontWeight: 600 }}>get a tailored quote</a>.
             </p>
+
+            <div className="prose" style={{ marginTop: "clamp(40px,5vw,64px)", maxWidth: "760px" }}>
+              <h2 style={{ fontSize: "clamp(20px,2.4vw,26px)" }}>How to know which streams apply to you</h2>
+              <p>
+                Most facilities generate more regulated streams than they realize — and citations usually come from
+                the stream nobody assigned an owner. A single exam room can produce sharps, red-bag biohazard, and
+                expired non-controlled medications; add a controlled substance, a P- or U-listed drug like warfarin
+                or nicotine, or a trace-chemo agent, and you are suddenly managing four or five separate rules at
+                once. Each stream carries its own container, label, transport standard, and destruction requirement.
+                The fastest way to scope yours is to walk each room and list what actually gets thrown away, then
+                match it to a stream — or start from{" "}
+                <a href="/who-we-serve/">disposal built for your industry</a>, where we lay out the streams a facility
+                like yours typically generates.
+              </p>
+
+              <h2 style={{ fontSize: "clamp(20px,2.4vw,26px)" }}>Why one vendor beats juggling several</h2>
+              <p>
+                It is common to end up with one contract for sharps, another for pharmaceuticals, and a separate
+                arrangement for controlled substances — three invoices, three pickup schedules, and three
+                documentation trails an inspector can pull apart. As a DEA-registered destruction company, Easy Rx
+                Cycle covers streams most vendors split across multiple contracts, including controlled substances
+                rendered non-retrievable under DEA 21 CFR 1317 with a Certificate of Destruction. Consolidating to one
+                partner means one point of contact, one consistent paper trail, and no gaps where a stream falls
+                between two vendors.
+              </p>
+
+              <h2 style={{ fontSize: "clamp(20px,2.4vw,26px)" }}>Mail-back or scheduled pickup — which fits</h2>
+              <p>
+                Lower-volume sites — a dental office, a clinic, an independent pharmacy — are usually best served by{" "}
+                <a href="/shop">prepaid mail-back kits</a>: buy online, fill, and ship for destruction, with no route
+                contract and no minimums. Higher-volume facilities and multi-site systems generally want{" "}
+                <a href="/get-a-quote">scheduled pickup</a> sized to their generation rate. Many facilities use both —
+                mail-back for the occasional stream and pickup for the steady one. Either way the disposal standard
+                and the documentation are the same.
+              </p>
+
+              <h2 style={{ fontSize: "clamp(20px,2.4vw,26px)" }}>The documentation you get every time</h2>
+              <p>
+                Every stream we handle comes back with the records an auditor asks for: a Certificate of Destruction
+                on every order, and — for controlled substances — DEA Form 41 and Form 222 handling where the schedule
+                requires it. That documentation is what turns "we disposed of it" into "we can prove exactly how and
+                when it was destroyed." Browse the{" "}
+                <a href="/resources">free compliance guides</a> for the by-stream details, or see how each stream is
+                handled on its own solution page above.
+              </p>
+            </div>
           </div>
         </section>
       </main>

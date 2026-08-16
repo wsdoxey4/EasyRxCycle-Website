@@ -1570,5 +1570,47 @@ export const GUIDE_BODIES: Record<string, { h: string; p: string }[]> = {
       "h": "How Easy Rx Cycle Manages Both Streams",
       "p": "Easy Rx Cycle manages both trace and bulk chemo through compliant containers and certified, non-retrievable destruction, so the distinction your staff maintain at the bedside is preserved all the way to final disposal. We supply the yellow trace and black bulk containers, keep the streams separated in handling and transport, and issue a Certificate of Destruction on every order, by mail-back or scheduled pickup. Because we handle the full range of hazardous-drug streams under one vendor, an oncology or infusion team is not coordinating separate providers for trace, bulk, and P-listed waste. Keep the yellow and black containers strictly separate at the point of use, train staff on the RCRA-empty test, and let us carry both streams through documented destruction so the classification you made at the chair holds from your floor to the end of the chain."
     }
+  ],
+  "capability-statement": [
+    {
+      "h": "What a Capability Statement Is For",
+      "p": "A capability statement is the one-page document procurement teams, GPOs, and compliance officers use to vet a vendor before a contract or a purchase order moves forward. It answers the questions a buyer has to clear internally: who is this company, what can they actually do, are they credentialed to do it, and what makes them different from the incumbent. For regulated waste, that vetting is stricter than for an ordinary supplier — the wrong disposal vendor becomes the buyer's compliance problem — so a clear, accurate capability statement shortens the approval cycle and answers the review before it is asked."
+    },
+    {
+      "h": "The Credentials a Waste Vendor Must Show",
+      "p": "For medical and pharmaceutical waste, the credentials on the page are the whole point. Easy Rx Cycle is a DEA-registered destruction company, which is what allows controlled substances to be rendered non-retrievable under 21 CFR 1317 rather than brokered to a third party. Add EPA/RCRA handling for hazardous pharmaceutical waste, DOT/PHMSA for compliant transport of regulated medical waste under UN3291, and HIPAA with a Business Associate Agreement for any protected health information on labels and packaging. A buyer scanning the statement should be able to match each waste stream they generate to a credential that covers it."
+    },
+    {
+      "h": "What Sets Us Apart on the Page",
+      "p": "Beyond the credentials, the capability statement states the model plainly: every regulated stream from one vendor, a Certificate of Destruction on every order, published pricing, and no long-term contract. That combination is what a procurement team is really comparing — not whether a vendor can haul a red bag, but whether one partner can cover sharps, biohazard, pharmaceutical, controlled, RCRA-hazardous, trace chemo, mail-back, and reverse distribution without the buyer stitching together three contracts. Download the statement for your file, then reach us directly when you are ready to onboard us as a vendor."
+    }
+  ],
+  "line-card": [
+    {
+      "h": "What a Line Card Does",
+      "p": "A line card is the fast reference a distributor, broker, sales rep, or GPO uses to see everything a vendor offers on a single sheet — no scrolling a website, no sales call. For a partner deciding whether Easy Rx Cycle fits a customer's need, the line card answers it in one glance: which regulated waste streams we cover, which mail-back kits and services we sell, and how to route an opportunity. It is built to be forwarded, printed, and kept next to the other vendors a partner represents."
+    },
+    {
+      "h": "What Is on the Easy Rx Cycle Line Card",
+      "p": "The card lays out our full offering across all eight regulated streams — sharps, biohazard/regulated medical waste, non-controlled pharmaceutical waste, controlled substance destruction, RCRA-hazardous pharmaceutical waste, trace chemotherapy waste, medication mail-back kits, and reverse distribution — alongside the formats we deliver them in: prepaid mail-back kits, scheduled pickup, and on-site programs. Because we are DEA-registered, controlled substances are handled in-house to non-retrievable destruction with the documentation a registrant needs, rather than referred out."
+    },
+    {
+      "h": "Who Uses It and How",
+      "p": "Line cards matter most to partners who sell into healthcare and need a disposal answer they can stand behind — distributors, GPO members, and reps whose customers ask, mid-conversation, how to get rid of a stream compliantly. Having the card on hand turns that question into a warm handoff instead of a lost thread. Download it for your reference, share it with your team, and see our partner program for co-branded materials and referral routing."
+    }
+  ],
+  "sample-certificate-of-destruction": [
+    {
+      "h": "What a Certificate of Destruction Proves",
+      "p": "A Certificate of Destruction (COD) is the document that turns \"we disposed of it\" into \"we can prove exactly what was destroyed, how, and when.\" It is the record an OSHA, DEA, EPA, or state inspector asks for, and the one a facility keeps on file to close the loop on every regulated stream that leaves the building. A pickup receipt shows a container left your dock; a COD shows the waste inside it was destroyed to the required standard. For controlled substances, that distinction is the difference between compliant disposal and an open question in your records."
+    },
+    {
+      "h": "What Appears on the Certificate",
+      "p": "A complete COD identifies the generating facility, the vendor and their credentials, the date and method of destruction, and a description of the material destroyed. For controlled substances rendered non-retrievable under DEA 21 CFR 1317, it ties back to the DEA Form 41 that documents the destruction and, where a Schedule II transfer was involved, the Form 222 records behind it. The sample on this page shows the fields we populate so you know precisely what documentation you will receive and can confirm it satisfies your auditor and your internal recordkeeping policy."
+    },
+    {
+      "h": "Why It Belongs in Your Compliance File",
+      "p": "Regulators expect a facility to hold destruction records for years, not days, and to produce them on request. A COD on every order — which is what Easy Rx Cycle provides across all eight streams — means your compliance file is built as you go, not reconstructed under audit pressure. Keep each certificate with the corresponding manifest and any DEA forms, and the paper trail for a given disposal is complete end to end. Review the sample, then see how a Certificate of Destruction is issued on every stream we handle."
+    }
   ]
 };

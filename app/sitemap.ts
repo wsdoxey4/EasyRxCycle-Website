@@ -497,6 +497,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources/bloodborne-training",
     // blog
     "/blog",
+    "/blog/reverse-distribution-vs-destruction",
+    "/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box",
+    "/blog/how-to-dispose-of-sharps-at-home",
+    "/blog/sharps-disposal-cost",
+    "/blog/rcra-p-list-u-list-pharmaceuticals",
+    "/blog/epa-subpart-p-explained",
     "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained",
     "/blog/drug-diversion-in-healthcare-prevention-and-disposal",
     "/blog/controlled-substance-inventory-and-recordkeeping",

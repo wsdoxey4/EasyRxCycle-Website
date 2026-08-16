@@ -63,6 +63,42 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
+          <div className="wrap" style={{ maxWidth: "760px" }}>
+            <div className="prose">
+              <h2>Who the partner program is for</h2>
+              <p>
+                The program is built for anyone who already sells into healthcare and keeps getting asked where the
+                regulated waste goes. That includes distributors and 3PLs who want a disposal line to round out their
+                catalog, GPOs looking to add a compliant destruction vendor to a contract portfolio, brokers who match
+                facilities to services, and reps carrying pharmacy, lab, dental, or long-term-care accounts. If your
+                customers generate sharps, biohazard, pharmaceutical, controlled, RCRA-hazardous, or chemo waste, you
+                have accounts that need a destination for it &mdash; and a reason to be the one who provides it.
+              </p>
+
+              <h2>What partners get</h2>
+              <p>
+                You get a DEA-registered destruction vendor to route customers to, which means the compliance exposure
+                and the paperwork sit with us, not you. One relationship covers all eight regulated streams through
+                destruction, reverse distribution, and both mail-back and scheduled pickup &mdash; so you&rsquo;re not
+                stitching together separate vendors per waste type. Partners also get co-branded materials to sell under
+                their own name, referral routing for accounts you&rsquo;d rather hand off than manage, and a
+                Certificate of Destruction issued on every shipment that your customers can put in front of a surveyor.
+              </p>
+
+              <h2>How application and onboarding work</h2>
+              <p>
+                Applying takes a couple of minutes with the form above &mdash; tell us your channel, the accounts you
+                serve, and how you&rsquo;d like to work together. From there a partner manager walks through the model
+                that fits your business, whether that&rsquo;s referral routing, co-branded reselling, or a GPO
+                contract line. We handle the compliance documentation your accounts&rsquo; procurement teams request,
+                set up the co-branded assets, and get you the collateral to start pitching. There are no minimums to
+                open accounts and no contract required to begin.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

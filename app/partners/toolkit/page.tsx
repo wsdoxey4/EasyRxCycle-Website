@@ -111,6 +111,51 @@ export default function Page() {
           </section>
         ))}
 
+        <section className="sec" style={{ paddingTop: "clamp(34px,4.5vw,56px)" }}>
+          <div className="wrap" style={{ maxWidth: "760px" }}>
+            <div className="prose">
+              <h2>What&rsquo;s in the toolkit</h2>
+              <p>
+                The toolkit is the collateral you need to sell compliant destruction under your own name. The co-branded
+                sell sheets cover the story stream by stream &mdash; a master sheet plus one each for sharps, biohazard,
+                pharmaceutical, controlled, RCRA-hazardous, chemo, medication mail-back, and reverse distribution &mdash;
+                so you hand an account the page that matches what it actually generates. Alongside those sit a co-branded
+                line card and case study, email and social templates, program one-pagers for each channel, the wholesale
+                catalog, and a rep battle card. Every co-branded piece is built to take your logo and contact details.
+              </p>
+
+              <h2>How partners use it</h2>
+              <p>
+                Lead with the master sell sheet and line card to frame the full scope, then drop in the stream-specific
+                sheet for whatever the account struggles with most &mdash; often controlled substances or
+                RCRA-hazardous drugs, where the compliance stakes are highest. The battle card equips a rep to answer
+                the objections that come up on a call, and the program overview and one-pagers give procurement a clean
+                summary to circulate internally. The campaign templates let you keep the account warm between
+                touches without writing anything from scratch.
+              </p>
+
+              <h2>Why a single DEA-registered vendor is an easy value prop</h2>
+              <p>
+                The pitch you carry is simple: one registered vendor for every regulated stream, instead of a different
+                hauler for sharps, another for pharmaceuticals, and a separate arrangement for controlled-substance
+                destruction. Consolidating to a single DEA-registered destination shrinks the number of relationships an
+                account manages, keeps the compliance liability with the vendor, and produces one consistent paper trail.
+                That&rsquo;s a value proposition a rep can state in a sentence and a procurement team can verify quickly.
+              </p>
+
+              <h2>The documents procurement will ask for</h2>
+              <p>
+                Sales collateral opens the conversation; compliance documents close it. The toolkit links the capability
+                statement, a sample Certificate of Destruction, and a medical-waste compliance checklist &mdash; the
+                artifacts an account&rsquo;s compliance and procurement teams request before they sign off. Because a
+                Certificate of Destruction is issued on every shipment, your customers get a repeatable record for each
+                pickup or mail-back, not a one-time attestation. Having those pieces ready in your own kit shortens the
+                stretch between interest and a set-up account.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)", paddingBottom: "clamp(48px,7vw,88px)" }}>
           <div className="wrap">
             <p className="lead" style={{ maxWidth: "62ch", fontSize: "15px" }}>
