@@ -497,6 +497,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources/bloodborne-training",
     "/glossary",
     "/waste-determination",
+    "/free-resources",
     "/author/william-doxey",
     // blog
     "/blog",

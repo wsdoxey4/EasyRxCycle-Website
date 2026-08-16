@@ -75,11 +75,11 @@ const MENU: Item[] = [
   {
     label: "Resources", href: "/resources", cols: 3,
     mega: [
-      { title: "Guides & articles", links: [
+      { title: "Guides & tools", links: [
+        { t: "Waste Determination Tool", h: "/waste-determination" },
         { t: "The guide library (60+)", h: "/resources/guides" },
-        { t: "DEA Forms 222, 41 & COD", h: "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained" },
-        { t: "Sharps disposal by state", h: "/blog/how-to-dispose-of-sharps-containers-a-complete-guide-by-state" },
-        { t: "Pharmaceutical waste management", h: "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast" },
+        { t: "Glossary of terms", h: "/glossary" },
+        { t: "Cost calculator", h: "/cost-calculator" },
         { t: "FAQ — common questions", h: "/faq" },
         { t: "Read the blog →", h: "/blog/" },
       ]},
@@ -88,12 +88,13 @@ const MENU: Item[] = [
         { t: "USP 800", h: "/resources/usp-800" },
         { t: "Certificate of Destruction", h: "/resources/certificate-of-destruction" },
         { t: "OSHA / Bloodborne training", h: "/resources/bloodborne-training" },
+        { t: "Regulations by state", h: "/medical-waste-regulations-by-state" },
       ]},
-      { title: "Downloads", links: [
-        { t: "W-9", h: "/resources#downloads" },
-        { t: "Capability statement", h: "/capabilities" },
-        { t: "Sample Certificate of Destruction", h: "/resources#downloads" },
-        { t: "Line card / sell sheet", h: "/resources#downloads" },
+      { title: "Free downloads", links: [
+        { t: "Color-code chart (PDF)", h: "/downloads/medical-waste-color-code-chart.pdf" },
+        { t: "Segregation matrix (PDF)", h: "/downloads/waste-segregation-matrix.pdf" },
+        { t: "RCRA P/U-list (PDF)", h: "/downloads/rcra-p-u-list-pharmaceuticals.pdf" },
+        { t: "All free tools & printables →", h: "/free-resources" },
       ]},
     ],
   },
