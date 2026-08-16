@@ -50,7 +50,7 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Biohazard / RMW" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Biohazard / RMW" }]} />
             <span className="eyebrow">Biohazard · regulated medical waste (RMW)</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Regulated medical waste, <span style=\"color:var(--teal)\">handled right.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Red-bag waste, sharps, and other regulated medical waste &mdash; collected by mail-back kit and destroyed to OSHA, DOT, and state RMW requirements. No hauler contract, no route fees, and a Certificate of Destruction on every order." }} />

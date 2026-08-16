@@ -29,7 +29,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
 
   const heroCopy = (
     <>
-      <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: stream.name, href: `${base}/` }, { name: s.name }]} />
+      <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: stream.name, href: `${base}/` }, { name: s.name }]} />
       <span className="eyebrow">{stream.eyebrow} · {s.name}</span>
       <h1 className="ph1">{h1.pre} <span style={{ color: "var(--teal)" }}>{h1.accent}</span></h1>
       <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>{stream.heroLead(s)}</p>

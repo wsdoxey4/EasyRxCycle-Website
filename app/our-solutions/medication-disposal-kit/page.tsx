@@ -50,7 +50,7 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Medication Disposal Kits" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Medication Disposal Kits" }]} />
             <span className="eyebrow">Medication disposal kits · mail-back</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "The mail-back medication disposal kit. <span style=\"color:var(--teal)\">Fill it, seal it, ship it.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "A DEA-compliant mail-back kit for safe medication disposal &mdash; controlled and non-controlled drugs alike. Fill the prepaid pouch or envelope, seal it, and drop it in any mailbox. We incinerate the contents and issue a Certificate of Destruction. Built for pharmacies, facilities, and consumers." }} />

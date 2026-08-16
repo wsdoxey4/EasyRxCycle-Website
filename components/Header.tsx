@@ -8,7 +8,7 @@ type Item = { label: string; href: string; cols?: number; mega?: Col[] };
 
 const MENU: Item[] = [
   {
-    label: "Solutions", href: "/#solutions", cols: 3,
+    label: "Solutions", href: "/our-solutions", cols: 3,
     mega: [
       { title: "Waste streams", links: [
         { t: "Sharps Disposal", h: "/our-solutions/sharps-disposal" },

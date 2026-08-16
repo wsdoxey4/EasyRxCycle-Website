@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-              <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Controlled Substance Destruction", href: `${BASE}/` }, { name: s.name }]} />
+              <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Controlled Substance Destruction", href: `${BASE}/` }, { name: s.name }]} />
               <span className="eyebrow">Controlled substances · {s.name}</span>
               <h1 className="ph1">Controlled substance destruction in <span style={{ color: "var(--teal)" }}>{s.name}.</span></h1>
               <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>Non-retrievable destruction of expired, unused, and returned controlled medications for {cityList} and communities across {s.name} — Schedules I–V, with DEA Form 41 &amp; 222 handled for you and a Certificate of Destruction on every order. No pickups to wait on, no contracts.</p>

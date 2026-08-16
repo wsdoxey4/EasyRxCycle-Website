@@ -50,7 +50,7 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Sharps Disposal" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Sharps Disposal" }]} />
             <span className="eyebrow">Sharps disposal · needles, syringes, lancets</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Sharps disposal by mail. <span style=\"color:var(--teal)\">No pickups, no contracts.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "OSHA- and DOT-compliant mail-back sharps kits shipped to your door. Fill the container, seal it, drop it in the mail with the prepaid label &mdash; and get a Certificate of Destruction. You never sign a hauler contract or wait on a truck." }} />

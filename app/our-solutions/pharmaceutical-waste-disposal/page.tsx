@@ -50,7 +50,7 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Pharmaceutical Waste" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Pharmaceutical Waste" }]} />
             <span className="eyebrow">Pharmaceutical waste · expired &amp; unused Rx</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste, <span style=\"color:var(--teal)\">sorted and destroyed right.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Expired, unused, and non-controlled medications disposed of compliantly &mdash; correctly separated from RCRA-hazardous and controlled streams, destroyed non-retrievable, and documented with a Certificate of Destruction. We route the hazardous and controlled pieces to the right process automatically." }} />

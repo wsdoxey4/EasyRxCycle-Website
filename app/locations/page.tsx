@@ -174,7 +174,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/#solutions">See our services</a>
+                <a className="btn btn-outline-w" href="/our-solutions">See our services</a>
               </div>
             </div>
           </div>

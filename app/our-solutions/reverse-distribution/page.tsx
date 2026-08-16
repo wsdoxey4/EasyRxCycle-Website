@@ -51,7 +51,7 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-              <Breadcrumbs items={[{ name: "Solutions", href: "/#solutions" }, { name: "Reverse Distribution" }]} />
+              <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Reverse Distribution" }]} />
               <span className="eyebrow">Reverse distribution · returns + destruction</span>
               <h1 className="ph1">
                 Recover credit. Destroy the rest. <span style={{ color: "var(--teal)" }}>Prove it&rsquo;s gone.</span>

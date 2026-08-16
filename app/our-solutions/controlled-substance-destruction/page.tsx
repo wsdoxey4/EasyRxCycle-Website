@@ -100,7 +100,7 @@ export default function Page() {
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
             <nav className="crumb" aria-label="Breadcrumb">
-              <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/#solutions">Solutions</a>{" "}
+              <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/our-solutions">Solutions</a>{" "}
               <span aria-hidden="true">/</span> <span>Controlled Substance Destruction</span>
             </nav>
             <span className="eyebrow">Controlled substances · Schedules I–V</span>
@@ -256,9 +256,9 @@ export default function Page() {
               <h2>Often paired with controlled destruction.</h2>
             </div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/#solutions"><h4>Reverse distribution</h4><p>Recover manufacturer credit on returnable Rx.</p></a>
-              <a className="svc" href="/#solutions"><h4>Pharmaceutical waste</h4><p>Non-controlled Rx &amp; expired medications.</p></a>
-              <a className="svc" href="/#solutions"><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharmaceutical waste.</p></a>
+              <a className="svc" href="/our-solutions"><h4>Reverse distribution</h4><p>Recover manufacturer credit on returnable Rx.</p></a>
+              <a className="svc" href="/our-solutions"><h4>Pharmaceutical waste</h4><p>Non-controlled Rx &amp; expired medications.</p></a>
+              <a className="svc" href="/our-solutions"><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharmaceutical waste.</p></a>
             </div>
           </div>
         </section>
@@ -312,7 +312,7 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/#solutions">Shop destruction kits <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/our-solutions">Shop destruction kits <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/#quote">Get a custom quote</a>
               </div>
             </div>
