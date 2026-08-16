@@ -45,9 +45,13 @@ export async function onRequestPost({ request, env }) {
   // --- Resend: sales alert + client confirmation ---
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
     const salesTo = env.RFQ_NOTIFY_EMAIL || env.RESEND_FROM;
+    // Optional PDF (e.g. cost-estimate) generated client-side and passed through as base64.
+    const atts = (d.attachment && d.attachment.content && d.attachment.filename)
+      ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]
+      : undefined;
     try {
-      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d), d.email);
-      await send(env, d.email, "We received your request — Easy Rx Cycle", confirmHtml(d), salesTo);
+      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d), d.email, atts);
+      await send(env, d.email, "We received your request — Easy Rx Cycle", confirmHtml(d), salesTo, atts);
       results.resend = "sent";
     } catch { results.resend = "error"; }
   }
@@ -128,9 +132,10 @@ function toPortalQuote(env, d) {
 }
 
 // ---- Resend ----
-function send(env, to, subject, html, replyTo) {
+function send(env, to, subject, html, replyTo, attachments) {
   const body = { from: env.RESEND_FROM, to, subject, html };
   if (replyTo && replyTo !== to) body.reply_to = replyTo;
+  if (attachments && attachments.length) body.attachments = attachments;
   return fetch("https://api.resend.com/emails", { method: "POST",
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify(body) });
 }

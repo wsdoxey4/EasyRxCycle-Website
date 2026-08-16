@@ -58,9 +58,22 @@ export default function CostCalculator() {
     setBusy(true); setErr(false);
     const streams = STREAMS.filter((s) => sel[s.key]).map((s) => s.label).join(", ");
     const msg = `Cost estimate — streams: ${streams}; volume: ${vol}; est ~$${Math.round(monthlyAuto)}/mo (auto-ship)${cur ? `; current spend $${cur}/mo` : ""}`;
+    // Build a branded PDF of the estimate: attach it to the email AND hand it to the user now.
+    let attachment: { filename: string; content: string } | undefined;
+    try {
+      const { buildQuotePdf } = await import("@/lib/quotePdf");
+      const pdf = await buildQuotePdf({
+        name: String(fd.get("name") || ""), org: String(fd.get("org") || ""), email: String(fd.get("email") || ""),
+        streams, volume: vol, monthlyAuto, monthlyOne, current: cur || undefined,
+      });
+      attachment = { filename: pdf.filename, content: pdf.base64 };
+      const url = URL.createObjectURL(pdf.blob);
+      const a = document.createElement("a"); a.href = url; a.download = pdf.filename; a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+    } catch { /* non-fatal: still send the email without the attachment */ }
     try {
       const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: fd.get("name") || fd.get("org") || "Website visitor", email: fd.get("email"), org: fd.get("org"), role: "Cost calculator lead", streams, volume: vol, message: msg, pageUri: "/cost-calculator", company_website: fd.get("company_website") }) });
+        body: JSON.stringify({ name: fd.get("name") || fd.get("org") || "Website visitor", email: fd.get("email"), org: fd.get("org"), role: "Cost calculator lead", streams, volume: vol, message: msg, pageUri: "/cost-calculator", company_website: fd.get("company_website"), attachment }) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || j.ok === false) { setBusy(false); setErr(true); return; }
     } catch { setBusy(false); setErr(true); return; }
@@ -132,7 +145,7 @@ export default function CostCalculator() {
                 {err && <p className="calc-note" style={{ color: "#b23b32", marginTop: "8px" }}>Couldn&rsquo;t send just now — please call 501-904-2929 or email sales@easyrxcycle.com.</p>}
               </form>
             ) : (
-              <div className="calc-thanks">✓ Sent — a specialist will follow up with your exact quote.</div>
+              <div className="calc-thanks">✓ Your estimate PDF just downloaded and is on its way to your inbox — a specialist will follow up with your exact quote.</div>
             )}
             <div className="calc-cta">
               <a className="btn btn-ghost" href="/shop">Shop kits &amp; exact prices</a>
