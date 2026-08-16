@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
 
   // --- Resend: sales alert + client confirmation ---
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
-    const salesTo = env.RFQ_NOTIFY_EMAIL || env.RESEND_FROM;
+    const salesTo = env.RFQ_NOTIFY_EMAIL || "william@easyrxcycle.com";
     // Optional PDF (e.g. cost-estimate) generated client-side and passed through as base64.
     const atts = (d.attachment && d.attachment.content && d.attachment.filename)
       ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]

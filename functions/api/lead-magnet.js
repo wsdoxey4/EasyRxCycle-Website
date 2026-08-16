@@ -33,7 +33,7 @@ export async function onRequestPost({ request, env }) {
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
     try {
       await send(env, d.email, `Your guide is ready — ${magnet}`, downloadHtml(d.name, magnet, link, d.bullets));
-      if (env.LEAD_NOTIFY_EMAIL) await send(env, env.LEAD_NOTIFY_EMAIL, `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
+      await send(env, env.LEAD_NOTIFY_EMAIL || "william@easyrxcycle.com", `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
     } catch {}
   }
 
@@ -79,8 +79,15 @@ function downloadHtml(name, magnet, link, bullets) {
     <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">One partner for every regulated waste stream &mdash; destroyed compliantly, documented on every order.</p>`);
 }
 function notifyHtml(d, magnet) {
+  const rows = [
+    ["Guide", magnet], ["Email", d.email], ["Name", d.name], ["Organization", d.org],
+    ["Phone", d.phone], ["Industry / ICP", d.industry], ["Source", d.pageUri || d.file],
+  ].filter(([, v]) => v)
+    .map(([k, v]) => `<tr><td style="padding:8px 0;border-bottom:1px solid #eef3f1;color:#55646B;font-size:13px;width:128px;vertical-align:top;">${esc(k)}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;color:#123A44;font-size:14px;">${esc(v)}</td></tr>`).join("");
   return shell(`
     <span style="display:inline-block;background:#eafaf3;color:#1c9d6c;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">Lead-magnet download</span>
     <h1 style="margin:12px 0 6px;font-size:20px;color:#123A44;">${esc(d.name || d.email)}${d.org ? " &middot; " + esc(d.org) : ""}</h1>
-    <p style="margin:0;color:#55646B;font-size:14px;">Downloaded: ${esc(magnet)}<br>Email: ${esc(d.email)}${d.org ? "<br>Org: " + esc(d.org) : ""}</p>`);
+    <p style="margin:0 0 8px;color:#55646B;font-size:14px;">A new lead downloaded a guide from the website.</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:4px;">${rows}</table>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:20px;"><tr><td style="background:#005770;border-radius:9px;"><a href="mailto:${esc(d.email)}" style="display:inline-block;padding:11px 20px;color:#fff;font-weight:bold;text-decoration:none;font-size:14px;">Reply to lead</a></td></tr></table>`);
 }

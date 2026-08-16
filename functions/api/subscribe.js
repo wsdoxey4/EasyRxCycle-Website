@@ -22,9 +22,16 @@ export async function onRequestPost({ request, env }) {
   }
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
     try {
+      const from = env.NEWSLETTER_FROM || env.RESEND_FROM;
+      // welcome to the subscriber
       await fetch("https://api.resend.com/emails", { method: "POST",
         headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ from: env.NEWSLETTER_FROM || env.RESEND_FROM, to: email, subject: "You're on the list — Easy Rx Cycle", html: welcome() }) });
+        body: JSON.stringify({ from, to: email, subject: "You're on the list — Easy Rx Cycle", html: welcome() }) });
+      // internal alert to William with the new subscriber's info
+      await fetch("https://api.resend.com/emails", { method: "POST",
+        headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from: env.RESEND_FROM, to: env.LEAD_NOTIFY_EMAIL || "william@easyrxcycle.com", reply_to: email,
+          subject: `New newsletter subscriber — ${email}`, html: subNotify(email, d) }) });
       results.resend = "sent";
     } catch { results.resend = "error"; }
   }
@@ -44,6 +51,18 @@ async function subscribe(token, email, d) {
   return r.status;
 }
 
+function esc(s = "") { return String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
+function subNotify(email, d) {
+  return `<!doctype html><html><body style="margin:0;background:#f5faf8;font-family:Arial,Helvetica,sans-serif;color:#123A44;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:24px 12px;"><tr><td align="center">
+    <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4ecea;">
+      <tr><td style="background:#005770;padding:16px 26px;"><span style="color:#fff;font-size:18px;font-weight:bold;">Easy <span style="color:#7ad3ab;">Rx</span> Cycle</span></td></tr>
+      <tr><td style="padding:26px;">
+        <span style="display:inline-block;background:#eafaf3;color:#1c9d6c;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">New newsletter subscriber</span>
+        <p style="margin:12px 0 0;color:#123A44;font-size:15px;">Email: <b>${esc(email)}</b>${d.pageUri ? `<br><span style="color:#55646B;font-size:13px;">Source: ${esc(d.pageUri)}</span>` : ""}</p>
+      </td></tr>
+    </table></td></tr></table></body></html>`;
+}
 function welcome() {
   return `<!doctype html><html><body style="margin:0;background:#f5faf8;font-family:Arial,Helvetica,sans-serif;color:#123A44;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:24px 12px;"><tr><td align="center">
