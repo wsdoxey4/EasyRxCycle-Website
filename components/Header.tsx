@@ -75,28 +75,29 @@ const MENU: Item[] = [
   {
     label: "Resources", href: "/resources", cols: 3,
     mega: [
-      { title: "Guides & tools", links: [
+      { title: "Free tools", links: [
         { t: "Waste Determination Tool", h: "/waste-determination" },
         { t: "P/U-list drug lookup", h: "/drug-hazardous-lookup" },
         { t: "Generator status (VSQG/SQG/LQG)", h: "/generator-status" },
+        { t: "Cost calculator", h: "/cost-calculator" },
+        { t: "All free tools & printables →", h: "/free-resources" },
+      ]},
+      { title: "Guides & compliance", links: [
         { t: "The guide library (60+)", h: "/resources/guides" },
         { t: "Glossary of terms", h: "/glossary" },
-        { t: "Cost calculator", h: "/cost-calculator" },
-        { t: "FAQ — common questions", h: "/faq" },
-        { t: "Read the blog →", h: "/blog/" },
-      ]},
-      { title: "Compliance", links: [
         { t: "DEA Form 41 / 222", h: "/resources/dea-form-41-222" },
         { t: "USP 800", h: "/resources/usp-800" },
         { t: "Certificate of Destruction", h: "/resources/certificate-of-destruction" },
         { t: "OSHA / Bloodborne training", h: "/resources/bloodborne-training" },
         { t: "Regulations by state", h: "/medical-waste-regulations-by-state" },
+        { t: "Read the blog →", h: "/blog/" },
       ]},
       { title: "Free downloads", links: [
         { t: "Color-code chart (PDF)", h: "/downloads/medical-waste-color-code-chart.pdf" },
         { t: "Segregation matrix (PDF)", h: "/downloads/waste-segregation-matrix.pdf" },
         { t: "RCRA P/U-list (PDF)", h: "/downloads/rcra-p-u-list-pharmaceuticals.pdf" },
-        { t: "All free tools & printables →", h: "/free-resources" },
+        { t: "DEA Form 41 checklist (PDF)", h: "/downloads/dea-form-41-prep-checklist.pdf" },
+        { t: "State dataset (CSV)", h: "/downloads/us-medical-waste-regulations-by-state.csv" },
       ]},
     ],
   },
