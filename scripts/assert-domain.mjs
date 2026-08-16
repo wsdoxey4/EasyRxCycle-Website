@@ -3,13 +3,13 @@
 // with canonicals/sitemap/OG pointing at the pages.dev staging domain. Staging builds are skipped.
 import fs from "node:fs";
 
-const indexable = process.env.NEXT_PUBLIC_INDEXABLE === "true";
+const indexable = (process.env.NEXT_PUBLIC_INDEXABLE || "").trim() === "true";
 if (!indexable) {
   console.log("[assert-domain] staging build (NEXT_PUBLIC_INDEXABLE != true) — skipping domain check");
   process.exit(0);
 }
 
-const url = (process.env.NEXT_PUBLIC_SITE_URL || "").replace(/\/$/, "");
+const url = (process.env.NEXT_PUBLIC_SITE_URL || "").trim().replace(/\/$/, "");
 const STAGING = "easyrxcycle-website.pages.dev";
 const errs = [];
 
