@@ -44,8 +44,7 @@ export const AUTHOR = {
   name: "William Doxey",
   role: "Chief Operating Officer",
   path: "/author/william-doxey",
-  // TODO: William's exact personal LinkedIn profile URL (e.g. https://www.linkedin.com/in/william-doxey)
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/william-doxey",
   bio:
     "William Doxey is the Chief Operating Officer of Easy Rx Cycle, a DEA-registered pharmaceutical and medical waste destruction company operating since 2018. He works hands-on across controlled substance destruction, reverse distribution, and RCRA-hazardous pharmaceutical waste, and writes these guides to make regulated-waste compliance practical for the people who handle it every day.",
 } as const;

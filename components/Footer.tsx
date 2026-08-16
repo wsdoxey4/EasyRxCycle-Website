@@ -19,7 +19,6 @@ export default function Footer() {
     <div><h5>Company</h5><ul><li><a href="/about-us">About us</a></li><li><a href="/why-us">Why us</a></li><li><a href="/case-studies">Case studies</a></li><li><a href="/who-we-serve/">Who we serve</a></li><li><a href="/capabilities">Capabilities</a></li><li><a href="/partners">Partners &amp; GPOs</a></li></ul></div>
     <div><h5>Resources</h5><ul><li><a href="/resources">Resources hub</a></li><li><a href="/resources/guides">Guide library</a></li><li><a href="/blog/">Blog</a></li><li><a href="/compare">Compare us</a></li><li><a href="/medical-waste-regulations-by-state">State regulations</a></li><li><a href="/glossary">Glossary</a></li><li><a href="/waste-determination">Waste determination tool</a></li><li><a href="/free-resources">Free tools &amp; printables</a></li><li><a href="/faq">FAQ</a></li><li><a href="/cost-calculator">Cost calculator</a></li></ul></div>
     <div><h5>Get in touch</h5><ul><li><a href="tel:5019042929">501-904-2929</a></li><li><a href="mailto:sales@easyrxcycle.com">sales@easyrxcycle.com</a></li><li><a href="/contact">Contact us</a></li><li><a href="/how-it-works">How it works</a></li><li><a href="/faq">FAQ</a></li></ul>
-      <p style={{ marginTop: "10px", fontSize: "13px", opacity: 0.85 }}>Little Rock, AR · nationwide mail-back</p>
     </div>
   </div>
   <div className="fbar">
