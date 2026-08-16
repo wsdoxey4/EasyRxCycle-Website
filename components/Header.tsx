@@ -77,6 +77,8 @@ const MENU: Item[] = [
     mega: [
       { title: "Guides & tools", links: [
         { t: "Waste Determination Tool", h: "/waste-determination" },
+        { t: "P/U-list drug lookup", h: "/drug-hazardous-lookup" },
+        { t: "Generator status (VSQG/SQG/LQG)", h: "/generator-status" },
         { t: "The guide library (60+)", h: "/resources/guides" },
         { t: "Glossary of terms", h: "/glossary" },
         { t: "Cost calculator", h: "/cost-calculator" },

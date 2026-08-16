@@ -21,6 +21,10 @@ type Item = { title: string; desc: string; href: string; cta: string; kind: "too
 const TOOLS: Item[] = [
   { title: "Waste Determination Tool", kind: "tool", href: "/waste-determination", cta: "Open the tool",
     desc: "Answer a few questions about your waste and get the correct stream, container, and governing rule — sharps, RMW, controlled, RCRA-hazardous, trace chemo, and more." },
+  { title: "P/U-List Drug Lookup", kind: "tool", href: "/drug-hazardous-lookup", cta: "Open the tool",
+    desc: "Search a drug or RCRA code to see if it's P-listed (acute) or U-listed (toxic) hazardous waste — bounded to EPA's published lists, so the answers are accurate." },
+  { title: "RCRA Generator Status Tool", kind: "tool", href: "/generator-status", cta: "Open the tool",
+    desc: "Enter roughly how much hazardous waste you generate per month and find your EPA category — VSQG, SQG, or LQG — and what it requires." },
 ];
 const PRINTABLES: Item[] = [
   { title: "Medical Waste Color-Code Chart (PDF)", kind: "pdf", href: "/downloads/medical-waste-color-code-chart.pdf", cta: "Download PDF",

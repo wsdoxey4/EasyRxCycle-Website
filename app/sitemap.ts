@@ -498,6 +498,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/glossary",
     "/waste-determination",
     "/free-resources",
+    "/drug-hazardous-lookup",
+    "/generator-status",
     "/author/william-doxey",
     // blog
     "/blog",
