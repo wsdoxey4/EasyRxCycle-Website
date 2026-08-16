@@ -1281,3 +1281,28 @@ header.site .wrap{position:relative;}
 .ctable tbody th{font-family:Poppins;font-weight:600;color:var(--ink);width:32%;}
 .ctable td{color:var(--slate);}
 .ctable td.us{color:var(--ink);font-weight:600;}
+
+/* ── Waste Determination wizard ─────────────────────────────── */
+.wiz{border:1px solid var(--line,#e6e9ec);border-radius:16px;padding:clamp(20px,3vw,32px);background:var(--paper,#fff);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.wiz-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.wiz-step{font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal,#005770)}
+.wiz-back{background:none;border:none;color:var(--muted,#5b6670);font-weight:600;cursor:pointer;font-size:14px;padding:4px 6px;border-radius:8px}
+.wiz-back:hover{color:var(--teal,#005770)}
+.wiz-title{font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:clamp(19px,2.4vw,24px);line-height:1.25;margin:0 0 8px}
+.wiz-help{color:var(--muted,#5b6670);font-size:15px;margin:0 0 18px;max-width:60ch}
+.wiz-opts{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.wiz-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;padding:16px 18px;border:1px solid var(--line,#e6e9ec);border-radius:12px;background:var(--paper,#fff);font-size:16px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s,transform .05s}
+.wiz-opt:hover{border-color:var(--teal,#005770);background:rgba(51,192,137,.06)}
+.wiz-opt:active{transform:translateY(1px)}
+.wiz-opt .ar{color:var(--teal,#005770);font-weight:700;flex:none}
+.wiz-badge{display:inline-block;font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--emerald,#33C089);padding:5px 11px;border-radius:999px;margin-bottom:10px}
+.wiz-facts{display:grid;gap:12px;margin:16px 0;padding:16px;background:rgba(0,87,112,.05);border-radius:12px}
+.wiz-facts div{display:grid;grid-template-columns:130px 1fr;gap:12px}
+.wiz-facts dt{font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:13px;color:var(--teal,#005770)}
+.wiz-facts dd{margin:0;font-size:15px}
+.wiz-detail{font-size:16px;line-height:1.6;margin:14px 0}
+.wiz-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.wiz-restart{display:inline-block;margin-top:16px;background:none;border:none;color:var(--muted,#5b6670);font-weight:600;cursor:pointer;font-size:14px}
+.wiz-restart:hover{color:var(--teal,#005770)}
+.wiz-disclaimer{font-size:13px;color:var(--muted,#5b6670);margin-top:18px;line-height:1.55}
+@media(max-width:520px){.wiz-facts div{grid-template-columns:1fr;gap:2px}}
