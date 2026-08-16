@@ -25,7 +25,7 @@ export const SITE = {
     postalCode: "72202",
     country: "US",
   },
-  ogImage: "/images/logo-full.png",
+  ogImage: "/images/og-default.png",
   services: [
     "Sharps disposal",
     "Biohazard / regulated medical waste disposal",
