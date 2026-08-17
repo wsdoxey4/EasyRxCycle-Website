@@ -12,6 +12,9 @@ const INTERVALS = { month: 1, "2month": 2, "3month": 3, "6month": 6 }; // all bi
 const autoshipCents = (c) => Math.round((c * (1 - AUTOSHIP)) / 100) * 100;
 const canExpedite = (sku) => sku.startsWith("ERX-CTL");
 const isRestricted = (sku) => sku.startsWith("ERX-CTL") || sku.startsWith("ERX-HAZ");
+// Product image per SKU prefix (so the custom checkout summary can show the kit photo).
+const IMG_BY_PREFIX = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra" };
+const imgFor = (sku, origin) => { const k = IMG_BY_PREFIX[(sku || "").slice(0, 7)]; return k ? `${origin}/images/products/${k}.webp` : null; };
 
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
 const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { ...CORS, "Content-Type": "application/json" } });
@@ -38,7 +41,7 @@ export async function onRequestPost({ request, env }) {
     const qty = Math.max(1, Math.min(99, parseInt(it.qty, 10) || 1));
     const interval = it.interval && INTERVALS[it.interval] ? it.interval : null;
     const unit = interval ? autoshipCents(p.c) : p.c;
-    line.push({ name: p.n + (interval ? " · auto-ship" : ""), cents: unit, qty, interval });
+    line.push({ name: p.n + (interval ? " · auto-ship" : ""), cents: unit, qty, interval, sku: it.sku });
     cart.push({ s: it.sku, q: qty, c: unit });
     firstCharge += unit * qty;
     if (isRestricted(it.sku)) restricted.push(it.sku);
@@ -54,11 +57,12 @@ export async function onRequestPost({ request, env }) {
   const cancel = origin + (env.STRIPE_CANCEL_PATH || "/shop/");
   const shipCents = firstCharge >= FREE_SHIP_CENTS ? 0 : FLAT_SHIP_CENTS;
 
-  const embedded = body.embedded === true;   // on-domain embedded checkout vs hosted redirect
+  // ui: "custom" = fully-branded on-domain UI we build; "embedded" = Stripe's embedded form; else hosted redirect.
+  const ui = body.ui === "custom" ? "custom" : (body.embedded === true ? "embedded" : "hosted");
   const f = new URLSearchParams();
   f.set("mode", subscription ? "subscription" : "payment");
-  if (embedded) {
-    f.set("ui_mode", "embedded");
+  if (ui === "custom" || ui === "embedded") {
+    f.set("ui_mode", ui);
     f.set("return_url", success);           // success already carries ?session_id={CHECKOUT_SESSION_ID}
   } else {
     f.set("success_url", success);
@@ -75,9 +79,15 @@ export async function onRequestPost({ request, env }) {
     f.set(`line_items[${i}][price_data][unit_amount]`, String(l.cents));
     f.set(`line_items[${i}][price_data][tax_behavior]`, "exclusive");
     f.set(`line_items[${i}][price_data][product_data][name]`, l.name);
+    const img = imgFor(l.sku, origin);
+    if (img) f.set(`line_items[${i}][price_data][product_data][images][0]`, img);
     if (l.interval) {
       f.set(`line_items[${i}][price_data][recurring][interval]`, "month");
       f.set(`line_items[${i}][price_data][recurring][interval_count]`, String(INTERVALS[l.interval]));
+    } else {
+      f.set(`line_items[${i}][adjustable_quantity][enabled]`, "true");
+      f.set(`line_items[${i}][adjustable_quantity][minimum]`, "1");
+      f.set(`line_items[${i}][adjustable_quantity][maximum]`, "99");
     }
   });
   // Shipping (applies to one-time orders; auto-ship orders effectively ship free when honored).
@@ -106,7 +116,7 @@ export async function onRequestPost({ request, env }) {
     });
     const j = await r.json();
     if (!r.ok) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
-    if (embedded) {
+    if (ui === "custom" || ui === "embedded") {
       if (!j.client_secret) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
       return json({ ok: true, clientSecret: j.client_secret });
     }
