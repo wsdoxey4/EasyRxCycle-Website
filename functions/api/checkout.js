@@ -71,7 +71,8 @@ export async function onRequestPost({ request, env }) {
   f.set("billing_address_collection", "auto");
   f.set("phone_number_collection[enabled]", "true");
   f.set("shipping_address_collection[allowed_countries][0]", "US");
-  f.set("automatic_tax[enabled]", "true");
+  // Flat tax via a Stripe Tax Rate (e.g. 8.625%). Set STRIPE_TAX_RATE_ID to a txr_… id.
+  // Leave unset to charge no tax. (Swap to automatic_tax later for location-based tax.)
   f.set("allow_promotion_codes", "true");
   line.forEach((l, i) => {
     f.set(`line_items[${i}][quantity]`, String(l.qty));
@@ -81,6 +82,7 @@ export async function onRequestPost({ request, env }) {
     f.set(`line_items[${i}][price_data][product_data][name]`, l.name);
     const img = imgFor(l.sku, origin);
     if (img) f.set(`line_items[${i}][price_data][product_data][images][0]`, img);
+    if (env.STRIPE_TAX_RATE_ID) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
     if (l.interval) {
       f.set(`line_items[${i}][price_data][recurring][interval]`, "month");
       f.set(`line_items[${i}][price_data][recurring][interval_count]`, String(INTERVALS[l.interval]));
