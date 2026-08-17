@@ -61,7 +61,6 @@ export default function CustomCheckout() {
   const [promo, setPromo] = useState("");
   const [promoMsg, setPromoMsg] = useState("");
   const [paying, setPaying] = useState(false);
-  const [sumOpen, setSumOpen] = useState(false);  // mobile summary expand/collapse
 
   useEffect(() => {
     if (started.current) return; started.current = true;
@@ -170,6 +169,7 @@ export default function CustomCheckout() {
 
   return (
     <div className="co-grid">
+      {/* FORM — first on mobile so inputs are immediately reachable */}
       <div className="co-main">
         {err && <div className="lm-err" style={{ padding: "12px 14px", marginBottom: 14 }}>{err}</div>}
         {state === "loading" && <p className="lead" style={{ padding: "24px 0" }}>Loading secure checkout…</p>}
@@ -178,75 +178,73 @@ export default function CustomCheckout() {
         </div>
         <div className="co-block"><h3 className="co-h">Shipping address</h3><div id="co-shipping" /></div>
         <div className="co-block"><h3 className="co-h">Payment</h3><div id="co-payment" /></div>
+      </div>
+
+      {/* ORDER SUMMARY — right column on desktop; on mobile it sits below the form, right above Pay */}
+      <aside className="co-summary">
+        <h3 className="co-h">Order summary</h3>
+        <div className="co-items" style={{ opacity: busy ? 0.55 : 1 }}>
+          {lines.map((l, i) => {
+            const p = BY_SKU[l.sku]; if (!p) return null;
+            const img = imgFor(l.sku);
+            const on = Boolean(l.interval);
+            return (
+              <div className="co-item2" key={l.sku + "|" + i}>
+                <div className="co-item2-top">
+                  {img ? <img className="co-thumb" src={img} alt="" width={56} height={56} /> : <div className="co-thumb co-thumb-ph" />}
+                  <div className="co-item-mid">
+                    <div className="co-item-name">{p.family} · {p.size}</div>
+                    <div className="co-qty">
+                      <button type="button" onClick={() => changeQty(i, l.qty - 1)} disabled={busy} aria-label="decrease">−</button>
+                      <span>{l.qty}</span>
+                      <button type="button" onClick={() => changeQty(i, l.qty + 1)} disabled={busy} aria-label="increase">+</button>
+                      <button type="button" className="co-remove" onClick={() => removeLine(i)} disabled={busy}>Remove</button>
+                    </div>
+                  </div>
+                  <div className="co-item-amt">
+                    {on && <span className="co-was">{dollars(p.cents * l.qty)}</span>}
+                    {dollars(lineCents(l))}
+                  </div>
+                </div>
+                <div className={"co-ship-row" + (on ? " on" : "")}>
+                  <label className="co-ship-toggle">
+                    <input type="checkbox" checked={on} disabled={busy} onChange={(e) => toggleAuto(i, e.target.checked)} />
+                    <span>Auto-ship &amp; save 20%</span>
+                  </label>
+                  {on && (
+                    <select className="co-ship-iv" value={l.interval || DEFAULT_IV} disabled={busy} onChange={(e) => changeIv(i, e.target.value)}>
+                      {IV_OPTIONS.map((o) => <option key={o.key} value={o.key}>{o.label}</option>)}
+                    </select>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="co-promo">
+          <input className="co-input" placeholder="Promo code" value={promo} onChange={(e) => setPromo(e.target.value)} />
+          <button className="btn btn-outline-w" type="button" onClick={applyPromo}>Apply</button>
+        </div>
+        {promoMsg && <p className="co-promo-msg">{promoMsg}</p>}
+
+        <div className="co-totals">
+          {total.subtotal && <div><span>Subtotal</span><span>{money(total.subtotal)}</span></div>}
+          {total.shippingRate && <div><span>Shipping</span><span>{total.shippingRate.minorUnitsAmount ? money(total.shippingRate) : "Free"}</span></div>}
+          {total.taxExclusive && total.taxExclusive.minorUnitsAmount > 0 && <div><span>Tax</span><span>{money(total.taxExclusive)}</span></div>}
+          {total.discount && total.discount.minorUnitsAmount > 0 && <div><span>Discount</span><span>−{money(total.discount)}</span></div>}
+          <div className="co-total"><span>Total</span><span>{summaryTotal}</span></div>
+        </div>
+        {anyAuto && <p className="co-autoship-note">Auto-ship items renew automatically at the frequency you chose. Cancel or change anytime — we email you a receipt every shipment, plus a heads-up 7 days before each renewal.</p>}
+      </aside>
+
+      {/* PAY — under the form on desktop; last on mobile, right below the summary */}
+      <div className="co-pay-wrap">
         <button className="btn btn-primary co-pay" onClick={pay} disabled={paying || busy || state !== "ready" || !canPay}>
           {paying ? "Processing…" : `Pay ${summaryTotal}`} <span className="ar">→</span>
         </button>
         <p className="co-secure">🔒 Secure payment · Certificate of Destruction on every order.</p>
       </div>
-
-      <aside className="co-summary">
-        <button type="button" className="co-sum-bar" onClick={() => setSumOpen((v) => !v)} aria-expanded={sumOpen}>
-          <span>Order summary · <b>{lines.length} item{lines.length === 1 ? "" : "s"}</b></span>
-          <span className="co-sum-bar-r">{summaryTotal} <span className={"co-chev" + (sumOpen ? " up" : "")}>▾</span></span>
-        </button>
-
-        <div className={"co-sum-body" + (sumOpen ? " open" : "")}>
-          <h3 className="co-h co-sum-title">Order summary</h3>
-          <div className="co-items" style={{ opacity: busy ? 0.55 : 1 }}>
-            {lines.map((l, i) => {
-              const p = BY_SKU[l.sku]; if (!p) return null;
-              const img = imgFor(l.sku);
-              const on = Boolean(l.interval);
-              return (
-                <div className="co-item2" key={l.sku + "|" + i}>
-                  <div className="co-item2-top">
-                    {img ? <img className="co-thumb" src={img} alt="" width={56} height={56} /> : <div className="co-thumb co-thumb-ph" />}
-                    <div className="co-item-mid">
-                      <div className="co-item-name">{p.family} · {p.size}</div>
-                      <div className="co-qty">
-                        <button type="button" onClick={() => changeQty(i, l.qty - 1)} disabled={busy} aria-label="decrease">−</button>
-                        <span>{l.qty}</span>
-                        <button type="button" onClick={() => changeQty(i, l.qty + 1)} disabled={busy} aria-label="increase">+</button>
-                        <button type="button" className="co-remove" onClick={() => removeLine(i)} disabled={busy}>Remove</button>
-                      </div>
-                    </div>
-                    <div className="co-item-amt">
-                      {on && <span className="co-was">{dollars(p.cents * l.qty)}</span>}
-                      {dollars(lineCents(l))}
-                    </div>
-                  </div>
-                  <div className={"co-ship-row" + (on ? " on" : "")}>
-                    <label className="co-ship-toggle">
-                      <input type="checkbox" checked={on} disabled={busy} onChange={(e) => toggleAuto(i, e.target.checked)} />
-                      <span>Auto-ship &amp; save 20%</span>
-                    </label>
-                    {on && (
-                      <select className="co-ship-iv" value={l.interval || DEFAULT_IV} disabled={busy} onChange={(e) => changeIv(i, e.target.value)}>
-                        {IV_OPTIONS.map((o) => <option key={o.key} value={o.key}>{o.label}</option>)}
-                      </select>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="co-promo">
-            <input className="co-input" placeholder="Promo code" value={promo} onChange={(e) => setPromo(e.target.value)} />
-            <button className="btn btn-outline-w" type="button" onClick={applyPromo}>Apply</button>
-          </div>
-          {promoMsg && <p className="co-promo-msg">{promoMsg}</p>}
-
-          <div className="co-totals">
-            {total.subtotal && <div><span>Subtotal</span><span>{money(total.subtotal)}</span></div>}
-            {total.shippingRate && <div><span>Shipping</span><span>{total.shippingRate.minorUnitsAmount ? money(total.shippingRate) : "Free"}</span></div>}
-            {total.taxExclusive && total.taxExclusive.minorUnitsAmount > 0 && <div><span>Tax</span><span>{money(total.taxExclusive)}</span></div>}
-            {total.discount && total.discount.minorUnitsAmount > 0 && <div><span>Discount</span><span>−{money(total.discount)}</span></div>}
-            <div className="co-total"><span>Total</span><span>{summaryTotal}</span></div>
-          </div>
-          {anyAuto && <p className="co-autoship-note">Auto-ship items renew automatically at the frequency you chose. Cancel or change anytime — we email you a receipt every shipment, plus a heads-up 7 days before each renewal.</p>}
-        </div>
-      </aside>
     </div>
   );
 }
