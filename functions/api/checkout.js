@@ -22,7 +22,11 @@ const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, header
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
 export function onRequestGet({ env }) { return json({ ok: true, configured: Boolean(env.STRIPE_SECRET_KEY) }); }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(ctx) {
+  try { return await handlePost(ctx); }
+  catch (e) { return json({ ok: false, error: "debug: " + String((e && e.message) || e), stack: String((e && e.stack) || "").slice(0, 500) }, 500); }
+}
+async function handlePost({ request, env }) {
   if (!env.STRIPE_SECRET_KEY) return json({ ok: false, error: "Checkout isn't configured yet. Please call 501-904-2929 to order." }, 503);
 
   let body;
