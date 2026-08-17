@@ -9,7 +9,7 @@ function loadStripeJs(): Promise<any> {
     const w = window as any;
     if (w.Stripe) return resolve(w.Stripe);
     const s = document.createElement("script");
-    s.src = "https://js.stripe.com/v3/"; s.async = true;
+    s.src = "https://js.stripe.com/basil/stripe.js"; s.async = true;  // Basil+ required for initCheckout (Custom Checkout)
     s.onload = () => (w.Stripe ? resolve(w.Stripe) : reject(new Error("no stripe")));
     s.onerror = () => reject(new Error("stripe.js failed"));
     document.head.appendChild(s);
