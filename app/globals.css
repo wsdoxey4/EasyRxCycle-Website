@@ -1322,3 +1322,35 @@ header.site .wrap{position:relative;}
 .pu-kind{font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:12px;letter-spacing:.03em;text-transform:uppercase;margin-top:6px}
 .pu-note{font-size:14.5px;line-height:1.5;margin-top:6px;color:var(--ink,#1f2d34)}
 .pu-empty{border:1px dashed var(--line,#e6e9ec);border-radius:12px;padding:18px;font-size:15px;line-height:1.55;color:var(--muted,#5b6670)}
+
+/* ── Custom on-domain checkout (two-column) ─────────────────── */
+.co-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+@media (max-width:860px){.co-grid{grid-template-columns:1fr;gap:20px}.co-summary{order:-1}}
+.co-main{min-width:0}
+.co-block{margin-bottom:22px}
+.co-h{font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:15px;color:var(--ink,#1f2d34);margin:0 0 10px}
+.co-input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line,#e6e9ec);border-radius:10px;font-size:15px;font-family:inherit;color:var(--ink,#1f2d34);background:#fff}
+.co-input:focus{outline:none;border-color:var(--teal,#005770);box-shadow:0 0 0 3px rgba(0,87,112,.12)}
+.co-pay{width:100%;justify-content:center;margin-top:8px;font-size:16px;padding:15px}
+.co-secure{text-align:center;color:var(--muted,#5b6670);font-size:12.5px;margin-top:12px}
+.co-summary{background:var(--paper,#fff);border:1px solid var(--line,#e6e9ec);border-radius:16px;padding:20px;position:sticky;top:20px}
+.co-items{display:flex;flex-direction:column;gap:14px;margin:6px 0 16px}
+.co-item{display:flex;gap:12px;align-items:center}
+.co-thumb{width:56px;height:56px;border-radius:10px;object-fit:contain;background:#f4f7f7;border:1px solid var(--line,#e6e9ec);flex:none}
+.co-thumb-ph{background:#eef3f3}
+.co-item-mid{flex:1;min-width:0}
+.co-item-name{font-size:13.5px;line-height:1.35;color:var(--ink,#1f2d34);font-weight:600}
+.co-item-sub{font-size:11px;color:var(--emerald,#1c9d6c);text-transform:uppercase;letter-spacing:.4px;font-weight:600;margin-top:2px}
+.co-qty{display:inline-flex;align-items:center;gap:10px;margin-top:6px;border:1px solid var(--line,#e6e9ec);border-radius:8px;padding:2px 4px;width:max-content}
+.co-qty button{width:26px;height:26px;border:none;background:transparent;color:var(--teal,#005770);font-size:17px;font-weight:700;cursor:pointer;line-height:1;border-radius:6px}
+.co-qty button:hover{background:#eef3f3}
+.co-qty span{min-width:18px;text-align:center;font-size:14px;font-variant-numeric:tabular-nums}
+.co-item-amt{font-size:14px;font-weight:600;color:var(--ink,#1f2d34);font-variant-numeric:tabular-nums;white-space:nowrap}
+.co-promo{display:flex;gap:8px;margin:4px 0 6px}
+.co-promo .co-input{flex:1}
+.co-promo .btn{flex:none;padding:10px 14px}
+.co-promo-msg{font-size:12.5px;color:var(--muted,#5b6670);margin:0 0 8px}
+.co-totals{border-top:1px solid var(--line,#e6e9ec);margin-top:12px;padding-top:12px;display:flex;flex-direction:column;gap:7px}
+.co-totals>div{display:flex;justify-content:space-between;font-size:14px;color:var(--muted,#5b6670)}
+.co-totals .co-total{border-top:1px solid var(--line,#e6e9ec);margin-top:5px;padding-top:10px;font-size:17px;font-weight:700;color:var(--ink,#1f2d34)}
+.co-totals span{font-variant-numeric:tabular-nums}
