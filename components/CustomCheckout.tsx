@@ -50,7 +50,8 @@ export default function CustomCheckout() {
         const Stripe = await loadStripeJs();
         const stripe = Stripe(STRIPE_PK);
         const appearance = { theme: "stripe", variables: { colorPrimary: "#005770", fontFamily: "Inter, system-ui, sans-serif", borderRadius: "10px", fontSizeBase: "15px" } };
-        const checkout = await stripe.initCheckout({ clientSecret: j.clientSecret, elementsOptions: { appearance } });
+        const cs = j.clientSecret;
+        const checkout = await stripe.initCheckout({ fetchClientSecret: async () => cs, elementsOptions: { appearance } });
         co.current = checkout;
         (window as any).__checkout = checkout;   // TEMP: inspect real API shape, then remove
         sync(checkout);
