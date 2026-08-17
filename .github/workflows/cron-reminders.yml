@@ -24,3 +24,8 @@ jobs:
           curl -sS -X POST "https://easyrxcycle.com/api/lead-followup" \
             -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
             -H "Content-Type: application/json" -d '{"mode":"reminders"}' -w "\nquote-reminders: %{http_code}\n"
+      - name: Auto-ship renewal reminders (7-day heads-up)
+        run: |
+          curl -sS -X POST "https://easyrxcycle.com/api/renewal-reminders" \
+            -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" -d '{}' -w "\nrenewal-reminders: %{http_code}\n"
