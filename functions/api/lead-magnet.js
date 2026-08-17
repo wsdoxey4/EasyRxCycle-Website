@@ -29,16 +29,27 @@ export async function onRequestPost({ request, env }) {
     } catch {}
   }
 
-  // Resend: email the download to the requester (best-effort) + optional internal notify
+  // Resend: email the download to the requester + internal alert to William + sales.
+  const results = {};
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
-    try {
-      await send(env, d.email, `Your guide is ready — ${magnet}`, downloadHtml(d.name, magnet, link, d.bullets));
-      const notify = Array.from(new Set([...(env.LEAD_NOTIFY_EMAIL ? String(env.LEAD_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : []), "william@easyrxcycle.com", "sales@easyrxcycle.com"]));
-      await send(env, notify, `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
-    } catch {}
+    results.client = await sendStatus(env, d.email, `Your guide is ready — ${magnet}`, downloadHtml(d.name, magnet, link, d.bullets));
+    const notify = Array.from(new Set([...(env.LEAD_NOTIFY_EMAIL ? String(env.LEAD_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : []), "william@easyrxcycle.com", "sales@easyrxcycle.com"]));
+    results.notify = await sendStatus(env, notify, `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
+  } else {
+    results.resend = "not-configured";
   }
 
-  return json({ ok: true });
+  return json({ ok: true, configured: Boolean(env.RESEND_API_KEY && env.RESEND_FROM), results });
+}
+
+// Sends and reports the exact Resend outcome (so failures aren't swallowed silently).
+async function sendStatus(env, to, subject, html, replyTo) {
+  try {
+    const r = await send(env, to, subject, html, replyTo);
+    if (r.ok) return "sent";
+    let t = ""; try { t = await r.text(); } catch {}
+    return `err ${r.status}: ${t.slice(0, 180)}`;
+  } catch (e) { return "throw: " + (e && e.message ? e.message : String(e)).slice(0, 160); }
 }
 
 function send(env, to, subject, html, replyTo) {
