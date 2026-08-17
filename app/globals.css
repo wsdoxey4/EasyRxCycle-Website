@@ -1345,6 +1345,34 @@ header.site .wrap{position:relative;}
 .co-pay{width:100%;justify-content:center;margin-top:8px;font-size:16px;padding:15px}
 .co-secure{text-align:center;color:var(--muted,#5b6670);font-size:12.5px;margin-top:12px}
 .co-hint{text-align:center;color:var(--teal,#005770);font-size:12.5px;font-weight:600;margin:8px 0 0}
+/* order confirmation card */
+.oc-card{text-align:left;max-width:520px;margin:26px auto 0;background:var(--paper,#fff);border:1px solid var(--line,#e6e9ec);border-radius:16px;padding:22px 22px 20px;box-shadow:0 8px 30px rgba(9,30,36,.06)}
+.oc-loading{color:var(--muted,#5b6670);text-align:center}
+.oc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line,#eef3f1)}
+.oc-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted,#8aa0a8);font-weight:700}
+.oc-ref{font-size:20px;font-weight:800;color:var(--ink,#123A44);font-variant-numeric:tabular-nums}
+.oc-badge{background:#eefaf4;color:var(--emerald,#1c9d6c);font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:6px 11px;border-radius:8px}
+.oc-emailed{margin:12px 0 4px;font-size:13.5px;color:var(--muted,#5b6670)}
+.oc-items{display:flex;flex-direction:column;gap:12px;margin:14px 0}
+.oc-item{display:flex;gap:12px;align-items:center}
+.oc-thumb{width:48px;height:48px;border-radius:9px;object-fit:contain;background:#f4f7f7;border:1px solid var(--line,#e6e9ec);flex:none}
+.oc-thumb-ph{background:#eef3f3}
+.oc-item-mid{flex:1;min-width:0}
+.oc-item-name{font-size:13.5px;font-weight:600;color:var(--ink,#123A44);line-height:1.35}
+.oc-item-qty{font-size:12px;color:var(--muted,#8aa0a8);margin-top:2px}
+.oc-item-amt{font-size:14px;font-weight:600;color:var(--ink,#123A44);font-variant-numeric:tabular-nums;white-space:nowrap}
+.oc-totals{border-top:1px solid var(--line,#eef3f1);margin-top:6px;padding-top:12px;display:flex;flex-direction:column;gap:7px}
+.oc-totals>div{display:flex;justify-content:space-between;font-size:13.5px;color:var(--muted,#5b6670)}
+.oc-totals span{font-variant-numeric:tabular-nums}
+.oc-total{border-top:1px solid var(--line,#eef3f1);margin-top:5px;padding-top:10px;font-size:16px;font-weight:800;color:var(--ink,#123A44)!important}
+.oc-ship{margin-top:16px;padding-top:14px;border-top:1px solid var(--line,#eef3f1);font-size:13px;color:var(--ink,#123A44);line-height:1.5}
+.oc-ship-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted,#8aa0a8);font-weight:700;margin-bottom:5px}
+.oc-manifest{margin-top:16px;background:#fff7ed;border:1px solid #f2c98a;border-radius:12px;padding:16px 18px}
+.oc-manifest-label{font-size:12px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;color:#b3671e;margin-bottom:6px}
+.oc-manifest-title{font-size:15.5px;font-weight:700;color:var(--ink,#123A44);margin-bottom:6px}
+.oc-manifest p{margin:0 0 12px;font-size:13px;color:#6b5a44;line-height:1.55}
+.oc-manifest-btn{padding:11px 18px;font-size:14px}
+.oc-autoship-note{margin:16px 0 0;font-size:12.5px;line-height:1.55;color:var(--muted,#5b6670);background:#f4f9f8;border-radius:10px;padding:12px 14px}
 @media (max-width:860px){.co-hint{margin:6px 0 0}}
 .co-summary{grid-area:summary;background:var(--paper,#fff);border:1px solid var(--line,#e6e9ec);border-radius:16px;padding:20px;position:sticky;top:20px}
 .co-items{display:flex;flex-direction:column;gap:14px;margin:6px 0 16px}
