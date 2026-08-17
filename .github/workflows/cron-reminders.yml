@@ -1,0 +1,26 @@
+name: Daily reminder emails
+
+# Fires the two cron-gated reminder endpoints once a day:
+#   /api/replenishment            → nudge past buyers to reorder (+ auto-ship upsell)
+#   /api/lead-followup (reminders)→ nudge unpaid quote orders (max 3, spaced)
+# Both are gated by the CRON_SECRET GitHub secret (must match the Cloudflare Pages env var).
+
+on:
+  schedule:
+    - cron: "0 15 * * *"   # 15:00 UTC ≈ 9–10am Central, daily
+  workflow_dispatch: {}
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Replenishment reminders
+        run: |
+          curl -sS -X POST "https://easyrxcycle.com/api/replenishment" \
+            -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" -d '{}' -w "\nreplenishment: %{http_code}\n"
+      - name: Unpaid-quote reminders
+        run: |
+          curl -sS -X POST "https://easyrxcycle.com/api/lead-followup" \
+            -H "x-cron-secret: ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" -d '{"mode":"reminders"}' -w "\nquote-reminders: %{http_code}\n"
