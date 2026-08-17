@@ -97,6 +97,7 @@ export async function onRequestPost({ request, env }) {
   if (event.type === "customer.subscription.deleted") {
     const sub = event.data.object || {};
     await db(`subscriptions?stripe_sub_id=eq.${encodeURIComponent(sub.id)}`, { method: "PATCH", body: JSON.stringify({ status: "canceled", canceled_at: tsIso(sub.canceled_at || Math.floor(Date.now() / 1000)), updated_at: new Date().toISOString() }) });
+    await cancelEmails(env, sub).catch(() => {});
     return new Response("ok", { status: 200 });
   }
 
@@ -105,12 +106,14 @@ export async function onRequestPost({ request, env }) {
     const ch = event.data.object || {};
     const pi = typeof ch.payment_intent === "string" ? ch.payment_intent : ch.payment_intent?.id;
     if (pi) await db(`orders?payment_ref=eq.${encodeURIComponent(pi)}&status=neq.closed`, { method: "PATCH", body: JSON.stringify({ status: "cancelled" }) });
+    await refundEmails(env, ch).catch(() => {});
     return new Response("ok", { status: 200 });
   }
   // ---- Failed auto-ship renewal → mark the subscription past-due ----
   if (event.type === "invoice.payment_failed") {
     const inv = event.data.object || {};
     if (inv.subscription) await db(`subscriptions?stripe_sub_id=eq.${encodeURIComponent(inv.subscription)}`, { method: "PATCH", body: JSON.stringify({ status: "past_due", updated_at: new Date().toISOString() }) });
+    await paymentFailedEmails(env, inv).catch(() => {});
     return new Response("ok", { status: 200 });
   }
 
@@ -292,4 +295,42 @@ function resendSend(env, to, subject, html, replyTo) {
 function esc(s = "") { return String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
 function shell(inner) {
   return `<!doctype html><html><body style="margin:0;background:#f5faf8;font-family:Arial,Helvetica,sans-serif;color:#123A44;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5faf8;padding:24px 12px;"><tr><td align="center"><table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4ecea;"><tr><td style="background:#005770;padding:16px 28px;"><span style="color:#fff;font-size:19px;font-weight:bold;">Easy <span style="color:#7ad3ab;">Rx</span> Cycle</span></td></tr><tr><td style="padding:28px;">${inner}</td></tr><tr><td style="background:#0c2f38;padding:18px 28px;color:#9fb4b9;font-size:12px;line-height:1.6;">Easy Rx Cycle &middot; <a href="tel:5019042929" style="color:#9fd7c8;text-decoration:none;">501-904-2929</a> &middot; <a href="mailto:sales@easyrxcycle.com" style="color:#9fd7c8;text-decoration:none;">sales@easyrxcycle.com</a><br><span style="color:#6f8990;">DEA-Registered &middot; EPA-Compliant &middot; Certificate of Destruction on every order</span></td></tr></table></td></tr></table></body></html>`;
+}
+
+// ---- Lifecycle emails: payment-failed (dunning), cancellation, refund (best-effort) ----
+const usd = (c) => "$" + (((c || 0)) / 100).toFixed(2);
+const OPS = ["william@easyrxcycle.com", "sales@easyrxcycle.com"];
+async function paymentFailedEmails(env, inv) {
+  try {
+    if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
+    const email = String(inv.customer_email || "").trim();
+    const amt = usd(inv.amount_due ?? inv.total);
+    const retry = inv.next_payment_attempt ? new Date(inv.next_payment_attempt * 1000).toLocaleDateString("en-US", { month: "long", day: "numeric" }) : null;
+    if (email) {
+      await resendSend(env, email, "Action needed: your auto-ship payment didn't go through", shell(`<h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">We couldn&rsquo;t process your auto-ship payment.</h1><p style="margin:0 0 12px;color:#55646B;font-size:15px;line-height:1.55;">Your recent auto-ship charge of <b>${amt}</b> didn&rsquo;t go through${retry ? ` &mdash; we&rsquo;ll try again on <b>${esc(retry)}</b>` : ""}. To keep your compliant disposal uninterrupted, please update your card.</p><table role="presentation" cellpadding="0" cellspacing="0" style="margin:6px 0 18px;"><tr><td style="background:#33C089;border-radius:9px;"><a href="mailto:sales@easyrxcycle.com?subject=Update%20payment%20method" style="display:inline-block;padding:12px 22px;color:#04321f;font-weight:bold;text-decoration:none;font-size:15px;">Update my payment &rarr;</a></td></tr></table><p style="margin:0;color:#8aa0a8;font-size:13px;">Or call us at 501-904-2929 and we&rsquo;ll sort it out in a minute.</p>`), "sales@easyrxcycle.com");
+    }
+    await resendSend(env, OPS, `⚠ Auto-ship payment FAILED — ${amt} · ${email || "customer"}`, shell(`<span style="display:inline-block;background:#fde2e0;color:#b3261e;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">Payment failed</span><h1 style="margin:12px 0 4px;font-size:20px;color:#123A44;">${amt} declined</h1><p style="margin:0;color:#55646B;font-size:14px;">Customer: ${esc(email || "unknown")}${retry ? `<br>Next retry: ${esc(retry)}` : ""}<br>Subscription: ${esc(inv.subscription || "—")}</p>`), email || undefined);
+  } catch {}
+}
+async function cancelEmails(env, sub) {
+  try {
+    if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
+    let email = "";
+    if (env.STRIPE_SECRET_KEY && sub.customer) { const cust = await stripeGet(`customers/${sub.customer}`, env.STRIPE_SECRET_KEY); email = (cust && cust.email) || ""; }
+    if (email) {
+      await resendSend(env, email, "Your auto-ship has been canceled", shell(`<h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">Your auto-ship is canceled.</h1><p style="margin:0 0 12px;color:#55646B;font-size:15px;line-height:1.55;">We&rsquo;ve canceled your recurring mail-back auto-ship &mdash; you won&rsquo;t be billed again. Any kits already sent are yours to use, and you can reorder anytime.</p><table role="presentation" cellpadding="0" cellspacing="0" style="margin:6px 0 4px;"><tr><td style="background:#005770;border-radius:9px;"><a href="https://easyrxcycle.com/shop" style="display:inline-block;padding:12px 22px;color:#fff;font-weight:bold;text-decoration:none;font-size:15px;">Browse kits &rarr;</a></td></tr></table><p style="margin:14px 0 0;color:#8aa0a8;font-size:13px;">Didn&rsquo;t mean to cancel? Reply here or call 501-904-2929.</p>`), "sales@easyrxcycle.com");
+    }
+    await resendSend(env, OPS, `Auto-ship canceled — ${email || sub.customer || "customer"}`, shell(`<span style="display:inline-block;background:#eef1f3;color:#55646B;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">Subscription canceled</span><h1 style="margin:12px 0 4px;font-size:20px;color:#123A44;">${esc(email || sub.customer || "Customer")}</h1><p style="margin:0;color:#55646B;font-size:14px;">Auto-ship ${esc(sub.id || "")} canceled.</p>`), email || undefined);
+  } catch {}
+}
+async function refundEmails(env, ch) {
+  try {
+    if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
+    const email = String(ch.receipt_email || (ch.billing_details && ch.billing_details.email) || "").trim();
+    const amt = usd(ch.amount_refunded);
+    if (email) {
+      await resendSend(env, email, `Your refund of ${amt} has been processed`, shell(`<h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">Your refund is on the way.</h1><p style="margin:0 0 12px;color:#55646B;font-size:15px;line-height:1.55;">We&rsquo;ve processed a refund of <b>${amt}</b> to your original payment method. It typically appears within 5&ndash;10 business days.</p><p style="margin:0;color:#8aa0a8;font-size:13px;">Questions? Reply here or call 501-904-2929.</p>`), "sales@easyrxcycle.com");
+    }
+    await resendSend(env, OPS, `Refund processed — ${amt} · ${email || "customer"}`, shell(`<span style="display:inline-block;background:#eef1f3;color:#55646B;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">Refund</span><h1 style="margin:12px 0 4px;font-size:20px;color:#123A44;">${amt} refunded</h1><p style="margin:0;color:#55646B;font-size:14px;">Customer: ${esc(email || "unknown")}<br>Charge: ${esc(ch.id || "")}</p>`), email || undefined);
+  } catch {}
 }
