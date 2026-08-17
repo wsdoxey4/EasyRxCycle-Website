@@ -36,6 +36,7 @@ jobs:
           NEXT_PUBLIC_GA: ${{ secrets.NEXT_PUBLIC_GA }}
           NEXT_PUBLIC_GTM_ID: ${{ secrets.NEXT_PUBLIC_GTM_ID }}
           NEXT_PUBLIC_CLARITY_ID: ${{ secrets.NEXT_PUBLIC_CLARITY_ID }}
+          NEXT_PUBLIC_STRIPE_PK: ${{ secrets.NEXT_PUBLIC_STRIPE_PK }}
           NEXT_PUBLIC_ANALYTICS: "true"
           NEXT_PUBLIC_INDEXABLE: ${{ secrets.NEXT_PUBLIC_INDEXABLE }}
 

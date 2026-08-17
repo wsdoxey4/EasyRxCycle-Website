@@ -54,10 +54,16 @@ export async function onRequestPost({ request, env }) {
   const cancel = origin + (env.STRIPE_CANCEL_PATH || "/shop/");
   const shipCents = firstCharge >= FREE_SHIP_CENTS ? 0 : FLAT_SHIP_CENTS;
 
+  const embedded = body.embedded === true;   // on-domain embedded checkout vs hosted redirect
   const f = new URLSearchParams();
   f.set("mode", subscription ? "subscription" : "payment");
-  f.set("success_url", success);
-  f.set("cancel_url", cancel);
+  if (embedded) {
+    f.set("ui_mode", "embedded");
+    f.set("return_url", success);           // success already carries ?session_id={CHECKOUT_SESSION_ID}
+  } else {
+    f.set("success_url", success);
+    f.set("cancel_url", cancel);
+  }
   f.set("billing_address_collection", "auto");
   f.set("phone_number_collection[enabled]", "true");
   f.set("shipping_address_collection[allowed_countries][0]", "US");
@@ -99,7 +105,12 @@ export async function onRequestPost({ request, env }) {
       body: f.toString(),
     });
     const j = await r.json();
-    if (!r.ok || !j.url) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
+    if (!r.ok) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
+    if (embedded) {
+      if (!j.client_secret) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
+      return json({ ok: true, clientSecret: j.client_secret });
+    }
+    if (!j.url) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
     return json({ ok: true, url: j.url });
   } catch {
     return json({ ok: false, error: "Checkout is temporarily unavailable. Please try again." }, 502);

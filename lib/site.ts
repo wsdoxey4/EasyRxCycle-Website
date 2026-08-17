@@ -59,3 +59,6 @@ export const ANALYTICS = {
   clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
   hubspot: process.env.NEXT_PUBLIC_HUBSPOT_ID || "49645219",  // HubSpot page tracking (CRM attribution for known contacts)
 };
+
+// Stripe publishable key (public — safe on the client) for the on-domain embedded checkout.
+export const STRIPE_PK = process.env.NEXT_PUBLIC_STRIPE_PK || "";

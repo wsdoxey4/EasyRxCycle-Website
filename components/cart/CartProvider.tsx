@@ -56,17 +56,12 @@ export default function CartProvider({ children }: { children: ReactNode }) {
   const setQty = (id: string, qty: number) => setCart((c) => (qty <= 0 ? c.filter((l) => lineId(l) !== id) : c.map((l) => (lineId(l) === id ? { ...l, qty: Math.min(99, qty) } : l))));
   const changeInterval = (key: string) => setCart((c) => c.map((l) => (l.interval ? { ...l, interval: key } : l)));
 
-  async function checkout() {
+  function checkout() {
     if (!cart.length || busy) return;
     setBusy(true); setErr("");
     trackEvent("begin_checkout", { currency: "USD", value: subtotal / 100, items: cart.map((l) => ({ item_id: l.sku, quantity: l.qty })) });
-    try {
-      const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cart }) });
-      const j = await r.json();
-      if (j.ok && j.url) { window.location.href = j.url; return; }
-      setErr(j.error || "Could not start checkout. Please call 501-904-2929.");
-    } catch { setErr("Could not reach checkout. Please try again or call 501-904-2929."); }
-    setBusy(false);
+    // Go to the on-domain embedded checkout page; it reads this cart from localStorage.
+    window.location.href = "/checkout";
   }
 
   return <CartCtx.Provider value={{ cart, count, subtotal, freeShip, toFree, hasSub, subInterval, open, setOpen, add, setQty, changeInterval, busy, err, checkout }}>{children}</CartCtx.Provider>;
