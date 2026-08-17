@@ -86,7 +86,7 @@ async function handlePost({ request, env }) {
     f.set(`line_items[${i}][price_data][product_data][name]`, l.name);
     const img = imgFor(l.sku, origin);
     if (img) f.set(`line_items[${i}][price_data][product_data][images][0]`, img);
-    if (env.STRIPE_TAX_RATE_ID) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
+    if (env.STRIPE_TAX_RATE_ID && !l.interval) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
     if (l.interval) {
       f.set(`line_items[${i}][price_data][recurring][interval]`, "month");
       f.set(`line_items[${i}][price_data][recurring][interval_count]`, String(INTERVALS[l.interval]));
