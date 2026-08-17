@@ -32,6 +32,20 @@ export function onRequestGet({ env }) {
 }
 
 export async function onRequestPost({ request, env }) {
+  // TEMP diagnostic — send a sample order email (receipt + alert) using the REAL orderEmails code,
+  // without a live Stripe event. Gated by CRON_SECRET. Remove after email testing.
+  {
+    const tk = request.headers.get("x-test-order-email");
+    if (tk && env.CRON_SECRET && tk === env.CRON_SECRET) {
+      let tb = {}; try { tb = await request.json(); } catch {}
+      await orderEmails(env, {
+        buyer: tb.buyer || {}, cart: Array.isArray(tb.cart) ? tb.cart : [],
+        totals: tb.totals || {}, kind: tb.kind || "order", orderRef: tb.orderRef || "TESTORDER",
+      }).catch((e) => e);
+      return new Response(JSON.stringify({ ok: true, test: "order-email sent" }), { headers: { "Content-Type": "application/json" } });
+    }
+  }
+
   const secret = env.STRIPE_WEBHOOK_SECRET;
   const svcKey = env.PORTAL_SUPABASE_SERVICE_KEY;
   if (!secret) return new Response("STRIPE_WEBHOOK_SECRET not configured", { status: 500 });
