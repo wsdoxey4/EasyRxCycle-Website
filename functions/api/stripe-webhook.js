@@ -15,6 +15,8 @@
 //
 // Idempotent per Stripe object id via orders.ext_ref; subscriptions upsert by stripe_sub_id.
 
+import PRICES from "../_prices.json";
+
 const STREAM_BY_PREFIX = {
   "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-CHM": "trace-chemo",
   "ERX-MED": "medication disposal kit", "ERX-PHW": "pharmaceutical",
@@ -64,7 +66,9 @@ export async function onRequestPost({ request, env }) {
     const buyer = { email: (cd.email || "").toLowerCase(), name: ship.name || cd.name, phone: cd.phone, addr: ship.address || cd.address || {} };
     const source = s.mode === "subscription" ? "autoship" : "shop";
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
-    return ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef });
+    const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef });
+    await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    return _resp;
   }
 
   // ---- Auto-ship renewal (every cycle after the first) ----
@@ -80,7 +84,9 @@ export async function onRequestPost({ request, env }) {
     if (!cart.length) return new Response("no cart on subscription", { status: 200 });
     const sh = inv.customer_shipping || {};
     const buyer = { email: (inv.customer_email || "").toLowerCase(), name: sh.name || inv.customer_name, phone: sh.phone || inv.customer_phone, addr: sh.address || inv.customer_address || {} };
-    return ingest(db, { extRef: inv.id, cart, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null });
+    const _resp = await ingest(db, { extRef: inv.id, cart, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null });
+    await orderEmails(env, { buyer, cart, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    return _resp;
   }
 
   // ---- Subscription lifecycle → keep the portal `subscriptions` row current ----
@@ -244,4 +250,46 @@ async function verifyStripe(raw, header, secret) {
   let diff = 0;
   for (let i = 0; i < hex.length; i++) diff |= hex.charCodeAt(i) ^ v1.charCodeAt(i);
   return diff === 0;
+}
+
+// ---- Order emails: customer receipt + William/sales alert (best-effort; never blocks ingest) ----
+const MANIFEST_URL = "https://docs.google.com/spreadsheets/d/1qx4B-gr7z369juOqenSZFpTqtYU5sHhxFSWHy8JO1n8/copy";
+async function orderEmails(env, { buyer, cart, totals, kind, orderRef }) {
+  try {
+    if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
+    const money = (c) => "$" + (((c || 0)) / 100).toFixed(2);
+    const isRenew = kind === "renewal";
+    const label = isRenew ? "Auto-ship renewal" : (kind === "first-autoship" ? "New auto-ship order" : "New order");
+    const controlled = (cart || []).some((it) => String(it.s || "").startsWith("ERX-CTL"));
+    const who = esc(buyer.name || buyer.email || "Web customer");
+    const rowHtml = (cart || []).map((it) => {
+      const name = esc((PRICES[it.s] && PRICES[it.s].n) || it.s || "Item"); const qty = it.q || 1;
+      return `<tr><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#123A44;">${name}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#55646B;text-align:center;">${qty}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#123A44;text-align:right;">${money((it.c || 0) * qty)}</td></tr>`;
+    }).join("");
+    const tRows = [];
+    if (totals && totals.subtotal != null) tRows.push(["Subtotal", money(totals.subtotal)]);
+    if (totals && totals.shipping != null) tRows.push(["Shipping", totals.shipping ? money(totals.shipping) : "Free"]);
+    if (totals && totals.tax != null && totals.tax > 0) tRows.push(["Tax", money(totals.tax)]);
+    tRows.push(["Total", money(totals && totals.total)]);
+    const totalsHtml = tRows.map(([k, v], i) => { const last = i === tRows.length - 1; return `<tr><td style="padding:5px 0;text-align:right;color:${last ? "#123A44" : "#55646B"};font-size:14px;${last ? "font-weight:bold;" : ""}">${k}</td><td style="padding:5px 0 5px 24px;text-align:right;color:#123A44;font-size:14px;${last ? "font-weight:bold;" : ""}">${v}</td></tr>`; }).join("");
+    const a = buyer.addr || {};
+    const ship = [esc(a.line1), esc(a.line2), [a.city, a.state, a.postal_code].filter(Boolean).map(esc).join(", ")].filter(Boolean).join("<br>");
+    const itemsTable = `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:6px;"><tr><td style="padding:6px 0;border-bottom:2px solid #005770;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#177f86;">Item</td><td style="padding:6px 0;border-bottom:2px solid #005770;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#177f86;text-align:center;">Qty</td><td style="padding:6px 0;border-bottom:2px solid #005770;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:#177f86;text-align:right;">Amount</td></tr>${rowHtml}</table><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:8px;">${totalsHtml}</table>`;
+    const manifestBlock = controlled ? `<div style="margin-top:22px;background:#fff7ed;border:1px solid #f2c98a;border-radius:11px;padding:18px;"><div style="font-size:12px;font-weight:bold;letter-spacing:.4px;text-transform:uppercase;color:#b3671e;margin-bottom:6px;">Required for controlled substances</div><h3 style="margin:0 0 8px;font-size:16px;color:#123A44;">Complete your DEA Drug Inventory Manifest</h3><p style="margin:0 0 12px;color:#55646B;font-size:14px;line-height:1.5;">Your kit includes controlled substances, so you must include a completed drug-inventory manifest listing what you&rsquo;re sending. Two minutes:</p><ol style="margin:0 0 14px;padding-left:18px;color:#123A44;font-size:13.5px;line-height:1.6;"><li>Open the manifest and <b>make your own copy</b>.</li><li>Fill in your company, DEA #, and State.</li><li>List each drug: name, strength, NDC #, package size.</li><li>Print it and include it in your mail-back box.</li></ol><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#005770;border-radius:9px;"><a href="${MANIFEST_URL}" style="display:inline-block;padding:12px 22px;color:#fff;font-weight:bold;text-decoration:none;font-size:14px;">Open the DEA manifest &rarr;</a></td></tr></table></div>` : "";
+    if (buyer.email) {
+      const receipt = shell(`<h1 style="margin:0 0 6px;font-size:22px;color:#123A44;">Thanks${buyer.name ? ", " + esc(String(buyer.name).split(" ")[0]) : ""} &mdash; your order is confirmed.</h1><p style="margin:0 0 4px;color:#55646B;font-size:14px;">Order <b>#${esc(orderRef || "")}</b>${isRenew ? " &middot; auto-ship shipment" : ""}. We&rsquo;re processing it now, and you&rsquo;ll receive a <b>Certificate of Destruction</b> once your waste is destroyed.</p>${itemsTable}${ship ? `<p style="margin:18px 0 0;color:#55646B;font-size:13px;"><b>Ship to:</b><br>${ship}</p>` : ""}${manifestBlock}<p style="margin:20px 0 0;color:#8aa0a8;font-size:13px;">Questions? Reply to this email or call 501-904-2929.</p>`);
+      await resendSend(env, buyer.email, `Your Easy Rx Cycle order is confirmed${orderRef ? " — #" + orderRef : ""}`, receipt, "sales@easyrxcycle.com");
+    }
+    const alert = shell(`<span style="display:inline-block;background:${controlled ? "#fde7d3" : "#eafaf3"};color:${controlled ? "#b3671e" : "#1c9d6c"};font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">${label}${controlled ? " &middot; controlled" : ""}</span><h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${money(totals && totals.total)} &middot; ${who}</h1><p style="margin:0 0 10px;color:#55646B;font-size:14px;">Order #${esc(orderRef || "")} &middot; ${esc(buyer.email || "")}${buyer.phone ? " &middot; " + esc(buyer.phone) : ""}</p>${itemsTable}${ship ? `<p style="margin:16px 0 0;color:#55646B;font-size:13px;"><b>Ship to:</b><br>${ship}</p>` : ""}${controlled ? `<p style="margin:14px 0 0;color:#b3671e;font-size:13px;font-weight:bold;">&#9888; Controlled substances &mdash; customer must include the DEA manifest.</p>` : ""}`);
+    await resendSend(env, ["william@easyrxcycle.com", "sales@easyrxcycle.com"], `${label}${controlled ? " (controlled)" : ""} — ${money(totals && totals.total)} · ${buyer.name || buyer.email || "web"}`, alert, buyer.email);
+  } catch {}
+}
+function resendSend(env, to, subject, html, replyTo) {
+  const body = { from: env.RESEND_FROM, to, subject, html };
+  if (replyTo && replyTo !== to) body.reply_to = replyTo;
+  return fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify(body) });
+}
+function esc(s = "") { return String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
+function shell(inner) {
+  return `<!doctype html><html><body style="margin:0;background:#f5faf8;font-family:Arial,Helvetica,sans-serif;color:#123A44;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5faf8;padding:24px 12px;"><tr><td align="center"><table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4ecea;"><tr><td style="background:#005770;padding:16px 28px;"><span style="color:#fff;font-size:19px;font-weight:bold;">Easy <span style="color:#7ad3ab;">Rx</span> Cycle</span></td></tr><tr><td style="padding:28px;">${inner}</td></tr><tr><td style="background:#0c2f38;padding:18px 28px;color:#9fb4b9;font-size:12px;line-height:1.6;">Easy Rx Cycle &middot; <a href="tel:5019042929" style="color:#9fd7c8;text-decoration:none;">501-904-2929</a> &middot; <a href="mailto:sales@easyrxcycle.com" style="color:#9fd7c8;text-decoration:none;">sales@easyrxcycle.com</a><br><span style="color:#6f8990;">DEA-Registered &middot; EPA-Compliant &middot; Certificate of Destruction on every order</span></td></tr></table></td></tr></table></body></html>`;
 }
