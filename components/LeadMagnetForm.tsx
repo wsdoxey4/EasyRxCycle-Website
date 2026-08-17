@@ -17,7 +17,7 @@ export default function LeadMagnetForm({ magnet, file, title, industry, bullets 
     setBusy(true); setErr("");
     const payload = { name: String(fd.get("name") || ""), email, org: String(fd.get("org") || ""), magnet, file, title, industry, bullets };
     try {
-      await fetch("/api/lead-magnet", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      await fetch("/api/lead-magnet", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true });
     } catch {}
     trackEvent("generate_lead", { lead_source: "lead_magnet", magnet, industry });
     setBusy(false); setDone(true);
