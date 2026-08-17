@@ -35,6 +35,8 @@ const money = (v: any) => {
   return "";
 };
 const dollars = (c: number) => "$" + (c / 100).toFixed(2);
+// Normalize a US phone to E.164 (+1XXXXXXXXXX). Stripe accepts raw too, but this keeps our records clean.
+const normPhone = (v: string) => { const d = v.replace(/\D/g, ""); if (d.length === 10) return "+1" + d; if (d.length === 11 && d[0] === "1") return "+" + d; return v.trim(); };
 const unitCents = (l: Line) => { const b = BY_SKU[l.sku]?.cents || 0; return l.interval ? autoshipCents(b) : b; };
 const lineCents = (l: Line) => unitCents(l) * l.qty + (l.expedite ? EXPEDITE_CENTS : 0);
 const imgFor = (sku: string) => {
@@ -58,6 +60,7 @@ export default function CustomCheckout() {
   const [total, setTotal] = useState<any>({});
   const [canPay, setCanPay] = useState(false);
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [promo, setPromo] = useState("");
   const [promoMsg, setPromoMsg] = useState("");
   const [paying, setPaying] = useState(false);
@@ -101,6 +104,7 @@ export default function CustomCheckout() {
     const se = checkout.createShippingAddressElement(); se.mount("#co-shipping"); shipEl.current = se;
     const pe = checkout.createPaymentElement(); pe.mount("#co-payment"); payEl.current = pe;
     if (email) { try { await checkout.updateEmail(email); } catch {} }
+    if (phone) { const p = normPhone(phone); if (p.replace(/\D/g, "").length >= 10) { try { await checkout.updatePhoneNumber(p); } catch {} } }
   }
 
   function sync() {
@@ -142,6 +146,10 @@ export default function CustomCheckout() {
   const changeIv = (i: number, iv: string) =>
     applyLines(lines.map((l, idx) => (idx === i ? { ...l, interval: iv } : l)));
 
+  function pushPhone(v: string) {
+    const c = co.current; const p = normPhone(v);
+    if (c && p.replace(/\D/g, "").length >= 10) { try { c.updatePhoneNumber(p); } catch {} }
+  }
   async function applyPromo() {
     const c = co.current; if (!c || !promo.trim()) return;
     setPromoMsg("");
@@ -180,6 +188,7 @@ export default function CustomCheckout() {
         {state === "loading" && <p className="lead" style={{ padding: "24px 0" }}>Loading secure checkout…</p>}
         <div className="co-block"><h3 className="co-h">Contact</h3>
           <input className="co-input" type="email" placeholder="Email for your receipt" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => email && co.current?.updateEmail(email).catch(() => {})} autoComplete="email" />
+          <input className="co-input" type="tel" placeholder="Phone number" value={phone} style={{ marginTop: 10 }} onChange={(e) => { setPhone(e.target.value); pushPhone(e.target.value); }} onBlur={() => pushPhone(phone)} autoComplete="tel" />
         </div>
         <div className="co-block"><h3 className="co-h">Shipping address</h3><div id="co-shipping" /></div>
         <div className="co-block"><h3 className="co-h">Payment</h3><div id="co-payment" /></div>
