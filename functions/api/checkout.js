@@ -120,6 +120,10 @@ async function handlePost({ request, env }) {
       headers: { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`, "Content-Type": "application/x-www-form-urlencoded" },
       body: f.toString(),
     });
+    if (body.debug) {
+      const t = await r.text();
+      return json({ ok: r.ok, status: r.status, raw: t.slice(0, 1500), params: subscription ? f.toString().slice(0, 1500) : undefined });
+    }
     const j = await r.json();
     if (!r.ok) return json({ ok: false, error: j.error?.message || "Could not start checkout." }, 502);
     if (ui === "custom" || ui === "embedded") {
