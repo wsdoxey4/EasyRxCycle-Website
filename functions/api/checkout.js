@@ -86,7 +86,7 @@ async function handlePost({ request, env }) {
     f.set(`line_items[${i}][price_data][product_data][name]`, l.name);
     const img = imgFor(l.sku, origin);
     if (img) f.set(`line_items[${i}][price_data][product_data][images][0]`, img);
-    if (env.STRIPE_TAX_RATE_ID && !l.interval) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
+    if (env.STRIPE_TAX_RATE_ID) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
     if (l.interval) {
       f.set(`line_items[${i}][price_data][recurring][interval]`, "month");
       f.set(`line_items[${i}][price_data][recurring][interval_count]`, String(INTERVALS[l.interval]));
@@ -96,12 +96,15 @@ async function handlePost({ request, env }) {
       f.set(`line_items[${i}][adjustable_quantity][maximum]`, "99");
     }
   });
-  // Shipping (applies to one-time orders; auto-ship orders effectively ship free when honored).
-  f.set("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
-  f.set("shipping_options[0][shipping_rate_data][display_name]", shipCents === 0 ? "Free shipping" : "Standard shipping");
-  f.set("shipping_options[0][shipping_rate_data][fixed_amount][amount]", String(shipCents));
-  f.set("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "usd");
-  f.set("shipping_options[0][shipping_rate_data][tax_behavior]", "exclusive");
+  // Shipping — Stripe only allows shipping_options in payment (one-time) mode.
+  // Auto-ship (subscription) orders ship free, so we simply omit shipping there.
+  if (!subscription) {
+    f.set("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
+    f.set("shipping_options[0][shipping_rate_data][display_name]", shipCents === 0 ? "Free shipping" : "Standard shipping");
+    f.set("shipping_options[0][shipping_rate_data][fixed_amount][amount]", String(shipCents));
+    f.set("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "usd");
+    f.set("shipping_options[0][shipping_rate_data][tax_behavior]", "exclusive");
+  }
   if (restricted.length) {
     f.set("metadata[dea_manifest_required]", restricted.join(","));
     if (subscription) f.set("subscription_data[metadata][dea_manifest_required]", restricted.join(","));
