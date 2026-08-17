@@ -1344,6 +1344,8 @@ header.site .wrap{position:relative;}
 .co-input:focus{outline:none;border-color:var(--teal,#005770);box-shadow:0 0 0 3px rgba(0,87,112,.12)}
 .co-pay{width:100%;justify-content:center;margin-top:8px;font-size:16px;padding:15px}
 .co-secure{text-align:center;color:var(--muted,#5b6670);font-size:12.5px;margin-top:12px}
+.co-hint{text-align:center;color:var(--teal,#005770);font-size:12.5px;font-weight:600;margin:8px 0 0}
+@media (max-width:860px){.co-hint{margin:6px 0 0}}
 .co-summary{grid-area:summary;background:var(--paper,#fff);border:1px solid var(--line,#e6e9ec);border-radius:16px;padding:20px;position:sticky;top:20px}
 .co-items{display:flex;flex-direction:column;gap:14px;margin:6px 0 16px}
 .co-item{display:flex;gap:12px;align-items:center}

@@ -148,13 +148,15 @@ export default function CustomCheckout() {
     try { const res = await c.applyPromotionCode(promo.trim()); if (res?.error) setPromoMsg(res.error.message); else { setPromoMsg("Code applied."); setPromo(""); } sync(); } catch { setPromoMsg("Couldn’t apply that code."); }
   }
   async function pay() {
-    const c = co.current; if (!c || paying) return;
+    const c = co.current; if (!c || paying || busy) return;
     setErr(""); setPaying(true);
     try {
       if (email) await c.updateEmail(email);
+      // confirm() also runs Stripe's own field validation — on an incomplete form it highlights
+      // the missing fields and returns a specific error, so a click never silently does nothing.
       const res = await c.confirm();
-      if (res?.type === "error" || res?.error) setErr(res.error?.message || "Payment could not be completed.");
-    } catch { setErr("Payment could not be completed. Please try again."); }
+      if (res?.type === "error" || res?.error) setErr(res.error?.message || "Please complete your email, phone, shipping address, and card details above, then try again.");
+    } catch { setErr("Please complete your email, phone, shipping address, and card details above, then try again."); }
     setPaying(false);
   }
 
@@ -243,9 +245,10 @@ export default function CustomCheckout() {
 
       {/* PAY — under the form on desktop; last on mobile, right below the summary */}
       <div className="co-pay-wrap">
-        <button className="btn btn-primary co-pay" onClick={pay} disabled={paying || busy || state !== "ready" || !canPay}>
+        <button className="btn btn-primary co-pay" onClick={pay} disabled={paying || busy || state !== "ready"}>
           {paying ? "Processing…" : `Pay ${summaryTotal}`} <span className="ar">→</span>
         </button>
+        {!canPay && state === "ready" && !busy && <p className="co-hint">Fill in your email, phone, shipping address & card above to pay.</p>}
         <p className="co-secure">🔒 Secure payment · Certificate of Destruction on every order.</p>
       </div>
     </div>
