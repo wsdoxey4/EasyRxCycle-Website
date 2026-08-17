@@ -88,11 +88,13 @@ export default function CustomCheckout() {
     const j = await r.json();
     if (seq !== reinitSeq.current) return;              // a newer re-init superseded this one
     if (!j.ok || !j.clientSecret) throw new Error(j.error || "init failed");
-    try { shipEl.current?.unmount?.(); } catch {}
-    try { payEl.current?.unmount?.(); } catch {}
     const cs = j.clientSecret;
     const appearance = { variables: { colorPrimary: "#005770", fontFamily: "Inter, system-ui, sans-serif", borderRadius: "10px", fontSizeBase: "15px" } };
+    // Build the new session BEFORE tearing down the old one — if this throws, the old checkout stays intact.
     const checkout = await stripe.initCheckout({ fetchClientSecret: async () => cs, elementsOptions: { appearance } });
+    if (seq !== reinitSeq.current) return;
+    try { shipEl.current?.unmount?.(); } catch {}
+    try { payEl.current?.unmount?.(); } catch {}
     co.current = checkout;
     sync();
     checkout.on("change", sync);
@@ -169,6 +171,7 @@ export default function CustomCheckout() {
 
   return (
     <div className="co-grid">
+      {busy && <div className="co-updating"><span className="co-spin" /><span>Updating your order…</span></div>}
       {/* FORM — first on mobile so inputs are immediately reachable */}
       <div className="co-main">
         {err && <div className="lm-err" style={{ padding: "12px 14px", marginBottom: 14 }}>{err}</div>}

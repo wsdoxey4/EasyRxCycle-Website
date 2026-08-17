@@ -1324,10 +1324,20 @@ header.site .wrap{position:relative;}
 .pu-empty{border:1px dashed var(--line,#e6e9ec);border-radius:12px;padding:18px;font-size:15px;line-height:1.55;color:var(--muted,#5b6670)}
 
 /* ── Custom on-domain checkout (two-column) ─────────────────── */
-.co-grid{display:grid;grid-template-columns:1fr 380px;gap:20px 28px;align-items:start;grid-template-areas:"main summary" "pay summary"}
+.co-grid{position:relative;display:grid;grid-template-columns:1fr 380px;gap:20px 28px;align-items:start;grid-template-areas:"main summary" "pay summary"}
+.co-updating{position:absolute;inset:0;z-index:70;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,.72);backdrop-filter:blur(2px);border-radius:16px;font-size:14px;font-weight:600;color:var(--teal,#005770)}
+.co-spin{width:26px;height:26px;border:3px solid #cfe0e4;border-top-color:var(--teal,#005770);border-radius:50%;animation:cospin .8s linear infinite}
+@keyframes cospin{to{transform:rotate(360deg)}}
+@media (max-width:860px){.co-updating{position:fixed;inset:0;border-radius:0}}
 .co-main{grid-area:main;min-width:0}
 .co-pay-wrap{grid-area:pay;min-width:0}
-@media (max-width:860px){.co-grid{grid-template-columns:1fr;gap:18px;grid-template-areas:"main" "summary" "pay"}.co-summary{position:static}}
+@media (max-width:860px){
+  .co-grid{grid-template-columns:1fr;gap:18px;grid-template-areas:"main" "summary" "pay";padding-bottom:92px}
+  .co-summary{position:static!important;top:auto!important}
+  .co-pay-wrap{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper,#fff);border-top:1px solid var(--line,#e6e9ec);box-shadow:0 -6px 22px rgba(9,30,36,.12);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+  .co-pay-wrap .co-pay{margin:0}
+  .co-pay-wrap .co-secure{display:none}
+}
 .co-block{margin-bottom:22px}
 .co-h{font-family:Poppins,system-ui,sans-serif;font-weight:600;font-size:15px;color:var(--ink,#1f2d34);margin:0 0 10px}
 .co-input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line,#e6e9ec);border-radius:10px;font-size:15px;font-family:inherit;color:var(--ink,#1f2d34);background:#fff}
