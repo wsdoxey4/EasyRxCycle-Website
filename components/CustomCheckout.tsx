@@ -15,12 +15,18 @@ function loadStripeJs(): Promise<any> {
     document.head.appendChild(s);
   });
 }
-// Basil amounts are { amount: "$110.00", minorUnitsAmount: 11000 } — prefer the formatted string.
+// Basil amounts are { amount: "$110.00", minorUnitsAmount: 11000 }. Use the numeric cents (never NaN).
 const money = (v: any) => {
   if (v == null) return "";
-  if (typeof v === "string") return v;
-  if (typeof v === "object") return v.amount ?? ("$" + ((v.minorUnitsAmount ?? 0) / 100).toFixed(2));
-  return "$" + (Number(v) / 100).toFixed(2);
+  if (typeof v === "number") return "$" + (v / 100).toFixed(2);
+  if (typeof v === "object") {
+    if (typeof v.minorUnitsAmount === "number") return "$" + (v.minorUnitsAmount / 100).toFixed(2);
+    if (typeof v.amount === "string") return v.amount;
+    if (typeof v.amount === "number") return "$" + (v.amount / 100).toFixed(2);
+    return "";
+  }
+  if (typeof v === "string") return v.startsWith("$") ? v : ("$" + (Number(v) / 100).toFixed(2));
+  return "";
 };
 
 // Fully-branded, on-domain checkout on Stripe Custom Checkout (ui_mode=custom).
