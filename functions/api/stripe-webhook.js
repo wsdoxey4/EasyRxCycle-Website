@@ -74,7 +74,9 @@ export async function onRequestPost({ request, env }) {
         try { const resp = await ingest(db2, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef }); msg = await resp.text(); }
         catch (e) { msg = "err:" + String((e && e.message) || e); }
         if (wantEmail) { await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id).slice(-8).toUpperCase() }).catch(() => {}); }
-        results.push({ id: s.id, buyer: buyer.email, name: buyer.name, amount: s.amount_total, ingest: msg, emailed: wantEmail });
+        let hs = false;
+        if (request.headers.get("x-reingest-hubspot") === "1") { const r2 = await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id).slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => null); hs = Boolean(r2 && r2.dealId); }
+        results.push({ id: s.id, buyer: buyer.email, name: buyer.name, amount: s.amount_total, ingest: msg, emailed: wantEmail, hubspot: hs });
       }
       return new Response(JSON.stringify({ ok: true, scanned: sessions.length, ingested: results }, null, 2), { headers: { "Content-Type": "application/json" } });
     }
@@ -116,6 +118,7 @@ export async function onRequestPost({ request, env }) {
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
     const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef });
     await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
     return _resp;
   }
 
@@ -134,6 +137,7 @@ export async function onRequestPost({ request, env }) {
     const buyer = { email: (inv.customer_email || "").toLowerCase(), name: sh.name || inv.customer_name, phone: sh.phone || inv.customer_phone, addr: sh.address || inv.customer_address || {} };
     const _resp = await ingest(db, { extRef: inv.id, cart, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null });
     await orderEmails(env, { buyer, cart, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    await orderToHubspot(env, { buyer, cart, totals: { total: inv.amount_paid ?? inv.total }, orderRef: String(inv.id || "").slice(-8).toUpperCase(), source: "autoship", placedAtSec: inv.created, kind: "renewal" }).catch(() => {});
     return _resp;
   }
 
@@ -305,6 +309,56 @@ async function verifyStripe(raw, header, secret) {
 
 // ---- Order emails: customer receipt + William/sales alert (best-effort; never blocks ingest) ----
 const MANIFEST_URL = "https://docs.google.com/spreadsheets/d/1qx4B-gr7z369juOqenSZFpTqtYU5sHhxFSWHy8JO1n8/copy";
+// ---- HubSpot: mirror every paid order into the "Mail Back Program" pipeline as a Closed/Paid-Won
+// deal, with the buyer as a contact and each kit as a line item (what they bought + amount + date). ----
+async function orderToHubspot(env, { buyer, cart, totals, orderRef, source, placedAtSec, kind }) {
+  try {
+    const token = env.HUBSPOT_PRIVATE_TOKEN;
+    if (!token || !buyer || !buyer.email) return;
+    const h = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
+    const money = (c) => (Number(c || 0) / 100).toFixed(2);
+
+    // 1) upsert the contact by email
+    const parts = String(buyer.name || "").trim().split(/\s+/).filter(Boolean);
+    const a = buyer.addr || {};
+    const cprops = { email: buyer.email };
+    if (parts[0]) cprops.firstname = parts[0];
+    if (parts.length > 1) cprops.lastname = parts.slice(1).join(" ");
+    if (buyer.phone) cprops.phone = buyer.phone;
+    if (a.line1) cprops.address = a.line1;
+    if (a.city) cprops.city = a.city;
+    if (a.state) cprops.state = a.state;
+    if (a.postal_code) cprops.zip = a.postal_code;
+    let cr = await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${encodeURIComponent(buyer.email)}?idProperty=email`, { method: "PATCH", headers: h, body: JSON.stringify({ properties: cprops }) });
+    if (cr.status === 404) cr = await fetch("https://api.hubapi.com/crm/v3/objects/contacts", { method: "POST", headers: h, body: JSON.stringify({ properties: cprops }) });
+    const contactId = (await cr.json().catch(() => ({}))).id || null;
+
+    // 2) create the deal in Mail Back Program → Client Paid - Won (paid orders are already won)
+    const label = kind === "renewal" ? "Auto-ship renewal" : (source === "autoship" ? "Auto-ship order" : "Shop order");
+    const itemsText = (cart || []).map((it) => `${it.q || 1}× ${(PRICES[it.s] && PRICES[it.s].n) || it.s}`).join("\n");
+    const dprops = {
+      dealname: `${label} #${orderRef} — ${buyer.name || buyer.email}`,
+      amount: money(totals && totals.total),
+      pipeline: env.HUBSPOT_ORDER_PIPELINE || "default",
+      dealstage: env.HUBSPOT_ORDER_DEALSTAGE || "appointmentscheduled", // "Client Paid - Won"
+      closedate: String((placedAtSec ? placedAtSec * 1000 : Date.now())),
+      description: `${label} #${orderRef}\n${itemsText}\nTotal: $${money(totals && totals.total)}`,
+    };
+    const assoc = contactId ? [{ to: { id: contactId }, types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: 3 }] }] : undefined; // deal→contact
+    const dr = await fetch("https://api.hubapi.com/crm/v3/objects/deals", { method: "POST", headers: h, body: JSON.stringify({ properties: dprops, ...(assoc ? { associations: assoc } : {}) }) });
+    const dealId = (await dr.json().catch(() => ({}))).id || null;
+
+    // 3) one line item per kit, associated to the deal (line_item→deal = 20)
+    if (dealId) {
+      for (const it of cart || []) {
+        const li = { name: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit", quantity: String(it.q || 1), price: money(it.c) };
+        await fetch("https://api.hubapi.com/crm/v3/objects/line_items", { method: "POST", headers: h, body: JSON.stringify({ properties: li, associations: [{ to: { id: dealId }, types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: 20 }] }] }) }).catch(() => {});
+      }
+    }
+    return { contactId, dealId };
+  } catch { return null; }
+}
+
 async function orderEmails(env, { buyer, cart, totals, kind, orderRef }) {
   try {
     if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
