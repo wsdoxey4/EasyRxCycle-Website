@@ -32,56 +32,6 @@ export function onRequestGet({ env }) {
 }
 
 export async function onRequestPost({ request, env }) {
-  // TEMP diagnostic — send a sample order email (receipt + alert) using the REAL orderEmails code,
-  // without a live Stripe event. Gated by CRON_SECRET. Remove after email testing.
-  {
-    const tk = request.headers.get("x-test-order-email");
-    if (tk && env.CRON_SECRET && tk === env.CRON_SECRET) {
-      let tb = {}; try { tb = await request.json(); } catch {}
-      await orderEmails(env, {
-        buyer: tb.buyer || {}, cart: Array.isArray(tb.cart) ? tb.cart : [],
-        totals: tb.totals || {}, kind: tb.kind || "order", orderRef: tb.orderRef || "TESTORDER",
-      }).catch((e) => e);
-      return new Response(JSON.stringify({ ok: true, test: "order-email sent" }), { headers: { "Content-Type": "application/json" } });
-    }
-  }
-
-  // TEMP recovery — re-ingest recent PAID checkout sessions from Stripe that never reached the webhook
-  // (orders placed before the endpoint existed). Ingest only; emails only if x-reingest-email:1.
-  // Gated by CRON_SECRET. Remove after recovery.
-  {
-    const rk = request.headers.get("x-reingest-recent");
-    if (rk && env.CRON_SECRET && rk === env.CRON_SECRET) {
-      if (!env.STRIPE_SECRET_KEY) return new Response(JSON.stringify({ ok: false, error: "no stripe key" }), { headers: { "Content-Type": "application/json" } });
-      const svc = env.PORTAL_SUPABASE_SERVICE_KEY;
-      const base2 = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
-      const db2 = (path, opts = {}) => fetch(`${base2}/rest/v1/${path}`, { ...opts, headers: { apikey: svc, Authorization: `Bearer ${svc}`, "Content-Type": "application/json", ...(opts.headers || {}) } });
-      const wantEmail = request.headers.get("x-reingest-email") === "1";
-      const lr = await fetch("https://api.stripe.com/v1/checkout/sessions?limit=50", { headers: { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}` } }).then((r) => r.json()).catch(() => ({}));
-      const sessions = Array.isArray(lr.data) ? lr.data : [];
-      const results = [];
-      for (const s of sessions) {
-        const paid = s.payment_status === "paid" || s.status === "complete";
-        if (!paid) continue;
-        const cart = parseCart(s.metadata?.cart);
-        if (!cart.length) { results.push({ id: s.id, skip: "no cart metadata" }); continue; }
-        const cd = s.customer_details || {};
-        const ship = s.shipping_details || s.collected_information?.shipping_details || { name: cd.name, address: cd.address };
-        const buyer = { email: (cd.email || "").toLowerCase(), name: ship.name || cd.name, phone: cd.phone, addr: ship.address || cd.address || {} };
-        const source = s.mode === "subscription" ? "autoship" : "shop";
-        const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
-        let msg = "ok";
-        try { const resp = await ingest(db2, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef }); msg = await resp.text(); }
-        catch (e) { msg = "err:" + String((e && e.message) || e); }
-        if (wantEmail) { await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id).slice(-8).toUpperCase() }).catch(() => {}); }
-        let hs = false;
-        if (request.headers.get("x-reingest-hubspot") === "1") { const r2 = await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id).slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => null); hs = Boolean(r2 && r2.dealId); }
-        results.push({ id: s.id, buyer: buyer.email, name: buyer.name, amount: s.amount_total, ingest: msg, emailed: wantEmail, hubspot: hs });
-      }
-      return new Response(JSON.stringify({ ok: true, scanned: sessions.length, ingested: results }, null, 2), { headers: { "Content-Type": "application/json" } });
-    }
-  }
-
   const secret = env.STRIPE_WEBHOOK_SECRET;
   const svcKey = env.PORTAL_SUPABASE_SERVICE_KEY;
   if (!secret) return new Response("STRIPE_WEBHOOK_SECRET not configured", { status: 500 });
