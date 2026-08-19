@@ -66,7 +66,7 @@ export async function onRequestPost({ request, env }) {
     const buyer = { email: (cd.email || "").toLowerCase(), name: ship.name || cd.name, phone: cd.phone, addr: ship.address || cd.address || {} };
     const source = s.mode === "subscription" ? "autoship" : "shop";
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
-    const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef });
+    const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total } });
     await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
     return _resp;
@@ -85,7 +85,7 @@ export async function onRequestPost({ request, env }) {
     if (!cart.length) return new Response("no cart on subscription", { status: 200 });
     const sh = inv.customer_shipping || {};
     const buyer = { email: (inv.customer_email || "").toLowerCase(), name: sh.name || inv.customer_name, phone: sh.phone || inv.customer_phone, addr: sh.address || inv.customer_address || {} };
-    const _resp = await ingest(db, { extRef: inv.id, cart, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null });
+    const _resp = await ingest(db, { extRef: inv.id, cart, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total } });
     await orderEmails(env, { buyer, cart, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase() }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, totals: { total: inv.amount_paid ?? inv.total }, orderRef: String(inv.id || "").slice(-8).toUpperCase(), source: "autoship", placedAtSec: inv.created, kind: "renewal" }).catch(() => {});
     return _resp;
@@ -163,7 +163,7 @@ async function resolveClientSite(db, buyer, createIfMissing = true) {
 
 // Insert orders (split by stream × on-site/mail-back) + order_items for a paid cart,
 // inheriting partner attribution + a contract-pricing review flag from the matched client.
-async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionRef, paymentRef }) {
+async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionRef, paymentRef, totals }) {
   const already = await db(`orders?ext_ref=eq.${encodeURIComponent(extRef)}&select=id`).then((r) => r.json()).catch(() => []);
   if (Array.isArray(already) && already.length) return new Response("already processed", { status: 200 });
 
@@ -198,6 +198,22 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
     const rows = items.map((it) => ({ order_id: orderId, sku: it.s, description: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit", qty: Number(it.q) || 1, unit_cents: Number(it.c) || 0 }));
     await db(`order_items`, { method: "POST", body: JSON.stringify(rows) });
   }
+  // Prepaid receipt — one per checkout, stored so every online order has an invoice on file (they paid at checkout).
+  try {
+    const invNo = "R-" + String(extRef).slice(-10).toUpperCase();
+    const exists = await db(`invoices?invoice_no=eq.${encodeURIComponent(invNo)}&select=id&limit=1`).then((r) => r.json()).catch(() => []);
+    if (!(Array.isArray(exists) && exists.length)) {
+      const li = cart.map((it) => ({ description: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit", qty: Number(it.q) || 1, unit: "kit", rate_cents: Number(it.c) || 0, amount_cents: (Number(it.c) || 0) * (Number(it.q) || 1) }));
+      const total = totals && totals.total != null ? totals.total : li.reduce((s, l) => s + l.amount_cents, 0);
+      await db(`invoices`, { method: "POST", body: JSON.stringify({
+        invoice_no: invNo, client_id: clientId, basis: "sku", line_items: li,
+        subtotal_cents: (totals && totals.subtotal != null) ? totals.subtotal : total,
+        tax_cents: (totals && totals.tax != null) ? totals.tax : 0, total_cents: total, amount_paid_cents: total,
+        tax_exempt: false, terms: "Prepaid", status: "paid", version: 1,
+        meta: { source, prepaid: true, ext_ref: extRef, payment_ref: paymentRef || null }, issued_at: placedAt,
+      }) });
+    }
+  } catch {}
   return new Response("ok", { status: 200 });
 }
 
