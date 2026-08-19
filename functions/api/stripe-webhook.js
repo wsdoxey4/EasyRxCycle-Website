@@ -194,7 +194,8 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
     }).then((r) => r.json()).catch(() => null);
     const orderId = Array.isArray(ord) ? ord[0]?.id : ord?.id;
     if (!orderId) continue;
-    const rows = items.map((it) => ({ order_id: orderId, sku: it.s, description: null, qty: Number(it.q) || 1, unit_cents: Number(it.c) || 0 }));
+    // order_items.description is NOT NULL — use the product name so the insert never silently fails.
+    const rows = items.map((it) => ({ order_id: orderId, sku: it.s, description: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit", qty: Number(it.q) || 1, unit_cents: Number(it.c) || 0 }));
     await db(`order_items`, { method: "POST", body: JSON.stringify(rows) });
   }
   return new Response("ok", { status: 200 });
