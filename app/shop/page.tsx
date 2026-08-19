@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import MobileCTA from "@/components/MobileCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { CATEGORIES, fromPrice, money, inCategory, isShoppable } from "@/lib/shop";
 import { COLLECTIONS, KIT_BY_CATEGORY, KITS } from "@/lib/shopContent";
@@ -158,6 +159,7 @@ export default function Page() {
           </div>
         </section>
       </main>
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
       <Footer />
       <Reveal />
     </>

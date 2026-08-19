@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import QuoteSection from "@/components/QuoteSection";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import MobileCTA from "@/components/MobileCTA";
 import StatsBand from "@/components/StatsBand";
 
 export default function Home() {
@@ -269,6 +270,7 @@ export default function Home() {
 <QuoteSection />
 
 </main>
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Shop kits", href: "/shop" }} />
       <Footer />
       <Reveal />
     </>

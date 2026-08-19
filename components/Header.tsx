@@ -181,7 +181,7 @@ export default function Header() {
           </nav>
           <div className="hactions">
             <a className="shoplink" href="/shop">Shop</a>
-            <a className="btn btn-primary" href="/#quote">Get a quote <span className="ar">→</span></a>
+            <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
             <button type="button" className={`menu-btn${open ? " is-open" : ""}`} aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
               <span /><span /><span />
             </button>
@@ -221,7 +221,7 @@ export default function Header() {
             )}
             <a className="mn-top mn-link" href="/build-your-program" onClick={close}>Build a program</a>
             <a className="mn-top mn-link" href="/shop" onClick={close}>Shop</a>
-            <a className="btn btn-primary mn-cta" href="/#quote" onClick={close}>Get a quote <span className="ar">→</span></a>
+            <a className="btn btn-primary mn-cta" href="/get-a-quote" onClick={close}>Get a quote <span className="ar">→</span></a>
           </nav>
         )}
       </header>

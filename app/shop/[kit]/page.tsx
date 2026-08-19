@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import MobileCTA from "@/components/MobileCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
@@ -165,6 +166,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           </div>
         </section>
       </main>
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
       <Footer />
       <Reveal />
     </>
