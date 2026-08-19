@@ -185,10 +185,10 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
   for (const [key, items] of Object.entries(groups)) {
     const [stream, kind] = key.split("|");
     const amount = items.reduce((a, it) => a + (Number(it.c) || 0) * (Number(it.q) || 1), 0);
-    const orderNo = "ERX-" + Math.floor(10000 + Math.random() * 90000);
+    // order_no is assigned by the DB sequence default (collision-proof) — omit it here so the default applies.
     const ord = await db(`orders`, {
       method: "POST", headers: { Prefer: "return=representation" },
-      body: JSON.stringify({ order_no: orderNo, client_id: clientId, site_id: siteId, source, stream, status: "ordered",
+      body: JSON.stringify({ client_id: clientId, site_id: siteId, source, stream, status: "ordered",
         amount_cents: amount, placed_at: placedAt, ext_ref: extRef, subscription_ref: subscriptionRef, payment_ref: paymentRef || null,
         partner_id: partnerId, commission_cents: Math.round(amount * commissionPct / 100), price_review: priceReview, onsite: kind === "on" }),
     }).then((r) => r.json()).catch(() => null);
