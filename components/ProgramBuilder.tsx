@@ -115,9 +115,12 @@ export default function ProgramBuilder() {
     const message = `MAIL-BACK PROGRAM (built online)\nFacility type: ${fac?.label || "—"}\nLocations: ${locs.length}\nPayment preference: ${fd.get("pay") || "invoice/PO"}\n\n${summaryText()}\n\nEst. first shipment (self-serve pricing): ${money(grand)}${hasRecurring ? " + recurring" : ""}`;
     setBusy("rfq"); setErr("");
     try {
-      await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" },
+      const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: fd.get("name"), email: fd.get("email"), org: fd.get("org"), phone: fd.get("phone"), role: `Program builder · ${fac?.label || ""}`, message, company_website: fd.get("company_website") }) });
-    } catch {}
+      const j = await r.json().catch(() => ({ ok: false }));
+      // Never show "success" if the lead didn't actually save — surface a call fallback instead.
+      if (!r.ok || !j.ok) { setErr((j && j.error) || "We couldn’t submit that — please call 501-904-2929 and we’ll set your program up in minutes."); setBusy(""); return; }
+    } catch { setErr("Network error — please call 501-904-2929 and we’ll set your program up in minutes."); setBusy(""); return; }
     trackEvent("generate_lead", { lead_source: "program_builder", facility, locations: locs.length, containers: allLines.length });
     setBusy(""); setDone(true);
   }
