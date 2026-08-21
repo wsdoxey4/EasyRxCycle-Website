@@ -16,33 +16,14 @@ export function onRequestGet({ env }) {
 }
 
 export async function onRequestPost(ctx) {
+  // Handled failures below return 200 with {ok:false,error} on purpose: Cloudflare
+  // replaces a Function's 5xx body with its own error page, so the message would be lost.
   try { return await handlePost(ctx); }
-  catch (e) { return json({ ok: false, error: "srv: " + String((e && e.message) || e) }, 500); }
+  catch { return json({ ok: false, error: "Something went wrong — please call 501-904-2929." }); }
 }
 async function handlePost({ request, env }) {
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, error: "Bad request" }, 400); }
-
-  // --- TEMP diagnostics: probe each subrequest in isolation ---
-  if (d.debug) {
-    const key = env.PORTAL_SUPABASE_SERVICE_KEY, base = SB_URL(env);
-    const H = { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json" };
-    if (d.debug === "ping") return json({ ok: true, step: "ping", hasKey: Boolean(key), keyLen: (key || "").length, base });
-    if (d.debug === "sbread") {
-      const r = await fetch(`${base}/rest/v1/clients?select=id&limit=1`, { headers: H });
-      return json({ ok: true, sbStatus: r.status, body: (await r.text()).slice(0, 300) });
-    }
-    if (d.debug === "sbinsert") {
-      const r = await fetch(`${base}/rest/v1/clients`, { method: "POST", headers: { ...H, Prefer: "return=representation" }, body: JSON.stringify({ name: "ZZ DEBUG DELETE ME", status: "pending_exempt", tax_exempt: false }) });
-      return json({ ok: true, insStatus: r.status, body: (await r.text()).slice(0, 400) });
-    }
-    if (d.debug === "storage") {
-      const bytes = b64ToBytes("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==");
-      const r = await fetch(`${base}/storage/v1/object/documents/exemption-certs/_debug.png`, { method: "POST", headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "image/png", "x-upsert": "true" }, body: bytes });
-      return json({ ok: true, upStatus: r.status, body: (await r.text()).slice(0, 300) });
-    }
-    return json({ ok: false, error: "unknown debug" });
-  }
 
   // Approval notification: portal calls this after flipping a client to exempt.
   // We re-verify server-side that the account really is approved, so it can only ever
@@ -91,9 +72,9 @@ async function handlePost({ request, env }) {
       }),
     });
     const j = await ins.json();
-    if (!ins.ok || !Array.isArray(j) || !j[0]) return json({ ok: false, error: "Could not create your account. Please call 501-904-2929." }, 502);
+    if (!ins.ok || !Array.isArray(j) || !j[0]) return json({ ok: false, error: "Could not create your account. Please call 501-904-2929." });
     clientId = j[0].id;
-  } catch { return json({ ok: false, error: "Could not create your account. Please try again." }, 502); }
+  } catch { return json({ ok: false, error: "Could not create your account. Please try again." }); }
 
   // 2) Upload the certificate to the private `documents` bucket.
   const ext = (d.cert.filename.split(".").pop() || "pdf").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 5) || "pdf";
