@@ -15,7 +15,11 @@ export function onRequestGet({ env }) {
   return json({ ok: true, configured: Boolean(env.PORTAL_SUPABASE_SERVICE_KEY), email: Boolean(env.RESEND_API_KEY && env.RESEND_FROM) });
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(ctx) {
+  try { return await handlePost(ctx); }
+  catch (e) { return json({ ok: false, error: "srv: " + String((e && e.message) || e) }, 500); }
+}
+async function handlePost({ request, env }) {
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, error: "Bad request" }, 400); }
 
