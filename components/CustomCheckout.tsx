@@ -52,6 +52,7 @@ export default function CustomCheckout() {
   const shipEl = useRef<any>(null);
   const payEl = useRef<any>(null);
   const reinitSeq = useRef(0);         // guards against out-of-order re-inits
+  const exemptRef = useRef("");        // tax-exempt account email, sent to /api/checkout
   const qtyTimer = useRef<any>(null);
   const [state, setState] = useState<"loading" | "ready" | "empty" | "error">("loading");
   const [busy, setBusy] = useState(false);   // re-initializing session
@@ -63,6 +64,8 @@ export default function CustomCheckout() {
   const [phone, setPhone] = useState("");
   const [promo, setPromo] = useState("");
   const [promoMsg, setPromoMsg] = useState("");
+  const [exemptEmail, setExemptEmail] = useState("");
+  const [exemptMsg, setExemptMsg] = useState("");
   const [paying, setPaying] = useState(false);
 
   useEffect(() => {
@@ -87,7 +90,7 @@ export default function CustomCheckout() {
   async function initSession(cartItems: Line[]) {
     const stripe = stripeRef.current;
     const seq = ++reinitSeq.current;
-    const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cartItems, ui: "custom" }) });
+    const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cartItems, ui: "custom", exemptEmail: exemptRef.current }) });
     const j = await r.json();
     if (seq !== reinitSeq.current) return;              // a newer re-init superseded this one
     if (!j.ok || !j.clientSecret) throw new Error(j.error || "init failed");
@@ -155,6 +158,12 @@ export default function CustomCheckout() {
     setPromoMsg("");
     try { const res = await c.applyPromotionCode(promo.trim()); if (res?.error) setPromoMsg(res.error.message); else { setPromoMsg("Code applied."); setPromo(""); } sync(); } catch { setPromoMsg("Couldn’t apply that code."); }
   }
+  async function applyExempt() {
+    exemptRef.current = exemptEmail.trim().toLowerCase();
+    setExemptMsg(exemptRef.current ? "Checking your account…" : "");
+    await applyLines(lines);   // rebuild the session so tax is re-evaluated for this account
+    setExemptMsg(exemptRef.current ? "Applied — if this account is tax-exempt, the tax line is now removed below." : "");
+  }
   async function pay() {
     const c = co.current; if (!c || paying || busy) return;
     setErr(""); setPaying(true);
@@ -189,6 +198,13 @@ export default function CustomCheckout() {
         <div className="co-block"><h3 className="co-h">Contact</h3>
           <input className="co-input" type="email" placeholder="Email for your receipt" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => email && co.current?.updateEmail(email).catch(() => {})} autoComplete="email" />
           <input className="co-input" type="tel" placeholder="Phone number" value={phone} style={{ marginTop: 10 }} onChange={(e) => { setPhone(e.target.value); pushPhone(e.target.value); }} onBlur={() => pushPhone(phone)} autoComplete="tel" />
+          <div style={{ marginTop: 12, borderTop: "1px solid #eef3f1", paddingTop: 12 }}>
+            <input className="co-input" type="email" placeholder="Tax-exempt account email (optional)" value={exemptEmail} onChange={(e) => setExemptEmail(e.target.value)} autoComplete="email" />
+            <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 8, flexWrap: "wrap" }}>
+              <button type="button" className="btn btn-ghost" style={{ padding: "8px 14px", fontSize: 14 }} onClick={applyExempt} disabled={busy || !exemptEmail.trim()}>Apply tax exemption</button>
+              {exemptMsg && <span style={{ fontSize: 13, color: "#55646B" }}>{exemptMsg}</span>}
+            </div>
+          </div>
         </div>
         <div className="co-block"><h3 className="co-h">Shipping address</h3><div id="co-shipping" /></div>
         <div className="co-block"><h3 className="co-h">Payment</h3><div id="co-payment" /></div>

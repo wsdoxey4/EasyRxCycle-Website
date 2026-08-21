@@ -34,6 +34,18 @@ async function handlePost({ request, env }) {
   const items = Array.isArray(body.items) ? body.items : [];
   if (!items.length) return json({ ok: false, error: "Your cart is empty." }, 400);
 
+  // Tax-exempt customers (flagged on their portal account) skip sales tax at checkout.
+  let taxExempt = false;
+  const exemptEmail = (body.exemptEmail || "").toString().trim().toLowerCase();
+  if (exemptEmail && env.PORTAL_SUPABASE_SERVICE_KEY) {
+    const base = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
+    try {
+      const r = await fetch(`${base}/rest/v1/clients?or=(contact_email.eq.${encodeURIComponent(exemptEmail)},billing_email.eq.${encodeURIComponent(exemptEmail)})&select=tax_exempt&limit=1`, { headers: { apikey: env.PORTAL_SUPABASE_SERVICE_KEY, Authorization: `Bearer ${env.PORTAL_SUPABASE_SERVICE_KEY}` } });
+      const rows = await r.json();
+      taxExempt = Array.isArray(rows) && rows[0] && rows[0].tax_exempt === true;
+    } catch { /* on any lookup error, default to charging tax */ }
+  }
+
   // Build line items from the trusted price list; ignore any client-sent prices.
   const line = [];           // { name, cents, qty, interval|null }
   const cart = [];           // compact { s:sku, q:qty, c:unitCents } for the portal webhook
@@ -86,7 +98,7 @@ async function handlePost({ request, env }) {
     f.set(`line_items[${i}][price_data][product_data][name]`, l.name);
     const img = imgFor(l.sku, origin);
     if (img) f.set(`line_items[${i}][price_data][product_data][images][0]`, img);
-    if (env.STRIPE_TAX_RATE_ID) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
+    if (env.STRIPE_TAX_RATE_ID && !taxExempt) f.set(`line_items[${i}][tax_rates][0]`, env.STRIPE_TAX_RATE_ID);
     if (l.interval) {
       f.set(`line_items[${i}][price_data][recurring][interval]`, "month");
       f.set(`line_items[${i}][price_data][recurring][interval_count]`, String(INTERVALS[l.interval]));
