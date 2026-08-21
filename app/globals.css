@@ -336,6 +336,11 @@ footer a:hover{color:#fff;}
 .rfq .streams label{flex-direction:row;align-items:center;gap:8px;font-weight:500;font-size:14px;color:var(--slate);}
 .rfq .streams input{width:auto;}
 .rfq .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;}
+.te-file{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px dashed #c3d4cf;border-radius:10px;padding:12px 14px;background:#f8fbfa;cursor:pointer;}
+.te-file input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;}
+.te-file-btn{font-family:'Poppins';font-weight:600;font-size:14px;color:#fff;background:var(--teal);padding:9px 16px;border-radius:8px;white-space:nowrap;}
+.te-file-name{font-size:14px;color:var(--slate);font-weight:500;word-break:break-word;}
+.te-file:focus-within{border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,87,112,.12);}
 .rfq-submit{grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:4px;}
 .rfq-submit .btn[disabled]{opacity:.6;cursor:default;}
 .form-note{font-size:13px;color:var(--slate);}
@@ -1395,6 +1400,14 @@ header.site .wrap{position:relative;}
 .co-totals>div{display:flex;justify-content:space-between;font-size:14px;color:var(--muted,#5b6670)}
 .co-totals .co-total{border-top:1px solid var(--line,#e6e9ec);margin-top:5px;padding-top:10px;font-size:17px;font-weight:700;color:var(--ink,#1f2d34)}
 .co-totals span{font-variant-numeric:tabular-nums}
+.co-exempt{display:block!important}
+.co-exempt-link{background:none;border:none;padding:0;color:var(--teal,#005770);font-weight:600;font-size:13px;cursor:pointer;text-decoration:underline}
+.co-exempt-panel{margin-top:8px;padding:12px;background:#f6faf9;border:1px solid #e4edeb;border-radius:10px}
+.co-exempt-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.co-exempt-setup{font-size:13px;color:var(--teal,#005770);font-weight:600;text-decoration:none}
+.co-exempt-setup:hover{text-decoration:underline}
+.co-exempt-msg{font-size:13px;color:var(--muted,#5b6670);margin:8px 0 0}
+.co-exempt-ok{display:block!important;font-size:13px;font-weight:600;color:#1c9d6c}
 
 /* per-item auto-ship + summary items */
 .co-item2{padding-bottom:14px;border-bottom:1px solid var(--line,#eef3f1)}

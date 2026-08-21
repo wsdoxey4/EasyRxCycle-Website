@@ -66,6 +66,8 @@ export default function CustomCheckout() {
   const [promoMsg, setPromoMsg] = useState("");
   const [exemptEmail, setExemptEmail] = useState("");
   const [exemptMsg, setExemptMsg] = useState("");
+  const [showExempt, setShowExempt] = useState(false);
+  const [exemptOk, setExemptOk] = useState(false);
   const [paying, setPaying] = useState(false);
 
   useEffect(() => {
@@ -159,10 +161,16 @@ export default function CustomCheckout() {
     try { const res = await c.applyPromotionCode(promo.trim()); if (res?.error) setPromoMsg(res.error.message); else { setPromoMsg("Code applied."); setPromo(""); } sync(); } catch { setPromoMsg("Couldn’t apply that code."); }
   }
   async function applyExempt() {
-    exemptRef.current = exemptEmail.trim().toLowerCase();
-    setExemptMsg(exemptRef.current ? "Checking your account…" : "");
+    const em = exemptEmail.trim().toLowerCase();
+    exemptRef.current = em;
+    if (!em) { setExemptMsg(""); return; }
+    setExemptMsg("Checking your account…");
     await applyLines(lines);   // rebuild the session so tax is re-evaluated for this account
-    setExemptMsg(exemptRef.current ? "Applied — if this account is tax-exempt, the tax line is now removed below." : "");
+    // Read the resulting tax straight from the fresh Stripe session for a definite answer.
+    let taxCents = -1;
+    try { taxCents = co.current?.session()?.total?.taxExclusive?.minorUnitsAmount ?? 0; } catch { taxCents = -1; }
+    if (taxCents === 0) { setExemptOk(true); setExemptMsg(""); }
+    else { setExemptOk(false); setExemptMsg("This email isn’t set up as tax-exempt yet — set it up below."); }
   }
   async function pay() {
     const c = co.current; if (!c || paying || busy) return;
@@ -198,13 +206,6 @@ export default function CustomCheckout() {
         <div className="co-block"><h3 className="co-h">Contact</h3>
           <input className="co-input" type="email" placeholder="Email for your receipt" value={email} onChange={(e) => setEmail(e.target.value)} onBlur={() => email && co.current?.updateEmail(email).catch(() => {})} autoComplete="email" />
           <input className="co-input" type="tel" placeholder="Phone number" value={phone} style={{ marginTop: 10 }} onChange={(e) => { setPhone(e.target.value); pushPhone(e.target.value); }} onBlur={() => pushPhone(phone)} autoComplete="tel" />
-          <div style={{ marginTop: 12, borderTop: "1px solid #eef3f1", paddingTop: 12 }}>
-            <input className="co-input" type="email" placeholder="Tax-exempt account email (optional)" value={exemptEmail} onChange={(e) => setExemptEmail(e.target.value)} autoComplete="email" />
-            <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 8, flexWrap: "wrap" }}>
-              <button type="button" className="btn btn-ghost" style={{ padding: "8px 14px", fontSize: 14 }} onClick={applyExempt} disabled={busy || !exemptEmail.trim()}>Apply tax exemption</button>
-              {exemptMsg && <span style={{ fontSize: 13, color: "#55646B" }}>{exemptMsg}</span>}
-            </div>
-          </div>
         </div>
         <div className="co-block"><h3 className="co-h">Shipping address</h3><div id="co-shipping" /></div>
         <div className="co-block"><h3 className="co-h">Payment</h3><div id="co-payment" /></div>
@@ -262,6 +263,23 @@ export default function CustomCheckout() {
           {total.subtotal && <div><span>Subtotal</span><span>{money(total.subtotal)}</span></div>}
           {total.shippingRate && <div><span>Shipping</span><span>{total.shippingRate.minorUnitsAmount ? money(total.shippingRate) : "Free"}</span></div>}
           {total.taxExclusive && total.taxExclusive.minorUnitsAmount > 0 && <div><span>Tax</span><span>{money(total.taxExclusive)}</span></div>}
+          {total.taxExclusive && total.taxExclusive.minorUnitsAmount > 0 && (
+            <div className="co-exempt">
+              {!showExempt ? (
+                <button type="button" className="co-exempt-link" onClick={() => setShowExempt(true)}>Tax-exempt? →</button>
+              ) : (
+                <div className="co-exempt-panel">
+                  <input className="co-input" type="email" placeholder="Tax-exempt account email" value={exemptEmail} onChange={(e) => setExemptEmail(e.target.value)} autoComplete="email" />
+                  <div className="co-exempt-row">
+                    <button type="button" className="btn btn-outline-w" style={{ padding: "8px 16px", fontSize: 14 }} onClick={applyExempt} disabled={busy || !exemptEmail.trim()}>Apply</button>
+                    <a className="co-exempt-setup" href={`/tax-exempt/${exemptEmail.trim() ? "?email=" + encodeURIComponent(exemptEmail.trim()) : ""}`}>New customer? Set up exempt billing →</a>
+                  </div>
+                  {exemptMsg && <p className="co-exempt-msg">{exemptMsg}</p>}
+                </div>
+              )}
+            </div>
+          )}
+          {exemptOk && <div className="co-exempt-ok">✓ Tax-exempt — no sales tax on this order.</div>}
           {total.discount && total.discount.minorUnitsAmount > 0 && <div><span>Discount</span><span>−{money(total.discount)}</span></div>}
           <div className="co-total"><span>Total</span><span>{summaryTotal}</span></div>
         </div>
