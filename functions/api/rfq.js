@@ -51,10 +51,12 @@ export async function onRequestPost({ request, env }) {
     const atts = (d.attachment && d.attachment.content && d.attachment.filename)
       ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]
       : undefined;
+    // Lead-response agent: draft a tailored reply + an internal sales brief (falls back to templates without the key).
+    const [clientHtml, brief] = await Promise.all([aiReply(env, d), aiSalesBrief(env, d)]);
     try {
-      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d), d.email, atts);
-      await send(env, d.email, "We received your request — Easy Rx Cycle", confirmHtml(d), salesTo, atts);
-      results.resend = "sent";
+      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d, brief), d.email, atts);
+      await send(env, d.email, "We received your request — Easy Rx Cycle", clientHtml || confirmHtml(d), salesTo, atts);
+      results.resend = "sent"; results.ai = clientHtml ? "tailored" : "template";
     } catch { results.resend = "error"; }
   }
 
@@ -181,13 +183,50 @@ function confirmHtml(d) {
     <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">No pickups, no contracts &mdash; just compliant destruction, documented on every order.</p>`;
   return shell("We received your quote request — a specialist will follow up shortly.", inner);
 }
-function notifyHtml(d) {
+// ---- Lead-response agent (Claude) ----
+async function askClaude(env, system, user) {
+  if (!env.ANTHROPIC_API_KEY) return null;
+  try {
+    const r = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
+      body: JSON.stringify({ model: "claude-opus-5", max_tokens: 700, system, messages: [{ role: "user", content: user }] }),
+    });
+    if (!r.ok) return null;
+    const j = await r.json();
+    const t = (j.content || []).filter((c) => c.type === "text").map((c) => c.text).join("").trim();
+    return t || null;
+  } catch { return null; }
+}
+function leadFacts(d) {
+  return `Name: ${d.name || "—"}\nOrganization: ${d.org || "—"}\nRole / ICP: ${d.role || "—"}\nWaste streams: ${d.streams || "—"}\nEstimated volume: ${d.volume || "—"}\nMessage: ${d.message || "—"}`;
+}
+async function aiReply(env, d) {
+  const system = `You are a specialist at Easy Rx Cycle, a DEA-registered medical & pharmaceutical waste DESTRUCTION company (prepaid mail-back kits and on-site pickup, nationwide, no contracts, a Certificate of Destruction on every order). Write a SHORT reply (2-3 sentences) acknowledging a new quote request. Warm, professional, specific: naturally reference the prospect's role, waste streams, and volume. Reassure them a specialist will send a tailored quote the same business day, and invite them to call 501-904-2929 if they need it sooner. Rules: do NOT quote or estimate any prices; do NOT make regulatory/compliance claims beyond "DEA-registered destruction" and "Certificate of Destruction on every order"; no emojis; no greeting line and no signature — output ONLY the body sentences as plain text.`;
+  const body = await askClaude(env, system, `New quote request:\n${leadFacts(d)}`);
+  if (!body) return null;
+  const inner = `
+    <h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">Thanks, ${esc(d.name)} &mdash; we&rsquo;ve got it.</h1>
+    <p style="margin:0 0 18px;color:#55646B;font-size:15px;line-height:1.55;">${esc(body)}</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:8px;"><tr><td style="background:#33C089;border-radius:9px;">
+      <a href="tel:5019042929" style="display:inline-block;padding:12px 22px;color:#04321f;font-weight:bold;text-decoration:none;font-size:15px;">Call us &middot; 501-904-2929</a></td></tr></table>
+    <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">Easy Rx Cycle &middot; DEA-registered destruction &middot; Certificate of Destruction on every order.</p>`;
+  return shell("We received your request — a specialist will follow up shortly.", inner);
+}
+async function aiSalesBrief(env, d) {
+  const system = `You are a sales-ops assistant for a DEA-registered medical/pharma waste destruction company. Given a new inbound lead, write a TIGHT internal brief for the rep. Output EXACTLY these four labeled lines, each one short sentence, no fluff:\nFit: <how good a fit and why>\nNeed: <the waste streams/volume in plain terms>\nMove: <suggested next step and quote approach — mail-back kit vs pickup vs contract>\nWatch: <any red flag, or "none">`;
+  return await askClaude(env, system, `Lead:\n${leadFacts(d)}`);
+}
+
+function notifyHtml(d, brief) {
   const first = esc((d.name || "").split(" ")[0] || "there");
+  const briefBox = brief ? `<div style="margin:14px 0 0;padding:12px 14px;background:#f2f8f5;border:1px solid #d7ece1;border-radius:10px;font-size:13.5px;color:#123A44;line-height:1.7;"><div style="font-weight:bold;color:#1c7a4a;font-size:11px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">AI brief</div>${esc(brief).replace(/\n/g, "<br>")}</div>` : "";
   const inner = `
     <span style="display:inline-block;background:#eafaf3;color:#1c9d6c;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">New quote request</span>
     <h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${esc(d.name)}${d.org ? " &middot; " + esc(d.org) : ""}</h1>
     <p style="margin:0 0 14px;color:#55646B;font-size:14px;">Submitted via the website RFQ form. Contact + deal created in HubSpot.</p>
     ${detailsTable(d)}
+    ${briefBox}
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr>
       <td style="background:#005770;border-radius:9px;"><a href="mailto:${esc(d.email)}" style="display:inline-block;padding:12px 20px;color:#fff;font-weight:bold;text-decoration:none;font-size:14px;">Reply to ${first}</a></td>
       ${d.phone ? `<td width="10">&nbsp;</td><td style="border:1px solid #d3e3df;border-radius:9px;"><a href="tel:${esc(d.phone)}" style="display:inline-block;padding:12px 20px;color:#005770;font-weight:bold;text-decoration:none;font-size:14px;">Call ${esc(d.phone)}</a></td>` : ""}
