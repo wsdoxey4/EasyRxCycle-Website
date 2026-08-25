@@ -130,7 +130,7 @@ function toPortalQuote(env, d) {
     body: JSON.stringify({
       name: d.name, email: d.email, company: d.org || null, phone: d.phone || null,
       role: d.role || null, streams: d.streams || null, volume: d.volume || null, message: d.message || null,
-      source: "website", page_uri: d.pageUri || null, utm: d.utm || null,
+      source: d.channel || "website", page_uri: d.pageUri || null, utm: d.utm || null,
     }),
   });
 }

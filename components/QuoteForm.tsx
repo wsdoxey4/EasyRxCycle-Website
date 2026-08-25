@@ -1,6 +1,7 @@
 "use client";
 
 import { trackEvent } from "@/lib/track";
+import { getAttribution } from "@/lib/attribution";
 
 import { useState, useEffect } from "react";
 
@@ -45,6 +46,9 @@ export default function QuoteForm() {
       company_website: String(fd.get("company_website") || ""), // honeypot
       pageUri: typeof window !== "undefined" ? window.location.href : "",
     };
+    const attr = getAttribution();
+    (data as Record<string, unknown>).channel = attr.channel;      // derived marketing channel
+    (data as Record<string, unknown>).utm = { ...attr.utm, channel: attr.channel, referrer: attr.referrer, landing: attr.landing };
     try {
       const r = await fetch("/api/rfq", {
         method: "POST",

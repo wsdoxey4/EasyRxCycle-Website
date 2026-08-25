@@ -2,10 +2,12 @@
 
 import { useEffect } from "react";
 import { trackEvent } from "@/lib/track";
+import { captureAttribution } from "@/lib/attribution";
 
 // One delegated listener fires cta_click for every Shop / Get-a-Quote / primary CTA, site-wide.
 export default function Tracker() {
   useEffect(() => {
+    captureAttribution();   // first-touch attribution: stamp channel/UTM on landing, site-wide
     function onClick(e: MouseEvent) {
       const a = (e.target as HTMLElement)?.closest?.("a");
       if (!a) return;
