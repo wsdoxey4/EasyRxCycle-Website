@@ -13,9 +13,15 @@ export type Attribution = {
 
 const KEY = "erx_attr";
 
+// Canonical channel keys the Marketing hub uses. If a UTM already names one, trust it.
+const CHANNEL_KEYS = new Set(["organic", "paid_search", "shopping", "bing", "paid_social", "linkedin_ads", "retargeting", "video", "direct", "referral", "email", "social", "content", "generative", "outbound", "sms", "direct_mail", "events", "webinar", "local", "directories", "amazon", "pr", "affiliate", "other"]);
+
 function deriveChannel(utm: Record<string, string>, referrer: string): string {
   const s = (utm.utm_source || "").toLowerCase();
   const m = (utm.utm_medium || "").toLowerCase();
+  // UTM builder stamps the channel key directly into utm_medium — honor it first.
+  if (CHANNEL_KEYS.has(m)) return m;
+  if (CHANNEL_KEYS.has(s)) return s;
   const paid = !!utm.gclid || /cpc|ppc|paid|display/.test(m);
   const isSocialSrc = /facebook|instagram|meta|linkedin|twitter|x\.com|tiktok/.test(s);
   if (paid) return isSocialSrc ? "paid_social" : "paid_search";
