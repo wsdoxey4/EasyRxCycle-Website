@@ -7,34 +7,12 @@ const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, header
 
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
 
-export async function onRequestGet({ request, env }) {
-  const base = { ok: true, configured: {
+export function onRequestGet({ env }) {
+  return json({ ok: true, configured: {
     hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN || (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID)),
     resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
     anthropic: Boolean(env.ANTHROPIC_API_KEY),
-  } };
-  // ?diag=1 → test candidate models with the key; report status + error message (never the key or reply).
-  if (new URL(request.url).searchParams.get("diag")) {
-    const present = Boolean(env.ANTHROPIC_API_KEY);
-    const models = ["claude-opus-5", "claude-sonnet-5", "claude-haiku-4-5-20251001", "claude-sonnet-4-5", "claude-3-5-sonnet-latest"];
-    const tests = [];
-    if (present) {
-      for (const model of models) {
-        try {
-          const r = await fetch("https://api.anthropic.com/v1/messages", {
-            method: "POST",
-            headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-            body: JSON.stringify({ model, max_tokens: 8, messages: [{ role: "user", content: "ping" }] }),
-          });
-          const row = { model, status: r.status };
-          if (!r.ok) { const j = await r.json().catch(() => ({})); row.msg = (j?.error?.message || "").slice(0, 120); }
-          tests.push(row);
-        } catch (e) { tests.push({ model, status: "fetch_failed", msg: String(e).slice(0, 80) }); }
-      }
-    }
-    return json({ ...base, diag: { present, tests } });
-  }
-  return json(base);
+  } });
 }
 
 export async function onRequestPost({ request, env }) {
