@@ -12,6 +12,7 @@ export function onRequestGet({ env }) {
     hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN || (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID)),
     resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
     anthropic: Boolean(env.ANTHROPIC_API_KEY),
+    twilio: { sid: Boolean(env.TWILIO_ACCOUNT_SID), token: Boolean(env.TWILIO_AUTH_TOKEN), from: Boolean(env.TWILIO_FROM) },
   } });
 }
 
