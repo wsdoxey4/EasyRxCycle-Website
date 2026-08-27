@@ -52,14 +52,16 @@ export async function onRequestPost({ request, env }) {
     const atts = (d.attachment && d.attachment.content && d.attachment.filename)
       ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]
       : undefined;
-    // Lead-response: a short, human note from William (internal sales brief still AI-generated).
+    // Lead-response: internal alert + (1) instant confirmation, (2) William's personal note. SMS follows below.
     const brief = await aiSalesBrief(env, d);
     const fromHeader = `${WILLIAM.first} at Easy Rx Cycle <${extractEmail(env.RESEND_FROM)}>`;
     try {
       await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d, brief, WILLIAM), d.email, atts);
-      await send(env, d.email, subjectLine(d), clientEmail(d), WILLIAM.email, atts, fromHeader); // from William, reply-to William
+      await send(env, d.email, "We've got your request — Easy Rx Cycle", confirmEmail(d), WILLIAM.email);       // 1: instant confirmation
+      await send(env, d.email, subjectLine(d), clientEmail(d), WILLIAM.email, atts, fromHeader);                 // 2: personal note from William
       results.resend = "sent"; results.reply = "personal";
     } catch { results.resend = "error"; }
+    results.sms = await sendSms(env, d);                                                                         // 3: personalized SMS (if phone + Twilio)
   }
 
   // --- Portal: partner applications also land in the operating platform (admin Requests) ---
@@ -227,6 +229,32 @@ function clientEmail(d) {
       <span style="color:#55646B;font-size:13.5px;">501-904-2929 &middot; <a href="mailto:${esc(WILLIAM.email)}" style="color:#005770;text-decoration:none;">${esc(WILLIAM.email)}</a></span>
     </p>`;
   return noteShell("A quick note from William at Easy Rx Cycle about your request.", inner);
+}
+// (1) Instant confirmation — the branded "we've got it" system email.
+function confirmEmail(d) {
+  const a = icpAngle(d.role);
+  const inner = `
+    <p style="margin:0 0 14px;font-size:15px;color:#123A44;line-height:1.6;">Hi ${esc(firstName(d.name))},</p>
+    <p style="margin:0 0 14px;font-size:15px;color:#123A44;line-height:1.6;">Thanks &mdash; we&rsquo;ve received your request for ${a.noun}. William Doxey will follow up shortly with your quote.</p>
+    <p style="margin:0 0 18px;font-size:15px;color:#123A44;line-height:1.6;">Need anything sooner? Call or text us at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a>.</p>
+    <p style="margin:0;color:#55646B;font-size:14px;">&mdash; The Easy Rx Cycle team</p>`;
+  return shell("We've received your request — William will follow up shortly.", inner);
+}
+// (3) Personalized SMS via Twilio — only if the lead left a phone and Twilio creds are set.
+async function sendSms(env, d) {
+  if (!d.phone) return "no phone";
+  if (!(env.TWILIO_ACCOUNT_SID && env.TWILIO_AUTH_TOKEN && env.TWILIO_FROM)) return "skipped (Twilio not set)";
+  const a = icpAngle(d.role);
+  const body = `Easy Rx Cycle: Hi ${firstName(d.name)} — thanks for reaching out about ${a.noun} for your ${a.who}. William is putting your quote together and will follow up shortly. Call or text 501-904-2929 anytime. Reply STOP to opt out.`;
+  try {
+    const b = new URLSearchParams({ To: String(d.phone), From: env.TWILIO_FROM, Body: body });
+    const r = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${env.TWILIO_ACCOUNT_SID}/Messages.json`, {
+      method: "POST",
+      headers: { Authorization: "Basic " + btoa(`${env.TWILIO_ACCOUNT_SID}:${env.TWILIO_AUTH_TOKEN}`), "Content-Type": "application/x-www-form-urlencoded" },
+      body: b.toString(),
+    });
+    return r.ok ? "sent" : "error " + r.status;
+  } catch { return "error"; }
 }
 // ---- Lead-response agent (Claude) ----
 async function askClaude(env, system, user) {
