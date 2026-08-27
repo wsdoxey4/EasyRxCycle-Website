@@ -43,7 +43,7 @@ export async function onRequestPost({ request, env }) {
     } catch { results.hubspot = "error"; }
   }
 
-  // --- Resend: sales alert + client confirmation ---
+  // --- Resend: a personal note from a real rep + an internal sales alert ---
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
     // Always alert BOTH William and sales (plus any addresses in RFQ_NOTIFY_EMAIL), deduped.
     const extra = env.RFQ_NOTIFY_EMAIL ? String(env.RFQ_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : [];
@@ -52,12 +52,15 @@ export async function onRequestPost({ request, env }) {
     const atts = (d.attachment && d.attachment.content && d.attachment.filename)
       ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]
       : undefined;
-    // Lead-response agent: draft a tailored reply + an internal sales brief (falls back to templates without the key).
-    const [clientHtml, brief] = await Promise.all([aiReply(env, d), aiSalesBrief(env, d)]);
+    const rep = pickRep(d.email);                                   // assign a real rep: William / Rick / Kari
+    // Lead-response agent: personalized note body + internal sales brief (falls back to a warm template without the key).
+    const [aiBody, brief] = await Promise.all([aiReplyBody(env, d), aiSalesBrief(env, d)]);
+    const clientHtml = personalNote(d, rep, aiBody || fallbackBody(d));
+    const fromHeader = `${rep.first} at Easy Rx Cycle <${extractEmail(env.RESEND_FROM)}>`;
     try {
-      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d, brief), d.email, atts);
-      await send(env, d.email, "We received your request — Easy Rx Cycle", clientHtml || confirmHtml(d), salesTo, atts);
-      results.resend = "sent"; results.ai = clientHtml ? "tailored" : "template";
+      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""} → ${rep.first}`, notifyHtml(d, brief, rep), d.email, atts);
+      await send(env, d.email, subjectLine(d), clientHtml, rep.email, atts, fromHeader); // from the rep, reply-to the rep
+      results.resend = "sent"; results.ai = aiBody ? "tailored" : "template";
     } catch { results.resend = "error"; }
   }
 
@@ -137,8 +140,9 @@ function toPortalQuote(env, d) {
 }
 
 // ---- Resend ----
-function send(env, to, subject, html, replyTo, attachments) {
-  const body = { from: env.RESEND_FROM, to, subject, html };
+function extractEmail(from) { const m = String(from || "").match(/<([^>]+)>/); return m ? m[1] : String(from || ""); }
+function send(env, to, subject, html, replyTo, attachments, from) {
+  const body = { from: from || env.RESEND_FROM, to, subject, html };
   if (replyTo && replyTo !== to) body.reply_to = replyTo;
   if (attachments && attachments.length) body.attachments = attachments;
   return fetch("https://api.resend.com/emails", { method: "POST",
@@ -173,16 +177,66 @@ function detailsTable(d) {
       <td style="padding:9px 0;border-bottom:1px solid #eef3f1;color:#55646B;font-size:13px;width:128px;vertical-align:top;">${esc(k)}</td>
       <td style="padding:9px 0;border-bottom:1px solid #eef3f1;color:#123A44;font-size:14px;">${esc(v)}</td></tr>`).join("")}</table>`;
 }
-function confirmHtml(d) {
+// ---- Reps + personalization ----
+const REPS = [
+  { first: "William", name: "William Doxey", title: "COO", email: "william@easyrxcycle.com" },
+  { first: "Rick", name: "Rick", title: "VP of Sales", email: "rick@easyrxcycle.com" },
+  { first: "Kari", name: "Kari", title: "CRO", email: "kari@easyrxcycle.com" },
+];
+function pickRep(email) {
+  const s = String(email || "");
+  let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;   // stable per lead
+  return REPS[h % REPS.length];
+}
+function firstName(n) { return String(n || "there").trim().split(/\s+/)[0] || "there"; }
+// Map the lead's role/ICP to the language and quote noun that segment actually uses.
+function icpAngle(role) {
+  const s = String(role || "").toLowerCase();
+  if (/dental|dentist|dso|ortho/.test(s)) return { noun: "sharps & Rx disposal", talk: "prepaid mail-back kits sized to a dental practice" };
+  if (/pharmac|340b|503b/.test(s)) return { noun: "pharmaceutical reverse distribution", talk: "reverse distribution and DEA-registered destruction of expired and returned drugs" };
+  if (/ems|fire|paramedic|ambulance/.test(s)) return { noun: "controlled-substance destruction", talk: "witnessed DEA Form 41 destruction of controlled substances" };
+  if (/hospital|health system|surgery|surgical|asc|oncology|dialysis|academic/.test(s)) return { noun: "medical & pharmaceutical waste destruction", talk: "consolidated regulated-medical and pharmaceutical waste destruction" };
+  if (/vet|equine|animal|shelter/.test(s)) return { noun: "sharps & expired-drug disposal", talk: "sharps and expired-medication disposal for veterinary practices" };
+  if (/spa|aesthetic|trt|glp|ketamine|iv|wellness|tattoo/.test(s)) return { noun: "medical waste disposal", talk: "compliant disposal for aesthetic and wellness clinics" };
+  if (/ltc|nursing|hospice|home health|group home|assisted/.test(s)) return { noun: "pharmaceutical waste disposal", talk: "routine pharmaceutical and controlled-substance disposal for long-term care" };
+  if (/lab|research|university|clinical.?trial|blood|plasma|diagnostic/.test(s)) return { noun: "lab & pharmaceutical waste destruction", talk: "laboratory and pharmaceutical waste destruction" };
+  if (/cannabis|dispensary|marijuana|thc/.test(s)) return { noun: "compliant product destruction", talk: "state-compliant destruction of cannabis and related products" };
+  if (/funeral|mortuary|crime/.test(s)) return { noun: "pharmaceutical destruction", talk: "compliant pharmaceutical and regulated-waste destruction" };
+  return { noun: "medical & pharmaceutical waste disposal", talk: "prepaid mail-back and on-site destruction" };
+}
+function subjectLine(d) { return `${firstName(d.name)} — your ${icpAngle(d.role).noun} quote is on the way`; }
+function fallbackBody(d) {                                          // used only if the AI is unavailable
+  const a = icpAngle(d.role);
+  const streams = d.streams ? ` for ${String(d.streams).toLowerCase()}` : "";
+  return `Thanks for reaching out about ${a.noun}${streams}. I'm putting together a quote sized to your needs and you'll have it the same business day — everything runs by prepaid mail-back or on-site pickup, no contracts, with a Certificate of Destruction on every order.`;
+}
+// A light, human-looking note (minimal chrome) — the brand sits quietly in the footer.
+function noteShell(preheader, inner) {
+  return `<!doctype html><html><body style="margin:0;background:#ffffff;font-family:-apple-system,'Segoe UI',Arial,sans-serif;color:#123A44;">
+<span style="display:none;max-height:0;overflow:hidden;opacity:0">${esc(preheader)}</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;padding:28px 16px;"><tr><td align="center">
+  <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;">
+    <tr><td style="padding:0 4px 18px;">${inner}</td></tr>
+    <tr><td style="border-top:1px solid #e4ecea;padding:14px 4px 0;color:#8aa0a8;font-size:12px;line-height:1.6;">
+      <span style="color:#005770;font-weight:bold;">Easy <span style="color:#33C089;">Rx</span> Cycle</span> &middot; DEA-registered destruction &middot; Certificate of Destruction on every order<br>
+      501-904-2929 &middot; easyrxcycle.com
+    </td></tr>
+  </table>
+</td></tr></table></body></html>`;
+}
+function personalNote(d, rep, bodyText) {
+  const p = 'margin:0 0 14px;font-size:15px;color:#123A44;line-height:1.6;';
+  const bodyHtml = esc(bodyText).replace(/\n\n+/g, `</p><p style="${p}">`);
   const inner = `
-    <h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">Thanks, ${esc(d.name)} &mdash; we&rsquo;ve got it.</h1>
-    <p style="margin:0 0 18px;color:#55646B;font-size:15px;line-height:1.55;">A specialist will reach out shortly with your quote. Here&rsquo;s a copy of what you sent us:</p>
-    ${detailsTable(d)}
-    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:24px;"><tr><td style="background:#33C089;border-radius:9px;">
-      <a href="tel:5019042929" style="display:inline-block;padding:12px 22px;color:#04321f;font-weight:bold;text-decoration:none;font-size:15px;">Call us &middot; 501-904-2929</a>
-    </td></tr></table>
-    <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">No pickups, no contracts &mdash; just compliant destruction, documented on every order.</p>`;
-  return shell("We received your quote request — a specialist will follow up shortly.", inner);
+    <p style="${p}">Hi ${esc(firstName(d.name))},</p>
+    <p style="${p}">${bodyHtml}</p>
+    <p style="margin:0 0 22px;font-size:15px;color:#123A44;line-height:1.6;">If it&rsquo;s easier, call or text me directly at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a> &mdash; or just reply to this email.</p>
+    <p style="margin:0;font-size:15px;color:#123A44;line-height:1.5;">
+      <span style="font-weight:bold;">${esc(rep.name)}</span><br>
+      <span style="color:#55646B;font-size:13.5px;">${esc(rep.title)} &middot; Easy Rx Cycle</span><br>
+      <span style="color:#55646B;font-size:13.5px;">501-904-2929 &middot; <a href="mailto:${esc(rep.email)}" style="color:#005770;text-decoration:none;">${esc(rep.email)}</a></span>
+    </p>`;
+  return noteShell(`A quick note from ${rep.first} at Easy Rx Cycle about your request.`, inner);
 }
 // ---- Lead-response agent (Claude) ----
 async function askClaude(env, system, user) {
@@ -202,30 +256,24 @@ async function askClaude(env, system, user) {
 function leadFacts(d) {
   return `Name: ${d.name || "—"}\nOrganization: ${d.org || "—"}\nRole / ICP: ${d.role || "—"}\nWaste streams: ${d.streams || "—"}\nEstimated volume: ${d.volume || "—"}\nMessage: ${d.message || "—"}`;
 }
-async function aiReply(env, d) {
-  const system = `You are a specialist at Easy Rx Cycle, a DEA-registered medical & pharmaceutical waste DESTRUCTION company (prepaid mail-back kits and on-site pickup, nationwide, no contracts, a Certificate of Destruction on every order). Write a SHORT reply (2-3 sentences) acknowledging a new quote request. Warm, professional, specific: naturally reference the prospect's role, waste streams, and volume. Reassure them a specialist will send a tailored quote the same business day, and invite them to call 501-904-2929 if they need it sooner. Rules: do NOT quote or estimate any prices; do NOT make regulatory/compliance claims beyond "DEA-registered destruction" and "Certificate of Destruction on every order"; no emojis; no greeting line and no signature — output ONLY the body sentences as plain text.`;
-  const body = await askClaude(env, system, `New quote request:\n${leadFacts(d)}`);
-  if (!body) return null;
-  const inner = `
-    <h1 style="margin:0 0 8px;font-size:22px;color:#123A44;">Thanks, ${esc(d.name)} &mdash; we&rsquo;ve got it.</h1>
-    <p style="margin:0 0 18px;color:#55646B;font-size:15px;line-height:1.55;">${esc(body)}</p>
-    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:8px;"><tr><td style="background:#33C089;border-radius:9px;">
-      <a href="tel:5019042929" style="display:inline-block;padding:12px 22px;color:#04321f;font-weight:bold;text-decoration:none;font-size:15px;">Call us &middot; 501-904-2929</a></td></tr></table>
-    <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">Easy Rx Cycle &middot; DEA-registered destruction &middot; Certificate of Destruction on every order.</p>`;
-  return shell("We received your request — a specialist will follow up shortly.", inner);
+async function aiReplyBody(env, d) {
+  const a = icpAngle(d.role);
+  const system = `You are a specialist at Easy Rx Cycle, a DEA-registered medical & pharmaceutical waste DESTRUCTION company (prepaid mail-back kits and on-site pickup, nationwide, no contracts, a Certificate of Destruction on every order). Write the BODY of a short, warm, personal email replying to a new quote request — as if a real person typed it just for them. 2 to 4 short sentences. Requirements: open by naturally acknowledging their specific situation (their role, waste streams, and volume) in plain human language; speak to their world — for this lead that means ${a.talk}; reassure them you are preparing a tailored quote they will receive the SAME business day. Rules: do NOT include a greeting line (no "Hi ...") and do NOT include any signature or sign-off — output ONLY the body sentences. Do NOT quote or estimate any prices. Do NOT make regulatory/compliance claims beyond "DEA-registered destruction" and "Certificate of Destruction on every order". No emojis. Plain text only.`;
+  return await askClaude(env, system, `New quote request:\n${leadFacts(d)}`);
 }
 async function aiSalesBrief(env, d) {
   const system = `You are a sales-ops assistant for a DEA-registered medical/pharma waste destruction company. Given a new inbound lead, write a TIGHT internal brief for the rep. Output EXACTLY these four labeled lines, each one short sentence, no fluff:\nFit: <how good a fit and why>\nNeed: <the waste streams/volume in plain terms>\nMove: <suggested next step and quote approach — mail-back kit vs pickup vs contract>\nWatch: <any red flag, or "none">`;
   return await askClaude(env, system, `Lead:\n${leadFacts(d)}`);
 }
 
-function notifyHtml(d, brief) {
+function notifyHtml(d, brief, rep) {
   const first = esc((d.name || "").split(" ")[0] || "there");
   const briefBox = brief ? `<div style="margin:14px 0 0;padding:12px 14px;background:#f2f8f5;border:1px solid #d7ece1;border-radius:10px;font-size:13.5px;color:#123A44;line-height:1.7;"><div style="font-weight:bold;color:#1c7a4a;font-size:11px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">AI brief</div>${esc(brief).replace(/\n/g, "<br>")}</div>` : "";
+  const assigned = rep ? ` &middot; auto-assigned to <b>${esc(rep.name)}</b> (${esc(rep.title)}), who sent the client reply` : "";
   const inner = `
     <span style="display:inline-block;background:#eafaf3;color:#1c9d6c;font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">New quote request</span>
     <h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${esc(d.name)}${d.org ? " &middot; " + esc(d.org) : ""}</h1>
-    <p style="margin:0 0 14px;color:#55646B;font-size:14px;">Submitted via the website RFQ form. Contact + deal created in HubSpot.</p>
+    <p style="margin:0 0 14px;color:#55646B;font-size:14px;">Submitted via the website RFQ form${assigned}. Contact + deal created in HubSpot.</p>
     ${detailsTable(d)}
     ${briefBox}
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr>
