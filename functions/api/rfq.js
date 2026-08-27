@@ -13,21 +13,26 @@ export async function onRequestGet({ request, env }) {
     resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
     anthropic: Boolean(env.ANTHROPIC_API_KEY),
   } };
-  // ?diag=1 → run a minimal Claude call and report status + error type only (never the key or reply).
+  // ?diag=1 → test candidate models with the key; report status + error message (never the key or reply).
   if (new URL(request.url).searchParams.get("diag")) {
-    const diag = { present: Boolean(env.ANTHROPIC_API_KEY) };
-    if (diag.present) {
-      try {
-        const r = await fetch("https://api.anthropic.com/v1/messages", {
-          method: "POST",
-          headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-          body: JSON.stringify({ model: "claude-opus-5", max_tokens: 8, messages: [{ role: "user", content: "ping" }] }),
-        });
-        diag.status = r.status;
-        if (!r.ok) { const j = await r.json().catch(() => ({})); diag.error_type = j?.error?.type || "unknown"; }
-      } catch (e) { diag.status = "fetch_failed"; diag.error_type = String(e).slice(0, 60); }
+    const present = Boolean(env.ANTHROPIC_API_KEY);
+    const models = ["claude-opus-5", "claude-sonnet-5", "claude-haiku-4-5-20251001", "claude-sonnet-4-5", "claude-3-5-sonnet-latest"];
+    const tests = [];
+    if (present) {
+      for (const model of models) {
+        try {
+          const r = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
+            body: JSON.stringify({ model, max_tokens: 8, messages: [{ role: "user", content: "ping" }] }),
+          });
+          const row = { model, status: r.status };
+          if (!r.ok) { const j = await r.json().catch(() => ({})); row.msg = (j?.error?.message || "").slice(0, 120); }
+          tests.push(row);
+        } catch (e) { tests.push({ model, status: "fetch_failed", msg: String(e).slice(0, 80) }); }
+      }
     }
-    return json({ ...base, diag });
+    return json({ ...base, diag: { present, tests } });
   }
   return json(base);
 }
