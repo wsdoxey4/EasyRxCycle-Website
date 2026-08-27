@@ -7,11 +7,29 @@ const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, header
 
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
 
-export function onRequestGet({ env }) {
-  return json({ ok: true, configured: {
+export async function onRequestGet({ request, env }) {
+  const base = { ok: true, configured: {
     hubspot: Boolean(env.HUBSPOT_PRIVATE_TOKEN || (env.HUBSPOT_PORTAL_ID && env.HUBSPOT_FORM_GUID)),
     resend: Boolean(env.RESEND_API_KEY && env.RESEND_FROM),
-  } });
+    anthropic: Boolean(env.ANTHROPIC_API_KEY),
+  } };
+  // ?diag=1 → run a minimal Claude call and report status + error type only (never the key or reply).
+  if (new URL(request.url).searchParams.get("diag")) {
+    const diag = { present: Boolean(env.ANTHROPIC_API_KEY) };
+    if (diag.present) {
+      try {
+        const r = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
+          body: JSON.stringify({ model: "claude-opus-5", max_tokens: 8, messages: [{ role: "user", content: "ping" }] }),
+        });
+        diag.status = r.status;
+        if (!r.ok) { const j = await r.json().catch(() => ({})); diag.error_type = j?.error?.type || "unknown"; }
+      } catch (e) { diag.status = "fetch_failed"; diag.error_type = String(e).slice(0, 60); }
+    }
+    return json({ ...base, diag });
+  }
+  return json(base);
 }
 
 export async function onRequestPost({ request, env }) {
