@@ -52,15 +52,13 @@ export async function onRequestPost({ request, env }) {
     const atts = (d.attachment && d.attachment.content && d.attachment.filename)
       ? [{ filename: String(d.attachment.filename), content: String(d.attachment.content) }]
       : undefined;
-    const rep = pickRep(d.email);                                   // assign a real rep: William / Rick / Kari
-    // Lead-response agent: personalized note body + internal sales brief (falls back to a warm template without the key).
-    const [aiBody, brief] = await Promise.all([aiReplyBody(env, d), aiSalesBrief(env, d)]);
-    const clientHtml = personalNote(d, rep, aiBody || fallbackBody(d));
-    const fromHeader = `${rep.first} at Easy Rx Cycle <${extractEmail(env.RESEND_FROM)}>`;
+    // Lead-response: a short, human note from William (internal sales brief still AI-generated).
+    const brief = await aiSalesBrief(env, d);
+    const fromHeader = `${WILLIAM.first} at Easy Rx Cycle <${extractEmail(env.RESEND_FROM)}>`;
     try {
-      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""} → ${rep.first}`, notifyHtml(d, brief, rep), d.email, atts);
-      await send(env, d.email, subjectLine(d), clientHtml, rep.email, atts, fromHeader); // from the rep, reply-to the rep
-      results.resend = "sent"; results.ai = aiBody ? "tailored" : "template";
+      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d, brief, WILLIAM), d.email, atts);
+      await send(env, d.email, subjectLine(d), clientEmail(d), WILLIAM.email, atts, fromHeader); // from William, reply-to William
+      results.resend = "sent"; results.reply = "personal";
     } catch { results.resend = "error"; }
   }
 
@@ -177,40 +175,26 @@ function detailsTable(d) {
       <td style="padding:9px 0;border-bottom:1px solid #eef3f1;color:#55646B;font-size:13px;width:128px;vertical-align:top;">${esc(k)}</td>
       <td style="padding:9px 0;border-bottom:1px solid #eef3f1;color:#123A44;font-size:14px;">${esc(v)}</td></tr>`).join("")}</table>`;
 }
-// ---- Reps + personalization ----
-const REPS = [
-  { first: "William", name: "William Doxey", title: "COO", email: "william@easyrxcycle.com" },
-  { first: "Rick", name: "Rick", title: "VP of Sales", email: "rick@easyrxcycle.com" },
-  { first: "Kari", name: "Kari", title: "CRO", email: "kari@easyrxcycle.com" },
-];
-function pickRep(email) {
-  const s = String(email || "");
-  let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;   // stable per lead
-  return REPS[h % REPS.length];
-}
+// ---- Sender + per-ICP personalization ----
+const WILLIAM = { first: "William", name: "William Doxey", title: "COO", email: "william@easyrxcycle.com" };
 function firstName(n) { return String(n || "there").trim().split(/\s+/)[0] || "there"; }
-// Map the lead's role/ICP to the language and quote noun that segment actually uses.
+// Map the lead's role/ICP to the noun + who-phrase that segment uses (personalizes only the opening line).
 function icpAngle(role) {
   const s = String(role || "").toLowerCase();
-  if (/dental|dentist|dso|ortho/.test(s)) return { noun: "sharps & Rx disposal", talk: "prepaid mail-back kits sized to a dental practice" };
-  if (/pharmac|340b|503b/.test(s)) return { noun: "pharmaceutical reverse distribution", talk: "reverse distribution and DEA-registered destruction of expired and returned drugs" };
-  if (/ems|fire|paramedic|ambulance/.test(s)) return { noun: "controlled-substance destruction", talk: "witnessed DEA Form 41 destruction of controlled substances" };
-  if (/hospital|health system|surgery|surgical|asc|oncology|dialysis|academic/.test(s)) return { noun: "medical & pharmaceutical waste destruction", talk: "consolidated regulated-medical and pharmaceutical waste destruction" };
-  if (/vet|equine|animal|shelter/.test(s)) return { noun: "sharps & expired-drug disposal", talk: "sharps and expired-medication disposal for veterinary practices" };
-  if (/spa|aesthetic|trt|glp|ketamine|iv|wellness|tattoo/.test(s)) return { noun: "medical waste disposal", talk: "compliant disposal for aesthetic and wellness clinics" };
-  if (/ltc|nursing|hospice|home health|group home|assisted/.test(s)) return { noun: "pharmaceutical waste disposal", talk: "routine pharmaceutical and controlled-substance disposal for long-term care" };
-  if (/lab|research|university|clinical.?trial|blood|plasma|diagnostic/.test(s)) return { noun: "lab & pharmaceutical waste destruction", talk: "laboratory and pharmaceutical waste destruction" };
-  if (/cannabis|dispensary|marijuana|thc/.test(s)) return { noun: "compliant product destruction", talk: "state-compliant destruction of cannabis and related products" };
-  if (/funeral|mortuary|crime/.test(s)) return { noun: "pharmaceutical destruction", talk: "compliant pharmaceutical and regulated-waste destruction" };
-  return { noun: "medical & pharmaceutical waste disposal", talk: "prepaid mail-back and on-site destruction" };
+  if (/dental|dentist|dso|ortho/.test(s)) return { noun: "sharps and expired-Rx disposal", who: "dental practice" };
+  if (/pharmac|340b|503b/.test(s)) return { noun: "pharmaceutical reverse distribution", who: "pharmacy" };
+  if (/ems|fire|paramedic|ambulance/.test(s)) return { noun: "controlled-substance destruction", who: "department" };
+  if (/hospital|health system|surgery|surgical|asc|oncology|dialysis|academic/.test(s)) return { noun: "medical and pharmaceutical waste destruction", who: "facility" };
+  if (/vet|equine|animal|shelter/.test(s)) return { noun: "sharps and expired-drug disposal", who: "practice" };
+  if (/spa|aesthetic|trt|glp|ketamine|iv|wellness|tattoo/.test(s)) return { noun: "medical waste disposal", who: "practice" };
+  if (/ltc|nursing|hospice|home health|group home|assisted/.test(s)) return { noun: "pharmaceutical waste disposal", who: "team" };
+  if (/lab|research|university|clinical.?trial|blood|plasma|diagnostic/.test(s)) return { noun: "lab and pharmaceutical waste destruction", who: "lab" };
+  if (/cannabis|dispensary|marijuana|thc/.test(s)) return { noun: "compliant product destruction", who: "operation" };
+  if (/funeral|mortuary|crime/.test(s)) return { noun: "pharmaceutical destruction", who: "business" };
+  return { noun: "medical and pharmaceutical waste disposal", who: "organization" };
 }
-function subjectLine(d) { return `${firstName(d.name)} — your ${icpAngle(d.role).noun} quote is on the way`; }
-function fallbackBody(d) {                                          // used only if the AI is unavailable
-  const a = icpAngle(d.role);
-  const streams = d.streams ? ` for ${String(d.streams).toLowerCase()}` : "";
-  return `Thanks for reaching out about ${a.noun}${streams}. I'm putting together a quote sized to your needs and you'll have it the same business day — everything runs by prepaid mail-back or on-site pickup, no contracts, with a Certificate of Destruction on every order.`;
-}
-// A light, human-looking note (minimal chrome) — the brand sits quietly in the footer.
+function subjectLine(d) { return `${firstName(d.name)} — let's get you a quote`; }
+// A light, human-looking note (minimal chrome) — brand sits quietly in the footer.
 function noteShell(preheader, inner) {
   return `<!doctype html><html><body style="margin:0;background:#ffffff;font-family:-apple-system,'Segoe UI',Arial,sans-serif;color:#123A44;">
 <span style="display:none;max-height:0;overflow:hidden;opacity:0">${esc(preheader)}</span>
@@ -224,19 +208,25 @@ function noteShell(preheader, inner) {
   </table>
 </td></tr></table></body></html>`;
 }
-function personalNote(d, rep, bodyText) {
+// The client email: a short, human note from William — first line personalized per ICP, the rest consistent.
+function clientEmail(d) {
+  const a = icpAngle(d.role);
   const p = 'margin:0 0 14px;font-size:15px;color:#123A44;line-height:1.6;';
-  const bodyHtml = esc(bodyText).replace(/\n\n+/g, `</p><p style="${p}">`);
+  const paras = [
+    `Thanks for reaching out about ${a.noun} for your ${a.who} &mdash; that&rsquo;s exactly the kind of work we handle every day.`,
+    `Whether it&rsquo;s prepaid mail-back kits or scheduled on-site pickup, we keep it simple: DEA-registered destruction, a Certificate of Destruction on every order, and no long-term contracts.`,
+    `The quickest way to get you a price is to reach out to me directly &mdash; we can put together a quote for you fast, sized to your monthly volume.`,
+    `Call or text me anytime at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a>, or just reply to this email and I&rsquo;ll take care of it.`,
+  ];
   const inner = `
     <p style="${p}">Hi ${esc(firstName(d.name))},</p>
-    <p style="${p}">${bodyHtml}</p>
-    <p style="margin:0 0 22px;font-size:15px;color:#123A44;line-height:1.6;">If it&rsquo;s easier, call or text me directly at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a> &mdash; or just reply to this email.</p>
+    ${paras.map((t) => `<p style="${p}">${t}</p>`).join("")}
     <p style="margin:0;font-size:15px;color:#123A44;line-height:1.5;">
-      <span style="font-weight:bold;">${esc(rep.name)}</span><br>
-      <span style="color:#55646B;font-size:13.5px;">${esc(rep.title)} &middot; Easy Rx Cycle</span><br>
-      <span style="color:#55646B;font-size:13.5px;">501-904-2929 &middot; <a href="mailto:${esc(rep.email)}" style="color:#005770;text-decoration:none;">${esc(rep.email)}</a></span>
+      <span style="font-weight:bold;">${esc(WILLIAM.name)}</span><br>
+      <span style="color:#55646B;font-size:13.5px;">${esc(WILLIAM.title)} &middot; Easy Rx Cycle</span><br>
+      <span style="color:#55646B;font-size:13.5px;">501-904-2929 &middot; <a href="mailto:${esc(WILLIAM.email)}" style="color:#005770;text-decoration:none;">${esc(WILLIAM.email)}</a></span>
     </p>`;
-  return noteShell(`A quick note from ${rep.first} at Easy Rx Cycle about your request.`, inner);
+  return noteShell("A quick note from William at Easy Rx Cycle about your request.", inner);
 }
 // ---- Lead-response agent (Claude) ----
 async function askClaude(env, system, user) {
@@ -255,11 +245,6 @@ async function askClaude(env, system, user) {
 }
 function leadFacts(d) {
   return `Name: ${d.name || "—"}\nOrganization: ${d.org || "—"}\nRole / ICP: ${d.role || "—"}\nWaste streams: ${d.streams || "—"}\nEstimated volume: ${d.volume || "—"}\nMessage: ${d.message || "—"}`;
-}
-async function aiReplyBody(env, d) {
-  const a = icpAngle(d.role);
-  const system = `You are a specialist at Easy Rx Cycle, a DEA-registered medical & pharmaceutical waste DESTRUCTION company (prepaid mail-back kits and on-site pickup, nationwide, no contracts, a Certificate of Destruction on every order). Write the BODY of a short, warm, personal email replying to a new quote request — as if a real person typed it just for them. 2 to 4 short sentences. Requirements: open by naturally acknowledging their specific situation (their role, waste streams, and volume) in plain human language; speak to their world — for this lead that means ${a.talk}; reassure them you are preparing a tailored quote they will receive the SAME business day. Rules: do NOT include a greeting line (no "Hi ...") and do NOT include any signature or sign-off — output ONLY the body sentences. Do NOT quote or estimate any prices. Do NOT make regulatory/compliance claims beyond "DEA-registered destruction" and "Certificate of Destruction on every order". No emojis. Plain text only.`;
-  return await askClaude(env, system, `New quote request:\n${leadFacts(d)}`);
 }
 async function aiSalesBrief(env, d) {
   const system = `You are a sales-ops assistant for a DEA-registered medical/pharma waste destruction company. Given a new inbound lead, write a TIGHT internal brief for the rep. Output EXACTLY these four labeled lines, each one short sentence, no fluff:\nFit: <how good a fit and why>\nNeed: <the waste streams/volume in plain terms>\nMove: <suggested next step and quote approach — mail-back kit vs pickup vs contract>\nWatch: <any red flag, or "none">`;
