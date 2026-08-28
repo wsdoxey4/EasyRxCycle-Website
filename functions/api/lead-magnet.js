@@ -17,6 +17,21 @@ export async function onRequestPost({ request, env }) {
   const link = d.file ? (d.file.startsWith("http") ? d.file : origin + d.file) : origin;
   const magnet = String(d.title || d.magnet || "download");
 
+  // Portal lead capture (best-effort) — records the download so the lead-magnet email flow can reach them.
+  if (env.PORTAL_SUPABASE_SERVICE_KEY) {
+    try {
+      const base = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
+      const em = String(d.email).toLowerCase();
+      const h = { apikey: env.PORTAL_SUPABASE_SERVICE_KEY, Authorization: `Bearer ${env.PORTAL_SUPABASE_SERVICE_KEY}`, "Content-Type": "application/json" };
+      // Only add if this email isn't already a lead/customer, so we don't duplicate or override a live quote.
+      const ex = await fetch(`${base}/rest/v1/quote_requests?email=eq.${encodeURIComponent(em)}&select=id&limit=1`, { headers: h }).then((r) => r.json()).catch(() => []);
+      if (!Array.isArray(ex) || !ex.length) {
+        await fetch(`${base}/rest/v1/quote_requests`, { method: "POST", headers: { ...h, Prefer: "return=minimal" },
+          body: JSON.stringify({ email: em, name: d.name || null, company: d.org || null, phone: d.phone || null, role: d.industry || null, source: "lead-magnet", page_uri: d.pageUri || d.file || null, message: `Downloaded lead magnet: ${magnet}`, status: "magnet" }) });
+      }
+    } catch {}
+  }
+
   // HubSpot contact upsert (best-effort)
   if (env.HUBSPOT_PRIVATE_TOKEN) {
     try {

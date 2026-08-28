@@ -72,6 +72,26 @@ export async function onRequestPost({ request, env }) {
     return _resp;
   }
 
+  // ---- Abandoned checkout — session expired without payment. Record it (if we captured an email) so the
+  // abandoned-checkout email flow can send a recovery nudge. Shoppers who leave before the email step can't be reached. ----
+  if (event.type === "checkout.session.expired") {
+    const s = event.data.object || {};
+    const cd = s.customer_details || {};
+    const email = (cd.email || "").toLowerCase();
+    if (email && s.payment_status !== "paid" && s.metadata?.source === "shop") {
+      const recovery = s.after_expiration?.recovery?.url || null;
+      const already = await db(`abandoned_checkouts?session_id=eq.${encodeURIComponent(s.id)}&select=id&limit=1`).then((r) => r.json()).catch(() => []);
+      const isClient = await db(`clients?or=(contact_email.eq.${encodeURIComponent(email)},billing_email.eq.${encodeURIComponent(email)})&select=id&limit=1`).then((r) => r.json()).catch(() => []);
+      if (!(Array.isArray(already) && already.length) && !(Array.isArray(isClient) && isClient.length)) {
+        await db(`abandoned_checkouts`, { method: "POST", body: JSON.stringify({
+          session_id: s.id, email, name: cd.name || null, recovery_url: recovery,
+          cart: s.metadata?.cart || null, amount_cents: s.amount_total || null, status: "abandoned",
+        }) });
+      }
+    }
+    return new Response("ok", { status: 200 });
+  }
+
   // ---- Auto-ship renewal (every cycle after the first) ----
   if (event.type === "invoice.paid" || event.type === "invoice.payment_succeeded") {
     const inv = event.data.object || {};

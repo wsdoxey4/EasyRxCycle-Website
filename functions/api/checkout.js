@@ -128,6 +128,12 @@ async function handlePost({ request, env }) {
     f.set("metadata[cart]", cartStr);
     if (subscription) { f.set("subscription_data[metadata][source]", "shop"); f.set("subscription_data[metadata][cart]", cartStr); }
   }
+  // Abandoned-checkout recovery (one-time payments only). Expire the session after 1h and turn on a
+  // recovery link, so an expired session that captured an email can trigger the abandoned-checkout flow.
+  if (!subscription) {
+    f.set("expires_at", String(Math.floor(Date.now() / 1000) + 3600));
+    f.set("after_expiration[recovery][enabled]", "true");
+  }
 
   try {
     const r = await fetch("https://api.stripe.com/v1/checkout/sessions", {
