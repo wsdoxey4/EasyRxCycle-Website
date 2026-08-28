@@ -83,9 +83,15 @@ export async function onRequestPost({ request, env }) {
       const already = await db(`abandoned_checkouts?session_id=eq.${encodeURIComponent(s.id)}&select=id&limit=1`).then((r) => r.json()).catch(() => []);
       const isClient = await db(`clients?or=(contact_email.eq.${encodeURIComponent(email)},billing_email.eq.${encodeURIComponent(email)})&select=id&limit=1`).then((r) => r.json()).catch(() => []);
       if (!(Array.isArray(already) && already.length) && !(Array.isArray(isClient) && isClient.length)) {
+        // Resolve each cart line to name + price + product image so the recovery email can show what they left.
+        const IMG = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra" };
+        const cartArr = parseCart(s.metadata?.cart);
+        const items = cartArr.map((it) => { const key = IMG[String(it.s || "").slice(0, 7)]; return {
+          sku: it.s, name: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Mail-back kit", qty: Number(it.q) || 1, price_cents: Number(it.c) || 0,
+          image: key ? `https://easyrxcycle.com/images/products/${key}.webp` : null }; });
         await db(`abandoned_checkouts`, { method: "POST", body: JSON.stringify({
           session_id: s.id, email, name: cd.name || null, recovery_url: recovery,
-          cart: s.metadata?.cart || null, amount_cents: s.amount_total || null, status: "abandoned",
+          cart: s.metadata?.cart || null, items, amount_cents: s.amount_total || null, status: "abandoned",
         }) });
       }
     }
