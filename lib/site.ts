@@ -58,6 +58,7 @@ export const ANALYTICS = {
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "G-DBFLW3D87G",
   clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
   hubspot: process.env.NEXT_PUBLIC_HUBSPOT_ID || "49645219",  // HubSpot page tracking (CRM attribution for known contacts)
+  callrail: process.env.NEXT_PUBLIC_CALLRAIL_SWAP || "https://cdn.callrail.com/companies/980242849/0ffa3dc3a1dbd5d491cd/12/swap.js",  // dynamic number insertion → per-source call attribution
 };
 
 // Stripe publishable key (public — safe on the client) for the on-domain embedded checkout.
