@@ -60,7 +60,7 @@ export const ANALYTICS = {
   hubspot: process.env.NEXT_PUBLIC_HUBSPOT_ID || "49645219",  // HubSpot page tracking (CRM attribution for known contacts)
   callrail: process.env.NEXT_PUBLIC_CALLRAIL_SWAP || "https://cdn.callrail.com/companies/980242849/0ffa3dc3a1dbd5d491cd/12/swap.js",  // dynamic number insertion → per-source call attribution
   metaPixel: process.env.NEXT_PUBLIC_META_PIXEL || "2102144507047431",  // Meta Pixel — conversion tracking + retargeting audiences
-  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_PARTNER || "",              // LinkedIn Insight Tag partner id (set when available)
+  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_PARTNER || "9623498",       // LinkedIn Insight Tag — conversion tracking + retargeting audiences
 };
 
 // Stripe publishable key (public — safe on the client) for the on-domain embedded checkout.
