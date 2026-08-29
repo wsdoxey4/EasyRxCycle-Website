@@ -128,6 +128,18 @@ async function handlePost({ request, env }) {
     f.set("metadata[cart]", cartStr);
     if (subscription) { f.set("subscription_data[metadata][source]", "shop"); f.set("subscription_data[metadata][cart]", cartStr); }
   }
+  // Attribution passthrough (best-effort) — carry how the buyer arrived so the order is credited to the right
+  // channel / campaign / ICP in the portal. Wrapped so a malformed value can never block checkout.
+  try {
+    const a = body.attribution || {};
+    const put = (k, v) => { const s = String(v == null ? "" : v).slice(0, 400); if (s) { f.set(`metadata[${k}]`, s); if (subscription) f.set(`subscription_data[metadata][${k}]`, s); } };
+    put("attr_channel", a.channel);
+    put("attr_src", a.source);
+    if (a.utm && typeof a.utm === "object") {
+      put("attr_campaign", a.utm.utm_campaign);
+      put("attr_icp", a.utm.utm_term);
+    }
+  } catch { /* attribution is best-effort — never break checkout */ }
   // Abandoned-checkout recovery (one-time payments only). Expire the session after 1h and turn on a
   // recovery link, so an expired session that captured an email can trigger the abandoned-checkout flow.
   if (!subscription) {

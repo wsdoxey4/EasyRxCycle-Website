@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { inCategory, money, autoshipCents, canExpedite, INTERVALS, EXPEDITE_CENTS, BY_SKU } from "@/lib/shop";
 import { trackEvent } from "@/lib/track";
+import { getAttribution } from "@/lib/attribution";
 import AddressFields, { type Addr, blankAddr } from "@/components/AddressFields";
 
 type Line = { id: number; sku: string; qty: number; interval: string | null; expedite: boolean };
@@ -100,7 +101,7 @@ export default function ProgramBuilder() {
     trackEvent("begin_checkout", { source: "program_builder", facility, containers: loc.lines.length, recurring: hasRecurring });
     try {
       const items = loc.lines.map((l) => ({ sku: l.sku, qty: l.qty, interval: l.interval || undefined, expedite: l.expedite || undefined }));
-      const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
+      const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items, attribution: getAttribution() }) });
       const j = await r.json();
       if (j.ok && j.url) { window.location.href = j.url; return; }
       setErr(j.error || "Could not start checkout."); setBusy("");

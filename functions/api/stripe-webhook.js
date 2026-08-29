@@ -66,7 +66,9 @@ export async function onRequestPost({ request, env }) {
     const buyer = { email: (cd.email || "").toLowerCase(), name: ship.name || cd.name, phone: cd.phone, addr: ship.address || cd.address || {} };
     const source = s.mode === "subscription" ? "autoship" : "shop";
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
-    const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total } });
+    const m = s.metadata || {};
+    const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null };
+    const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
     await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
     return _resp;
@@ -149,7 +151,7 @@ export async function onRequestPost({ request, env }) {
 }
 
 // Resolve (or create) the client + ship-to site for a buyer.
-async function resolveClientSite(db, buyer, createIfMissing = true) {
+async function resolveClientSite(db, buyer, createIfMissing = true, attribution = null) {
   const addr = buyer.addr || {};
   const email = buyer.email || "";
   const fullName = buyer.name || email || "Web customer";
@@ -164,7 +166,8 @@ async function resolveClientSite(db, buyer, createIfMissing = true) {
   if (!clientId && createIfMissing) {
     const ins = await db(`clients`, {
       method: "POST", headers: { Prefer: "return=representation" },
-      body: JSON.stringify({ name: fullName, contact_email: email || null, contact_first_name: first || null, contact_last_name: rest.join(" ") || null, phone: buyer.phone || null, street, city: addr.city || null, state: addr.state || null, zip: addr.postal_code || null, status: "active" }),
+      body: JSON.stringify({ name: fullName, contact_email: email || null, contact_first_name: first || null, contact_last_name: rest.join(" ") || null, phone: buyer.phone || null, street, city: addr.city || null, state: addr.state || null, zip: addr.postal_code || null, status: "active",
+        attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null }),
     }).then((r) => r.json()).catch(() => null);
     clientId = Array.isArray(ins) ? ins[0]?.id : ins?.id;
   }
@@ -189,11 +192,11 @@ async function resolveClientSite(db, buyer, createIfMissing = true) {
 
 // Insert orders (split by stream × on-site/mail-back) + order_items for a paid cart,
 // inheriting partner attribution + a contract-pricing review flag from the matched client.
-async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionRef, paymentRef, totals }) {
+async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionRef, paymentRef, totals, attribution }) {
   const already = await db(`orders?ext_ref=eq.${encodeURIComponent(extRef)}&select=id`).then((r) => r.json()).catch(() => []);
   if (Array.isArray(already) && already.length) return new Response("already processed", { status: 200 });
 
-  const { clientId, siteId } = await resolveClientSite(db, buyer);
+  const { clientId, siteId } = await resolveClientSite(db, buyer, true, attribution);
   if (!clientId) return new Response("could not resolve client", { status: 500 });
 
   // Attribution: inherit the client's partner (+ commission %); flag if they have negotiated pricing.
@@ -216,7 +219,8 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
       method: "POST", headers: { Prefer: "return=representation" },
       body: JSON.stringify({ client_id: clientId, site_id: siteId, source, stream, status: "ordered",
         amount_cents: amount, placed_at: placedAt, ext_ref: extRef, subscription_ref: subscriptionRef, payment_ref: paymentRef || null,
-        partner_id: partnerId, commission_cents: Math.round(amount * commissionPct / 100), price_review: priceReview, onsite: kind === "on" }),
+        partner_id: partnerId, commission_cents: Math.round(amount * commissionPct / 100), price_review: priceReview, onsite: kind === "on",
+        attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null }),
     }).then((r) => r.json()).catch(() => null);
     const orderId = Array.isArray(ord) ? ord[0]?.id : ord?.id;
     if (!orderId) continue;

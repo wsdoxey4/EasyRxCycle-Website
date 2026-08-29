@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { STRIPE_PK } from "@/lib/site";
 import { BY_SKU, autoshipCents, INTERVALS, EXPEDITE_CENTS, canExpedite } from "@/lib/shop";
+import { getAttribution } from "@/lib/attribution";
 
 const STORE_KEY = "erx_cart_v2";
 type Line = { sku: string; qty: number; interval?: string | null; expedite?: boolean };
@@ -92,7 +93,7 @@ export default function CustomCheckout() {
   async function initSession(cartItems: Line[]) {
     const stripe = stripeRef.current;
     const seq = ++reinitSeq.current;
-    const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cartItems, ui: "custom", exemptEmail: exemptRef.current }) });
+    const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cartItems, ui: "custom", exemptEmail: exemptRef.current, attribution: getAttribution() }) });
     const j = await r.json();
     if (seq !== reinitSeq.current) return;              // a newer re-init superseded this one
     if (!j.ok || !j.clientSecret) throw new Error(j.error || "init failed");
