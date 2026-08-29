@@ -54,7 +54,7 @@ export const abs = (path: string) =>
 
 export const ANALYTICS = {
   on: process.env.NEXT_PUBLIC_ANALYTICS !== "false",
-  gtm: process.env.NEXT_PUBLIC_GTM_ID || "",
+  gtm: process.env.NEXT_PUBLIC_GTM_ID || "GTM-KSR8H9XZ",
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "G-DBFLW3D87G",
   clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
   hubspot: process.env.NEXT_PUBLIC_HUBSPOT_ID || "49645219",  // HubSpot page tracking (CRM attribution for known contacts)
