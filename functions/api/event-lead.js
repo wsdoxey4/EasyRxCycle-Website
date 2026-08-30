@@ -48,7 +48,9 @@ export async function onRequestPost({ request, env }) {
     try {
       const base = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
       const h = { apikey: env.PORTAL_SUPABASE_SERVICE_KEY, Authorization: `Bearer ${env.PORTAL_SUPABASE_SERVICE_KEY}`, "Content-Type": "application/json", Prefer: "return=minimal" };
-      const ex = await fetch(`${base}/rest/v1/quote_requests?email=eq.${encodeURIComponent(email)}&select=id&limit=1`, { headers: h }).then((r) => r.json()).catch(() => []);
+      // Dedupe per show, not globally — a visitor who filled a website form before should still be captured as a booth lead.
+      const campaign = d.show || "event";
+      const ex = await fetch(`${base}/rest/v1/quote_requests?email=eq.${encodeURIComponent(email)}&source=eq.events&utm->>utm_campaign=eq.${encodeURIComponent(campaign)}&select=id&limit=1`, { headers: h }).then((r) => r.json()).catch(() => []);
       if (!Array.isArray(ex) || !ex.length) {
         await fetch(`${base}/rest/v1/quote_requests`, { method: "POST", headers: h, body: JSON.stringify({
           email, name: d.name || null, company: d.org || d.company || null, phone: d.phone || null, role: icp,
