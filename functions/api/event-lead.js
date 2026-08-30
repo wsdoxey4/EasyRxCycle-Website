@@ -19,7 +19,7 @@ export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
   if (!url.searchParams.get("setup")) return json({ ok: true, configured: { stripe: !!env.STRIPE_SECRET_KEY, hubspot: !!env.HUBSPOT_PRIVATE_TOKEN, resend: !!(env.RESEND_API_KEY && env.RESEND_FROM), supabase: !!env.PORTAL_SUPABASE_SERVICE_KEY } });
   if (!env.STRIPE_SECRET_KEY) return json({ ok: false, error: "STRIPE_SECRET_KEY not set" }, 400);
-  const sH = { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`, "Content-Type": "application/x-www-form-urlencoded" };
+  const sH = { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`, "Content-Type": "application/x-www-form-urlencoded", "Stripe-Version": "2024-06-20" };
   const out = {};
   // Create the coupon (ignore "already exists").
   const cf = new URLSearchParams({ id: COUPON_ID, percent_off: "10", duration: "once", name: "Trade Show 10% off" });
