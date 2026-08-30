@@ -128,6 +128,7 @@ const MENU: Item[] = [
       { title: "How we work & support", links: [
         { t: "How it works", h: "/how-it-works" },
         { t: "FAQ", h: "/faq" },
+        { t: "Trade shows", h: "/trade-shows" },
         { t: "Contact us", h: "/contact" },
       ]},
     ],
