@@ -140,9 +140,10 @@ async function handlePost({ request, env }) {
       put("attr_icp", a.utm.utm_term);
     }
   } catch { /* attribution is best-effort — never break checkout */ }
-  // Abandoned-checkout recovery (one-time payments only). Expire the session after 1h and turn on a
-  // recovery link, so an expired session that captured an email can trigger the abandoned-checkout flow.
-  if (!subscription) {
+  // Abandoned-checkout recovery (one-time HOSTED sessions only). Stripe's after_expiration recovery needs a
+  // hosted recovery page — sending it (or expires_at) on a custom/embedded UI session breaks it (502), and
+  // the live store uses custom UI, so scope this to hosted. (Custom-UI abandoned-cart is handled separately.)
+  if (!subscription && ui === "hosted") {
     f.set("expires_at", String(Math.floor(Date.now() / 1000) + 3600));
     f.set("after_expiration[recovery][enabled]", "true");
   }
