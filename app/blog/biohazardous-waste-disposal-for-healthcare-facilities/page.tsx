@@ -7,8 +7,8 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/biohazardous-waste-disposal-for-healthcare-facilities";
-const TITLE = "Biohazardous Waste Disposal for Healthcare Facilities: A Complete Guide";
-const DESC = "A complete guide to biohazardous (regulated medical) waste disposal: the six waste types, OSHA/EPA/DOT rules, packaging and storage requirements, approved treatment methods, and how to stay compliant.";
+const TITLE = "Biohazard Waste: Types, Examples & Safe Disposal";
+const DESC = "What counts as biohazard waste, real examples of each type, and how it's disposed of safely — the 6 waste categories, OSHA/EPA/DOT rules, packaging, and compliant handling for any facility.";
 
 export const metadata: Metadata = {
   title: TITLE,
