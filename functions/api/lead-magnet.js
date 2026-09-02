@@ -27,7 +27,7 @@ export async function onRequestPost({ request, env }) {
       const ex = await fetch(`${base}/rest/v1/quote_requests?email=eq.${encodeURIComponent(em)}&select=id&limit=1`, { headers: h }).then((r) => r.json()).catch(() => []);
       if (!Array.isArray(ex) || !ex.length) {
         await fetch(`${base}/rest/v1/quote_requests`, { method: "POST", headers: { ...h, Prefer: "return=minimal" },
-          body: JSON.stringify({ email: em, name: d.name || null, company: d.org || null, phone: d.phone || null, role: d.industry || null, source: "lead-magnet", page_uri: d.pageUri || d.file || null, message: `Downloaded lead magnet: ${magnet}`, status: "magnet" }) });
+          body: JSON.stringify({ email: em, name: d.name || null, company: d.org || null, phone: d.phone || null, role: d.industry || null, source: "lead-magnet", page_uri: d.pageUri || d.file || null, message: `Downloaded lead magnet: ${magnet}`, status: "magnet", utm: { ...(d.utm || {}), channel: d.channel || null, form: "lead-magnet" } }) });
       }
     } catch {}
   }

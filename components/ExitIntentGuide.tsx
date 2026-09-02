@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { MAGNET_BY_SLUG } from "@/lib/leadMagnets";
 import { trackEvent } from "@/lib/track";
+import { getAttribution } from "@/lib/attribution";
 
 // Exit-intent capture that offers THIS page's ICP guide. Desktop = mouse-leave modal;
 // mobile = a compliant bottom sheet after a delay (never a full-screen interstitial).
@@ -44,7 +45,7 @@ export default function ExitIntentGuide({ slug }: { slug: string }) {
     setBusy(true); setErr("");
     try {
       await fetch("/api/lead-magnet", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: fd.get("name"), email, org: fd.get("org"), magnet: m.slug, file: m.file, title: m.h1, industry: m.industry, bullets: m.bullets }) });
+        body: JSON.stringify({ name: fd.get("name"), email, org: fd.get("org"), magnet: m.slug, file: m.file, title: m.h1, industry: m.industry, bullets: m.bullets, channel: getAttribution().channel, utm: getAttribution().utm, pageUri: typeof window !== "undefined" ? window.location.pathname : m.file }) });
     } catch {}
     trackEvent("generate_lead", { lead_source: "exit_intent", magnet: m.slug, industry: m.industry });
     setBusy(false); setDone(true);

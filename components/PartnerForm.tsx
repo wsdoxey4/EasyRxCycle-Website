@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { trackEvent } from "@/lib/track";
+import { getAttribution } from "@/lib/attribution";
 
 const CHANNELS = [
   "GPO / purchasing group",
@@ -35,7 +36,8 @@ export default function PartnerForm() {
     setStatus("sending");
     setErr("");
     const fd = new FormData(e.currentTarget);
-    const data: Record<string, string> = {
+    const a = getAttribution();
+    const data: Record<string, unknown> = {
       name: String(fd.get("name") || ""),
       org: String(fd.get("org") || ""),
       email: String(fd.get("email") || ""),
@@ -46,6 +48,7 @@ export default function PartnerForm() {
       consent: fd.get("consent") ? "Opted in" : "Opted out",
       company_website: String(fd.get("company_website") || ""), // honeypot
       pageUri: typeof window !== "undefined" ? window.location.href : "",
+      channel: a.channel, utm: a.utm,
     };
     try {
       const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
