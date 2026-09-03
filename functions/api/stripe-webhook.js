@@ -254,6 +254,9 @@ async function upsertSubscription(db, env, sub) {
   const amount = items.reduce((a, it) => a + (Number(it.c) || 0) * (Number(it.q) || 1), 0);
   const paused = Boolean(sub.pause_collection);
   const status = paused ? "paused" : sub.status;
+  // Stripe moved current_period_end onto the subscription item in the 2025-03-31+ API — fall back so the
+  // portal's "Next Ship" date + the shipping-within-7-days count populate (top-level is null on newer versions).
+  const periodEnd = sub.current_period_end || sub.items?.data?.[0]?.current_period_end || null;
 
   const existing = await db(`subscriptions?stripe_sub_id=eq.${encodeURIComponent(sub.id)}&select=id,client_id`).then((r) => r.json()).catch(() => []);
   const has = Array.isArray(existing) && existing[0];
@@ -261,7 +264,7 @@ async function upsertSubscription(db, env, sub) {
   const row = {
     stripe_customer_id: sub.customer || null, status, interval_months: interval,
     items, amount_cents: amount, currency: sub.currency || "usd",
-    next_renewal_at: sub.current_period_end ? tsIso(sub.current_period_end) : null,
+    next_renewal_at: periodEnd ? tsIso(periodEnd) : null,
     started_at: sub.start_date ? tsIso(sub.start_date) : null,
     canceled_at: sub.canceled_at ? tsIso(sub.canceled_at) : null,
     cancel_at_period_end: !!sub.cancel_at_period_end, source: "shop", updated_at: new Date().toISOString(),
