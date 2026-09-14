@@ -7,6 +7,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { CATEGORIES, fromPrice, money, inCategory, isShoppable } from "@/lib/shop";
 import { COLLECTIONS, KIT_BY_CATEGORY, KITS } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
+import { Suspense } from "react";
+import AddFromUrl from "@/components/cart/AddFromUrl";
 
 const PATH = "/shop";
 const TITLE = "Shop Mail-Back Kits — Buy Online, Prepaid, No Contract";
@@ -59,6 +61,7 @@ const jsonLd = {
 export default function Page() {
   return (
     <>
+      <Suspense fallback={null}><AddFromUrl /></Suspense>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main id="main">
