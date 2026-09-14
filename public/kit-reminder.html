@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Easy Rx Cycle</title>
+<style>
+  :root{--teal:#005770;--ink:#123A44;--mut:#6b8a90;--line:#e4ecea;--soft:#f4f8f7;--mint:#7ad3ab}
+  *{box-sizing:border-box}
+  body{margin:0;background:#f1f6f5;color:var(--ink);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:480px;margin:0 auto;padding:44px 16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(18,58,68,.08)}
+  .head{background:var(--teal);padding:18px 28px}
+  .head img{height:30px;display:block;border:0}
+  .body{padding:30px 30px 34px}
+  .badge{width:56px;height:56px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;margin:0 0 16px}
+  .badge svg{width:30px;height:30px}
+  h1{font-size:22px;line-height:1.25;margin:0 0 10px;font-weight:700}
+  p{font-size:15.5px;line-height:1.6;color:var(--ink);margin:0 0 16px}
+  .muted{font-size:13px;color:var(--mut)}
+  .btn{display:inline-block;font-size:15px;font-weight:700;color:#fff;background:var(--teal);text-decoration:none;border-radius:10px;padding:13px 26px;margin-top:6px}
+  .foot{text-align:center;font-size:12px;color:var(--mut);margin-top:18px;line-height:1.7}
+  .foot a{color:var(--teal);text-decoration:none}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="head"><img src="https://easyrxcycle.com/images/logo-white-notag.png" alt="Easy Rx Cycle"></div>
+      <div class="body">
+        <div class="badge" id="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#005770" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h1 id="title">All set</h1>
+        <p id="msg">Thanks — you're all set.</p>
+        <p class="muted" id="extra" hidden></p>
+        <a class="btn" href="https://easyrxcycle.com/shop">Visit the shop</a>
+      </div>
+    </div>
+    <div class="foot">Easy Rx Cycle &middot; DEA-registered destruction<br>Questions? <a href="mailto:info@easyrxcycle.com">info@easyrxcycle.com</a></div>
+  </div>
+<script>
+  var p = new URLSearchParams(location.search);
+  var a = p.get('a') || '', d = parseInt(p.get('d')||'0',10);
+  var label = d===60?'2 months':d===90?'3 months':d===180?'6 months':'1 month';
+  var T=document.getElementById('title'), M=document.getElementById('msg'), X=document.getElementById('extra');
+  var map = {
+    snooze: ["Got it — we'll check back later", "No problem. We'll remind you about your kits in <strong>"+label+"</strong>. If you send anything back or place an order in the meantime, we'll pick up from there.", ""],
+    return: ["Perfect — here's how to send it back", "Your <strong>prepaid return label is already inside the kit</strong>. Just seal the container, attach the label, and hand it to your carrier. We'll email your Certificate of Destruction as soon as it's processed.", "Lost the label? Email info@easyrxcycle.com and we'll send a fresh one."],
+    sent: ["Thanks — glad they're on the way back", "We've noted your kits are heading back for destruction. You'll get a Certificate of Destruction once we process them, and we'll pause reminders for now.", ""],
+    stop: ["Reminders turned off", "You won't get replenishment reminders anymore. You can still reorder anytime, and this won't affect your order or destruction emails.", ""]
+  };
+  var m = map[a] || ["All set","Thanks — you're all set.",""];
+  T.textContent = m[0]; M.innerHTML = m[1];
+  if (m[2]) { X.textContent = m[2]; X.hidden = false; }
+  document.title = m[0] + " — Easy Rx Cycle";
+</script>
+</body>
+</html>
