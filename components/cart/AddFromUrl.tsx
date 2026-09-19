@@ -15,13 +15,23 @@ export default function AddFromUrl() {
   const done = useRef(false);
   useEffect(() => {
     if (done.current) return;
-    const sku = params.get("add");
-    if (!sku) return;
+    const single = params.get("add");                            // legacy one-kit link: ?add=SKU&qty=N
+    const basket = params.get("cart");                           // full basket: ?cart=SKU:qty,SKU:qty  (from the sales engine)
+    if (!single && !basket) return;
     done.current = true;
     try { captureAttribution(); } catch { /* no-op */ }         // stamp the campaign that sent them
-    const qty = Math.max(1, Math.min(99, parseInt(params.get("qty") || "1", 10) || 1));
-    if (BY_SKU[sku]) add(sku, { qty });                          // opens the cart drawer
-    router.replace("/shop");                                     // drop ?add so a refresh won't re-add
+    if (single) {
+      const qty = Math.max(1, Math.min(99, parseInt(params.get("qty") || "1", 10) || 1));
+      if (BY_SKU[single]) add(single, { qty });
+    }
+    if (basket) {
+      for (const item of basket.split(",")) {
+        const [sku, q] = item.split(":");
+        const qty = Math.max(1, Math.min(99, parseInt(q || "1", 10) || 1));
+        if (BY_SKU[sku]) add(sku, { qty });                      // add each kit in the basket
+      }
+    }
+    router.replace("/shop");                                     // drop the query so a refresh won't re-add
   }, [params, add, router]);
   return null;
 }
