@@ -35,10 +35,13 @@ export default function OrderConfirmed() {
       try {
         const cart = JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
         if (Array.isArray(cart) && cart.length) {
+          const orderValue = cart.reduce((n: number, l: any) => n + lineTotal(l), 0) / 100;
           trackEvent("purchase", {
-            transaction_id: sid, currency: "USD", value: cart.reduce((n: number, l: any) => n + lineTotal(l), 0) / 100,
+            transaction_id: sid, currency: "USD", value: orderValue,
             items: cart.map((l: any) => ({ item_id: l.sku, item_name: BY_SKU[l.sku]?.family, quantity: l.qty })),
           });
+          // OpenAI ads pixel — fire the order_created conversion (mirrors the GA4 purchase)
+          try { (window as any).oaiq?.("measure", "order_created", { type: "contents", value: orderValue, currency: "USD" }); } catch {}
         }
       } catch {}
       try { localStorage.removeItem(STORE_KEY); } catch {}
