@@ -22,7 +22,8 @@ export type Kit = {
 // Storefront collections (order + grouping of the 8 kits)
 export const COLLECTIONS: Collection[] = [
   { title: "Sharps & biohazard", keys: ["sharps", "biohazard"] },
-  { title: "Medication disposal", keys: ["medication", "medication-onsite", "charcoal"] },
+  { title: "Medication disposal", keys: ["medication", "medication-onsite"] },
+  { title: "Activated charcoal take-back", keys: ["charcoal"] },
   { title: "Pharmaceutical & specialty", keys: ["pharma", "chemo"] },
   { title: "Controlled & hazardous", keys: ["controlled", "hazardous"] },
 ];
