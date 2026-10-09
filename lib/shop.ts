@@ -62,7 +62,7 @@ export const CATEGORIES: Category[] = [
   { key: "chemo", label: "Trace chemo mail-back kit", blurb: "Trace/RCRA-empty chemotherapy waste per USP 800 — vials, tubing, gowns & gloves.", image: "/images/products/trace-chemo.webp" },
   { key: "controlled", label: "Controlled substance mail-back kit", blurb: "DEA-compliant mail-back for Schedules I–V, sized by weight. Non-retrievable destruction.", image: "/images/products/controlled.webp" },
   { key: "hazardous", label: "Hazardous (RCRA) mail-back kit", blurb: "RCRA-hazardous pharmaceutical waste (P/U-listed & characteristic), destroyed to EPA rules.", image: "/images/products/rcra.webp" },
-  { key: "charcoal", label: "Activated charcoal take-back kit", blurb: "Mail back your used/full activated-charcoal medication disposal systems (Rx Destroyer® and others) for destruction. Priced by weight.", image: "/images/products/medication-disposal.webp" },
+  { key: "charcoal", label: "Activated charcoal take-back kit", blurb: "Mail back your used/full activated-charcoal medication disposal systems (Rx Destroyer® and others) for destruction. Priced by weight.", image: "/images/products/activated-charcoal.webp" },
 ];
 
 export const FREE_SHIP_THRESHOLD_CENTS = 5000; // free shipping over $50
