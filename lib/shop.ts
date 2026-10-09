@@ -45,7 +45,10 @@ export const PRODUCTS: Product[] = [
   {"sku": "ERX-CHM-28G-EA", "family": "Trace Chemo Mail-Back Kit", "size": "28 Gallon", "cents": 44500, "category": "chemo", "restricted": false},
   {"sku": "ERX-HAZ-02G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "2 Gallon", "cents": 14500, "category": "hazardous", "restricted": true},
   {"sku": "ERX-HAZ-08G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "8 Gallon", "cents": 35000, "category": "hazardous", "restricted": true},
-  {"sku": "ERX-HAZ-18G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "18 Gallon", "cents": 47500, "category": "hazardous", "restricted": true}
+  {"sku": "ERX-HAZ-18G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "18 Gallon", "cents": 47500, "category": "hazardous", "restricted": true},
+  {"sku": "ERX-ACR-5LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 5 lbs", "cents": 10000, "category": "charcoal", "restricted": false},
+  {"sku": "ERX-ACR-25LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 25 lbs", "cents": 35000, "category": "charcoal", "restricted": false},
+  {"sku": "ERX-ACR-50LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 50 lbs", "cents": 60000, "category": "charcoal", "restricted": false}
 ];
 
 export type Category = { key: string; label: string; blurb: string; note?: string; image?: string };
@@ -59,6 +62,7 @@ export const CATEGORIES: Category[] = [
   { key: "chemo", label: "Trace chemo mail-back kit", blurb: "Trace/RCRA-empty chemotherapy waste per USP 800 — vials, tubing, gowns & gloves.", image: "/images/products/trace-chemo.webp" },
   { key: "controlled", label: "Controlled substance mail-back kit", blurb: "DEA-compliant mail-back for Schedules I–V, sized by weight. Non-retrievable destruction.", image: "/images/products/controlled.webp" },
   { key: "hazardous", label: "Hazardous (RCRA) mail-back kit", blurb: "RCRA-hazardous pharmaceutical waste (P/U-listed & characteristic), destroyed to EPA rules.", image: "/images/products/rcra.webp" },
+  { key: "charcoal", label: "Activated charcoal take-back kit", blurb: "Mail back your used/full activated-charcoal medication disposal systems (Rx Destroyer® and others) for destruction. Priced by weight.", image: "/images/products/medication-disposal.webp" },
 ];
 
 export const FREE_SHIP_THRESHOLD_CENTS = 5000; // free shipping over $50

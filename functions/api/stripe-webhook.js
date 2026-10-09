@@ -20,7 +20,7 @@ import PRICES from "../_prices.json";
 const STREAM_BY_PREFIX = {
   "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-CHM": "trace-chemo",
   "ERX-MED": "medication disposal kit", "ERX-PHW": "pharmaceutical",
-  "ERX-CTL": "controlled", "ERX-HAZ": "rcra",
+  "ERX-CTL": "controlled", "ERX-HAZ": "rcra", "ERX-ACR": "activated charcoal",
 };
 const streamOf = (sku) => STREAM_BY_PREFIX[(sku || "").slice(0, 7)] || "other";
 const parseCart = (str) => { try { const c = JSON.parse(str || "[]"); return Array.isArray(c) ? c : []; } catch { return []; } };
