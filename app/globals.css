@@ -1423,3 +1423,75 @@ header.site .wrap{position:relative;}
 .co-ship-iv{border:1px solid var(--line,#d7dee1);border-radius:7px;padding:5px 8px;font-size:12.5px;font-family:inherit;color:var(--ink,#1f2d34);background:#fff;max-width:150px}
 .co-autoship-note{margin:12px 0 0;font-size:12px;line-height:1.5;color:var(--muted,#5b6670);background:#f4f9f8;border-radius:9px;padding:10px 12px}
 .co-pay-wrap .co-pay{margin-top:0}
+
+/* ===== CONVERSION PASS (2026-10) — kit finder, buy confidence, save-cart ===== */
+#buy,#kit-finder{scroll-margin-top:96px;}
+/* kit finder */
+.kf{background:linear-gradient(160deg,#f3faf7,#fff 70%);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,32px);}
+.kf-head h2{font-size:clamp(22px,2.6vw,28px);margin:6px 0 4px;}
+.kf-head p{margin:0;color:var(--slate);font-size:15px;}
+.kf-crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;}
+.kf-crumbs span{font-size:12.5px;color:var(--teal);background:#fff;border:1px solid #cfe0dc;border-radius:999px;padding:5px 11px;}
+.kf-crumbs button{background:none;border:none;color:var(--slate);font-size:12.5px;text-decoration:underline;cursor:pointer;padding:4px;}
+.kf-q{border:none;padding:0;margin:20px 0 0;min-width:0;}
+.kf-q legend{font-family:Poppins,sans-serif;font-weight:600;font-size:17px;color:var(--ink);padding:0;margin-bottom:12px;}
+.kf-n{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--emer-600);margin-right:8px;}
+.kf-hint{margin:-4px 0 12px;font-size:13.5px;color:var(--slate);}
+.kf-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
+.kf-opts-1{grid-template-columns:1fr;}
+.kf-opts-2{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.kf-sizes{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+.kf-opt{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font:inherit;font-size:14.5px;color:var(--ink);cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .15s;min-height:52px;}
+.kf-opt:hover,.kf-opt:focus-visible{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal);outline:none;}
+.kf-opt b{font-family:Poppins,sans-serif;font-weight:600;font-size:15px;}
+.kf-opt small{font-size:13px;color:var(--slate);}
+.kf-opt-save{border-color:#9fd9bf;background:#f2fbf6;}
+.kf-unsure{margin-top:18px;}
+.kf-unsure p{margin:0 0 14px;color:var(--ink);font-size:15px;}
+.kf-unsure-b{display:flex;flex-wrap:wrap;gap:10px;}
+.kf-call{margin-top:14px !important;font-size:14px !important;color:var(--slate) !important;}
+.kf-call a,.bconf-help a{color:var(--teal);font-weight:600;}
+.kf-result{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(16px,3vw,28px);align-items:start;margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(14px,2.4vw,22px);}
+.kf-result img{width:100%;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);}
+.kf-r-label{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--emer-600);}
+.kf-result h3{margin:4px 0 4px;font-size:20px;}
+.kf-r-meta{margin:0;font-family:Poppins,sans-serif;font-weight:600;color:var(--teal);font-size:15.5px;}
+.kf-r-blurb{margin:10px 0 0;color:var(--slate);font-size:14px;}
+.kf-r-note{margin:10px 0 0;font-size:13.5px;color:#8a5a1c;background:#fff7ed;border:1px solid #f2d6ae;border-radius:9px;padding:9px 12px;}
+.kf-freq{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:13.5px;color:var(--slate);}
+.kf-freq select{border:1px solid var(--line);border-radius:8px;padding:6px 9px;font:inherit;font-size:14px;color:var(--ink);background:#fff;}
+.kf-r-b{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+@media(max-width:640px){.kf-result{grid-template-columns:1fr;}.kf-result img{max-width:240px;}.kf-r-b .btn{flex:1 1 100%;justify-content:center;}}
+/* buy confidence (under Add to cart) */
+.bconf{margin-top:18px;display:flex;flex-direction:column;gap:14px;}
+.bconf-cert{display:flex;gap:14px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;color:var(--ink);transition:border-color .15s;}
+.bconf-cert:hover{border-color:var(--teal);}
+.bconf-cert img{width:64px;height:auto;flex:none;border-radius:4px;border:1px solid var(--line);box-shadow:0 4px 10px -6px rgba(12,47,56,.35);}
+.bconf-cert span{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.bconf-cert b{font-family:Poppins,sans-serif;font-size:14.5px;color:var(--teal);}
+.bconf-cert small{font-size:12.5px;color:var(--slate);line-height:1.45;}
+.bconf-facts{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;}
+.bconf-facts li{position:relative;padding-left:18px;font-size:13px;color:var(--ink);font-weight:500;}
+.bconf-facts li::before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;background:var(--emer);}
+.bconf-manifest{background:#fff7ed;border:1px solid #f2d6ae;border-radius:12px;padding:14px 16px;}
+.bconf-manifest b{font-family:Poppins,sans-serif;font-size:14.5px;color:#7a4a12;}
+.bconf-manifest ol{margin:8px 0 6px;padding-left:20px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+.bconf-manifest small{font-size:12.5px;color:#8a5a1c;}
+.bconf-help{margin:0;font-size:13.5px;color:var(--slate);}
+/* save cart */
+.sc-link{display:block;width:100%;margin-top:12px;background:none;border:none;color:var(--teal);font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;padding:6px;text-decoration:underline;text-underline-offset:3px;}
+.kf-r-body .sc-link{text-align:left;padding:6px 0;}
+.sc-form{margin-top:12px;}
+.sc-lab{display:block;font-size:12.5px;font-weight:600;color:var(--slate);margin-bottom:5px;}
+.sc-row{display:flex;gap:8px;}
+.sc-row input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:16px;color:var(--ink);background:#fff;}
+.sc-row .btn{flex:none;padding:10px 14px;font-size:14px;}
+.sc-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.sc-err{margin:6px 0 0;font-size:12.5px;color:#b3261e;}
+.sc-fine{margin:6px 0 0;font-size:11.5px;color:var(--slate);}
+.sc-done{margin:12px 0 0;font-size:13.5px;color:var(--emer-600);font-weight:600;text-align:center;}
+.kf-r-body .sc-done{text-align:left;}
+.bconf-manifest b{display:block;line-height:1.3;}
+.bconf-manifest small{display:block;line-height:1.5;}
+/* Floating cart button sat on top of the sticky bar's Call button on phones. Lift it above the bar. */
+@media(max-width:960px){body:has(.mcta) .cartfab{bottom:calc(74px + env(safe-area-inset-bottom));right:12px;padding:10px 15px;}}

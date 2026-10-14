@@ -7,6 +7,8 @@ import MobileCTA from "@/components/MobileCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
+import BuyConfidence from "@/components/cart/BuyConfidence";
+import TrackView from "@/components/TrackView";
 import { inCategory, money, CATEGORIES, isShoppable } from "@/lib/shop";
 import { KITS, KIT_BY_SLUG } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
@@ -84,11 +86,12 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
                   ? <img src={img} alt={k.name} className="pdp-photo" />
                   : <div className="pdp-ph" aria-hidden="true"><span>{k.name.split(" ")[0]}</span><small>Product photo coming soon</small></div>}
               </div>
-              <div className="pdp-buy">
+              <div className="pdp-buy" id="buy">
                 <span className="eyebrow">Mail-back kit</span>
                 <h1 className="ph1" style={{ fontSize: "clamp(26px,3.4vw,38px)", marginTop: "8px" }}>{k.name}</h1>
                 <p className="lead" style={{ marginTop: "12px" }}>{k.tagline}</p>
                 <ProductBuy category={k.category} />
+                <BuyConfidence category={k.category} />
               </div>
             </div>
           </div>
@@ -166,7 +169,8 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
+      <MobileCTA primary={{ label: "Choose size & buy", href: "#buy" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
+      <TrackView event="view_item" params={{ currency: "USD", value: sizes[0] ? sizes[0].cents / 100 : 0, items: sizes.slice(0, 1).map((s) => ({ item_id: s.sku, item_name: k.name, item_category: k.category, price: s.cents / 100 })) }} />
       <Footer />
       <Reveal />
     </>

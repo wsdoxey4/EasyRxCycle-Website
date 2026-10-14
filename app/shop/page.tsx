@@ -9,6 +9,8 @@ import { COLLECTIONS, KIT_BY_CATEGORY, KITS } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
 import { Suspense } from "react";
 import AddFromUrl from "@/components/cart/AddFromUrl";
+import KitFinder from "@/components/cart/KitFinder";
+import TrackView from "@/components/TrackView";
 
 const PATH = "/shop";
 const TITLE = "Shop Mail-Back Kits — Buy Online, Prepaid, No Contract";
@@ -90,6 +92,10 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="sec" style={{ paddingTop: "clamp(28px,3.5vw,44px)", paddingBottom: "0" }}>
+          <div className="wrap"><KitFinder /></div>
+        </section>
+
         <section className="sec" style={{ paddingTop: "clamp(32px,4vw,52px)" }}>
           <div className="wrap">
             {COLLECTIONS.map((col) => (
@@ -155,14 +161,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a custom quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/our-solutions">See all services</a>
+                <a className="btn btn-onteal" href="#kit-finder">Use the kit finder <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/get-a-quote">Get a custom quote</a>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
+      <MobileCTA primary={{ label: "Find my kit", href: "#kit-finder" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
+      <TrackView event="view_item_list" params={{ item_list_id: "shop", item_list_name: "Shop mail-back kits", items: KITS.map((k, i) => ({ item_id: inCategory(k.category)[0]?.sku, item_name: k.name, item_category: k.category, index: i })) }} />
       <Footer />
       <Reveal />
     </>

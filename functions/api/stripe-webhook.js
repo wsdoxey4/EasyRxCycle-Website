@@ -86,7 +86,7 @@ export async function onRequestPost({ request, env }) {
       const isClient = await db(`clients?or=(contact_email.eq.${encodeURIComponent(email)},billing_email.eq.${encodeURIComponent(email)})&select=id&limit=1`).then((r) => r.json()).catch(() => []);
       if (!(Array.isArray(already) && already.length) && !(Array.isArray(isClient) && isClient.length)) {
         // Resolve each cart line to name + price + product image so the recovery email can show what they left.
-        const IMG = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra" };
+        const IMG = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra", "ERX-ACR": "activated-charcoal" };
         const cartArr = parseCart(s.metadata?.cart);
         const items = cartArr.map((it) => { const key = IMG[String(it.s || "").slice(0, 7)]; return {
           sku: it.s, name: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Mail-back kit", qty: Number(it.q) || 1, price_cents: Number(it.c) || 0,

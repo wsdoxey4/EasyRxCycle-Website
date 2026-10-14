@@ -41,7 +41,7 @@ const normPhone = (v: string) => { const d = v.replace(/\D/g, ""); if (d.length 
 const unitCents = (l: Line) => { const b = BY_SKU[l.sku]?.cents || 0; return l.interval ? autoshipCents(b) : b; };
 const lineCents = (l: Line) => unitCents(l) * l.qty + (l.expedite ? EXPEDITE_CENTS : 0);
 const imgFor = (sku: string) => {
-  const map: Record<string, string> = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra" };
+  const map: Record<string, string> = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra", "ERX-ACR": "activated-charcoal" };
   const k = map[sku.slice(0, 7)];
   return k ? `/images/products/${k}.webp` : null;
 };

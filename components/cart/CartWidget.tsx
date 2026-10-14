@@ -1,6 +1,7 @@
 "use client";
 import { useCart, lineId, lineTotal } from "./CartProvider";
 import { BY_SKU, money, INTERVALS, intervalLabel, EXPEDITE_CENTS } from "@/lib/shop";
+import SaveCart from "./SaveCart";
 
 // Cross-sell: map each waste stream to its shop kit page. "medication-onsite" collapses to medication.
 const BASE_CAT: Record<string, string> = { "medication-onsite": "medication" };
@@ -12,6 +13,7 @@ const CROSSSELL = [
   { key: "controlled", label: "Controlled", href: "/shop/controlled-substance-mail-back-kit" },
   { key: "chemo", label: "Trace chemo", href: "/shop/trace-chemo-mail-back-kit" },
   { key: "hazardous", label: "RCRA hazardous", href: "/shop/rcra-hazardous-mail-back-kit" },
+  { key: "charcoal", label: "Activated charcoal", href: "/shop/activated-charcoal-take-back-kit" },
 ];
 
 export default function CartWidget() {
@@ -87,6 +89,7 @@ export default function CartWidget() {
               <button className="btn btn-primary cd-checkout" onClick={checkout} disabled={busy}>
                 {busy ? "Starting checkout…" : "Checkout securely"} <span className="ar">→</span>
               </button>
+              <SaveCart lines={cart.map((l) => ({ sku: l.sku, qty: l.qty }))} />
               <a className="cd-continue" href="/shop" onClick={() => setOpen(false)}>← Continue shopping</a>
               <p className="cd-secure">🔒 Payments handled by Stripe. We never see your card.</p>
             </div>
