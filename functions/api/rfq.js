@@ -56,11 +56,20 @@ export async function onRequestPost({ request, env }) {
     // Lead-response: internal alert + (1) instant confirmation, (2) William's personal note. SMS follows below.
     const brief = await aiSalesBrief(env, d);
     const fromHeader = `${WILLIAM.first} at Easy Rx Cycle <${extractEmail(env.RESEND_FROM)}>`;
+    // Instant quote: for single-site kit requests, William's reply carries real pricing + one-click order links
+    // (portal lead-qualify). It replaces the generic confirmation + personal note. Anything it skips (multi-site,
+    // bulk, reverse-only, no streams) or any failure falls back to the original two emails below.
+    const instant = await instantQuote(env, d);
+    results.instant = instant ? (instant.ok ? "sent" : instant.skipped || instant.error || "not sent") : "unavailable";
+    const instantSent = Boolean(instant && instant.ok && instant.quoted);
+    const briefOut = [brief, instantSent ? `Auto-reply: instant pricing sent for ${instant.quoted.join(", ")}. Their reply comes to William's inbox.` : ""].filter(Boolean).join("\n");
     try {
-      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d, brief, WILLIAM), d.email, atts);
-      await send(env, d.email, "We've got your request — Easy Rx Cycle", confirmEmail(d), WILLIAM.email);       // 1: instant confirmation
-      await send(env, d.email, subjectLine(d), clientEmail(d), WILLIAM.email, atts, fromHeader);                 // 2: personal note from William
-      results.resend = "sent"; results.reply = "personal";
+      await send(env, salesTo, `New RFQ — ${d.name}${d.org ? " · " + d.org : ""}`, notifyHtml(d, briefOut, WILLIAM), d.email, atts);
+      if (!instantSent) {
+        await send(env, d.email, "We've got your request — Easy Rx Cycle", confirmEmail(d), WILLIAM.email);     // 1: instant confirmation
+        await send(env, d.email, subjectLine(d), clientEmail(d), WILLIAM.email, atts, fromHeader);               // 2: personal note from William
+      }
+      results.resend = "sent"; results.reply = instantSent ? "instant-quote" : "personal";
     } catch { results.resend = "error"; }
     results.sms = await sendSms(env, d);                                                                         // 3: personalized SMS (if phone + Twilio)
   }
@@ -74,6 +83,21 @@ export async function onRequestPost({ request, env }) {
   try { const rq = await toPortalQuote(env, d); results.quote = rq.status; } catch { results.quote = "error"; }
 
   return json({ ok: true, configured: Boolean(env.HUBSPOT_PRIVATE_TOKEN || env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
+}
+
+// ---- Instant quote (portal lead-qualify, mode "instant") — returns its JSON, or null if unreachable ----
+async function instantQuote(env, d) {
+  const key = env.PORTAL_SUPABASE_SERVICE_KEY;
+  if (!key || !d.streams || /^\s*partner/i.test(d.role || "")) return null;
+  const url = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
+  try {
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 9000);
+    const r = await fetch(`${url}/functions/v1/lead-qualify`, { method: "POST", signal: ctl.signal,
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ mode: "instant", email: d.email, name: d.name, role: d.role || "", streams: d.streams, volume: d.volume || "" }) });
+    clearTimeout(t);
+    return await r.json().catch(() => null);
+  } catch { return null; }
 }
 
 // ---- HubSpot helpers ----
