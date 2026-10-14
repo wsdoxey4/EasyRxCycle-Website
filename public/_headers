@@ -1,0 +1,5 @@
+# Cloudflare Pages response headers.
+# Customer quote PDFs: never index or cache in shared caches.
+/quotes/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: private, no-store

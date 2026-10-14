@@ -14,7 +14,7 @@ export function onRequestGet({ env }) {
 }
 
 export async function onRequestPost({ request, env }) {
-  if (env.CRON_SECRET && request.headers.get("x-cron-secret") !== env.CRON_SECRET) return json({ error: "unauthorized" }, 401);
+  if (!env.CRON_SECRET || request.headers.get("x-cron-secret") !== env.CRON_SECRET) return json({ error: "unauthorized" }, 401);
   if (!env.STRIPE_SECRET_KEY) return json({ error: "stripe not configured" }, 200);
   if (!env.RESEND_API_KEY || !env.RESEND_FROM) return json({ error: "resend not configured" }, 200);
 

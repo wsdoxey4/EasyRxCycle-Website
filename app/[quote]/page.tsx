@@ -23,7 +23,9 @@ export default async function QuotePage({ params }: { params: Promise<{ quote: s
   const q = QUOTES.find((x) => x.slug === quote);
   if (!q) notFound();
   const money = q.amount ? "$" + Number(q.amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "";
-  const pdf = `/quotes/${q.id}.pdf`;
+  // PDFs are named by the unguessable quote code (not the sequential HubSpot id), so a PDF
+  // is only reachable by someone who already has the quote link.
+  const pdf = `/quotes/${q.slug}.pdf`;
   return (
     <main style={{ maxWidth: 980, margin: "0 auto", padding: "32px 20px 60px" }}>
       <div style={{ fontFamily: "Poppins, system-ui, sans-serif", fontWeight: 700, color: "#005770", fontSize: 12.5, letterSpacing: ".08em", textTransform: "uppercase", marginBottom: 6 }}>Easy Rx Cycle · Your Quote</div>

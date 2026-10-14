@@ -31,7 +31,7 @@ export async function onRequestPost({ request, env }) {
   // ---------- REMINDERS (cron) ----------
   if (mode === "reminders") {
     const secret = env.CRON_SECRET;
-    if (secret && request.headers.get("x-cron-secret") !== secret) return json({ error: "unauthorized" }, 401);
+    if (!secret || request.headers.get("x-cron-secret") !== secret) return json({ error: "unauthorized" }, 401);
     const cutoff = new Date(Date.now() - GAP_DAYS * 864e5).toISOString();
     const rows = await db(`quote_requests?order_id=not.is.null&select=id,name,email,phone,order_id,orders(id,order_no,amount_cents,paid_at,payment_link_url,reminders_on,reminder_count,last_reminder_at)`).then((r) => r.json()).catch(() => []);
     let sent = 0;

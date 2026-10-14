@@ -31,7 +31,7 @@ export async function onRequestPost(context) {
   try { p = await request.json(); } catch { return json({ ok: false, error: "bad request" }, 400); }
 
   // Validate the shared key Google echoes back (set identically on the webhook and in env).
-  if (env.GOOGLE_LEAD_WEBHOOK_KEY && p.google_key !== env.GOOGLE_LEAD_WEBHOOK_KEY) return json({ ok: false, error: "invalid key" }, 403);
+  if (!env.GOOGLE_LEAD_WEBHOOK_KEY || p.google_key !== env.GOOGLE_LEAD_WEBHOOK_KEY) return json({ ok: false, error: "invalid key" }, 403);
 
   const f = parseColumns(p.user_column_data);
   if (!f.email) return json({ ok: true, skipped: "no email" });   // 200 so Google doesn't retry a malformed lead forever
