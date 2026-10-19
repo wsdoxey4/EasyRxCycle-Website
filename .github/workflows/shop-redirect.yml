@@ -1,0 +1,24 @@
+name: Deploy old-shop redirect Worker
+
+# Deploys workers/shop-redirect (route shop.easyrxcycle.com/*), which 301s every old-shop URL to the
+# matching easyrxcycle.com page. Runs when the Worker changes, or on demand from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths: ["workers/shop-redirect/**"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: workers/shop-redirect
+          command: deploy
