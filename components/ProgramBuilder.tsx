@@ -123,6 +123,7 @@ export default function ProgramBuilder() {
       if (!r.ok || !j.ok) { setErr((j && j.error) || "We couldn’t submit that — please call 501-904-2929 and we’ll set your program up in minutes."); setBusy(""); return; }
     } catch { setErr("Network error — please call 501-904-2929 and we’ll set your program up in minutes."); setBusy(""); return; }
     trackEvent("generate_lead", { lead_source: "program_builder", facility, locations: locs.length, containers: allLines.length });
+    trackEvent("quote_request", { form: "program_builder", currency: "USD", value: 50, locations: locs.length });
     setBusy(""); setDone(true);
   }
 

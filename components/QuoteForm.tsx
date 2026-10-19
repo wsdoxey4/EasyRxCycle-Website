@@ -56,7 +56,12 @@ export default function QuoteForm() {
         body: JSON.stringify(data),
       });
       const j = await r.json().catch(() => ({ ok: false }));
-      if (j.ok) { setStatus("ok"); trackEvent("generate_lead", { form: "rfq", currency: "USD" }); }
+      if (j.ok) {
+        setStatus("ok");
+        trackEvent("generate_lead", { form: "rfq", currency: "USD" });
+        // Quote-only event so Google Ads can value a real quote request ($50) apart from guide downloads etc.
+        trackEvent("quote_request", { form: "rfq", currency: "USD", value: 50, streams: data.streams || "", volume: data.volume || "" });
+      }
       else { setStatus("error"); setErr(j.error || "Something went wrong."); }
     } catch {
       setStatus("error");

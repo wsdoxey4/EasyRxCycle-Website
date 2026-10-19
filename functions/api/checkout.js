@@ -138,6 +138,7 @@ async function handlePost({ request, env }) {
     if (a.utm && typeof a.utm === "object") {
       put("attr_campaign", a.utm.utm_campaign);
       put("attr_icp", a.utm.utm_term);
+      put("attr_gclid", a.utm.gclid);   // Google ad-click ID → server-side conversion upload to Google Ads
     }
   } catch { /* attribution is best-effort — never break checkout */ }
   // Abandoned-checkout recovery (one-time payments). The 1h expiry fires checkout.session.expired → our

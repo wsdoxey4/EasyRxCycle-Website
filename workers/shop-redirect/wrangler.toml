@@ -1,0 +1,7 @@
+name = "shop-redirect"
+main = "index.js"
+compatibility_date = "2026-09-01"
+workers_dev = false
+routes = [
+  { pattern = "shop.easyrxcycle.com/*", zone_name = "easyrxcycle.com" },
+]
