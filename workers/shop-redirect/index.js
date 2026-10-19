@@ -44,7 +44,11 @@ export function oldShopTarget(pathname) {
   const state = p.match(/^\/locations\/([a-z-]+)$/);
   if (state) return `/locations/${state[1]}/`;
   for (const [pre, to] of PREFIX) if (p.startsWith(pre)) return to;
-  // Anything else (incl. the old DEA ads' dynamic /{keyword}/{state} paths) is a disposal-quote intent.
+  // Anything else — incl. the old Google Ads links (/sharps/containers, and the DEA campaign's dynamic
+  // /{keyword}/{state} paths): route by the stream named in the path, otherwise it's a disposal-quote intent.
+  if (/sharps|needle|syringe/.test(p)) return "/shop/sharps-mail-back-kit/";
+  if (/biohazard|red-bag|rmw/.test(p)) return "/shop/biohazard-mail-back-kit/";
+  if (/chemo/.test(p)) return "/shop/trace-chemo-mail-back-kit/";
   return "/get-a-quote/";
 }
 
