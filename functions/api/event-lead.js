@@ -11,8 +11,11 @@ export function onRequestOptions() { return new Response(null, { headers: CORS }
 const SHOWS = {
   "iveccs":    { name: "IVECCS 2026",         city: "Savannah, GA", icp: "Veterinary & equine",     code: "IVECCS10",   expires: "2026-10-17" },
   "ems-world": { name: "EMS World Expo 2026",  city: "Orlando, FL",  icp: "EMS & fire departments", code: "EMSWORLD10", expires: "2026-11-01" },
+  "aahp":      { name: "2026 AAHP",            city: "Little Rock, AR", icp: "Pharmacy & health systems", code: "AAHP10", expires: "2026-11-22" },
+  "arkansas-stop-overdose-summit": { name: "2026 Arkansas Stop Overdose Summit", city: "Fort Smith, AR", icp: "Overdose prevention & medication disposal", code: "STOPOD10", expires: "2026-12-17" },
+  "ashp-midyear": { name: "2026 ASHP Midyear Clinical Meeting & Exhibition", city: "Orlando, FL", icp: "Health-system pharmacy", code: "ASHP10", expires: "2027-01-08" },
 };
-const COUPON_ID = "tradeshow-10";   // 10% off, once — shared by both show promo codes
+const COUPON_ID = "tradeshow-10";   // 10% off, once — shared by every show promo code
 
 // ---- GET ?setup : create the shared coupon + the two show promo codes (idempotent) ----
 export async function onRequestGet({ request, env }) {

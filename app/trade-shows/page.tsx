@@ -9,16 +9,22 @@ import { SITE, abs } from "@/lib/site";
 
 const PATH = "/trade-shows";
 const TITLE = "Trade Shows | Meet Easy Rx Cycle in Person";
-const DESC = "Where to find Easy Rx Cycle in person. Visit our booth at upcoming veterinary and EMS conferences — DEA-registered mail-back destruction with a Certificate of Destruction every time — and grab 10% off your first order.";
+const DESC = "Where to find Easy Rx Cycle in person. Visit our booth at upcoming pharmacy, healthcare and public-health conferences — DEA-registered mail-back destruction with a Certificate of Destruction every time — and grab 10% off your first order.";
 
 export const metadata: Metadata = {
   title: TITLE, description: DESC, alternates: { canonical: PATH },
   openGraph: { type: "website", title: `${TITLE} — ${SITE.name}`, description: DESC, url: abs(PATH), images: [{ url: SITE.ogImage }] },
 };
 
+// Upcoming shows first (soonest at top); past shows stay listed below so their booth pages keep working.
 const SHOWS = [
-  { slug: "iveccs", name: "IVECCS 2026", dates: "Sept 14–17, 2026", where: "Savannah Convention Center · Savannah, GA", who: "Veterinary emergency & critical care" },
+  { slug: "aahp", name: "2026 AAHP", dates: "Oct 22–23, 2026", where: "Wyndham Riverfront Little Rock · Little Rock, AR", who: "Pharmacy & health systems", end: "2026-10-23" },
+  { slug: "arkansas-stop-overdose-summit", name: "2026 Arkansas Stop Overdose Summit", dates: "Nov 17, 2026", where: "Fort Smith Convention Center · Fort Smith, AR", who: "Overdose prevention & safe medication disposal", end: "2026-11-17" },
+  { slug: "ashp-midyear", name: "2026 ASHP Midyear Clinical Meeting & Exhibition", dates: "Dec 6–9, 2026", where: "Orange County Convention Center · Orlando, FL", who: "Health-system pharmacy", end: "2026-12-09" },
+];
+const PAST = [
   { slug: "ems-world", name: "EMS World Expo 2026", dates: "Sept 28–Oct 2, 2026", where: "Orange County Convention Center · Orlando, FL", who: "EMS & fire departments" },
+  { slug: "iveccs", name: "IVECCS 2026", dates: "Sept 14–17, 2026", where: "Savannah Convention Center · Savannah, GA", who: "Veterinary emergency & critical care" },
 ];
 
 const check = (
@@ -54,6 +60,14 @@ export default function Page() {
                   <h4 style={{ fontSize: 20, margin: "0 0 4px" }}>{s.name}</h4>
                   <p style={{ margin: "0 0 6px" }}>{s.where}</p>
                   <p style={{ margin: 0, color: "var(--teal)", fontWeight: 600 }}>{s.who} &nbsp;·&nbsp; Get 10% off →</p>
+                </a>
+              ))}
+            </div>
+            <h3 style={{ marginTop: 34, fontSize: 18 }}>Recent shows</h3>
+            <div style={{ display: "grid", gap: 10, marginTop: 12 }}>
+              {PAST.map((s) => (
+                <a key={s.slug} href={`/trade-shows/${s.slug}`} style={{ color: "var(--slate)", textDecoration: "none" }}>
+                  <b style={{ color: "var(--ink)" }}>{s.name}</b> &nbsp;·&nbsp; {s.dates} &nbsp;·&nbsp; {s.where}
                 </a>
               ))}
             </div>

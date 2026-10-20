@@ -3,7 +3,7 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/track";
 
 // Booth capture form. Posts to /api/event-lead → saves to the portal DB + HubSpot, emails the coupon, and
-// returns the code so we show it on-screen instantly. `show` is the slug ("iveccs" | "ems-world").
+// returns the code so we show it on-screen instantly. `show` is the slug (a key of SHOWS in functions/api/event-lead.js).
 export default function TradeShowForm({ show, showName }: { show: string; showName: string }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
