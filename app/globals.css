@@ -41,6 +41,22 @@ img{max-width:100%;display:block;}
 .tbd-bar strong{font-family:'Poppins';font-weight:700;}
 .tbd-bar span{font-weight:700;text-decoration:underline;white-space:nowrap;}
 .tbd-bar:hover{background:var(--mint);}
+/* /take-back-day page */
+.tbd-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center;}
+.tbd-hero-media{position:relative;aspect-ratio:1/1;max-width:440px;width:100%;justify-self:center;background:radial-gradient(closest-side,#e3f3ed 0%,rgba(227,243,237,0) 100%);}
+.tbd-hero-media img{position:absolute;height:auto;object-fit:contain;mix-blend-mode:multiply;}
+.tbd-jug{width:78%;left:-8%;bottom:6%;}
+.tbd-bag{width:92%;right:-10%;bottom:2%;}
+.tbd-date{position:absolute;top:4%;left:6%;z-index:2;display:flex;flex-direction:column;align-items:center;background:var(--teal);color:#fff;border-radius:14px;padding:10px 16px 12px;box-shadow:0 14px 30px -16px rgba(0,67,87,.6);font-family:'Poppins';line-height:1.05;}
+.tbd-date span{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#bfe9d8;}
+.tbd-date b{font-size:40px;font-weight:700;}
+.tbd-kits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px;}
+.tbd-proof{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px);align-items:center;}
+.tbd-cod{justify-self:center;max-width:320px;width:100%;transform:rotate(-2deg);}
+.tbd-cod img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 24px 48px -28px rgba(18,58,68,.55);}
+.tbd-proof .flow{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media(max-width:860px){.tbd-hero,.tbd-proof{grid-template-columns:1fr;}.tbd-hero-media{max-width:340px;}.tbd-cod{max-width:240px;}}
+@media(max-width:520px){.tbd-proof .flow{grid-template-columns:1fr;}}
 .util{background:var(--teal-700);color:#dced e6;}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px;
   font-size:12.7px;color:#c8dee1;}
