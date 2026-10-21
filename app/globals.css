@@ -37,6 +37,10 @@ img{max-width:100%;display:block;}
 .btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.08);}
 
 /* top utility bar */
+.tbd-bar{display:block;background:var(--emer);color:var(--ink);text-align:center;font-size:13.5px;line-height:1.4;padding:8px 16px;text-decoration:none;}
+.tbd-bar strong{font-family:'Poppins';font-weight:700;}
+.tbd-bar span{font-weight:700;text-decoration:underline;white-space:nowrap;}
+.tbd-bar:hover{background:var(--mint);}
 .util{background:var(--teal-700);color:#dced e6;}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px;
   font-size:12.7px;color:#c8dee1;}

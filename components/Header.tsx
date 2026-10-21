@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/track";
+import TakeBackBanner from "@/components/TakeBackBanner";
 
 type Col = { title: string; links: { t: string; h: string }[] };
 type Item = { label: string; href: string; cols?: number; mega?: Col[] };
@@ -142,6 +143,7 @@ export default function Header() {
   const close = () => setOpen(false);
   return (
     <>
+      <TakeBackBanner />
       <div className="util">
         <div className="wrap">
           <div className="creds">
