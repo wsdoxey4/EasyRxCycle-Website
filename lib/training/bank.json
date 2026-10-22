@@ -4,154 +4,1185 @@
   "pass_pct": 80,
   "modules": [
     {
-      "id": "basics", "title": "The basics",
+      "id": "basics",
+      "title": "The basics",
       "questions": [
-        {"id": "b1", "q": "What does Easy Rx Cycle do?", "o": ["Hauls general trash on a route", "DEA-registered destruction of pharmaceutical and medical waste through prepaid mail-back kits", "Buys back expired drugs for credit", "Sells new medications to pharmacies"], "a": 1, "e": "We sell prepaid mail-back kits for every regulated pharmaceutical and medical waste stream, then destroy the contents and document it."},
-        {"id": "b2", "q": "Which rule prevents most ordering and shipping mistakes?", "o": ["Fill every kit to the top", "One waste stream per kit", "Mix streams to save shipping", "Always order the largest size"], "a": 1, "e": "Each kit takes one kind of waste. Mixing streams breaks the destruction rules for both."},
-        {"id": "b3", "q": "A customer has used needles and expired non-controlled tablets. What do they need?", "o": ["One Sharps kit for both", "One Pharmaceutical kit for both", "A Sharps kit and a Pharmaceutical kit", "A Biohazard kit"], "a": 2, "e": "Two streams means two kits: sharps go in the Sharps kit, non-controlled drugs go in the Pharmaceutical kit."},
-        {"id": "b4", "q": "Which of these does Easy Rx Cycle NOT accept?", "o": ["Pathological waste (human or animal tissue)", "Sharps", "RCRA hazardous drugs", "Controlled substances"], "a": 0, "e": "Pathological waste, formaldehyde, laboratory chemicals and radioactive waste are out of scope."},
-        {"id": "b5", "q": "What document proves destruction on every mail-back order?", "o": ["The packing slip", "The invoice", "The Certificate of Destruction", "The shipping label"], "a": 2, "e": "Every returned mail-back kit gets a Certificate of Destruction."},
-        {"id": "b6", "q": "Which statement should you NOT make to a customer?", "o": ["We are DEA registered", "You can log in to a portal to see your records", "You get a Certificate of Destruction on every mail-back order", "Mail-back ships to all 50 states"], "a": 1, "e": "End customers receive their records by email and mail. Don't promise a customer portal."},
-        {"id": "b7", "q": "Can drug waste be flushed or poured down a drain?", "o": ["Yes, if it is diluted", "Only non-controlled drugs", "Only in small amounts", "No. Drug waste should never be sewered"], "a": 3, "e": "EPA bans sewering hazardous waste pharmaceuticals, and controlled substances must be destroyed to a non-retrievable standard with records."},
-        {"id": "b8", "q": "A customer has a waste stream you're unsure about. What do you do?", "o": ["Guess the closest kit", "Have them ship it and see", "Call Easy Rx Cycle at 501-904-2929 before they ship", "Tell them to throw it away"], "a": 2, "e": "When in doubt, call before anything ships."},
-        {"id": "b9", "q": "A customer asks for Easy Rx Cycle's DEA registration number. What do you say?", "o": ["Read it from the kit label", "It's available on request through Easy Rx Cycle", "We don't have one", "Make one up"], "a": 1, "e": "We don't publish our DEA number. Customers request it through Easy Rx Cycle."}
+        {
+          "id": "b1",
+          "q": "What does Easy Rx Cycle do?",
+          "o": [
+            "Hauls general trash on a route",
+            "DEA-registered destruction of pharmaceutical and medical waste through prepaid mail-back kits",
+            "Buys back expired drugs for credit",
+            "Sells new medications to pharmacies"
+          ],
+          "a": 1,
+          "e": "We sell prepaid mail-back kits for every regulated pharmaceutical and medical waste stream, then destroy the contents and document it."
+        },
+        {
+          "id": "b2",
+          "q": "Which rule prevents most ordering and shipping mistakes?",
+          "o": [
+            "Fill every kit to the top",
+            "One waste stream per kit",
+            "Mix streams to save shipping",
+            "Always order the largest size"
+          ],
+          "a": 1,
+          "e": "Each kit takes one kind of waste. Mixing streams breaks the destruction rules for both."
+        },
+        {
+          "id": "b3",
+          "q": "A customer has used needles and expired non-controlled tablets. What do they need?",
+          "o": [
+            "One Sharps kit for both",
+            "One Pharmaceutical kit for both",
+            "A Sharps kit and a Pharmaceutical kit",
+            "A Biohazard kit"
+          ],
+          "a": 2,
+          "e": "Two streams means two kits: sharps go in the Sharps kit, non-controlled drugs go in the Pharmaceutical kit."
+        },
+        {
+          "id": "b4",
+          "q": "Which of these does Easy Rx Cycle NOT accept?",
+          "o": [
+            "Pathological waste (human or animal tissue)",
+            "Sharps",
+            "RCRA hazardous drugs",
+            "Controlled substances"
+          ],
+          "a": 0,
+          "e": "Pathological waste, formaldehyde, laboratory chemicals and radioactive waste are out of scope."
+        },
+        {
+          "id": "b5",
+          "q": "What document proves destruction on every mail-back order?",
+          "o": [
+            "The packing slip",
+            "The invoice",
+            "The Certificate of Destruction",
+            "The shipping label"
+          ],
+          "a": 2,
+          "e": "Every returned mail-back kit gets a Certificate of Destruction."
+        },
+        {
+          "id": "b6",
+          "q": "Which statement should you NOT make to a customer?",
+          "o": [
+            "We are DEA registered",
+            "You can log in to a portal to see your records",
+            "You get a Certificate of Destruction on every mail-back order",
+            "Mail-back ships to all 50 states"
+          ],
+          "a": 1,
+          "e": "End customers receive their records by email and mail. Don't promise a customer portal."
+        },
+        {
+          "id": "b7",
+          "q": "Can drug waste be flushed or poured down a drain?",
+          "o": [
+            "Yes, if it is diluted",
+            "Only non-controlled drugs",
+            "Only in small amounts",
+            "No. Drug waste should never be sewered"
+          ],
+          "a": 3,
+          "e": "EPA bans sewering hazardous waste pharmaceuticals, and controlled substances must be destroyed to a non-retrievable standard with records."
+        },
+        {
+          "id": "b8",
+          "q": "A customer has a waste stream you're unsure about. What do you do?",
+          "o": [
+            "Guess the closest kit",
+            "Have them ship it and see",
+            "Call Easy Rx Cycle at 501-904-2929 before they ship",
+            "Tell them to throw it away"
+          ],
+          "a": 2,
+          "e": "When in doubt, call before anything ships."
+        },
+        {
+          "id": "b9",
+          "q": "A customer asks for Easy Rx Cycle's DEA registration number. What do you say?",
+          "o": [
+            "Read it from the kit label",
+            "It's available on request through Easy Rx Cycle",
+            "We don't have one",
+            "Make one up"
+          ],
+          "a": 1,
+          "e": "We don't publish our DEA number. Customers request it through Easy Rx Cycle."
+        }
       ]
     },
     {
-      "id": "sharps", "title": "Sharps",
+      "id": "sharps",
+      "title": "Sharps",
       "questions": [
-        {"id": "s1", "q": "Which item belongs in the Sharps kit?", "o": ["Expired tablets", "Insulin pen needles", "Blood-soaked gauze", "Chemo-contaminated needles"], "a": 1, "e": "Needles, syringes, lancets, pen needles, auto-injectors and blades go in the Sharps kit."},
-        {"id": "s2", "q": "How full can a sharps container be filled?", "o": ["To the very top", "Until the lid barely closes", "To the fill line, about three-quarters full", "Half full only"], "a": 2, "e": "Stop at the fill line. Overfilled containers are the most common inspection finding."},
-        {"id": "s3", "q": "Where do chemo-contaminated needles go?", "o": ["Sharps kit", "Trace Chemo kit", "Pharmaceutical kit", "Biohazard kit"], "a": 1, "e": "Chemo-contaminated sharps go in the yellow Trace Chemo container, which is incinerated."},
-        {"id": "s4", "q": "How are sharps destroyed?", "o": ["Autoclave sterilization", "Landfilled untreated", "Deactivated with charcoal", "Recycled"], "a": 0, "e": "Sharps and biohazard waste are autoclave-sterilized."},
-        {"id": "s5", "q": "Which federal standard covers handling sharps in the workplace?", "o": ["RCRA Subpart P", "USP <800>", "OSHA Bloodborne Pathogens Standard (29 CFR 1910.1030)", "DEA 21 CFR 1317"], "a": 2, "e": "OSHA's Bloodborne Pathogens Standard governs sharps in the workplace; DOT and state rules cover shipping and treatment."},
-        {"id": "s6", "q": "What documents does a Sharps customer receive?", "o": ["DEA Form 41", "Certificate of Destruction and Medical Waste Manifest", "EPA Form 8700-22", "Nothing"], "a": 1, "e": "Sharps and biohazard customers get a Certificate of Destruction and a Medical Waste Manifest."},
-        {"id": "s7", "q": "Can a home injector mail back sharps in a milk jug?", "o": ["Yes", "Only if it is taped shut", "Only in a coffee can", "No. Sharps must be in the FDA-cleared container"], "a": 3, "e": "Milk jugs, coffee cans and loose bags are never acceptable containers."},
-        {"id": "s8", "q": "Which sharps size fits a single home user or a very low-volume office?", "o": ["1 quart", "9 gallon", "18 gallon", "28 gallon"], "a": 0, "e": "Sizes run 1 quart to 28 gallon. Pick one they'll fill in weeks to months; the 1 quart suits home users."}
+        {
+          "id": "s1",
+          "q": "Which item belongs in the Sharps kit?",
+          "o": [
+            "Expired tablets",
+            "Insulin pen needles",
+            "Blood-soaked gauze",
+            "Chemo-contaminated needles"
+          ],
+          "a": 1,
+          "e": "Needles, syringes, lancets, pen needles, auto-injectors and blades go in the Sharps kit."
+        },
+        {
+          "id": "s2",
+          "q": "How full can a sharps container be filled?",
+          "o": [
+            "To the very top",
+            "Until the lid barely closes",
+            "To the fill line, about three-quarters full",
+            "Half full only"
+          ],
+          "a": 2,
+          "e": "Stop at the fill line. Overfilled containers are the most common inspection finding."
+        },
+        {
+          "id": "s3",
+          "q": "Where do chemo-contaminated needles go?",
+          "o": [
+            "Sharps kit",
+            "Trace Chemo kit",
+            "Pharmaceutical kit",
+            "Biohazard kit"
+          ],
+          "a": 1,
+          "e": "Chemo-contaminated sharps go in the yellow Trace Chemo container, which is incinerated."
+        },
+        {
+          "id": "s4",
+          "q": "How are sharps destroyed?",
+          "o": [
+            "Autoclave sterilization",
+            "Landfilled untreated",
+            "Deactivated with charcoal",
+            "Recycled"
+          ],
+          "a": 0,
+          "e": "Sharps and biohazard waste are autoclave-sterilized."
+        },
+        {
+          "id": "s5",
+          "q": "Which federal standard covers handling sharps in the workplace?",
+          "o": [
+            "RCRA Subpart P",
+            "USP <800>",
+            "OSHA Bloodborne Pathogens Standard (29 CFR 1910.1030)",
+            "DEA 21 CFR 1317"
+          ],
+          "a": 2,
+          "e": "OSHA's Bloodborne Pathogens Standard governs sharps in the workplace; DOT and state rules cover shipping and treatment."
+        },
+        {
+          "id": "s6",
+          "q": "What documents does a Sharps customer receive?",
+          "o": [
+            "DEA Form 41",
+            "Certificate of Destruction and Medical Waste Manifest",
+            "EPA Form 8700-22",
+            "Nothing"
+          ],
+          "a": 1,
+          "e": "Sharps and biohazard customers get a Certificate of Destruction and a Medical Waste Manifest."
+        },
+        {
+          "id": "s7",
+          "q": "Can a home injector mail back sharps in a milk jug?",
+          "o": [
+            "Yes",
+            "Only if it is taped shut",
+            "Only in a coffee can",
+            "No. Sharps must be in the FDA-cleared container"
+          ],
+          "a": 3,
+          "e": "Milk jugs, coffee cans and loose bags are never acceptable containers."
+        },
+        {
+          "id": "s8",
+          "q": "Which sharps size fits a single home user or a very low-volume office?",
+          "o": [
+            "1 quart",
+            "9 gallon",
+            "18 gallon",
+            "28 gallon"
+          ],
+          "a": 0,
+          "e": "Sizes run 1 quart to 28 gallon. Pick one they'll fill in weeks to months; the 1 quart suits home users."
+        }
       ]
     },
     {
-      "id": "biohazard", "title": "Biohazard / regulated medical waste",
+      "id": "biohazard",
+      "title": "Biohazard / regulated medical waste",
       "questions": [
-        {"id": "h1", "q": "What's the simple test for whether an item is regulated medical waste?", "o": ["Is it red?", "Would it drip or flake blood or other potentially infectious material if squeezed?", "Did it touch a patient?", "Is it plastic?"], "a": 1, "e": "Items saturated or caked with blood or OPIM are regulated medical waste."},
-        {"id": "h2", "q": "A glove with a single dot of dried blood is usually:", "o": ["Regulated medical waste", "Hazardous waste", "Regular trash", "Pathological waste"], "a": 2, "e": "It wouldn't drip or flake blood, so it's usually regular trash. When unsure, ask."},
-        {"id": "h3", "q": "Can loose sharps go in the Biohazard kit?", "o": ["Yes", "Only needles", "Only blades", "No. Sharps go in the Sharps kit"], "a": 3, "e": "Sharps need a puncture-resistant container. Keep them out of the red bag."},
-        {"id": "h4", "q": "Is the red bag alone an acceptable shipping container?", "o": ["Yes", "No. It must be inside the rigid, UN-rated box", "Only if double-bagged", "Only for small amounts"], "a": 1, "e": "The red bag lines the rigid box. The box is the shipping container."},
-        {"id": "h5", "q": "Does the Biohazard kit accept pathological waste (tissue)?", "o": ["Yes", "Only animal tissue", "No. It is not accepted", "Only in the 28 gallon size"], "a": 2, "e": "Pathological waste is out of scope."},
-        {"id": "h6", "q": "Who is the main regulator of regulated medical waste?", "o": ["The states (rules vary by state)", "DEA", "FDA", "USPS only"], "a": 0, "e": "States are the main authority for RMW, alongside OSHA and DOT."},
-        {"id": "h7", "q": "How is biohazard waste destroyed?", "o": ["Witnessed incineration", "Autoclave sterilization", "Charcoal deactivation", "Landfill"], "a": 1, "e": "Biohazard waste is autoclave-sterilized."},
-        {"id": "h8", "q": "Which of these belongs in the Biohazard kit?", "o": ["Blood-soaked gauze and dressings", "Expired antibiotics", "Insulin pen needles", "Nicotine gum"], "a": 0, "e": "Blood-soaked gauze, contaminated PPE, cultures and swabs are biohazard."}
+        {
+          "id": "h1",
+          "q": "What's the simple test for whether an item is regulated medical waste?",
+          "o": [
+            "Is it red?",
+            "Would it drip or flake blood or other potentially infectious material if squeezed?",
+            "Did it touch a patient?",
+            "Is it plastic?"
+          ],
+          "a": 1,
+          "e": "Items saturated or caked with blood or OPIM are regulated medical waste."
+        },
+        {
+          "id": "h2",
+          "q": "A glove with a single dot of dried blood is usually:",
+          "o": [
+            "Regulated medical waste",
+            "Hazardous waste",
+            "Regular trash",
+            "Pathological waste"
+          ],
+          "a": 2,
+          "e": "It wouldn't drip or flake blood, so it's usually regular trash. When unsure, ask."
+        },
+        {
+          "id": "h3",
+          "q": "Can loose sharps go in the Biohazard kit?",
+          "o": [
+            "Yes",
+            "Only needles",
+            "Only blades",
+            "No. Sharps go in the Sharps kit"
+          ],
+          "a": 3,
+          "e": "Sharps need a puncture-resistant container. Keep them out of the red bag."
+        },
+        {
+          "id": "h4",
+          "q": "Is the red bag alone an acceptable shipping container?",
+          "o": [
+            "Yes",
+            "No. It must be inside the rigid, UN-rated box",
+            "Only if double-bagged",
+            "Only for small amounts"
+          ],
+          "a": 1,
+          "e": "The red bag lines the rigid box. The box is the shipping container."
+        },
+        {
+          "id": "h5",
+          "q": "Does the Biohazard kit accept pathological waste (tissue)?",
+          "o": [
+            "Yes",
+            "Only animal tissue",
+            "No. It is not accepted",
+            "Only in the 28 gallon size"
+          ],
+          "a": 2,
+          "e": "Pathological waste is out of scope."
+        },
+        {
+          "id": "h6",
+          "q": "Who is the main regulator of regulated medical waste?",
+          "o": [
+            "The states (rules vary by state)",
+            "DEA",
+            "FDA",
+            "USPS only"
+          ],
+          "a": 0,
+          "e": "States are the main authority for RMW, alongside OSHA and DOT."
+        },
+        {
+          "id": "h7",
+          "q": "How is biohazard waste destroyed?",
+          "o": [
+            "Witnessed incineration",
+            "Autoclave sterilization",
+            "Charcoal deactivation",
+            "Landfill"
+          ],
+          "a": 1,
+          "e": "Biohazard waste is autoclave-sterilized."
+        },
+        {
+          "id": "h8",
+          "q": "Which of these belongs in the Biohazard kit?",
+          "o": [
+            "Blood-soaked gauze and dressings",
+            "Expired antibiotics",
+            "Insulin pen needles",
+            "Nicotine gum"
+          ],
+          "a": 0,
+          "e": "Blood-soaked gauze, contaminated PPE, cultures and swabs are biohazard."
+        }
       ]
     },
     {
-      "id": "pharma", "title": "Pharmaceutical (non-controlled)",
+      "id": "pharma",
+      "title": "Pharmaceutical (non-controlled)",
       "questions": [
-        {"id": "p1", "q": "What goes in the Pharmaceutical kit?", "o": ["Expired hydrocodone", "Expired non-controlled prescription drugs, OTC drugs and samples", "Nicotine patches", "Used needles"], "a": 1, "e": "Non-controlled, non-hazardous medications, including OTC, samples and vitamins."},
-        {"id": "p2", "q": "A clinic has expired hydrocodone. Which kit?", "o": ["Pharmaceutical", "Medication Disposal On-Site", "Controlled Substance", "RCRA"], "a": 2, "e": "Hydrocodone is Schedule II. Controlled substances use the Controlled Substance kit."},
-        {"id": "p3", "q": "Expired nicotine gum and warfarin tablets (P-listed) go in:", "o": ["Pharmaceutical kit", "Hazardous (RCRA) kit", "Sharps kit", "Biohazard kit"], "a": 1, "e": "P-listed and U-listed drugs are RCRA hazardous and go in the black RCRA kit."},
-        {"id": "p4", "q": "A customer isn't sure whether a drug is hazardous. What should they do?", "o": ["Treat it as hazardous", "Treat it as non-hazardous", "Flush it", "Mix it with sharps"], "a": 0, "e": "When unsure, treat it as hazardous. Our team can also help classify it."},
-        {"id": "p5", "q": "How is pharmaceutical waste destroyed?", "o": ["Autoclave", "Regulated incineration", "Landfill", "Recycled"], "a": 1, "e": "Pharmaceutical waste is destroyed by regulated incineration."},
-        {"id": "p6", "q": "What does the Pharmaceutical kit Certificate of Destruction list?", "o": ["Each drug's NDC", "The containers and their weights", "Two witness signatures", "EPA waste codes"], "a": 1, "e": "Non-controlled CODs list containers by weight, with a total."},
-        {"id": "p7", "q": "What color is the pharmaceutical waste container?", "o": ["Red", "Yellow", "Black", "Blue"], "a": 3, "e": "Blue = pharmaceutical, red = medical waste, yellow = trace chemo, black = RCRA."},
-        {"id": "p8", "q": "An IV bag that held only saline with no hazardous drug goes in:", "o": ["Pharmaceutical kit", "RCRA kit", "Controlled kit", "Trace Chemo kit"], "a": 0, "e": "IV bags with no hazardous drug are non-hazardous pharmaceutical waste."}
+        {
+          "id": "p1",
+          "q": "What goes in the Pharmaceutical kit?",
+          "o": [
+            "Expired hydrocodone",
+            "Expired non-controlled prescription drugs, OTC drugs and samples",
+            "Nicotine patches",
+            "Used needles"
+          ],
+          "a": 1,
+          "e": "Non-controlled, non-hazardous medications, including OTC, samples and vitamins."
+        },
+        {
+          "id": "p2",
+          "q": "A clinic has expired hydrocodone. Which kit?",
+          "o": [
+            "Pharmaceutical",
+            "Medication Disposal On-Site",
+            "Controlled Substance",
+            "RCRA"
+          ],
+          "a": 2,
+          "e": "Hydrocodone is Schedule II. Controlled substances use the Controlled Substance kit."
+        },
+        {
+          "id": "p3",
+          "q": "Expired nicotine gum and warfarin tablets (P-listed) go in:",
+          "o": [
+            "Pharmaceutical kit",
+            "Hazardous (RCRA) kit",
+            "Sharps kit",
+            "Biohazard kit"
+          ],
+          "a": 1,
+          "e": "P-listed and U-listed drugs are RCRA hazardous and go in the black RCRA kit."
+        },
+        {
+          "id": "p4",
+          "q": "A customer isn't sure whether a drug is hazardous. What should they do?",
+          "o": [
+            "Treat it as hazardous",
+            "Treat it as non-hazardous",
+            "Flush it",
+            "Mix it with sharps"
+          ],
+          "a": 0,
+          "e": "When unsure, treat it as hazardous. Our team can also help classify it."
+        },
+        {
+          "id": "p5",
+          "q": "How is pharmaceutical waste destroyed?",
+          "o": [
+            "Autoclave",
+            "Regulated incineration",
+            "Landfill",
+            "Recycled"
+          ],
+          "a": 1,
+          "e": "Pharmaceutical waste is destroyed by regulated incineration."
+        },
+        {
+          "id": "p6",
+          "q": "What does the Pharmaceutical kit Certificate of Destruction list?",
+          "o": [
+            "Each drug's NDC",
+            "The containers and their weights",
+            "Two witness signatures",
+            "EPA waste codes"
+          ],
+          "a": 1,
+          "e": "Non-controlled CODs list containers by weight, with a total."
+        },
+        {
+          "id": "p7",
+          "q": "What color is the pharmaceutical waste container?",
+          "o": [
+            "Red",
+            "Yellow",
+            "Black",
+            "Blue"
+          ],
+          "a": 3,
+          "e": "Blue = pharmaceutical, red = medical waste, yellow = trace chemo, black = RCRA."
+        },
+        {
+          "id": "p8",
+          "q": "An IV bag that held only saline with no hazardous drug goes in:",
+          "o": [
+            "Pharmaceutical kit",
+            "RCRA kit",
+            "Controlled kit",
+            "Trace Chemo kit"
+          ],
+          "a": 0,
+          "e": "IV bags with no hazardous drug are non-hazardous pharmaceutical waste."
+        }
       ]
     },
     {
-      "id": "medkits", "title": "Medication Disposal Kits",
+      "id": "medkits",
+      "title": "Medication Disposal Kits",
       "questions": [
-        {"id": "m1", "q": "The Medication Disposal Mail-Back kit is designed for:", "o": ["A practice's own controlled inventory", "Patients' unused or expired medications (take-back)", "Sharps", "Chemo waste"], "a": 1, "e": "It's a tamper-evident mailer for patient and consumer medications."},
-        {"id": "m2", "q": "Can a pharmacy put its own expired controlled inventory in the Medication Mail-Back kit?", "o": ["Yes", "Only Schedule V", "No. A registrant's own controlled inventory uses the Controlled Substance kit", "Only if it's under 5 lbs"], "a": 2, "e": "The mail-back kit is for patients' medications. A registrant's own controls need the DEA transfer paperwork of the Controlled kit."},
-        {"id": "m3", "q": "Can patients' controlled substances go in the Medication Mail-Back kit?", "o": ["Yes, commingled with their other medications", "No, never", "Only Schedule II", "Only with a DEA Form 222"], "a": 0, "e": "Patient take-back allows controlled and non-controlled medications together."},
-        {"id": "m4", "q": "Once a Medication Mail-Back inner liner is sealed, it is:", "o": ["Opened and counted", "Not opened or inventoried", "Returned to the customer", "Sorted by schedule"], "a": 1, "e": "Sealed take-back liners are not opened or inventoried."},
-        {"id": "m5", "q": "How does the Medication Disposal On-Site kit work?", "o": ["It ships back to us for incineration", "The customer adds water and the compound deactivates medications at their site", "It's picked up weekly", "It sterilizes needles"], "a": 1, "e": "On-site deactivation renders medications non-retrievable at the customer's location. Nothing ships back."},
-        {"id": "m6", "q": "Does the On-Site kit come with a Certificate of Destruction?", "o": ["Yes, always", "Only for controlled substances", "Only on request", "No. Nothing ships back, so no Certificate is issued"], "a": 3, "e": "No return means no Easy Rx Cycle documents. Customers who need a Certificate should use a mail-back kit."},
-        {"id": "m7", "q": "Where do full activated-charcoal disposal containers go?", "o": ["The trash", "The Activated Charcoal Take-Back kit", "The Sharps kit", "The Biohazard kit"], "a": 1, "e": "The Activated Charcoal Take-Back kit returns them for documented destruction."},
-        {"id": "m8", "q": "Does offering patient mail-back packages require becoming a DEA authorized collector?", "o": ["Yes, always", "No. An on-site collection kiosk does, mail-back packages don't", "Only in Arkansas", "Only for pharmacies"], "a": 1, "e": "Under DEA take-back rules, mail-back packages don't require collector registration; a kiosk does."},
-        {"id": "m9", "q": "Which of these is NOT accepted in the Medication Disposal kits?", "o": ["Pills and capsules", "Patches and creams", "Inhalers and aerosols", "Liquids in original containers"], "a": 2, "e": "Inhalers, aerosols, sharps, chemo and illicit drugs are not accepted."}
+        {
+          "id": "m1",
+          "q": "The Medication Disposal Mail-Back kit is designed for:",
+          "o": [
+            "A practice's own controlled inventory",
+            "Patients' unused or expired medications (take-back)",
+            "Sharps",
+            "Chemo waste"
+          ],
+          "a": 1,
+          "e": "It's a tamper-evident mailer for patient and consumer medications."
+        },
+        {
+          "id": "m2",
+          "q": "Can a pharmacy put its own expired controlled inventory in the Medication Mail-Back kit?",
+          "o": [
+            "Yes",
+            "Only Schedule V",
+            "No. A registrant's own controlled inventory uses the Controlled Substance kit",
+            "Only if it's under 5 lbs"
+          ],
+          "a": 2,
+          "e": "The mail-back kit is for patients' medications. A registrant's own controls need the DEA transfer paperwork of the Controlled kit."
+        },
+        {
+          "id": "m3",
+          "q": "Can patients' controlled substances go in the Medication Mail-Back kit?",
+          "o": [
+            "Yes, commingled with their other medications",
+            "No, never",
+            "Only Schedule II",
+            "Only with a DEA Form 222"
+          ],
+          "a": 0,
+          "e": "Patient take-back allows controlled and non-controlled medications together."
+        },
+        {
+          "id": "m6",
+          "q": "Does the On-Site kit come with a Certificate of Destruction?",
+          "o": [
+            "Yes, always",
+            "Only for controlled substances",
+            "Only on request",
+            "No. Nothing ships back, so no Certificate is issued"
+          ],
+          "a": 3,
+          "e": "No return means no Easy Rx Cycle documents. Customers who need a Certificate should use a mail-back kit."
+        },
+        {
+          "id": "m7",
+          "q": "Where do full activated-charcoal disposal containers go?",
+          "o": [
+            "The trash",
+            "The Activated Charcoal Take-Back kit",
+            "The Sharps kit",
+            "The Biohazard kit"
+          ],
+          "a": 1,
+          "e": "The Activated Charcoal Take-Back kit returns them for documented destruction."
+        },
+        {
+          "id": "m9",
+          "q": "Which of these is NOT accepted in the Medication Disposal kits?",
+          "o": [
+            "Pills and capsules",
+            "Patches and creams",
+            "Inhalers and aerosols",
+            "Liquids in original containers"
+          ],
+          "a": 2,
+          "e": "Inhalers, aerosols, sharps, chemo and illicit drugs are not accepted."
+        }
       ]
     },
     {
-      "id": "controlled", "title": "Controlled substances",
+      "id": "controlled",
+      "title": "Controlled substances",
       "questions": [
-        {"id": "c1", "q": "Who can buy the Controlled Substance kit?", "o": ["Anyone", "DEA registrants only", "Patients only", "Only hospitals"], "a": 1, "e": "Controlled kits are for DEA registrants. We validate the DEA number when the kit comes back."},
-        {"id": "c2", "q": "What does the customer fill out for a Controlled kit?", "o": ["DEA Form 41", "DEA Form 222", "The Drug Inventory Manifest", "The EPA manifest"], "a": 2, "e": "One list: company, DEA number, state, and each drug's name, strength, NDC and package size. We do the DEA forms."},
-        {"id": "c3", "q": "Schedule II drugs with an NDC are transferred on:", "o": ["DEA Form 222", "The 3–5 Form", "The Medical Waste Manifest", "EPA Form 8700-22"], "a": 0, "e": "Schedule I and II transfers require DEA Form 222."},
-        {"id": "c4", "q": "Schedule III, IV and V drugs are transferred on:", "o": ["DEA Form 222", "The 3–5 Form (Schedule III–V transfer form)", "DEA Form 106", "No form is needed"], "a": 1, "e": "Schedules III–V use our 3–5 Form."},
-        {"id": "c5", "q": "What does DEA Form 41 record?", "o": ["The order of new drugs", "The destruction: what was destroyed, when, how and who witnessed it", "A theft or loss", "The customer's invoice"], "a": 1, "e": "Form 41 is the Registrant Record of Controlled Substances Destroyed."},
-        {"id": "c6", "q": "Who completes the DEA Form 222 and Form 41?", "o": ["The customer", "The distributor rep", "Easy Rx Cycle", "The carrier"], "a": 2, "e": "We complete them. The customer fills out one list."},
-        {"id": "c7", "q": "Controlled substances must be destroyed to which standard?", "o": ["Recyclable", "Non-retrievable (21 CFR 1317)", "Diluted", "Landfill-ready"], "a": 1, "e": "DEA requires destruction to a non-retrievable state."},
-        {"id": "c8", "q": "How is the Controlled kit priced?", "o": ["Per pill", "By weight tier: up to 5, 10, 20 or 100 lbs", "Per NDC", "Monthly subscription only"], "a": 1, "e": "Pick the weight tier that covers what's going out. Over 100 lbs is a custom quote."},
-        {"id": "c9", "q": "How long should customers keep DEA records?", "o": ["30 days", "6 months", "At least 2 years (longer if the state requires)", "They don't need to"], "a": 2, "e": "DEA records must be kept at least 2 years."},
-        {"id": "c10", "q": "How many witnesses are present for controlled destruction?", "o": ["None", "One", "Two", "Five"], "a": 2, "e": "Two witnesses, who sign by hand."},
-        {"id": "c11", "q": "A customer has in-date, credit-eligible controlled stock. What should they consider first?", "o": ["Flushing it", "Reverse distribution for credit", "The Sharps kit", "The On-Site kit"], "a": 1, "e": "Creditable stock may earn credit through reverse distribution. We destroy what doesn't qualify."}
+        {
+          "id": "c1",
+          "q": "Who can buy the Controlled Substance kit?",
+          "o": [
+            "Anyone",
+            "DEA registrants only",
+            "Patients only",
+            "Only hospitals"
+          ],
+          "a": 1,
+          "e": "Controlled kits are for DEA registrants. We validate the DEA number when the kit comes back."
+        },
+        {
+          "id": "c2",
+          "q": "What does the customer fill out for a Controlled kit?",
+          "o": [
+            "DEA Form 41",
+            "DEA Form 222",
+            "The Drug Inventory Manifest",
+            "The EPA manifest"
+          ],
+          "a": 2,
+          "e": "One list: company, DEA number, state, and each drug's name, strength, NDC and package size. We do the DEA forms."
+        },
+        {
+          "id": "c3",
+          "q": "Schedule II drugs with an NDC are transferred on:",
+          "o": [
+            "DEA Form 222",
+            "The 3–5 Form",
+            "The Medical Waste Manifest",
+            "EPA Form 8700-22"
+          ],
+          "a": 0,
+          "e": "Schedule I and II transfers require DEA Form 222."
+        },
+        {
+          "id": "c4",
+          "q": "Schedule III, IV and V drugs are transferred on:",
+          "o": [
+            "DEA Form 222",
+            "The 3–5 Form (Schedule III–V transfer form)",
+            "DEA Form 106",
+            "No form is needed"
+          ],
+          "a": 1,
+          "e": "Schedules III–V use our 3–5 Form."
+        },
+        {
+          "id": "c5",
+          "q": "What does DEA Form 41 record?",
+          "o": [
+            "The order of new drugs",
+            "The destruction: what was destroyed, when, how and who witnessed it",
+            "A theft or loss",
+            "The customer's invoice"
+          ],
+          "a": 1,
+          "e": "Form 41 is the Registrant Record of Controlled Substances Destroyed."
+        },
+        {
+          "id": "c6",
+          "q": "Who completes the DEA Form 222 and Form 41?",
+          "o": [
+            "The customer",
+            "The distributor rep",
+            "Easy Rx Cycle",
+            "The carrier"
+          ],
+          "a": 2,
+          "e": "We complete them. The customer fills out one list."
+        },
+        {
+          "id": "c7",
+          "q": "Controlled substances must be destroyed to which standard?",
+          "o": [
+            "Recyclable",
+            "Non-retrievable (21 CFR 1317)",
+            "Diluted",
+            "Landfill-ready"
+          ],
+          "a": 1,
+          "e": "DEA requires destruction to a non-retrievable state."
+        },
+        {
+          "id": "c8",
+          "q": "How is the Controlled kit priced?",
+          "o": [
+            "Per pill",
+            "By weight tier: up to 5, 10, 20 or 100 lbs",
+            "Per NDC",
+            "Monthly subscription only"
+          ],
+          "a": 1,
+          "e": "Pick the weight tier that covers what's going out. Over 100 lbs is a custom quote."
+        },
+        {
+          "id": "c9",
+          "q": "How long should customers keep DEA records?",
+          "o": [
+            "30 days",
+            "6 months",
+            "At least 2 years (longer if the state requires)",
+            "They don't need to"
+          ],
+          "a": 2,
+          "e": "DEA records must be kept at least 2 years."
+        },
+        {
+          "id": "c10",
+          "q": "How many witnesses are present for controlled destruction?",
+          "o": [
+            "None",
+            "One",
+            "Two",
+            "Five"
+          ],
+          "a": 2,
+          "e": "Two witnesses, who sign by hand."
+        },
+        {
+          "id": "c11",
+          "q": "A customer has in-date, credit-eligible controlled stock. What should they consider first?",
+          "o": [
+            "Flushing it",
+            "Reverse distribution for credit",
+            "The Sharps kit",
+            "The On-Site kit"
+          ],
+          "a": 1,
+          "e": "Creditable stock may earn credit through reverse distribution. We destroy what doesn't qualify."
+        }
       ]
     },
     {
-      "id": "chemo", "title": "Trace chemotherapy",
+      "id": "chemo",
+      "title": "Trace chemotherapy",
       "questions": [
-        {"id": "t1", "q": "What does \"RCRA-empty\" mean?", "o": ["The container is unopened", "All contents removed by normal means; only a trace remains", "Half the drug is left", "The container was rinsed with water"], "a": 1, "e": "RCRA-empty containers hold only a trace. That's what the Trace Chemo kit takes."},
-        {"id": "t2", "q": "An IV bag with visible chemo drug left in it is:", "o": ["Trace chemo", "Bulk chemo, not accepted as trace (contact us)", "Non-hazardous pharmaceutical", "Biohazard"], "a": 1, "e": "Visible drug remaining means it isn't RCRA-empty. That's bulk."},
-        {"id": "t3", "q": "What color is the Trace Chemo container?", "o": ["Red", "Blue", "Yellow", "Black"], "a": 2, "e": "Yellow = trace chemo."},
-        {"id": "t4", "q": "Which standard governs handling hazardous drugs like chemo in healthcare?", "o": ["USP <800>", "OSHA 1910.1030 only", "DEA Form 41", "HIPAA"], "a": 0, "e": "USP <800> covers hazardous drug handling, with OSHA, EPA and DOT."},
-        {"id": "t5", "q": "How is trace chemo destroyed?", "o": ["Autoclave", "Incineration", "Landfill", "Charcoal deactivation"], "a": 1, "e": "Trace chemo must be incinerated."},
-        {"id": "t6", "q": "Chemo-contaminated gowns and gloves go in:", "o": ["Biohazard kit", "Trace Chemo kit", "Pharmaceutical kit", "Regular trash"], "a": 1, "e": "Trace-contaminated PPE goes in the yellow Trace Chemo container."},
-        {"id": "t7", "q": "Match the color code: black container =", "o": ["Sharps", "Pharmaceutical", "Trace chemo", "RCRA hazardous"], "a": 3, "e": "Red = medical waste, blue = pharmaceutical, yellow = trace chemo, black = RCRA."}
+        {
+          "id": "t1",
+          "q": "What does \"RCRA-empty\" mean?",
+          "o": [
+            "The container is unopened",
+            "All contents removed by normal means; only a trace remains",
+            "Half the drug is left",
+            "The container was rinsed with water"
+          ],
+          "a": 1,
+          "e": "RCRA-empty containers hold only a trace. That's what the Trace Chemo kit takes."
+        },
+        {
+          "id": "t2",
+          "q": "An IV bag with visible chemo drug left in it is:",
+          "o": [
+            "Trace chemo",
+            "Bulk chemo, not accepted as trace (contact us)",
+            "Non-hazardous pharmaceutical",
+            "Biohazard"
+          ],
+          "a": 1,
+          "e": "Visible drug remaining means it isn't RCRA-empty. That's bulk."
+        },
+        {
+          "id": "t3",
+          "q": "What color is the Trace Chemo container?",
+          "o": [
+            "Red",
+            "Blue",
+            "Yellow",
+            "Black"
+          ],
+          "a": 2,
+          "e": "Yellow = trace chemo."
+        },
+        {
+          "id": "t4",
+          "q": "Which standard governs handling hazardous drugs like chemo in healthcare?",
+          "o": [
+            "USP <800>",
+            "OSHA 1910.1030 only",
+            "DEA Form 41",
+            "HIPAA"
+          ],
+          "a": 0,
+          "e": "USP <800> covers hazardous drug handling, with OSHA, EPA and DOT."
+        },
+        {
+          "id": "t5",
+          "q": "How is trace chemo destroyed?",
+          "o": [
+            "Autoclave",
+            "Incineration",
+            "Landfill",
+            "Charcoal deactivation"
+          ],
+          "a": 1,
+          "e": "Trace chemo must be incinerated."
+        },
+        {
+          "id": "t6",
+          "q": "Chemo-contaminated gowns and gloves go in:",
+          "o": [
+            "Biohazard kit",
+            "Trace Chemo kit",
+            "Pharmaceutical kit",
+            "Regular trash"
+          ],
+          "a": 1,
+          "e": "Trace-contaminated PPE goes in the yellow Trace Chemo container."
+        },
+        {
+          "id": "t7",
+          "q": "Match the color code: black container =",
+          "o": [
+            "Sharps",
+            "Pharmaceutical",
+            "Trace chemo",
+            "RCRA hazardous"
+          ],
+          "a": 3,
+          "e": "Red = medical waste, blue = pharmaceutical, yellow = trace chemo, black = RCRA."
+        }
       ]
     },
     {
-      "id": "rcra", "title": "Hazardous (RCRA)",
+      "id": "rcra",
+      "title": "Hazardous (RCRA)",
       "questions": [
-        {"id": "r1", "q": "Does a customer need a DEA registration to buy the RCRA kit?", "o": ["Yes", "No. RCRA is EPA, not DEA", "Only for P-listed drugs", "Only in some states"], "a": 1, "e": "RCRA is an EPA program. No DEA registration is needed."},
-        {"id": "r2", "q": "Nicotine (gum, patches, e-liquid) is:", "o": ["Non-hazardous", "P-listed hazardous waste (P075)", "A controlled substance", "Regulated medical waste"], "a": 1, "e": "Nicotine is P-listed, so it goes in the RCRA kit."},
-        {"id": "r3", "q": "The P and U lists of hazardous wastes are in:", "o": ["40 CFR 261", "21 CFR 1317", "29 CFR 1910.1030", "USP <800>"], "a": 0, "e": "EPA's hazardous waste lists are in 40 CFR 261."},
-        {"id": "r4", "q": "What does EPA's Subpart P (40 CFR 266) ban?", "o": ["Mail-back kits", "Putting hazardous waste pharmaceuticals down any drain", "Incineration", "Autoclaving"], "a": 1, "e": "Subpart P is an absolute ban on sewering hazardous waste pharmaceuticals."},
-        {"id": "r5", "q": "What color is the RCRA container?", "o": ["Black", "Blue", "Red", "Yellow"], "a": 0, "e": "Black = RCRA hazardous."},
-        {"id": "r6", "q": "What documents does an RCRA customer receive?", "o": ["DEA Form 41", "Certificate of Destruction and Uniform Hazardous Waste Manifest (EPA Form 8700-22)", "Medical Waste Manifest only", "Nothing"], "a": 1, "e": "RCRA waste is tracked on the EPA manifest and gets a Certificate of Destruction."},
-        {"id": "r7", "q": "Where is RCRA waste destroyed?", "o": ["Autoclave", "Incineration at a permitted hazardous-waste facility (TSDF)", "On site by the customer", "Landfill"], "a": 1, "e": "RCRA waste goes to a permitted treatment, storage and disposal facility (TSDF)."},
-        {"id": "r8", "q": "EPA waste code D001 means the waste is:", "o": ["Corrosive", "Ignitable", "Reactive", "Infectious"], "a": 1, "e": "D001 = ignitable, D002 = corrosive."},
-        {"id": "r9", "q": "What should an RCRA customer have ready if they have one?", "o": ["Their DEA number", "Their facility's EPA ID number", "A DEA Form 222", "An NPI number"], "a": 1, "e": "The EPA ID goes on the hazardous waste manifest."}
+        {
+          "id": "r1",
+          "q": "Does a customer need a DEA registration to buy the RCRA kit?",
+          "o": [
+            "Yes",
+            "No. RCRA is EPA, not DEA",
+            "Only for P-listed drugs",
+            "Only in some states"
+          ],
+          "a": 1,
+          "e": "RCRA is an EPA program. No DEA registration is needed."
+        },
+        {
+          "id": "r2",
+          "q": "Nicotine (gum, patches, e-liquid) is:",
+          "o": [
+            "Non-hazardous",
+            "P-listed hazardous waste (P075)",
+            "A controlled substance",
+            "Regulated medical waste"
+          ],
+          "a": 1,
+          "e": "Nicotine is P-listed, so it goes in the RCRA kit."
+        },
+        {
+          "id": "r3",
+          "q": "The P and U lists of hazardous wastes are in:",
+          "o": [
+            "40 CFR 261",
+            "21 CFR 1317",
+            "29 CFR 1910.1030",
+            "USP <800>"
+          ],
+          "a": 0,
+          "e": "EPA's hazardous waste lists are in 40 CFR 261."
+        },
+        {
+          "id": "r4",
+          "q": "What does EPA's Subpart P (40 CFR 266) ban?",
+          "o": [
+            "Mail-back kits",
+            "Putting hazardous waste pharmaceuticals down any drain",
+            "Incineration",
+            "Autoclaving"
+          ],
+          "a": 1,
+          "e": "Subpart P is an absolute ban on sewering hazardous waste pharmaceuticals."
+        },
+        {
+          "id": "r5",
+          "q": "What color is the RCRA container?",
+          "o": [
+            "Black",
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "a": 0,
+          "e": "Black = RCRA hazardous."
+        },
+        {
+          "id": "r6",
+          "q": "What documents does an RCRA customer receive?",
+          "o": [
+            "DEA Form 41",
+            "Certificate of Destruction and Uniform Hazardous Waste Manifest (EPA Form 8700-22)",
+            "Medical Waste Manifest only",
+            "Nothing"
+          ],
+          "a": 1,
+          "e": "RCRA waste is tracked on the EPA manifest and gets a Certificate of Destruction."
+        },
+        {
+          "id": "r7",
+          "q": "Where is RCRA waste destroyed?",
+          "o": [
+            "Autoclave",
+            "Incineration at a permitted hazardous-waste facility (TSDF)",
+            "On site by the customer",
+            "Landfill"
+          ],
+          "a": 1,
+          "e": "RCRA waste goes to a permitted treatment, storage and disposal facility (TSDF)."
+        },
+        {
+          "id": "r8",
+          "q": "EPA waste code D001 means the waste is:",
+          "o": [
+            "Corrosive",
+            "Ignitable",
+            "Reactive",
+            "Infectious"
+          ],
+          "a": 1,
+          "e": "D001 = ignitable, D002 = corrosive."
+        },
+        {
+          "id": "r9",
+          "q": "What should an RCRA customer have ready if they have one?",
+          "o": [
+            "Their DEA number",
+            "Their facility's EPA ID number",
+            "A DEA Form 222",
+            "An NPI number"
+          ],
+          "a": 1,
+          "e": "The EPA ID goes on the hazardous waste manifest."
+        }
       ]
     },
     {
-      "id": "charcoal", "title": "Activated Charcoal Take-Back",
+      "id": "charcoal",
+      "title": "Activated Charcoal Take-Back",
       "questions": [
-        {"id": "a1", "q": "What is the Activated Charcoal Take-Back kit for?", "o": ["Loose pills", "Returning used activated-charcoal disposal containers for documented destruction", "Sharps", "Chemo"], "a": 1, "e": "It returns full charcoal disposal containers for destruction with a Certificate."},
-        {"id": "a2", "q": "Do the charcoal containers have to be Easy Rx Cycle brand?", "o": ["Yes", "No. Any brand, any size", "Only 64 oz", "Only 1 gallon"], "a": 1, "e": "Any activated-charcoal disposal product is accepted."},
-        {"id": "a3", "q": "How is the Charcoal Take-Back kit priced?", "o": ["By container count", "By weight: up to 5, 25 or 50 lbs", "Monthly", "Per pill"], "a": 1, "e": "Weigh the filled containers and pick the tier."},
-        {"id": "a4", "q": "What does the customer fill out for a Charcoal kit?", "o": ["Nothing", "The enclosed disposal manifest listing the containers returned", "DEA Form 222", "EPA Form 8700-22"], "a": 1, "e": "The disposal manifest goes in the box. They receive a Certificate of Destruction and a copy of their manifest."},
-        {"id": "a5", "q": "A customer has 70 lbs of charcoal containers. What do you do?", "o": ["Force them into one kit", "Order multiple kits or ask Easy Rx Cycle for a freight quote", "Throw half away", "Use a Sharps kit"], "a": 1, "e": "Over 50 lbs: multiple kits or a freight quote."},
-        {"id": "a6", "q": "Can loose medications go in the Charcoal Take-Back kit?", "o": ["Yes", "No. Use the right mail-back kit", "Only pills", "Only liquids"], "a": 1, "e": "The kit is for used charcoal containers only."}
+        {
+          "id": "a1",
+          "q": "What is the Activated Charcoal Take-Back kit for?",
+          "o": [
+            "Loose pills",
+            "Returning used activated-charcoal disposal containers for documented destruction",
+            "Sharps",
+            "Chemo"
+          ],
+          "a": 1,
+          "e": "It returns full charcoal disposal containers for destruction with a Certificate."
+        },
+        {
+          "id": "a2",
+          "q": "Do the charcoal containers have to be Easy Rx Cycle brand?",
+          "o": [
+            "Yes",
+            "No. Any brand, any size",
+            "Only 64 oz",
+            "Only 1 gallon"
+          ],
+          "a": 1,
+          "e": "Any activated-charcoal disposal product is accepted."
+        },
+        {
+          "id": "a3",
+          "q": "How is the Charcoal Take-Back kit priced?",
+          "o": [
+            "By container count",
+            "By weight: up to 5, 25 or 50 lbs",
+            "Monthly",
+            "Per pill"
+          ],
+          "a": 1,
+          "e": "Weigh the filled containers and pick the tier."
+        },
+        {
+          "id": "a4",
+          "q": "What does the customer fill out for a Charcoal kit?",
+          "o": [
+            "Nothing",
+            "The enclosed disposal manifest listing the containers returned",
+            "DEA Form 222",
+            "EPA Form 8700-22"
+          ],
+          "a": 1,
+          "e": "The disposal manifest goes in the box. They receive a Certificate of Destruction and a copy of their manifest."
+        },
+        {
+          "id": "a5",
+          "q": "A customer has 70 lbs of charcoal containers. What do you do?",
+          "o": [
+            "Force them into one kit",
+            "Order multiple kits or ask Easy Rx Cycle for a freight quote",
+            "Throw half away",
+            "Use a Sharps kit"
+          ],
+          "a": 1,
+          "e": "Over 50 lbs: multiple kits or a freight quote."
+        },
+        {
+          "id": "a6",
+          "q": "Can loose medications go in the Charcoal Take-Back kit?",
+          "o": [
+            "Yes",
+            "No. Use the right mail-back kit",
+            "Only pills",
+            "Only liquids"
+          ],
+          "a": 1,
+          "e": "The kit is for used charcoal containers only."
+        }
       ]
     },
     {
-      "id": "forms", "title": "Forms & documents",
+      "id": "forms",
+      "title": "Forms & documents",
       "questions": [
-        {"id": "f1", "q": "Which document comes with every mail-back product?", "o": ["DEA Form 41", "Certificate of Destruction", "EPA Form 8700-22", "DEA Form 222"], "a": 1, "e": "Every returned mail-back kit gets a Certificate of Destruction."},
-        {"id": "f2", "q": "A Sharps Certificate of Destruction lists:", "o": ["Each drug's NDC", "Containers and weights, with autoclave as the method", "Two witness signatures", "EPA waste codes"], "a": 1, "e": "Non-controlled CODs list containers by weight and the stream's destruction method."},
-        {"id": "f3", "q": "A controlled-substance Certificate of Destruction lists:", "o": ["Containers by weight only", "Each drug's name, strength, NDC, form and quantity, plus the client DEA number and witnesses", "Nothing but a date", "Only the invoice total"], "a": 1, "e": "Controlled CODs itemize every drug and are signed by hand."},
-        {"id": "f4", "q": "How are non-controlled Certificates of Destruction signed?", "o": ["Not signed", "Electronically, by the operator and the CEO", "By the customer", "By a DEA agent"], "a": 1, "e": "Non-controlled CODs carry two electronic signatures. Controlled CODs are signed by hand."},
-        {"id": "f5", "q": "On the 3–5 Form, who is the purchaser and who is the supplier?", "o": ["Purchaser: the customer; supplier: Easy Rx Cycle", "Purchaser: Arkansas Redistributors, LLC (Easy Rx Cycle); supplier: the customer", "Both are the distributor", "Purchaser: DEA; supplier: the carrier"], "a": 1, "e": "The customer supplies the drugs to us. Arkansas Redistributors, LLC is Easy Rx Cycle's legal name."},
-        {"id": "f6", "q": "How many drug lines fit on one DEA Form 222 or 3–5 Form?", "o": ["5", "10", "20", "Unlimited"], "a": 2, "e": "Up to 20 lines per form; more items means additional forms."},
-        {"id": "f7", "q": "DEA Form 41 is officially called the:", "o": ["Registrant Record of Controlled Substances Destroyed", "Report of Theft or Loss", "Application for Registration", "Order Form for Schedule I and II"], "a": 0, "e": "Form 41 is the destruction record."},
-        {"id": "f8", "q": "EPA Form 8700-22 tracks hazardous waste:", "o": ["Only at the customer's site", "Cradle to grave: generator, transporter, treatment facility", "Only for sharps", "Only for controlled drugs"], "a": 1, "e": "The Uniform Hazardous Waste Manifest follows RCRA waste from generator to TSDF."},
-        {"id": "f9", "q": "Which products come with a Medical Waste Manifest?", "o": ["Sharps and Biohazard", "Controlled and RCRA", "Pharmaceutical only", "Medication On-Site"], "a": 0, "e": "The Medical Waste Manifest tracks regulated medical waste: sharps and biohazard."},
-        {"id": "f10", "q": "What does the Medication Disposal On-Site kit come with from Easy Rx Cycle?", "o": ["A Certificate of Destruction", "DEA Form 41", "No documents. Nothing ships back", "An EPA manifest"], "a": 2, "e": "On-site deactivation happens at the customer's location, so we issue nothing."},
-        {"id": "f11", "q": "How long should customers keep EPA hazardous waste manifests?", "o": ["30 days", "1 year", "At least 3 years", "They can discard them"], "a": 2, "e": "Keep hazardous waste manifests at least 3 years, longer if the state requires."},
-        {"id": "f12", "q": "Which forms come with a Controlled kit that contained Schedule II and Schedule IV drugs?", "o": ["Certificate of Destruction only", "DEA Form 222, the 3–5 Form, DEA Form 41 and the Certificate of Destruction", "EPA Form 8700-22", "Medical Waste Manifest"], "a": 1, "e": "Schedule II on the 222, Schedule IV on the 3–5 Form, the destruction on Form 41, plus the Certificate."}
+        {
+          "id": "f1",
+          "q": "Which document comes with every mail-back product?",
+          "o": [
+            "DEA Form 41",
+            "Certificate of Destruction",
+            "EPA Form 8700-22",
+            "DEA Form 222"
+          ],
+          "a": 1,
+          "e": "Every returned mail-back kit gets a Certificate of Destruction."
+        },
+        {
+          "id": "f2",
+          "q": "A Sharps Certificate of Destruction lists:",
+          "o": [
+            "Each drug's NDC",
+            "Containers and weights, with autoclave as the method",
+            "Two witness signatures",
+            "EPA waste codes"
+          ],
+          "a": 1,
+          "e": "Non-controlled CODs list containers by weight and the stream's destruction method."
+        },
+        {
+          "id": "f3",
+          "q": "A controlled-substance Certificate of Destruction lists:",
+          "o": [
+            "Containers by weight only",
+            "Each drug's name, strength, NDC, form and quantity, plus the client DEA number and witnesses",
+            "Nothing but a date",
+            "Only the invoice total"
+          ],
+          "a": 1,
+          "e": "Controlled CODs itemize every drug and are signed by hand."
+        },
+        {
+          "id": "f4",
+          "q": "How are non-controlled Certificates of Destruction signed?",
+          "o": [
+            "Not signed",
+            "Electronically, by the operator and the CEO",
+            "By the customer",
+            "By a DEA agent"
+          ],
+          "a": 1,
+          "e": "Non-controlled CODs carry two electronic signatures. Controlled CODs are signed by hand."
+        },
+        {
+          "id": "f5",
+          "q": "On the 3–5 Form, who is the purchaser and who is the supplier?",
+          "o": [
+            "Purchaser: the customer; supplier: Easy Rx Cycle",
+            "Purchaser: Arkansas Redistributors, LLC (Easy Rx Cycle); supplier: the customer",
+            "Both are the distributor",
+            "Purchaser: DEA; supplier: the carrier"
+          ],
+          "a": 1,
+          "e": "The customer supplies the drugs to us. Arkansas Redistributors, LLC is Easy Rx Cycle's legal name."
+        },
+        {
+          "id": "f6",
+          "q": "How many drug lines fit on one DEA Form 222 or 3–5 Form?",
+          "o": [
+            "5",
+            "10",
+            "20",
+            "Unlimited"
+          ],
+          "a": 2,
+          "e": "Up to 20 lines per form; more items means additional forms."
+        },
+        {
+          "id": "f7",
+          "q": "DEA Form 41 is officially called the:",
+          "o": [
+            "Registrant Record of Controlled Substances Destroyed",
+            "Report of Theft or Loss",
+            "Application for Registration",
+            "Order Form for Schedule I and II"
+          ],
+          "a": 0,
+          "e": "Form 41 is the destruction record."
+        },
+        {
+          "id": "f8",
+          "q": "EPA Form 8700-22 tracks hazardous waste:",
+          "o": [
+            "Only at the customer's site",
+            "Cradle to grave: generator, transporter, treatment facility",
+            "Only for sharps",
+            "Only for controlled drugs"
+          ],
+          "a": 1,
+          "e": "The Uniform Hazardous Waste Manifest follows RCRA waste from generator to TSDF."
+        },
+        {
+          "id": "f9",
+          "q": "Which products come with a Medical Waste Manifest?",
+          "o": [
+            "Sharps and Biohazard",
+            "Controlled and RCRA",
+            "Pharmaceutical only",
+            "Medication On-Site"
+          ],
+          "a": 0,
+          "e": "The Medical Waste Manifest tracks regulated medical waste: sharps and biohazard."
+        },
+        {
+          "id": "f10",
+          "q": "What does the Medication Disposal On-Site kit come with from Easy Rx Cycle?",
+          "o": [
+            "A Certificate of Destruction",
+            "DEA Form 41",
+            "No documents. Nothing ships back",
+            "An EPA manifest"
+          ],
+          "a": 2,
+          "e": "On-site deactivation happens at the customer's location, so we issue nothing."
+        },
+        {
+          "id": "f11",
+          "q": "How long should customers keep EPA hazardous waste manifests?",
+          "o": [
+            "30 days",
+            "1 year",
+            "At least 3 years",
+            "They can discard them"
+          ],
+          "a": 2,
+          "e": "Keep hazardous waste manifests at least 3 years, longer if the state requires."
+        },
+        {
+          "id": "f12",
+          "q": "Which forms come with a Controlled kit that contained Schedule II and Schedule IV drugs?",
+          "o": [
+            "Certificate of Destruction only",
+            "DEA Form 222, the 3–5 Form, DEA Form 41 and the Certificate of Destruction",
+            "EPA Form 8700-22",
+            "Medical Waste Manifest"
+          ],
+          "a": 1,
+          "e": "Schedule II on the 222, Schedule IV on the 3–5 Form, the destruction on Form 41, plus the Certificate."
+        }
       ]
     },
     {
-      "id": "selling", "title": "Ordering & selling",
+      "id": "selling",
+      "title": "Ordering & selling",
       "questions": [
-        {"id": "o1", "q": "Where does a distributor place bulk orders?", "o": ["By fax", "In the Easy Rx Cycle partner portal (Place an Order)", "On a public marketplace", "By text message"], "a": 1, "e": "Distributors order in the partner portal."},
-        {"id": "o2", "q": "Where are distributor bulk orders shipped?", "o": ["To the distributor's warehouse", "To each end customer", "To the DEA", "To the carrier"], "a": 0, "e": "Kits ship in bulk to your warehouse. You resell from your stock."},
-        {"id": "o3", "q": "Does the waste ever pass through the distributor?", "o": ["Yes, always", "No. The customer mails the full kit directly to Easy Rx Cycle", "Only controlled waste", "Only RCRA waste"], "a": 1, "e": "You sell an empty kit. The waste goes straight from your customer to us."},
-        {"id": "o4", "q": "What does every kit include for the return trip?", "o": ["Nothing", "A prepaid return label", "A DEA Form 222", "A pickup appointment"], "a": 1, "e": "Every kit includes its prepaid return label."},
-        {"id": "o5", "q": "When should you bring Easy Rx Cycle into a deal?", "o": ["Never", "Pickups, multiple sites, volume above the largest kit, or law-enforcement destruction", "Only for sharps", "Only after the customer ships"], "a": 1, "e": "Those need a custom quote."},
-        {"id": "o6", "q": "A customer says, \"We already use a big hauler.\" Best answer?", "o": ["\"Cancel them today.\"", "\"Keep them for what they do well. Mail-back fills the gaps with no contract.\"", "\"Haulers are illegal.\"", "\"Then you don't need us.\""], "a": 1, "e": "Mail-back covers controlled substances, small volumes and extra locations."},
-        {"id": "o7", "q": "A customer says, \"We just flush it.\" Best answer?", "o": ["\"That's fine.\"", "\"Drug waste can't go down the drain, and controlled substances must be destroyed to DEA's non-retrievable standard with records.\"", "\"Only flush at night.\"", "\"Dilute it first.\""], "a": 1, "e": "Flushing is never compliant."},
-        {"id": "o8", "q": "Which price is shown in this playbook?", "o": ["MSRP", "Wholesale cost", "Subscription price", "Freight cost"], "a": 0, "e": "The playbook shows MSRP only."},
-        {"id": "o9", "q": "A customer wants a Controlled kit but isn't DEA-registered and collects patients' medications. What do you sell?", "o": ["The Controlled kit anyway", "A Medication Disposal kit", "A Sharps kit", "Nothing"], "a": 1, "e": "Non-registrants collecting patients' medications use the Medication Disposal kits."}
+        {
+          "id": "o1",
+          "q": "Where does a distributor place bulk orders?",
+          "o": [
+            "By fax",
+            "In the Easy Rx Cycle partner portal (Place an Order)",
+            "On a public marketplace",
+            "By text message"
+          ],
+          "a": 1,
+          "e": "Distributors order in the partner portal."
+        },
+        {
+          "id": "o2",
+          "q": "Where are distributor bulk orders shipped?",
+          "o": [
+            "To the distributor's warehouse",
+            "To each end customer",
+            "To the DEA",
+            "To the carrier"
+          ],
+          "a": 0,
+          "e": "Kits ship in bulk to your warehouse. You resell from your stock."
+        },
+        {
+          "id": "o3",
+          "q": "Does the waste ever pass through the distributor?",
+          "o": [
+            "Yes, always",
+            "No. The customer mails the full kit directly to Easy Rx Cycle",
+            "Only controlled waste",
+            "Only RCRA waste"
+          ],
+          "a": 1,
+          "e": "You sell an empty kit. The waste goes straight from your customer to us."
+        },
+        {
+          "id": "o4",
+          "q": "What does every kit include for the return trip?",
+          "o": [
+            "Nothing",
+            "A prepaid return label",
+            "A DEA Form 222",
+            "A pickup appointment"
+          ],
+          "a": 1,
+          "e": "Every kit includes its prepaid return label."
+        },
+        {
+          "id": "o5",
+          "q": "When should you bring Easy Rx Cycle into a deal?",
+          "o": [
+            "Never",
+            "Pickups, multiple sites, volume above the largest kit, or law-enforcement destruction",
+            "Only for sharps",
+            "Only after the customer ships"
+          ],
+          "a": 1,
+          "e": "Those need a custom quote."
+        },
+        {
+          "id": "o6",
+          "q": "A customer says, \"We already use a big hauler.\" Best answer?",
+          "o": [
+            "\"Cancel them today.\"",
+            "\"Keep them for what they do well. Mail-back fills the gaps with no contract.\"",
+            "\"Haulers are illegal.\"",
+            "\"Then you don't need us.\""
+          ],
+          "a": 1,
+          "e": "Mail-back covers controlled substances, small volumes and extra locations."
+        },
+        {
+          "id": "o7",
+          "q": "A customer says, \"We just flush it.\" Best answer?",
+          "o": [
+            "\"That's fine.\"",
+            "\"Drug waste can't go down the drain, and controlled substances must be destroyed to DEA's non-retrievable standard with records.\"",
+            "\"Only flush at night.\"",
+            "\"Dilute it first.\""
+          ],
+          "a": 1,
+          "e": "Flushing is never compliant."
+        },
+        {
+          "id": "o8",
+          "q": "Which price is shown in this playbook?",
+          "o": [
+            "MSRP",
+            "Wholesale cost",
+            "Subscription price",
+            "Freight cost"
+          ],
+          "a": 0,
+          "e": "The playbook shows MSRP only."
+        },
+        {
+          "id": "o9",
+          "q": "A customer wants a Controlled kit but isn't DEA-registered and collects patients' medications. What do you sell?",
+          "o": [
+            "The Controlled kit anyway",
+            "A Medication Disposal kit",
+            "A Sharps kit",
+            "Nothing"
+          ],
+          "a": 1,
+          "e": "Non-registrants collecting patients' medications use the Medication Disposal kits."
+        }
       ]
     }
   ]

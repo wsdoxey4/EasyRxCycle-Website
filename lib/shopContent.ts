@@ -99,11 +99,11 @@ export const KITS: Kit[] = [
     desc: "Buy an on-site medication disposal kit online — deactivate and render medications non-retrievable at your location, no return shipping needed. DEA-compliant, five sizes, no contract.",
     tagline: "Deactivate medications on-site — nothing to ship back.",
     cardBlurb: "Render medications non-retrievable in-house. No return shipping. Five sizes.",
-    intro: "The on-site medication disposal kit deactivates medications right at your location — no shipping medications back. Add water, drop in the medications, and the kit renders them non-retrievable and safe for disposal, meeting DEA non-retrievable guidance. It's the fastest, lowest-cost option when you'd rather neutralize medications in-house than mail them out.",
+    intro: "The on-site medication disposal kit deactivates medications right at your location — no shipping medications back. Drop the medications into the container and close it — the compound inside renders them non-retrievable and safe for disposal, meeting DEA non-retrievable guidance. It's the fastest, lowest-cost option when you'd rather neutralize medications in-house than mail them out.",
     included: ["On-site deactivation pouch/container", "Activation and disposal instructions", "Non-retrievable rendering compound", "Compliance guidance for in-house destruction"],
     whoFor: "Nursing homes, hospice, correctional and behavioral health, and any site that prefers in-house deactivation over mail-back.",
     faqs: [
-      { q: "How does on-site deactivation work?", a: "You add water to activate the kit, drop in the medications, and the compound renders them non-retrievable. The deactivated material can then be discarded per your facility's policy." },
+      { q: "How does on-site deactivation work?", a: "Drop the medications into the container and close it. The compound inside renders them non-retrievable. The deactivated material can then be discarded per your facility's policy." },
       { q: "Why choose on-site instead of mail-back?", a: "On-site is faster and lower-cost, with no return shipping — useful when medications shouldn't leave the building or you want immediate, witnessed deactivation." },
       { q: "Is on-site deactivation DEA-compliant?", a: "Yes — rendering controlled substances non-retrievable on-site aligns with DEA disposal guidance. Follow the included instructions and your facility's witnessing policy." },
     ],

@@ -68,14 +68,14 @@ async function submit(d, request, env) {
 
   const answers = d.answers && typeof d.answers === "object" ? d.answers : {};
   const mods = Object.fromEntries(bank.modules.map((m) => [m.id, { id: m.id, title: m.title, correct: 0, total: 0 }]));
-  let score = 0;
+  let score = 0, total = 0;
   for (const { id: qid, order } of att.questions) {
-    const q = BY_ID[qid]; if (!q) continue;
+    const q = BY_ID[qid]; if (!q) continue;   // a question retired from the bank after this test was drawn isn't counted
+    total++;
     const shown = Number(answers[qid]);
     const ok = Number.isInteger(shown) && order[shown] === q.a;
     mods[q.module].total++; if (ok) { mods[q.module].correct++; score++; }
   }
-  const total = att.questions.length;
   const pct = Math.round((score / total) * 1000) / 10;
   const passed = pct >= bank.pass_pct;
   const by_module = Object.values(mods).filter((m) => m.total);
@@ -138,9 +138,9 @@ async function certificatePdf(request, env, c) {
   // footer: date · signature · certificate number
   page.drawText("DATE", { x: 90, y: 128, size: 8, font: bold, color: SLATE });
   page.drawText(c.date, { x: 90, y: 110, size: 12, font: reg, color: INK });
-  page.drawText("Murray Wells", { x: W / 2 - 70, y: 116, size: 18, font: ital, color: INK });
+  page.drawText("William Doxey", { x: W / 2 - 72, y: 116, size: 18, font: ital, color: INK });
   page.drawLine({ start: { x: W / 2 - 90, y: 108 }, end: { x: W / 2 + 90, y: 108 }, thickness: 0.8, color: SLATE });
-  center("Murray Wells · Chief Executive Officer", 94, reg, 8.5, SLATE);
+  center("William Doxey · Chief Operating Officer", 94, reg, 8.5, SLATE);
   page.drawText("CERTIFICATE NO.", { x: W - 230, y: 128, size: 8, font: bold, color: SLATE });
   page.drawText(c.cert_no, { x: W - 230, y: 110, size: 12, font: reg, color: INK });
   center(`Verify at easyrxcycle.com/partners/training/verify  ·  Easy Rx Cycle · DEA-registered destruction · 501-904-2929`, 52, reg, 8, SLATE);
