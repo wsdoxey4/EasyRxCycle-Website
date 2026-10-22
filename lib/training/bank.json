@@ -591,15 +591,15 @@
         },
         {
           "id": "c8",
-          "q": "How is the Controlled kit priced?",
+          "q": "How is controlled-substance destruction priced?",
           "o": [
             "Per pill",
-            "By weight tier: up to 5, 10, 20 or 100 lbs",
-            "Per NDC",
-            "Monthly subscription only"
+            "By weight (lbs) and the NDCs (drug line items) being destroyed",
+            "A flat monthly subscription",
+            "Per box, no matter what's inside"
           ],
           "a": 1,
-          "e": "Pick the weight tier that covers what's going out. Over 100 lbs is a custom quote."
+          "e": "Controlled pricing is based on weight in pounds and the NDCs on the customer's Drug Inventory Manifest. Over 100 lbs is a custom quote."
         },
         {
           "id": "c9",
@@ -624,18 +624,6 @@
           ],
           "a": 2,
           "e": "Two witnesses, who sign by hand."
-        },
-        {
-          "id": "c11",
-          "q": "A customer has in-date, credit-eligible controlled stock. What should they consider first?",
-          "o": [
-            "Flushing it",
-            "Reverse distribution for credit",
-            "The Sharps kit",
-            "The On-Site kit"
-          ],
-          "a": 1,
-          "e": "Creditable stock may earn credit through reverse distribution. We destroy what doesn't qualify."
         }
       ]
     },
@@ -922,8 +910,182 @@
       ]
     },
     {
-      "id": "forms",
-      "title": "Forms & documents",
+      "id": "dea-forms",
+      "title": "DEA forms: 222, 3–5 Form & Form 41",
+      "questions": [
+        {
+          "id": "d1",
+          "q": "Which form does federal law require for every transfer of Schedule I and II drugs?",
+          "o": [
+            "The 3–5 Form",
+            "DEA Form 222",
+            "DEA Form 41",
+            "EPA Form 8700-22"
+          ],
+          "a": 1,
+          "e": "Schedule I and II transfers require the official DEA Form 222."
+        },
+        {
+          "id": "d2",
+          "q": "Who issues the official DEA Form 222?",
+          "o": [
+            "Easy Rx Cycle",
+            "The state Board of Pharmacy",
+            "DEA, to registrants",
+            "The carrier"
+          ],
+          "a": 2,
+          "e": "Official 222s are issued by DEA. We print the transfer data onto the official form."
+        },
+        {
+          "id": "d3",
+          "q": "On the 222 for a returned kit, the customer is listed as the:",
+          "o": [
+            "Supplier",
+            "Purchaser",
+            "Transporter",
+            "Witness"
+          ],
+          "a": 0,
+          "e": "The customer supplies the drugs to Easy Rx Cycle, so they're the supplier."
+        },
+        {
+          "id": "d4",
+          "q": "What does each line of a 222 include?",
+          "o": [
+            "Only the drug name",
+            "Number of packages, package size, name of item and NDC",
+            "The patient's name",
+            "The invoice amount"
+          ],
+          "a": 1,
+          "e": "Every line carries packages, package size, item name and the NDC, plus shipped and received counts and dates."
+        },
+        {
+          "id": "d5",
+          "q": "A customer's kit holds 25 Schedule II line items. How many 222s are needed?",
+          "o": [
+            "One",
+            "Two — each form holds up to 20 lines",
+            "Five",
+            "None"
+          ],
+          "a": 1,
+          "e": "Each 222 holds up to 20 lines, so 25 lines need two forms."
+        },
+        {
+          "id": "d6",
+          "q": "Which schedules go on the 3–5 Form?",
+          "o": [
+            "I and II",
+            "III, IV and V",
+            "Only V",
+            "All non-controlled drugs"
+          ],
+          "a": 1,
+          "e": "The 3–5 Form documents Schedule III, IV and V transfers."
+        },
+        {
+          "id": "d7",
+          "q": "A Schedule II item has no NDC. Which transfer form is it recorded on?",
+          "o": [
+            "DEA Form 222",
+            "The 3–5 Form",
+            "The Medical Waste Manifest",
+            "It can't be destroyed"
+          ],
+          "a": 1,
+          "e": "Schedule I/II items without an NDC are recorded on the 3–5 Form."
+        },
+        {
+          "id": "d8",
+          "q": "Whose name appears as the purchaser on the 3–5 Form?",
+          "o": [
+            "The customer",
+            "The distributor",
+            "Arkansas Redistributors, LLC (Easy Rx Cycle)",
+            "DEA"
+          ],
+          "a": 2,
+          "e": "Arkansas Redistributors, LLC is Easy Rx Cycle's legal name. The customer is the supplier."
+        },
+        {
+          "id": "d9",
+          "q": "What does \"last line completed\" on the 3–5 Form record?",
+          "o": [
+            "The customer's phone number",
+            "The number of the last line used — 20 or less",
+            "The destruction date",
+            "The total weight"
+          ],
+          "a": 1,
+          "e": "It closes the form so no lines can be added. More than 20 items means another form."
+        },
+        {
+          "id": "d10",
+          "q": "Who completes the 222 and the 3–5 Form for a kit return?",
+          "o": [
+            "The customer",
+            "The distributor rep",
+            "Easy Rx Cycle, from the customer's Drug Inventory Manifest",
+            "The carrier"
+          ],
+          "a": 2,
+          "e": "The customer fills out one list; we prepare the transfer forms from it."
+        },
+        {
+          "id": "d11",
+          "q": "Who completes DEA Form 41?",
+          "o": [
+            "The customer",
+            "Easy Rx Cycle, as the destroying registrant",
+            "The distributor",
+            "The state"
+          ],
+          "a": 1,
+          "e": "We destroy the drugs, so we complete and keep Form 41."
+        },
+        {
+          "id": "d12",
+          "q": "Which details are recorded on DEA Form 41?",
+          "o": [
+            "Only the invoice number",
+            "NDC, substance, strength, form, quantity destroyed, plus the date, method and location of destruction",
+            "The patient's diagnosis",
+            "The shipping cost"
+          ],
+          "a": 1,
+          "e": "Form 41 documents exactly what was destroyed and how, when and where."
+        },
+        {
+          "id": "d13",
+          "q": "How is DEA Form 41 signed?",
+          "o": [
+            "Not signed",
+            "By two witnesses, by hand",
+            "Electronically by the customer",
+            "By the carrier"
+          ],
+          "a": 1,
+          "e": "Two witnesses sign Form 41 by hand."
+        },
+        {
+          "id": "f12",
+          "q": "Which forms come with a Controlled kit that contained Schedule II and Schedule IV drugs?",
+          "o": [
+            "Certificate of Destruction only",
+            "DEA Form 222, the 3–5 Form, DEA Form 41 and the Certificate of Destruction",
+            "EPA Form 8700-22",
+            "Medical Waste Manifest"
+          ],
+          "a": 1,
+          "e": "Schedule II on the 222, Schedule IV on the 3–5 Form, the destruction on Form 41, plus the Certificate."
+        }
+      ]
+    },
+    {
+      "id": "cod-manifests",
+      "title": "Certificates of Destruction, manifests & EPA forms",
       "questions": [
         {
           "id": "f1",
@@ -974,64 +1136,64 @@
           "e": "Non-controlled CODs carry two electronic signatures. Controlled CODs are signed by hand."
         },
         {
-          "id": "f5",
-          "q": "On the 3–5 Form, who is the purchaser and who is the supplier?",
+          "id": "e1",
+          "q": "What is the Certificate of Destruction's main job for the customer?",
           "o": [
-            "Purchaser: the customer; supplier: Easy Rx Cycle",
-            "Purchaser: Arkansas Redistributors, LLC (Easy Rx Cycle); supplier: the customer",
-            "Both are the distributor",
-            "Purchaser: DEA; supplier: the carrier"
+            "It's a shipping label",
+            "Proof of destruction they can show an inspector",
+            "A price quote",
+            "A DEA order form"
           ],
           "a": 1,
-          "e": "The customer supplies the drugs to us. Arkansas Redistributors, LLC is Easy Rx Cycle's legal name."
+          "e": "The COD is the customer's proof the material was destroyed — how and when."
         },
         {
-          "id": "f6",
-          "q": "How many drug lines fit on one DEA Form 222 or 3–5 Form?",
+          "id": "e2",
+          "q": "Every Certificate of Destruction carries:",
           "o": [
-            "5",
-            "10",
-            "20",
-            "Unlimited"
-          ],
-          "a": 2,
-          "e": "Up to 20 lines per form; more items means additional forms."
-        },
-        {
-          "id": "f7",
-          "q": "DEA Form 41 is officially called the:",
-          "o": [
-            "Registrant Record of Controlled Substances Destroyed",
-            "Report of Theft or Loss",
-            "Application for Registration",
-            "Order Form for Schedule I and II"
+            "A certificate number and issue date",
+            "The customer's credit card",
+            "A patient list",
+            "The carrier's tracking only"
           ],
           "a": 0,
-          "e": "Form 41 is the destruction record."
+          "e": "Each COD has a unique certificate number and issue date."
         },
         {
-          "id": "f8",
-          "q": "EPA Form 8700-22 tracks hazardous waste:",
+          "id": "e3",
+          "q": "Which destruction method prints on an RCRA Certificate of Destruction?",
           "o": [
-            "Only at the customer's site",
-            "Cradle to grave: generator, transporter, treatment facility",
-            "Only for sharps",
-            "Only for controlled drugs"
+            "Autoclave sterilization",
+            "Incineration at a permitted TSDF",
+            "Deactivated on site",
+            "Landfill"
           ],
           "a": 1,
-          "e": "The Uniform Hazardous Waste Manifest follows RCRA waste from generator to TSDF."
+          "e": "RCRA waste goes to a permitted treatment, storage and disposal facility."
+        },
+        {
+          "id": "e4",
+          "q": "Which Certificate of Destruction shows the client's DEA number and the two witnesses?",
+          "o": [
+            "Sharps",
+            "Biohazard",
+            "Controlled substances",
+            "Charcoal"
+          ],
+          "a": 2,
+          "e": "Only the controlled COD carries the DEA number and witnesses."
         },
         {
           "id": "f9",
           "q": "Which products come with a Medical Waste Manifest?",
           "o": [
-            "Sharps and Biohazard",
+            "Sharps, Biohazard and Trace Chemo",
             "Controlled and RCRA",
             "Pharmaceutical only",
             "Medication On-Site"
           ],
           "a": 0,
-          "e": "The Medical Waste Manifest tracks regulated medical waste: sharps and biohazard."
+          "e": "The Medical Waste Manifest tracks regulated medical waste: sharps, biohazard and trace chemo."
         },
         {
           "id": "f10",
@@ -1046,6 +1208,90 @@
           "e": "On-site deactivation happens at the customer's location, so we issue nothing."
         },
         {
+          "id": "e5",
+          "q": "What does the Medical Waste Manifest record about the waste?",
+          "o": [
+            "Each drug's NDC",
+            "Number of containers, total weight and treatment method",
+            "EPA waste codes",
+            "Witness names"
+          ],
+          "a": 1,
+          "e": "It tracks containers, weight and treatment, with signatures at each step."
+        },
+        {
+          "id": "e6",
+          "q": "On the Medical Waste Manifest, the \"generator\" is:",
+          "o": [
+            "Easy Rx Cycle",
+            "The customer who produced the waste",
+            "The carrier",
+            "The state"
+          ],
+          "a": 1,
+          "e": "The generator is the facility that produced the waste — the customer."
+        },
+        {
+          "id": "f8",
+          "q": "EPA Form 8700-22 tracks hazardous waste:",
+          "o": [
+            "Only at the customer's site",
+            "Cradle to grave: generator, transporter, treatment facility",
+            "Only for sharps",
+            "Only for controlled drugs"
+          ],
+          "a": 1,
+          "e": "The Uniform Hazardous Waste Manifest follows RCRA waste from generator to TSDF."
+        },
+        {
+          "id": "e7",
+          "q": "EPA waste codes such as P075 and U058 appear on which form?",
+          "o": [
+            "The Medical Waste Manifest",
+            "The RCRA Form (EPA 8700-22)",
+            "DEA Form 222",
+            "The 3–5 Form"
+          ],
+          "a": 1,
+          "e": "Hazardous waste codes go on the Uniform Hazardous Waste Manifest."
+        },
+        {
+          "id": "e8",
+          "q": "Which ID should an RCRA customer provide for the EPA manifest?",
+          "o": [
+            "DEA number",
+            "EPA ID number",
+            "NPI number",
+            "Tax ID"
+          ],
+          "a": 1,
+          "e": "The generator's EPA ID goes on the RCRA Form."
+        },
+        {
+          "id": "e9",
+          "q": "What does the TSDF on the EPA manifest stand for?",
+          "o": [
+            "Total Shipped Drug Form",
+            "Treatment, storage and disposal facility",
+            "Transfer Schedule for Drugs",
+            "Tracking Service for Deliveries"
+          ],
+          "a": 1,
+          "e": "The TSDF is the permitted facility that receives and treats the hazardous waste."
+        },
+        {
+          "id": "e10",
+          "q": "The U.S. DOT description on the EPA manifest includes:",
+          "o": [
+            "The patient's name",
+            "Proper shipping name, hazard class, UN number and packing group",
+            "The NDC",
+            "The certificate number"
+          ],
+          "a": 1,
+          "e": "DOT shipping details describe the hazardous material for transport."
+        },
+        {
           "id": "f11",
           "q": "How long should customers keep EPA hazardous waste manifests?",
           "o": [
@@ -1058,16 +1304,16 @@
           "e": "Keep hazardous waste manifests at least 3 years, longer if the state requires."
         },
         {
-          "id": "f12",
-          "q": "Which forms come with a Controlled kit that contained Schedule II and Schedule IV drugs?",
+          "id": "e11",
+          "q": "An Activated Charcoal Take-Back customer receives:",
           "o": [
-            "Certificate of Destruction only",
-            "DEA Form 222, the 3–5 Form, DEA Form 41 and the Certificate of Destruction",
-            "EPA Form 8700-22",
-            "Medical Waste Manifest"
+            "Nothing",
+            "A Certificate of Destruction and a copy of their disposal manifest",
+            "DEA Form 41",
+            "EPA Form 8700-22"
           ],
           "a": 1,
-          "e": "Schedule II on the 222, Schedule IV on the 3–5 Form, the destruction on Form 41, plus the Certificate."
+          "e": "They get a COD plus a copy of the disposal manifest they enclosed."
         }
       ]
     },

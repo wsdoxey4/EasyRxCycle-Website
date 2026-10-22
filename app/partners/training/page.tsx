@@ -56,7 +56,7 @@ export default function Page() {
             <div className="quote-card" id="test">
               <span className="eyebrow">Step 2 · Take the test</span>
               <h2 style={{ fontSize: "22px", marginBottom: "14px" }}>Product &amp; Compliance Certification</h2>
-              <TrainingTest />
+              <TrainingTest total={TOTAL_Q} passPct={bank.pass_pct} />
             </div>
           </div>
         </section>

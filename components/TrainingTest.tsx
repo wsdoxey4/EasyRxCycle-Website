@@ -8,7 +8,7 @@ type Mod = { id: string; title: string; questions: Q[] };
 type Result = { passed: boolean; score: number; total: number; pct: number; pass_pct: number; cert_no: string | null; emailed: boolean;
   by_module: { id: string; title: string; correct: number; total: number }[] };
 
-export default function TrainingTest() {
+export default function TrainingTest({ total: testLength, passPct }: { total: number; passPct: number }) {
   const [stage, setStage] = useState<"intro" | "test" | "done">("intro");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
@@ -61,7 +61,7 @@ export default function TrainingTest() {
         <input name="company_website" tabIndex={-1} autoComplete="off" style={{ display: "none" }} aria-hidden="true" />
         <button className="btn btn-primary" disabled={busy} type="submit">{busy ? "Starting…" : "Start the test"} <span className="ar">→</span></button>
         {err && <p className="form-note" style={{ color: "#B4442F" }}>{err}</p>}
-        <p className="form-note">44 questions · 80% to pass · retake anytime.</p>
+        <p className="form-note">{testLength} questions · {passPct}% to pass · retake anytime.</p>
       </form>
     );
   }
