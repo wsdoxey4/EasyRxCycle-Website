@@ -27,7 +27,7 @@ export const channels: Channel[] = [
     eyebrow: "For GPOs & purchasing coalitions",
     h1: "Compliant waste destruction, |ready for your contract.",
     lead: "Give your members one DEA-registered partner for every regulated waste stream — sharps, biohazard, pharmaceutical, RCRA-hazardous, controlled substances, trace chemo, and more — with the credentials and documentation your compliance team expects.",
-    intro: "We're contract-ready and built to onboard fast. Easy Rx Cycle serves healthcare facilities in all 50 states with mail-back kits and scheduled pickup, a Certificate of Destruction on every order, and a 100% client audit-pass record — so adding us to your agreement is low-risk and high-value for members.",
+    intro: "We're contract-ready and built to onboard fast. Easy Rx Cycle serves healthcare facilities in all 50 states with mail-back kits and scheduled pickup, a Certificate of Destruction on every order — so adding us to your agreement is low-risk and high-value for members.",
     youGet: [
       { t: "A contract-ready vendor", d: "Capability statement, credentials, and company data (NAICS 562119 · DUNS 10-953-4447) on file — fast to add to your agreement." },
       { t: "Member pricing", d: "Competitive, consistent pricing your members can buy through the GPO — no contract or minimums on their end." },
@@ -253,7 +253,7 @@ export const CHANNEL_FAQ: Record<string, { q: string; a: string }[]> = {
     { q: "How and when do I get paid?", a: "You earn a recurring commission on every order your referred accounts place — ongoing, not a one-time fee. Commission terms are set at onboarding." },
     { q: "Do I need a DEA license or infrastructure?", a: "No. No license, no kits, no compliance to manage. We handle fulfillment, billing, and documentation; you keep the relationship." },
     { q: "Who owns the account?", a: "Your referred accounts are registered to you and protected, so the business you bring stays yours." },
-    { q: "What if my account gets audited?", a: "We provide the documentation and support to help your account pass — backed by a 100% client audit-pass record." },
+    { q: "What if my account gets audited?", a: "We provide the documentation and support to help your account pass." },
   ],
 };
 
@@ -261,7 +261,7 @@ export const CHANNEL_FAQ: Record<string, { q: string; a: string }[]> = {
 export const COMPLIANCE_POINTS: { t: string; d: string }[] = [
   { t: "We carry the regulatory liability", d: "As the DEA registrant, the regulated-destruction liability sits with us — not with you or your accounts." },
   { t: "Certificate of Insurance on request", d: "We provide a COI to partners and their procurement teams whenever it's needed." },
-  { t: "We support your accounts through audits", d: "If a partner's account is audited, we provide the documentation and support to pass — backed by a 100% client audit-pass record." },
+  { t: "We support your accounts through audits", d: "If a partner's account is audited, we provide the documentation and support to pass." },
   { t: "Full documentation & chain-of-custody", d: "A Certificate of Destruction on every order, plus DEA Form 41/222 and manifests where they apply, retained per DEA requirements." },
 ];
 

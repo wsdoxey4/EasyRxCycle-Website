@@ -3,7 +3,7 @@
 type Stat = { v: string; l: string };
 
 const DEFAULT: Stat[] = [
-  { v: "100%", l: "Client audit pass rate" },
+  { v: "2018", l: "In business since" },
   { v: "1,000+", l: "Facilities served" },
   { v: "99%+", l: "On-time delivery" },
   { v: "All 50", l: "States covered" },

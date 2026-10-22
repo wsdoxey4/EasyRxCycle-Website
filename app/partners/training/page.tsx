@@ -34,7 +34,7 @@ export default function Page() {
             <span className="eyebrow">Distributor rep certification</span>
             <h1 className="ph1">Know what you&rsquo;re selling.<br /><span style={{ color: "var(--teal)" }}>Get certified.</span></h1>
             <p className="lead" style={{ maxWidth: "680px" }}>
-              Study the playbook, then take the Product &amp; Compliance Certification: {TOTAL_Q} questions across {MODULES.length} modules.
+              Read the training chapters, then take the Product &amp; Compliance Certification: {TOTAL_Q} questions across {MODULES.length} modules.
               Score {bank.pass_pct}% or better and your certificate is emailed to you.
             </p>
           </div>
@@ -44,13 +44,16 @@ export default function Page() {
           <div className="wrap quote-grid">
             <div className="quote-aside">
               <span className="eyebrow">Step 1 · Study</span>
-              <h2 style={{ fontSize: "22px" }}>The Distributor Sales Playbook</h2>
+              <h2 style={{ fontSize: "22px" }}>Read the training</h2>
               <p className="form-note" style={{ marginTop: "8px" }}>
-                All 9 product families, every form with a sample, a waste-type reference, and the practice questions the test draws from.
+                {MODULES.length} short chapters — one for each test module. Every product, every form with a sample, and how to sell it.
               </p>
-              <a className="btn btn-ghost" href="/downloads/distributor-sales-playbook.pdf" style={{ marginTop: "14px" }}>Download the playbook (PDF)</a>
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "14px" }}>
+                <a className="btn btn-primary" href={`/partners/training/${MODULES[0].id}/`}>Start reading <span className="ar">→</span></a>
+                <a className="btn btn-ghost" href="/downloads/distributor-sales-playbook.pdf" target="_blank" rel="noopener">Playbook (PDF)</a>
+              </div>
               <ol className="tc-modlist">
-                {MODULES.map((m) => <li key={m.id}><span>{m.title}</span><small>{m.n} practice questions</small></li>)}
+                {MODULES.map((m) => <li key={m.id}><a href={`/partners/training/${m.id}/`}><span>{m.title}</span><small>Read →</small></a></li>)}
               </ol>
             </div>
             <div className="quote-card" id="test">

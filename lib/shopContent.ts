@@ -36,7 +36,7 @@ export const KITS: Kit[] = [
     tagline: "Needles, syringes & lancets — sealed, shipped, and destroyed.",
     cardBlurb: "FDA-cleared containers for needles, syringes & lancets. Six sizes.",
     intro: "The sharps mail-back kit is the simplest compliant way to dispose of needles, syringes, lancets, and pen needles. Every kit ships with an FDA-cleared, puncture-resistant container and a prepaid label both ways — you fill it, seal it, and drop it in the mail. We destroy the contents at our DEA-registered facility and send back a Certificate of Destruction. No pickups, no route fees, no contract.",
-    included: ["FDA-cleared, puncture-resistant sharps container", "Prepaid outbound and return shipping label", "DOT-compliant packaging and sealing instructions", "Certificate of Destruction after processing"],
+    included: ["FDA-cleared, puncture-resistant sharps container", "Prepaid outbound and return shipping label", "DOT-compliant packaging and sealing instructions", "Medical Waste Manifest (required by law)", "Certificate of Destruction after processing"],
     whoFor: "Physician offices, dental practices, med spas, veterinary clinics, tattoo studios, home injectors, and any site generating used needles.",
     faqs: [
       { q: "What can go in a sharps mail-back kit?", a: "Needles, syringes, lancets, pen needles, and other single-use sharps. Do not place pharmaceuticals, chemotherapy waste, or red-bag biohazard waste in a sharps kit — those have their own kits." },
@@ -52,7 +52,7 @@ export const KITS: Kit[] = [
     tagline: "Red-bag regulated medical waste — contained, returned, destroyed.",
     cardBlurb: "Red-bag RMW — gauze, gloves, cultures & contaminated PPE. Four sizes.",
     intro: "The biohazard mail-back kit handles red-bag regulated medical waste (RMW) — blood-soaked gauze, gloves, cultures, swabs, and contaminated PPE. Each kit includes a leak-resistant, UN-rated mailer with a red biohazard liner and a prepaid label both ways. We treat and destroy the contents compliantly and return a Certificate of Destruction. No pickup schedule, no contract.",
-    included: ["UN-rated biohazard mailer with red RMW liner", "Prepaid outbound and return shipping label", "Absorbent and sealing materials with instructions", "Certificate of Destruction after treatment"],
+    included: ["UN-rated biohazard mailer with red RMW liner", "Prepaid outbound and return shipping label", "Absorbent and sealing materials with instructions", "Medical Waste Manifest (required by law)", "Certificate of Destruction after treatment"],
     whoFor: "Clinics, urgent care, labs, tattoo and body-art studios, funeral homes, and any facility producing red-bag waste.",
     faqs: [
       { q: "What counts as biohazard / regulated medical waste?", a: "Items soaked or caked with blood or other potentially infectious material — gauze, dressings, gloves, cultures, and contaminated PPE. Sharps go in a sharps kit; pharmaceuticals go in a pharmaceutical waste kit." },
@@ -83,7 +83,7 @@ export const KITS: Kit[] = [
     desc: "Buy a medication mail-back kit online — ship expired and unused medications back for DEA-compliant, non-retrievable destruction. Prepaid both ways, Certificate of Destruction, no contract.",
     tagline: "Ship medications back for non-retrievable destruction.",
     cardBlurb: "Mail medications back for DEA-compliant destruction. Five sizes.",
-    intro: "The medication mail-back kit lets you send controlled and non-controlled medications back to us for DEA-compliant destruction. Drop the medications into the tamper-evident inner liner, seal the mailer, and return it with the prepaid label. Contents are rendered non-retrievable at our DEA-registered facility, and you receive a Certificate of Destruction. Ideal for take-back programs and clearing expired stock.",
+    intro: "The medication mail-back kit lets you send controlled and non-controlled medications back to us for DEA-compliant destruction. Drop the medications into the tamper-evident inner liner, seal the mailer, and return it with the prepaid label. Contents are rendered non-retrievable at our DEA-registered facility, and you receive a Certificate of Destruction. Built for patient medication take-back programs. (A practice's own expired controlled inventory uses the Controlled Substance kit.)",
     included: ["Tamper-evident, sealable medication mailer", "Prepaid outbound and return shipping label", "Take-back and sealing instructions", "Certificate of Destruction after destruction"],
     whoFor: "Pharmacies, LTC and hospice, group homes, clinics, and take-back programs collecting unused medications.",
     faqs: [
