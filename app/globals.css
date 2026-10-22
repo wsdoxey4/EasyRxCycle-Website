@@ -1588,3 +1588,6 @@ header.site .wrap{position:relative;}
 .tl-pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--line);}
 @media(max-width:900px){.tl-layout{grid-template-columns:1fr;}.tl-toc{position:static;order:2;}.tl-hero-img{display:none;}}
 @media(max-width:600px){.tl-yesno{grid-template-columns:1fr;}}
+
+/* training page: keep Step 1 (read) above Step 2 (test) on phones */
+@media(max-width:860px){.tc-grid .quote-card{order:0;}}

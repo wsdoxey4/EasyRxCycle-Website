@@ -41,7 +41,7 @@ export default function Page() {
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(20px,3vw,32px)" }}>
-          <div className="wrap quote-grid">
+          <div className="wrap quote-grid tc-grid">
             <div className="quote-aside">
               <span className="eyebrow">Step 1 · Study</span>
               <h2 style={{ fontSize: "22px" }}>Read the training</h2>
