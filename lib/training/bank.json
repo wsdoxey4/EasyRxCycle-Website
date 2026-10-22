@@ -914,6 +914,45 @@
       "title": "DEA forms: 222, 3–5 Form & Form 41",
       "questions": [
         {
+          "id": "w222",
+          "q": "What is a DEA Form 222?",
+          "o": [
+            "A receipt for non-controlled drugs",
+            "The official DEA order form used to transfer Schedule I and II controlled substances",
+            "An EPA hazardous waste manifest",
+            "A Certificate of Destruction"
+          ],
+          "a": 1,
+          "e": "The 222 is the official DEA order form federal law requires for every transfer of Schedule I and II drugs. Easy Rx Cycle completes it from the customer's Drug Inventory Manifest.",
+          "core": true
+        },
+        {
+          "id": "w35",
+          "q": "What is a 3–5 Form?",
+          "o": [
+            "The transfer form that documents Schedule III, IV and V drugs moving from the customer to Easy Rx Cycle",
+            "A form for sharps containers",
+            "The DEA's destruction record",
+            "A shipping label"
+          ],
+          "a": 0,
+          "e": "The 3–5 Form records Schedule III–V transfers. The customer is the supplier; Arkansas Redistributors, LLC (Easy Rx Cycle) is the purchaser.",
+          "core": true
+        },
+        {
+          "id": "w41",
+          "q": "What is DEA Form 41?",
+          "o": [
+            "An order form for Schedule II drugs",
+            "The DEA record of controlled substances destroyed — what, when, where, how, and the two witnesses",
+            "A medical waste manifest",
+            "An invoice"
+          ],
+          "a": 1,
+          "e": "Form 41 is DEA's \"Registrant Record of Controlled Substances Destroyed.\" Easy Rx Cycle completes and keeps it as the destroying registrant.",
+          "core": true
+        },
+        {
           "id": "d1",
           "q": "Which form does federal law require for every transfer of Schedule I and II drugs?",
           "o": [
@@ -1087,6 +1126,19 @@
       "id": "cod-manifests",
       "title": "Certificates of Destruction, manifests & EPA forms",
       "questions": [
+        {
+          "id": "wcod",
+          "q": "What is a Certificate of Destruction (COD)?",
+          "o": [
+            "A price quote",
+            "Easy Rx Cycle's document proving the customer's waste was destroyed — how, when and what — that they keep for inspections",
+            "A DEA order form",
+            "A packing slip"
+          ],
+          "a": 1,
+          "e": "Every mail-back product comes with a COD. It's the customer's proof of destruction for DEA, EPA, OSHA or state inspectors.",
+          "core": true
+        },
         {
           "id": "f1",
           "q": "Which document comes with every mail-back product?",

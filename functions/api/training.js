@@ -45,7 +45,9 @@ async function start(d, request, env) {
 
   const picked = [];   // [{id, order}] — order[shownPos] = original option index
   const modules = bank.modules.map((m) => {
-    const qs = shuffle([...m.questions]).slice(0, bank.per_module);
+    // "core" questions (what a 222 / 3–5 Form / Form 41 / COD is) are on every test; the rest of the module's slots are drawn at random
+    const core = m.questions.filter((q) => q.core).slice(0, bank.per_module);
+    const qs = shuffle([...core, ...shuffle(m.questions.filter((q) => !q.core)).slice(0, bank.per_module - core.length)]);
     return { id: m.id, title: m.title, questions: qs.map((q) => {
       const order = shuffle([0, 1, 2, 3]);
       picked.push({ id: q.id, order });

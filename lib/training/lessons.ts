@@ -43,6 +43,12 @@ export const LESSONS: Lesson[] = [
         "Easy Rx Cycle is a <b>DEA-registered disposal company</b>. We make prepaid mail-back kits for every regulated pharmaceutical and medical waste stream: sharps, biohazard, non-controlled drugs, patient take-back medications, controlled substances, trace chemo, RCRA hazardous drugs and used charcoal disposal containers.",
         "The customer fills the kit, seals it and mails it back with the prepaid label. We destroy the contents the way that waste stream requires, and we send the documents they keep for inspections — starting with a <b>Certificate of Destruction</b> on every mail-back order.",
       ] },
+      { h: "The four documents you'll hear about most", table: { head: ["Document", "What it is", "Goes with"], rows: [
+        ["<b>Certificate of Destruction (COD)</b>", "Easy Rx Cycle's proof that the customer's waste was destroyed — how, when and what. The customer keeps it for inspections.", "Every mail-back product"],
+        ["<b>DEA Form 222</b>", "The official DEA order form required by federal law to transfer Schedule I and II controlled substances.", "Controlled kits with Schedule I/II drugs"],
+        ["<b>3–5 Form</b>", "The transfer form documenting Schedule III, IV and V drugs moving from the customer to Easy Rx Cycle.", "Controlled kits with Schedule III–V drugs"],
+        ["<b>DEA Form 41</b>", "DEA's record of controlled substances destroyed — what was destroyed, when, where, how, and the two witnesses.", "Every controlled kit"],
+      ] }, p: ["The customer completes none of the DEA forms. For controlled kits they fill out one list — the Drug Inventory Manifest — and we prepare the 222, 3–5 Form and Form 41 from it. Chapters 10 and 11 cover each document in detail."] },
       { h: "How the distributor program works", table: { head: ["Step", "What happens"], rows: [
         ["1. You buy in bulk", "You order kits in your Easy Rx Cycle partner portal."],
         ["2. We ship to you", "Kits ship to your warehouse, each with its prepaid return label."],
@@ -223,6 +229,11 @@ export const LESSONS: Lesson[] = [
     id: "dea-forms", title: "DEA forms: 222, 3–5 Form & Form 41", kicker: "Chapter 10",
     summary: "The three DEA forms behind every controlled-substance kit — what each one is for, what's on it and who completes it.",
     sections: [
+      { h: "Quick definitions", table: { head: ["Form", "What it is"], rows: [
+        ["<b>DEA Form 222</b>", "The official DEA order form used to transfer Schedule I and II controlled substances."],
+        ["<b>3–5 Form</b>", "The transfer form documenting Schedule III, IV and V drugs moving from the customer to Easy Rx Cycle."],
+        ["<b>DEA Form 41</b>", "DEA's record of controlled substances destroyed — what, when, where, how, and the two witnesses."],
+      ] } },
       { h: "The big picture", p: ["Every controlled kit moves drugs from the customer (a DEA registrant) to Easy Rx Cycle. Federal law requires that transfer to be documented — on the <b>DEA Form 222</b> for Schedules I and II, and on the <b>3–5 Form</b> for Schedules III–V. Then the destruction itself is recorded on <b>DEA Form 41</b>. The customer completes none of these: they fill out one list, the Drug Inventory Manifest, and we prepare the rest from it."] },
       { h: "DEA Form 222 — Schedule I & II", p: ["The official DEA order form required by federal law for every transfer of Schedule I and II drugs. Official 222s are issued by DEA to registrants; we print the transfer data onto the official form. The customer is listed as the <b>supplier</b>; Easy Rx Cycle receives the drugs."],
         list: ["Supplier (the customer): DEA registration number, name and address", "Each line: number of packages, package size, name of item and <b>NDC</b>", "Number shipped and date shipped; number received and date received", "Up to <b>20 lines</b> per form — 25 Schedule II items means two 222s", "Total number of lines completed"], forms: ["dea222"] },
@@ -242,6 +253,7 @@ export const LESSONS: Lesson[] = [
     id: "cod-manifests", title: "Certificates of Destruction, manifests & EPA forms", kicker: "Chapter 11",
     summary: "Every Certificate of Destruction, the Medical Waste Manifest and the RCRA Form — what's on each, which waste it goes with and who keeps it.",
     sections: [
+      { h: "Quick definition", callout: { label: "What is a Certificate of Destruction (COD)?", text: "Easy Rx Cycle's document proving the customer's waste was destroyed — how, when and what. Every mail-back product gets one, and the customer keeps it for DEA, EPA, OSHA or state inspections." } },
       { h: "The Certificate of Destruction", p: ["Every mail-back product comes with a Certificate of Destruction (COD) — the customer's proof that the material was destroyed, how and when, and the document they hand an inspector. Every COD carries a <b>certificate number and issue date</b>, the facility, the destruction date, the destruction method, and a statement that the materials were rendered non-retrievable and destroyed under federal and state rules."],
         table: { head: ["", "Non-controlled streams", "Controlled substances"], rows: [
           ["Items listed", "Each container with its weight, plus a total", "Every drug: name, strength, NDC, form, quantity"],
