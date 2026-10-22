@@ -11,7 +11,7 @@ const AUTOSHIP = 0.2;         // 20% off
 const INTERVALS = { month: 1, "2month": 2, "3month": 3, "6month": 6 }; // all bill monthly with a count
 const autoshipCents = (c) => Math.round((c * (1 - AUTOSHIP)) / 100) * 100;
 const canExpedite = (sku) => sku.startsWith("ERX-CTL");
-const isRestricted = (sku) => sku.startsWith("ERX-CTL") || sku.startsWith("ERX-HAZ");
+const isRestricted = (sku) => sku.startsWith("ERX-CTL");   // DEA manifest — controlled substances only (RCRA hazardous is not restricted)
 // Product image per SKU prefix (so the custom checkout summary can show the kit photo).
 const IMG_BY_PREFIX = { "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-PHW": "pharmaceutical", "ERX-MED": "medication-disposal", "ERX-CHM": "trace-chemo", "ERX-CTL": "controlled", "ERX-HAZ": "rcra" };
 const imgFor = (sku, origin) => { const k = IMG_BY_PREFIX[(sku || "").slice(0, 7)]; return k ? `${origin}/images/products/${k}.webp` : null; };

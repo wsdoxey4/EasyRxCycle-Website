@@ -1,12 +1,12 @@
 // Retail catalog — generated from the Master Distributor Pricing PDF (unit price = case MSRP / 4).
-// Restricted kits (controlled/hazardous) require a DEA Pharmaceutical Manifest (collected post-checkout).
+// Restricted kits (controlled substances only) require a DEA Pharmaceutical Manifest (collected post-checkout). RCRA hazardous is NOT restricted.
 export type Product = { sku: string; family: string; size: string; cents: number; category: string; restricted: boolean };
 
 // Categories that must NEVER enter a Google Shopping / Merchant Center feed.
 // Google policy: controlled/recreational drugs are PROHIBITED; RCRA-hazardous and chemotherapy
 // waste fall under Dangerous Products. These stay sellable on our own site (organic + cart) but
 // are excluded from any Google feed and stripped of buy-online Offer schema to avoid auto-listing.
-// NOTE: this is broader than the `restricted` flag (which is controlled+hazardous only) — it also
+// NOTE: this is broader than the `restricted` flag (which is controlled only) — it also
 // excludes chemo. Build every Merchant feed from isShoppable() === true.
 export const SHOPPING_INELIGIBLE = new Set(["controlled", "hazardous", "chemo"]);
 export const isShoppable = (p: { category: string }) => !SHOPPING_INELIGIBLE.has(p.category);
@@ -43,9 +43,9 @@ export const PRODUCTS: Product[] = [
   {"sku": "ERX-CHM-08G-EA", "family": "Trace Chemo Mail-Back Kit", "size": "8 Gallon", "cents": 26500, "category": "chemo", "restricted": false},
   {"sku": "ERX-CHM-18G-EA", "family": "Trace Chemo Mail-Back Kit", "size": "18 Gallon", "cents": 31000, "category": "chemo", "restricted": false},
   {"sku": "ERX-CHM-28G-EA", "family": "Trace Chemo Mail-Back Kit", "size": "28 Gallon", "cents": 44500, "category": "chemo", "restricted": false},
-  {"sku": "ERX-HAZ-02G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "2 Gallon", "cents": 14500, "category": "hazardous", "restricted": true},
-  {"sku": "ERX-HAZ-08G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "8 Gallon", "cents": 35000, "category": "hazardous", "restricted": true},
-  {"sku": "ERX-HAZ-18G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "18 Gallon", "cents": 47500, "category": "hazardous", "restricted": true},
+  {"sku": "ERX-HAZ-02G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "2 Gallon", "cents": 14500, "category": "hazardous", "restricted": false},
+  {"sku": "ERX-HAZ-08G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "8 Gallon", "cents": 35000, "category": "hazardous", "restricted": false},
+  {"sku": "ERX-HAZ-18G-EA", "family": "Hazardous (RCRA) Mail-Back Kit", "size": "18 Gallon", "cents": 47500, "category": "hazardous", "restricted": false},
   {"sku": "ERX-ACR-5LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 5 lbs", "cents": 10000, "category": "charcoal", "restricted": false},
   {"sku": "ERX-ACR-25LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 25 lbs", "cents": 35000, "category": "charcoal", "restricted": false},
   {"sku": "ERX-ACR-50LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 50 lbs", "cents": 60000, "category": "charcoal", "restricted": false}
