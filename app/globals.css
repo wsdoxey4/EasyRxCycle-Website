@@ -1515,3 +1515,28 @@ header.site .wrap{position:relative;}
 .bconf-manifest small{display:block;line-height:1.5;}
 /* Floating cart button sat on top of the sticky bar's Call button on phones. Lift it above the bar. */
 @media(max-width:960px){body:has(.mcta) .cartfab{bottom:calc(74px + env(safe-area-inset-bottom));right:12px;padding:10px 15px;}}
+
+/* Distributor rep certification (/partners/training) */
+.tc-modlist{margin:18px 0 0;padding:0;list-style:none;counter-reset:tc;display:grid;gap:6px;}
+.tc-modlist li{counter-increment:tc;display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:10px;background:var(--cloud);font-size:14px;color:var(--ink);}
+.tc-modlist li span::before{content:counter(tc) ". ";font-family:'Poppins';font-weight:600;color:var(--teal);}
+.tc-modlist small{color:var(--slate);white-space:nowrap;}
+.tc-test{display:grid;gap:22px;}
+.tc-mod{border:0;margin:0;padding:0;min-width:0;}
+.tc-mod legend{font-family:'Poppins';font-weight:600;font-size:18px;color:var(--teal);margin-bottom:10px;display:flex;flex-direction:column;gap:2px;}
+.tc-q{padding:12px 0;border-top:1px solid var(--line);}
+.tc-qt{margin:0 0 8px;font-size:15px;color:var(--ink);}
+.tc-opt{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;margin:4px 0;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14px;color:var(--ink);}
+.tc-opt input{margin-top:3px;accent-color:var(--teal);}
+.tc-opt.on{border-color:var(--teal);background:var(--cloud);}
+.tc-bar{position:sticky;bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px -18px rgba(0,60,76,.45);font-size:14px;color:var(--slate);}
+.tc-result{display:grid;gap:12px;}
+.tc-result h3{margin:4px 0 0;color:var(--ink);}
+.tc-score{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:14px;font-size:14px;}
+.tc-score.pass{background:#e8f7f0;color:#0f5a3e;border:1px solid #bfe9d8;}
+.tc-score.fail{background:#fbf3f1;color:#7a2e1f;border:1px solid #f0d3cc;}
+.tc-pct{font-family:'Poppins';font-weight:700;font-size:34px;line-height:1.1;}
+.tc-mods{width:100%;border-collapse:collapse;font-size:14px;}
+.tc-mods th{text-align:left;font-family:'Poppins';font-weight:600;font-size:12px;color:#fff;background:var(--teal);padding:7px 10px;}
+.tc-mods td{padding:7px 10px;border-bottom:1px solid var(--line);color:var(--ink);}
+.tc-mods tr.weak td{color:#B4442F;font-weight:600;}

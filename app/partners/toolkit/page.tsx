@@ -55,6 +55,8 @@ const groups: { title: string; note: string; items: Item[] }[] = [
       { t: "Wholesale catalog (SKUs)", h: "/downloads/wholesale-catalog.pdf", dl: true },
       { t: "Marketing kit overview", h: "/downloads/partner-marketing-kit.pdf", dl: true },
       { t: "Rep battle card", h: "/downloads/rep-battle-card.pdf", dl: true },
+      { t: "Distributor Sales Playbook (products, forms & study guide)", h: "/downloads/distributor-sales-playbook.pdf", dl: true },
+      { t: "Rep certification test — get certified", h: "/partners/training" },
       { t: "Training & onboarding outline", h: "/downloads/partner-training-outline.pdf", dl: true },
     ],
   },
