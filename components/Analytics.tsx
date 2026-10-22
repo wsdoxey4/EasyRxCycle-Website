@@ -35,9 +35,6 @@ export default function Analytics() {
       {ANALYTICS.hubspot && (
         <Script id="hs-script-loader" src={`https://js.hs-scripts.com/${ANALYTICS.hubspot}.js`} strategy="afterInteractive" />
       )}
-      {ANALYTICS.callrail && (
-        <Script id="callrail-swap" src={ANALYTICS.callrail} strategy="afterInteractive" />
-      )}
       {ANALYTICS.metaPixel && (
         <>
           <Script id="meta-pixel" strategy="afterInteractive">{`
