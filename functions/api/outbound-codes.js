@@ -9,6 +9,9 @@ export const OUTBOUND_CODES = {
   dental: "DENTAL10",
   "independent-pharmacy": "PHARMACY10",
   veterinary: "VET10",
+  "nursing-homes": "LTC10",
+  asc: "ASC10",
+  "home-health": "HOMEHEALTH10",
   default: "EASYRX10",
 };
 const EXPIRES = "2027-06-30";
