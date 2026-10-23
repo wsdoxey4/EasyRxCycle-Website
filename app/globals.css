@@ -1596,3 +1596,21 @@ header.site .wrap{position:relative;}
 .kitrow.kitrow-4{grid-template-columns:repeat(4,minmax(0,1fr));}
 @media(max-width:980px){.kitrow.kitrow-4{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:560px){.kitrow.kitrow-4{grid-template-columns:1fr;}}
+
+/* industry × state pages (/who-we-serve/{industry}/{state}) */
+.ind-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+.ind-stats>div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:grid;gap:4px;min-width:0;}
+.ind-stats b{font-family:'Poppins';font-weight:700;font-size:clamp(24px,3vw,32px);line-height:1.1;color:var(--teal);font-variant-numeric:tabular-nums;}
+.ind-stats span{font-size:14px;color:var(--slate);}
+.ind-src{margin:8px 0 0;font-size:12.5px;color:var(--slate);}
+.ind-streams{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:30px;}
+.ind-stream{display:grid;gap:8px;align-content:start;padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff;text-decoration:none;color:var(--ink);transition:.18s;}
+.ind-stream:hover{border-color:var(--emer);box-shadow:0 20px 40px -30px rgba(0,60,76,.45);}
+.ind-stream h3{font-size:18px;margin:0;color:var(--teal);}
+.ind-stream p{margin:0;font-size:15px;color:var(--slate);}
+.ind-kit{font-family:'Poppins';font-weight:600;font-size:13.5px;color:var(--emer-600);margin-top:4px;}
+.ind-not{margin-top:22px;padding:16px 20px;border-radius:14px;background:#fbf3f1;}
+.ind-not ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;}
+.ind-not li{display:flex;gap:8px;align-items:flex-start;font-size:15px;color:var(--ink);}
+.ind-not li svg{flex-shrink:0;margin-top:3px;}
+@media(max-width:860px){.ind-stats{grid-template-columns:repeat(2,minmax(0,1fr));}}

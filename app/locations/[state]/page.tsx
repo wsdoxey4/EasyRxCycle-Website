@@ -9,6 +9,7 @@ import StateSnapshot from "@/components/StateSnapshot";
 import { SITE, abs } from "@/lib/site";
 import { STATES, stateBySlug, stateSlugs } from "@/lib/geo";
 import { notFound } from "next/navigation";
+import { StateIndustryLinks } from "@/components/IndustryStateLinks";
 
 const BASE = "/locations";
 
@@ -235,6 +236,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
             </div>
           </div>
         </section>
+        <StateIndustryLinks stateSlug={s.slug} stateName={s.name} />
       </main>
       <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call us", href: "tel:5019042929" }} />
       <Footer />

@@ -8,6 +8,7 @@ import TrustBar from "@/components/TrustBar";
 import CaseStudyProof from "@/components/CaseStudyProof";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE, abs } from "@/lib/site";
+import { IndustryStateLinks } from "@/components/IndustryStateLinks";
 
 const PATH = "/who-we-serve/veterinary";
 const TITLE = "Veterinary Medical Waste & Controlled Drug Disposal | Vet Clinics";
@@ -86,6 +87,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <IndustryStateLinks slug="veterinary" />
       </main>
       <ExitIntentGuide slug="veterinary-waste-disposal-guide" />
       <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Veterinary" }} />

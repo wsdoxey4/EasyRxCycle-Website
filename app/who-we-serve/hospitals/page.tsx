@@ -7,6 +7,7 @@ import ExitIntentGuide from "@/components/ExitIntentGuide";
 import TrustBar from "@/components/TrustBar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE, abs } from "@/lib/site";
+import { IndustryStateLinks } from "@/components/IndustryStateLinks";
 
 const PATH = "/who-we-serve/hospitals";
 const TITLE = "Hospital & Health System Medical Waste Disposal";
@@ -178,6 +179,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <IndustryStateLinks slug="hospitals" />
       </main>
       <ExitIntentGuide slug="hospital-waste-disposal-guide" />
       <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Hospital%20/%20health%20system" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=surgery" }} />

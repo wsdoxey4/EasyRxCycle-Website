@@ -7,6 +7,7 @@ import ExitIntentGuide from "@/components/ExitIntentGuide";
 import TrustBar from "@/components/TrustBar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE, abs } from "@/lib/site";
+import { IndustryStateLinks } from "@/components/IndustryStateLinks";
 
 const PATH = "/who-we-serve/nursing-homes";
 const TITLE = "Nursing Home & LTC Pharmaceutical & Medical Waste Disposal";
@@ -177,6 +178,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <IndustryStateLinks slug="nursing-homes" />
       </main>
       <ExitIntentGuide slug="nursing-home-waste-disposal-guide" />
       <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Long-term%20care%20/%20hospice" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=ltc" }} />

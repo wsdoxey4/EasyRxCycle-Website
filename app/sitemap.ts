@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
-import { streamIndexable } from "@/lib/geo";
+import { streamIndexable, stateSlugs } from "@/lib/geo";
+import { INDUSTRIES, INDUSTRY_LIVE } from "@/lib/industryGeo";
 
 export const dynamic = "force-static";
 
@@ -685,6 +686,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]; // extend as more ICP and geo pages ship
   // Wave gating: keep pillars + hubs, but drop state-spoke URLs whose stream is above the live
   // wave (those pages still build + resolve for 301s, but stay out of the index until their wave).
+  // Phase 2 industry × state pages — only industries released in INDUSTRY_LIVE.
+  for (const ind of INDUSTRIES) if (INDUSTRY_LIVE.has(ind.slug)) for (const st of stateSlugs()) routes.push(`/who-we-serve/${ind.slug}/${st}`);
   const live = routes.filter((path) => {
     const seg = path.split("/").filter(Boolean); // e.g. ["our-solutions","sharps-disposal","texas"]
     if (seg[0] === "our-solutions" && seg.length === 3) return streamIndexable(seg[1]);

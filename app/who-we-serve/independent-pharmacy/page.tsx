@@ -8,6 +8,7 @@ import TrustBar from "@/components/TrustBar";
 import CaseStudyProof from "@/components/CaseStudyProof";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE, abs } from "@/lib/site";
+import { IndustryStateLinks } from "@/components/IndustryStateLinks";
 
 const PATH = "/who-we-serve/independent-pharmacy";
 const TITLE = "Controlled Substance & Rx Disposal for Independent pharmacies";
@@ -85,6 +86,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <IndustryStateLinks slug="independent-pharmacy" />
       </main>
       <ExitIntentGuide slug="independent-pharmacy-waste-disposal-guide" />
       <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Pharmacy%20%28retail%20/%20independent%29" }} />

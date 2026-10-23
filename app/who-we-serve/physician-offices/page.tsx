@@ -7,6 +7,7 @@ import ExitIntentGuide from "@/components/ExitIntentGuide";
 import TrustBar from "@/components/TrustBar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE, abs } from "@/lib/site";
+import { IndustryStateLinks } from "@/components/IndustryStateLinks";
 
 const PATH = "/who-we-serve/physician-offices";
 const TITLE = "Physician Office Medical Waste Disposal | Mail-Back, No Contract";
@@ -177,6 +178,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <IndustryStateLinks slug="physician-offices" />
       </main>
       <ExitIntentGuide slug="physician-office-waste-disposal-guide" />
       <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Physician%20/%20medical%20office" }} />

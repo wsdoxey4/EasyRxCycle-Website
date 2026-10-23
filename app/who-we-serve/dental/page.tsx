@@ -8,6 +8,7 @@ import ExitIntentGuide from "@/components/ExitIntentGuide";
 import TrustBar from "@/components/TrustBar";
 import CaseStudyProof from "@/components/CaseStudyProof";
 import { SITE, abs } from "@/lib/site";
+import { IndustryStateLinks } from "@/components/IndustryStateLinks";
 
 const PATH = "/who-we-serve/dental";
 const TITLE = "Dental Practice Waste Disposal | Amalgam, Sharps & Pharmaceutical";
@@ -84,6 +85,7 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <IndustryStateLinks slug="dental" />
       </main>
       <ExitIntentGuide slug="dental-waste-disposal-guide" />
       <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Dental%20practice" }} />
