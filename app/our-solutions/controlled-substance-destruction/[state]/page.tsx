@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
     { q: `Who regulates controlled substance disposal in ${s.name}?`, a: `The DEA governs controlled substances federally (registration, Forms 222/41, non-retrievable destruction). In ${s.name}, the ${board} adds state licensing and recordkeeping rules, and the EPA plus ${s.name}'s environmental agency apply where a drug is also a hazardous waste. We handle disposal to all of them.` },
     { q: `Is Easy Rx Cycle a DEA-registered reverse distributor for ${s.name}?`, a: `Yes — we're DEA-registered to handle Schedule I–V controlled-substance destruction across ${s.name} and nationwide, with full chain-of-custody documentation.` },
     { q: `Can a ${s.name} pharmacy recover credit on expired controlled Rx?`, a: `Yes — reverse distribution processes returnable stock for manufacturer credit and compliantly destroys the rest. It's a common way ${s.name} pharmacies recover value on expired or unsellable inventory.` },
-    { q: `How long should ${s.name} registrants keep destruction records?`, a: `The DEA requires controlled-substance records be kept at least two years, and the ${board} may require longer. Every Easy Rx Cycle order is archived to your account, so your Form 41 and Certificate of Destruction are ready the moment an inspector asks.` },
+    { q: `How long should ${s.name} registrants keep destruction records?`, a: `The DEA requires controlled-substance records be kept at least two years, and the ${board} may require longer. On every Easy Rx Cycle order your Form 41 and Certificate of Destruction are emailed and mailed to you, so they are ready the moment an inspector asks.` },
     { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — mail-back reaches every ZIP in ${s.name}, from ${s.cities[0]} to ${lastCity}, and scheduled pickup is available for higher-volume sites across the state.` },
   ];
 
@@ -97,7 +97,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we destroy</span><h2>Every controlled medication you need gone in {s.name}.</h2><p className="lead">Schedules I–V, rendered non-retrievable and documented.</p></div>
             <ul className="covers">
-              {["Expired controlled substances", "Unused & returned Rx", "Schedule II narcotics", "Schedule III–V medications", "Patient-returned controls (LTC / hospice)", "Pharmacy overstock & recalls", "Returnable stock for manufacturer credit", "Certificate of Destruction on every order"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
+              {["Expired controlled substances", "Unused & returned Rx", "Schedule II narcotics", "Schedule III–V medications", "Patient-returned controls (LTC / hospice)", "Pharmacy overstock & recalls", "Partial & wasted doses", "Certificate of Destruction on every order"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
             </ul>
           </div>
         </section>
@@ -106,10 +106,11 @@ export default async function Page({ params }: { params: Promise<{ state: string
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Mail-back kits</span><h2>Pick a size. We handle the rest.</h2><p className="lead">Prepaid, DEA-compliant, and non-retrievable — shipped to any {s.name} address.</p></div>
-            <div className="kitrow">
-              <div className="kit2"><span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Standard</span><div className="price">5&nbsp;lb</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Single-site pharmacies, clinics, and practices in {s.cities[0]} with routine controlled volume.</p></div>
-              <div className="kit2"><span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Standard</span><div className="price">10&nbsp;lb</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Higher-volume {s.name} sites — plus an expedited 3-day option when timing matters.</p></div>
-              <div className="kit2"><span className="tag" style={{ color: "var(--teal)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Custom quote</span><div className="price">10&nbsp;lb+</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Bulk volume, multi-site {s.name} programs, or on-site witnessed destruction.</p></div>
+            <div className="kitrow kitrow-4">
+              <div className="kit2"><span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Up to</span><div className="price">5&nbsp;lb</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Single-site pharmacies, clinics, and practices in {s.cities[0]} with routine controlled volume.</p></div>
+              <div className="kit2"><span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Up to</span><div className="price">10&nbsp;lb</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Higher-volume {s.name} sites — plus an expedited option when timing matters.</p></div>
+              <div className="kit2"><span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Up to</span><div className="price">20&nbsp;lb</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Multi-provider practices, surgery centers and long-term care in {s.name}.</p></div>
+              <div className="kit2"><span className="tag" style={{ color: "var(--teal)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>Up to</span><div className="price">100&nbsp;lb</div><p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>Large cleanouts and hospitals. Over 100 lb, multi-site programs or on-site witnessed destruction → custom quote.</p></div>
             </div>
           </div>
         </section>
@@ -127,7 +128,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
               <div className="step"><div className="n">1</div><h4>Order your kit</h4><p>Shipped to any {s.name} address, prepaid both ways — or set a scheduled pickup for {s.cities[0]} and higher-volume sites.</p></div>
               <div className="step"><div className="n">2</div><h4>Fill &amp; seal</h4><p>Load controlled substances and seal with the prepaid, DEA-compliant label.</p></div>
               <div className="step"><div className="n">3</div><h4>Ship or pickup</h4><p>Tracked door-to-door to our permitted destruction facility — no route to wait on.</p></div>
-              <div className="step"><div className="n">4</div><h4>Get your COD</h4><p>Witnessed, non-retrievable destruction and your Certificate of Destruction, emailed and archived.</p></div>
+              <div className="step"><div className="n">4</div><h4>Get your COD</h4><p>Witnessed, non-retrievable destruction and your Certificate of Destruction, emailed and mailed to you.</p></div>
             </div>
           </div>
         </section>

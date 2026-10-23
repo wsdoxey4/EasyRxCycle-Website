@@ -1591,3 +1591,8 @@ header.site .wrap{position:relative;}
 
 /* training page: keep Step 1 (read) above Step 2 (test) on phones */
 @media(max-width:860px){.tc-grid .quote-card{order:0;}}
+
+/* four-tier kit ladder (controlled substances: 5/10/20/100 lb) */
+.kitrow.kitrow-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+@media(max-width:980px){.kitrow.kitrow-4{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:560px){.kitrow.kitrow-4{grid-template-columns:1fr;}}

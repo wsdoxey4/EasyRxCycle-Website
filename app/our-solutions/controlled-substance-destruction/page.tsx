@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "What kit sizes are available?",
-    a: "Standard mail-back kits come in 5 lb and 10 lb, with expedited (3-day) shipping available. Volume above 10 lb — or on-site witnessed destruction — is handled through a custom quote.",
+    a: "Mail-back kits come in four weights: up to 5 lb, 10 lb, 20 lb and 100 lb, priced by weight and the NDCs you send, with expedited shipping available. Over 100 lb — or on-site witnessed destruction — is handled through a custom quote.",
   },
   {
     q: "Which controlled substances can I send?",
@@ -154,10 +154,10 @@ export default function Page() {
               <h2>Pick a size. We handle the rest.</h2>
               <p className="lead">Prepaid, DEA-compliant, and non-retrievable — the kit ladder mirrors the shop.</p>
             </div>
-            <div className="kitrow">
+            <div className="kitrow kitrow-4">
               <div className="kit2">
                 <span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>
-                  Standard
+                  Up to
                 </span>
                 <div className="price">5&nbsp;lb</div>
                 <p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>
@@ -166,20 +166,29 @@ export default function Page() {
               </div>
               <div className="kit2">
                 <span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>
-                  Standard
+                  Up to
                 </span>
                 <div className="price">10&nbsp;lb</div>
                 <p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>
-                  Higher-volume sites — plus an expedited 3-day option when timing matters.
+                  Higher-volume sites — plus an expedited option when timing matters.
+                </p>
+              </div>
+              <div className="kit2">
+                <span className="tag" style={{ color: "var(--emer-600)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>
+                  Up to
+                </span>
+                <div className="price">20&nbsp;lb</div>
+                <p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>
+                  Multi-provider practices, surgery centers and long-term care.
                 </p>
               </div>
               <div className="kit2">
                 <span className="tag" style={{ color: "var(--teal)", fontFamily: "Poppins", fontWeight: 600, fontSize: "12px", letterSpacing: ".06em", textTransform: "uppercase" }}>
-                  Custom quote
+                  Up to
                 </span>
-                <div className="price">10&nbsp;lb+</div>
+                <div className="price">100&nbsp;lb</div>
                 <p style={{ color: "var(--slate)", marginTop: "8px", fontSize: "15px" }}>
-                  Bulk volume, multi-site programs, or on-site witnessed destruction.
+                  Large cleanouts and hospitals. Over 100 lb, multi-site programs or on-site witnessed destruction → custom quote.
                 </p>
               </div>
             </div>

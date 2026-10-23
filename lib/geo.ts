@@ -197,7 +197,7 @@ export const STREAM_WAVE: Record<string, number> = {
   "biohazard-waste-disposal": 1,
   "pharmaceutical-waste-disposal": 1,
   "medication-disposal-kit": 2,
-  "controlled-substance-destruction": 3,
+  "controlled-substance-destruction": 2,
   "rcra-hazardous-pharmaceutical-waste": 3,
   "trace-chemotherapy-waste": 3,
   "reverse-distribution": 3,
@@ -209,7 +209,10 @@ export const STREAM_WAVE: Record<string, number> = {
 //                              (only the templated [state] spokes are gated), so nothing winnable is hidden.
 //   LIVE_WAVE=2 after ~2-3 wks of clean indexing (GSC shows spokes indexed, no manual actions) -> + medication.
 //   LIVE_WAVE=3 after another ~2-3 wks -> + controlled, rcra, trace chemo, reverse (all 408 spokes live).
-export const LIVE_WAVE = 1;
+// 2026-10-23: LIVE_WAVE=2 — medication + controlled spokes indexed (controlled moved up from wave 3 after its kit
+// ladder/claims were corrected). RCRA, trace chemo and reverse distribution stay at 3 until their copy is ruled on
+// (bulk chemo in RCRA "takes"; credit-recovery language on reverse distribution).
+export const LIVE_WAVE = 2;
 export const streamIndexable = (slug: string) => (STREAM_WAVE[slug] ?? 99) <= LIVE_WAVE;
 
 export const stateBySlug = (slug: string): StateInfo | undefined => {
