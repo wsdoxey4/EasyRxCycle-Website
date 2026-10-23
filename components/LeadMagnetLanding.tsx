@@ -6,6 +6,7 @@ import LeadMagnetForm from "@/components/LeadMagnetForm";
 import type { LeadMagnet } from "@/lib/leadMagnets";
 import { GUIDE_LINKS } from "@/lib/guideLinks";
 import { GUIDE_BODIES } from "@/lib/guideBodies";
+import { kitsForGuide } from "@/lib/guideKits";
 
 const check = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -14,6 +15,8 @@ const check = (
 export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
   const gl = GUIDE_LINKS[m.slug];
   const body = m.body ?? GUIDE_BODIES[m.slug];
+  // Point readers at the kits this guide is about (skipped for non-guide magnets like the capability statement).
+  const kits = m.slug === "capability-statement" ? [] : kitsForGuide([m.intro, ...m.bullets, ...(body ?? []).map((b) => b.h + " " + b.p)].join(" "), m.slug);
   return (
     <>
       <Header />
@@ -60,6 +63,23 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
                   <p>{b.p}</p>
                 </div>
               ))}
+            </div>
+          </section>
+        )}
+
+        {kits.length > 0 && (
+          <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+            <div className="wrap">
+              <div className="shead"><span className="eyebrow">Shop the kits</span><h2>{gl ? <>Kits for <span dangerouslySetInnerHTML={{ __html: gl.icpLabel.toLowerCase() }} /></> : "Kits for this waste"}</h2><p className="lead">Prepaid both ways, one waste stream per kit, with a Certificate of Destruction on every mail-back order.</p></div>
+              <div className="ind-streams">
+                {kits.map((k) => (
+                  <a className="ind-stream" key={k.href} href={k.href}>
+                    <h3>{k.name}</h3>
+                    <p>{k.what}</p>
+                    <span className="ind-kit">{k.from ? `From ${k.from}` : "Shop now"} <span className="ar">→</span></span>
+                  </a>
+                ))}
+              </div>
             </div>
           </section>
         )}
