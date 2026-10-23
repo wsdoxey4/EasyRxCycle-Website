@@ -67,7 +67,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What&rsquo;s RCRA-hazardous</span><h2 dangerouslySetInnerHTML={{ __html: "The drugs the EPA regulates." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "Certain common medications are federally hazardous waste. Put them in the wrong bin and you have a violation." }} /></div>
             <ul className="covers">
-              {["P-listed (e.g. warfarin, nicotine, epinephrine)", "U-listed pharmaceuticals", "Ignitable (D001) &amp; corrosive (D002)", "Toxicity-characteristic (D-codes)", "Bulk chemotherapy agents", "Empty hazardous containers"].map((t) => (
+              {["P-listed (e.g. warfarin, nicotine, epinephrine)", "U-listed pharmaceuticals", "Ignitable (D001) &amp; corrosive (D002)", "Toxicity-characteristic (D-codes)", "Hazardous formulary items", "Empty hazardous containers"].map((t) => (
                 <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
               ))}
             </ul>

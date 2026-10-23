@@ -49,6 +49,17 @@ const cities = (s: StateInfo) => s.cities.join(", ");
 const last = (s: StateInfo) => s.cities[s.cities.length - 1];
 const gov = (s: StateInfo) => s.agency ?? `${s.name}'s environmental agency`;
 
+const chemoLadder = [
+  { tag: "std" as const, size: "2 gal", note: (s: StateInfo) => `Infusion chairs, clinics and compounding sites in ${s.cities[0]} with light trace-chemo volume.` },
+  { tag: "std" as const, size: "8 gal", note: (s: StateInfo) => `Busy oncology and infusion centers across ${s.name} — with an expedited option when timing matters.` },
+  { tag: "std" as const, size: "18 gal", note: (s: StateInfo) => `Hospital units and high-volume ${s.name} infusion programs.` },
+  { tag: "std" as const, size: "28 gal", note: (s: StateInfo) => `The largest trace-chemo container — or ask about scheduled pickup for multi-site ${s.name} programs.` },
+];
+const rcraLadder = [
+  { tag: "std" as const, size: "2 gal", note: (s: StateInfo) => `Pharmacies and clinics in ${s.cities[0]} with occasional P-, U- or D-listed drug waste.` },
+  { tag: "std" as const, size: "8 gal", note: (s: StateInfo) => `Higher-volume ${s.name} pharmacies and hospital units — with an expedited option when timing matters.` },
+  { tag: "std" as const, size: "18 gal", note: (s: StateInfo) => `High-volume ${s.name} sites. Larger volumes or scheduled pickup by same-day quote.` },
+];
 const stdLadder = [
   { tag: "std" as const, size: "Small", note: (s: StateInfo) => `Single-site practices and clinics in ${s.cities[0]} with routine volume.` },
   { tag: "std" as const, size: "Large", note: (s: StateInfo) => `Higher-volume ${s.name} sites — with an expedited option when timing matters.` },
@@ -256,23 +267,23 @@ const traceChemo: Stream = {
   metaTitle: (s) => `Trace Chemo Waste Disposal in ${s.name}`,
   metaDesc: (s) => `Compliant trace chemotherapy waste disposal in ${s.name}. Yellow-container mail-back for ${s.cities[0]} and statewide, incinerated and documented.`,
   h1: (s) => ({ pre: "Trace chemotherapy waste disposal in", accent: `${s.name}.` }),
-  heroLead: (s) => `Compliant disposal of trace (RCRA-empty) chemotherapy waste for ${cities(s)} and communities across ${s.name} — empty vials and syringes, trace-contaminated PPE and IV sets — collected in yellow containers, incinerated, and documented. Bulk and P-listed chemo route to our RCRA hazardous stream.`,
+  heroLead: (s) => `Compliant disposal of trace (RCRA-empty) chemotherapy waste for ${cities(s)} and communities across ${s.name} — empty vials and syringes, trace-contaminated PPE and IV sets — collected in yellow containers, incinerated, and documented. We take trace chemo only; bulk chemo (visible drug remaining) isn't accepted.`,
   takesHeading: (s) => `Every trace chemo item you generate in ${s.name}.`,
   takesLead: "RCRA-empty chemo waste, incinerated and documented.",
   takes: ["Empty (RCRA-empty) chemo vials & syringes", "Trace-contaminated PPE, gowns & gloves", "IV bags & tubing with trace residue", "Empty drug containers", "Contaminated prep materials", "Yellow-container trace waste"],
-  ladder: stdLadder,
+  ladder: chemoLadder,
   howHeading: (s) => `Mail-back or scheduled service, statewide in ${s.name}.`,
   steps: (s) => [
     { h: "Order your kit", p: `Yellow trace-chemo container shipped to any ${s.name} address with a prepaid return label — or set scheduled service for ${s.cities[0]} and higher-volume sites.` },
-    { h: "Fill the yellow container", p: "Place only trace (RCRA-empty) chemo waste in the yellow container — keep bulk/P-listed chemo in the RCRA stream." },
+    { h: "Fill the yellow container", p: "Place only trace (RCRA-empty) chemo waste in the yellow container. Bulk chemo isn't accepted, and P-listed drug waste goes in the RCRA kit." },
     { h: "Ship or pickup", p: "Tracked door-to-door to our permitted facility under DOT rules." },
-    { h: "Get documentation", p: "Trace chemo is incinerated and your disposal record is archived to your account." },
+    { h: "Get documentation", p: "Trace chemo is incinerated, and your Certificate of Destruction is emailed to you." },
   ],
   compHeading: (s) => `${s.name} & federal trace-chemo rules, handled.`,
-  compIntro: (s) => `Chemotherapy waste splits by how much drug remains. “Trace” waste — RCRA-empty containers and trace-contaminated materials — goes in yellow containers for incineration. Bulk or P-listed chemo (for example, discarded product or certain hazardous drugs) is a RCRA hazardous waste and must be managed as such. Federally, OSHA and USP General Chapter <800> govern safe handling of hazardous drugs, and the DOT governs transport. In ${s.name}, the ${gov(s)} and the ${s.name} Board of Pharmacy add their requirements. Easy Rx Cycle sorts and routes each correctly, documented on every order.`,
+  compIntro: (s) => `Chemotherapy waste splits by how much drug remains. “Trace” waste — RCRA-empty containers and trace-contaminated materials — goes in yellow containers for incineration. Bulk or P-listed chemo (for example, discarded product or certain hazardous drugs) is a RCRA hazardous waste and must be managed as such. Federally, OSHA and USP General Chapter <800> govern safe handling of hazardous drugs, and the DOT governs transport. In ${s.name}, the ${gov(s)} and the ${s.name} Board of Pharmacy add their requirements. Easy Rx Cycle takes trace chemo only — we manifest it and incinerate it at a permitted facility, documented on every order.`,
   compBullets: (s) => [
     { label: "USP <800>", text: "hazardous-drug handling & containment" },
-    { label: "Trace vs. bulk", text: "yellow-container trace incineration; bulk/P-listed routed to RCRA" },
+    { label: "Trace only", text: "RCRA-empty chemo waste in yellow containers, incinerated; bulk chemo not accepted" },
     { label: "DOT", text: "49 CFR compliant packaging & prepaid return shipping" },
     { label: `${s.name}`, text: "state environmental & Board of Pharmacy requirements" },
   ],
@@ -286,15 +297,15 @@ const traceChemo: Stream = {
     { href: "/who-we-serve/", label: "All industries →" },
   ],
   related: (s) => [
-    { href: "/our-solutions/rcra-hazardous-pharmaceutical-waste/", h: "RCRA hazardous", p: "Bulk & P-listed chemo and hazardous drugs." },
+    { href: "/our-solutions/rcra-hazardous-pharmaceutical-waste/", h: "RCRA hazardous", p: "P-, U- and D-listed hazardous drugs." },
     { href: "/our-solutions/pharmaceutical-waste-disposal/" + s.slug + "/", h: `Pharmaceutical waste in ${s.name}`, p: "Non-controlled expired medications." },
     { href: `/locations/${s.slug}/`, h: `All services in ${s.name}`, p: "Every waste stream we handle statewide." },
   ],
   faqs: (s) => [
-    { q: `What is trace chemotherapy waste in ${s.name}?`, a: `Trace chemo is RCRA-empty waste — vials and syringes emptied of drug, plus trace-contaminated PPE and IV sets. It goes in yellow containers for incineration. Bulk or P-listed chemo is a RCRA hazardous waste. We handle both across ${s.name}, and serve ${cities(s)}.` },
-    { q: `What's the difference between trace and bulk chemo waste?`, a: `“Trace” means the container is RCRA-empty (drug removed to the extent practical); it's incinerated as trace chemo. “Bulk” means usable or P-listed drug remains — that's a RCRA hazardous waste with stricter handling. Mixing them is a common ${s.name} compliance error we help you avoid.` },
+    { q: `What is trace chemotherapy waste in ${s.name}?`, a: `Trace chemo is RCRA-empty waste — vials and syringes emptied of drug, plus trace-contaminated PPE and IV sets. It goes in yellow containers for incineration. We take trace chemo only — bulk chemo with visible drug remaining isn't accepted. We serve ${cities(s)} and all of ${s.name}.` },
+    { q: `What's the difference between trace and bulk chemo waste?`, a: `“Trace” means the container is RCRA-empty (drug removed to the extent practical); it's incinerated as trace chemo. “Bulk” means usable drug remains — that's a RCRA hazardous waste with stricter handling, and our trace kits don't accept it. Keeping them separate is a common ${s.name} compliance point.` },
     { q: `What color container does trace chemo go in?`, a: `Yellow. Yellow containers signal trace chemotherapy waste bound for incineration — separate from red (RMW), black (RCRA hazardous), and blue (pharmaceutical). Our ${s.name} kits use the correct container for the stream.` },
-    { q: `Who regulates chemotherapy waste in ${s.name}?`, a: `OSHA and USP <800> govern safe handling, the DOT governs transport, and the EPA's RCRA rules govern bulk/P-listed chemo. In ${s.name}, the state environmental agency and Board of Pharmacy add requirements. We handle disposal to all of them.` },
+    { q: `Who regulates chemotherapy waste in ${s.name}?`, a: `OSHA and USP <800> govern safe handling, the DOT governs transport, and the EPA's RCRA rules govern bulk chemo. In ${s.name}, the state environmental agency and Board of Pharmacy add requirements. We manifest and destroy trace chemo to all of them.` },
     { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — mail-back reaches every ZIP in ${s.name}, from ${s.cities[0]} to ${last(s)}, and scheduled service is available for higher-volume sites across the state.` },
   ],
   finalH: (s) => `Handle trace chemo the compliant way in ${s.name}.`,
@@ -320,17 +331,17 @@ const rcra: Stream = {
   heroLead: (s) => `EPA RCRA-compliant disposal of hazardous pharmaceutical waste for ${cities(s)} and communities across ${s.name} — P-, U-, and D-listed drugs managed under the Subpart P standard, incinerated at a permitted facility, with a manifest and documentation on every order.`,
   takesHeading: (s) => `Every hazardous drug you need gone in ${s.name}.`,
   takesLead: "P/U/D-listed and characteristic waste, manifested and documented.",
-  takes: ["P-listed acutely hazardous drugs", "U-listed hazardous drugs", "D-listed / characteristic waste (ignitable, corrosive, toxic)", "Bulk & P-listed chemotherapy drugs", "Hazardous formulary items", "Black-container hazardous waste"],
-  ladder: stdLadder,
+  takes: ["P-listed acutely hazardous drugs", "U-listed hazardous drugs", "D-listed / characteristic waste (ignitable, corrosive, toxic)", "Empty P-listed containers that aren't RCRA-empty", "Hazardous formulary items", "Black-container hazardous waste"],
+  ladder: rcraLadder,
   howHeading: (s) => `Mail-back or scheduled service, statewide in ${s.name}.`,
   steps: (s) => [
     { h: "Order your kit", p: `Black RCRA container shipped to any ${s.name} address with a prepaid return label — or set scheduled service for ${s.cities[0]} and higher-volume sites.` },
     { h: "Segregate hazardous drugs", p: "Place P/U/D-listed and characteristic drugs in the black container — keep non-hazardous meds in the pharmaceutical stream." },
     { h: "Ship or pickup", p: "Manifested and tracked door-to-door to a permitted TSDF under DOT and EPA rules." },
-    { h: "Get documentation", p: "Incinerated at a permitted facility; your manifest and record are archived to your account." },
+    { h: "Get documentation", p: "Incinerated at a permitted facility; your manifest and Certificate of Destruction are emailed to you." },
   ],
   compHeading: (s) => `${s.name} & federal RCRA rules, handled.`,
-  compIntro: (s) => `Some drugs are also hazardous waste under the EPA's Resource Conservation and Recovery Act (RCRA, 40 CFR). They fall on the P-list (acutely hazardous), U-list, or exhibit a characteristic (ignitable, corrosive, reactive, toxic — the D-codes). Healthcare facilities manage them under the Subpart P standard for hazardous waste pharmaceuticals. In ${s.name}, the ${gov(s)} — which may be more stringent than the federal floor — and the ${s.name} Board of Pharmacy add requirements. Easy Rx Cycle identifies, segregates, manifests, and destroys each hazardous drug correctly, documented on every order.`,
+  compIntro: (s) => `Some drugs are also hazardous waste under the EPA's Resource Conservation and Recovery Act (RCRA, 40 CFR). They fall on the P-list (acutely hazardous), U-list, or exhibit a characteristic (ignitable, corrosive, reactive, toxic — the D-codes). Healthcare facilities manage them under the Subpart P standard for hazardous waste pharmaceuticals. In ${s.name}, the ${gov(s)} — which may be more stringent than the federal floor — and the ${s.name} Board of Pharmacy add requirements. Easy Rx Cycle manifests and destroys your hazardous drug waste at a permitted facility, documented on every order.`,
   compBullets: (s) => [
     { label: "EPA / RCRA", text: "P-, U-, and D-listed hazardous waste (40 CFR)" },
     { label: "Subpart P", text: "hazardous waste pharmaceuticals management standard" },

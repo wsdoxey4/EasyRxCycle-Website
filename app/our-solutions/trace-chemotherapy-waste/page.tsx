@@ -12,7 +12,7 @@ import { SITE, abs } from "@/lib/site";
 
 const PATH = "/our-solutions/trace-chemotherapy-waste";
 const TITLE = "Trace Chemotherapy Waste Disposal | Yellow-Container Chemo";
-const DESC = "Compliant trace chemotherapy waste disposal \u2014 empty vials, IV bags, tubing, and PPE with under 3% residual, incinerated at a permitted facility. Bulk chemo routed to RCRA hazardous. Certificate of Destruction included.";
+const DESC = "Compliant trace chemotherapy waste disposal \u2014 empty vials, IV bags, tubing, and PPE with under 3% residual, incinerated at a permitted facility. Trace chemo only. Certificate of Destruction included.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: "What is trace chemotherapy waste?", a: "Trace chemo waste is materials contaminated with only residual (trace) amounts of chemotherapy drugs \u2014 empty vials and syringes, IV bags, tubing, and contaminated PPE \u2014 generally defined as RCRA-empty with under 3% residual by weight. It goes in yellow containers and is incinerated." },
-  { q: "What\u2019s the difference between trace and bulk chemo waste?", a: "Trace chemo is contaminated materials with residual drug; bulk chemo is unused drug, spill cleanup, or containers with more than trace amounts. Bulk and P-listed chemo must be managed as RCRA-hazardous waste. We identify and route each correctly." },
+  { q: "What\u2019s the difference between trace and bulk chemo waste?", a: "Trace chemo is contaminated materials with residual drug; bulk chemo is unused drug, spill cleanup, or containers with more than trace amounts. Bulk chemo must be managed as RCRA-hazardous waste, and our trace kits don't accept it." },
   { q: "What color container is used for trace chemo?", a: "Yellow containers labeled for trace chemotherapy waste. They\u2019re used for empty chemo vials, tubing, IV bags, and contaminated PPE destined for incineration." },
   { q: "Does trace chemo have to be incinerated?", a: "Yes \u2014 trace chemotherapy waste is destroyed by incineration at a permitted facility. We handle transport and provide a Certificate of Destruction." },
   { q: "How does this relate to USP 800?", a: "USP 800 governs safe handling of hazardous drugs, including chemo, to protect staff. Proper trace-chemo segregation and disposal is part of a compliant hazardous-drug program." }
@@ -53,7 +53,7 @@ export default function Page() {
             <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Trace Chemo" }]} />
             <span className="eyebrow">Trace chemo · yellow-container waste</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Trace chemo waste, <span style=\"color:var(--teal)\">incinerated and documented.</span>" }} />
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy waste &mdash; empty vials, IV bags, tubing, gowns, and gloves with trace (under 3%) residual &mdash; collected and incinerated at a permitted facility. Bulk and RCRA-hazardous chemo is identified and routed correctly, with a Certificate of Destruction every time." }} />
+            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy waste &mdash; empty vials, IV bags, tubing, gowns, and gloves with trace (under 3%) residual &mdash; collected and incinerated at a permitted facility, with a Certificate of Destruction every time. We take trace chemo only; bulk chemo isn't accepted." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop/trace-chemo-mail-back-kit">Shop a kit <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
@@ -67,7 +67,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What&rsquo;s trace chemo</span><h2 dangerouslySetInnerHTML={{ __html: "The yellow-container stream." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "Trace chemo waste is chemo-contaminated materials with only residual drug left. Bulk chemo is handled differently &mdash; we sort it out." }} /></div>
             <ul className="covers">
-              {["Empty chemo vials &amp; syringes", "IV bags, tubing &amp; lines", "Contaminated PPE (gowns, gloves)", "Prep-area trace waste", "Under-3%-residual materials", "Bulk chemo (routed to RCRA)"].map((t) => (
+              {["Empty chemo vials &amp; syringes", "IV bags, tubing &amp; lines", "Contaminated PPE (gowns, gloves)", "Prep-area trace waste", "Under-3%-residual materials", "Chemo-contaminated sharps"].map((t) => (
                 <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
               ))}
             </ul>
@@ -86,7 +86,7 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">How it works</span><h2>Contain, ship, incinerate.</h2></div>
             <div className="flow">
               <div className="step"><div className="n">1</div><h4>Yellow containers</h4><p>Use the labeled trace-chemo containers for empty vials, tubing, and contaminated PPE.</p></div>
-              <div className="step"><div className="n">2</div><h4>Segregate bulk</h4><p>Any bulk or P-listed chemo (e.g. some agents) is separated for the RCRA-hazardous process.</p></div>
+              <div className="step"><div className="n">2</div><h4>Keep bulk out</h4><p>Bulk chemo isn't accepted in trace kits, and P-listed drug waste goes in the RCRA kit.</p></div>
               <div className="step"><div className="n">3</div><h4>Compliant transport</h4><p>Shipped to a permitted incineration facility under the correct documentation.</p></div>
               <div className="step"><div className="n">4</div><h4>Incinerated + documented</h4><p>Destroyed by incineration &mdash; Certificate of Destruction returned to your account.</p></div>
             </div>
@@ -96,7 +96,7 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
             <div className="why4">
-              <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V5l7-3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round" /><path d="M9 12l2 2 4-4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>Correct classification</h4><p>We separate trace from bulk/RCRA chemo so each is destroyed to the right standard.</p></div>
+              <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V5l7-3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round" /><path d="M9 12l2 2 4-4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>Manifested &amp; incinerated</h4><p>Every trace-chemo container is manifested and incinerated at a permitted facility.</p></div>
               <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#005770" strokeWidth="1.7" /><path d="M8 9h8M8 13h8" stroke="#8aa6ac" strokeWidth="1.5" strokeLinecap="round" /><path d="M14.5 17l1.6 1.6 3-3.2" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>Permitted incineration</h4><p>Trace chemo is incinerated at a permitted facility, as required.</p></div>
               <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#005770" strokeWidth="1.7" /><path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18" stroke="#005770" strokeWidth="1.4" /></svg></div><h4>Protects your staff</h4><p>Proper yellow-container handling supports USP 800 hazardous-drug safety.</p></div>
               <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#005770" strokeWidth="1.7" /><path d="M8 8h8M8 12h5" stroke="#8aa6ac" strokeWidth="1.5" strokeLinecap="round" /><path d="M13.5 17l1.7 1.7 3.3-3.4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>Documented every time</h4><p>Certificate of Destruction on every shipment, archived and audit-ready.</p></div>

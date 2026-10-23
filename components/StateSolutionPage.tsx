@@ -83,7 +83,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Mail-back kits</span><h2>Pick a size. We handle the rest.</h2><p className="lead">Prepaid, compliant, and documented — shipped to any {s.name} address.</p></div>
-            <div className="kitrow">
+            <div className={stream.ladder.length === 4 ? "kitrow kitrow-4" : "kitrow"}>
               {stream.ladder.map((k, i) => (
                 <div className="kit2" key={i}>
                   <span className="tag" style={tagStyle(k.tag === "quote" ? "var(--teal)" : "var(--emer-600)")}>{k.tag === "quote" ? "Custom quote" : "Standard"}</span>

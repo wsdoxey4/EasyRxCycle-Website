@@ -212,7 +212,10 @@ export const STREAM_WAVE: Record<string, number> = {
 // 2026-10-23: LIVE_WAVE=2 — medication + controlled spokes indexed (controlled moved up from wave 3 after its kit
 // ladder/claims were corrected). RCRA, trace chemo and reverse distribution stay at 3 until their copy is ruled on
 // (bulk chemo in RCRA "takes"; credit-recovery language on reverse distribution).
-export const LIVE_WAVE = 2;
+// 2026-10-23 (later): LIVE_WAVE=3 — RCRA, trace chemo and reverse distribution copy confirmed by William
+// (trace chemo only / no bulk; we manifest + destroy, no segregation; pickups by quote; expedite + same-day quote OK;
+// real kit sizes; reverse distribution pages approved). All 408 spokes indexed.
+export const LIVE_WAVE = 3;
 export const streamIndexable = (slug: string) => (STREAM_WAVE[slug] ?? 99) <= LIVE_WAVE;
 
 export const stateBySlug = (slug: string): StateInfo | undefined => {
