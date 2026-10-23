@@ -12,7 +12,7 @@ import { SITE, abs } from "@/lib/site";
 
 const PATH = "/our-solutions/pharmaceutical-waste-disposal";
 const TITLE = "Pharmaceutical Waste Disposal | Expired & Unused Medication";
-const DESC = "Compliant pharmaceutical waste disposal for expired, unused, and non-controlled medications. Correctly segregated from RCRA-hazardous and controlled waste, destroyed non-retrievable, with a Certificate of Destruction every time.";
+const DESC = "Compliant pharmaceutical waste disposal for expired, unused, and non-controlled medications. Manifested and destroyed non-retrievable, with a Certificate of Destruction every time.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -65,7 +65,7 @@ export default function Page() {
 
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
-            <div className="shead"><span className="eyebrow">What we handle</span><h2 dangerouslySetInnerHTML={{ __html: "The full pharmacy waste stream." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "Most medication waste isn&rsquo;t one category &mdash; it&rsquo;s three. We segregate and route each correctly." }} /></div>
+            <div className="shead"><span className="eyebrow">What we handle</span><h2 dangerouslySetInnerHTML={{ __html: "The full pharmacy waste stream." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "Most medication waste isn&rsquo;t one category &mdash; it&rsquo;s three. Each one gets its own kit, and we manifest and destroy it." }} /></div>
             <ul className="covers">
               {["Non-controlled expired Rx", "Over-the-counter (OTC) meds", "Non-hazardous pharmaceuticals", "Compounding &amp; prep waste", "Controlled meds (routed to CSD)", "RCRA-hazardous (routed to RCRA)"].map((t) => (
                 <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
@@ -83,10 +83,10 @@ export default function Page() {
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
-            <div className="shead"><span className="eyebrow">How it works</span><h2>One intake. Correctly segregated.</h2></div>
+            <div className="shead"><span className="eyebrow">How it works</span><h2>One stream per kit. Manifested and destroyed.</h2></div>
             <div className="flow">
               <div className="step"><div className="n">1</div><h4>Send it in</h4><p>Mail-back kit or scheduled pickup for higher-volume pharmacies and facilities.</p></div>
-              <div className="step"><div className="n">2</div><h4>We segregate</h4><p>Non-hazardous vs. RCRA-hazardous vs. controlled &mdash; each stream separated for the right process.</p></div>
+              <div className="step"><div className="n">2</div><h4>We manifest it</h4><p>Each kit holds one waste stream and is logged on the manifest when it reaches us.</p></div>
               <div className="step"><div className="n">3</div><h4>Destroy non-retrievable</h4><p>Everything is rendered non-retrievable to DEA and EPA standards for its category.</p></div>
               <div className="step"><div className="n">4</div><h4>Documentation</h4><p>Certificate of Destruction &mdash; plus manifests for hazardous and Form 41 for controls.</p></div>
             </div>
@@ -96,7 +96,7 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
             <div className="why4">
-              <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V5l7-3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round" /><path d="M9 12l2 2 4-4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>Correct segregation</h4><p>We keep RCRA-hazardous and controlled meds out of the wrong bin &mdash; the #1 compliance risk.</p></div>
+              <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V5l7-3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round" /><path d="M9 12l2 2 4-4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>One stream per kit</h4><p>Non-hazardous, RCRA-hazardous and controlled meds each go in their own kit, so they never mix &mdash; the #1 compliance risk.</p></div>
               <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#005770" strokeWidth="1.7" /><path d="M8 9h8M8 13h8" stroke="#8aa6ac" strokeWidth="1.5" strokeLinecap="round" /><path d="M14.5 17l1.6 1.6 3-3.2" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>DEA &amp; EPA compliant</h4><p>Each stream handled to its own federal and state requirements.</p></div>
               <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#005770" strokeWidth="1.7" /><path d="M3 12h18M12 3c2.6 2.6 2.6 15 0 18M12 3c-2.6 2.6-2.6 15 0 18" stroke="#005770" strokeWidth="1.4" /></svg></div><h4>Non-retrievable destruction</h4><p>Meets the DEA non-retrievable standard for any controlled meds in the mix.</p></div>
               <div className="why"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#005770" strokeWidth="1.7" /><path d="M8 8h8M8 12h5" stroke="#8aa6ac" strokeWidth="1.5" strokeLinecap="round" /><path d="M13.5 17l1.7 1.7 3.3-3.4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg></div><h4>Documented every time</h4><p>Certificate of Destruction plus the right manifests, archived to your account.</p></div>

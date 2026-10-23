@@ -51,7 +51,7 @@ export default function Page() {
             <Breadcrumbs items={[{ name: "Who We Serve", href: "/who-we-serve/" }, { name: "Dermatology" }]} />
             <span className="eyebrow">Dermatology</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Sharps & Medical Waste Disposal for <span style=\"color:var(--teal)\">dermatology.</span>" }} />
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Dermatology office medical waste disposal has a wrinkle other clinics don\u2019t: alongside injection and biopsy sharps, some topical antineoplastics count as trace chemotherapy waste. We segregate and route each stream correctly \u2014 sharps, biohazard, expired meds, and trace chemo \u2014 with mail-back or pickup and a Certificate of Destruction." }} />
+            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Dermatology office medical waste disposal has a wrinkle other clinics don\u2019t: alongside injection and biopsy sharps, some topical antineoplastics count as trace chemotherapy waste. Each stream gets its own kit \u2014 sharps, biohazard, expired meds, and trace chemo \u2014 with mail-back or pickup and a Certificate of Destruction." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop/">Shop a kit <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/get-a-quote?role=Physician%20/%20medical%20office">Get a quote</a>

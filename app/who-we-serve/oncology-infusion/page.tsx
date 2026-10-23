@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "What's the difference between trace and bulk chemotherapy waste?", a: "Trace chemo is materials with only residual drug (empty vials, IV bags, tubing, PPE) \u2014 yellow containers, incinerated. Bulk chemo is unused drug or more-than-trace amounts and is managed as RCRA-hazardous waste. We segregate and route each correctly." },
+  { q: "What's the difference between trace and bulk chemotherapy waste?", a: "Trace chemo is materials with only residual drug (empty vials, IV bags, tubing, PPE) \u2014 yellow containers, incinerated. Bulk chemo is unused drug or more-than-trace amounts and is managed as RCRA-hazardous waste. Easy Rx Cycle handles trace chemo only." },
   { q: "How is chemotherapy waste disposed of?", a: "Trace chemo is incinerated at a permitted facility; bulk and P-listed chemo is manifested to a permitted hazardous-waste facility. Both are documented with Certificates of Destruction." },
   { q: "Do you support USP 800 compliance?", a: "Yes \u2014 proper segregation and disposal of hazardous drugs is a core part of a USP 800 program, which our trace-chemo and RCRA services cover." },
   { q: "What color container is used for trace chemo?", a: "Yellow containers labeled for trace chemotherapy waste \u2014 for empty vials, tubing, IV bags, and contaminated PPE." },

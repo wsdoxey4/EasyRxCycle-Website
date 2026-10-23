@@ -51,7 +51,7 @@ export default function Page() {
             <Breadcrumbs items={[{ name: "Who We Serve", href: "/who-we-serve/" }, { name: "Academic medical centers" }]} />
             <span className="eyebrow">Academic medical centers</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Biohazard & Medical Waste Disposal for <span style=\"color:var(--teal)\">academic medical centers.</span>" }} />
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Academic medical center biohazard disposal spans clinical care and research at once \u2014 red-bag and pathological waste beside lab cultures, controlled substances, and RCRA-hazardous chemicals. We segregate by hazard class and biosafety level, manifest what needs manifesting, and document every batch with a Certificate of Destruction." }} />
+            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Academic medical center biohazard disposal spans clinical care and research at once \u2014 red-bag and pathological waste beside lab cultures, controlled substances, and RCRA-hazardous chemicals. We set you up with one container per hazard class and biosafety level, manifest what needs manifesting, and document every batch with a Certificate of Destruction." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/get-a-quote?role=Hospital%20/%20health%20system">Get a quote <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/build-your-program?facility=surgery">Build a program</a>

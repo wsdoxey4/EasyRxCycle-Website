@@ -107,7 +107,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">How it works</span><h2>Simple, documented, on your schedule.</h2></div>
             <div className="flow">
-              <div className="step"><div className="n">1</div><h4>Set up your program</h4><p>We segregate by hazard class and biosafety level, with the right containers and cadence.</p></div>
+              <div className="step"><div className="n">1</div><h4>Set up your program</h4><p>We set you up with the right containers for each hazard class and biosafety level, on the right cadence.</p></div>
               <div className="step"><div className="n">2</div><h4>Fill &amp; seal</h4><p>Use the labeled containers; segregate each stream at the point of use.</p></div>
               <div className="step"><div className="n">3</div><h4>Ship or pickup</h4><p>Prepaid mail-back label or a scheduled pickup — whatever fits your volume.</p></div>
               <div className="step"><div className="n">4</div><h4>Get your COD</h4><p>We destroy it and email your Certificate of Destruction, archived to your account.</p></div>

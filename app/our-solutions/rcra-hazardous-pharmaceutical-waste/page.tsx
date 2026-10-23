@@ -26,7 +26,7 @@ const faqs = [
   { q: "What is RCRA Subpart P?", a: "Subpart P (40 CFR Part 266) is the EPA\u2019s Management Standards for Hazardous Waste Pharmaceuticals. It governs how healthcare facilities and reverse distributors must handle hazardous pharmaceutical waste, and it prohibits sewering these drugs." },
   { q: "Is nicotine really hazardous waste?", a: "Yes \u2014 nicotine is P075, an acutely hazardous P-listed waste. Certain nicotine products (some patches and gums are excluded) must be managed as RCRA-hazardous waste, not tossed in the trash or red bag." },
   { q: "Do you provide hazardous waste manifests?", a: "Yes. RCRA-hazardous pharmaceutical waste ships on a hazardous-waste manifest to a permitted destruction facility, and we return signed manifest copies along with your Certificate of Destruction." },
-  { q: "Can you handle both hazardous and non-hazardous drug waste?", a: "Yes. We segregate your waste and route RCRA-hazardous drugs to the manifested hazardous process while non-hazardous pharmaceuticals follow their own compliant path \u2014 all documented." }
+  { q: "Can you handle both hazardous and non-hazardous drug waste?", a: "Yes. Use one kit per stream: RCRA-hazardous drugs go in the hazardous kit and travel on the hazardous waste manifest, and non-hazardous pharmaceuticals go in their own kit. We manifest and destroy each \u2014 all documented." }
 ];
 
 const jsonLd = {
