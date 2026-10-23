@@ -9,7 +9,7 @@ import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
 import BuyConfidence from "@/components/cart/BuyConfidence";
 import TrackView from "@/components/TrackView";
-import { inCategory, money, CATEGORIES, isShoppable } from "@/lib/shop";
+import { inCategory, money, CATEGORIES, isShoppable, FREE_SHIP_THRESHOLD_CENTS, FLAT_SHIP_CENTS } from "@/lib/shop";
 import { KITS, KIT_BY_SLUG } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
 
@@ -56,6 +56,18 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
       "@type": "Offer", sku: s.sku, mpn: s.sku, name: `${k.name} — ${s.size}`, price: (s.cents / 100).toFixed(2),
       priceCurrency: "USD", availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition",
       url: abs(path), seller: { "@id": `${SITE.url}/#organization` },
+      // Merchant-listing fields — match lib/shop shipping rules and the Merchant Center return policy (easyrxcycle.com/returns).
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: { "@type": "MonetaryAmount", value: s.cents >= FREE_SHIP_THRESHOLD_CENTS ? "0.00" : (FLAT_SHIP_CENTS / 100).toFixed(2), currency: "USD" },
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "US" },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy", applicableCountry: "US",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays: 30,
+        returnMethod: "https://schema.org/ReturnByMail", returnFees: "https://schema.org/ReturnShippingFees",
+        itemCondition: "https://schema.org/NewCondition", merchantReturnLink: abs("/returns/"),
+      },
     }));
   }
 
