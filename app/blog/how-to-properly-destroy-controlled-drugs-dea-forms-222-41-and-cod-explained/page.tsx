@@ -55,6 +55,7 @@ export default function Page() {
                 <span>Updated Jul 2026</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "If your facility handles controlled substances, destroying them incorrectly is one of the fastest ways to fail a DEA audit. Here&rsquo;s exactly when you need DEA Form 222 versus Form 41, what a Certificate of Destruction proves, and the step-by-step process that keeps your records clean." }} />
+              <p className="article-lead" style={{ fontSize: "16px", marginTop: "10px" }}>Looking for a filled-in DEA Form 41 and every field explained? See <a href="/blog/dea-form-41-requirements-and-pdf/">DEA Form 41: How to Fill It Out (Filled-In Sample + PDF)</a>.</p>
 
               <div className="prose">
             <div className="tocbox">
