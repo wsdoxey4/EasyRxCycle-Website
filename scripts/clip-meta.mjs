@@ -9,29 +9,29 @@ const OUT = "out";
 const DESC_MAX = 160;
 const TITLE_MAX = 62;
 
+// Visible length: the built HTML escapes "&" as "&amp;" etc., which would otherwise count as 5 characters.
+const vlen = (s) => s.replace(/&(?:amp|lt|gt|quot|#39|#x27);/g, "x").length;
+
 function clipDesc(s) {
-  if (s.length <= DESC_MAX) return s;
+  if (vlen(s) <= DESC_MAX) return s;
   let cut = s.slice(0, DESC_MAX - 2);
+  while (vlen(cut) < DESC_MAX - 2 && cut.length < s.length) cut = s.slice(0, cut.length + 1);
+  cut = cut.replace(/&[a-z#0-9]*$/i, "");   // never leave a half entity
   const sp = cut.lastIndexOf(" ");
   if (sp > 120) cut = cut.slice(0, sp);
-  return cut.replace(/[\s,;:.–—-]+$/, "");
+  return cut.replace(/[\s,;:.–—-]+$/, "").replace(/\s&amp;$/, "");
 }
 
 function clipTitle(s) {
-  if (s.length <= TITLE_MAX) return s;
-  // 1) Prefer dropping a trailing brand/category segment — but only if it keeps a substantial title.
+  if (vlen(s) <= TITLE_MAX) return s;
+  // Drop the trailing " — Easy Rx Cycle" brand segment so the keywords fit. Never word-clip the rest:
+  // a mid-phrase cut ("…Rules & Your") reads as broken in search results, while an over-long title is
+  // simply shown with Google's own ellipsis and still counts in full for relevance.
   for (const sep of [" | ", " — ", " – ", " - "]) {
     const i = s.lastIndexOf(sep);
-    if (i > 0) {
-      const short = s.slice(0, i);
-      if (short.length >= 42 && short.length <= TITLE_MAX) return short;
-    }
+    if (i > 0 && / ?Easy Rx Cycle$/.test(s.slice(i + sep.length))) return s.slice(0, i);
   }
-  // 2) Otherwise word-clip at <=60 so we keep as much keyword real estate as possible.
-  let cut = s.slice(0, TITLE_MAX - 2);
-  const sp = cut.lastIndexOf(" ");
-  if (sp > 40) cut = cut.slice(0, sp);
-  return cut.replace(/[\s|—–-]+$/, "");
+  return s;
 }
 
 function walk(dir) {
