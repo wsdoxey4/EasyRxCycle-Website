@@ -33,14 +33,14 @@ function uetEvent(name: string, p: Params): [string, Params] | null {
   }
 }
 
-// GA4 event → AdRoll event. Value/currency only, like Meta. Quotes use an event-based segment
-// (segment_name) since AdRoll has no standard lead event.
+// GA4 event → AdRoll event. Value/currency only, like Meta. Quotes fire the "Quote requested"
+// Event JS Match audience (segment 3da61c23, a $50 conversion in AdRoll) since AdRoll has no lead event.
 function adrollEvent(name: string, p: Params): [string, Params] | null {
   const money = typeof p.value === "number" ? { conversion_value: p.value, currency: (p.currency as string) || "USD" } : {};
   switch (name) {
     case "purchase": return ["purchase", { ...money, ...(p.transaction_id ? { order_id: p.transaction_id } : {}) }];
     case "add_to_cart": return ["addToCart", money];
-    case "quote_request": return ["pageView", { segment_name: "quote_request", ...money }];
+    case "quote_request": return ["pageView", { segment_name: "3da61c23" }];
     default: return null;
   }
 }
