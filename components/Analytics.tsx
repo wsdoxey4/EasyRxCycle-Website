@@ -3,7 +3,7 @@
 import Script from "next/script";
 import { ANALYTICS } from "@/lib/site";
 
-// Loads GA4 (gtag) + GTM + Microsoft Clarity — only when NEXT_PUBLIC_ANALYTICS=true.
+// Loads GA4 (gtag) + GTM + Microsoft Clarity + ad pixels (Meta, LinkedIn, Microsoft UET) — only when NEXT_PUBLIC_ANALYTICS=true.
 // Dormant on staging so test traffic never pollutes production data.
 export default function Analytics() {
   if (!ANALYTICS.on) return null;
@@ -43,6 +43,13 @@ export default function Analytics() {
           `}</Script>
           <noscript><img height="1" width="1" style={{ display: "none" }} alt="" src={`https://www.facebook.com/tr?id=${ANALYTICS.metaPixel}&ev=PageView&noscript=1`} /></noscript>
         </>
+      )}
+      {ANALYTICS.bingUet && (
+        <Script id="bing-uet" strategy="afterInteractive">{`
+          (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"${ANALYTICS.bingUet}",enableAutoSpaTracking:true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},
+          n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},
+          i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","https://bat.bing.net/bat.js","uetq");
+        `}</Script>
       )}
       {ANALYTICS.linkedin && (
         <Script id="linkedin-insight" strategy="afterInteractive">{`
