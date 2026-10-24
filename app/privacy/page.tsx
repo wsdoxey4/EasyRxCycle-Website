@@ -4,7 +4,7 @@ import { SITE, abs } from "@/lib/site";
 
 const PATH = "/privacy";
 const TITLE = "Privacy Policy";
-const DESC = "How Easy Rx Cycle collects, uses, and protects your information — including our HIPAA posture, analytics, and payment handling.";
+const DESC = "How Easy Rx Cycle collects, uses, and protects your information — including our HIPAA posture, analytics, advertising, and payment handling.";
 
 export const metadata: Metadata = {
   title: TITLE, description: DESC, alternates: { canonical: PATH },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <PolicyPage title="Privacy Policy" updated="August 2026" intro={`${SITE.legalName} (DBA ${SITE.name}) respects your privacy. This policy explains what we collect, how we use it, and how we protect it.`}>
+    <PolicyPage title="Privacy Policy" updated="October 2026" intro={`${SITE.legalName} (DBA ${SITE.name}) respects your privacy. This policy explains what we collect, how we use it, and how we protect it.`}>
       <h2>Information we collect</h2>
       <ul>
         <li><strong>Information you provide</strong> — name, business, email, phone, and message when you request a quote, download a guide, subscribe, apply as a partner, or contact us.</li>
@@ -33,10 +33,15 @@ export default function Page() {
       </ul>
 
       <h2>How we share information</h2>
-      <p>We do <strong>not</strong> sell your personal information. We share it only with service providers who help us operate — for example, our payment processor (Stripe), email delivery (Resend), hosting and security (Cloudflare), and analytics (Google) — and only as needed to provide the service, or when required by law.</p>
+      <p>We do <strong>not</strong> sell your personal information. We share it only with service providers who help us operate — for example, our payment processor (Stripe), email delivery (Resend), hosting and security (Cloudflare), and analytics (Google) — and only as needed to provide the service, or when required by law. We also work with advertising platforms as described below.</p>
 
       <h2>Cookies &amp; analytics</h2>
       <p>We use cookies and analytics tools (including Google Analytics and Microsoft Clarity) to understand site usage. You can control cookies through your browser settings; disabling them may affect some site features.</p>
+
+      <h2>Advertising</h2>
+      <p>We advertise on platforms such as Google, Meta (Facebook and Instagram), LinkedIn, Microsoft, and OpenAI. These platforms may use cookies, pixels, and similar technologies on our site to measure our ads and to show our ads to people who have visited our site.</p>
+      <p>We may also share the email address or phone number of customers and contacts with these platforms, in hashed (encrypted) form, so they can show relevant ads to our existing customers, avoid showing them ads they don&rsquo;t need, or reach businesses similar to ours. The platforms use this information only to match and deliver ads for us and do not keep unmatched data.</p>
+      <p>You can opt out of personalized ads through your <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google ad settings</a>, your Meta and LinkedIn ad preferences, or industry tools such as <a href="https://optout.aboutads.info" target="_blank" rel="noopener">optout.aboutads.info</a>, or ask us to exclude you from customer-list advertising by contacting us.</p>
 
       <h2>Data retention &amp; security</h2>
       <p>We keep information only as long as needed for the purposes above or as required by law and regulation (for example, disposal records are retained per DEA and state requirements). We use administrative, technical, and physical safeguards to protect your information.</p>
