@@ -139,7 +139,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/school-health-waste-disposal-guide">Free School & K-12 health guide (PDF)</a></li>
-                <li><a href="/blog/p-listed-and-u-listed-drugs-explained">P-listed & U-listed drugs explained</a></li>
+                <li><a href="/blog/rcra-p-list-u-list-pharmaceuticals">P-listed & U-listed drugs explained</a></li>
                 <li><a href="/blog/diabetic-needle-disposal">Diabetic needle disposal</a></li>
               </ul></div>
             </div>

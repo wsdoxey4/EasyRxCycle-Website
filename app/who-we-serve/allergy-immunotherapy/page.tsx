@@ -138,7 +138,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/allergy-clinic-waste-disposal-guide">Free Allergy & immunotherapy guide (PDF)</a></li>
-                <li><a href="/blog/p-listed-and-u-listed-drugs-explained">P-listed & U-listed drugs explained</a></li>
+                <li><a href="/blog/rcra-p-list-u-list-pharmaceuticals">P-listed & U-listed drugs explained</a></li>
                 <li><a href="/blog/sharps-container-sizes-and-types">Sharps container sizes & types</a></li>
               </ul></div>
             </div>

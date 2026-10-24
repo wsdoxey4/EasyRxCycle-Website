@@ -561,7 +561,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle",
     "/blog/glp-1-pen-disposal",
     "/blog/niosh-hazardous-drug-list-explained",
-    "/blog/p-listed-and-u-listed-drugs-explained",
     "/blog/is-nicotine-hazardous-waste",
     "/blog/how-to-dispose-of-controlled-substances",
     "/blog/how-to-fill-out-dea-form-222",

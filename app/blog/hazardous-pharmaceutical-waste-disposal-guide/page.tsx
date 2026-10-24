@@ -72,7 +72,7 @@ export default function Page() {
                   <li dangerouslySetInnerHTML={H("<strong>U-listed</strong> &mdash; hazardous but non-acute: a long list of drugs and chemicals.")} />
                   <li dangerouslySetInnerHTML={H("<strong>D-code (characteristic)</strong> &mdash; drugs that are ignitable, corrosive, reactive, or toxic.")} />
                 </ul>
-                <p dangerouslySetInnerHTML={H("Many hazardous drugs also appear on the <a href=\"/blog/niosh-hazardous-drug-list-explained\">NIOSH hazardous drug list</a>, and our <a href=\"/blog/p-listed-and-u-listed-drugs-explained\">P- and U-listed explainer</a> breaks the lists down.")} />
+                <p dangerouslySetInnerHTML={H("Many hazardous drugs also appear on the <a href=\"/blog/niosh-hazardous-drug-list-explained\">NIOSH hazardous drug list</a>, and our <a href=\"/blog/rcra-p-list-u-list-pharmaceuticals\">P- and U-listed explainer</a> breaks the lists down.")} />
 
                 <h2 id="subpartp" dangerouslySetInnerHTML={H("The Subpart P standard")} />
                 <p dangerouslySetInnerHTML={H("Healthcare facilities and reverse distributors manage hazardous pharmaceutical waste under <strong>40 CFR Part 266 <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste\">Subpart P</a></strong> &mdash; the EPA&rsquo;s management standard that sets accumulation, labeling, and shipping rules, and that banned sewering (flushing) hazardous drugs. Your state may be more stringent than the federal floor.")} />

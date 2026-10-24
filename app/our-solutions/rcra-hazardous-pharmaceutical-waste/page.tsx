@@ -155,7 +155,7 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">RCRA hazardous guides</span><h2>Learn more about hazardous drug waste.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               <a className="svc" href="/blog/hazardous-pharmaceutical-waste-disposal-guide"><h4>Hazardous pharma waste guide</h4><p>RCRA, P/U/D lists, Subpart P, disposal &amp; cost.</p></a>
-              <a className="svc" href="/blog/p-listed-and-u-listed-drugs-explained"><h4>P-listed &amp; U-listed drugs</h4><p>The EPA lists, explained.</p></a>
+              <a className="svc" href="/blog/rcra-p-list-u-list-pharmaceuticals"><h4>P-listed &amp; U-listed drugs</h4><p>The EPA lists, explained.</p></a>
               <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste"><h4>RCRA Subpart P</h4><p>The management standard &amp; sewering ban.</p></a>
               <a className="svc" href="/blog/is-nicotine-hazardous-waste"><h4>Is nicotine hazardous waste?</h4><p>A common P-listed surprise.</p></a>
               <a className="svc" href="/blog/niosh-hazardous-drug-list-explained"><h4>NIOSH hazardous drug list</h4><p>How it relates to RCRA and USP 800.</p></a>

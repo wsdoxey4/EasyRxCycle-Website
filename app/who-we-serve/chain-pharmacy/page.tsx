@@ -144,7 +144,7 @@ export default function Page() {
                 <li><a href="/resources/chain-pharmacy-waste-disposal-guide">Free Chain pharmacies guide (PDF)</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-pharmacies">Controlled drug disposal for pharmacies</a></li>
                 <li><a href="/blog/best-reverse-distributors-a-comparison">Best reverse distributors compared</a></li>
-                <li><a href="/blog/p-listed-and-u-listed-drugs-explained">P-listed & U-listed drugs explained</a></li>
+                <li><a href="/blog/rcra-p-list-u-list-pharmaceuticals">P-listed & U-listed drugs explained</a></li>
               </ul></div>
             </div>
           </div>
