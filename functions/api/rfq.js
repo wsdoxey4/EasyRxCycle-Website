@@ -3,6 +3,9 @@
 //      RESEND_API_KEY, RESEND_FROM (verified), RFQ_NOTIFY_EMAIL; optional HUBSPOT_PIPELINE/HUBSPOT_DEALSTAGE.
 
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
+// Exact SMS opt-in wording shown next to the quote form's texting checkbox (components/QuoteForm.tsx) — stored with
+// each opt-in as the consent record. Change both together.
+const SMS_CONSENT_TEXT = "Text me about my quote and orders. By checking this box, you agree to receive text messages from Easy Rx Cycle at the phone number above about your quote, orders and account. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.";
 const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { ...CORS, "Content-Type": "application/json" } });
 
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
@@ -20,6 +23,7 @@ export async function onRequestPost({ request, env }) {
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, error: "Bad request" }, 400); }
   if (d.company_website) return json({ ok: true });                 // honeypot
+  d.smsConsent = d.sms_consent === "yes" && Boolean(d.phone);       // texting only with an explicit, separate opt-in
   if (!d.name || !d.email) return json({ ok: false, error: "Name and email are required." }, 400);
 
   const results = {};
@@ -127,7 +131,7 @@ async function createDeal(env, contactId, d) {
 function summary(d) {
   return [
     d.role && `Role/ICP: ${d.role}`, d.streams && `Waste streams: ${d.streams}`,
-    d.volume && `Volume: ${d.volume}`, d.consent && `Marketing: ${d.consent}`,
+    d.volume && `Volume: ${d.volume}`, d.consent && `Marketing: ${d.consent}`, d.phone && `Texts: ${d.smsConsent ? "Opted in" : "Not opted in"}`,
     d.message && `Message: ${d.message}`, d.pageUri && `Source: ${d.pageUri}`,
   ].filter(Boolean).join("\n");
 }
@@ -160,6 +164,7 @@ function toPortalQuote(env, d) {
       name: d.name, email: d.email, company: d.org || null, phone: d.phone || null,
       role: d.role || null, streams: d.streams || null, volume: d.volume || null, message: d.message || null,
       source: d.channel || "website", page_uri: d.pageUri || null, utm: { ...(d.utm || {}), channel: d.channel || null },
+      sms_consent: d.smsConsent, sms_consent_at: d.smsConsent ? new Date().toISOString() : null, sms_consent_text: d.smsConsent ? SMS_CONSENT_TEXT : null,
     }),
   });
 }
@@ -195,7 +200,7 @@ function shell(preheader, inner) {
 function detailsTable(d) {
   const rows = [
     ["Organization", d.org], ["Email", d.email], ["Phone", d.phone], ["You are", d.role],
-    ["Waste streams", d.streams], ["Volume", d.volume], ["Marketing", d.consent], ["Message", d.message],
+    ["Waste streams", d.streams], ["Volume", d.volume], ["Marketing", d.consent], ["Texts", d.phone ? (d.smsConsent ? "Opted in" : "Not opted in") : ""], ["Message", d.message],
   ].filter(([, v]) => v);
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:6px;">${
     rows.map(([k, v]) => `<tr>
@@ -265,9 +270,10 @@ function confirmEmail(d) {
     <p style="margin:0;color:#55646B;font-size:14px;">&mdash; The Easy Rx Cycle team</p>`;
   return shell("We've received your request — William will follow up shortly.", inner);
 }
-// (3) Personalized SMS via Twilio — only if the lead left a phone and Twilio creds are set.
+// (3) Personalized SMS via Twilio — only if the lead opted in to texts (separate checkbox) and Twilio creds are set.
 async function sendSms(env, d) {
   if (!d.phone) return "no phone";
+  if (!d.smsConsent) return "skipped (no SMS opt-in)";
   if (!(env.TWILIO_ACCOUNT_SID && env.TWILIO_AUTH_TOKEN && env.TWILIO_FROM)) return "skipped (Twilio not set)";
   const a = icpAngle(d.role);
   const body = `Easy Rx Cycle: Hi ${firstName(d.name)} — thanks for reaching out about ${a.noun} for your ${a.who}. William is putting your quote together and will follow up shortly. Call or text 501-904-2929 anytime. Reply STOP to opt out.`;

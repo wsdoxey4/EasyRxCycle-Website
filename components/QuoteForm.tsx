@@ -43,6 +43,7 @@ export default function QuoteForm() {
       message: String(fd.get("message") || ""),
       streams: fd.getAll("streams").join(", "),
       consent: fd.get("consent") ? "Opted in" : "Opted out",
+      sms_consent: fd.get("sms_consent") && fd.get("phone") ? "yes" : "",
       company_website: String(fd.get("company_website") || ""), // honeypot
       pageUri: typeof window !== "undefined" ? window.location.href : "",
     };
@@ -102,6 +103,11 @@ export default function QuoteForm() {
         <select name="volume" defaultValue=""><option value="" disabled>Select…</option>{VOLUMES.map((v) => <option key={v}>{v}</option>)}</select>
       </label>
       <label className="full">Anything else?<textarea name="message" placeholder="States you operate in, timing, current vendor, etc." /></label>
+      {/* SMS opt-in (TCPA / A2P 10DLC): unchecked by default and separate from email; keep in sync with SMS_CONSENT_TEXT in functions/api/rfq.js */}
+      <label className="full consent">
+        <input type="checkbox" name="sms_consent" value="yes" />
+        <span>Text me about my quote and orders. <span className="form-note">By checking this box, you agree to receive text messages from Easy Rx Cycle at the phone number above about your quote, orders and account. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.</span></span>
+      </label>
       <label className="full consent">
         <input type="checkbox" name="consent" value="yes" defaultChecked />
         <span>Keep me posted with occasional compliance tips &amp; offers. <span className="form-note">Uncheck to opt out &mdash; we&rsquo;ll still reply about your request.</span></span>
