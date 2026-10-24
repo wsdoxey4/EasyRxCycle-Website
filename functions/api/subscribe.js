@@ -17,15 +17,15 @@ export async function onRequestPost({ request, env }) {
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return json({ ok: false, error: "Please enter a valid email." }, 400);
 
   const results = {};
-  // Portal newsletter list (the list broadcast-send mails). Insert-only for the anon key; a repeat sign-up is a no-op.
+  // Portal newsletter list (the list broadcast-send mails). Insert-only for the anon key (no upsert: that needs read access).
   try {
     const url = env.PORTAL_SUPABASE_URL || "https://vaqcgzjgcdbqzhtxclyx.supabase.co";
     const key = env.PORTAL_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZhcWNnempnY2RicXpodHhjbHl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxNDA5NDAsImV4cCI6MjEwMTcxNjk0MH0.cGTC-8c_99is5l38O6CmqmrSE4y71FiylFzQuBTqgvM";   // public anon key (same fallback as rfq.js)
     if (key) {
-      const r = await fetch(`${url}/rest/v1/newsletter_subscribers?on_conflict=email`, { method: "POST",
-        headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "resolution=ignore-duplicates,return=minimal" },
+      const r = await fetch(`${url}/rest/v1/newsletter_subscribers`, { method: "POST",
+        headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "return=minimal" },
         body: JSON.stringify({ email: email.toLowerCase(), source: "website", page_uri: d.pageUri || null }) });
-      results.portal = r.status;
+      results.portal = r.status === 409 ? "already subscribed" : r.status;   // 409 = repeat sign-up (unique email)
     } else results.portal = "no key";
   } catch { results.portal = "error"; }
   if (env.HUBSPOT_PRIVATE_TOKEN) {
