@@ -34,6 +34,14 @@ export async function onRequestGet({ request, env }) {
     const pr = await fetch("https://api.stripe.com/v1/promotion_codes", { method: "POST", headers: sH, body: pf.toString() });
     out[s.code] = pr.ok ? "created" : (await pr.json()).error?.message?.slice(0, 80) || "exists";
   }
+  // Public first-order code for Google Merchant Center promotions (approved Oct 24, 2026): FIRST10, 10% off,
+  // one use per new customer, through Dec 31, 2026 (Central).
+  const ff = new URLSearchParams({ id: "first-order-10", percent_off: "10", duration: "once", name: "First order 10% off" });
+  const fr = await fetch("https://api.stripe.com/v1/coupons", { method: "POST", headers: sH, body: ff.toString() });
+  out.firstCoupon = fr.ok ? "created" : (await fr.json()).error?.code || "exists";
+  const fp = new URLSearchParams({ coupon: "first-order-10", code: "FIRST10", "restrictions[first_time_transaction]": "true", expires_at: String(Math.floor(new Date("2027-01-01T05:59:59Z").getTime() / 1000)) });
+  const fpr = await fetch("https://api.stripe.com/v1/promotion_codes", { method: "POST", headers: sH, body: fp.toString() });
+  out.FIRST10 = fpr.ok ? "created" : (await fpr.json()).error?.message?.slice(0, 80) || "exists";
   return json({ ok: true, result: out });
 }
 
