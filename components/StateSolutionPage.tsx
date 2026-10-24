@@ -117,6 +117,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
             <ul className="covers" style={{ marginTop: "22px" }}>
               {stream.compBullets(s).map((b) => (<li key={b.label}>{check}<span><strong>{b.label}:</strong> {b.text}</span></li>))}
             </ul>
+            {stream.blogGuide && (<p style={{ marginTop: "18px" }}>For the full rules, packaging and treatment options, read <a href={stream.blogGuide.href}>{stream.blogGuide.label}</a>.</p>)}
             <StateSnapshot s={s} />
           </div>
         </section>

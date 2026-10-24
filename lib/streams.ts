@@ -22,6 +22,7 @@ export type Stream = {
   guideSlug: string;        // /resources/{guideSlug} + exit-intent slug
   guideTitle: string;       // lead-magnet band title
   guideBody: string;        // lead-magnet band body
+  blogGuide?: { href: string; label: string }; // in-depth article linked from the compliance block (internal-link support)
   kitLabel: string;         // primary CTA label ("Shop a kit" / "Get a quote")
   metaTitle: (s: StateInfo) => string;
   metaDesc: (s: StateInfo) => string;
@@ -139,6 +140,7 @@ const biohazard: Stream = {
   guideSlug: "biohazard-rmw-disposal-guide",
   guideTitle: "The Biohazard & RMW Disposal Guide",
   guideBody: "OSHA's Bloodborne Pathogens Standard, DOT shipping rules, what counts as regulated medical waste, and how any site disposes of it compliantly — plus a checklist and FAQ.",
+  blogGuide: { href: "/blog/biohazardous-waste-disposal-for-healthcare-facilities/", label: "the complete guide to biohazardous waste disposal" },
   kitLabel: "Shop a kit",
   metaTitle: (s) => `Biohazard & Medical Waste Disposal in ${s.name}`,
   metaDesc: (s) => `Biohazard and medical waste disposal in ${s.cities.slice(0, 2).join(", ")} and all of ${s.name}. OSHA- & DOT-compliant mail-back kits and pickup, documented on every order.`,
