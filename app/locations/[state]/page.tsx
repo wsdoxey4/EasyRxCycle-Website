@@ -22,10 +22,14 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   const s = stateBySlug(state);
   if (!s) return {};
   const path = `${BASE}/${s.slug}`;
-  const title = `Medical Waste Disposal in ${s.name} | Mail-Back`;
-  const desc = `DEA-registered medical waste disposal in ${s.name} — sharps, biohazard, pharmaceutical, controlled, RCRA & chemo — by mail-back or pickup for ${s.cities[0]} and statewide.`;
+  // City-first wording: these pages rank for "[city] medical waste" searches, so the snippet should say the city.
+  // Absolute title (no brand suffix) keeps the city inside Google's ~60-character cutoff.
+  const dc = s.slug === "washington-dc";
+  const title = dc ? "Washington, DC Medical Waste Disposal | Pickup & Mail-Back" : `${s.name} Medical Waste Disposal | ${s.cities[0]} & Statewide`;
+  const where = dc ? "Washington, DC" : `${s.cities.slice(0, 2).join(", ")} and all of ${s.name}`;
+  const desc = `Medical waste mail-back and pickup in ${where}: sharps, biohazard, pharmaceutical & DEA controlled substances. No contracts, Certificate of Destruction included.`;
   return {
-    title, description: desc, alternates: { canonical: path },
+    title: { absolute: title }, description: desc, alternates: { canonical: path },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description: desc, url: abs(path), images: [{ url: SITE.ogImage }] },
   };
 }

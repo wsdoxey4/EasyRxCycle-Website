@@ -7,8 +7,8 @@ import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/rcra-p-list-u-list-pharmaceuticals";
-const TITLE = "RCRA P-List & U-List Pharmaceuticals: The Examples";
-const DESC = "Which drugs are RCRA P-listed (acute) and U-listed (toxic) hazardous waste, plus characteristic D-codes. Accurate pharmacy examples and empty-container rules.";
+const TITLE = "P-Listed & U-Listed Drugs: RCRA Hazardous Waste Examples";
+const DESC = "Which drugs are RCRA P-listed (acute) and U-listed (toxic) hazardous waste, with pharmacy examples, the warfarin, nicotine, and epinephrine fine print, D-codes, and empty-container rules.";
 
 export const metadata: Metadata = {
   title: TITLE, description: DESC, alternates: { canonical: PATH },
@@ -20,7 +20,7 @@ const faqs = [{"q": "What is the difference between P-listed and U-listed drugs?
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-16", dateModified: "2026-08-16", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2026-08-16", dateModified: "2026-10-24", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
