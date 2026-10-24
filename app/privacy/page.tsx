@@ -39,7 +39,7 @@ export default function Page() {
       <p>We use cookies and analytics tools (including Google Analytics and Microsoft Clarity) to understand site usage. You can control cookies through your browser settings; disabling them may affect some site features.</p>
 
       <h2>Advertising</h2>
-      <p>We advertise on platforms such as Google, Meta (Facebook and Instagram), LinkedIn, Microsoft, and OpenAI. These platforms may use cookies, pixels, and similar technologies on our site to measure our ads and to show our ads to people who have visited our site.</p>
+      <p>We advertise on platforms such as Google, Meta (Facebook and Instagram), LinkedIn, Microsoft, AdRoll, and OpenAI. These platforms may use cookies, pixels, and similar technologies on our site to measure our ads and to show our ads to people who have visited our site.</p>
       <p>We may also share the email address of customers and contacts, and phone numbers other than those collected through our text-messaging program, with these platforms in hashed (encrypted) form, so they can show relevant ads to our existing customers, avoid showing them ads they don&rsquo;t need, or reach businesses similar to ours. The platforms use this information only to match and deliver ads for us and do not keep unmatched data.</p>
       <p>You can opt out of personalized ads through your <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google ad settings</a>, your Meta and LinkedIn ad preferences, or industry tools such as <a href="https://optout.aboutads.info" target="_blank" rel="noopener">optout.aboutads.info</a>, or ask us to exclude you from customer-list advertising by contacting us.</p>
 

@@ -1,9 +1,23 @@
 "use client";
 
 import Script from "next/script";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { ANALYTICS } from "@/lib/site";
 
-// Loads GA4 (gtag) + GTM + Microsoft Clarity + ad pixels (Meta, LinkedIn, Microsoft UET) — only when NEXT_PUBLIC_ANALYTICS=true.
+// AdRoll's snippet tracks only the first page load; client-side navigations need their own pageView.
+function AdRollRouteViews() {
+  const path = usePathname();
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    const w = window as unknown as { adroll?: { track?: (...a: unknown[]) => void } };
+    try { w.adroll?.track?.("pageView"); } catch {}
+  }, [path]);
+  return null;
+}
+
+// Loads GA4 (gtag) + GTM + Microsoft Clarity + ad pixels (Meta, LinkedIn, Microsoft UET, AdRoll) — only when NEXT_PUBLIC_ANALYTICS=true.
 // Dormant on staging so test traffic never pollutes production data.
 export default function Analytics() {
   if (!ANALYTICS.on) return null;
@@ -50,6 +64,19 @@ export default function Analytics() {
           n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},
           i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","https://bat.bing.net/bat.js","uetq");
         `}</Script>
+      )}
+      {ANALYTICS.adrollAdv && ANALYTICS.adrollPix && (
+        <>
+          <Script id="adroll-pixel" strategy="afterInteractive">{`
+            adroll_adv_id="${ANALYTICS.adrollAdv}";adroll_pix_id="${ANALYTICS.adrollPix}";adroll_version="2.0";
+            (function(w,d,e,o,a){w.adroll_tag_source=w.adroll_tag_source||"manual";w.__adroll_loaded=true;w.adroll=w.adroll||[];
+            w.adroll.f=['setProperties','identify','track','identify_email','get_cookie'];var roundtripUrl="https://s.adroll.com/j/"+adroll_adv_id+"/roundtrip.js";
+            for(a=0;a<w.adroll.f.length;a++){w.adroll[w.adroll.f[a]]=w.adroll[w.adroll.f[a]]||(function(n){return function(){w.adroll.push([n,arguments])}})(w.adroll.f[a])}
+            e=d.createElement('script');o=d.getElementsByTagName('script')[0];e.async=1;e.src=roundtripUrl;o.parentNode.insertBefore(e,o);})(window,document);
+            adroll.track("pageView");
+          `}</Script>
+          <AdRollRouteViews />
+        </>
       )}
       {ANALYTICS.linkedin && (
         <Script id="linkedin-insight" strategy="afterInteractive">{`

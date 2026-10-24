@@ -61,6 +61,8 @@ export const ANALYTICS = {
   metaPixel: process.env.NEXT_PUBLIC_META_PIXEL || "2102144507047431",  // Meta Pixel — conversion tracking + retargeting audiences
   linkedin: process.env.NEXT_PUBLIC_LINKEDIN_PARTNER || "9623498",       // LinkedIn Insight Tag — conversion tracking + retargeting audiences
   bingUet: process.env.NEXT_PUBLIC_BING_UET || "187283214",              // Microsoft Ads UET tag — conversion tracking + remarketing
+  adrollAdv: process.env.NEXT_PUBLIC_ADROLL_ADV || "KBJJ75I6GJHDHAEUCWXZWR", // AdRoll pixel — retargeting audiences + conversions
+  adrollPix: process.env.NEXT_PUBLIC_ADROLL_PIX || "NDLUVR3ZW5AEJPATO5IO2Q",
 };
 
 // Stripe publishable key (public — safe on the client) for the on-domain embedded checkout.
