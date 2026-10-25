@@ -71,6 +71,7 @@ export async function onRequestPost({ request, env }) {
     const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
     await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
+    if (s.total_details?.amount_discount > 0) await rewardReferrer(env, db, s, buyer).catch(() => {});
     return _resp;
   }
 
@@ -401,6 +402,43 @@ function resendSend(env, to, subject, html, replyTo) {
 function esc(s = "") { return String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
 function shell(inner) {
   return `<!doctype html><html><body style="margin:0;background:#f5faf8;font-family:Arial,Helvetica,sans-serif;color:#123A44;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5faf8;padding:24px 12px;"><tr><td align="center"><table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4ecea;"><tr><td style="background:#005770;padding:16px 28px;"><span style="color:#fff;font-size:19px;font-weight:bold;">Easy <span style="color:#7ad3ab;">Rx</span> Cycle</span></td></tr><tr><td style="padding:28px;">${inner}</td></tr><tr><td style="background:#0c2f38;padding:18px 28px;color:#9fb4b9;font-size:12px;line-height:1.6;">Easy Rx Cycle &middot; <a href="tel:5019042929" style="color:#9fd7c8;text-decoration:none;">501-904-2929</a> &middot; <a href="mailto:sales@easyrxcycle.com" style="color:#9fd7c8;text-decoration:none;">sales@easyrxcycle.com</a><br><span style="color:#6f8990;">DEA-Registered &middot; EPA-Compliant &middot; Certificate of Destruction on every order</span></td></tr></table></td></tr></table></body></html>`;
+}
+
+// ---- Referral reward: the new customer's order used a referrer's personal code (see referral.js) → record it and
+// email the referrer a single-use $25 thank-you code. Keyed on the session id so webhook retries never double-reward. ----
+async function rewardReferrer(env, db, s, buyer) {
+  if (!env.STRIPE_SECRET_KEY) return;
+  const full = await stripeGet(`checkout/sessions/${s.id}?expand[]=total_details.breakdown`, env.STRIPE_SECRET_KEY);
+  const promoIds = (full?.total_details?.breakdown?.discounts || []).map((d) => d.discount?.promotion_code).filter(Boolean);
+  for (const pid of promoIds) {
+    const promo = await stripeGet(`promotion_codes/${typeof pid === "string" ? pid : pid.id}`, env.STRIPE_SECRET_KEY);
+    if (promo?.metadata?.kind !== "referral") continue;
+    const refId = promo.metadata.referrer_client_id;
+    const [ref] = await db(`referral_codes?client_id=eq.${encodeURIComponent(refId)}&select=code,email`).then((r) => r.json()).catch(() => []);
+    if (!ref?.email || ref.email === buyer.email) return;                       // no self-referrals
+    const dup = await db(`referrals?order_session=eq.${encodeURIComponent(s.id)}&select=id`).then((r) => r.json()).catch(() => []);
+    if (Array.isArray(dup) && dup.length) return;
+    // Single-use $25 thank-you code for the referrer.
+    const sH = { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`, "Content-Type": "application/x-www-form-urlencoded", "Stripe-Version": "2024-06-20" };
+    let reward = null;
+    for (let i = 0; i < 3 && !reward; i++) {
+      const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let r = ""; for (let k = 0; k < 6; k++) r += A[Math.floor(Math.random() * A.length)];
+      const pf = new URLSearchParams({ coupon: "referral-25", code: `THANKS-${r}`, max_redemptions: "1", "metadata[kind]": "referral-reward", "metadata[referrer_client_id]": refId, "metadata[referred_session]": s.id });
+      const pr = await fetch("https://api.stripe.com/v1/promotion_codes", { method: "POST", headers: sH, body: pf.toString() });
+      if (pr.ok) reward = await pr.json();
+    }
+    await db(`referrals`, { method: "POST", headers: { Prefer: "resolution=ignore-duplicates,return=minimal" }, body: JSON.stringify({ code: ref.code, referrer_client_id: refId, new_email: buyer.email, order_session: s.id, order_total_cents: s.amount_total || null, reward_code: reward?.code || null, reward_promo_id: reward?.id || null }) });
+    if (env.RESEND_API_KEY && env.RESEND_FROM) {
+      if (reward) await resendSend(env, ref.email, "Thank you for the referral: $25 off your next order", shell(`
+        <h1 style="margin:0 0 10px;font-size:22px;color:#123A44;">Thank you for sending a colleague our way.</h1>
+        <p style="margin:0 0 14px;color:#55646B;font-size:15px;line-height:1.55;">Someone you referred just placed their first order with your code. As promised, here's <b>$25 off your next order</b>:</p>
+        <div style="background:#f1f7f5;border:1px dashed #33C089;border-radius:11px;padding:14px 18px;margin:0 0 16px;font-size:22px;font-weight:bold;color:#005770;letter-spacing:.06em;text-align:center;">${esc(reward.code)}</div>
+        <p style="margin:0 0 16px;color:#55646B;font-size:14px;line-height:1.55;">Enter it at checkout at <a href="https://easyrxcycle.com/shop" style="color:#005770;font-weight:bold;">easyrxcycle.com/shop</a>. It works once. Your personal referral code <b>${esc(ref.code)}</b> keeps working, so share it again anytime.</p>
+        <p style="margin:0;color:#123A44;">— William<br><span style="color:#7a8f95;font-size:13px;">Easy Rx Cycle</span></p>`)).catch(() => {});
+      await resendSend(env, OPS, `Referral: ${buyer.email} used ${ref.code}`, shell(`<p style="margin:0;font-size:14px;line-height:1.6;"><b>New referral order.</b><br>New customer: ${esc(buyer.email)} (${usd(s.amount_total)})<br>Referred by: ${esc(ref.email)} · code ${esc(ref.code)}<br>Thank-you code sent: ${esc(reward?.code || "FAILED — create one by hand")}</p>`)).catch(() => {});
+    }
+    return;
+  }
 }
 
 // ---- Lifecycle emails: payment-failed (dunning), cancellation, refund (best-effort) ----
