@@ -24,7 +24,7 @@ export async function onRequestGet({ request, env }) {
   for (const o of orders) n[o.client_id] = (n[o.client_id] || 0) + 1;
   const repeat = Object.keys(n).filter((id) => n[id] >= 2);
   const have = new Set((await db(`referral_codes?select=client_id&limit=10000`).then((r) => r.json()).catch(() => [])).map((r) => r.client_id));
-  const todo = repeat.filter((id) => !have.has(id)).slice(0, 40);
+  const todo = repeat.filter((id) => !have.has(id)).slice(0, 15);   // Workers cap subrequests per call; the daily cron picks up the rest
   if (!todo.length) return json({ ok: true, minted: 0, eligible: repeat.length });
   const clients = await db(`clients?id=in.(${todo.join(",")})&select=id,name,contact_first_name,contact_email,billing_email`).then((r) => r.json()).catch(() => []);
 
