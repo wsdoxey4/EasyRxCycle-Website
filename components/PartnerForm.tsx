@@ -10,6 +10,7 @@ const CHANNELS = [
   "3PL / fulfillment",
   "Broker / independent rep",
   "Manufacturer (recall / destruction)",
+  "Association / member group",
   "Other",
 ];
 const SLUG_TO_LABEL: Record<string, string> = {
@@ -17,13 +18,17 @@ const SLUG_TO_LABEL: Record<string, string> = {
   "distributors-wholesalers": "Distributor / wholesaler",
   "3pls-fulfillment": "3PL / fulfillment",
   brokers: "Broker / independent rep",
+  associations: "Association / member group",
 };
 const SIZES = ["Just exploring", "A handful of accounts", "Dozens of accounts", "Hundreds+ / national", "Not sure yet"];
+const MEMBER_SIZES = ["Under 250 members", "250–1,000 members", "1,000–5,000 members", "5,000+ members"];
 
-export default function PartnerForm() {
+// variant "association": the /associations page — member-count question and association wording.
+export default function PartnerForm({ variant }: { variant?: "association" } = {}) {
+  const assoc = variant === "association";
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [err, setErr] = useState("");
-  const [channel, setChannel] = useState("");
+  const [channel, setChannel] = useState(assoc ? "Association / member group" : "");
 
   // Pre-fill the channel from a ?channel= param (channel pages link here).
   useEffect(() => {
@@ -67,8 +72,8 @@ export default function PartnerForm() {
         <div className="ok-badge">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.2 4.2L19 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </div>
-        <h3>Application received.</h3>
-        <p>Our partnerships team will reach out to get you set up. Prefer to talk now? Call <b>501-904-2929</b>.</p>
+        <h3>{assoc ? "Thanks — we got it." : "Application received."}</h3>
+        <p>{assoc ? "We'll reply within one business day with the content and next steps." : "Our partnerships team will reach out to get you set up."} Prefer to talk now? Call <b>501-904-2929</b>.</p>
       </div>
     );
   }
@@ -76,18 +81,20 @@ export default function PartnerForm() {
   return (
     <form className="rfq" onSubmit={onSubmit}>
       <label>Full name*<input name="name" required autoComplete="name" /></label>
-      <label>Company*<input name="org" required autoComplete="organization" /></label>
+      <label>{assoc ? "Association*" : "Company*"}<input name="org" required autoComplete="organization" /></label>
       <label>Work email*<input name="email" type="email" required autoComplete="email" /></label>
       <label>Phone<input name="phone" type="tel" autoComplete="tel" /></label>
-      <label className="full">Partner type*
-        <select name="channel" required value={channel} onChange={(e) => setChannel(e.target.value)}>
-          <option value="" disabled>Select…</option>{CHANNELS.map((c) => <option key={c}>{c}</option>)}
-        </select>
+      {assoc ? <input type="hidden" name="channel" value={channel} /> : (
+        <label className="full">Partner type*
+          <select name="channel" required value={channel} onChange={(e) => setChannel(e.target.value)}>
+            <option value="" disabled>Select…</option>{CHANNELS.map((c) => <option key={c}>{c}</option>)}
+          </select>
+        </label>
+      )}
+      <label className="full">{assoc ? "How many members?" : "How many accounts could you bring?"}
+        <select name="size" defaultValue=""><option value="" disabled>Select…</option>{(assoc ? MEMBER_SIZES : SIZES).map((v) => <option key={v}>{v}</option>)}</select>
       </label>
-      <label className="full">How many accounts could you bring?
-        <select name="size" defaultValue=""><option value="" disabled>Select…</option>{SIZES.map((v) => <option key={v}>{v}</option>)}</select>
-      </label>
-      <label className="full">Tell us about your business<textarea name="message" placeholder="Your accounts, territory, current vendors, and how you'd like to work with us." /></label>
+      <label className="full">{assoc ? "What would help your members?" : "Tell us about your business"}<textarea name="message" placeholder={assoc ? "Newsletter article, a member webinar, a member offer, or a resource-page listing." : "Your accounts, territory, current vendors, and how you'd like to work with us."} /></label>
       <label className="full consent">
         <input type="checkbox" name="consent" value="yes" defaultChecked />
         <span>Keep me posted with partner updates &amp; compliance news. <span className="form-note">Uncheck to opt out &mdash; we&rsquo;ll still reply about your application.</span></span>
@@ -95,7 +102,7 @@ export default function PartnerForm() {
       <input className="hp" type="text" name="company_website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="rfq-submit">
         <button className="btn btn-primary" type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : <>Apply to partner <span className="ar">→</span></>}
+          {status === "sending" ? "Sending…" : <>{assoc ? "Request member content" : "Apply to partner"} <span className="ar">→</span></>}
         </button>
         <span className="form-note">We reply same day · no obligation</span>
       </div>
