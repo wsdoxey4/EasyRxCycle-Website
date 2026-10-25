@@ -14,6 +14,11 @@ const SHOWS = {
   "aahp":      { name: "2026 AAHP",            city: "Little Rock, AR", icp: "Pharmacy & health systems", code: "AAHP10", expires: "2026-11-22" },
   "arkansas-stop-overdose-summit": { name: "2026 Arkansas Stop Overdose Summit", city: "Fort Smith, AR", icp: "Overdose prevention & medication disposal", code: "STOPOD10", expires: "2026-12-17" },
   "ashp-midyear": { name: "2026 ASHP Midyear Clinical Meeting & Exhibition", city: "Orlando, FL", icp: "Health-system pharmacy", code: "ASHP10", expires: "2027-01-08" },
+  "chicago-midwinter-2027": { name: "Chicago Midwinter 2027", city: "Chicago, IL", icp: "Dental practices & groups", code: "CDS10", expires: "2027-03-29" },
+  "apha-2027": { name: "APhA2027", city: "Charlotte, NC", icp: "Pharmacists & pharmacy teams", code: "APHA10", expires: "2027-04-22" },
+  "asca-2027": { name: "ASCA 2027", city: "Orlando, FL", icp: "Ambulatory surgery centers", code: "ASCA10", expires: "2027-05-03" },
+  "iveccs-2027": { name: "IVECCS 2027", city: "Grapevine, TX", icp: "Veterinary & equine", code: "IVECCS27", expires: "2027-10-12" },
+  "ncpa-2027": { name: "NCPA 2027", city: "San Antonio, TX", icp: "Independent pharmacies", code: "NCPA10", expires: "2027-10-28" },
 };
 const COUPON_ID = "tradeshow-10";   // 10% off, once — shared by every show promo code
 
