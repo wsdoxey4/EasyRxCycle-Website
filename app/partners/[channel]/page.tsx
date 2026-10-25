@@ -258,7 +258,7 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)", paddingBottom: "0" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,48px)" }}>

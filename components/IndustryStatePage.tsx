@@ -155,7 +155,7 @@ export default function IndustryStatePage({ ind, s }: { ind: Industry; s: StateI
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "0" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
         <section className="sec" style={{ paddingTop: "0" }}>
           <div className="wrap">

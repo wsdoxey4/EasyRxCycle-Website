@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/track";
 
-const HIDE_AFTER = new Date("2026-11-01T00:00:00-05:00");
+const HIDE_AFTER = new Date("2026-10-25T00:00:00-05:00");   // off the day after Take Back Day (was Nov 1)
 
 export default function TakeBackBanner() {
   const [show, setShow] = useState(false);

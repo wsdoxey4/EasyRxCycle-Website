@@ -69,7 +69,7 @@ export default function Page() {
         <CaseStudyProof icp="veterinary" />
 
         <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "clamp(20px,3vw,32px)" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "0" }}>

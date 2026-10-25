@@ -162,7 +162,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         )}
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,40px)", paddingBottom: "clamp(20px,3vw,32px)" }}>
-          <div className="wrap" style={{ maxWidth: "860px" }}><TrustBar heading="Every engagement, guaranteed" /></div>
+          <div className="wrap" style={{ maxWidth: "860px" }}><TrustBar heading="Every engagement, documented" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "0" }}>

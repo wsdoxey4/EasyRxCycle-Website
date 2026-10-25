@@ -84,7 +84,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main id="main">
-        <section className="subhero" style={{ paddingBottom: "clamp(28px,4vw,44px)" }}>
+        <section className="subhero pdp-crumbs" style={{ paddingBottom: "clamp(28px,4vw,44px)" }}>
           <div className="wrap">
             <Breadcrumbs items={[{ name: "Shop", href: "/shop" }, { name: k.name }]} />
           </div>
@@ -99,8 +99,15 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
                   : <div className="pdp-ph" aria-hidden="true"><span>{k.name.split(" ")[0]}</span><small>Product photo coming soon</small></div>}
               </div>
               <div className="pdp-buy" id="buy">
-                <span className="eyebrow">Mail-back kit</span>
-                <h1 className="ph1" style={{ fontSize: "clamp(26px,3.4vw,38px)", marginTop: "8px" }}>{k.name}</h1>
+                {/* On phones the big photo is hidden and this thumbnail sits beside the title, so price, sizes and
+                    Add to cart fit on the first screen (shopping/ad visitors land here). */}
+                <div className="pdp-head">
+                  {img && <img src={img} alt="" aria-hidden="true" className="pdp-thumb" />}
+                  <div>
+                    <span className="eyebrow">Mail-back kit</span>
+                    <h1 className="ph1" style={{ fontSize: "clamp(26px,3.4vw,38px)", marginTop: "8px" }}>{k.name}</h1>
+                  </div>
+                </div>
                 <p className="lead" style={{ marginTop: "12px" }}>{k.tagline}</p>
                 <ProductBuy category={k.category} />
                 <BuyConfidence category={k.category} />
@@ -150,7 +157,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(24px,3vw,36px)" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>

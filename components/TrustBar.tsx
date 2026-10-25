@@ -17,7 +17,7 @@ const tick = (
 
 export default function TrustBar({ heading }: { heading?: string }) {
   return (
-    <div className="trustbar" role="group" aria-label={heading || "Compliance and guarantees"}>
+    <div className="trustbar" role="group" aria-label={heading || "Compliance and certifications"}>
       {heading && <span className="tb-head">{heading}</span>}
       <ul className="tb-list">
         {POINTS.map((p) => (

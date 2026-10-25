@@ -147,7 +147,7 @@ export default function Page() {
 
         <CaseStudyProof solution="sharps-disposal" />
         <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "0" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <ServiceStates service="sharps-disposal" label="Sharps Disposal" />

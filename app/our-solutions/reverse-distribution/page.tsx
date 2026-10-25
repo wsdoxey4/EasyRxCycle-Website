@@ -151,7 +151,7 @@ export default function Page() {
 
         <CaseStudyProof solution="reverse-distribution" />
         <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "0" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>

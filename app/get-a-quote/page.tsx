@@ -54,7 +54,7 @@ export default function Page() {
         </section>
 
         <section className="sec" style={{ paddingTop: "0", paddingBottom: "clamp(20px,3vw,32px)" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(36px,5vw,60px)" }}>

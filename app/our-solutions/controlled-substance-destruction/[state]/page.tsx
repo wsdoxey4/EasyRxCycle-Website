@@ -189,7 +189,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
 
         <CaseStudyProof solution="controlled-substance-destruction" />
         <section className="sec" style={{ paddingTop: "clamp(30px,4.5vw,52px)", paddingBottom: "0" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, guaranteed" /></div>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         {/* CTA */}
