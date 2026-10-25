@@ -24,7 +24,7 @@ export default function ProductBuy({ category }: { category: string }) {
         <span className="buy-per">{plan === "auto" ? " / delivery" : " each"}</span>
       </div>
 
-      <fieldset className="buy-sizes">
+      <fieldset className={"buy-sizes" + (items.every((p) => p.size.length <= 11) ? " buy-sizes-compact" : "")}>
         <legend>Choose a size</legend>
         {items.map((p) => (
           <label key={p.sku} className={"buy-size" + (p.sku === sku ? " on" : "")}>

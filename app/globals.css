@@ -665,9 +665,10 @@ header.site .wrap{position:relative;}
   .pdp-thumb{display:block;flex:0 0 84px;width:84px;height:84px;object-fit:contain;border:1px solid var(--line);border-radius:12px;background:#fff;}
   .pdp-head .ph1{margin-top:4px!important;}
   .pdp-crumbs .wrap > *{padding-top:10px!important;padding-bottom:4px!important;margin:0!important;}
-  .pdp-buy .buy-sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
-  .pdp-buy .buy-size{padding:9px 10px;gap:6px;font-size:13.5px;min-width:0;}
-  .pdp-buy .buy-size .bs-name{white-space:nowrap;}
+  /* Two columns only when every size name is short (e.g. "1.25 Gallon"); long names ("50 items / 20 lbs") keep full rows. */
+  .pdp-buy .buy-sizes-compact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+  .pdp-buy .buy-sizes-compact .buy-size{padding:9px 10px;gap:6px;font-size:13.5px;min-width:0;}
+  .pdp-buy .buy-sizes-compact .bs-name{white-space:nowrap;}
 }
 .pdp-ph,.pdp-photo{width:100%;border-radius:18px;border:1px solid var(--line);}
 .pdp-photo{display:block;object-fit:cover;}
