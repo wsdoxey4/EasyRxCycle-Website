@@ -44,7 +44,7 @@ export default function Page() {
       <p>You can opt out of personalized ads through your <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google ad settings</a>, your Meta and LinkedIn ad preferences, or industry tools such as <a href="https://optout.aboutads.info" target="_blank" rel="noopener">optout.aboutads.info</a>, or ask us to exclude you from customer-list advertising by contacting us.</p>
 
       <h2>Text messages (SMS)</h2>
-      <p>If you check the texting box on our quote form, or choose text updates at checkout, we may send text messages to the number you provide about your quote, orders and account. Message frequency varies, and message and data rates may apply. Reply <strong>STOP</strong> to opt out at any time or <strong>HELP</strong> for help, or contact us at <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>. Consent to receive texts is not a condition of purchase.</p>
+      <p>If you check the texting box on our quote form, we may send text messages to the number you provide about your quote, orders and account. Message frequency varies, and message and data rates may apply. Reply <strong>STOP</strong> to opt out at any time or <strong>HELP</strong> for help, or contact us at <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>. Consent to receive texts is not a condition of purchase.</p>
       <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text-messaging opt-in data and consent are not shared with any third parties, except service providers (such as our messaging provider) that deliver messages on our behalf.</p>
 
       <h2>Data retention &amp; security</h2>
