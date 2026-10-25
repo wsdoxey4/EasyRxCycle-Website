@@ -67,7 +67,7 @@ export async function onRequestPost({ request, env }) {
     const source = s.mode === "subscription" ? "autoship" : "shop";
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
     const m = s.metadata || {};
-    const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null };
+    const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null, gbraid: m.attr_gbraid || null, wbraid: m.attr_wbraid || null, msclkid: m.attr_msclkid || null };
     const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
     await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
@@ -220,7 +220,8 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
       body: JSON.stringify({ client_id: clientId, site_id: siteId, source, stream, status: "ordered",
         amount_cents: amount, placed_at: placedAt, ext_ref: extRef, subscription_ref: subscriptionRef, payment_ref: paymentRef || null,
         partner_id: partnerId, commission_cents: Math.round(amount * commissionPct / 100), price_review: priceReview, onsite: kind === "on",
-        attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null, attr_gclid: attribution?.gclid || null }),
+        attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null, attr_gclid: attribution?.gclid || null,
+        attr_gbraid: attribution?.gbraid || null, attr_wbraid: attribution?.wbraid || null, attr_msclkid: attribution?.msclkid || null }),
     }).then((r) => r.json()).catch(() => null);
     const orderId = Array.isArray(ord) ? ord[0]?.id : ord?.id;
     if (!orderId) continue;

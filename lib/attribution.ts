@@ -5,7 +5,7 @@
 export type Attribution = {
   source: string;                    // utm_source, else the derived channel
   channel: string;                   // organic | paid_search | paid_social | email | social | sms | outbound | events | referral | direct
-  utm: Record<string, string>;       // raw utm_* + gclid
+  utm: Record<string, string>;       // raw utm_* + ad click IDs (gclid, gbraid, wbraid, msclkid)
   referrer: string;
   landing: string;                   // first landing path
   first_ts: string;
@@ -22,7 +22,8 @@ function deriveChannel(utm: Record<string, string>, referrer: string): string {
   // UTM builder stamps the channel key directly into utm_medium — honor it first.
   if (CHANNEL_KEYS.has(m)) return m;
   if (CHANNEL_KEYS.has(s)) return s;
-  const paid = !!utm.gclid || /cpc|ppc|paid|display/.test(m);
+  if (utm.msclkid && !utm.gclid) return "bing";        // Microsoft Ads auto-tagging
+  const paid = !!(utm.gclid || utm.gbraid || utm.wbraid) || /cpc|ppc|paid|display/.test(m);
   const isSocialSrc = /facebook|instagram|meta|linkedin|twitter|x\.com|tiktok/.test(s);
   if (paid) return isSocialSrc ? "paid_social" : "paid_search";
   if (/email|newsletter|klaviyo|mailchimp|hubspot/.test(m) || /email/.test(s)) return "email";
@@ -46,11 +47,11 @@ export function captureAttribution(): void {
   try {
     const params = new URLSearchParams(window.location.search);
     const utm: Record<string, string> = {};
-    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach((k) => {
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "msclkid"].forEach((k) => {
       const v = params.get(k); if (v) utm[k] = v;
     });
     const hasExisting = !!localStorage.getItem(KEY);
-    // Keep first-touch: only (re)write if nothing stored yet, or this visit carries explicit UTM/gclid.
+    // Keep first-touch: only (re)write if nothing stored yet, or this visit carries explicit UTM or an ad click ID.
     if (hasExisting && Object.keys(utm).length === 0) return;
     const channel = deriveChannel(utm, document.referrer);
     const attr: Attribution = {

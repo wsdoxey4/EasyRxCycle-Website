@@ -139,6 +139,9 @@ async function handlePost({ request, env }) {
       put("attr_campaign", a.utm.utm_campaign);
       put("attr_icp", a.utm.utm_term);
       put("attr_gclid", a.utm.gclid);   // Google ad-click ID → server-side conversion upload to Google Ads
+      put("attr_gbraid", a.utm.gbraid); // Google iOS click IDs (no gclid on some iPhone traffic)
+      put("attr_wbraid", a.utm.wbraid);
+      put("attr_msclkid", a.utm.msclkid); // Microsoft ad-click ID → offline conversion push to Microsoft Ads
     }
   } catch { /* attribution is best-effort — never break checkout */ }
   // Abandoned-checkout recovery (one-time payments). The 1h expiry fires checkout.session.expired → our
