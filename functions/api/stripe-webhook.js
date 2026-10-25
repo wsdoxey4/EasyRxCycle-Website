@@ -387,7 +387,10 @@ async function orderEmails(env, { buyer, cart, totals, kind, orderRef }) {
       await resendSend(env, buyer.email, `Your Easy Rx Cycle order is confirmed${orderRef ? " — #" + orderRef : ""}`, receipt, "sales@easyrxcycle.com");
     }
     const alert = shell(`<span style="display:inline-block;background:${controlled ? "#fde7d3" : "#eafaf3"};color:${controlled ? "#b3671e" : "#1c9d6c"};font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">${label}${controlled ? " &middot; controlled" : ""}</span><h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${money(totals && totals.total)} &middot; ${who}</h1><p style="margin:0 0 10px;color:#55646B;font-size:14px;">Order #${esc(orderRef || "")} &middot; ${esc(buyer.email || "")}${buyer.phone ? " &middot; " + esc(buyer.phone) : ""}</p>${itemsTable}${ship ? `<p style="margin:16px 0 0;color:#55646B;font-size:13px;"><b>Ship to:</b><br>${ship}</p>` : ""}${controlled ? `<p style="margin:14px 0 0;color:#b3671e;font-size:13px;font-weight:bold;">&#9888; Controlled substances &mdash; customer must include the DEA manifest.</p>` : ""}`);
-    await resendSend(env, ["william@easyrxcycle.com", "sales@easyrxcycle.com"], `${label}${controlled ? " (controlled)" : ""} — ${money(totals && totals.total)} · ${buyer.name || buyer.email || "web"}`, alert, buyer.email);
+    // Renewals are a "ship today" alert for the shipping team as well (William's request 2026-10-25).
+    const alertTo = isRenew ? ["william@easyrxcycle.com", "sales@easyrxcycle.com", "summer@easyrxcycle.com", "tanner@arkansasredistributors.com"] : ["william@easyrxcycle.com", "sales@easyrxcycle.com"];
+    const alertHtml = isRenew ? alert.replace('<td style="padding:28px;">', '<td style="padding:28px;"><p style="margin:0 0 12px;font-weight:bold;color:#b3671e;font-size:15px;">This auto-ship order renewed today. Please ship it today.</p>') : alert;
+    await resendSend(env, alertTo, `${isRenew ? "Ship today: " : ""}${label}${controlled ? " (controlled)" : ""} — ${money(totals && totals.total)} · ${buyer.name || buyer.email || "web"}`, alertHtml, buyer.email);
   } catch {}
 }
 function resendSend(env, to, subject, html, replyTo) {
