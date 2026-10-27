@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { inCategory, money, autoshipCents, INTERVALS, EXPEDITE_CENTS, canExpedite } from "@/lib/shop";
+import { inCategory, money, autoshipCents, INTERVALS, EXPEDITE_CENTS, canExpedite, FREE_SHIP_THRESHOLD_CENTS } from "@/lib/shop";
+import { PDP_EXTRAS, REVIEWS } from "@/lib/pdpExtras";
 import { useCart } from "./CartProvider";
 
 export default function ProductBuy({ category }: { category: string }) {
@@ -11,6 +12,7 @@ export default function ProductBuy({ category }: { category: string }) {
   const [interval, setInterval] = useState("month");
   const [expedite, setExpedite] = useState(false);
   const { add } = useCart();
+  const x = PDP_EXTRAS[category];
 
   const sel = items.find((p) => p.sku === sku) || items[0];
   const canExp = canExpedite(sel.sku);
@@ -23,13 +25,14 @@ export default function ProductBuy({ category }: { category: string }) {
         {money(unit)}{plan === "auto" && <span className="buy-was">{money(sel.cents)}</span>}
         <span className="buy-per">{plan === "auto" ? " / delivery" : " each"}</span>
       </div>
+      {x?.includes && <p className="buy-includes">{x.includes}</p>}
 
-      <fieldset className={"buy-sizes" + (items.every((p) => p.size.length <= 11) ? " buy-sizes-compact" : "")}>
+      <fieldset className={"buy-sizes" + (items.every((p) => p.size.length <= 11) ? " buy-sizes-compact buy-sizes-grid" : "")}>
         <legend>Choose a size</legend>
         {items.map((p) => (
           <label key={p.sku} className={"buy-size" + (p.sku === sku ? " on" : "")}>
             <input type="radio" name="size" value={p.sku} checked={p.sku === sku} onChange={() => setSku(p.sku)} />
-            <span className="bs-name">{p.size}</span>
+            <span className="bs-name">{p.size}{x?.bestValue === p.size && <span className="bs-badge">Best value</span>}{x?.bestFor?.[p.size] && <small className="bs-hint">{x.bestFor[p.size]}</small>}</span>
             <span className="bs-price">{money(plan === "auto" ? autoshipCents(p.cents) : p.cents)}</span>
           </label>
         ))}
@@ -44,8 +47,8 @@ export default function ProductBuy({ category }: { category: string }) {
         </label>
         <label className={"buy-opt" + (plan === "auto" ? " on" : "")}>
           <input type="radio" name="plan" checked={plan === "auto"} onChange={() => setPlan("auto")} />
-          <span className="bo-main">Auto-ship &amp; save 20%<span className="bo-badge">Save 20%</span></span>
-          <span className="bo-sub">Recurring delivery, cancel anytime</span>
+          <span className="bo-main">Auto-ship · {money(autoshipCents(sel.cents))} each</span>
+          <span className="bo-sub">Save 20% · cancel anytime</span>
         </label>
         {plan === "auto" && (
           <label className="buy-freq">
@@ -79,8 +82,19 @@ export default function ProductBuy({ category }: { category: string }) {
       </div>
 
       <ul className="buy-trust">
-        <li>Prepaid both ways</li><li>Free shipping over $50</li><li>Certificate of Destruction</li><li>No contract</li>
+        <li>{sel.cents < FREE_SHIP_THRESHOLD_CENTS ? "Free shipping over $50" : category === "medication-onsite" ? "Free shipping" : "Shipping included both ways"}</li>
+        {(x?.trust || ["Certificate of Destruction", "No contract"]).map((t) => <li key={t}>{t}</li>)}
       </ul>
+
+      <div className="buy-reviews" aria-label="Customer reviews">
+        {REVIEWS.map((r) => (
+          <figure key={r.who} className="buy-review">
+            <span className="br-stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <blockquote>&ldquo;{r.quote}&rdquo;</blockquote>
+            <figcaption>{r.who}</figcaption>
+          </figure>
+        ))}
+      </div>
     </div>
   );
 }

@@ -1627,3 +1627,31 @@ header.site .wrap{position:relative;}
 .ind-not li{display:flex;gap:8px;align-items:flex-start;font-size:15px;color:var(--ink);}
 .ind-not li svg{flex-shrink:0;margin-top:3px;}
 @media(max-width:860px){.ind-stats{grid-template-columns:repeat(2,minmax(0,1fr));}}
+
+/* Product page conversion details (pdpExtras): what's included, fit, size hints, reviews */
+.buy-includes{margin:6px 0 2px;font-size:13.5px;line-height:1.45;color:var(--slate);max-width:52ch;}
+.pdp-fit{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:4px;font-size:13.5px;line-height:1.45;color:var(--ink);}
+.pdp-fit b{font-weight:600;}
+.pdp-fit-aud{color:var(--teal);font-weight:600;}
+.pdp-buy .buy-sizes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+.pdp-buy .buy-sizes-grid legend{grid-column:1/-1;}
+.pdp-buy .buy-sizes-grid .buy-size{padding:9px 11px;gap:8px;min-width:0;}
+.bs-name{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;min-width:0;}
+.bs-hint{flex-basis:100%;font-size:11.5px;color:var(--slate);font-weight:400;line-height:1.2;}
+.bs-badge{font-size:10.5px;font-weight:700;color:#04321f;background:#cdeee0;border-radius:99px;padding:1px 7px;letter-spacing:.02em;}
+.buy-reviews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px;}
+.buy-review{margin:0;padding:10px 12px;background:#f3f8f6;border-radius:10px;}
+.br-stars{color:#e3a51c;font-size:12px;letter-spacing:1px;}
+.buy-review blockquote{margin:3px 0 4px;font-size:13.5px;line-height:1.4;color:var(--ink);}
+.buy-review figcaption{font-size:11.5px;color:var(--slate);}
+@media(max-width:520px){.buy-reviews{grid-template-columns:1fr;}}
+@media(min-width:821px){
+  .pdp-buy .buy-plan{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .pdp-buy .buy-plan legend,.pdp-buy .buy-plan .buy-freq{grid-column:1/-1;}
+  .pdp-crumbs{padding-bottom:14px !important;}
+}
+@media(max-width:520px){
+  .pdp-buy .buy-sizes-grid .buy-size{flex-wrap:wrap;align-items:flex-start;row-gap:2px;}
+  .pdp-buy .buy-sizes-grid .bs-name{flex:1 1 0;}
+  .pdp-buy .buy-sizes-grid .bs-price{flex-basis:100%;padding-left:25px;font-size:14px;}
+}

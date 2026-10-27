@@ -9,6 +9,7 @@ import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
 import BuyConfidence from "@/components/cart/BuyConfidence";
 import TrackView from "@/components/TrackView";
+import { PDP_EXTRAS } from "@/lib/pdpExtras";
 import { inCategory, money, CATEGORIES, isShoppable, FREE_SHIP_THRESHOLD_CENTS, FLAT_SHIP_CENTS } from "@/lib/shop";
 import { KITS, KIT_BY_SLUG } from "@/lib/shopContent";
 import { SITE, abs } from "@/lib/site";
@@ -109,6 +110,12 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
                   </div>
                 </div>
                 <p className="lead" style={{ marginTop: "12px" }}>{k.tagline}</p>
+                {(() => { const x = PDP_EXTRAS[k.category]; return x && (x.audience || x.accepts) ? (
+                  <ul className="pdp-fit">
+                    {x.audience && <li className="pdp-fit-aud">{x.audience}</li>}
+                    {x.accepts && <li><b>Accepts:</b> {x.accepts}</li>}
+                    {x.notFor && <li><b>Not for:</b> {x.notFor}</li>}
+                  </ul>) : null; })()}
                 <ProductBuy category={k.category} />
                 <BuyConfidence category={k.category} />
               </div>
