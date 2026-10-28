@@ -62,6 +62,12 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
         "@type": "OfferShippingDetails",
         shippingRate: { "@type": "MonetaryAmount", value: s.cents >= FREE_SHIP_THRESHOLD_CENTS ? "0.00" : (FLAT_SHIP_CENTS / 100).toFixed(2), currency: "USD" },
         shippingDestination: { "@type": "DefinedRegion", addressCountry: "US" },
+        // Matches /shipping-policy: processed same or next business day, delivered in 2–6 business days.
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 6, unitCode: "DAY" },
+        },
       },
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy", applicableCountry: "US",

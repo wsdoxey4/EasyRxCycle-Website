@@ -36,7 +36,9 @@ const cat = (k: string) => CATEGORIES.find((c) => c.key === k)!;
 
 // Product schema for every kit (rich results). Shopping-ineligible kits (controlled/hazardous/chemo)
 // keep a Product node but emit NO Offer/AggregateOffer, so Google never auto-lists them.
-const productLd = KITS.map((kit) => {
+// Only shoppable kits get a Product node here: Google rejects a Product with no offers/review/rating, and the
+// shopping-ineligible kits (controlled / hazardous / chemo) deliberately emit no Offer.
+const productLd = KITS.filter((kit) => isShoppable({ category: kit.category })).map((kit) => {
   const prices = inCategory(kit.category).map((p) => p.cents / 100);
   const img = kit.img || cat(kit.category).image;
   const base: Record<string, unknown> = {
@@ -45,9 +47,7 @@ const productLd = KITS.map((kit) => {
     url: abs(`/shop/${kit.slug}`),
     ...(img ? { image: [abs(img)] } : {}),
   };
-  if (isShoppable({ category: kit.category })) {
-    base.offers = { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: Math.min(...prices).toFixed(2), highPrice: Math.max(...prices).toFixed(2), offerCount: prices.length, availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition" };
-  }
+  base.offers = { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: Math.min(...prices).toFixed(2), highPrice: Math.max(...prices).toFixed(2), offerCount: prices.length, availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition" };
   return base;
 });
 
