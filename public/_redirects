@@ -295,7 +295,7 @@
 /what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast /blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast/ 301
 
 # --- Hand-kept legacy rules (not in old sitemap) ---
-/medication-disposal/rx-destroyer-vs-drug-buster-vs-easy-rx-cycle /blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle/ 301
+/medication-disposal/rx-destroyer-vs-drug-buster-vs-easy-rx-cycle /our-solutions/medication-disposal-kit/ 301
 /our-solutions/specialty-services/mail-back-controlled-substance-waste /our-solutions/controlled-substance-destruction 301
 
 # --- Traffic URLs from GSC not in old sitemap (hubfs PDFs, /categories, /products) — 2026-08 migration ---
@@ -304,7 +304,7 @@
 /categories/sharps-containers /shop/sharps-mail-back-kit/ 301
 /what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast/what-is-pharmaceutical-waste-management-a-complete-guide-0 /blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast/ 301
 /hubfs/Annual-DEA-Audit-Readiness-Guide.pdf /resources/controlled-substance-destruction-guide/ 301
-/medication-disposal/rx-destroyer-vs-drug-buster-vs-easy-rx-cycle-best-medication-disposal-kit-in-2025 /blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle/ 301
+/medication-disposal/rx-destroyer-vs-drug-buster-vs-easy-rx-cycle-best-medication-disposal-kit-in-2025 /our-solutions/medication-disposal-kit/ 301
 /our-solutions/regulated-medical-waste-services /our-solutions/ 301
 /vetsnap-controlled-substance-kit /our-solutions/controlled-substance-destruction/ 301
 /hubfs/DEA-Form-222-Schedule-I-and-II-Transfers.pdf /blog/dea-form-41-requirements-and-pdf/ 301
@@ -362,3 +362,6 @@
 /blog/how-to-properly-destroy-controlled-drugs-222-41-and-cod-explained / 301
 /blog/how-to-dispose-of-biohazardous-waste-a-complete-guide-by-state / 301
 /blog/author/william-doxey/page/3 /blog/ 301
+# Comparison post taken down 2026-10-27 (William)
+/blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle /our-solutions/medication-disposal-kit/ 301
+/blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle/ /our-solutions/medication-disposal-kit/ 301

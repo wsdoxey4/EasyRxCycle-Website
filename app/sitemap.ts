@@ -558,7 +558,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/what-is-regulated-medical-waste",
     "/blog/red-bag-waste-what-goes-in-it",
     "/blog/hazardous-vs-non-hazardous-pharmaceutical-waste",
-    "/blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle",
     "/blog/glp-1-pen-disposal",
     "/blog/niosh-hazardous-drug-list-explained",
     "/blog/is-nicotine-hazardous-waste",

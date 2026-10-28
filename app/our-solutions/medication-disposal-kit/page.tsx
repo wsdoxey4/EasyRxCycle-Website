@@ -153,7 +153,7 @@ export default function Page() {
               <a className="svc" href="/blog/how-to-dispose-of-expired-medications-at-home"><h4>Dispose of expired meds at home</h4><p>Take-back, mail-back, deactivation, the flush list.</p></a>
               <a className="svc" href="/blog/glp-1-pen-disposal"><h4>GLP-1 pen disposal</h4><p>How to dispose of Ozempic-type pens safely.</p></a>
               <a className="svc" href="/blog/how-to-dispose-of-insulin-needles-at-home"><h4>Insulin needle disposal</h4><p>Sharps containers, mail-back, drop-off.</p></a>
-              <a className="svc" href="/blog/drug-buster-vs-rx-destroyer-vs-easy-rx-cycle"><h4>Deactivation kits compared</h4><p>Drug Buster vs. Rx Destroyer vs. us.</p></a>
+              <a className="svc" href="/blog/medication-take-back-programs-for-pharmacies"><h4>Take-back for pharmacies</h4><p>Mail-back kits vs. kiosks for pharmacies and facilities.</p></a>
               <a className="svc" href="/blog/diabetic-needle-disposal"><h4>Diabetic needle disposal</h4><p>The compliant options for at-home sharps.</p></a>
             </div>
           </div>
