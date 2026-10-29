@@ -130,10 +130,14 @@ export default function RootLayout({
         )}
         <Analytics />
         <Tracker />
+        {/* Cloudflare Email Obfuscation rewrites sales@ into /cdn-cgi/l/email-protection links, which crawlers (Ahrefs
+            Site Audit) report as a broken link on every page. These markers tell Cloudflare to leave the page's emails as-is. */}
+        <span hidden dangerouslySetInnerHTML={{ __html: "<!--email_off-->" }} />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
         {children}
+        <span hidden dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />
       </body>
     </html>
   );
