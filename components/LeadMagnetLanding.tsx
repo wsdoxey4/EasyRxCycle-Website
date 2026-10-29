@@ -7,6 +7,12 @@ import type { LeadMagnet } from "@/lib/leadMagnets";
 import { GUIDE_LINKS } from "@/lib/guideLinks";
 import { GUIDE_BODIES } from "@/lib/guideBodies";
 import { kitsForGuide } from "@/lib/guideKits";
+import { SITE, abs } from "@/lib/site";
+
+// Downloads that are sales documents, not articles: no Article schema even though they carry on-page copy.
+const NOT_ARTICLES = new Set(["capability-statement", "line-card", "sample-certificate-of-destruction"]);
+// From git history: the guide pages shipped 2026-08-13 and their on-page article copy (lib/guideBodies) on 2026-08-15.
+const PUBLISHED = "2026-08-13", MODIFIED = "2026-08-15";
 
 const check = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -17,8 +23,17 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
   const body = m.body ?? GUIDE_BODIES[m.slug];
   // Point readers at the kits this guide is about (skipped for non-guide magnets like the capability statement).
   const kits = m.slug === "capability-statement" ? [] : kitsForGuide([m.intro, ...m.bullets, ...(body ?? []).map((b) => b.h + " " + b.p)].join(" "), m.slug);
+  const path = `/resources/${m.slug}/`;
+  const articleLd = body?.length && !NOT_ARTICLES.has(m.slug) ? {
+    "@context": "https://schema.org",
+    "@type": "Article", "@id": `${abs(path)}#article`, headline: m.h1, description: m.desc,
+    author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey/") },
+    publisher: { "@id": `${SITE.url}/#organization` }, datePublished: PUBLISHED, dateModified: MODIFIED,
+    mainEntityOfPage: abs(path), image: abs(m.cover || SITE.ogImage), ...(m.industry ? { audience: { "@type": "Audience", audienceType: m.industry } } : {}),
+  } : null;
   return (
     <>
+      {articleLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />}
       <Header />
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(28px,4vw,44px)" }}>
