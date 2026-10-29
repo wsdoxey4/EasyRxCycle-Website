@@ -45,7 +45,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero">
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "DEA Form 41 & 222" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "DEA Form 41 & 222" }]} />
             <span className="eyebrow">Compliance guide · DEA forms</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "DEA Form 41 &amp; Form 222, <span style=\"color:var(--teal)\">explained.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Two DEA forms trip up more pharmacies than any others: Form 41 for destroying controlled substances, and Form 222 for ordering and transferring Schedule&nbsp;II drugs. Here&rsquo;s what each one is, when you need it, and how we handle the paperwork so it&rsquo;s done right." }} />
@@ -110,9 +110,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
-              <a className="svc" href="/our-solutions/reverse-distribution"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit and destroy the rest." }} /></a>
-              <a className="svc" href="/resources/certificate-of-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "What it proves and why it matters." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit and destroy the rest." }} /></a>
+              <a className="svc" href="/resources/certificate-of-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "What it proves and why it matters." }} /></a>
             </div>
           </div>
         </section>
@@ -138,7 +138,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>

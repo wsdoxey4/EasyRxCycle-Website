@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Get a quote for your pharmacy or health system — controlled substances, hazardous pharmaceuticals and more, with the paperwork done right.",
-  finalHref: "/who-we-serve/hospitals", finalLabel: "Health-system disposal",
+  finalHref: "/who-we-serve/hospitals/", finalLabel: "Health-system disposal",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at 2026 AAHP — Booth Special | Little Rock";

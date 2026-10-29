@@ -37,11 +37,11 @@ const person = {
 };
 
 const areas = [
-  { label: "Controlled substance destruction", href: "/our-solutions/controlled-substance-destruction" },
-  { label: "Reverse distribution", href: "/our-solutions/reverse-distribution" },
-  { label: "RCRA hazardous pharmaceutical waste", href: "/our-solutions/rcra-hazardous-pharmaceutical-waste" },
-  { label: "DEA Form 41 & documentation", href: "/blog/dea-form-41-requirements-and-pdf" },
-  { label: "Pharmaceutical waste compliance", href: "/our-solutions/pharmaceutical-waste-disposal" },
+  { label: "Controlled substance destruction", href: "/our-solutions/controlled-substance-destruction/" },
+  { label: "Reverse distribution", href: "/our-solutions/reverse-distribution/" },
+  { label: "RCRA hazardous pharmaceutical waste", href: "/our-solutions/rcra-hazardous-pharmaceutical-waste/" },
+  { label: "DEA Form 41 & documentation", href: "/blog/dea-form-41-requirements-and-pdf/" },
+  { label: "Pharmaceutical waste compliance", href: "/our-solutions/pharmaceutical-waste-disposal/" },
 ];
 
 export default function Page() {
@@ -52,7 +52,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "0" }}>
           <div className="wrap" style={{ maxWidth: "760px" }}>
-            <Breadcrumbs items={[{ name: "About", href: "/our-team" }, { name: AUTHOR.name }]} />
+            <Breadcrumbs items={[{ name: "About", href: "/our-team/" }, { name: AUTHOR.name }]} />
             <span className="eyebrow">Author</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>{AUTHOR.name}</h1>
             <p className="lead" style={{ marginTop: "12px" }}>
@@ -84,8 +84,8 @@ export default function Page() {
                 <h3>Have a regulated-waste question?</h3>
                 <p>Talk to our team about the compliant way to destroy any stream your facility generates — with a Certificate of Destruction every time.</p>
                 <div className="b">
-                  <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                  <a className="btn btn-outline-w" href="/resources">Browse the guides</a>
+                  <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                  <a className="btn btn-outline-w" href="/resources/">Browse the guides</a>
                 </div>
               </div>
             </div>

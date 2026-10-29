@@ -61,7 +61,7 @@ export default function Page() {
             <h1 className="ph1">Your questions, <span style={{ color: "var(--teal)" }}>answered.</span></h1>
             <p className="lead" style={{ marginTop: "16px", maxWidth: "60ch" }}>
               Everything from mail-back vs. pickup to controlled substances, pricing, and proof of destruction. Don&rsquo;t see yours?{" "}
-              <a href="/contact" style={{ color: "var(--teal)", fontWeight: 600 }}>Ask us directly</a>.
+              <a href="/contact/" style={{ color: "var(--teal)", fontWeight: 600 }}>Ask us directly</a>.
             </p>
           </div>
         </section>
@@ -88,8 +88,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/contact">Contact us <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-onteal" href="/contact/">Contact us <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
               </div>
             </div>
           </div>

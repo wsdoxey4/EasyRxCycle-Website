@@ -100,7 +100,7 @@ export default function Page() {
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
             <nav className="crumb" aria-label="Breadcrumb">
-              <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/our-solutions">Solutions</a>{" "}
+              <a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/our-solutions/">Solutions</a>{" "}
               <span aria-hidden="true">/</span> <span>Controlled Substance Destruction</span>
             </nav>
             <span className="eyebrow">Controlled substances · Schedules I–V</span>
@@ -112,8 +112,8 @@ export default function Page() {
               handled for you and a Certificate of Destruction on every order. No pickups, no contracts.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/controlled-substance-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/controlled-substance-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/controlled-kit.webp" alt="Easy Rx Cycle controlled substance mail-back kit" /></div>
@@ -200,7 +200,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Controlled destruction, in depth.</h2><p class=\"lead\">On-site waste, expired inventory, and the records that keep every event audit-ready under the DEA non-retrievable standard.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>On-site wasted & partial doses</h3><p>Drug wasted at the point of care — the partial vial, the leftover in a syringe after a dose.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Partial/wasted CII&ndash;CV doses</li><li>Leftover drug in syringes or vials</li><li>Discontinued patient doses</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Full sealed inventory for return (reverse distribution)</li><li>Non-controlled drug waste (pharmaceutical stream)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — waste must be witnessed and logged, then rendered non-retrievable; it may not simply be discarded.</p><p class=\"ws-meta\"><b>How to dispose</b> — An on-site controlled-substance destruction system or witnessed mail-back kit with a documented log.<span class=\"ws-tip\"><b>Tip:</b> Two-person witnessing at the moment of waste is the practice that survives an audit — record it in real time, not later.</span></p></div><div class=\"wstream\"><h3>Expired & unwanted inventory</h3><p>Stock that has expired or is no longer needed and cannot be returned for credit.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Expired CII&ndash;CV inventory</li><li>Recalled or discontinued controls</li><li>Non-creditable returns</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Creditable, in-date manufacturer returns (reverse distribution first)</li><li>Patient's own medication (take-back/mail-back)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — inventory destroyed on-site or transferred to a registrant for destruction; a DEA Form 41 documents surrendered/destroyed stock.</p><p class=\"ws-meta\"><b>How to dispose</b> — Registrant-to-registrant destruction with the Form 41 prepared and archived.<span class=\"ws-tip\"><b>Tip:</b> Schedule I and II transfers require a DEA Form 222 — keep the executed forms with your records.</span></p></div><div class=\"wstream\"><h3>Records & the non-retrievable standard</h3><p>Destruction is only compliant if it is documented and truly irreversible.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Witnessed waste logs</li><li>Form 41 for destroyed/surrendered stock</li><li>Certificates of Destruction retained</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Flushing or drain disposal (never compliant)</li><li>Trashing controls in general waste</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA 'non-retrievable' means the drug cannot be reconstituted or reclaimed — permanently and irreversibly destroyed.</p><p class=\"ws-meta\"><b>How to dispose</b> — Use a method verified to meet the non-retrievable standard, with a Certificate of Destruction on every event.<span class=\"ws-tip\"><b>Tip:</b> Keep controlled-substance destruction records for at least two years — longer where your state requires it.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for DEA registrants</span><h3>The Controlled Substance Destruction Guide</h3><p>The DEA non-retrievable standard, Form 41 & 222, witnessed waste, and how a registrant destroys controls right — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/controlled-substance-destruction-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for DEA registrants</span><h3>The Controlled Substance Destruction Guide</h3><p>The DEA non-retrievable standard, Form 41 & 222, witnessed waste, and how a registrant destroys controls right — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/controlled-substance-destruction-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -265,9 +265,9 @@ export default function Page() {
               <h2>Often paired with controlled destruction.</h2>
             </div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions"><h4>Reverse distribution</h4><p>Recover manufacturer credit on returnable Rx.</p></a>
-              <a className="svc" href="/our-solutions"><h4>Pharmaceutical waste</h4><p>Non-controlled Rx &amp; expired medications.</p></a>
-              <a className="svc" href="/our-solutions"><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharmaceutical waste.</p></a>
+              <a className="svc" href="/our-solutions/"><h4>Reverse distribution</h4><p>Recover manufacturer credit on returnable Rx.</p></a>
+              <a className="svc" href="/our-solutions/"><h4>Pharmaceutical waste</h4><p>Non-controlled Rx &amp; expired medications.</p></a>
+              <a className="svc" href="/our-solutions/"><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharmaceutical waste.</p></a>
             </div>
           </div>
         </section>
@@ -299,12 +299,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Controlled substance guides</span><h2>Get the DEA details right.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained"><h4>How to destroy controlled drugs</h4><p>Forms 222, 41 &amp; the COD explained.</p></a>
-              <a className="svc" href="/blog/dea-form-41-requirements-and-pdf"><h4>DEA Form 41</h4><p>Requirements and the PDF.</p></a>
-              <a className="svc" href="/blog/how-to-fill-out-dea-form-222"><h4>DEA Form 222</h4><p>How to fill it out, step by step.</p></a>
-              <a className="svc" href="/blog/controlled-substance-inventory-and-recordkeeping"><h4>Inventory &amp; recordkeeping</h4><p>Biennial inventory, logs, and retention.</p></a>
-              <a className="svc" href="/blog/drug-diversion-in-healthcare-prevention-and-disposal"><h4>Drug diversion</h4><p>Prevention, detection &amp; the disposal blind spot.</p></a>
-              <a className="svc" href="/blog/reverse-distribution-for-controlled-substances"><h4>Controlled-substance returns</h4><p>Reverse distribution for controls.</p></a>
+              <a className="svc" href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/"><h4>How to destroy controlled drugs</h4><p>Forms 222, 41 &amp; the COD explained.</p></a>
+              <a className="svc" href="/blog/dea-form-41-requirements-and-pdf/"><h4>DEA Form 41</h4><p>Requirements and the PDF.</p></a>
+              <a className="svc" href="/blog/how-to-fill-out-dea-form-222/"><h4>DEA Form 222</h4><p>How to fill it out, step by step.</p></a>
+              <a className="svc" href="/blog/controlled-substance-inventory-and-recordkeeping/"><h4>Inventory &amp; recordkeeping</h4><p>Biennial inventory, logs, and retention.</p></a>
+              <a className="svc" href="/blog/drug-diversion-in-healthcare-prevention-and-disposal/"><h4>Drug diversion</h4><p>Prevention, detection &amp; the disposal blind spot.</p></a>
+              <a className="svc" href="/blog/reverse-distribution-for-controlled-substances/"><h4>Controlled-substance returns</h4><p>Reverse distribution for controls.</p></a>
             </div>
           </div>
         </section>
@@ -321,7 +321,7 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/our-solutions">Shop destruction kits <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/our-solutions/">Shop destruction kits <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/#quote">Get a custom quote</a>
               </div>
             </div>
@@ -329,7 +329,7 @@ export default function Page() {
         </section>
       </main>
       <ExitIntentGuide slug="controlled-substance-destruction-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/controlled-substance-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/controlled-substance-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

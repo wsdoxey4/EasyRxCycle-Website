@@ -34,7 +34,7 @@ export default function TradeShowForm({ show, showName }: { show: string; showNa
           <div style={{ fontSize: 26, fontWeight: 700, letterSpacing: 1, color: "#123A44" }}>{code}</div>
         </div>
         <p>We emailed it to you too. One-time use, first order, expires in 30 days.</p>
-        <a className="btn btn-primary" href="/shop?utm_source=tradeshow&utm_medium=events&utm_campaign=onsite">Shop mail-back kits <span className="ar">→</span></a>
+        <a className="btn btn-primary" href="/shop/?utm_source=tradeshow&utm_medium=events&utm_campaign=onsite">Shop mail-back kits <span className="ar">→</span></a>
       </div>
     );
   }

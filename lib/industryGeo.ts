@@ -22,15 +22,15 @@ export type Industry = {
   stateStreams: string[];    // /our-solutions/{x}/{state}/ pages to link
 };
 
-const SH = { cat: "sharps", kit: "/shop/sharps-mail-back-kit", kitName: "Sharps Mail-Back Kit" };
-const BIO = { cat: "biohazard", kit: "/shop/biohazard-mail-back-kit", kitName: "Biohazard Mail-Back Kit" };
-const PH = { cat: "pharma", kit: "/shop/pharmaceutical-waste-mail-back-kit", kitName: "Pharmaceutical Waste Kit" };
-const CTL = { cat: "controlled", kit: "/shop/controlled-substance-mail-back-kit", kitName: "Controlled Substance Kit" };
-const MED = { cat: "medication", kit: "/shop/medication-mail-back-kit", kitName: "Medication Disposal Kit (Mail-Back)" };
-const ONS = { cat: "medication-onsite", kit: "/shop/on-site-medication-disposal-kit", kitName: "Medication Disposal Kit (On-Site)" };
-const RCRA = { cat: "hazardous", kit: "/shop/rcra-hazardous-mail-back-kit", kitName: "Hazardous (RCRA) Kit" };
-const CHM = { cat: "chemo", kit: "/shop/trace-chemo-mail-back-kit", kitName: "Trace Chemo Kit" };
-const ACR = { cat: "charcoal", kit: "/shop/activated-charcoal-take-back-kit", kitName: "Activated Charcoal Take-Back Kit" };
+const SH = { cat: "sharps", kit: "/shop/sharps-mail-back-kit/", kitName: "Sharps Mail-Back Kit" };
+const BIO = { cat: "biohazard", kit: "/shop/biohazard-mail-back-kit/", kitName: "Biohazard Mail-Back Kit" };
+const PH = { cat: "pharma", kit: "/shop/pharmaceutical-waste-mail-back-kit/", kitName: "Pharmaceutical Waste Kit" };
+const CTL = { cat: "controlled", kit: "/shop/controlled-substance-mail-back-kit/", kitName: "Controlled Substance Kit" };
+const MED = { cat: "medication", kit: "/shop/medication-mail-back-kit/", kitName: "Medication Disposal Kit (Mail-Back)" };
+const ONS = { cat: "medication-onsite", kit: "/shop/on-site-medication-disposal-kit/", kitName: "Medication Disposal Kit (On-Site)" };
+const RCRA = { cat: "hazardous", kit: "/shop/rcra-hazardous-mail-back-kit/", kitName: "Hazardous (RCRA) Kit" };
+const CHM = { cat: "chemo", kit: "/shop/trace-chemo-mail-back-kit/", kitName: "Trace Chemo Kit" };
+const ACR = { cat: "charcoal", kit: "/shop/activated-charcoal-take-back-kit/", kitName: "Activated Charcoal Take-Back Kit" };
 
 const CTL_FAQ = (s: StateInfo, who: string) => ({
   q: `Can a ${s.name} ${who} mail back expired controlled substances?`,
@@ -40,7 +40,7 @@ const CTL_FAQ = (s: StateInfo, who: string) => ({
 export const INDUSTRIES: Industry[] = [
   {
     slug: "dental", label: "Dental", name: "Dental practices", one: "dental practice", estab: "dentists",
-    board: (s) => `the ${s.name} dental board`, guide: "/resources/dental-waste-disposal-guide",
+    board: (s) => `the ${s.name} dental board`, guide: "/resources/dental-waste-disposal-guide/",
     lead: (s, n) => `Compliant mail-back disposal for the ${n} dental practices across ${s.name} — sharps, expired medications, sedation controlled substances and red-bag waste, with a Certificate of Destruction on every mail-back order. No hauler contract, no route fees.`,
     streams: [
       { name: "Sharps", what: "Needles, syringes, scalpel blades and endodontic files", ...SH },
@@ -65,7 +65,7 @@ export const INDUSTRIES: Industry[] = [
   },
   {
     slug: "veterinary", label: "Veterinary", name: "Veterinary clinics", one: "veterinary clinic", estab: "vet",
-    board: (s) => `the ${s.name} veterinary medical board`, guide: "/resources/veterinary-waste-disposal-guide",
+    board: (s) => `the ${s.name} veterinary medical board`, guide: "/resources/veterinary-waste-disposal-guide/",
     lead: (s, n) => `Compliant mail-back disposal for the ${n} veterinary clinics across ${s.name} — expired controlled drugs like ketamine and euthanasia solution, sharps, expired medications and red-bag waste, documented on every order.`,
     streams: [
       { name: "Controlled substances", what: "Ketamine, euthanasia solution, butorphanol and other expired Schedule II–V drugs", ...CTL },
@@ -90,7 +90,7 @@ export const INDUSTRIES: Industry[] = [
   },
   {
     slug: "independent-pharmacy", label: "Pharmacy", name: "Pharmacies", one: "pharmacy", estab: "pharmacies",
-    board: (s) => `the ${s.name} Board of Pharmacy`, guide: "/resources/pharmacy-waste-disposal-guide",
+    board: (s) => `the ${s.name} Board of Pharmacy`, guide: "/resources/pharmacy-waste-disposal-guide/",
     lead: (s, n) => `Compliant mail-back disposal for the ${n} pharmacies across ${s.name} — expired controlled substances with the DEA paperwork handled, non-hazardous and RCRA-hazardous drugs, patient take-back and immunization sharps.`,
     streams: [
       { name: "Controlled substances", what: "Expired Schedule II–V inventory, recalls and partial doses", ...CTL },
@@ -116,7 +116,7 @@ export const INDUSTRIES: Industry[] = [
   },
   {
     slug: "physician-offices", label: "Physician office", name: "Physician offices", one: "physician office", estab: "physicians",
-    board: (s) => `the ${s.name} medical board`, guide: "/resources/physician-office-waste-disposal-guide",
+    board: (s) => `the ${s.name} medical board`, guide: "/resources/physician-office-waste-disposal-guide/",
     lead: (s, n) => `Compliant mail-back disposal for the ${n} physician offices across ${s.name} — sharps, red-bag waste, expired medications and controlled substances, with no hauler contract and a Certificate of Destruction on every mail-back order.`,
     streams: [
       { name: "Sharps", what: "Needles, syringes, lancets and blades", ...SH },
@@ -141,7 +141,7 @@ export const INDUSTRIES: Industry[] = [
   },
   {
     slug: "nursing-homes", label: "Nursing home", name: "Nursing homes and long-term care", one: "long-term care facility", estab: "nursing",
-    board: (s) => `the ${s.name} health department`, guide: "/resources/nursing-home-waste-disposal-guide",
+    board: (s) => `the ${s.name} health department`, guide: "/resources/nursing-home-waste-disposal-guide/",
     lead: (s, n) => `Medication and sharps disposal for the ${n} nursing and long-term-care facilities across ${s.name} — on-site deactivation at the nursing station, documented destruction of the full containers, controlled substances and sharps.`,
     streams: [
       { name: "On-site deactivation", what: "Residents' discontinued medications, deactivated at the nursing station", ...ONS },
@@ -166,7 +166,7 @@ export const INDUSTRIES: Industry[] = [
   },
   {
     slug: "hospitals", label: "Hospital", name: "Hospitals", one: "hospital", estab: "hospitals",
-    board: (s) => `the ${s.name} health department`, guide: "/resources/hospital-waste-disposal-guide",
+    board: (s) => `the ${s.name} health department`, guide: "/resources/hospital-waste-disposal-guide/",
     lead: (s, n) => `Mail-back and scheduled pickup for the ${n} hospitals across ${s.name} — controlled substances, RCRA-hazardous drugs, trace chemo, sharps and red-bag waste from satellite units, pharmacies and clinics.`,
     streams: [
       { name: "Controlled substances", what: "Expired and wasted Schedule II–V drugs from pharmacy and units", ...CTL },

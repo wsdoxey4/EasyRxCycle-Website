@@ -42,7 +42,7 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "What Is Pharmaceutical Logistics?" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "What Is Pharmaceutical Logistics?" }]} />
               <span className="eyebrow">Pharmaceutical Logistics</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "What Is Pharmaceutical Logistics? A Simple Guide for Pharmacies" }} />
               <div className="byline">
@@ -72,9 +72,9 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "<strong>It typically includes:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Expired-drug handling and destruction" }} /><li dangerouslySetInnerHTML={{ __html: "Returns and recalls processing" }} /><li dangerouslySetInnerHTML={{ __html: "Secure drug transport coordination" }} /><li dangerouslySetInnerHTML={{ __html: "DEA compliance documentation" }} /><li dangerouslySetInnerHTML={{ __html: "Warehouse waste audits" }} /><li dangerouslySetInnerHTML={{ __html: "Inventory tracking support" }} /></ul>
             <h2 id="expired" dangerouslySetInnerHTML={{ __html: "What happens to expired or unsellable medications?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Non-sellable medications must be removed from the supply chain to prevent compliance violations and patient risk. A good partner identifies removal candidates, logs and tracks them, packages them for secure transport, provides a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>, and files the DEA paperwork (<a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a>). Controlled items route through <a href=\"/our-solutions/controlled-substance-destruction\">controlled substance destruction</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Non-sellable medications must be removed from the supply chain to prevent compliance violations and patient risk. A good partner identifies removal candidates, logs and tracks them, packages them for secure transport, provides a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>, and files the DEA paperwork (<a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>). Controlled items route through <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a>." }} />
             <h2 id="mailorder" dangerouslySetInnerHTML={{ __html: "Mail-order &amp; specialty pharmacies need cleanup too" }} />
-            <p dangerouslySetInnerHTML={{ __html: "High-volume mail-order and specialty operations face more returns, recalls, damaged shipments, and shelf-life issues &mdash; which makes reverse logistics and <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a> support essential rather than optional." }} />
+            <p dangerouslySetInnerHTML={{ __html: "High-volume mail-order and specialty operations face more returns, recalls, damaged shipments, and shelf-life issues &mdash; which makes reverse logistics and <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> support essential rather than optional." }} />
 
                 <div className="postcta">
                   <h3>Clean up your pharmaceutical supply chain.</h3>

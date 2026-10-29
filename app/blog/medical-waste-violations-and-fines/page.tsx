@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Medical Waste Violations & Fines" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Medical Waste Violations & Fines" }]} />
               <span className="eyebrow">Compliance</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Medical Waste Violations &amp; Fines: The Ones That Cost You")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Medical waste is regulated by five different agencies, and a single sloppy step can trigger more than one of them. The good news: almost every common violation is cheap to prevent and only expensive if you get cited. Here are the ones inspectors find most, what they can cost, and how to stay clear.")} />
@@ -63,7 +63,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="who" dangerouslySetInnerHTML={H("Who enforces medical waste rules")} />
-                <p dangerouslySetInnerHTML={H("Five layers, often at once: <strong>OSHA</strong> (worker safety), the <strong>DEA</strong> (controlled substances), the <strong>EPA and state environmental agencies</strong> (hazardous waste and treatment), the <strong>DOT</strong> (transport), and <strong>HHS/OCR</strong> for <a href=\"/blog/hipaa-compliant-medical-waste-disposal\">HIPAA</a> where waste carries patient information. Because they overlap, one mistake &mdash; say, tossing a labeled controlled-substance vial in the trash &mdash; can violate several rules simultaneously.")} />
+                <p dangerouslySetInnerHTML={H("Five layers, often at once: <strong>OSHA</strong> (worker safety), the <strong>DEA</strong> (controlled substances), the <strong>EPA and state environmental agencies</strong> (hazardous waste and treatment), the <strong>DOT</strong> (transport), and <strong>HHS/OCR</strong> for <a href=\"/blog/hipaa-compliant-medical-waste-disposal/\">HIPAA</a> where waste carries patient information. Because they overlap, one mistake &mdash; say, tossing a labeled controlled-substance vial in the trash &mdash; can violate several rules simultaneously.")} />
 
                 <h2 id="common" dangerouslySetInnerHTML={H("The most common violations")} />
                 <ul>
@@ -79,14 +79,14 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("Penalties scale with the agency and severity. <strong>OSHA</strong> fines run from thousands to tens of thousands of dollars per violation &mdash; far higher for willful or repeat findings. <strong>DEA</strong> civil penalties for controlled-substance recordkeeping and disposal failures can reach tens of thousands per violation, and put your registration at risk. <strong>EPA/RCRA</strong> and state hazardous-waste penalties add up fast. Beyond the dollars, there&rsquo;s the audit time, the remediation, and the reputational hit &mdash; all to avoid a few container and paperwork basics.")} />
 
                 <h2 id="avoid" dangerouslySetInnerHTML={H("How to avoid them")} />
-                <p dangerouslySetInnerHTML={H("Segregate every stream into the correct container, keep your OSHA plan and training current, render controlled substances non-retrievable with <a href=\"/blog/dea-form-41-requirements-and-pdf\">Form 41/222</a> documentation, keep <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous drugs</a> out of regular pharmaceutical waste, and get a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a> on every disposal. The paperwork is what proves compliance when an inspector asks &mdash; and the right disposal vendor handles most of it for you.")} />
+                <p dangerouslySetInnerHTML={H("Segregate every stream into the correct container, keep your OSHA plan and training current, render controlled substances non-retrievable with <a href=\"/blog/dea-form-41-requirements-and-pdf/\">Form 41/222</a> documentation, keep <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous drugs</a> out of regular pharmaceutical waste, and get a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every disposal. The paperwork is what proves compliance when an inspector asks &mdash; and the right disposal vendor handles most of it for you.")} />
 
                 <div className="postcta">
                   <h3>Make compliance the easy part.</h3>
                   <p>One vendor for every stream, DEA-registered destruction, and a Certificate of Destruction on every order &mdash; the documentation that keeps an inspection uneventful.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/resources/medical-waste-compliance-checklist">Free compliance checklist</a>
+                    <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/resources/medical-waste-compliance-checklist/">Free compliance checklist</a>
                   </div>
                 </div>
 

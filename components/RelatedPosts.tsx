@@ -21,8 +21,8 @@ export default function RelatedPosts({ slug, heading = "Keep reading" }: { slug:
           </a>
           <div className="relband-guides">
             <span className="relband-lbl">Go deeper</span>
-            {guide && <a href={`/resources/${guide}`}>Free {label} guide</a>}
-            <a href="/get-a-quote">Get a quote</a>
+            {guide && <a href={`/resources/${guide}/`}>Free {label} guide</a>}
+            <a href="/get-a-quote/">Get a quote</a>
           </div>
         </div>
       )}
@@ -30,7 +30,7 @@ export default function RelatedPosts({ slug, heading = "Keep reading" }: { slug:
       <h4>{heading}</h4>
       <div className="bloglist bloglist-related">
         {related.map((p) => (
-          <a className="postcard" key={p.slug} href={`/blog/${p.slug}`}>
+          <a className="postcard" key={p.slug} href={`/blog/${p.slug}/`}>
             <span className="cat">{CLUSTER_LABEL[p.cluster] || "Guide"}</span>
             <h3>{p.title}</h3>
             <p>{p.excerpt}</p>

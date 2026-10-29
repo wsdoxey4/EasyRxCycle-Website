@@ -13,7 +13,7 @@ import { STATES, stateBySlug, stateSlugs, streamIndexable } from "@/lib/geo";
 import { notFound } from "next/navigation";
 
 const BASE = "/our-solutions/controlled-substance-destruction";
-const SHOP = "/shop/controlled-substance-mail-back-kit";
+const SHOP = "/shop/controlled-substance-mail-back-kit/";
 
 export function generateStaticParams() {
   return stateSlugs().map((state) => ({ state }));
@@ -79,13 +79,13 @@ export default async function Page({ params }: { params: Promise<{ state: string
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-              <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Controlled Substance Destruction", href: `${BASE}/` }, { name: s.name }]} />
+              <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Controlled Substance Destruction", href: `${BASE}/` }, { name: s.name }]} />
               <span className="eyebrow">Controlled substances · {s.name}</span>
               <h1 className="ph1">Controlled substance destruction in <span style={{ color: "var(--teal)" }}>{s.name}.</span></h1>
               <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>Non-retrievable destruction of expired, unused, and returned controlled medications for {cityList} and communities across {s.name} — Schedules I–V, with DEA Form 41 &amp; 222 handled for you and a Certificate of Destruction on every order. No pickups to wait on, no contracts.</p>
               <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
                 <a className="btn btn-primary" href={SHOP}>Shop a kit <span className="ar">→</span></a>
-                <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
               </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/controlled-kit.webp" alt={`Easy Rx Cycle controlled substance mail-back kit for ${s.name}`} width={1200} height={656} /></div>
@@ -117,7 +117,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
 
         {/* lead magnet */}
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for {s.name} DEA registrants</span><h3>The Controlled Substance Destruction Guide</h3><p>The DEA non-retrievable standard, Form 41 &amp; 222, witnessed waste, and how a {s.name} registrant destroys controls right — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/controlled-substance-destruction-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for {s.name} DEA registrants</span><h3>The Controlled Substance Destruction Guide</h3><p>The DEA non-retrievable standard, Form 41 &amp; 222, witnessed waste, and how a {s.name} registrant destroys controls right — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/controlled-substance-destruction-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         {/* how it works */}
@@ -203,14 +203,14 @@ export default async function Page({ params }: { params: Promise<{ state: string
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href={SHOP}>Shop a kit <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="controlled-substance-destruction-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: SHOP }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: SHOP }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

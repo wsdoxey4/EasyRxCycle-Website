@@ -76,7 +76,7 @@ export default function Page() {
               </p>
               <p>
                 As our clients&rsquo; needs grew, so did we. We expanded from redistribution into full medical and pharmaceutical
-                waste management — developing our nationwide <a href="/shop">mail-back program</a> and advanced compliance
+                waste management — developing our nationwide <a href="/shop/">mail-back program</a> and advanced compliance
                 solutions aligned with DEA and EPA standards. In 2025 we rebranded as <strong>Easy Rx Cycle</strong> to reflect
                 that expanded scope and our reach across all 50 states.
               </p>
@@ -104,14 +104,14 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle</span><h2>Every stream, one accountable partner.</h2><p className="lead">If your healthcare business generates it, we destroy it — compliantly and documented.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(4,1fr)" }}>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4>Controlled substances</h4><p>Schedules I–V, DEA non-retrievable destruction.</p></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4>Pharmaceutical waste</h4><p>Expired &amp; unused non-hazardous Rx.</p></a>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4>Sharps</h4><p>Needles, syringes, lancets &amp; pen needles.</p></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>
-              <a className="svc" href="/our-solutions/trace-chemotherapy-waste"><h4>Trace chemo</h4><p>USP 800 hazardous-drug waste.</p></a>
-              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><h4>RCRA hazardous</h4><p>P/U-listed &amp; characteristic waste.</p></a>
-              <a className="svc" href="/our-solutions/reverse-distribution"><h4>Reverse distribution</h4><p>Recover credit on returnable Rx.</p></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4>Medication disposal</h4><p>Mail-back &amp; on-site kits.</p></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4>Controlled substances</h4><p>Schedules I–V, DEA non-retrievable destruction.</p></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4>Pharmaceutical waste</h4><p>Expired &amp; unused non-hazardous Rx.</p></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4>Sharps</h4><p>Needles, syringes, lancets &amp; pen needles.</p></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>
+              <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><h4>Trace chemo</h4><p>USP 800 hazardous-drug waste.</p></a>
+              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4>RCRA hazardous</h4><p>P/U-listed &amp; characteristic waste.</p></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4>Reverse distribution</h4><p>Recover credit on returnable Rx.</p></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4>Medication disposal</h4><p>Mail-back &amp; on-site kits.</p></a>
             </div>
           </div>
         </section>
@@ -120,7 +120,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Leadership</span><h2>Meet the team.</h2><p className="lead">Decades of combined experience in DEA-compliant pharmaceutical and medical waste solutions — from our CEO and CRO to our directors of DEA compliance and regulatory affairs.</p></div>
             <div style={{ marginTop: "20px" }}>
-              <a className="btn btn-primary" href="/our-team">Meet the team <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/our-team/">Meet the team <span className="ar">→</span></a>
             </div>
           </div>
         </section>
@@ -138,8 +138,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our capabilities</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our capabilities</a>
               </div>
             </div>
           </div>

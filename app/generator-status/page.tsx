@@ -41,7 +41,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "0" }}>
           <div className="wrap" style={{ maxWidth: "820px" }}>
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "Generator Status Tool" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "Generator Status Tool" }]} />
             <span className="eyebrow">Free tool</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>
               Are you a <span style={{ color: "var(--teal)" }}>VSQG, SQG, or LQG?</span>
@@ -65,12 +65,12 @@ export default function Page() {
               <h2>Why generator status matters</h2>
               <p>
                 RCRA scales its requirements to how much hazardous waste you produce. A{" "}
-                <a href="/blog/medical-waste-generator-categories-vsqg-sqg-lqg">VSQG</a> has the lightest obligations;
+                <a href="/blog/medical-waste-generator-categories-vsqg-sqg-lqg/">VSQG</a> has the lightest obligations;
                 an LQG carries full manifesting, reporting, training, and contingency-planning duties. Misjudging your
                 category — or letting acute (P-listed) waste quietly push you into a higher tier — is a common and
                 expensive compliance gap. If your facility generates hazardous drugs, see{" "}
-                <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA hazardous drug disposal</a> and the{" "}
-                <a href="/blog/epa-subpart-p-explained">Subpart P rule</a> that governs how you count them.
+                <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA hazardous drug disposal</a> and the{" "}
+                <a href="/blog/epa-subpart-p-explained/">Subpart P rule</a> that governs how you count them.
               </p>
               <div className="postfaq">
                 <h2>Frequently asked questions</h2>

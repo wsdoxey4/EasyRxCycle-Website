@@ -31,43 +31,43 @@ type Card = { t: string; d: string; h: string; dl?: boolean };
 
 // Compliance reference explainers (all real pages) + RCRA/agency articles on the blog.
 const compliance: Card[] = [
-  { t: "USP 800 compliance", d: "What the standard requires for handling and disposing of hazardous drugs.", h: "/resources/usp-800" },
-  { t: "DEA Form 41 & 222", d: "When each form applies, and how controlled destruction stays compliant.", h: "/resources/dea-form-41-222" },
-  { t: "Certificate of Destruction", d: "What it proves and why auditors ask for it.", h: "/resources/certificate-of-destruction" },
-  { t: "OSHA / Bloodborne training", d: "The annual training the Bloodborne Pathogens Standard requires.", h: "/resources/bloodborne-training" },
-  { t: "RCRA Subpart P", d: "Hazardous pharmaceutical waste rules for healthcare generators.", h: "/blog/rcra-subpart-p-hazardous-pharmaceutical-waste" },
-  { t: "Who regulates drug waste?", d: "How DEA, EPA, and OSHA each govern your waste streams.", h: "/blog/who-regulates-pharmaceutical-waste-dea-epa-osha" },
+  { t: "USP 800 compliance", d: "What the standard requires for handling and disposing of hazardous drugs.", h: "/resources/usp-800/" },
+  { t: "DEA Form 41 & 222", d: "When each form applies, and how controlled destruction stays compliant.", h: "/resources/dea-form-41-222/" },
+  { t: "Certificate of Destruction", d: "What it proves and why auditors ask for it.", h: "/resources/certificate-of-destruction/" },
+  { t: "OSHA / Bloodborne training", d: "The annual training the Bloodborne Pathogens Standard requires.", h: "/resources/bloodborne-training/" },
+  { t: "RCRA Subpart P", d: "Hazardous pharmaceutical waste rules for healthcare generators.", h: "/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/" },
+  { t: "Who regulates drug waste?", d: "How DEA, EPA, and OSHA each govern your waste streams.", h: "/blog/who-regulates-pharmaceutical-waste-dea-epa-osha/" },
 ];
 
 // Free gated guides (lead magnets) — the 8 solution guides.
 const guides: Card[] = [
-  { t: "Sharps Disposal Compliance Guide", d: "OSHA & DOT rules, container sizing, mail-back.", h: "/resources/sharps-disposal-compliance-guide" },
-  { t: "Controlled Substance Destruction Guide", d: "Non-retrievable standard, Form 41 & 222.", h: "/resources/controlled-substance-destruction-guide" },
-  { t: "Pharmaceutical Waste Disposal Guide", d: "Segregating hazardous, non-hazardous & controlled.", h: "/resources/pharmaceutical-waste-disposal-guide" },
-  { t: "Biohazard & RMW Disposal Guide", d: "What's red-bag, packaging, and state rules.", h: "/resources/biohazard-rmw-disposal-guide" },
-  { t: "RCRA Hazardous Drug Waste Guide", d: "P/U-list, characteristic, Subpart P & the sewer ban.", h: "/resources/rcra-hazardous-drug-waste-guide" },
-  { t: "Reverse Distribution Guide", d: "Creditable returns vs. destruction, DSCSA.", h: "/resources/reverse-distribution-guide" },
-  { t: "Medication Mail-Back Kit Guide", d: "DEA-authorized collection, what's allowed.", h: "/resources/medication-mail-back-kit-guide" },
-  { t: "Trace Chemo Waste Guide", d: "Trace vs. bulk, RCRA-empty, USP 800.", h: "/resources/trace-chemotherapy-waste-guide" },
+  { t: "Sharps Disposal Compliance Guide", d: "OSHA & DOT rules, container sizing, mail-back.", h: "/resources/sharps-disposal-compliance-guide/" },
+  { t: "Controlled Substance Destruction Guide", d: "Non-retrievable standard, Form 41 & 222.", h: "/resources/controlled-substance-destruction-guide/" },
+  { t: "Pharmaceutical Waste Disposal Guide", d: "Segregating hazardous, non-hazardous & controlled.", h: "/resources/pharmaceutical-waste-disposal-guide/" },
+  { t: "Biohazard & RMW Disposal Guide", d: "What's red-bag, packaging, and state rules.", h: "/resources/biohazard-rmw-disposal-guide/" },
+  { t: "RCRA Hazardous Drug Waste Guide", d: "P/U-list, characteristic, Subpart P & the sewer ban.", h: "/resources/rcra-hazardous-drug-waste-guide/" },
+  { t: "Reverse Distribution Guide", d: "Creditable returns vs. destruction, DSCSA.", h: "/resources/reverse-distribution-guide/" },
+  { t: "Medication Mail-Back Kit Guide", d: "DEA-authorized collection, what's allowed.", h: "/resources/medication-mail-back-kit-guide/" },
+  { t: "Trace Chemo Waste Guide", d: "Trace vs. bulk, RCRA-empty, USP 800.", h: "/resources/trace-chemotherapy-waste-guide/" },
 ];
 
 // Popular how-to articles (all real blog posts).
 const howto: Card[] = [
-  { t: "How to dispose of sharps containers", d: "Mail-back vs. pickup, container rules, and state requirements.", h: "/blog/how-to-dispose-of-sharps-containers-a-complete-guide-by-state" },
-  { t: "How to dispose of controlled substances", d: "Non-retrievable destruction for pharmacies and clinics.", h: "/blog/how-to-dispose-of-controlled-substances" },
-  { t: "DEA Forms 222, 41 & COD explained", d: "When you need each form and what a COD proves.", h: "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained" },
-  { t: "Pharmaceutical waste management", d: "The five types of drug waste and the rules for each.", h: "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast" },
-  { t: "Hazardous vs. non-hazardous drug waste", d: "How to tell them apart and dispose of each.", h: "/blog/hazardous-vs-non-hazardous-pharmaceutical-waste" },
-  { t: "How to dispose of medications at home", d: "Take-back, mail-back, deactivation, and the flush list.", h: "/blog/how-to-dispose-of-expired-medications-at-home" },
+  { t: "How to dispose of sharps containers", d: "Mail-back vs. pickup, container rules, and state requirements.", h: "/blog/how-to-dispose-of-sharps-containers-a-complete-guide-by-state/" },
+  { t: "How to dispose of controlled substances", d: "Non-retrievable destruction for pharmacies and clinics.", h: "/blog/how-to-dispose-of-controlled-substances/" },
+  { t: "DEA Forms 222, 41 & COD explained", d: "When you need each form and what a COD proves.", h: "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/" },
+  { t: "Pharmaceutical waste management", d: "The five types of drug waste and the rules for each.", h: "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast/" },
+  { t: "Hazardous vs. non-hazardous drug waste", d: "How to tell them apart and dispose of each.", h: "/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/" },
+  { t: "How to dispose of medications at home", d: "Take-back, mail-back, deactivation, and the flush list.", h: "/blog/how-to-dispose-of-expired-medications-at-home/" },
 ];
 
 // Downloads — gated PDFs (capture form → download). W-9 is request-on-contact until the file exists.
 const downloads: Card[] = [
-  { t: "Capability statement", d: "One-page overview for procurement & GPOs.", h: "/resources/capability-statement" },
-  { t: "Medical waste compliance checklist", d: "A by-stream checklist to stay audit-ready.", h: "/resources/medical-waste-compliance-checklist" },
-  { t: "Sample Certificate of Destruction", d: "See exactly what you receive after every order.", h: "/resources/sample-certificate-of-destruction" },
-  { t: "Line card / sell sheet", d: "Every service on one page — for distributors & partners.", h: "/resources/line-card" },
-  { t: "W-9", d: "For AP vendor setup — request from our team.", h: "/contact" },
+  { t: "Capability statement", d: "One-page overview for procurement & GPOs.", h: "/resources/capability-statement/" },
+  { t: "Medical waste compliance checklist", d: "A by-stream checklist to stay audit-ready.", h: "/resources/medical-waste-compliance-checklist/" },
+  { t: "Sample Certificate of Destruction", d: "See exactly what you receive after every order.", h: "/resources/sample-certificate-of-destruction/" },
+  { t: "Line card / sell sheet", d: "Every service on one page — for distributors & partners.", h: "/resources/line-card/" },
+  { t: "W-9", d: "For AP vendor setup — request from our team.", h: "/contact/" },
 ];
 
 const doc = (
@@ -103,7 +103,7 @@ export default function Page() {
             </h1>
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>
               Straight answers on regulated-waste rules — no jargon. Read a reference, download a free guide, or grab a
-              document your team needs. For the full library of articles, visit the <a href="/blog">blog</a>.
+              document your team needs. For the full library of articles, visit the <a href="/blog/">blog</a>.
             </p>
           </div>
         </section>
@@ -117,14 +117,14 @@ export default function Page() {
 
         <section className="sec how" style={{ paddingTop: "clamp(44px,6vw,72px)" }}>
           <div className="wrap">
-            <div className="shead"><span className="eyebrow">Free guides</span><h2>Download a compliance guide.</h2><p className="lead">Free, in-depth PDF guides for each waste stream — the rules, what goes in each, and how to dispose of it right.</p><a className="shead-link" href="/resources/guides">Browse all 60+ guides →</a></div>
+            <div className="shead"><span className="eyebrow">Free guides</span><h2>Download a compliance guide.</h2><p className="lead">Free, in-depth PDF guides for each waste stream — the rules, what goes in each, and how to dispose of it right.</p><a className="shead-link" href="/resources/guides/">Browse all 60+ guides →</a></div>
             <div style={{ marginTop: "34px" }}><Cards items={guides} /></div>
           </div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(44px,6vw,72px)" }}>
           <div className="wrap">
-            <div className="shead"><span className="eyebrow">Popular how-to guides</span><h2>Dispose of it the right way.</h2><a className="shead-link" href="/blog">Read the blog →</a></div>
+            <div className="shead"><span className="eyebrow">Popular how-to guides</span><h2>Dispose of it the right way.</h2><a className="shead-link" href="/blog/">Read the blog →</a></div>
             <div style={{ marginTop: "34px" }}><Cards items={howto} /></div>
           </div>
         </section>
@@ -149,8 +149,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/shop">Shop mail-back kits <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-onteal" href="/shop/">Shop mail-back kits <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
               </div>
             </div>
           </div>

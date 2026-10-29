@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "How to Choose a Medical Waste Company" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "How to Choose a Medical Waste Company" }]} />
               <span className="eyebrow">Buyer's guide</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("How to Choose a Medical Waste Disposal Company")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("The wrong disposal vendor costs you twice &mdash; in money, through contracts and surcharges, and in risk, if documentation ever fails an audit. Here are the criteria that actually matter, the red flags to walk away from, and the exact questions to ask before you sign anything.")} />
@@ -66,10 +66,10 @@ export default function Page() {
                 <ol>
                   <li dangerouslySetInnerHTML={H("<strong>Proper registration &amp; permits.</strong> The vendor should be permitted for your waste, and <strong>DEA-registered</strong> if you handle controlled substances. Ask to verify.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Every stream you generate.</strong> One vendor for sharps, biohazard, pharmaceutical, controlled, RCRA, and chemo beats juggling several contracts and minimums.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>Documentation.</strong> A <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a> on every order &mdash; plus DEA Form 41/222 for controlled &mdash; is what protects you in an audit.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Documentation.</strong> A <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every order &mdash; plus DEA Form 41/222 for controlled &mdash; is what protects you in an audit.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Transparent pricing.</strong> You should be able to see the price before you talk to sales. If a number won't go in writing, that's a signal.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Fair terms.</strong> No multi-year contract, no auto-renewal, no minimum &mdash; especially for low-to-moderate volume.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>The right model.</strong> <a href=\"/how-it-works\">Mail-back</a> for low-to-moderate volume; scheduled pickup where volume justifies it. The vendor should fit you, not force a route.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>The right model.</strong> <a href=\"/how-it-works/\">Mail-back</a> for low-to-moderate volume; scheduled pickup where volume justifies it. The vendor should fit you, not force a route.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Reputation &amp; support.</strong> Real reviews, a specialist who answers, and coverage where you operate.")} />
                 </ol>
 
@@ -93,14 +93,14 @@ export default function Page() {
                 </ul>
 
                 <h2 id="fit" dangerouslySetInnerHTML={H("Match the model to your volume")} />
-                <p dangerouslySetInnerHTML={H("Low-to-moderate volume almost always favors no-contract <a href=\"/how-it-works\">mail-back</a>: a flat price per kit, prepaid both ways, with documentation included &mdash; see real numbers on our <a href=\"/medical-waste-disposal-cost\">medical waste cost breakdown</a> and how we <a href=\"/compare\">compare to other providers</a>. Very high-volume, multi-site operations may still want scheduled route service. The right vendor sizes to you and puts the price in writing either way.")} />
+                <p dangerouslySetInnerHTML={H("Low-to-moderate volume almost always favors no-contract <a href=\"/how-it-works/\">mail-back</a>: a flat price per kit, prepaid both ways, with documentation included &mdash; see real numbers on our <a href=\"/medical-waste-disposal-cost/\">medical waste cost breakdown</a> and how we <a href=\"/compare/\">compare to other providers</a>. Very high-volume, multi-site operations may still want scheduled route service. The right vendor sizes to you and puts the price in writing either way.")} />
 
                 <div className="postcta">
                   <h3>See the price, skip the contract.</h3>
                   <p>Every kit price is published, DEA-registered destruction, a Certificate of Destruction on every order, and no contract. Compare us or estimate your cost in a click.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/medical-waste-disposal-cost">What it costs <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/compare">Compare providers</a>
+                    <a className="btn btn-primary" href="/medical-waste-disposal-cost/">What it costs <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/compare/">Compare providers</a>
                   </div>
                 </div>
 

@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Hazardous Drug Disposal for Pharmacies" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Hazardous Drug Disposal for Pharmacies" }]} />
               <span className="eyebrow">RCRA hazardous</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("How Pharmacies Dispose of Hazardous Waste")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("A surprising number of the drugs on a pharmacy shelf aren&rsquo;t just pharmaceutical waste when discarded &mdash; they&rsquo;re <strong>hazardous</strong> waste under EPA rules. Here&rsquo;s how a pharmacy identifies them, what Subpart P requires, and how to set up disposal that passes an inspection.")} />
@@ -63,23 +63,23 @@ export default function Page() {
                 </div>
 
                 <h2 id="drugs" dangerouslySetInnerHTML={H("The hazardous drugs on your shelf")} />
-                <p dangerouslySetInnerHTML={H("Every pharmacy stocks RCRA-hazardous drugs, often without flagging them: <a href=\"/blog/is-warfarin-hazardous-waste\">warfarin</a> (P001/U248), <a href=\"/blog/is-nicotine-hazardous-waste\">nicotine</a> products (P075), certain epinephrine forms, physostigmine, and a long U-list &mdash; plus many appear on the <a href=\"/blog/niosh-hazardous-drug-list-explained\">NIOSH list</a>. The first step to compliance is a <strong>formulary-based hazardous-drug list</strong> so staff know which discarded items are hazardous.")} />
+                <p dangerouslySetInnerHTML={H("Every pharmacy stocks RCRA-hazardous drugs, often without flagging them: <a href=\"/blog/is-warfarin-hazardous-waste/\">warfarin</a> (P001/U248), <a href=\"/blog/is-nicotine-hazardous-waste/\">nicotine</a> products (P075), certain epinephrine forms, physostigmine, and a long U-list &mdash; plus many appear on the <a href=\"/blog/niosh-hazardous-drug-list-explained/\">NIOSH list</a>. The first step to compliance is a <strong>formulary-based hazardous-drug list</strong> so staff know which discarded items are hazardous.")} />
 
                 <h2 id="subpartp" dangerouslySetInnerHTML={H("What Subpart P requires of pharmacies")} />
-                <p dangerouslySetInnerHTML={H("Retail, long-term-care, and specialty pharmacies fall under the EPA&rsquo;s <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste\">Subpart P</a> management standard: hazardous drugs go in a labeled, dated <a href=\"/blog/rcra-hazardous-waste-container-requirements\">black container</a>, are accumulated up to a year, shipped under DOT with a manifest, and destroyed at a permitted facility. Subpart P also <strong>banned sewering</strong> hazardous pharmaceutical waste &mdash; no flushing.")} />
+                <p dangerouslySetInnerHTML={H("Retail, long-term-care, and specialty pharmacies fall under the EPA&rsquo;s <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/\">Subpart P</a> management standard: hazardous drugs go in a labeled, dated <a href=\"/blog/rcra-hazardous-waste-container-requirements/\">black container</a>, are accumulated up to a year, shipped under DOT with a manifest, and destroyed at a permitted facility. Subpart P also <strong>banned sewering</strong> hazardous pharmaceutical waste &mdash; no flushing.")} />
 
                 <h2 id="status" dangerouslySetInnerHTML={H("Generator status &mdash; simplified for pharmacies")} />
                 <p dangerouslySetInnerHTML={H("One of the reliefs of Subpart P is that hazardous waste pharmaceuticals managed under it generally don&rsquo;t count toward your VSQG/SQG/LQG generator category the way they used to &mdash; though non-pharmaceutical hazardous waste still does. A disposal partner can help you confirm and document your status so you&rsquo;re not over- or under-reporting.")} />
 
                 <h2 id="setup" dangerouslySetInnerHTML={H("Setting up disposal that passes inspection")} />
-                <p dangerouslySetInnerHTML={H("Put a black hazardous-waste container where returns are processed, keep the formulary list posted, train staff on what&rsquo;s hazardous, and set a shipping cadence. For most pharmacies, a prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA mail-back</a> program is the simplest compliant setup &mdash; container, manifest, permitted-facility incineration, and documentation in one flat price, with no contract. Pair it with your <a href=\"/our-solutions/pharmaceutical-waste-disposal\">non-hazardous pharmaceutical</a> and <a href=\"/our-solutions/controlled-substance-destruction\">controlled-substance</a> disposal so one vendor covers the whole shelf.")} />
+                <p dangerouslySetInnerHTML={H("Put a black hazardous-waste container where returns are processed, keep the formulary list posted, train staff on what&rsquo;s hazardous, and set a shipping cadence. For most pharmacies, a prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA mail-back</a> program is the simplest compliant setup &mdash; container, manifest, permitted-facility incineration, and documentation in one flat price, with no contract. Pair it with your <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">non-hazardous pharmaceutical</a> and <a href=\"/our-solutions/controlled-substance-destruction/\">controlled-substance</a> disposal so one vendor covers the whole shelf.")} />
 
                 <div className="postcta">
                   <h3>Set up compliant hazardous-drug disposal for your pharmacy.</h3>
                   <p>RCRA mail-back and pickup, plus every other stream a pharmacy generates — one vendor, published pricing, documented, no contract.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/who-we-serve/retail-pharmacy/">Pharmacy disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                    <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
                   </div>
                 </div>
 

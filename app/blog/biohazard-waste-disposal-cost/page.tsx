@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Biohazard Waste Disposal Cost" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Biohazard Waste Disposal Cost" }]} />
               <span className="eyebrow">Pricing</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("How Much Does Biohazard Waste Disposal Cost?")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>5 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most companies make you request a quote to find out. We don&rsquo;t. Prepaid biohazard / red-bag mail-back kits run from about <strong>$75 to $405</strong> each &mdash; a flat, one-time price that already includes the container, shipping both ways, treatment, and documentation. No contract, no monthly fees. Here&rsquo;s what drives the number and how to pay less.")} />
@@ -63,7 +63,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="prices" dangerouslySetInnerHTML={H("Real biohazard disposal prices")} />
-                <p dangerouslySetInnerHTML={H("<a href=\"/shop/biohazard-mail-back-kit\">Biohazard mail-back kits</a> are priced by container size: about <strong>$75</strong> for a 2-gallon, up to <strong>$405</strong> for a 28-gallon, with sizes in between. Each price is flat and one-time and includes the compliant container, prepaid outbound and return shipping, treatment at a permitted facility, and documentation. A busy small practice usually lands in the $75–$240 range per kit.")} />
+                <p dangerouslySetInnerHTML={H("<a href=\"/shop/biohazard-mail-back-kit/\">Biohazard mail-back kits</a> are priced by container size: about <strong>$75</strong> for a 2-gallon, up to <strong>$405</strong> for a 28-gallon, with sizes in between. Each price is flat and one-time and includes the compliant container, prepaid outbound and return shipping, treatment at a permitted facility, and documentation. A busy small practice usually lands in the $75–$240 range per kit.")} />
 
                 <h2 id="drivers" dangerouslySetInnerHTML={H("What drives biohazard cost")} />
                 <ul>
@@ -74,7 +74,7 @@ export default function Page() {
                 </ul>
 
                 <h2 id="vs" dangerouslySetInnerHTML={H("Mail-back vs. a pickup contract")} />
-                <p dangerouslySetInnerHTML={H("Route-based biohazard contracts look cheap monthly, then add service fees, fuel and &lsquo;environmental&rsquo; surcharges, and minimums &mdash; and you pay every month whether you generated waste or not. Mail-back is a flat price per kit, prepaid both ways, with no contract. For low-to-moderate volume, that&rsquo;s usually the lower total cost. See the full breakdown on our <a href=\"/medical-waste-disposal-cost\">medical waste cost guide</a>.")} />
+                <p dangerouslySetInnerHTML={H("Route-based biohazard contracts look cheap monthly, then add service fees, fuel and &lsquo;environmental&rsquo; surcharges, and minimums &mdash; and you pay every month whether you generated waste or not. Mail-back is a flat price per kit, prepaid both ways, with no contract. For low-to-moderate volume, that&rsquo;s usually the lower total cost. See the full breakdown on our <a href=\"/medical-waste-disposal-cost/\">medical waste cost guide</a>.")} />
 
                 <h2 id="save" dangerouslySetInnerHTML={H("How to pay less")} />
                 <ul>
@@ -88,8 +88,8 @@ export default function Page() {
                   <h3>See your biohazard price, skip the quote.</h3>
                   <p>Every biohazard kit price is published — buy in minutes, or estimate your full cost across streams in a click.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit">Shop biohazard kits <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/cost-calculator">Estimate your cost</a>
+                    <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit/">Shop biohazard kits <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/cost-calculator/">Estimate your cost</a>
                   </div>
                 </div>
 

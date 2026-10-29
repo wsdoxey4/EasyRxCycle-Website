@@ -8,7 +8,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
   return (
     <>
       {children}
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
     </>
   );
 }

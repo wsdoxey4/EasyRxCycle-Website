@@ -54,12 +54,12 @@ const buyers: [string, string][] = [
 ];
 
 const docs = [
-  { t: "Capability statement", d: "One page for procurement files.", h: "/resources/capability-statement" },
-  { t: "Line card", d: "Every service and waste stream.", h: "/resources/line-card" },
-  { t: "Sample Certificate of Destruction", d: "The record every order closes with.", h: "/resources/sample-certificate-of-destruction" },
-  { t: "Tax-exempt setup", d: "Submit your exemption certificate.", h: "/tax-exempt" },
-  { t: "W-9 & vendor packet", d: "Ask and we send it the same day.", h: "/contact" },
-  { t: "Full capabilities", d: "Credentials, streams, and coverage.", h: "/capabilities" },
+  { t: "Capability statement", d: "One page for procurement files.", h: "/resources/capability-statement/" },
+  { t: "Line card", d: "Every service and waste stream.", h: "/resources/line-card/" },
+  { t: "Sample Certificate of Destruction", d: "The record every order closes with.", h: "/resources/sample-certificate-of-destruction/" },
+  { t: "Tax-exempt setup", d: "Submit your exemption certificate.", h: "/tax-exempt/" },
+  { t: "W-9 & vendor packet", d: "Ask and we send it the same day.", h: "/contact/" },
+  { t: "Full capabilities", d: "Credentials, streams, and coverage.", h: "/capabilities/" },
 ];
 
 const check = <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>;
@@ -85,8 +85,8 @@ export default function Page() {
               vendor paperwork your purchasing office needs.
             </p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote">Request a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/resources/capability-statement">Capability statement</a>
+              <a className="btn btn-primary" href="/get-a-quote/">Request a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/resources/capability-statement/">Capability statement</a>
             </div>
           </div>
         </section>
@@ -170,8 +170,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Request a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">Capabilities</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Request a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">Capabilities</a>
               </div>
             </div>
           </div>

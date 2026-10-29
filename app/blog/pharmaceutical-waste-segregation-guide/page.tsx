@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Pharmaceutical Waste Segregation: The Multi-Bin System" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Pharmaceutical Waste Segregation: The Multi-Bin System" }]} />
               <span className="eyebrow">Pharmaceutical Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Pharmaceutical Waste Segregation: The Multi-Bin System" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -66,7 +66,7 @@ export default function Page() {
             <h2 id="bins" dangerouslySetInnerHTML={{ __html: "The bins you actually need" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>RCRA-hazardous</strong> (black container) &mdash; P-, U-, and D-listed drugs, manifested" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Non-hazardous pharmaceutical</strong> (blue/white container) &mdash; most meds" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Controlled substances</strong> (secure, logged) &mdash; DEA destruction" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trace chemo</strong> (yellow container) &mdash; incinerated" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Sharps</strong> (rigid container) &mdash; never mixed with drugs" }} /></ul>
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why segregate at the source" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Once streams are mixed, the whole container often has to be managed as the <em>most</em> hazardous thing in it &mdash; which drives up cost and creates violations. Sorting at the point of generation keeps each stream in its correct, lower-cost path. We help you set up the bins and route each. See <a href=\"/our-solutions/pharmaceutical-waste-disposal\">pharmaceutical waste</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Once streams are mixed, the whole container often has to be managed as the <em>most</em> hazardous thing in it &mdash; which drives up cost and creates violations. Sorting at the point of generation keeps each stream in its correct, lower-cost path. We help you set up the bins and route each. See <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste</a>." }} />
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common segregation mistakes" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Putting a P-listed drug (warfarin, nicotine) in the non-hazardous bin" }} /><li dangerouslySetInnerHTML={{ __html: "Mixing controlled substances into general pharmaceutical waste" }} /><li dangerouslySetInnerHTML={{ __html: "Red-bagging pharmaceutical waste" }} /><li dangerouslySetInnerHTML={{ __html: "Putting bulk chemo in a trace (yellow) container" }} /></ul>
 

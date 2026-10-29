@@ -45,7 +45,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero">
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "USP 800" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "USP 800" }]} />
             <span className="eyebrow">Compliance guide · USP &lt;800&gt;</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "USP &lt;800&gt; compliance, <span style=\"color:var(--teal)\">made practical.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "USP&nbsp;&lt;800&gt; sets the standard for safely handling hazardous drugs to protect healthcare workers, patients, and the environment. Here&rsquo;s what it requires, how it connects to your waste streams, and how proper disposal fits into a compliant program." }} />
@@ -110,9 +110,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/trace-chemotherapy-waste"><h4 dangerouslySetInnerHTML={{ __html: "Trace chemo waste" }} /><p dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy disposal." }} /></a>
-              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U-, and D-listed hazardous drug disposal." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Non-hazardous medication disposal." }} /></a>
+              <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><h4 dangerouslySetInnerHTML={{ __html: "Trace chemo waste" }} /><p dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy disposal." }} /></a>
+              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U-, and D-listed hazardous drug disposal." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Non-hazardous medication disposal." }} /></a>
             </div>
           </div>
         </section>
@@ -138,7 +138,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>

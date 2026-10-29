@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Drug Take-Back Programs" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Drug Take-Back Programs" }]} />
               <span className="eyebrow">Medication Disposal</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Drug Take-Back Programs: How They Work &amp; Where to Find One" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 15, 2026</span>
                 <span className="dot-sep" />
@@ -71,9 +71,9 @@ export default function Page() {
             <h3 dangerouslySetInnerHTML={{ __html: "Drop-off (DEA take-back &amp; kiosks)" }} />
             <p dangerouslySetInnerHTML={{ __html: "The DEA runs National Prescription Drug Take Back Day twice a year, and many pharmacies, police stations, and hospitals host permanent collection kiosks. Great for consumers &mdash; but locations and hours vary." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Mail-back kits" }} />
-            <p dangerouslySetInnerHTML={{ __html: "A prepaid, tamper-evident <a href=\"/our-solutions/medication-disposal-kit\">medication disposal kit</a> lets you fill an envelope or container, seal it, and drop it in any mailbox &mdash; no drive, no kiosk. It&rsquo;s the simplest option for facilities and for anyone without a nearby drop-off." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A prepaid, tamper-evident <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> lets you fill an envelope or container, seal it, and drop it in any mailbox &mdash; no drive, no kiosk. It&rsquo;s the simplest option for facilities and for anyone without a nearby drop-off." }} />
             <h2 id="facilities" dangerouslySetInnerHTML={{ __html: "Take-back for pharmacies, LTC &amp; clinics" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Facilities have to go further than a kiosk: unused controlled substances require DEA-authorized collection, <a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a>, and documentation. Our <a href=\"/our-solutions/medication-disposal-kit\">mail-back medication disposal kits</a> and <a href=\"/our-solutions/controlled-substance-destruction\">controlled substance destruction</a> cover both non-controlled and controlled medications, with a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a> on every order." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Facilities have to go further than a kiosk: unused controlled substances require DEA-authorized collection, <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>, and documentation. Our <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> and <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> cover both non-controlled and controlled medications, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every order." }} />
 
                 <div className="postcta">
                   <h3>Set up a compliant take-back.</h3>

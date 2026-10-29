@@ -78,7 +78,7 @@ export default function Page() {
             </p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="#request">Request member content <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/webinars">See the next webinar</a>
+              <a className="btn btn-ghost" href="/webinars/">See the next webinar</a>
             </div>
           </div>
         </section>
@@ -146,7 +146,7 @@ export default function Page() {
               </p>
               <p className="form-note" style={{ marginTop: "14px" }}>
                 Easy Rx Cycle is a DEA-registered destruction company, founded in 2018, serving more than 1,000 facilities nationwide.
-                <a href="/press" style={{ color: "var(--teal)", fontWeight: 600 }}> Company facts and logos</a>.
+                <a href="/press/" style={{ color: "var(--teal)", fontWeight: 600 }}> Company facts and logos</a>.
               </p>
             </div>
             <div className="quote-card">

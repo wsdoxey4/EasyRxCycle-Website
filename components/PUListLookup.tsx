@@ -73,7 +73,7 @@ export default function PUListLookup() {
           <div className="pu-empty">
             No match in this reference set — that does <strong>not</strong> mean the drug is non-hazardous. Many
             drugs are hazardous by characteristic (ignitability, toxicity) without being listed. Check the SDS,
-            or <a href="/get-a-quote">ask our team</a>.
+            or <a href="/get-a-quote/">ask our team</a>.
           </div>
         ) : results.map((d) => (
           <div key={d.name} className="pu-row">
@@ -91,7 +91,7 @@ export default function PUListLookup() {
         Curated from EPA&rsquo;s P/U lists (40 CFR 261.33) and characteristic criteria — <strong>not exhaustive</strong>.
         Salt form, concentration, and formulation change the classification, so always verify against the current CFR
         and the product&rsquo;s SDS. For the full picture, read the{" "}
-        <a href="/blog/rcra-p-list-u-list-pharmaceuticals">P/U-list guide</a> or download the{" "}
+        <a href="/blog/rcra-p-list-u-list-pharmaceuticals/">P/U-list guide</a> or download the{" "}
         <a href="/downloads/rcra-p-u-list-pharmaceuticals.pdf" download>reference PDF</a>.
       </p>
     </div>

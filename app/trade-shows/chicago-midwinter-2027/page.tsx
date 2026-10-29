@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Get a quote for your practice or dental group — sharps, pharmaceuticals and more, with the paperwork done right.",
-  finalHref: "/who-we-serve/dental", finalLabel: "Dental disposal",
+  finalHref: "/who-we-serve/dental/", finalLabel: "Dental disposal",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at Chicago Midwinter 2027 — Booth Special | Chicago";

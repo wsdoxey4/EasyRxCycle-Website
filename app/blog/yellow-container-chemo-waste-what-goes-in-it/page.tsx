@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Yellow Container Chemo Waste: What Goes In It" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Yellow Container Chemo Waste: What Goes In It" }]} />
               <span className="eyebrow">Chemo · Hazardous Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Yellow Container Chemo Waste: What Goes In It" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -65,11 +65,11 @@ export default function Page() {
             </div>
             <h2 id="in" dangerouslySetInnerHTML={{ __html: "What goes in the yellow container" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Empty chemo vials &amp; syringes (RCRA-empty)" }} /><li dangerouslySetInnerHTML={{ __html: "IV bags, tubing &amp; administration sets" }} /><li dangerouslySetInnerHTML={{ __html: "Contaminated gowns, gloves &amp; PPE" }} /><li dangerouslySetInnerHTML={{ __html: "Prep-area trace-contaminated materials" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "In short: materials with only <strong>trace</strong> (under ~3%) residual chemo. See our <a href=\"/our-solutions/trace-chemotherapy-waste\">trace chemotherapy waste</a> service." }} />
+            <p dangerouslySetInnerHTML={{ __html: "In short: materials with only <strong>trace</strong> (under ~3%) residual chemo. See our <a href=\"/our-solutions/trace-chemotherapy-waste/\">trace chemotherapy waste</a> service." }} />
             <h2 id="out" dangerouslySetInnerHTML={{ __html: "What does NOT go in the yellow container" }} />
-            <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Bulk chemo</strong> (unused drug, more-than-trace) &mdash; that&rsquo;s <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a>" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Sharps</strong> &mdash; rigid sharps container" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Red-bag / infectious waste</strong> &mdash; separate stream" }} /></ul>
+            <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Bulk chemo</strong> (unused drug, more-than-trace) &mdash; that&rsquo;s <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a>" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Sharps</strong> &mdash; rigid sharps container" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Red-bag / infectious waste</strong> &mdash; separate stream" }} /></ul>
             <h2 id="incin" dangerouslySetInnerHTML={{ __html: "How yellow-container waste is destroyed" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Trace-chemo yellow containers are incinerated at a permitted facility &mdash; never landfilled. Proper yellow-container use is a core part of a <a href=\"/resources/usp-800\">USP 800</a> hazardous-drug program." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Trace-chemo yellow containers are incinerated at a permitted facility &mdash; never landfilled. Proper yellow-container use is a core part of a <a href=\"/resources/usp-800/\">USP 800</a> hazardous-drug program." }} />
 
                 <div className="postcta">
                   <h3>Handle trace chemo the right way.</h3>

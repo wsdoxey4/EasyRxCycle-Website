@@ -54,7 +54,7 @@ export default function Page() {
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "GLP-1 clinic disposal comes down to two things: a lot of pen needles and injection sharps, plus expired vials of semaglutide or tirzepatide that can\u2019t go in the trash. We ship prepaid mail-back sharps kits and handle the expired-medication waste, so your weight-loss clinic stays OSHA- and DOT-compliant with a Certificate of Destruction and no contract." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop/">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote?role=Physician%20/%20medical%20office">Get a quote</a>
+              <a className="btn btn-ghost" href="/get-a-quote/?role=Physician%20/%20medical%20office">Get a quote</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -70,7 +70,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every weight-loss clinic waste stream, explained.</h2><p class="lead">Weight-loss and GLP-1 clinics generate a surprising volume of injection sharps — pen needles from semaglutide and tirzepatide — plus expired or compounded product and, in some clinics, controlled appetite suppressants like phentermine (Schedule IV). Each is regulated differently. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>Your highest-volume stream — GLP-1 pen needles and injection sharps add up fast.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>GLP-1 pen needles &amp; syringes</li><li>Injection needles</li><li>Lancets</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line and keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired, unused, or returned GLP-1 and weight-loss medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired semaglutide / tirzepatide</li><li>Compounded GLP-1 product</li><li>Non-controlled appetite meds &amp; samples</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Keep any hazardous or controlled drugs separate — they each have their own path.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>If you prescribe controlled appetite suppressants like phentermine (Schedule IV).</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused phentermine (Sch IV)</li><li>Other controlled appetite meds</li><li>Wasted or partial doses</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, complete a DEA Form 41 for surrendered controls, and keep witnessed waste logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit, to DEA standards.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Injection-site and any lab blood waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked gauze</li><li>Contaminated PPE</li><li>Blood tubes (if you draw labs)</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, and retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — over-classifying wastes money.</span></p></div></div><p class="wsfoot">One vendor can take your pen-needle sharps, expired GLP-1 product, and any controlled appetite suppressants — by prepaid mail-back kit, with a Certificate of Destruction and no contract. <a href="/resources/weight-loss-clinic-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every weight-loss clinic waste stream, explained.</h2><p class="lead">Weight-loss and GLP-1 clinics generate a surprising volume of injection sharps — pen needles from semaglutide and tirzepatide — plus expired or compounded product and, in some clinics, controlled appetite suppressants like phentermine (Schedule IV). Each is regulated differently. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>Your highest-volume stream — GLP-1 pen needles and injection sharps add up fast.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>GLP-1 pen needles &amp; syringes</li><li>Injection needles</li><li>Lancets</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line and keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired, unused, or returned GLP-1 and weight-loss medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired semaglutide / tirzepatide</li><li>Compounded GLP-1 product</li><li>Non-controlled appetite meds &amp; samples</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Keep any hazardous or controlled drugs separate — they each have their own path.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>If you prescribe controlled appetite suppressants like phentermine (Schedule IV).</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused phentermine (Sch IV)</li><li>Other controlled appetite meds</li><li>Wasted or partial doses</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, complete a DEA Form 41 for surrendered controls, and keep witnessed waste logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit, to DEA standards.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Injection-site and any lab blood waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked gauze</li><li>Contaminated PPE</li><li>Blood tubes (if you draw labs)</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, and retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — over-classifying wastes money.</span></p></div></div><p class="wsfoot">One vendor can take your pen-needle sharps, expired GLP-1 product, and any controlled appetite suppressants — by prepaid mail-back kit, with a Certificate of Destruction and no contract. <a href="/resources/weight-loss-clinic-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -82,7 +82,7 @@ export default function Page() {
                 <p>GLP-1 pen needles, expired semaglutide, controlled appetite suppressants & biohazard — every stream, handled right. Includes a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/weight-loss-clinic-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/weight-loss-clinic-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -93,9 +93,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
             </div>
           </div>
         </section>
@@ -126,21 +126,21 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/trt-clinics">TRT clinics</a></li>
-                <li><a href="/who-we-serve/med-spas">Med spas</a></li>
-                <li><a href="/who-we-serve/iv-hydration-ketamine">IV hydration & ketamine</a></li>
-                <li><a href="/who-we-serve/physician-offices">Physician offices</a></li>
+                <li><a href="/who-we-serve/trt-clinics/">TRT clinics</a></li>
+                <li><a href="/who-we-serve/med-spas/">Med spas</a></li>
+                <li><a href="/who-we-serve/iv-hydration-ketamine/">IV hydration & ketamine</a></li>
+                <li><a href="/who-we-serve/physician-offices/">Physician offices</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
-                <li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste disposal</a></li>
-                <li><a href="/our-solutions/medication-disposal-kit">Medication mail-back kits</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste disposal</a></li>
+                <li><a href="/our-solutions/medication-disposal-kit/">Medication mail-back kits</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/weight-loss-clinic-waste-disposal-guide">Free Weight-loss & GLP-1 clinics guide (PDF)</a></li>
-                <li><a href="/blog/glp-1-pen-disposal">GLP-1 pen disposal</a></li>
-                <li><a href="/blog/diabetic-needle-disposal">Diabetic needle disposal</a></li>
+                <li><a href="/resources/weight-loss-clinic-waste-disposal-guide/">Free Weight-loss & GLP-1 clinics guide (PDF)</a></li>
+                <li><a href="/blog/glp-1-pen-disposal/">GLP-1 pen disposal</a></li>
+                <li><a href="/blog/diabetic-needle-disposal/">Diabetic needle disposal</a></li>
               </ul></div>
             </div>
           </div>
@@ -168,15 +168,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Physician%20/%20medical%20office">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Physician%20/%20medical%20office">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="weight-loss-clinic-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Physician%20/%20medical%20office" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Physician%20/%20medical%20office" }} />
       <Footer />
       <Reveal />
     </>

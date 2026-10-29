@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "How to Dispose of Opioids at Home (Safely)" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "How to Dispose of Opioids at Home (Safely)" }]} />
               <span className="eyebrow">Medication Disposal</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "How to Dispose of Opioids at Home" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -64,7 +64,7 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="best" dangerouslySetInnerHTML={{ __html: "The safest ways to dispose of opioids" }} />
-            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> A drug take-back kiosk, National Take Back Day, or a compliant <a href=\"/our-solutions/medication-disposal-kit\">medication disposal kit</a> is the gold standard for opioids." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Deactivation pouch.</strong> Neutralize the opioid at home, then trash the deactivated drug." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Flush (flush-list opioids only).</strong> The FDA specifically recommends flushing certain high-risk opioids (like fentanyl patches) when no take-back is available &mdash; because the overdose risk outweighs the environmental concern." }} /></ol>
+            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> A drug take-back kiosk, National Take Back Day, or a compliant <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> is the gold standard for opioids." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Deactivation pouch.</strong> Neutralize the opioid at home, then trash the deactivated drug." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Flush (flush-list opioids only).</strong> The FDA specifically recommends flushing certain high-risk opioids (like fentanyl patches) when no take-back is available &mdash; because the overdose risk outweighs the environmental concern." }} /></ol>
             <h2 id="flush" dangerouslySetInnerHTML={{ __html: "Why some opioids are on the FDA flush list" }} />
             <p dangerouslySetInnerHTML={{ __html: "Most medications should never be flushed &mdash; but the FDA maintains a short flush list of drugs so dangerous that flushing is advised when take-back isn&rsquo;t available. It&rsquo;s mostly potent opioids (fentanyl patches, oxycodone, hydromorphone) where a single dose can be fatal to a child or pet." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />

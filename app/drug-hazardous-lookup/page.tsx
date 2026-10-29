@@ -41,7 +41,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "0" }}>
           <div className="wrap" style={{ maxWidth: "820px" }}>
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "P/U-List Drug Lookup" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "P/U-List Drug Lookup" }]} />
             <span className="eyebrow">Free tool</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>
               Is this drug <span style={{ color: "var(--teal)" }}>hazardous waste?</span>
@@ -65,12 +65,12 @@ export default function Page() {
               <h2>How to use this the right way</h2>
               <p>
                 Use it to confirm the drugs you already suspect are hazardous, and to route them correctly: P- and
-                U-listed drugs go to <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA-hazardous
+                U-listed drugs go to <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA-hazardous
                 disposal</a> (black container), never the blue bin or the drain. Because the list is bounded to
                 EPA&rsquo;s published P/U codes, a match is reliable — but a <em>non</em>-match is not a clearance,
                 since characteristic drugs and state-specific rules aren&rsquo;t captured here. For the full
-                explanation, read the <a href="/blog/rcra-p-list-u-list-pharmaceuticals">P/U-list guide</a> and{" "}
-                <a href="/blog/epa-subpart-p-explained">EPA Subpart P</a>.
+                explanation, read the <a href="/blog/rcra-p-list-u-list-pharmaceuticals/">P/U-list guide</a> and{" "}
+                <a href="/blog/epa-subpart-p-explained/">EPA Subpart P</a>.
               </p>
               <div className="postfaq">
                 <h2>Frequently asked questions</h2>

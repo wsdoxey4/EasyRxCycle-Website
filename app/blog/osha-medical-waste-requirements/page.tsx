@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "OSHA Medical Waste Requirements" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "OSHA Medical Waste Requirements" }]} />
               <span className="eyebrow">Compliance</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("OSHA Medical Waste Requirements: Bloodborne Pathogens &amp; Compliance")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("OSHA doesn&rsquo;t regulate where your waste goes &mdash; it regulates how you protect the people handling it. The Bloodborne Pathogens Standard is the rule inspectors cite most, and the fixes are usually cheap. Here&rsquo;s exactly what it requires, how it fits with DOT and EPA rules, and the violations that get facilities fined.")} />
@@ -69,7 +69,7 @@ export default function Page() {
                 <h2 id="reqs" dangerouslySetInnerHTML={H("What OSHA requires")} />
                 <ul>
                   <li dangerouslySetInnerHTML={H("<strong>A written exposure control plan</strong>, reviewed and updated at least annually.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>Engineering controls</strong> &mdash; approved, puncture-resistant <a href=\"/our-solutions/sharps-disposal\">sharps containers</a> and safer devices.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Engineering controls</strong> &mdash; approved, puncture-resistant <a href=\"/our-solutions/sharps-disposal/\">sharps containers</a> and safer devices.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Labeling &amp; color-coding</strong> &mdash; red bags and the biohazard symbol on regulated waste.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Annual training</strong>, documented, for all employees with exposure.")} />
                   <li dangerouslySetInnerHTML={H("<strong>PPE</strong> provided at no cost to the employee.")} />
@@ -78,7 +78,7 @@ export default function Page() {
                 </ul>
 
                 <h2 id="who" dangerouslySetInnerHTML={H("OSHA vs. DOT vs. EPA &mdash; who governs what")} />
-                <p dangerouslySetInnerHTML={H("Compliance means satisfying three layers at once: <strong>OSHA</strong> protects workers inside the facility (containment, labeling, training); the <strong>DOT (49 CFR)</strong> governs how waste ships; and <strong>state medical-waste rules and the EPA</strong> govern treatment and the environment. A good disposal program &mdash; approved containers, DOT-compliant packaging, and a permitted treatment facility &mdash; covers all three, and the <a href=\"/blog/who-regulates-pharmaceutical-waste-dea-epa-osha\">DEA</a> adds controlled-substance rules on top.")} />
+                <p dangerouslySetInnerHTML={H("Compliance means satisfying three layers at once: <strong>OSHA</strong> protects workers inside the facility (containment, labeling, training); the <strong>DOT (49 CFR)</strong> governs how waste ships; and <strong>state medical-waste rules and the EPA</strong> govern treatment and the environment. A good disposal program &mdash; approved containers, DOT-compliant packaging, and a permitted treatment facility &mdash; covers all three, and the <a href=\"/blog/who-regulates-pharmaceutical-waste-dea-epa-osha/\">DEA</a> adds controlled-substance rules on top.")} />
 
                 <h2 id="violations" dangerouslySetInnerHTML={H("Common OSHA medical-waste violations")} />
                 <ul>
@@ -90,14 +90,14 @@ export default function Page() {
                 </ul>
 
                 <h2 id="stay" dangerouslySetInnerHTML={H("How to stay compliant")} />
-                <p dangerouslySetInnerHTML={H("Keep the exposure control plan current, use approved <a href=\"/our-solutions/sharps-disposal\">sharps</a> and <a href=\"/our-solutions/biohazard-waste-disposal\">biohazard</a> containers, train annually and document it, and send waste to a permitted facility with documentation on every order. Our <a href=\"/resources/bloodborne-training\">bloodborne pathogens training</a> covers the annual requirement, and our mail-back kits handle the containment and disposal side &mdash; so the OSHA, DOT, and treatment layers are covered together.")} />
+                <p dangerouslySetInnerHTML={H("Keep the exposure control plan current, use approved <a href=\"/our-solutions/sharps-disposal/\">sharps</a> and <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard</a> containers, train annually and document it, and send waste to a permitted facility with documentation on every order. Our <a href=\"/resources/bloodborne-training/\">bloodborne pathogens training</a> covers the annual requirement, and our mail-back kits handle the containment and disposal side &mdash; so the OSHA, DOT, and treatment layers are covered together.")} />
 
                 <div className="postcta">
                   <h3>Cover the OSHA training and disposal in one place.</h3>
                   <p>Bloodborne pathogens training for the annual requirement, plus approved sharps and biohazard mail-back kits with documentation on every order.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/resources/bloodborne-training">Bloodborne training <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/our-solutions/sharps-disposal">Sharps disposal</a>
+                    <a className="btn btn-primary" href="/resources/bloodborne-training/">Bloodborne training <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/our-solutions/sharps-disposal/">Sharps disposal</a>
                   </div>
                 </div>
 

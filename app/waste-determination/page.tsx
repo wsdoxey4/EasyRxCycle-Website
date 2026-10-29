@@ -41,7 +41,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "0" }}>
           <div className="wrap" style={{ maxWidth: "820px" }}>
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "Waste Determination Tool" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "Waste Determination Tool" }]} />
             <span className="eyebrow">Free tool</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>
               Which stream does your waste <span style={{ color: "var(--teal)" }}>actually belong in?</span>
@@ -66,7 +66,7 @@ export default function Page() {
               <p>
                 Most medical-waste citations don&rsquo;t come from one dramatic mistake — they come from a stream
                 that got put in the wrong container. A controlled substance in the pharmaceutical bin, a
-                RCRA-hazardous drug like <a href="/blog/is-warfarin-hazardous-waste">warfarin</a> in the blue bin, or
+                RCRA-hazardous drug like <a href="/blog/is-warfarin-hazardous-waste/">warfarin</a> in the blue bin, or
                 a saturated dressing in the regular trash each carries its own rule and its own penalty. Getting the
                 stream right the first time keeps you compliant and controls cost, because the hazardous and
                 controlled streams are the expensive ones to over-fill.
@@ -74,16 +74,16 @@ export default function Page() {
               <h2>The streams this tool covers</h2>
               <p>
                 The wizard maps to the eight regulated streams Easy Rx Cycle handles:{" "}
-                <a href="/our-solutions/sharps-disposal">sharps</a>,{" "}
-                <a href="/our-solutions/biohazard-waste-disposal">biohazard / RMW</a>,{" "}
-                <a href="/our-solutions/pharmaceutical-waste-disposal">non-hazardous pharmaceutical</a>,{" "}
-                <a href="/our-solutions/controlled-substance-destruction">controlled substances</a>,{" "}
-                <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA-hazardous drugs</a>,{" "}
-                <a href="/our-solutions/trace-chemotherapy-waste">trace chemotherapy</a>,{" "}
-                <a href="/our-solutions/medication-disposal-kit">medication mail-back</a>, and{" "}
-                <a href="/our-solutions/reverse-distribution">reverse distribution</a>. For the full definitions, see
-                the <a href="/glossary">glossary</a>; for the rules by state, see{" "}
-                <a href="/medical-waste-regulations-by-state">regulations by state</a>.
+                <a href="/our-solutions/sharps-disposal/">sharps</a>,{" "}
+                <a href="/our-solutions/biohazard-waste-disposal/">biohazard / RMW</a>,{" "}
+                <a href="/our-solutions/pharmaceutical-waste-disposal/">non-hazardous pharmaceutical</a>,{" "}
+                <a href="/our-solutions/controlled-substance-destruction/">controlled substances</a>,{" "}
+                <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA-hazardous drugs</a>,{" "}
+                <a href="/our-solutions/trace-chemotherapy-waste/">trace chemotherapy</a>,{" "}
+                <a href="/our-solutions/medication-disposal-kit/">medication mail-back</a>, and{" "}
+                <a href="/our-solutions/reverse-distribution/">reverse distribution</a>. For the full definitions, see
+                the <a href="/glossary/">glossary</a>; for the rules by state, see{" "}
+                <a href="/medical-waste-regulations-by-state/">regulations by state</a>.
               </p>
 
               <div className="postfaq">

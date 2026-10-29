@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Expired Drug Disposal for Facilities" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Expired Drug Disposal for Facilities" }]} />
               <span className="eyebrow">Pharmaceutical waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Expired Drug Disposal for Pharmacies &amp; Facilities")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Expired inventory is money and risk sitting on a shelf. Handled right, some of it comes back as credit and the rest leaves compliantly and documented. Handled wrong &mdash; thrown out, flushed, or mixed &mdash; it&rsquo;s a violation. Here&rsquo;s the sort that gets it right.")} />
@@ -66,24 +66,24 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("The whole job is the sort. Expired inventory splits into <strong>returnable</strong> (recover credit) and <strong>destroy-only</strong>, and the destroy-only pile splits again by class &mdash; controlled, RCRA-hazardous, and non-hazardous. Skip the sort and you either throw away money or mis-route a controlled or hazardous drug into the wrong stream.")} />
 
                 <h2 id="credit" dangerouslySetInnerHTML={H("Recover credit first")} />
-                <p dangerouslySetInnerHTML={H("Send returnable, in-window stock to a <a href=\"/our-solutions/reverse-distribution\">reverse distributor</a> for <a href=\"/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs\">manufacturer credit</a> before destroying anything. Value walks out the door when returnable inventory is destroyed by default. Product outside the return window, opened, or non-returnable moves to destruction.")} />
+                <p dangerouslySetInnerHTML={H("Send returnable, in-window stock to a <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> for <a href=\"/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs/\">manufacturer credit</a> before destroying anything. Value walks out the door when returnable inventory is destroyed by default. Product outside the return window, opened, or non-returnable moves to destruction.")} />
 
                 <h2 id="route" dangerouslySetInnerHTML={H("Route the rest by type")} />
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong>Controlled substances</strong> &rarr; <a href=\"/our-solutions/controlled-substance-destruction\">DEA-registered destruction</a>, Form 41/222, non-retrievable.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>RCRA-hazardous drugs</strong> (<a href=\"/blog/is-warfarin-hazardous-waste\">warfarin</a>, nicotine, etc.) &rarr; <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">black-container RCRA</a> disposal.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>Non-hazardous, non-controlled</strong> &rarr; <a href=\"/blog/non-hazardous-pharmaceutical-waste\">blue-bin pharmaceutical</a> destruction.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Controlled substances</strong> &rarr; <a href=\"/our-solutions/controlled-substance-destruction/\">DEA-registered destruction</a>, Form 41/222, non-retrievable.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>RCRA-hazardous drugs</strong> (<a href=\"/blog/is-warfarin-hazardous-waste/\">warfarin</a>, nicotine, etc.) &rarr; <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">black-container RCRA</a> disposal.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Non-hazardous, non-controlled</strong> &rarr; <a href=\"/blog/non-hazardous-pharmaceutical-waste/\">blue-bin pharmaceutical</a> destruction.")} />
                 </ul>
 
                 <h2 id="cadence" dangerouslySetInnerHTML={H("Set a cadence so nothing ages out")} />
-                <p dangerouslySetInnerHTML={H("Clear expired stock on a regular schedule &mdash; monthly or quarterly &mdash; so returnable product doesn&rsquo;t age past its credit window and expired inventory doesn&rsquo;t pile up as a diversion or compliance risk. A recurring <a href=\"/our-solutions/pharmaceutical-waste-disposal\">mail-back or pickup</a> schedule makes the whole thing routine, with a Certificate of Destruction on every order.")} />
+                <p dangerouslySetInnerHTML={H("Clear expired stock on a regular schedule &mdash; monthly or quarterly &mdash; so returnable product doesn&rsquo;t age past its credit window and expired inventory doesn&rsquo;t pile up as a diversion or compliance risk. A recurring <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">mail-back or pickup</a> schedule makes the whole thing routine, with a Certificate of Destruction on every order.")} />
 
                 <div className="postcta">
                   <h3>Turn expired inventory into credit and clean documentation.</h3>
                   <p>Reverse distribution for the returnable, compliant destruction for the rest — controlled, hazardous, and non-hazardous, all under one vendor.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/our-solutions/reverse-distribution">Reverse distribution</a>
+                    <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/our-solutions/reverse-distribution/">Reverse distribution</a>
                   </div>
                 </div>
 

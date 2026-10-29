@@ -17,10 +17,10 @@ export default function Home() {
     <h1>Regulated waste,<br /><span className="em">destroyed &amp; documented.</span></h1>
     <p className="sub">DEA-registered mail-back kits and on-site destruction for every stream of pharma and medical waste. Fill it, seal it, ship it &mdash; and get your Certificate of Destruction. No pickups, no contracts.</p>
     <div className="cta">
-      <a className="btn btn-primary" href="/shop">Shop mail-back kits <span className="ar">&rarr;</span></a>
-      <a className="btn btn-ghost" href="/get-a-quote">Get a custom quote</a>
+      <a className="btn btn-primary" href="/shop/">Shop mail-back kits <span className="ar">&rarr;</span></a>
+      <a className="btn btn-ghost" href="/get-a-quote/">Get a custom quote</a>
     </div>
-    <p className="herobuild">Multiple streams or locations? <a href="/build-your-program">Build a custom mail-back program &rarr;</a></p>
+    <p className="herobuild">Multiple streams or locations? <a href="/build-your-program/">Build a custom mail-back program &rarr;</a></p>
     <div className="trustrow">
       <div className="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 4.4-3 8.3-7 9-4-.7-7-4.6-7-9V5l7-3z" stroke="#005770" strokeWidth="1.8" strokeLinejoin="round"/><path d="M9 12l2 2 4-4" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>DEA non-retrievable destruction</div>
       <div className="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#005770" strokeWidth="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#005770" strokeWidth="1.6" strokeLinecap="round"/><path d="M15.5 16.5l1.6 1.6 3-3.2" stroke="#33C089" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/></svg>Certificate of Destruction on every order</div>
@@ -79,8 +79,8 @@ export default function Home() {
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Auto-ship and save 20% &mdash; cancel anytime</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Flat-rate, no surprise fees, no contract</li>
       </ul>
-      <a className="btn btn-primary go" href="/shop">Shop kits <span className="ar">&rarr;</span></a>
-      <a className="lanelink" href="/build-your-program">or build a multi-site program &rarr;</a>
+      <a className="btn btn-primary go" href="/shop/">Shop kits <span className="ar">&rarr;</span></a>
+      <a className="lanelink" href="/build-your-program/">or build a multi-site program &rarr;</a>
     </div>
     <div className="lane">
       <span className="tag">Custom quote &middot; enterprise</span>
@@ -91,7 +91,7 @@ export default function Home() {
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#005770" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Multi-site rollups &amp; consolidated billing</li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#005770" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>Instant estimate &mdash; invoice, PO &amp; W-9 ready</li>
       </ul>
-      <a className="btn btn-ghost go" href="/get-a-quote">Get a quote</a>
+      <a className="btn btn-ghost go" href="/get-a-quote/">Get a quote</a>
     </div>
   </div>
   <p className="partnerline">A GPO, distributor, broker, or 3PL? <a href="#partners">Partner with us &rarr;</a></p>
@@ -104,14 +104,14 @@ export default function Home() {
     <p className="lead">Destruction only &mdash; done right and documented. (We don&rsquo;t handle pathological, chemo bulk, or chemical waste.)</p>
   </div>
   <div className="grid8">
-    <a className="svc" href="/our-solutions/sharps-disposal"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 3l7 7-2 2-7-7 2-2z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 5L4 13v3h3l8-8" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8 12l2 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Sharps disposal</h4><p>Mail-back sharps &amp; needle kits, every size.</p></a>
-    <a className="svc" href="/our-solutions/biohazard-waste-disposal"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#005770" strokeWidth="1.7"/><path d="M12 9V4M9.5 13.5L5 16M14.5 13.5L19 16" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><circle cx="12" cy="4" r="1.4" fill="#33C089"/><circle cx="5" cy="17" r="1.4" fill="#33C089"/><circle cx="19" cy="17" r="1.4" fill="#33C089"/></svg></div><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>
-    <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="3" width="10" height="18" rx="3" stroke="#005770" strokeWidth="1.7"/><path d="M7 10h10" stroke="#005770" strokeWidth="1.6"/><path d="M10 6.5h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Pharmaceutical</h4><p>Non-controlled Rx &amp; expired meds.</p></a>
-    <a className="svc" href="/our-solutions/controlled-substance-destruction"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="#005770" strokeWidth="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#005770" strokeWidth="1.7"/><circle cx="12" cy="15" r="1.6" fill="#33C089"/></svg></div><h4>Controlled substances</h4><p>DEA Form 41/222, non-retrievable.</p></a>
-    <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 3h4v5l4 9a2 2 0 01-1.8 3H7.8A2 2 0 016 17l4-9V3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8.5 14h7" stroke="#33C089" strokeWidth="1.7"/></svg></div><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharma.</p></a>
-    <a className="svc" href="/our-solutions/trace-chemotherapy-waste"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M10 14a2 2 0 002 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Trace chemo</h4><p>Yellow-container trace chemo waste.</p></a>
-    <a className="svc" href="/our-solutions/medication-disposal-kit"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#33C089" strokeWidth="1.6"/></svg></div><h4>Medication kits</h4><p>At-home &amp; take-back deactivation.</p></a>
-    <a className="svc" href="/our-solutions/reverse-distribution"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0113.7-5.6M20 12A8 8 0 016.3 17.6" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div><h4>Reverse distribution</h4><p>Credit-eligible returns &amp; recalls.</p></a>
+    <a className="svc" href="/our-solutions/sharps-disposal/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 3l7 7-2 2-7-7 2-2z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M12 5L4 13v3h3l8-8" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8 12l2 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Sharps disposal</h4><p>Mail-back sharps &amp; needle kits, every size.</p></a>
+    <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#005770" strokeWidth="1.7"/><path d="M12 9V4M9.5 13.5L5 16M14.5 13.5L19 16" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><circle cx="12" cy="4" r="1.4" fill="#33C089"/><circle cx="5" cy="17" r="1.4" fill="#33C089"/><circle cx="19" cy="17" r="1.4" fill="#33C089"/></svg></div><h4>Biohazard / RMW</h4><p>Red-bag regulated medical waste.</p></a>
+    <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="3" width="10" height="18" rx="3" stroke="#005770" strokeWidth="1.7"/><path d="M7 10h10" stroke="#005770" strokeWidth="1.6"/><path d="M10 6.5h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Pharmaceutical</h4><p>Non-controlled Rx &amp; expired meds.</p></a>
+    <a className="svc" href="/our-solutions/controlled-substance-destruction/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="#005770" strokeWidth="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#005770" strokeWidth="1.7"/><circle cx="12" cy="15" r="1.6" fill="#33C089"/></svg></div><h4>Controlled substances</h4><p>DEA Form 41/222, non-retrievable.</p></a>
+    <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 3h4v5l4 9a2 2 0 01-1.8 3H7.8A2 2 0 016 17l4-9V3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8.5 14h7" stroke="#33C089" strokeWidth="1.7"/></svg></div><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharma.</p></a>
+    <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M10 14a2 2 0 002 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Trace chemo</h4><p>Yellow-container trace chemo waste.</p></a>
+    <a className="svc" href="/our-solutions/medication-disposal-kit/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#33C089" strokeWidth="1.6"/></svg></div><h4>Medication kits</h4><p>At-home &amp; take-back deactivation.</p></a>
+    <a className="svc" href="/our-solutions/reverse-distribution/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0113.7-5.6M20 12A8 8 0 016.3 17.6" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div><h4>Reverse distribution</h4><p>Credit-eligible returns &amp; recalls.</p></a>
   </div>
 </div></section>
 
@@ -139,7 +139,7 @@ export default function Home() {
     <a className="pill" href="/who-we-serve/physician-offices/">Physician offices</a><a className="pill" href="/who-we-serve/dental/">Dental practices</a><a className="pill" href="/who-we-serve/veterinary/">Veterinary &amp; equine</a>
     <a className="pill" href="/who-we-serve/hospitals/">Hospitals &amp; health systems</a><a className="pill" href="/who-we-serve/asc/">Surgery centers</a><a className="pill" href="/who-we-serve/retail-pharmacy/">Pharmacies</a>
     <a className="pill" href="/who-we-serve/nursing-homes/">Long-term care</a><a className="pill" href="/who-we-serve/hospice/">Hospice</a><a className="pill" href="/who-we-serve/med-spas/">Med spas</a><a className="pill" href="/who-we-serve/dialysis/">Dialysis</a>
-    <a className="pill" href="/who-we-serve/urgent-care/">Urgent care</a><a className="pill" href="/who-we-serve/tattoo/">Tattoo &amp; body art</a><a className="pill" href="/who-we-serve/clinical-labs/">Labs</a><a className="pill" href="/shop">Home patients</a>
+    <a className="pill" href="/who-we-serve/urgent-care/">Urgent care</a><a className="pill" href="/who-we-serve/tattoo/">Tattoo &amp; body art</a><a className="pill" href="/who-we-serve/clinical-labs/">Labs</a><a className="pill" href="/shop/">Home patients</a>
     <span className="pill more"><a href="/who-we-serve/" style={{color:"#fff"}}>See all 50+ industries &rarr;</a></span>
   </div>
 </div></section>
@@ -151,28 +151,28 @@ export default function Home() {
     <p>GPOs, distributors, brokers, and 3PLs add compliant destruction across every regulated waste stream to their lineup &mdash; sharps, biohazard, pharmaceutical, RCRA-hazardous, controlled substances, and more. You bring the accounts; we handle the compliance, the kits, and the paperwork.</p>
   </div>
   <div className="pcards">
-    <a className="pcard pcard-link reveal" href="/partners/gpos">
+    <a className="pcard pcard-link reveal" href="/partners/gpos/">
       <div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2.4" stroke="#6fdcae" strokeWidth="1.7"/><circle cx="5" cy="18" r="2.4" stroke="#6fdcae" strokeWidth="1.7"/><circle cx="19" cy="18" r="2.4" stroke="#6fdcae" strokeWidth="1.7"/><path d="M11 7L6 16M13 7l5 9M7.5 18h9" stroke="#6fdcae" strokeWidth="1.6" strokeLinecap="round"/></svg></div>
       <h4>GPOs</h4>
       <p>Add compliant destruction across every regulated stream to your members&rsquo; portfolio.</p>
       <span className="tag">Contract-ready</span>
       <span className="pcard-rm">Explore &rarr;</span>
     </a>
-    <a className="pcard pcard-link reveal" href="/partners/distributors-wholesalers">
+    <a className="pcard pcard-link reveal" href="/partners/distributors-wholesalers/">
       <div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#6fdcae" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#6fdcae" strokeWidth="1.6"/></svg></div>
       <h4>Distributors &amp; wholesalers</h4>
       <p>Resell compliant mail-back kits for every stream under a name buyers trust.</p>
       <span className="tag">Wholesale tiers &middot; apply</span>
       <span className="pcard-rm">Explore &rarr;</span>
     </a>
-    <a className="pcard pcard-link reveal" href="/partners/3pls-fulfillment">
+    <a className="pcard pcard-link reveal" href="/partners/3pls-fulfillment/">
       <div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 7h10v8H3zM13 10h4l3 3v2h-7z" stroke="#6fdcae" strokeWidth="1.7" strokeLinejoin="round"/><circle cx="7" cy="17" r="1.8" stroke="#6fdcae" strokeWidth="1.7"/><circle cx="17" cy="17" r="1.8" stroke="#6fdcae" strokeWidth="1.7"/></svg></div>
       <h4>3PLs &amp; fulfillment</h4>
       <p>Be your clients&rsquo; DEA / RCRA destruction back-end &mdash; under your own brand.</p>
       <span className="tag">White-label ready</span>
       <span className="pcard-rm">Explore &rarr;</span>
     </a>
-    <a className="pcard pcard-link reveal" href="/partners/brokers">
+    <a className="pcard pcard-link reveal" href="/partners/brokers/">
       <div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="5.5" cy="12" r="2.3" stroke="#6fdcae" strokeWidth="1.7"/><circle cx="18.5" cy="12" r="2.3" stroke="#6fdcae" strokeWidth="1.7"/><path d="M8 12h6.5M12.5 9l3 3-3 3" stroke="#6fdcae" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
       <h4>Brokers</h4>
       <p>Earn recurring commission placing compliant destruction with your accounts.</p>
@@ -181,9 +181,9 @@ export default function Home() {
     </a>
   </div>
   <div className="pcta">
-    <a className="btn btn-primary" href="/partners">See all partner programs <span className="ar">&rarr;</span></a>
-    <a className="btn btn-outline-w" href="/partners/apply">Become a partner</a>
-    <span className="cap">or <a href="/capabilities">download our capability statement &rarr;</a></span>
+    <a className="btn btn-primary" href="/partners/">See all partner programs <span className="ar">&rarr;</span></a>
+    <a className="btn btn-outline-w" href="/partners/apply/">Become a partner</a>
+    <span className="cap">or <a href="/capabilities/">download our capability statement &rarr;</a></span>
   </div>
   <p className="recall"><b>Pharmaceutical manufacturer?</b> Ask about standing <b>recall-destruction partnerships</b> &mdash; pre-negotiated and ready to activate the moment a recall hits.</p>
 </div></section>
@@ -261,8 +261,8 @@ export default function Home() {
       <div className="phone">Talk to a specialist &middot; 501-904-2929</div>
     </div>
     <div className="b">
-      <a className="btn btn-onteal" href="/shop">Shop mail-back kits <span className="ar">&rarr;</span></a>
-      <a className="btn btn-outline-w" href="/get-a-quote">Get a custom quote</a>
+      <a className="btn btn-onteal" href="/shop/">Shop mail-back kits <span className="ar">&rarr;</span></a>
+      <a className="btn btn-outline-w" href="/get-a-quote/">Get a custom quote</a>
     </div>
   </div>
 </div></section>
@@ -270,7 +270,7 @@ export default function Home() {
 <QuoteSection />
 
 </main>
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Shop kits", href: "/shop" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/" }} secondary={{ label: "Shop kits", href: "/shop/" }} />
       <Footer />
       <Reveal />
     </>

@@ -46,7 +46,7 @@ export default function Page() {
             </div>
             <div style={{ display: "grid", gap: 14, marginTop: 22 }}>
               {SHOWS.map((s) => (
-                <a key={s.slug} className="svc" href={`/trade-shows/${s.slug}`} style={{ display: "block" }}>
+                <a key={s.slug} className="svc" href={`/trade-shows/${s.slug}/`} style={{ display: "block" }}>
                   <div className="eyebrow" style={{ marginBottom: 4 }}>{s.dates}</div>
                   <h4 style={{ fontSize: 20, margin: "0 0 4px" }}>{s.name}</h4>
                   <p style={{ margin: "0 0 6px" }}>{s.where}</p>
@@ -57,7 +57,7 @@ export default function Page() {
             <h3 style={{ marginTop: 34, fontSize: 18 }}>Recent shows</h3>
             <div style={{ display: "grid", gap: 10, marginTop: 12 }}>
               {PAST.map((s) => (
-                <a key={s.slug} href={`/trade-shows/${s.slug}`} style={{ color: "var(--slate)", textDecoration: "none" }}>
+                <a key={s.slug} href={`/trade-shows/${s.slug}/`} style={{ color: "var(--slate)", textDecoration: "none" }}>
                   <b style={{ color: "var(--ink)" }}>{s.name}</b> &nbsp;·&nbsp; {s.dates} &nbsp;·&nbsp; {s.where}
                 </a>
               ))}
@@ -96,14 +96,14 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/shop/">Shop a kit</a>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

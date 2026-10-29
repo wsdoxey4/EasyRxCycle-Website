@@ -53,9 +53,9 @@ function packFor(slug: string): { t: string; h: string; dl?: boolean }[] {
   ];
   if (slug === "distributors-wholesalers") pack.push({ t: "Wholesale catalog (SKUs)", h: "/downloads/wholesale-catalog.pdf", dl: true });
   pack.push(
-    { t: "Capability statement", h: "/resources/capability-statement" },
-    { t: "Line card", h: "/resources/line-card" },
-    { t: "Sample Certificate of Destruction", h: "/resources/sample-certificate-of-destruction" },
+    { t: "Capability statement", h: "/resources/capability-statement/" },
+    { t: "Line card", h: "/resources/line-card/" },
+    { t: "Sample Certificate of Destruction", h: "/resources/sample-certificate-of-destruction/" },
   );
   return pack;
 }
@@ -102,13 +102,13 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
       <main id="main">
         <section className="subhero">
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Partners", href: "/partners" }, { name: c.name }]} />
+            <Breadcrumbs items={[{ name: "Partners", href: "/partners/" }, { name: c.name }]} />
             <span className="eyebrow">{c.eyebrow}</span>
             <H1 h1={c.h1} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "64ch" }}>{c.lead}</p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href={`/partners/apply?channel=${c.slug}`}>{c.ctaLabel} <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/resources/capability-statement">Get our capability statement</a>
+              <a className="btn btn-primary" href={`/partners/apply/?channel=${c.slug}`}>{c.ctaLabel} <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/resources/capability-statement/">Get our capability statement</a>
             </div>
           </div>
         </section>
@@ -182,7 +182,7 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
                 </div>
               ))}
             </div>
-            <p style={{ marginTop: "26px", fontFamily: "Poppins", fontWeight: 600 }}><a href="/partners/toolkit" style={{ color: "var(--teal)" }}>Browse the full co-branded asset library &rarr;</a></p>
+            <p style={{ marginTop: "26px", fontFamily: "Poppins", fontWeight: 600 }}><a href="/partners/toolkit/" style={{ color: "var(--teal)" }}>Browse the full co-branded asset library &rarr;</a></p>
           </div>
         </section>
 
@@ -229,7 +229,7 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
               ))}
             </div>
             <p style={{ marginTop: "18px", fontSize: "14px", color: "var(--muted,#5a6f72)" }}>
-              Need our W-9 or Certificate of Insurance? <a href="/contact" style={{ color: "var(--teal)", fontWeight: 600 }}>Request them from our team →</a>
+              Need our W-9 or Certificate of Insurance? <a href="/contact/" style={{ color: "var(--teal)", fontWeight: 600 }}>Request them from our team →</a>
             </p>
           </div>
         </section>
@@ -248,7 +248,7 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
             <div className="shead"><span className="eyebrow">Other ways to partner</span><h2>Not quite the right fit?</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)", marginTop: "30px" }}>
               {others.map((o) => (
-                <a className="svc" href={`/partners/${o.slug}`} key={o.slug}>
+                <a className="svc" href={`/partners/${o.slug}/`} key={o.slug}>
                   <h4>{o.name}</h4>
                   <p>{o.blurb}</p>
                 </a>
@@ -270,8 +270,8 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Kari Miller, Chief Revenue Officer &amp; team · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href={`/partners/apply?channel=${c.slug}`}>{c.ctaLabel} <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/partners">All partner programs</a>
+                <a className="btn btn-onteal" href={`/partners/apply/?channel=${c.slug}`}>{c.ctaLabel} <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/partners/">All partner programs</a>
               </div>
             </div>
           </div>

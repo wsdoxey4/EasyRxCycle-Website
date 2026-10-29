@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "What Is Regulated Medical Waste (RMW)? A Simple Guide" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "What Is Regulated Medical Waste (RMW)? A Simple Guide" }]} />
               <span className="eyebrow">Biohazard</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "What Is Regulated Medical Waste (RMW)?" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -67,7 +67,7 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "Regulated medical waste is waste contaminated with blood or other potentially infectious materials (OPIM), or capable of transmitting disease. Rules vary slightly by state, but the core categories are consistent." }} />
             <h2 id="cats" dangerouslySetInnerHTML={{ __html: "What counts as regulated medical waste" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Blood-soaked items &amp; red-bag waste" }} /><li dangerouslySetInnerHTML={{ __html: "Sharps (needles, syringes, blades)" }} /><li dangerouslySetInnerHTML={{ __html: "Pathological waste (tissues, organs)" }} /><li dangerouslySetInnerHTML={{ __html: "Cultures &amp; stocks of infectious agents" }} /><li dangerouslySetInnerHTML={{ __html: "Isolation &amp; contaminated PPE waste" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "Not sure if something qualifies? When in doubt, treat it as <a href=\"/our-solutions/biohazard-waste-disposal\">regulated medical waste</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Not sure if something qualifies? When in doubt, treat it as <a href=\"/our-solutions/biohazard-waste-disposal/\">regulated medical waste</a>." }} />
             <h2 id="vs" dangerouslySetInnerHTML={{ __html: "RMW vs. trash vs. hazardous waste" }} />
             <p dangerouslySetInnerHTML={{ __html: "RMW is <em>infectious</em> waste (OSHA/state rules). It&rsquo;s different from RCRA-hazardous <em>chemical/drug</em> waste (EPA rules) and from general trash. Many facilities generate all three and must segregate each &mdash; mixing them up is the most common compliance error." }} />
 

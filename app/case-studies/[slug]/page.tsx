@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         {/* hero */}
         <section className="sec cs-hero" style={{ paddingBottom: "clamp(24px,3vw,34px)" }}>
           <div className="wrap" style={{ maxWidth: "860px" }}>
-            <Breadcrumbs items={[{ name: "Case Studies", href: "/case-studies" }, { name: c.industry }]} />
+            <Breadcrumbs items={[{ name: "Case Studies", href: "/case-studies/" }, { name: c.industry }]} />
             <span className="eyebrow">Case study · {label}</span>
             <h1 className="ph1" style={{ fontSize: "clamp(28px,3.6vw,44px)", marginTop: "12px" }}>{c.title}</h1>
             <p className="cs-lead">{c.tag}</p>
@@ -120,7 +120,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <div className="cs-program">
               <span className="eyebrow">The program they run</span>
               <div className="cs-prog-chips">
-                {c.solutions.map((sol) => (<a className="cs-prog-chip" key={sol} href={`/our-solutions/${sol}`}>{SOLUTION_LABELS[sol] || sol}</a>))}
+                {c.solutions.map((sol) => (<a className="cs-prog-chip" key={sol} href={`/our-solutions/${sol}/`}>{SOLUTION_LABELS[sol] || sol}</a>))}
               </div>
               <p className="cs-prog-note">Prepaid mail-back or scheduled pickup · no contract, no minimums · a Certificate of Destruction on every order.</p>
             </div>
@@ -136,7 +136,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               <a className="cs-primary" href={`/who-we-serve/${c.icp}/`}>See our {c.icpLabel} waste disposal →</a>
               <div className="cs-sols">
                 <span className="cs-sols-lbl">Solutions used</span>
-                {c.solutions.map((sol) => (<a key={sol} href={`/our-solutions/${sol}`}>{SOLUTION_LABELS[sol] || sol}</a>))}
+                {c.solutions.map((sol) => (<a key={sol} href={`/our-solutions/${sol}/`}>{SOLUTION_LABELS[sol] || sol}</a>))}
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               <div className="shead"><span className="eyebrow">More proof</span><h2>Other client results.</h2></div>
               <div className="csgrid">
                 {related.map((r) => (
-                  <a className="cscard" key={r.slug} href={`/case-studies/${r.slug}`}>
+                  <a className="cscard" key={r.slug} href={`/case-studies/${r.slug}/`}>
                     <span className="cs-eyebrow">{r.industry}{r.region ? ` · ${r.region}` : ""}</span>
                     <h3>{r.title}</h3>
                     <p className="cs-tag">{r.tag}</p>
@@ -174,8 +174,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href={`/get-a-quote?role=${encodeURIComponent(c.industry)}`}>Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/case-studies">More case studies</a>
+                <a className="btn btn-onteal" href={`/get-a-quote/?role=${encodeURIComponent(c.industry)}`}>Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/case-studies/">More case studies</a>
               </div>
             </div>
           </div>

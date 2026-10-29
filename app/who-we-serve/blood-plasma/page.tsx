@@ -53,8 +53,8 @@ export default function Page() {
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Biohazard & Medical Waste Disposal for <span style=\"color:var(--teal)\">blood / plasma centers.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Plasma center medical waste disposal is a volume game: constant phlebotomy generates a steady, heavy stream of donation sharps and blood/plasma biohazard. We size a scheduled pickup or high-throughput mail-back program to your donor volume, keeping the center OSHA- and DOT-compliant with a Certificate of Destruction." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/build-your-program?facility=lab">Build a program</a>
+              <a className="btn btn-primary" href="/get-a-quote/?role=Other">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/build-your-program/?facility=lab">Build a program</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -70,7 +70,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every donation center waste stream, explained.</h2><p class="lead">Blood and plasma donation centers run phlebotomy at very high volume, so two streams dominate: sharps and blood-contaminated biohazard — used needles, tubing, bags, and rejected or expired units. At your scale, the program has to keep up without ever letting a container overfill. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>High-volume phlebotomy sharps.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Phlebotomy needles</li><li>Collection-set sharps</li><li>Lancets &amp; syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Blood-contaminated collection materials and units.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Used tubing, bags &amp; collection sets</li><li>Rejected &amp; expired units</li><li>Blood-soaked materials &amp; PPE</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired anticoagulants and non-controlled supplies.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired anticoagulants</li><li>Non-controlled reagents &amp; meds</li><li>Expired supplies</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own path)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div></div><p class="wsfoot">One partner can take your high-volume sharps and blood biohazard on a scheduled cadence built for donation throughput — with manifests and Certificates of Destruction. No contract. <a href="/resources/blood-plasma-center-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every donation center waste stream, explained.</h2><p class="lead">Blood and plasma donation centers run phlebotomy at very high volume, so two streams dominate: sharps and blood-contaminated biohazard — used needles, tubing, bags, and rejected or expired units. At your scale, the program has to keep up without ever letting a container overfill. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>High-volume phlebotomy sharps.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Phlebotomy needles</li><li>Collection-set sharps</li><li>Lancets &amp; syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Blood-contaminated collection materials and units.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Used tubing, bags &amp; collection sets</li><li>Rejected &amp; expired units</li><li>Blood-soaked materials &amp; PPE</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired anticoagulants and non-controlled supplies.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired anticoagulants</li><li>Non-controlled reagents &amp; meds</li><li>Expired supplies</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own path)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div></div><p class="wsfoot">One partner can take your high-volume sharps and blood biohazard on a scheduled cadence built for donation throughput — with manifests and Certificates of Destruction. No contract. <a href="/resources/blood-plasma-center-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -82,7 +82,7 @@ export default function Page() {
                 <p>Phlebotomy at volume — sharps and blood biohazard are the whole game. Includes a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/blood-plasma-center-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/blood-plasma-center-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -93,9 +93,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
             </div>
           </div>
         </section>
@@ -126,21 +126,21 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/clinical-labs">Clinical & diagnostic labs</a></li>
-                <li><a href="/who-we-serve/research-labs">Research & academic labs</a></li>
-                <li><a href="/who-we-serve/hospitals">Hospitals & health systems</a></li>
-                <li><a href="/who-we-serve/dialysis">Dialysis centers</a></li>
+                <li><a href="/who-we-serve/clinical-labs/">Clinical & diagnostic labs</a></li>
+                <li><a href="/who-we-serve/research-labs/">Research & academic labs</a></li>
+                <li><a href="/who-we-serve/hospitals/">Hospitals & health systems</a></li>
+                <li><a href="/who-we-serve/dialysis/">Dialysis centers</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/biohazard-waste-disposal">Biohazard / RMW disposal</a></li>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
-                <li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste disposal</a></li>
+                <li><a href="/our-solutions/biohazard-waste-disposal/">Biohazard / RMW disposal</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste disposal</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/blood-plasma-center-waste-disposal-guide">Free Blood & plasma centers guide (PDF)</a></li>
-                <li><a href="/blog/biohazardous-waste-disposal-for-healthcare-facilities">Biohazard waste for healthcare</a></li>
-                <li><a href="/blog/sharps-container-sizes-and-types">Sharps container sizes & types</a></li>
+                <li><a href="/resources/blood-plasma-center-waste-disposal-guide/">Free Blood & plasma centers guide (PDF)</a></li>
+                <li><a href="/blog/biohazardous-waste-disposal-for-healthcare-facilities/">Biohazard waste for healthcare</a></li>
+                <li><a href="/blog/sharps-container-sizes-and-types/">Sharps container sizes & types</a></li>
               </ul></div>
             </div>
           </div>
@@ -168,15 +168,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Other">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="blood-plasma-center-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Other" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=lab" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Other" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=lab" }} />
       <Footer />
       <Reveal />
     </>

@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "How to Fill Out DEA Form 222 (Step by Step)" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "How to Fill Out DEA Form 222 (Step by Step)" }]} />
               <span className="eyebrow">Controlled Substances</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "How to Fill Out DEA Form 222" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -64,12 +64,12 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="what" dangerouslySetInnerHTML={{ __html: "What DEA Form 222 is for" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Form 222 documents a Schedule II transaction between DEA registrants &mdash; ordering, or transferring Schedule II drugs to a <a href=\"/our-solutions/reverse-distribution\">reverse distributor</a> for destruction. It creates the official chain-of-custody record. Many registrants now use the electronic CSOS equivalent." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Form 222 documents a Schedule II transaction between DEA registrants &mdash; ordering, or transferring Schedule II drugs to a <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> for destruction. It creates the official chain-of-custody record. Many registrants now use the electronic CSOS equivalent." }} />
             <h2 id="steps" dangerouslySetInnerHTML={{ __html: "How to complete Form 222" }} />
             <ol><li dangerouslySetInnerHTML={{ __html: "Enter the supplier/recipient DEA registration details" }} /><li dangerouslySetInnerHTML={{ __html: "List each Schedule II drug, its size, and the number of packages" }} /><li dangerouslySetInnerHTML={{ __html: "Sign and date it as the authorized registrant" }} /><li dangerouslySetInnerHTML={{ __html: "Keep your copy; the other copies go with the transaction" }} /><li dangerouslySetInnerHTML={{ __html: "Retain the record for at least two years" }} /></ol>
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Incomplete or mismatched registrant details" }} /><li dangerouslySetInnerHTML={{ __html: "Errors in package counts (no cross-outs allowed)" }} /><li dangerouslySetInnerHTML={{ __html: "Missing signatures" }} /><li dangerouslySetInnerHTML={{ __html: "Not retaining the copy for two years" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "When you use a DEA-registered reverse distributor, we prepare and guide the <a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a> so it&rsquo;s done right." }} />
+            <p dangerouslySetInnerHTML={{ __html: "When you use a DEA-registered reverse distributor, we prepare and guide the <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a> so it&rsquo;s done right." }} />
 
                 <div className="postcta">
                   <h3>Let us handle the DEA paperwork.</h3>

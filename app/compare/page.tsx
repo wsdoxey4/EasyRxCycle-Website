@@ -55,8 +55,8 @@ export default function Page() {
                 <li>
                   <strong>Published pricing vs. quote-gated.</strong> Most of the field hides pricing behind a sales
                   call. We publish prices on our{" "}
-                  <a href="/shop">mail-back kits</a> and post a{" "}
-                  <a href="/medical-waste-disposal-cost">cost breakdown by stream</a> so you can compare before you talk
+                  <a href="/shop/">mail-back kits</a> and post a{" "}
+                  <a href="/medical-waste-disposal-cost/">cost breakdown by stream</a> so you can compare before you talk
                   to anyone.
                 </li>
                 <li>
@@ -67,7 +67,7 @@ export default function Page() {
                 <li>
                   <strong>Stream coverage under one roof.</strong> A vendor strong in sharps may not touch controlled
                   substances, RCRA-hazardous drugs, or reverse distribution — leaving you to juggle two or three
-                  contracts. We cover <a href="/our-solutions">every regulated stream</a> a facility generates.
+                  contracts. We cover <a href="/our-solutions/">every regulated stream</a> a facility generates.
                 </li>
                 <li>
                   <strong>Documentation.</strong> A Certificate of Destruction on every order, plus DEA Form 41/222

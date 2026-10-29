@@ -193,7 +193,7 @@ export default function CustomCheckout() {
     <div style={{ textAlign: "center", padding: "40px 0" }}>
       <h1 className="ph1" style={{ fontSize: "clamp(24px,3vw,32px)" }}>Your cart is empty</h1>
       <p className="lead" style={{ margin: "12px auto 22px", maxWidth: "44ch" }}>Add a mail-back kit to get started.</p>
-      <a className="btn btn-primary" href="/shop">Browse kits <span className="ar">→</span></a>
+      <a className="btn btn-primary" href="/shop/">Browse kits <span className="ar">→</span></a>
     </div>
   );
 

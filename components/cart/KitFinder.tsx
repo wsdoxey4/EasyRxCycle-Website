@@ -99,8 +99,8 @@ export default function KitFinder() {
         <div className="kf-unsure">
           <p>That&rsquo;s common, especially if you generate more than one waste stream. Two quick ways to get it right:</p>
           <div className="kf-unsure-b">
-            <a className="btn btn-primary" href="/waste-determination">Use the waste determination guide <span className="ar">→</span></a>
-            <a className="btn btn-ghost" href="/get-a-quote">Get a quote for several streams</a>
+            <a className="btn btn-primary" href="/waste-determination/">Use the waste determination guide <span className="ar">→</span></a>
+            <a className="btn btn-ghost" href="/get-a-quote/">Get a quote for several streams</a>
           </div>
           <p className="kf-call">Or talk to a specialist: <a href="tel:5019042929">501-904-2929</a></p>
         </div>
@@ -145,7 +145,7 @@ export default function KitFinder() {
             {cat === "controlled" && <p className="kf-r-note">After checkout you&rsquo;ll complete a short drug inventory manifest to put in the box. Have your DEA number handy.</p>}
             <div className="kf-r-b">
               <button type="button" className="btn btn-primary" onClick={addToCart}>{added ? "Added. Add another" : "Add to cart"} <span className="ar">→</span></button>
-              <a className="btn btn-ghost" href={`/shop/${kit.slug}`}>See kit details</a>
+              <a className="btn btn-ghost" href={`/shop/${kit.slug}/`}>See kit details</a>
             </div>
             <SaveCart lines={[{ sku: sel.sku, qty: 1 }]} label="Not ready to order? Email me this kit" source="kit-finder" />
           </div>

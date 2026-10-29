@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "HIPAA-Compliant Medical Waste Disposal" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "HIPAA-Compliant Medical Waste Disposal" }]} />
               <span className="eyebrow">Compliance</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("HIPAA-Compliant Medical Waste Disposal")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>5 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most facilities think about medical waste as a biohazard problem &mdash; and forget it&rsquo;s also a privacy problem. A prescription vial or IV bag with a patient&rsquo;s name on it is protected health information (PHI), and HIPAA requires it to be destroyed so it can&rsquo;t be read. Here&rsquo;s how HIPAA applies to your waste, when you need a BAA, and how to handle it right.")} />
@@ -63,7 +63,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="apply" dangerouslySetInnerHTML={H("How HIPAA applies to medical waste")} />
-                <p dangerouslySetInnerHTML={H("HIPAA&rsquo;s Privacy and Security Rules require covered entities to protect protected health information (PHI) through its entire life &mdash; including disposal. When PHI ends up on a piece of waste, HIPAA requires it to be rendered <strong>unreadable, indecipherable, and unable to be reconstructed</strong> before it&rsquo;s discarded. That&rsquo;s a separate obligation from the biohazard itself: <a href=\"/blog/osha-medical-waste-requirements\">OSHA</a> protects the worker from the pathogen; HIPAA protects the patient&rsquo;s information.")} />
+                <p dangerouslySetInnerHTML={H("HIPAA&rsquo;s Privacy and Security Rules require covered entities to protect protected health information (PHI) through its entire life &mdash; including disposal. When PHI ends up on a piece of waste, HIPAA requires it to be rendered <strong>unreadable, indecipherable, and unable to be reconstructed</strong> before it&rsquo;s discarded. That&rsquo;s a separate obligation from the biohazard itself: <a href=\"/blog/osha-medical-waste-requirements/\">OSHA</a> protects the worker from the pathogen; HIPAA protects the patient&rsquo;s information.")} />
 
                 <h2 id="phi" dangerouslySetInnerHTML={H("What counts as PHI in your waste")} />
                 <ul>
@@ -78,14 +78,14 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("If a disposal vendor handles PHI-bearing waste on your behalf, they&rsquo;re acting as a <strong>business associate</strong>, and HIPAA generally requires a <strong>Business Associate Agreement (BAA)</strong> &mdash; a contract binding them to safeguard that information. Before signing with any vendor, confirm they&rsquo;ll execute a BAA and can document their chain of custody. Easy Rx Cycle handles PHI-bearing waste under HIPAA-compliant safeguards and provides a BAA on request.")} />
 
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of PHI-bearing waste")} />
-                <p dangerouslySetInnerHTML={H("Keep PHI-bearing items in the correct regulated container, use a vendor operating under a BAA with a documented chain of custody, and ensure the material is destroyed so the information can&rsquo;t be reconstructed &mdash; with documentation on completion. Our <a href=\"/our-solutions/pharmaceutical-waste-disposal\">pharmaceutical</a>, <a href=\"/our-solutions/medication-disposal-kit\">medication</a>, and <a href=\"/our-solutions/biohazard-waste-disposal\">biohazard</a> disposal all include destruction and a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>, so the PHI is gone and documented in one step.")} />
+                <p dangerouslySetInnerHTML={H("Keep PHI-bearing items in the correct regulated container, use a vendor operating under a BAA with a documented chain of custody, and ensure the material is destroyed so the information can&rsquo;t be reconstructed &mdash; with documentation on completion. Our <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical</a>, <a href=\"/our-solutions/medication-disposal-kit/\">medication</a>, and <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard</a> disposal all include destruction and a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>, so the PHI is gone and documented in one step.")} />
 
                 <div className="postcta">
                   <h3>Dispose of PHI-bearing waste compliantly.</h3>
                   <p>HIPAA-compliant handling, a BAA on request, and a Certificate of Destruction on every order &mdash; for medication, pharmaceutical, and biohazard waste alike.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/contact">Request a BAA</a>
+                    <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/contact/">Request a BAA</a>
                   </div>
                 </div>
 

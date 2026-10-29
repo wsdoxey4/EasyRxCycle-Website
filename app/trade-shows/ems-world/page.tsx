@@ -115,8 +115,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/who-we-serve/ems-fire">EMS &amp; fire disposal</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/who-we-serve/ems-fire/">EMS &amp; fire disposal</a>
               </div>
             </div>
           </div>

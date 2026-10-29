@@ -54,8 +54,8 @@ export default function Page() {
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Biohazard waste disposal for <span style=\"color:var(--teal)\">clinical labs.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Specimens, cultures, sharps, and hazardous waste from clinical and diagnostic laboratories \u2014 segregated, treated, and destroyed to OSHA, EPA, and DOT standards, with manifests and a Certificate of Destruction." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote?role=Lab%20/%20research">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/build-your-program?facility=lab">Build a program</a>
+              <a className="btn btn-primary" href="/get-a-quote/?role=Lab%20/%20research">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/build-your-program/?facility=lab">Build a program</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -71,7 +71,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every clinical lab waste stream, explained.</h2><p class="lead">Clinical and diagnostic labs generate biohazard as the backbone stream — blood and body-fluid specimens, cultures, and contaminated labware — plus high-volume phlebotomy sharps and some hazardous reagents and stains. This guide covers every stream and how to keep the volume moving compliantly.</p></div><div class="wstreams"><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Specimens, cultures, and contaminated labware — your primary stream.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood &amp; body-fluid specimens</li><li>Cultures &amp; contaminated labware</li><li>Blood tubes &amp; OPIM materials</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div><div class="wstream"><h3>Sharps</h3><p>Phlebotomy and lab sharps at volume.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Phlebotomy needles &amp; lancets</li><li>Broken glass &amp; capillary tubes</li><li>Syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Hazardous chemical waste</h3><p>Hazardous stains, reagents, and fixatives.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Hazardous stains &amp; reagents</li><li>Formalin &amp; fixatives (if used)</li><li>Characteristic hazardous chemicals</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-hazardous waste</li><li>Sharps</li><li>Biohazard / red-bag waste</li></ul></div></div><p class="ws-meta"><b>The rule</b> — EPA RCRA and DOT — characterize, segregate by compatibility, manifest, and destroy to EPA standards.</p><p class="ws-meta"><b>How to dispose</b> — RCRA-hazardous handling with manifests.<span class="ws-tip"><b>Tip:</b> Characterize your chemicals first — the RCRA listing or characteristic sets the disposal path.</span></p></div><div class="wstream"><h3>Pathological / tissue waste</h3><p>If your lab processes tissue or pathology specimens.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Tissue &amp; pathology specimens (per state)</li><li>Formalin-fixed tissue</li><li>Biopsy materials</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps</li><li>Non-hazardous waste</li></ul></div></div><p class="ws-meta"><b>The rule</b> — State medical-waste rules — pathological waste often has specific handling and destruction requirements.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard / pathological handling per state rules.<span class="ws-tip"><b>Tip:</b> Pathological waste rules vary widely by state — confirm yours before you set a process.</span></p></div></div><p class="wsfoot">One partner can take your specimen biohazard, phlebotomy sharps, and hazardous reagents — mail-back or scheduled pickup — with manifests and Certificates of Destruction. No contract. <a href="/resources/clinical-lab-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every clinical lab waste stream, explained.</h2><p class="lead">Clinical and diagnostic labs generate biohazard as the backbone stream — blood and body-fluid specimens, cultures, and contaminated labware — plus high-volume phlebotomy sharps and some hazardous reagents and stains. This guide covers every stream and how to keep the volume moving compliantly.</p></div><div class="wstreams"><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Specimens, cultures, and contaminated labware — your primary stream.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood &amp; body-fluid specimens</li><li>Cultures &amp; contaminated labware</li><li>Blood tubes &amp; OPIM materials</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div><div class="wstream"><h3>Sharps</h3><p>Phlebotomy and lab sharps at volume.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Phlebotomy needles &amp; lancets</li><li>Broken glass &amp; capillary tubes</li><li>Syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Hazardous chemical waste</h3><p>Hazardous stains, reagents, and fixatives.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Hazardous stains &amp; reagents</li><li>Formalin &amp; fixatives (if used)</li><li>Characteristic hazardous chemicals</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-hazardous waste</li><li>Sharps</li><li>Biohazard / red-bag waste</li></ul></div></div><p class="ws-meta"><b>The rule</b> — EPA RCRA and DOT — characterize, segregate by compatibility, manifest, and destroy to EPA standards.</p><p class="ws-meta"><b>How to dispose</b> — RCRA-hazardous handling with manifests.<span class="ws-tip"><b>Tip:</b> Characterize your chemicals first — the RCRA listing or characteristic sets the disposal path.</span></p></div><div class="wstream"><h3>Pathological / tissue waste</h3><p>If your lab processes tissue or pathology specimens.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Tissue &amp; pathology specimens (per state)</li><li>Formalin-fixed tissue</li><li>Biopsy materials</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps</li><li>Non-hazardous waste</li></ul></div></div><p class="ws-meta"><b>The rule</b> — State medical-waste rules — pathological waste often has specific handling and destruction requirements.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard / pathological handling per state rules.<span class="ws-tip"><b>Tip:</b> Pathological waste rules vary widely by state — confirm yours before you set a process.</span></p></div></div><p class="wsfoot">One partner can take your specimen biohazard, phlebotomy sharps, and hazardous reagents — mail-back or scheduled pickup — with manifests and Certificates of Destruction. No contract. <a href="/resources/clinical-lab-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -83,7 +83,7 @@ export default function Page() {
                 <p>Specimens, phlebotomy sharps & hazardous stains — every stream, handled right. Includes a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/clinical-lab-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/clinical-lab-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -94,10 +94,10 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Every lab waste stream, routed right.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
-              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U- & D-listed drug waste." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U- & D-listed drug waste." }} /></a>
             </div>
           </div>
         </section>
@@ -128,22 +128,22 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/research-labs">Research & academic labs</a></li>
-                <li><a href="/who-we-serve/blood-plasma">Blood & plasma centers</a></li>
-                <li><a href="/who-we-serve/hospitals">Hospitals & health systems</a></li>
-                <li><a href="/who-we-serve/clinical-trials">Clinical trial sites</a></li>
+                <li><a href="/who-we-serve/research-labs/">Research & academic labs</a></li>
+                <li><a href="/who-we-serve/blood-plasma/">Blood & plasma centers</a></li>
+                <li><a href="/who-we-serve/hospitals/">Hospitals & health systems</a></li>
+                <li><a href="/who-we-serve/clinical-trials/">Clinical trial sites</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/biohazard-waste-disposal">Biohazard / RMW disposal</a></li>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
-                <li><a href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA hazardous drug disposal</a></li>
+                <li><a href="/our-solutions/biohazard-waste-disposal/">Biohazard / RMW disposal</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
+                <li><a href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA hazardous drug disposal</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/clinical-lab-waste-disposal-guide">Free Clinical & diagnostic labs guide (PDF)</a></li>
-                <li><a href="/blog/biohazardous-waste-disposal-for-healthcare-facilities">Biohazard waste for healthcare</a></li>
-                <li><a href="/blog/red-bag-waste-what-goes-in-it">Red-bag waste: what goes in it</a></li>
-                <li><a href="/blog/medical-waste-generator-categories-vsqg-sqg-lqg">Generator categories: VSQG/SQG/LQG</a></li>
+                <li><a href="/resources/clinical-lab-waste-disposal-guide/">Free Clinical & diagnostic labs guide (PDF)</a></li>
+                <li><a href="/blog/biohazardous-waste-disposal-for-healthcare-facilities/">Biohazard waste for healthcare</a></li>
+                <li><a href="/blog/red-bag-waste-what-goes-in-it/">Red-bag waste: what goes in it</a></li>
+                <li><a href="/blog/medical-waste-generator-categories-vsqg-sqg-lqg/">Generator categories: VSQG/SQG/LQG</a></li>
               </ul></div>
             </div>
           </div>
@@ -171,15 +171,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Lab%20/%20research">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Lab%20/%20research">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="clinical-lab-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Lab%20/%20research" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=lab" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Lab%20/%20research" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=lab" }} />
       <Footer />
       <Reveal />
     </>

@@ -44,11 +44,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Best Reverse Distributors: A Comparison" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Best Reverse Distributors: A Comparison" }]} />
               <span className="eyebrow">Reverse Distribution</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Best Reverse Distributors: A Comparison" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>May 26, 2025</span>
                 <span className="dot-sep" />
@@ -71,16 +71,16 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="what" dangerouslySetInnerHTML={{ __html: "What is a reverse distributor?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "A <a href=\"/our-solutions/reverse-distribution\">DEA-registered reverse distributor</a> is a DEA-registered company that helps pharmacies, hospitals, and DEA registrants dispose of expired, unwanted, or unsellable prescription drugs &mdash; including controlled substances." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> is a DEA-registered company that helps pharmacies, hospitals, and DEA registrants dispose of expired, unwanted, or unsellable prescription drugs &mdash; including controlled substances." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>They typically handle:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Controlled substances (Schedules II&ndash;V)" }} /><li dangerouslySetInnerHTML={{ __html: "Expired or damaged pharmaceuticals" }} /><li dangerouslySetInnerHTML={{ __html: "Returns and recalls" }} /><li dangerouslySetInnerHTML={{ __html: "Unused or unopened stock" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "The service covers collection, transport, destruction, and the required DEA documentation &mdash; including <a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "The service covers collection, transport, destruction, and the required DEA documentation &mdash; including <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>." }} />
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why choosing the right one matters" }} />
             <p dangerouslySetInnerHTML={{ __html: "Pick the wrong partner and you inherit their problems:" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Delayed pickups that leave controls sitting in your safe" }} /><li dangerouslySetInnerHTML={{ __html: "Missing DEA Form 222 or Form 41 documentation" }} /><li dangerouslySetInnerHTML={{ __html: "Non-compliance fines" }} /><li dangerouslySetInnerHTML={{ __html: "Bundled charges and surprise fees" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Top-tier providers offer more than disposal &mdash; they tailor the program to your facility and make audits a non-event." }} />
             <h2 id="criteria" dangerouslySetInnerHTML={{ __html: "How we evaluated these reverse distributors" }} />
-            <ul><li dangerouslySetInnerHTML={{ __html: "DEA registration and controlled-substance capability" }} /><li dangerouslySetInnerHTML={{ __html: "Support for <a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a>" }} /><li dangerouslySetInnerHTML={{ __html: "Pricing transparency" }} /><li dangerouslySetInnerHTML={{ __html: "National availability" }} /><li dangerouslySetInnerHTML={{ __html: "Customer-service responsiveness" }} /><li dangerouslySetInnerHTML={{ __html: "Fit for pharmacies, hospitals, and veterinary practices" }} /></ul>
+            <ul><li dangerouslySetInnerHTML={{ __html: "DEA registration and controlled-substance capability" }} /><li dangerouslySetInnerHTML={{ __html: "Support for <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>" }} /><li dangerouslySetInnerHTML={{ __html: "Pricing transparency" }} /><li dangerouslySetInnerHTML={{ __html: "National availability" }} /><li dangerouslySetInnerHTML={{ __html: "Customer-service responsiveness" }} /><li dangerouslySetInnerHTML={{ __html: "Fit for pharmacies, hospitals, and veterinary practices" }} /></ul>
             <h2 id="compare" dangerouslySetInnerHTML={{ __html: "The major players, compared" }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Rx Reverse Distributors (RXRD)" }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>Strengths:</strong> well known in retail pharmacy, national coverage. <strong>Watch-outs:</strong> tiered pricing and long-term contracts, slower onboarding for smaller sites, limited transparency on the Form 41 process. <strong>Best for:</strong> chain pharmacies or large systems with high-volume returns." }} />
@@ -90,14 +90,14 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "<strong>Strengths:</strong> environmental-compliance focus, backed by WM logistics. <strong>Watch-outs:</strong> emphasizes hazardous waste over controlled drugs; less specialized in pharmacy returns and reverse-distribution documentation. <strong>Best for:</strong> environmental-compliance teams at large IDNs." }} />
             <h2 id="controlled" dangerouslySetInnerHTML={{ __html: "Sending controlled substances to a reverse distributor: the forms" }} />
             <p dangerouslySetInnerHTML={{ __html: "The paperwork is where reverse distributors differ most, so know how it should work. Schedule II drugs leave your registration on a <strong>DEA Form 222</strong> (or its CSOS electronic equivalent). Schedule III&ndash;V drugs transfer on an invoice. Once the reverse distributor destroys them, <em>it</em> records the destruction on <strong>DEA Form 41</strong> and you keep your copies for two years." }} />
-            <p dangerouslySetInnerHTML={{ __html: "A good partner tells you exactly which form each item needs before anything ships, and sends back documentation you can hand an inspector. For the full walkthrough, see <a href=\"/blog/dea-form-41-requirements-and-pdf\">how to fill out DEA Form 41</a> and our guide to <a href=\"/blog/reverse-distribution-for-controlled-substances\">reverse distribution for controlled substances</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A good partner tells you exactly which form each item needs before anything ships, and sends back documentation you can hand an inspector. For the full walkthrough, see <a href=\"/blog/dea-form-41-requirements-and-pdf/\">how to fill out DEA Form 41</a> and our guide to <a href=\"/blog/reverse-distribution-for-controlled-substances/\">reverse distribution for controlled substances</a>." }} />
             <h2 id="near-me" dangerouslySetInnerHTML={{ __html: "Is there a reverse distributor near me?" }} />
             <p dangerouslySetInnerHTML={{ __html: "You don&rsquo;t need one in your city. Reverse distribution runs on shipping and scheduled pickup, so what matters is DEA registration, documentation, and turnaround, not distance. Easy Rx Cycle serves pharmacies, clinics, and long-term care facilities in all 50 states." }} />
             <h2 id="erc" dangerouslySetInnerHTML={{ __html: "Where Easy Rx Cycle fits" }} />
-            <p dangerouslySetInnerHTML={{ __html: "We built our <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a> around what pharmacies, clinics, and care facilities actually need: a compliance-first process, real controlled-substance handling, flat-rate pricing, and no long-term contracts." }} />
+            <p dangerouslySetInnerHTML={{ __html: "We built our <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> around what pharmacies, clinics, and care facilities actually need: a compliance-first process, real controlled-substance handling, flat-rate pricing, and no long-term contracts." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>Who we serve:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Retail and independent pharmacies" }} /><li dangerouslySetInnerHTML={{ __html: "Mail-order and compounding pharmacies" }} /><li dangerouslySetInnerHTML={{ __html: "Veterinary clinics" }} /><li dangerouslySetInnerHTML={{ __html: "Long-term care and assisted living" }} /><li dangerouslySetInnerHTML={{ __html: "Hospitals and outpatient clinics" }} /><li dangerouslySetInnerHTML={{ __html: "DEA registrants of every size" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "Clients tend to stay for the same reasons: fast turnaround, clear pricing, and a compliance-first approach &mdash; especially for controlled substances. If you also need credit recovery on returnable stock, that&rsquo;s built into our <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a> program." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Clients tend to stay for the same reasons: fast turnaround, clear pricing, and a compliance-first approach &mdash; especially for controlled substances. If you also need credit recovery on returnable stock, that&rsquo;s built into our <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> program." }} />
 
                 <div className="postcta">
                   <h3>Compare us the easy way — get a quote.</h3>

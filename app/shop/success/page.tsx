@@ -34,7 +34,7 @@ export default function Page() {
             </p>
             <OrderConfirmed />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "30px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop">Back to shop <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/shop/">Back to shop <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="tel:5019042929">Questions? 501-904-2929</a>
             </div>
           </div>

@@ -42,14 +42,14 @@ const badge = (label: string) => (
 );
 
 const streams: [string, string][] = [
-  ["Sharps disposal", "/our-solutions/sharps-disposal"],
-  ["Biohazard / regulated medical waste", "/our-solutions/biohazard-waste-disposal"],
-  ["Pharmaceutical waste (non-controlled)", "/our-solutions/pharmaceutical-waste-disposal"],
-  ["Controlled substance destruction", "/our-solutions/controlled-substance-destruction"],
-  ["RCRA hazardous pharmaceutical waste", "/our-solutions/rcra-hazardous-pharmaceutical-waste"],
-  ["Trace chemotherapy waste", "/our-solutions/trace-chemotherapy-waste"],
-  ["Medication disposal kits", "/our-solutions/medication-disposal-kit"],
-  ["Pharmaceutical reverse distribution", "/our-solutions/reverse-distribution"],
+  ["Sharps disposal", "/our-solutions/sharps-disposal/"],
+  ["Biohazard / regulated medical waste", "/our-solutions/biohazard-waste-disposal/"],
+  ["Pharmaceutical waste (non-controlled)", "/our-solutions/pharmaceutical-waste-disposal/"],
+  ["Controlled substance destruction", "/our-solutions/controlled-substance-destruction/"],
+  ["RCRA hazardous pharmaceutical waste", "/our-solutions/rcra-hazardous-pharmaceutical-waste/"],
+  ["Trace chemotherapy waste", "/our-solutions/trace-chemotherapy-waste/"],
+  ["Medication disposal kits", "/our-solutions/medication-disposal-kit/"],
+  ["Pharmaceutical reverse distribution", "/our-solutions/reverse-distribution/"],
 ];
 
 // Credential detail — "types now"; actual numbers/permits/certs added later (shown "on request" until then).
@@ -64,11 +64,11 @@ const creds = [
 ];
 
 const downloads = [
-  { t: "Capability statement", d: "One-page overview for procurement & GPOs.", h: "/resources/capability-statement" },
-  { t: "Compliance checklist", d: "Stay audit-ready across every waste stream.", h: "/resources/medical-waste-compliance-checklist" },
-  { t: "Line card", d: "Every service and waste stream on one page.", h: "/resources/line-card" },
-  { t: "Sample Certificate of Destruction", d: "See exactly what you receive.", h: "/resources/sample-certificate-of-destruction" },
-  { t: "W-9", d: "For AP to set us up as a vendor — request from our team.", h: "/contact" },
+  { t: "Capability statement", d: "One-page overview for procurement & GPOs.", h: "/resources/capability-statement/" },
+  { t: "Compliance checklist", d: "Stay audit-ready across every waste stream.", h: "/resources/medical-waste-compliance-checklist/" },
+  { t: "Line card", d: "Every service and waste stream on one page.", h: "/resources/line-card/" },
+  { t: "Sample Certificate of Destruction", d: "See exactly what you receive.", h: "/resources/sample-certificate-of-destruction/" },
+  { t: "W-9", d: "For AP to set us up as a vendor — request from our team.", h: "/contact/" },
 ];
 
 export default function Page() {
@@ -91,7 +91,7 @@ export default function Page() {
               nationwide. Here&rsquo;s the full picture for your procurement team, GPO, or compliance officer.
             </p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/partners">Partner with us <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/partners/">Partner with us <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/#quote">Get a quote</a>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function Page() {
             </div>
             <p className="lead" style={{ marginTop: "22px", maxWidth: "62ch", fontSize: "15px" }}>
               Full registration numbers, permits, and certificates are provided to qualified buyers, procurement teams, and
-              compliance officers on request. <a href="/get-a-quote" style={{ color: "var(--teal)", fontWeight: 600 }}>Request our compliance packet</a>.
+              compliance officers on request. <a href="/get-a-quote/" style={{ color: "var(--teal)", fontWeight: 600 }}>Request our compliance packet</a>.
             </p>
           </div>
         </section>
@@ -212,7 +212,7 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/partners">Partner with us <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/partners/">Partner with us <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/#quote">Get a quote</a>
               </div>
             </div>

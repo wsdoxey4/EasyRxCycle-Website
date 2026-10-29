@@ -51,7 +51,7 @@ export default function StateFinder({ states }: { states: St[] }) {
       </div>
       {norm && matches.length === 0 && (
         <p className="lead" style={{ marginTop: "16px" }}>
-          We serve all 50 states &mdash; try the full state name, or <a href="/get-a-quote" style={{ color: "var(--teal)", fontWeight: 600 }}>request a quote</a>.
+          We serve all 50 states &mdash; try the full state name, or <a href="/get-a-quote/" style={{ color: "var(--teal)", fontWeight: 600 }}>request a quote</a>.
         </p>
       )}
     </div>

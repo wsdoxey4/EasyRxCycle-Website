@@ -37,7 +37,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "clamp(30px,4vw,48px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "Guide library" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "Guide library" }]} />
             <span className="eyebrow">The guide library</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>
               Every compliance guide, <span style={{ color: "var(--teal)" }}>free to download.</span>

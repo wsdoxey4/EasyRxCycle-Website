@@ -98,8 +98,8 @@ export default function GeneratorStatus() {
             {RESULT[cat].points.map((p) => (<li key={p}>{p}</li>))}
           </ul>
           <div className="wiz-cta">
-            <a className="btn btn-primary" href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA hazardous drug disposal <span className="ar">→</span></a>
-            <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+            <a className="btn btn-primary" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA hazardous drug disposal <span className="ar">→</span></a>
+            <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
           </div>
         </div>
       )}
@@ -108,7 +108,7 @@ export default function GeneratorStatus() {
         Educational estimate based on the federal RCRA thresholds (40 CFR 262.13). Your state may count waste
         differently or set stricter rules, and a formal generator-status determination is the facility&rsquo;s
         responsibility. Note EPA&rsquo;s Subpart P changed how many facilities count hazardous waste
-        pharmaceuticals — <a href="/blog/epa-subpart-p-explained">see how</a>, or <a href="/get-a-quote">ask our team</a>.
+        pharmaceuticals — <a href="/blog/epa-subpart-p-explained/">see how</a>, or <a href="/get-a-quote/">ask our team</a>.
       </p>
     </div>
   );

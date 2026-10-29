@@ -159,8 +159,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Media contact · sales@easyrxcycle.com · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/trade-shows">See our trade shows <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/about-us">About us</a>
+                <a className="btn btn-onteal" href="/trade-shows/">See our trade shows <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/about-us/">About us</a>
               </div>
             </div>
           </div>

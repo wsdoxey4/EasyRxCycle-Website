@@ -44,12 +44,12 @@ const ICONS: Record<string, ReactNode> = {
 const onboardingPack: { t: string; d: string; h: string; dl?: boolean }[] = [
   { t: "Partner program overview", d: "The master one-pager — all four channels.", h: "/downloads/partner-program-overview.pdf", dl: true },
   { t: "Wholesale catalog (SKUs)", d: "Every kit SKU for resale — no pricing.", h: "/downloads/wholesale-catalog.pdf", dl: true },
-  { t: "Capability statement", d: "Company overview, credentials, and coverage.", h: "/resources/capability-statement" },
-  { t: "Line card", d: "Every service and waste stream on one page.", h: "/resources/line-card" },
-  { t: "Sample Certificate of Destruction", d: "Exactly what your members receive.", h: "/resources/sample-certificate-of-destruction" },
-  { t: "Compliance checklist", d: "By-stream, audit-ready reference.", h: "/resources/medical-waste-compliance-checklist" },
-  { t: "W-9", d: "For AP vendor setup — request from our team.", h: "/contact" },
-  { t: "Certificate of Insurance", d: "COI for procurement — request from our team.", h: "/contact" },
+  { t: "Capability statement", d: "Company overview, credentials, and coverage.", h: "/resources/capability-statement/" },
+  { t: "Line card", d: "Every service and waste stream on one page.", h: "/resources/line-card/" },
+  { t: "Sample Certificate of Destruction", d: "Exactly what your members receive.", h: "/resources/sample-certificate-of-destruction/" },
+  { t: "Compliance checklist", d: "By-stream, audit-ready reference.", h: "/resources/medical-waste-compliance-checklist/" },
+  { t: "W-9", d: "For AP vendor setup — request from our team.", h: "/contact/" },
+  { t: "Certificate of Insurance", d: "COI for procurement — request from our team.", h: "/contact/" },
 ];
 
 const steps = [
@@ -80,8 +80,8 @@ export default function Page() {
               You bring the accounts; we handle the credentials, the kits, and the paperwork.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/partners/apply">Become a partner <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/resources/capability-statement">Get our capability statement</a>
+              <a className="btn btn-primary" href="/partners/apply/">Become a partner <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/resources/capability-statement/">Get our capability statement</a>
             </div>
           </div>
         </section>
@@ -99,7 +99,7 @@ export default function Page() {
             </div>
             <div className="pcards">
               {channels.map((c) => (
-                <a className="pcard pcard-link" key={c.slug} href={`/partners/${c.slug}`}>
+                <a className="pcard pcard-link" key={c.slug} href={`/partners/${c.slug}/`}>
                   <div className="ic">{ICONS[c.slug]}</div>
                   <h4>{c.name}</h4>
                   <p>{c.blurb}</p>
@@ -159,7 +159,7 @@ export default function Page() {
                 </div>
               ))}
             </div>
-            <p style={{ marginTop: "26px", fontFamily: "Poppins", fontWeight: 600 }}><a href="/partners/toolkit" style={{ color: "var(--teal)" }}>Browse the full co-branded asset library &rarr;</a></p>
+            <p style={{ marginTop: "26px", fontFamily: "Poppins", fontWeight: 600 }}><a href="/partners/toolkit/" style={{ color: "var(--teal)" }}>Browse the full co-branded asset library &rarr;</a></p>
           </div>
         </section>
 
@@ -195,7 +195,7 @@ export default function Page() {
             </div>
             <p className="lead" style={{ marginTop: "20px", maxWidth: "62ch", fontSize: "15px" }}>
               Need our DEA registration certificate or full permit numbers? Those are provided to qualified partners on request —{" "}
-              <a href="/contact" style={{ color: "var(--teal)", fontWeight: 600 }}>ask our team</a>.
+              <a href="/contact/" style={{ color: "var(--teal)", fontWeight: 600 }}>ask our team</a>.
             </p>
           </div>
         </section>
@@ -213,8 +213,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to our team · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/partners/apply">Become a partner <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/resources/capability-statement">Capability statement</a>
+                <a className="btn btn-onteal" href="/partners/apply/">Become a partner <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/resources/capability-statement/">Capability statement</a>
               </div>
             </div>
           </div>

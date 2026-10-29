@@ -59,7 +59,7 @@ export default function Page() {
                 <p style={{ fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)", fontSize: "16px" }}>{SITE.email}</p>
                 <p>Send us your question and we&rsquo;ll get back to you same day.</p>
               </a>
-              <a className="svc" href="/get-a-quote">
+              <a className="svc" href="/get-a-quote/">
                 <h4>Get a quote</h4>
                 <p>Tell us your waste streams and volume for a same-day, no-obligation quote.</p>
                 <span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Request a quote →</span>

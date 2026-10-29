@@ -22,14 +22,14 @@ const check = (
 
 // Real published price ranges (from the shop catalog) — the transparency wedge.
 const STREAMS = [
-  { name: "Sharps disposal", low: 55, high: 405, href: "/shop/sharps-mail-back-kit", note: "1 qt to 28 gal containers" },
-  { name: "Biohazard / RMW", low: 75, high: 405, href: "/shop/biohazard-mail-back-kit", note: "red-bag regulated medical waste" },
-  { name: "Pharmaceutical waste", low: 100, high: 285, href: "/shop/pharmaceutical-waste-mail-back-kit", note: "non-controlled expired Rx" },
-  { name: "Medication mail-back kits", low: 95, high: 700, href: "/shop/medication-mail-back-kit", note: "patient & consumer take-back" },
-  { name: "On-site medication kits", low: 40, high: 350, href: "/shop/on-site-medication-disposal-kit", note: "activated-charcoal deactivation" },
-  { name: "Trace chemotherapy", low: 105, high: 445, href: "/shop/trace-chemo-mail-back-kit", note: "yellow-container trace chemo" },
-  { name: "RCRA hazardous", low: 145, high: 475, href: "/shop/rcra-hazardous-mail-back-kit", note: "P/U/D-listed drug waste" },
-  { name: "Controlled substances", low: 499, high: 1999, href: "/shop/controlled-substance-mail-back-kit", note: "DEA-registered destruction" },
+  { name: "Sharps disposal", low: 55, high: 405, href: "/shop/sharps-mail-back-kit/", note: "1 qt to 28 gal containers" },
+  { name: "Biohazard / RMW", low: 75, high: 405, href: "/shop/biohazard-mail-back-kit/", note: "red-bag regulated medical waste" },
+  { name: "Pharmaceutical waste", low: 100, high: 285, href: "/shop/pharmaceutical-waste-mail-back-kit/", note: "non-controlled expired Rx" },
+  { name: "Medication mail-back kits", low: 95, high: 700, href: "/shop/medication-mail-back-kit/", note: "patient & consumer take-back" },
+  { name: "On-site medication kits", low: 40, high: 350, href: "/shop/on-site-medication-disposal-kit/", note: "activated-charcoal deactivation" },
+  { name: "Trace chemotherapy", low: 105, high: 445, href: "/shop/trace-chemo-mail-back-kit/", note: "yellow-container trace chemo" },
+  { name: "RCRA hazardous", low: 145, high: 475, href: "/shop/rcra-hazardous-mail-back-kit/", note: "P/U/D-listed drug waste" },
+  { name: "Controlled substances", low: 499, high: 1999, href: "/shop/controlled-substance-mail-back-kit/", note: "DEA-registered destruction" },
 ];
 
 const faqs = [
@@ -64,8 +64,8 @@ export default function Page() {
             <h1 className="ph1">How much does <span style={{ color: "var(--teal)" }}>medical waste disposal cost?</span></h1>
             <p className="lead" style={{ marginTop: "18px" }}>Most companies make you request a quote to find out. We don&rsquo;t. For the majority of practices, prepaid mail-back kits run from about <strong>$55 to a few hundred dollars each</strong> — a flat, one-time price that already includes the container, shipping both ways, destruction, and a Certificate of Destruction. No contract, no monthly fees, no surprises. Here&rsquo;s exactly what drives the number and how to pay less.</p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "26px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/cost-calculator">Estimate your cost <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/pricing">See all published prices</a>
+              <a className="btn btn-primary" href="/cost-calculator/">Estimate your cost <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/pricing/">See all published prices</a>
             </div>
           </div>
         </section>
@@ -83,7 +83,7 @@ export default function Page() {
                 </a>
               ))}
             </div>
-            <p style={{ color: "var(--slate)", fontSize: "14px", marginTop: "14px" }}>Prices are per kit, one-time, and include prepaid return shipping + destruction + documentation. <a href="/pricing" style={{ color: "var(--teal)", fontWeight: 600 }}>Full price list →</a></p>
+            <p style={{ color: "var(--slate)", fontSize: "14px", marginTop: "14px" }}>Prices are per kit, one-time, and include prepaid return shipping + destruction + documentation. <a href="/pricing/" style={{ color: "var(--teal)", fontWeight: 600 }}>Full price list →</a></p>
           </div>
         </section>
 
@@ -158,14 +158,14 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/cost-calculator">Estimate your cost <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/shop">Shop kits</a>
+                <a className="btn btn-onteal" href="/cost-calculator/">Estimate your cost <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/shop/">Shop kits</a>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Estimate cost", href: "/cost-calculator" }} secondary={{ label: "See prices", href: "/pricing" }} />
+      <MobileCTA primary={{ label: "Estimate cost", href: "/cost-calculator/" }} secondary={{ label: "See prices", href: "/pricing/" }} />
       <Footer />
       <Reveal />
     </>

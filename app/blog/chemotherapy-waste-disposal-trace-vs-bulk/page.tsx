@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Chemotherapy Waste Disposal" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Chemotherapy Waste Disposal" }]} />
               <span className="eyebrow">Chemo · Hazardous Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Chemotherapy Waste Disposal: Trace vs. Bulk Explained" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 17, 2026</span>
                 <span className="dot-sep" />
@@ -66,14 +66,14 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="trace" dangerouslySetInnerHTML={{ __html: "What is trace chemotherapy waste?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Trace chemo waste is materials contaminated with only residual (trace) amounts of chemotherapy drugs &mdash; empty vials and syringes, IV bags, tubing, gowns, and gloves &mdash; generally defined as RCRA-empty with under 3% residual by weight. It goes in <a href=\"/our-solutions/trace-chemotherapy-waste\">trace chemotherapy waste</a> (yellow containers) and is incinerated at a permitted facility." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Trace chemo waste is materials contaminated with only residual (trace) amounts of chemotherapy drugs &mdash; empty vials and syringes, IV bags, tubing, gowns, and gloves &mdash; generally defined as RCRA-empty with under 3% residual by weight. It goes in <a href=\"/our-solutions/trace-chemotherapy-waste/\">trace chemotherapy waste</a> (yellow containers) and is incinerated at a permitted facility." }} />
             <h2 id="bulk" dangerouslySetInnerHTML={{ __html: "What is bulk chemotherapy waste?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Bulk chemo is unused drug, spill cleanup, or containers with more than trace amounts. Bulk and P-listed chemo agents must be managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a> &mdash; segregated, manifested, and incinerated at a permitted hazardous-waste facility. Putting bulk chemo in a yellow trace container is a violation." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Bulk chemo is unused drug, spill cleanup, or containers with more than trace amounts. Bulk and P-listed chemo agents must be managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> &mdash; segregated, manifested, and incinerated at a permitted hazardous-waste facility. Putting bulk chemo in a yellow trace container is a violation." }} />
             <h2 id="containers" dangerouslySetInnerHTML={{ __html: "Yellow containers &amp; segregation" }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>The rules that matter:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Trace chemo &rarr; <strong>yellow</strong> containers, incinerated" }} /><li dangerouslySetInnerHTML={{ __html: "Bulk / P-listed chemo &rarr; RCRA-hazardous, manifested" }} /><li dangerouslySetInnerHTML={{ __html: "Never mix chemo with red-bag or regular sharps waste" }} /><li dangerouslySetInnerHTML={{ __html: "Contaminated PPE from administration is trace chemo" }} /></ul>
             <h2 id="usp" dangerouslySetInnerHTML={{ __html: "How it ties to USP 800" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Proper chemo segregation and disposal is a core part of a compliant hazardous-drug program under <a href=\"/resources/usp-800\">USP 800</a>, which governs safe handling of hazardous drugs to protect staff. Get the disposal side right and you close a major USP 800 gap." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Proper chemo segregation and disposal is a core part of a compliant hazardous-drug program under <a href=\"/resources/usp-800/\">USP 800</a>, which governs safe handling of hazardous drugs to protect staff. Get the disposal side right and you close a major USP 800 gap." }} />
 
                 <div className="postcta">
                   <h3>Handle chemo waste compliantly.</h3>

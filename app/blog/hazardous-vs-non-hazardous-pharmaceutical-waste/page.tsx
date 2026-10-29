@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Hazardous vs. Non-Hazardous Pharmaceutical Waste: The Difference" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Hazardous vs. Non-Hazardous Pharmaceutical Waste: The Difference" }]} />
               <span className="eyebrow">Pharmaceutical Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Hazardous vs. Non-Hazardous Pharmaceutical Waste" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -64,11 +64,11 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="haz" dangerouslySetInnerHTML={{ __html: "Hazardous pharmaceutical waste" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Under EPA RCRA, certain drugs are hazardous waste: P-listed (warfarin, nicotine, epinephrine), U-listed, and characteristic drugs (ignitable, corrosive, toxic). These must be segregated, manifested, and destroyed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a> &mdash; and never sewered." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Under EPA RCRA, certain drugs are hazardous waste: P-listed (warfarin, nicotine, epinephrine), U-listed, and characteristic drugs (ignitable, corrosive, toxic). These must be segregated, manifested, and destroyed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> &mdash; and never sewered." }} />
             <h2 id="nonhaz" dangerouslySetInnerHTML={{ __html: "Non-hazardous pharmaceutical waste" }} />
             <p dangerouslySetInnerHTML={{ __html: "Most medications &mdash; saline, antibiotics, OTC drugs, topicals, expired vitamins &mdash; aren&rsquo;t RCRA-hazardous, but still can&rsquo;t be flushed or trashed loosely. They go in designated pharmaceutical waste containers for compliant destruction." }} />
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why the difference matters" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Misclassifying a hazardous drug as non-hazardous (or sewering it) is the most common &mdash; and most cited &mdash; pharmaceutical-waste violation. We identify and route each stream correctly. See our <a href=\"/our-solutions/pharmaceutical-waste-disposal\">pharmaceutical waste disposal</a> service." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Misclassifying a hazardous drug as non-hazardous (or sewering it) is the most common &mdash; and most cited &mdash; pharmaceutical-waste violation. We identify and route each stream correctly. See our <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste disposal</a> service." }} />
 
                 <div className="postcta">
                   <h3>Segregate your pharmaceutical waste right.</h3>

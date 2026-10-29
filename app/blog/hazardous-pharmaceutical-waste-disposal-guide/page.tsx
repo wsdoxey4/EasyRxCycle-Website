@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Hazardous Pharmaceutical Waste Disposal" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Hazardous Pharmaceutical Waste Disposal" }]} />
               <span className="eyebrow">RCRA hazardous</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Hazardous Pharmaceutical Waste Disposal: The Complete Guide")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>7 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Some of the most common drugs on your shelf &mdash; warfarin, nicotine patches, epinephrine &mdash; aren&rsquo;t just pharmaceutical waste. They&rsquo;re <strong>hazardous</strong> waste under EPA rules, and disposing of them like ordinary drugs is a RCRA violation. Here&rsquo;s how to identify hazardous pharmaceutical waste and dispose of it compliantly.")} />
@@ -64,31 +64,31 @@ export default function Page() {
                 </div>
 
                 <h2 id="what" dangerouslySetInnerHTML={H("What makes a pharmaceutical &lsquo;hazardous&rsquo;")} />
-                <p dangerouslySetInnerHTML={H("A drug is hazardous pharmaceutical waste when it&rsquo;s also a hazardous waste under the EPA&rsquo;s <strong>Resource Conservation and Recovery Act (RCRA)</strong> &mdash; because it&rsquo;s <em>listed</em> (P- or U-list) or exhibits a <em>characteristic</em> (ignitable, corrosive, reactive, or toxic). It doesn&rsquo;t matter that it&rsquo;s a medication; if it meets the criteria, it&rsquo;s managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous waste</a>, not routine pharmaceutical waste. See <a href=\"/blog/hazardous-vs-non-hazardous-pharmaceutical-waste\">hazardous vs. non-hazardous</a> for how to tell them apart.")} />
+                <p dangerouslySetInnerHTML={H("A drug is hazardous pharmaceutical waste when it&rsquo;s also a hazardous waste under the EPA&rsquo;s <strong>Resource Conservation and Recovery Act (RCRA)</strong> &mdash; because it&rsquo;s <em>listed</em> (P- or U-list) or exhibits a <em>characteristic</em> (ignitable, corrosive, reactive, or toxic). It doesn&rsquo;t matter that it&rsquo;s a medication; if it meets the criteria, it&rsquo;s managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous waste</a>, not routine pharmaceutical waste. See <a href=\"/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/\">hazardous vs. non-hazardous</a> for how to tell them apart.")} />
 
                 <h2 id="lists" dangerouslySetInnerHTML={H("P-listed, U-listed &amp; D-code drugs")} />
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong>P-listed</strong> &mdash; acutely hazardous (the strictest tier): includes warfarin above certain concentrations and <a href=\"/blog/is-nicotine-hazardous-waste\">nicotine</a> products.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>P-listed</strong> &mdash; acutely hazardous (the strictest tier): includes warfarin above certain concentrations and <a href=\"/blog/is-nicotine-hazardous-waste/\">nicotine</a> products.")} />
                   <li dangerouslySetInnerHTML={H("<strong>U-listed</strong> &mdash; hazardous but non-acute: a long list of drugs and chemicals.")} />
                   <li dangerouslySetInnerHTML={H("<strong>D-code (characteristic)</strong> &mdash; drugs that are ignitable, corrosive, reactive, or toxic.")} />
                 </ul>
-                <p dangerouslySetInnerHTML={H("Many hazardous drugs also appear on the <a href=\"/blog/niosh-hazardous-drug-list-explained\">NIOSH hazardous drug list</a>, and our <a href=\"/blog/rcra-p-list-u-list-pharmaceuticals\">P- and U-listed explainer</a> breaks the lists down.")} />
+                <p dangerouslySetInnerHTML={H("Many hazardous drugs also appear on the <a href=\"/blog/niosh-hazardous-drug-list-explained/\">NIOSH hazardous drug list</a>, and our <a href=\"/blog/rcra-p-list-u-list-pharmaceuticals/\">P- and U-listed explainer</a> breaks the lists down.")} />
 
                 <h2 id="subpartp" dangerouslySetInnerHTML={H("The Subpart P standard")} />
-                <p dangerouslySetInnerHTML={H("Healthcare facilities and reverse distributors manage hazardous pharmaceutical waste under <strong>40 CFR Part 266 <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste\">Subpart P</a></strong> &mdash; the EPA&rsquo;s management standard that sets accumulation, labeling, and shipping rules, and that banned sewering (flushing) hazardous drugs. Your state may be more stringent than the federal floor.")} />
+                <p dangerouslySetInnerHTML={H("Healthcare facilities and reverse distributors manage hazardous pharmaceutical waste under <strong>40 CFR Part 266 <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/\">Subpart P</a></strong> &mdash; the EPA&rsquo;s management standard that sets accumulation, labeling, and shipping rules, and that banned sewering (flushing) hazardous drugs. Your state may be more stringent than the federal floor.")} />
 
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of hazardous pharmaceutical waste")} />
-                <p dangerouslySetInnerHTML={H("Segregate hazardous drugs into a <strong>black RCRA container</strong> (never mixed into blue pharmaceutical or red biohazard waste), ship under DOT rules with a <strong>hazardous-waste manifest</strong>, and destroy at a permitted TSDF, typically by incineration. Prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA mail-back</a> or scheduled pickup handles the logistics, the manifest, and the documentation.")} />
+                <p dangerouslySetInnerHTML={H("Segregate hazardous drugs into a <strong>black RCRA container</strong> (never mixed into blue pharmaceutical or red biohazard waste), ship under DOT rules with a <strong>hazardous-waste manifest</strong>, and destroy at a permitted TSDF, typically by incineration. Prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA mail-back</a> or scheduled pickup handles the logistics, the manifest, and the documentation.")} />
 
                 <h2 id="cost" dangerouslySetInnerHTML={H("What hazardous pharmaceutical waste disposal costs")} />
-                <p dangerouslySetInnerHTML={H("RCRA-hazardous mail-back kits run from about <strong>$145 to $475</strong> by container size &mdash; flat, one-time, including the black container, DOT-compliant shipping, the manifest, permitted-TSDF incineration, and documentation. Higher-volume or complex profiles are quoted. Full pricing context is in our <a href=\"/medical-waste-disposal-cost\">cost guide</a>.")} />
+                <p dangerouslySetInnerHTML={H("RCRA-hazardous mail-back kits run from about <strong>$145 to $475</strong> by container size &mdash; flat, one-time, including the black container, DOT-compliant shipping, the manifest, permitted-TSDF incineration, and documentation. Higher-volume or complex profiles are quoted. Full pricing context is in our <a href=\"/medical-waste-disposal-cost/\">cost guide</a>.")} />
 
                 <div className="postcta">
                   <h3>Manage hazardous drug waste the compliant way.</h3>
                   <p>Black-container RCRA mail-back and pickup — P/U/D-listed drugs, Subpart P, manifested and incinerated, with documentation on every order.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA hazardous disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/shop/rcra-hazardous-mail-back-kit">Shop kits</a>
+                    <a className="btn btn-primary" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA hazardous disposal <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/shop/rcra-hazardous-mail-back-kit/">Shop kits</a>
                   </div>
                 </div>
 

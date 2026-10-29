@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Get a quote for your surgery center — controlled substances, sharps and more, with the paperwork done right.",
-  finalHref: "/who-we-serve/asc", finalLabel: "Surgery center disposal",
+  finalHref: "/who-we-serve/asc/", finalLabel: "Surgery center disposal",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at ASCA 2027 — Booth Special | Orlando";

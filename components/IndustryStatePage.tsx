@@ -50,7 +50,7 @@ export default function IndustryStatePage({ ind, s }: { ind: Industry; s: StateI
       <main id="main">
         <section className="subhero">
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Who we serve", href: "/who-we-serve" }, { name: ind.name, href: `${base}/` }, { name: s.name }]} />
+            <Breadcrumbs items={[{ name: "Who we serve", href: "/who-we-serve/" }, { name: ind.name, href: `${base}/` }, { name: s.name }]} />
             <span className="eyebrow">{ind.name} · {s.name}</span>
             <h1 className="ph1">{ind.label} waste disposal in <span style={{ color: "var(--teal)" }}>{s.name}.</span></h1>
             <p className="lead" style={{ marginTop: "18px", maxWidth: "64ch" }}>{ind.lead(s, n)}</p>
@@ -82,7 +82,7 @@ export default function IndustryStatePage({ ind, s }: { ind: Industry; s: StateI
               {ind.streams.map((x) => {
                 const fp = fromPrice(x.cat);
                 return (
-                  <a className="ind-stream" key={x.name} href={x.kit + "/"}>
+                  <a className="ind-stream" key={x.name} href={x.kit}>
                     <h3>{x.name}</h3>
                     <p>{x.what}</p>
                     <span className="ind-kit">{x.kitName}{fp ? ` · from ${fp}` : ""} <span className="ar">→</span></span>

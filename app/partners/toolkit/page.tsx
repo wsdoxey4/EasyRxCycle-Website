@@ -56,7 +56,7 @@ const groups: { title: string; note: string; items: Item[] }[] = [
       { t: "Marketing kit overview", h: "/downloads/partner-marketing-kit.pdf", dl: true },
       { t: "Rep battle card", h: "/downloads/rep-battle-card.pdf", dl: true },
       { t: "Distributor Sales Playbook (products, forms & study guide)", h: "/downloads/distributor-sales-playbook.pdf", dl: true },
-      { t: "Rep certification test — get certified", h: "/partners/training" },
+      { t: "Rep certification test — get certified", h: "/partners/training/" },
       { t: "Training & onboarding outline", h: "/downloads/partner-training-outline.pdf", dl: true },
     ],
   },
@@ -64,10 +64,10 @@ const groups: { title: string; note: string; items: Item[] }[] = [
     title: "Compliance & procurement",
     note: "What your accounts' procurement and compliance teams ask for.",
     items: [
-      { t: "Capability statement", h: "/resources/capability-statement" },
-      { t: "Sample Certificate of Destruction", h: "/resources/sample-certificate-of-destruction" },
-      { t: "Compliance checklist", h: "/resources/medical-waste-compliance-checklist" },
-      { t: "W-9 & Certificate of Insurance", h: "/contact" },
+      { t: "Capability statement", h: "/resources/capability-statement/" },
+      { t: "Sample Certificate of Destruction", h: "/resources/sample-certificate-of-destruction/" },
+      { t: "Compliance checklist", h: "/resources/medical-waste-compliance-checklist/" },
+      { t: "W-9 & Certificate of Insurance", h: "/contact/" },
     ],
   },
 ];
@@ -83,7 +83,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(24px,3vw,36px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Partners", href: "/partners" }, { name: "Toolkit" }]} />
+            <Breadcrumbs items={[{ name: "Partners", href: "/partners/" }, { name: "Toolkit" }]} />
             <span className="eyebrow">Partner toolkit</span>
             <h1 className="ph1">Your co-branded <span style={{ color: "var(--teal)" }}>asset library.</span></h1>
             <p className="lead" style={{ marginTop: "16px", maxWidth: "62ch" }}>
@@ -91,8 +91,8 @@ export default function Page() {
               stream, campaign templates, program one-pagers, and the documents procurement asks for. Add your logo and go.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "24px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/partners/apply">Become a partner <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/partners">All partner programs</a>
+              <a className="btn btn-primary" href="/partners/apply/">Become a partner <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/partners/">All partner programs</a>
             </div>
           </div>
         </section>
@@ -162,7 +162,7 @@ export default function Page() {
           <div className="wrap">
             <p className="lead" style={{ maxWidth: "62ch", fontSize: "15px" }}>
               Want a sheet co-branded for you, or an asset you don&rsquo;t see here?{" "}
-              <a href="/contact" style={{ color: "var(--teal)", fontWeight: 600 }}>Ask your partner manager →</a>
+              <a href="/contact/" style={{ color: "var(--teal)", fontWeight: 600 }}>Ask your partner manager →</a>
             </p>
           </div>
         </section>

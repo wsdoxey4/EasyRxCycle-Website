@@ -23,7 +23,7 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(28px,4vw,44px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: m.h1 }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: m.h1 }]} />
             <span className="eyebrow">{m.eyebrow}</span>
             <h1 className="ph1" style={{ fontSize: "clamp(26px,3.6vw,40px)" }}>{m.h1}</h1>
             <p className="lead" style={{ marginTop: "16px", maxWidth: "60ch" }}>{m.intro}</p>
@@ -95,7 +95,7 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
                   <div className="relband-guides">
                     <span className="relband-lbl">Related guides</span>
                     {gl.related.map((r) => (
-                      <a key={r.slug} href={`/resources/${r.slug}`} dangerouslySetInnerHTML={{ __html: r.label }} />
+                      <a key={r.slug} href={`/resources/${r.slug}/`} dangerouslySetInnerHTML={{ __html: r.label }} />
                     ))}
                   </div>
                 )}
@@ -113,8 +113,8 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our capabilities</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our capabilities</a>
               </div>
             </div>
           </div>

@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "USP 800 Guide" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "USP 800 Guide" }]} />
               <span className="eyebrow">Compliance · hazardous drugs</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("USP 800: The Complete Guide to Hazardous Drug Handling")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>7 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("USP &lt;800&gt; is the standard that governs how healthcare handles hazardous drugs &mdash; and it&rsquo;s one of the most-searched, least-understood compliance topics in the field. If your staff touch anything on the NIOSH list, it applies to you. Here&rsquo;s the whole standard in plain English, and how the disposal piece fits.")} />
@@ -67,7 +67,7 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("<strong>USP General Chapter &lt;800&gt;</strong> is the U.S. Pharmacopeia standard for safely handling <strong>hazardous drugs</strong> across their whole life in a healthcare setting &mdash; receiving, storage, compounding, administration, and disposal &mdash; to protect workers, patients, and the environment from exposure. It&rsquo;s the framework behind containment hoods, PPE, and hazardous-drug segregation.")} />
 
                 <h2 id="who" dangerouslySetInnerHTML={H("Who USP 800 applies to")} />
-                <p dangerouslySetInnerHTML={H("Any entity that handles drugs on the <a href=\"/blog/niosh-hazardous-drug-list-explained\">NIOSH hazardous drug list</a> &mdash; pharmacies, hospitals, clinics, <strong>oncology and infusion centers</strong>, and veterinary practices. If your staff receive, store, compound, administer, or dispose of hazardous drugs, USP &lt;800&gt; applies. The list isn&rsquo;t just chemo &mdash; it includes many everyday drugs.")} />
+                <p dangerouslySetInnerHTML={H("Any entity that handles drugs on the <a href=\"/blog/niosh-hazardous-drug-list-explained/\">NIOSH hazardous drug list</a> &mdash; pharmacies, hospitals, clinics, <strong>oncology and infusion centers</strong>, and veterinary practices. If your staff receive, store, compound, administer, or dispose of hazardous drugs, USP &lt;800&gt; applies. The list isn&rsquo;t just chemo &mdash; it includes many everyday drugs.")} />
 
                 <h2 id="reqs" dangerouslySetInnerHTML={H("The core requirements")} />
                 <ul>
@@ -81,17 +81,17 @@ export default function Page() {
                 </ul>
 
                 <h2 id="waste" dangerouslySetInnerHTML={H("USP 800 &amp; waste disposal")} />
-                <p dangerouslySetInnerHTML={H("The disposal half of a USP &lt;800&gt; program is where it meets your waste streams. Trace hazardous-drug and chemo waste goes to <a href=\"/our-solutions/trace-chemotherapy-waste\">yellow-container trace chemo</a> for incineration; bulk and P-listed hazardous drugs go to <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous</a> disposal. Segregating that waste correctly &mdash; and documenting its destruction with a manifest or Certificate of Destruction &mdash; is what closes the USP &lt;800&gt; loop. See the <a href=\"/blog/chemotherapy-waste-disposal-guide\">chemo disposal guide</a> for the split.")} />
+                <p dangerouslySetInnerHTML={H("The disposal half of a USP &lt;800&gt; program is where it meets your waste streams. Trace hazardous-drug and chemo waste goes to <a href=\"/our-solutions/trace-chemotherapy-waste/\">yellow-container trace chemo</a> for incineration; bulk and P-listed hazardous drugs go to <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous</a> disposal. Segregating that waste correctly &mdash; and documenting its destruction with a manifest or Certificate of Destruction &mdash; is what closes the USP &lt;800&gt; loop. See the <a href=\"/blog/chemotherapy-waste-disposal-guide/\">chemo disposal guide</a> for the split.")} />
 
                 <h2 id="rcra" dangerouslySetInnerHTML={H("USP 800 vs. RCRA &mdash; how they fit together")} />
-                <p dangerouslySetInnerHTML={H("They&rsquo;re different standards that overlap: <strong>USP &lt;800&gt;</strong> protects <em>people</em> by governing handling; <strong>RCRA</strong> protects the <em>environment</em> by governing hazardous-waste disposal. Many drugs are covered by both &mdash; you handle them under USP &lt;800&gt; and dispose of them under <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste\">RCRA / Subpart P</a>. A complete program does both, and one disposal partner can cover the waste side of each.")} />
+                <p dangerouslySetInnerHTML={H("They&rsquo;re different standards that overlap: <strong>USP &lt;800&gt;</strong> protects <em>people</em> by governing handling; <strong>RCRA</strong> protects the <em>environment</em> by governing hazardous-waste disposal. Many drugs are covered by both &mdash; you handle them under USP &lt;800&gt; and dispose of them under <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/\">RCRA / Subpart P</a>. A complete program does both, and one disposal partner can cover the waste side of each.")} />
 
                 <div className="postcta">
                   <h3>Cover the disposal side of your USP 800 program.</h3>
                   <p>Yellow-container trace chemo and black-container RCRA-hazardous disposal — incinerated, manifested, and documented, with no contract.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/trace-chemotherapy-waste">Trace chemo disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/resources/usp-800">USP 800 guide (PDF)</a>
+                    <a className="btn btn-primary" href="/our-solutions/trace-chemotherapy-waste/">Trace chemo disposal <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/resources/usp-800/">USP 800 guide (PDF)</a>
                   </div>
                 </div>
 

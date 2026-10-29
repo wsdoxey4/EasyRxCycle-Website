@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "RCRA Subpart P Explained" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "RCRA Subpart P Explained" }]} />
               <span className="eyebrow">RCRA · Hazardous Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "RCRA Subpart P Explained: Hazardous Pharmaceutical Waste Rules" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 19, 2026</span>
                 <span className="dot-sep" />
@@ -66,14 +66,14 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="what" dangerouslySetInnerHTML={{ __html: "What is RCRA Subpart P?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Subpart P (40 CFR Part 266) is the EPA&rsquo;s Management Standards for Hazardous Waste Pharmaceuticals. It sets how healthcare facilities and reverse distributors must handle <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a> &mdash; and, critically, it <strong>prohibits sewering</strong> (flushing) hazardous pharmaceuticals down the drain." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Subpart P (40 CFR Part 266) is the EPA&rsquo;s Management Standards for Hazardous Waste Pharmaceuticals. It sets how healthcare facilities and reverse distributors must handle <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> &mdash; and, critically, it <strong>prohibits sewering</strong> (flushing) hazardous pharmaceuticals down the drain." }} />
             <h2 id="which" dangerouslySetInnerHTML={{ __html: "Which pharmaceuticals are RCRA-hazardous?" }} />
             <p dangerouslySetInnerHTML={{ __html: "Three categories:" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>P-listed</strong> &mdash; acutely hazardous (warfarin above certain levels, nicotine, epinephrine, physostigmine)" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>U-listed</strong> &mdash; toxic pharmaceuticals and residues" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Characteristic (D-codes)</strong> &mdash; ignitable, corrosive, or toxic drugs" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Common surprises: nicotine (P075) and warfarin are P-listed acutely hazardous waste, not regular trash." }} />
             <h2 id="do" dangerouslySetInnerHTML={{ __html: "What Subpart P requires of facilities" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Identify and segregate hazardous pharmaceutical waste" }} /><li dangerouslySetInnerHTML={{ __html: "Use labeled, closed, leak-proof containers" }} /><li dangerouslySetInnerHTML={{ __html: "Never sewer (flush) hazardous pharmaceuticals" }} /><li dangerouslySetInnerHTML={{ __html: "Manifest and ship to a permitted destruction facility" }} /><li dangerouslySetInnerHTML={{ __html: "Keep documentation and Certificates of Destruction" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "We handle the identification and <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a> so hazardous drugs never end up in the red bag or the drain." }} />
+            <p dangerouslySetInnerHTML={{ __html: "We handle the identification and <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> so hazardous drugs never end up in the red bag or the drain." }} />
 
                 <div className="postcta">
                   <h3>Get RCRA-hazardous waste handled.</h3>

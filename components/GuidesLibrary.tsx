@@ -15,7 +15,7 @@ type Section = { key: string; label: string; guides: LibGuide[] };
 
 function Card({ g }: { g: LibGuide }) {
   return (
-    <a className="gcard" href={`/resources/${g.slug}`}>
+    <a className="gcard" href={`/resources/${g.slug}/`}>
       <span className={`gcard-cover${g.cover ? "" : " is-blank"}`}>
         {g.cover ? <img src={g.cover} alt="" loading="lazy" /> : <span className="gcard-mark">ERC</span>}
         <span className="gcard-cat">{CAT_LABEL[g.cat]}</span>

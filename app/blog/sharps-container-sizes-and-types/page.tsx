@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Sharps Containers: Sizes, Types & How to Choose" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Sharps Containers: Sizes, Types & How to Choose" }]} />
               <span className="eyebrow">Sharps</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Sharps Containers: Sizes, Types &amp; How to Choose" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -68,7 +68,7 @@ export default function Page() {
             <div style={{ overflowX: "auto" }}><table><thead><tr><th dangerouslySetInnerHTML={{ __html: "Size" }} /><th dangerouslySetInnerHTML={{ __html: "Best for" }} /></tr></thead><tbody><tr><td dangerouslySetInnerHTML={{ __html: "1&ndash;1.5 quart" }} /><td dangerouslySetInnerHTML={{ __html: "Home users, travel nurses, exam rooms" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "2&ndash;3 quart" }} /><td dangerouslySetInnerHTML={{ __html: "Small offices, injection stations, vet clinics" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "2&ndash;8 gallon" }} /><td dangerouslySetInnerHTML={{ __html: "Urgent care, dental, surgery centers" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "12&ndash;18 gallon" }} /><td dangerouslySetInnerHTML={{ __html: "Hospitals, labs, high-volume sites" }} /></tr></tbody></table></div>
             <h2 id="req" dangerouslySetInnerHTML={{ __html: "What makes a sharps container compliant" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Rigid &amp; puncture-resistant walls and lid" }} /><li dangerouslySetInnerHTML={{ __html: "Leak-proof sides and bottom" }} /><li dangerouslySetInnerHTML={{ __html: "Tightly sealable (snap or twist lock)" }} /><li dangerouslySetInnerHTML={{ __html: "Clearly labeled with the biohazard symbol" }} /><li dangerouslySetInnerHTML={{ __html: "FDA-cleared / OSHA-compliant" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "Seal it at the fill line &mdash; three-quarters full &mdash; and never force extra sharps in. Overfilled containers are a common OSHA citation. See our <a href=\"/our-solutions/sharps-disposal\">sharps disposal</a> service for containers and disposal." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Seal it at the fill line &mdash; three-quarters full &mdash; and never force extra sharps in. Overfilled containers are a common OSHA citation. See our <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a> service for containers and disposal." }} />
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How to dispose of a full sharps container" }} />
             <p dangerouslySetInnerHTML={{ __html: "A full, sealed sharps container can&rsquo;t go in the regular trash. The simplest option is a prepaid mail-back kit &mdash; fill, seal, and ship it back, with a Certificate of Destruction returned. Higher-volume sites use scheduled pickup." }} />
 

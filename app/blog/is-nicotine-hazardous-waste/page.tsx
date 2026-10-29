@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Is Nicotine Hazardous Waste? (Yes \u2014 Here's Why)" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Is Nicotine Hazardous Waste? (Yes \u2014 Here's Why)" }]} />
               <span className="eyebrow">RCRA · Hazardous Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Is Nicotine Hazardous Waste?" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -64,7 +64,7 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why nicotine is hazardous waste" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Nicotine is <strong>P075</strong> &mdash; an acutely hazardous P-listed waste under RCRA, because of its toxicity. That means discarded nicotine products often can&rsquo;t go in the regular trash and must be managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Nicotine is <strong>P075</strong> &mdash; an acutely hazardous P-listed waste under RCRA, because of its toxicity. That means discarded nicotine products often can&rsquo;t go in the regular trash and must be managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a>." }} />
             <h2 id="which" dangerouslySetInnerHTML={{ __html: "Which nicotine products are affected" }} />
             <p dangerouslySetInnerHTML={{ __html: "Discarded nicotine-replacement products can be P-listed hazardous waste &mdash; but there are notable exclusions: FDA-approved over-the-counter nicotine patches, gums, and lozenges are specifically excluded. Prescription nicotine products and bulk/expired nicotine are where the hazardous-waste rules bite." }} />
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How to dispose of it" }} />

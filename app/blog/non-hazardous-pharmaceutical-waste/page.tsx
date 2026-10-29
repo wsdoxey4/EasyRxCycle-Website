@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Non-Hazardous Pharmaceutical Waste" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Non-Hazardous Pharmaceutical Waste" }]} />
               <span className="eyebrow">Pharmaceutical waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Non-Hazardous Pharmaceutical Waste: What Goes in the Blue Bin")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>5 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Non-hazardous pharmaceutical waste is the biggest drug-waste category by volume &mdash; and the one people get wrong by putting the <em>other</em> streams into it. Get the blue bin right and you keep your hazardous and controlled costs down and your compliance clean. Here&rsquo;s exactly what belongs.")} />
@@ -63,7 +63,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="what" dangerouslySetInnerHTML={H("What non-hazardous pharmaceutical waste is")} />
-                <p dangerouslySetInnerHTML={H("Non-hazardous pharmaceutical waste is expired, unused, or unwanted medication that is <strong>not</strong> a controlled substance and does <strong>not</strong> meet the EPA&rsquo;s <a href=\"/blog/hazardous-vs-non-hazardous-pharmaceutical-waste\">RCRA-hazardous criteria</a> &mdash; it&rsquo;s not P-, U-, or characteristic-listed. It&rsquo;s the largest category by volume: most over-the-counter and non-controlled prescription drugs. It goes in the <strong>blue</strong> container.")} />
+                <p dangerouslySetInnerHTML={H("Non-hazardous pharmaceutical waste is expired, unused, or unwanted medication that is <strong>not</strong> a controlled substance and does <strong>not</strong> meet the EPA&rsquo;s <a href=\"/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/\">RCRA-hazardous criteria</a> &mdash; it&rsquo;s not P-, U-, or characteristic-listed. It&rsquo;s the largest category by volume: most over-the-counter and non-controlled prescription drugs. It goes in the <strong>blue</strong> container.")} />
 
                 <h2 id="in" dangerouslySetInnerHTML={H("What goes in the blue bin")} />
                 <ul>
@@ -73,17 +73,17 @@ export default function Page() {
                 </ul>
 
                 <h2 id="out" dangerouslySetInnerHTML={H("What does NOT go in the blue bin")} />
-                <p dangerouslySetInnerHTML={H("This is where cost and compliance are won or lost. Keep out: <strong>controlled substances</strong> (route to <a href=\"/our-solutions/controlled-substance-destruction\">DEA destruction</a>), <strong>RCRA-hazardous drugs</strong> like <a href=\"/blog/is-warfarin-hazardous-waste\">warfarin</a> and nicotine (black container), <strong>trace chemo</strong> (yellow), and <strong>sharps</strong> (sharps container). The <a href=\"/blog/medical-waste-color-codes\">color-code guide</a> is the quick reference.")} />
+                <p dangerouslySetInnerHTML={H("This is where cost and compliance are won or lost. Keep out: <strong>controlled substances</strong> (route to <a href=\"/our-solutions/controlled-substance-destruction/\">DEA destruction</a>), <strong>RCRA-hazardous drugs</strong> like <a href=\"/blog/is-warfarin-hazardous-waste/\">warfarin</a> and nicotine (black container), <strong>trace chemo</strong> (yellow), and <strong>sharps</strong> (sharps container). The <a href=\"/blog/medical-waste-color-codes/\">color-code guide</a> is the quick reference.")} />
 
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of it")} />
-                <p dangerouslySetInnerHTML={H("Segregate into the blue container, keep it out of the trash and the drain (never flush), and send it to a permitted facility for destruction &mdash; by prepaid <a href=\"/our-solutions/pharmaceutical-waste-disposal\">pharmaceutical mail-back</a> or scheduled pickup &mdash; with a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>. Even though it&rsquo;s non-hazardous, it&rsquo;s still regulated and can&rsquo;t be landfilled as ordinary trash.")} />
+                <p dangerouslySetInnerHTML={H("Segregate into the blue container, keep it out of the trash and the drain (never flush), and send it to a permitted facility for destruction &mdash; by prepaid <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical mail-back</a> or scheduled pickup &mdash; with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. Even though it&rsquo;s non-hazardous, it&rsquo;s still regulated and can&rsquo;t be landfilled as ordinary trash.")} />
 
                 <div className="postcta">
                   <h3>Dispose of non-hazardous pharmaceutical waste right.</h3>
                   <p>Blue-bin pharmaceutical mail-back and pickup — documented, with the controlled and hazardous streams handled too, all under one vendor.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/shop/pharmaceutical-waste-mail-back-kit">Shop kits</a>
+                    <a className="btn btn-primary" href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical disposal <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/shop/pharmaceutical-waste-mail-back-kit/">Shop kits</a>
                   </div>
                 </div>
 

@@ -54,8 +54,8 @@ export default function Page() {
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Medical waste disposal for <span style=\"color:var(--teal)\">urgent care.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Sharps, biohazard, and pharmaceutical waste from an urgent care center \u2014 handled compliantly with mail-back kits or scheduled pickup, sized to your patient volume, and a Certificate of Destruction every time." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote?role=Physician%20/%20medical%20office">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/build-your-program?facility=physician">Build a program</a>
+              <a className="btn btn-primary" href="/get-a-quote/?role=Physician%20/%20medical%20office">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/build-your-program/?facility=physician">Build a program</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -71,7 +71,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every urgent care waste stream, explained.</h2><p class="lead">Urgent care centers move a lot of regulated waste fast — suturing and injection sharps, red-bag biohazard from procedures, expired medications, and controlled substances for pain. High volume means more chances to slip out of compliance. This guide covers every stream and the simplest compliant way to handle each.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>High volume — suturing, injections, IVs, and procedures.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Needles, syringes &amp; IV sharps</li><li>Suture needles &amp; scalpel blades</li><li>Lancets &amp; procedure sharps</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line and keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Procedure and wound-care waste soaked with blood or fluids.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked gauze &amp; dressings</li><li>Contaminated PPE</li><li>Specimen waste</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, and retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — over-classifying wastes money.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>Schedule I–V pain and procedure medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused Schedule I–V</li><li>Wasted procedure/pain doses</li><li>Surrendered controlled stock</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, complete a DEA Form 41 for surrendered controls, and keep witnessed waste logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit, to DEA standards.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired and unused non-controlled medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired antibiotics &amp; injectables</li><li>Non-controlled analgesics</li><li>Samples</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Keep any hazardous or controlled drugs separate — they each have their own path.</span></p></div></div><p class="wsfoot">One DEA-registered vendor can take every stream by prepaid mail-back or scheduled pickup, with a Certificate of Destruction and no contract. <a href="/resources/urgent-care-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every urgent care waste stream, explained.</h2><p class="lead">Urgent care centers move a lot of regulated waste fast — suturing and injection sharps, red-bag biohazard from procedures, expired medications, and controlled substances for pain. High volume means more chances to slip out of compliance. This guide covers every stream and the simplest compliant way to handle each.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>High volume — suturing, injections, IVs, and procedures.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Needles, syringes &amp; IV sharps</li><li>Suture needles &amp; scalpel blades</li><li>Lancets &amp; procedure sharps</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line and keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Procedure and wound-care waste soaked with blood or fluids.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked gauze &amp; dressings</li><li>Contaminated PPE</li><li>Specimen waste</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, and retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — over-classifying wastes money.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>Schedule I–V pain and procedure medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused Schedule I–V</li><li>Wasted procedure/pain doses</li><li>Surrendered controlled stock</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, complete a DEA Form 41 for surrendered controls, and keep witnessed waste logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit, to DEA standards.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired and unused non-controlled medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired antibiotics &amp; injectables</li><li>Non-controlled analgesics</li><li>Samples</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Keep any hazardous or controlled drugs separate — they each have their own path.</span></p></div></div><p class="wsfoot">One DEA-registered vendor can take every stream by prepaid mail-back or scheduled pickup, with a Certificate of Destruction and no contract. <a href="/resources/urgent-care-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -83,7 +83,7 @@ export default function Page() {
                 <p>High-volume sharps, biohazard, controlled meds & expired drugs — every regulated stream, handled right, mail-back or pickup. Plus a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/urgent-care-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/urgent-care-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -94,11 +94,11 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Every stream an urgent care generates.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
             </div>
           </div>
         </section>
@@ -129,22 +129,22 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/physician-offices">Physician offices</a></li>
-                <li><a href="/who-we-serve/retail-clinics">Retail & walk-in clinics</a></li>
-                <li><a href="/who-we-serve/asc">Surgery centers (ASC)</a></li>
-                <li><a href="/who-we-serve/fqhc">FQHCs & community health</a></li>
+                <li><a href="/who-we-serve/physician-offices/">Physician offices</a></li>
+                <li><a href="/who-we-serve/retail-clinics/">Retail & walk-in clinics</a></li>
+                <li><a href="/who-we-serve/asc/">Surgery centers (ASC)</a></li>
+                <li><a href="/who-we-serve/fqhc/">FQHCs & community health</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
-                <li><a href="/our-solutions/biohazard-waste-disposal">Biohazard / RMW disposal</a></li>
-                <li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste disposal</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
+                <li><a href="/our-solutions/biohazard-waste-disposal/">Biohazard / RMW disposal</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste disposal</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/urgent-care-waste-disposal-guide">Free Urgent care guide (PDF)</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-physican-offices">Controlled drugs in physician offices</a></li>
-                <li><a href="/blog/red-bag-waste-what-goes-in-it">Red-bag waste: what goes in it</a></li>
-                <li><a href="/blog/sharps-container-sizes-and-types">Sharps container sizes & types</a></li>
+                <li><a href="/resources/urgent-care-waste-disposal-guide/">Free Urgent care guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-physican-offices/">Controlled drugs in physician offices</a></li>
+                <li><a href="/blog/red-bag-waste-what-goes-in-it/">Red-bag waste: what goes in it</a></li>
+                <li><a href="/blog/sharps-container-sizes-and-types/">Sharps container sizes & types</a></li>
               </ul></div>
             </div>
           </div>
@@ -172,15 +172,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Physician%20/%20medical%20office">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Physician%20/%20medical%20office">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="urgent-care-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Physician%20/%20medical%20office" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=physician" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Physician%20/%20medical%20office" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=physician" }} />
       <Footer />
       <Reveal />
     </>

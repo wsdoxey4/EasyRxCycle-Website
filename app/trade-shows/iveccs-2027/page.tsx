@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Get a quote for your hospital or practice group — controlled substances, sharps and more, with the paperwork done right.",
-  finalHref: "/who-we-serve/veterinary", finalLabel: "Veterinary disposal",
+  finalHref: "/who-we-serve/veterinary/", finalLabel: "Veterinary disposal",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at IVECCS 2027 — Booth Special | Grapevine, TX";

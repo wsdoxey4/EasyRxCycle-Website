@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Reverse Distribution for Controlled Substances" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Reverse Distribution for Controlled Substances" }]} />
               <span className="eyebrow">Reverse Distribution</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Reverse Distribution for Controlled Substances")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Returning controlled substances is not the same as returning ordinary Rx &mdash; every transfer is a DEA event with its own forms and reporting. A <strong>DEA-registered reverse distributor</strong> is the compliant way to recover credit on returnable controlled stock and destroy the rest. Here&rsquo;s how it works, the forms you need, and what to look for.")} />
@@ -67,23 +67,23 @@ export default function Page() {
 
                 <h2 id="forms" dangerouslySetInnerHTML={H("The forms: 222, 41 &amp; ARCOS")} />
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/blog/how-to-fill-out-dea-form-222\">DEA Form 222</a></strong> (or electronic CSOS) &mdash; required to transfer <strong>Schedule II</strong> controlled substances to the reverse distributor. Schedules III–V don&rsquo;t require a 222 but still require accurate records.")} />
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/blog/dea-form-41-requirements-and-pdf\">DEA Form 41</a></strong> &mdash; documents controlled substances that are destroyed (rendered non-retrievable under 21 CFR 1317).")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/blog/how-to-fill-out-dea-form-222/\">DEA Form 222</a></strong> (or electronic CSOS) &mdash; required to transfer <strong>Schedule II</strong> controlled substances to the reverse distributor. Schedules III–V don&rsquo;t require a 222 but still require accurate records.")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a></strong> &mdash; documents controlled substances that are destroyed (rendered non-retrievable under 21 CFR 1317).")} />
                   <li dangerouslySetInnerHTML={H("<strong>ARCOS</strong> reporting &mdash; controlled-substance transactions are reported to the DEA where required, so the chain of custody is traceable end to end.")} />
                 </ul>
 
                 <h2 id="credit" dangerouslySetInnerHTML={H("Credit vs. destruction &mdash; what happens to your stock")} />
-                <p dangerouslySetInnerHTML={H("Not every controlled substance is creditable. Returnable, in-date or short-dated stock covered by a manufacturer&rsquo;s return policy is processed for <strong>credit</strong>; expired, opened, or non-returnable product is <strong>destroyed</strong> non-retrievably. A good <a href=\"/our-solutions/reverse-distribution\">reverse-distribution</a> partner sorts the two so you recover value where the manufacturer allows it and get documented <a href=\"/our-solutions/controlled-substance-destruction\">destruction</a> where they don&rsquo;t &mdash; with a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a> either way.")} />
+                <p dangerouslySetInnerHTML={H("Not every controlled substance is creditable. Returnable, in-date or short-dated stock covered by a manufacturer&rsquo;s return policy is processed for <strong>credit</strong>; expired, opened, or non-returnable product is <strong>destroyed</strong> non-retrievably. A good <a href=\"/our-solutions/reverse-distribution/\">reverse-distribution</a> partner sorts the two so you recover value where the manufacturer allows it and get documented <a href=\"/our-solutions/controlled-substance-destruction/\">destruction</a> where they don&rsquo;t &mdash; with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> either way.")} />
 
                 <h2 id="choose" dangerouslySetInnerHTML={H("Choosing a reverse distributor for controlled substances")} />
-                <p dangerouslySetInnerHTML={H("Verify the <strong>DEA registration</strong>, that they handle your schedules, and that they support Form 222/41 and ARCOS with a documented chain of custody and a Certificate of Destruction. Then ask two practical questions: what are the credit terms and turnaround, and do they also handle your other <a href=\"/our-solutions\">waste streams</a> &mdash; sharps, biohazard, pharmaceutical, RCRA &mdash; so you&rsquo;re not managing separate vendors for returns and disposal? Easy Rx Cycle is a DEA-registered reverse distributor <em>and</em> a full-stream disposal partner, so it&rsquo;s one relationship from returns to destruction.")} />
+                <p dangerouslySetInnerHTML={H("Verify the <strong>DEA registration</strong>, that they handle your schedules, and that they support Form 222/41 and ARCOS with a documented chain of custody and a Certificate of Destruction. Then ask two practical questions: what are the credit terms and turnaround, and do they also handle your other <a href=\"/our-solutions/\">waste streams</a> &mdash; sharps, biohazard, pharmaceutical, RCRA &mdash; so you&rsquo;re not managing separate vendors for returns and disposal? Easy Rx Cycle is a DEA-registered reverse distributor <em>and</em> a full-stream disposal partner, so it&rsquo;s one relationship from returns to destruction.")} />
 
                 <div className="postcta">
                   <h3>One partner for controlled returns and destruction.</h3>
                   <p>DEA-registered reverse distribution with Form 222/41 and ARCOS, plus non-retrievable destruction and a Certificate of Destruction — and every other regulated stream under one roof.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/reverse-distribution">Reverse distribution <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                    <a className="btn btn-primary" href="/our-solutions/reverse-distribution/">Reverse distribution <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
                   </div>
                 </div>
 

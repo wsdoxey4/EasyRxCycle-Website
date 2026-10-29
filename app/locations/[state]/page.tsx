@@ -107,7 +107,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
               <span className="badge">{shield}No contract</span>
             </div>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "24px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="tel:5019042929">Talk to a specialist</a>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
 
         {/* free guide / resources */}
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free resource · for {s.name} facilities</span><h3>The Medical Waste Compliance Checklist</h3><p>A plain-English checklist covering every stream — sharps, RMW, pharmaceutical, controlled, RCRA and chemo — so your {s.name} site can self-audit in minutes. Free, no strings.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/medical-waste-compliance-checklist">Get the free checklist <span className="ar">→</span></a><span className="gb-note">Free PDF · plus our full guide library</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free resource · for {s.name} facilities</span><h3>The Medical Waste Compliance Checklist</h3><p>A plain-English checklist covering every stream — sharps, RMW, pharmaceutical, controlled, RCRA and chemo — so your {s.name} site can self-audit in minutes. Free, no strings.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/medical-waste-compliance-checklist/">Get the free checklist <span className="ar">→</span></a><span className="gb-note">Free PDF · plus our full guide library</span></div></div></div>
         </section>
 
         {/* who we serve */}
@@ -234,7 +234,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/locations/">See all locations</a>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
         </section>
         <StateIndustryLinks stateSlug={s.slug} stateName={s.name} />
       </main>
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call us", href: "tel:5019042929" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/" }} secondary={{ label: "Call us", href: "tel:5019042929" }} />
       <Footer />
       <Reveal />
     </>

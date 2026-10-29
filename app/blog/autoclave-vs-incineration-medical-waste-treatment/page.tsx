@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Autoclave vs. Incineration: How Medical Waste Is Treated" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Autoclave vs. Incineration: How Medical Waste Is Treated" }]} />
               <span className="eyebrow">Biohazard</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Autoclave vs. Incineration: How Medical Waste Is Treated" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -66,7 +66,7 @@ export default function Page() {
             <h2 id="autoclave" dangerouslySetInnerHTML={{ __html: "Autoclaving (steam sterilization)" }} />
             <p dangerouslySetInnerHTML={{ __html: "Autoclaving uses high-pressure steam (121&ndash;134&deg;C) to kill infectious agents. It&rsquo;s cost-effective and widely used for red-bag waste, PPE, cultures, and gauze &mdash; the waste is sterilized, then landfilled as treated waste." }} />
             <h2 id="incineration" dangerouslySetInnerHTML={{ __html: "Incineration" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Incineration uses high heat (often over 1,000&deg;C) to destroy waste completely. It&rsquo;s <strong>required</strong> for pathological waste, <a href=\"/our-solutions/trace-chemotherapy-waste\">trace chemotherapy waste</a>, pharmaceuticals, and hazardous drugs &mdash; things autoclaving can&rsquo;t safely handle." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Incineration uses high heat (often over 1,000&deg;C) to destroy waste completely. It&rsquo;s <strong>required</strong> for pathological waste, <a href=\"/our-solutions/trace-chemotherapy-waste/\">trace chemotherapy waste</a>, pharmaceuticals, and hazardous drugs &mdash; things autoclaving can&rsquo;t safely handle." }} />
             <h2 id="which" dangerouslySetInnerHTML={{ __html: "Which method for which waste" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Autoclave</strong> &mdash; red-bag waste, PPE, cultures, sharps (some)" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Incineration</strong> &mdash; pathological, trace chemo, pharmaceuticals, RCRA-hazardous" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "We route each stream to the right treatment and return a Certificate of Destruction." }} />

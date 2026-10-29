@@ -61,7 +61,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
     setBusy(true); setErr("");
     trackEvent("begin_checkout", { currency: "USD", value: subtotal / 100, items: cart.map((l) => ({ item_id: l.sku, quantity: l.qty })) });
     // Go to the on-domain embedded checkout page; it reads this cart from localStorage.
-    window.location.href = "/checkout";
+    window.location.href = "/checkout/";
   }
 
   return <CartCtx.Provider value={{ cart, count, subtotal, freeShip, toFree, hasSub, subInterval, open, setOpen, add, setQty, changeInterval, busy, err, checkout }}>{children}</CartCtx.Provider>;

@@ -31,7 +31,7 @@ export default function BuyConfidence({ category }: { category: string }) {
         </div>
       )}
 
-      <p className="bconf-help">Questions before you order? Call <a href="tel:5019042929">501-904-2929</a> or <a href="/get-a-quote">get a quote</a> for higher volume.</p>
+      <p className="bconf-help">Questions before you order? Call <a href="tel:5019042929">501-904-2929</a> or <a href="/get-a-quote/">get a quote</a> for higher volume.</p>
     </div>
   );
 }

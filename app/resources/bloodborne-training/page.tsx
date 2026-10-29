@@ -45,7 +45,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero">
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "Bloodborne Training" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "Bloodborne Training" }]} />
             <span className="eyebrow">Compliance guide · OSHA training</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "OSHA bloodborne pathogens training, <span style=\"color:var(--teal)\">explained.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "OSHA&rsquo;s Bloodborne Pathogens Standard (29&nbsp;CFR&nbsp;1910.1030) requires employers to train at-risk employees on exposure risks and safe practices &mdash; at hire and at least annually. Here&rsquo;s who needs it, what it covers, and how it ties into your sharps and RMW disposal program." }} />
@@ -110,9 +110,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle &amp; syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste disposal." }} /></a>
-              <a className="svc" href="/resources/certificate-of-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "Proof for your compliance file." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle &amp; syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste disposal." }} /></a>
+              <a className="svc" href="/resources/certificate-of-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "Proof for your compliance file." }} /></a>
             </div>
           </div>
         </section>
@@ -138,7 +138,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>

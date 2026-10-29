@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Who Regulates Pharmaceutical Waste? DEA, EPA & OSHA Explained" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Who Regulates Pharmaceutical Waste? DEA, EPA & OSHA Explained" }]} />
               <span className="eyebrow">Pharmaceutical Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Who Regulates Pharmaceutical Waste? DEA, EPA &amp; OSHA" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -66,7 +66,7 @@ export default function Page() {
             <h2 id="agencies" dangerouslySetInnerHTML={{ __html: "The agencies and what each covers" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>DEA</strong> &mdash; controlled substances: Form 222/41, reverse distribution, non-retrievable destruction" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>EPA (RCRA)</strong> &mdash; hazardous pharmaceutical waste: P/U-listed drugs, Subpart P, the sewering ban" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>OSHA</strong> &mdash; worker safety: Bloodborne Pathogens Standard, hazardous-drug handling (with USP 800)" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>DOT</strong> &mdash; transport: UN packaging, manifests, labeling" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>State boards</strong> &mdash; add licensing, reporting, and tracking on top of federal rules" }} /></ul>
             <h2 id="overlap" dangerouslySetInnerHTML={{ __html: "Where the rules overlap" }} />
-            <p dangerouslySetInnerHTML={{ __html: "A single drug can trigger several at once. A controlled substance that&rsquo;s also RCRA-hazardous falls under both the DEA <em>and</em> the EPA; shipping any of it involves the DOT. That&rsquo;s why <a href=\"/our-solutions/pharmaceutical-waste-disposal\">pharmaceutical waste</a> means routing each stream to satisfy every applicable rule." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A single drug can trigger several at once. A controlled substance that&rsquo;s also RCRA-hazardous falls under both the DEA <em>and</em> the EPA; shipping any of it involves the DOT. That&rsquo;s why <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste</a> means routing each stream to satisfy every applicable rule." }} />
             <h2 id="help" dangerouslySetInnerHTML={{ __html: "How we keep it straight" }} />
             <p dangerouslySetInnerHTML={{ __html: "We handle the disposal side of all of them &mdash; DEA-registered controlled destruction, RCRA-manifested hazardous waste, OSHA/DOT-compliant packaging, and state-specific requirements &mdash; with documentation for each." }} />
 

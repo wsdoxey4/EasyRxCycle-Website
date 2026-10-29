@@ -30,7 +30,7 @@ export default function BlogIndex({ clusters, posts }: { clusters: Cluster[]; po
           <div className="clusterhead"><h2>Start here</h2><span className="bf-sub">The cornerstone guides</span></div>
           <div className="bloglist">
             {featured.map((p) => (
-              <a className="postcard postcard-feat" key={p.slug} href={`/blog/${p.slug}`}>
+              <a className="postcard postcard-feat" key={p.slug} href={`/blog/${p.slug}/`}>
                 <span className="cat">{label(p.cluster)}</span>
                 <h3>{p.title}</h3>
                 <p>{p.excerpt}</p>
@@ -70,7 +70,7 @@ export default function BlogIndex({ clusters, posts }: { clusters: Cluster[]; po
             </div>
             <div className="bloglist">
               {cp.map((p) => (
-                <a className="postcard" key={p.slug} href={`/blog/${p.slug}`}>
+                <a className="postcard" key={p.slug} href={`/blog/${p.slug}/`}>
                   <h3>{p.title}</h3>
                   <p>{p.excerpt}</p>
                   <span className="rm">Read guide →</span>

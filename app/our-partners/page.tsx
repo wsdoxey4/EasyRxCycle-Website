@@ -54,8 +54,8 @@ export default function Page() {
               work alongside distributors, purchasing groups, and logistics partners nationwide.
             </p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/partners">Become a partner <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/trade-shows">Trade show schedule</a>
+              <a className="btn btn-primary" href="/partners/">Become a partner <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/trade-shows/">Trade show schedule</a>
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ export default function Page() {
             </div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               {SHOWS.map((s) => (
-                <a className="svc" href={`/trade-shows/${s.slug}`} key={s.slug}>
+                <a className="svc" href={`/trade-shows/${s.slug}/`} key={s.slug}>
                   <span className="form-note" style={{ fontWeight: 600, color: "var(--teal)" }}>{s.dates}</span>
                   <h4>{s.name}</h4>
                   <p>{s.where}<br />{s.who}</p>
@@ -78,7 +78,7 @@ export default function Page() {
             </div>
             <p className="form-note" style={{ marginTop: "20px" }}>
               Recently exhibited: {PAST.map((s, i) => (
-                <span key={s.slug}>{i > 0 ? " · " : ""}<a href={`/trade-shows/${s.slug}`} style={{ color: "var(--teal)", fontWeight: 600 }}>{s.name}</a></span>
+                <span key={s.slug}>{i > 0 ? " · " : ""}<a href={`/trade-shows/${s.slug}/`} style={{ color: "var(--teal)", fontWeight: 600 }}>{s.name}</a></span>
               ))}
             </p>
           </div>
@@ -95,9 +95,9 @@ export default function Page() {
               </p>
             </div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/associations"><h4>For associations</h4><p>Request free member content, a member webinar, or a speaker.</p></a>
-              <a className="svc" href="/webinars"><h4>Free quarterly webinars</h4><p>Plain-English disposal briefings with live Q&amp;A, open to everyone.</p></a>
-              <a className="svc" href="/take-back-day"><h4>National Take Back Day</h4><p>Resources for DEA&rsquo;s twice-a-year drug take-back events.</p></a>
+              <a className="svc" href="/associations/"><h4>For associations</h4><p>Request free member content, a member webinar, or a speaker.</p></a>
+              <a className="svc" href="/webinars/"><h4>Free quarterly webinars</h4><p>Plain-English disposal briefings with live Q&amp;A, open to everyone.</p></a>
+              <a className="svc" href="/take-back-day/"><h4>National Take Back Day</h4><p>Resources for DEA&rsquo;s twice-a-year drug take-back events.</p></a>
             </div>
           </div>
         </section>
@@ -111,7 +111,7 @@ export default function Page() {
             </div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(4,1fr)" }}>
               {channels.map((c) => (
-                <a className="svc" href={`/partners/${c.slug}`} key={c.slug}>
+                <a className="svc" href={`/partners/${c.slug}/`} key={c.slug}>
                   <span className="form-note" style={{ fontWeight: 600, color: "var(--teal)" }}>{c.tag}</span>
                   <h4>{c.name}</h4>
                   <p>{c.blurb}</p>
@@ -130,8 +130,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/partners/apply">Apply to partner <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/associations">For associations</a>
+                <a className="btn btn-onteal" href="/partners/apply/">Apply to partner <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/associations/">For associations</a>
               </div>
             </div>
           </div>

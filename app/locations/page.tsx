@@ -145,12 +145,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle</span><h2>Every regulated stream, in every state.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-            <a className="svc" href="/our-solutions/sharps-disposal"><h4>Sharps disposal</h4></a>
-            <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4>Biohazard / RMW</h4></a>
-            <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4>Pharmaceutical waste</h4></a>
-            <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4>Controlled substances</h4></a>
-            <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><h4>RCRA hazardous</h4></a>
-            <a className="svc" href="/our-solutions/medication-disposal-kit"><h4>Medication kits</h4></a>
+            <a className="svc" href="/our-solutions/sharps-disposal/"><h4>Sharps disposal</h4></a>
+            <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4>Biohazard / RMW</h4></a>
+            <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4>Pharmaceutical waste</h4></a>
+            <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4>Controlled substances</h4></a>
+            <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4>RCRA hazardous</h4></a>
+            <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4>Medication kits</h4></a>
             </div>
           </div>
         </section>
@@ -173,8 +173,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/our-solutions">See our services</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/our-solutions/">See our services</a>
               </div>
             </div>
           </div>

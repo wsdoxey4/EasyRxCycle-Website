@@ -42,7 +42,7 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "What Is a Reverse Distributor?" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "What Is a Reverse Distributor?" }]} />
               <span className="eyebrow">Reverse Distribution</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "What Is a Reverse Distributor? A Simple Guide for Pharmacies &amp; Healthcare Facilities" }} />
               <div className="byline">
@@ -67,7 +67,7 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="what" dangerouslySetInnerHTML={{ __html: "What is a reverse distributor?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "A <a href=\"/our-solutions/reverse-distribution\">DEA-registered reverse distributor</a> is a company that helps pharmacies, hospitals, and other DEA registrants safely handle pharmaceutical returns &mdash; especially expired prescription drugs. Instead of improper disposal, they ensure safe pickup, tracking, and destruction while preventing controlled-substance diversion." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> is a company that helps pharmacies, hospitals, and other DEA registrants safely handle pharmaceutical returns &mdash; especially expired prescription drugs. Instead of improper disposal, they ensure safe pickup, tracking, and destruction while preventing controlled-substance diversion." }} />
             <h2 id="rd" dangerouslySetInnerHTML={{ __html: "What is reverse distribution?" }} />
             <p dangerouslySetInnerHTML={{ __html: "Reverse distribution is the process of sending returned items &mdash; expired, unused, or recalled pharmaceutical products &mdash; back through the supply chain to a licensed company that can safely dispose of them." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>It&rsquo;s essential for:</strong>" }} />
@@ -75,13 +75,13 @@ export default function Page() {
             <h2 id="controlled" dangerouslySetInnerHTML={{ __html: "Reverse distribution for controlled substances" }} />
             <p dangerouslySetInnerHTML={{ __html: "Only a DEA-registered reverse distributor can accept and destroy controlled substances like opioids, ADHD medications, and benzodiazepines. Losing track of these creates financial, legal, and reputational risk." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>A DEA reverse distributor will:</strong>" }} />
-            <ul><li dangerouslySetInnerHTML={{ __html: "Complete <a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a>" }} /><li dangerouslySetInnerHTML={{ __html: "Prevent controlled-substance diversion" }} /><li dangerouslySetInnerHTML={{ __html: "Issue a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a> (COD)" }} /><li dangerouslySetInnerHTML={{ __html: "Provide chain-of-custody documentation" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "This pairs directly with <a href=\"/our-solutions/controlled-substance-destruction\">controlled substance destruction</a> for the drugs that can&rsquo;t be returned for credit." }} />
+            <ul><li dangerouslySetInnerHTML={{ __html: "Complete <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>" }} /><li dangerouslySetInnerHTML={{ __html: "Prevent controlled-substance diversion" }} /><li dangerouslySetInnerHTML={{ __html: "Issue a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> (COD)" }} /><li dangerouslySetInnerHTML={{ __html: "Provide chain-of-custody documentation" }} /></ul>
+            <p dangerouslySetInnerHTML={{ __html: "This pairs directly with <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> for the drugs that can&rsquo;t be returned for credit." }} />
             <h2 id="pharmacy" dangerouslySetInnerHTML={{ __html: "What does a pharmacy reverse distributor do?" }} />
             <p dangerouslySetInnerHTML={{ __html: "Pharmacy-focused reverse distributors help retail, mail-order, compounding, and chain pharmacies return and dispose of expired, damaged, or overstocked medications. They streamline returns processing, manage controlled-substance separation, arrange shipping, and complete the required DEA paperwork." }} />
             <h2 id="choose" dangerouslySetInnerHTML={{ __html: "How to choose a DEA-registered reverse distributor" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "DEA registration for Schedules I&ndash;V" }} /><li dangerouslySetInnerHTML={{ __html: "Secure transport and certified destruction" }} /><li dangerouslySetInnerHTML={{ __html: "Help with pharmaceutical returns and expired stock" }} /><li dangerouslySetInnerHTML={{ __html: "Full DEA, EPA, and state compliance" }} /><li dangerouslySetInnerHTML={{ __html: "Certificates of Destruction and supporting documentation" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle provides reliable, secure, fully compliant <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a> for healthcare and pharmaceutical clients across the U.S. &mdash; with flat-rate pricing and fast service. <a href=\"/#quote\">request a quote</a> to start." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle provides reliable, secure, fully compliant <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> for healthcare and pharmaceutical clients across the U.S. &mdash; with flat-rate pricing and fast service. <a href=\"/#quote\">request a quote</a> to start." }} />
 
                 <div className="postcta">
                   <h3>See what compliant reverse distribution looks like.</h3>

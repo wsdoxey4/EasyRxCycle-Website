@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "How to Dispose of Expired Medications" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "How to Dispose of Expired Medications" }]} />
               <span className="eyebrow">Medication Disposal</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "How to Dispose of Expired Medications Safely at Home" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 16, 2026</span>
                 <span className="dot-sep" />
@@ -66,7 +66,7 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="best" dangerouslySetInnerHTML={{ __html: "The safest ways to dispose of expired meds" }} />
-            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> The gold standard &mdash; a drug take-back kiosk or a prepaid <a href=\"/our-solutions/medication-disposal-kit\">medication disposal kit</a> handles any medication, including controlled substances, safely and legally." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Drug deactivation pouch.</strong> Add water and the medication; the pouch neutralizes it so it can go in the household trash." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trash (deactivated).</strong> If no take-back is available, mix meds with an unappealing substance (used coffee grounds or dirt), seal in a bag, and trash it &mdash; after scratching out your info on the label." }} /></ol>
+            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> The gold standard &mdash; a drug take-back kiosk or a prepaid <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> handles any medication, including controlled substances, safely and legally." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Drug deactivation pouch.</strong> Add water and the medication; the pouch neutralizes it so it can go in the household trash." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trash (deactivated).</strong> If no take-back is available, mix meds with an unappealing substance (used coffee grounds or dirt), seal in a bag, and trash it &mdash; after scratching out your info on the label." }} /></ol>
             <h2 id="flush" dangerouslySetInnerHTML={{ __html: "When flushing is actually OK" }} />
             <p dangerouslySetInnerHTML={{ __html: "Flushing is discouraged for almost everything &mdash; but the FDA maintains a short &ldquo;flush list&rdquo; of a few high-risk medications (mostly powerful opioids like fentanyl patches) that are dangerous enough that flushing is recommended when no take-back is available. For everything else, don&rsquo;t flush." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />

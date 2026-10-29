@@ -54,7 +54,7 @@ export default function Page() {
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "School nurse disposal is about safety and simplicity: nurses\u2019 offices collect diabetic sharps, EpiPens, and leftover student medications that can\u2019t go in classroom trash. We provide prepaid mail-back sharps and medication take-back kits, so schools stay OSHA- and DOT-compliant with a Certificate of Destruction and no contract." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop/">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote?role=Other">Get a quote</a>
+              <a className="btn btn-ghost" href="/get-a-quote/?role=Other">Get a quote</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -70,7 +70,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every school health office waste stream, explained.</h2><p class="lead">School nurse offices handle student diabetic sharps, emergency epinephrine, and expired or unclaimed student medications. Two catch schools off guard: sharps aren't regular trash, and expired EpiPens are P-listed federally hazardous waste. This guide covers every stream, including that one.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>Diabetic and emergency sharps in the nurse's office.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Student insulin pens &amp; needles</li><li>Lancets</li><li>Emergency injection sharps</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Hazardous drugs — epinephrine</h3><p>The surprise stream — expired EpiPens and epinephrine are P-listed federally hazardous waste, not ordinary trash or medication waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired epinephrine auto-injectors (EpiPens)</li><li>Other P-listed drugs</li><li>Characteristic hazardous waste</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-hazardous student meds</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — EPA RCRA — P-listed drugs like epinephrine must be segregated and destroyed to EPA standards.</p><p class="ws-meta"><b>How to dispose</b> — RCRA-hazardous mail-back kit.<span class="ws-tip"><b>Tip:</b> Expired EpiPens are P-listed — never in the regular trash or with ordinary medications.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired and unclaimed student medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired student meds</li><li>Unclaimed / end-of-year medications</li><li>Non-controlled, non-hazardous meds</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own path)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit or on-site deactivation.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>Any controlled student medications kept in the office.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Unclaimed controlled student meds</li><li>Discontinued controls</li><li>Wasted doses</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, DEA Form 41 for surrendered controls, witnessed logs; on-site deactivation meets non-retrievable guidance.</p><p class="ws-meta"><b>How to dispose</b> — Controlled / medication mail-back kit, or on-site deactivation, to DEA standards.<span class="ws-tip"><b>Tip:</b> On-site deactivation lets you render controls non-retrievable immediately — useful when meds shouldn't leave the building.</span></p></div></div><p class="wsfoot">One vendor can take your student sharps, expired EpiPens, and unclaimed medications — with a Certificate of Destruction and no contract. Simple enough for a busy nurse's office. <a href="/resources/school-health-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every school health office waste stream, explained.</h2><p class="lead">School nurse offices handle student diabetic sharps, emergency epinephrine, and expired or unclaimed student medications. Two catch schools off guard: sharps aren't regular trash, and expired EpiPens are P-listed federally hazardous waste. This guide covers every stream, including that one.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>Diabetic and emergency sharps in the nurse's office.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Student insulin pens &amp; needles</li><li>Lancets</li><li>Emergency injection sharps</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Hazardous drugs — epinephrine</h3><p>The surprise stream — expired EpiPens and epinephrine are P-listed federally hazardous waste, not ordinary trash or medication waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired epinephrine auto-injectors (EpiPens)</li><li>Other P-listed drugs</li><li>Characteristic hazardous waste</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-hazardous student meds</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — EPA RCRA — P-listed drugs like epinephrine must be segregated and destroyed to EPA standards.</p><p class="ws-meta"><b>How to dispose</b> — RCRA-hazardous mail-back kit.<span class="ws-tip"><b>Tip:</b> Expired EpiPens are P-listed — never in the regular trash or with ordinary medications.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired and unclaimed student medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired student meds</li><li>Unclaimed / end-of-year medications</li><li>Non-controlled, non-hazardous meds</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own path)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit or on-site deactivation.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>Any controlled student medications kept in the office.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Unclaimed controlled student meds</li><li>Discontinued controls</li><li>Wasted doses</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, DEA Form 41 for surrendered controls, witnessed logs; on-site deactivation meets non-retrievable guidance.</p><p class="ws-meta"><b>How to dispose</b> — Controlled / medication mail-back kit, or on-site deactivation, to DEA standards.<span class="ws-tip"><b>Tip:</b> On-site deactivation lets you render controls non-retrievable immediately — useful when meds shouldn't leave the building.</span></p></div></div><p class="wsfoot">One vendor can take your student sharps, expired EpiPens, and unclaimed medications — with a Certificate of Destruction and no contract. Simple enough for a busy nurse's office. <a href="/resources/school-health-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -82,7 +82,7 @@ export default function Page() {
                 <p>Student sharps, expired EpiPens & unclaimed meds — every stream, including the one schools miss. Includes a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/school-health-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/school-health-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -93,9 +93,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
             </div>
           </div>
         </section>
@@ -126,21 +126,21 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/group-homes">Group homes</a></li>
-                <li><a href="/who-we-serve/allergy-immunotherapy">Allergy & immunotherapy</a></li>
-                <li><a href="/who-we-serve/physician-offices">Physician offices</a></li>
-                <li><a href="/who-we-serve/correctional">Correctional facilities</a></li>
+                <li><a href="/who-we-serve/group-homes/">Group homes</a></li>
+                <li><a href="/who-we-serve/allergy-immunotherapy/">Allergy & immunotherapy</a></li>
+                <li><a href="/who-we-serve/physician-offices/">Physician offices</a></li>
+                <li><a href="/who-we-serve/correctional/">Correctional facilities</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
-                <li><a href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA hazardous drug disposal</a></li>
-                <li><a href="/our-solutions/medication-disposal-kit">Medication mail-back kits</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
+                <li><a href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA hazardous drug disposal</a></li>
+                <li><a href="/our-solutions/medication-disposal-kit/">Medication mail-back kits</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/school-health-waste-disposal-guide">Free School & K-12 health guide (PDF)</a></li>
-                <li><a href="/blog/rcra-p-list-u-list-pharmaceuticals">P-listed & U-listed drugs explained</a></li>
-                <li><a href="/blog/diabetic-needle-disposal">Diabetic needle disposal</a></li>
+                <li><a href="/resources/school-health-waste-disposal-guide/">Free School & K-12 health guide (PDF)</a></li>
+                <li><a href="/blog/rcra-p-list-u-list-pharmaceuticals/">P-listed & U-listed drugs explained</a></li>
+                <li><a href="/blog/diabetic-needle-disposal/">Diabetic needle disposal</a></li>
               </ul></div>
             </div>
           </div>
@@ -168,15 +168,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Other">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="school-health-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Other" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Other" }} />
       <Footer />
       <Reveal />
     </>

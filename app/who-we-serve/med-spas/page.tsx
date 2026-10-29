@@ -54,7 +54,7 @@ export default function Page() {
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Looking for med spa sharps disposal that doesn\u2019t lock you into a hauler contract? Med spas generate a surprising mix of regulated waste \u2014 injection and microneedling sharps, half-used Botox and filler vials, and blood-contaminated PPE \u2014 all of it covered by the OSHA Bloodborne Pathogens Standard. We ship prepaid mail-back kits sized to a spa\u2019s volume, so you fill, seal, and mail, and get a Certificate of Destruction back. No routes, no contract." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop/">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote?role=Tattoo%20/%20med%20spa">Get a quote</a>
+              <a className="btn btn-ghost" href="/get-a-quote/?role=Tattoo%20/%20med%20spa">Get a quote</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -70,7 +70,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every med spa waste stream, explained.</h2><p class="lead">Med spas look like wellness businesses, but they generate the same regulated waste as a clinic — injection sharps, expired injectables like neurotoxins and fillers, and blood-contaminated materials from PRP and microneedling. Treating it like ordinary trash is a real compliance and liability risk. This guide covers every stream and how to handle each compliantly.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>Your highest-volume regulated stream — every injection and microneedling treatment creates it.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection needles &amp; syringes</li><li>Microneedling cartridges &amp; tips</li><li>Cannulas &amp; blades</li><li>Lancets</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired product (pharmaceutical)</li><li>Empty non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Microneedling cartridges are sharps — they don't belong in the regular trash.</span></p></div><div class="wstream"><h3>Pharmaceutical waste (expired injectables)</h3><p>Neurotoxins, fillers, and injectable meds expire — and can't be flushed or trashed.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired neurotoxins (Botox, Dysport, etc.)</li><li>Expired dermal fillers</li><li>Lidocaine &amp; injectable anesthetics</li><li>Kybella &amp; other injectables</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>Sharps</li><li>Non-medical retail product</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; destroy expired injectables with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Reconstituted neurotoxin has a short shelf life — expired vials are pharmaceutical waste, not trash.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>PRP and microneedling mean blood — and blood-contaminated materials are red-bag waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>PRP tubes &amp; blood-contaminated items</li><li>Blood-soaked gauze</li><li>Contaminated gloves &amp; PPE</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> PRP centrifuge tubes with blood are regulated medical waste — treat them like any clinical blood tube.</span></p></div><div class="wstream"><h3>Controlled substances (if applicable)</h3><p>Most med spas carry none — but if you stock any Schedule I–V drug, it has its own path.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Any expired / unused Schedule I–V stock</li><li>Wasted controlled doses</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled injectables (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable with a DEA Form 41 and witnessed logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit.<span class="ws-tip"><b>Tip:</b> If you don't stock controlled drugs, you can skip this stream entirely.</span></p></div></div><p class="wsfoot">One vendor can take your sharps, expired injectables, and biohazard — by prepaid mail-back kit, with a Certificate of Destruction and no contract. Simple enough for a front-desk team to manage. <a href="/resources/med-spa-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every med spa waste stream, explained.</h2><p class="lead">Med spas look like wellness businesses, but they generate the same regulated waste as a clinic — injection sharps, expired injectables like neurotoxins and fillers, and blood-contaminated materials from PRP and microneedling. Treating it like ordinary trash is a real compliance and liability risk. This guide covers every stream and how to handle each compliantly.</p></div><div class="wstreams"><div class="wstream"><h3>Sharps</h3><p>Your highest-volume regulated stream — every injection and microneedling treatment creates it.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection needles &amp; syringes</li><li>Microneedling cartridges &amp; tips</li><li>Cannulas &amp; blades</li><li>Lancets</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired product (pharmaceutical)</li><li>Empty non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Microneedling cartridges are sharps — they don't belong in the regular trash.</span></p></div><div class="wstream"><h3>Pharmaceutical waste (expired injectables)</h3><p>Neurotoxins, fillers, and injectable meds expire — and can't be flushed or trashed.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired neurotoxins (Botox, Dysport, etc.)</li><li>Expired dermal fillers</li><li>Lidocaine &amp; injectable anesthetics</li><li>Kybella &amp; other injectables</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own kit)</li><li>Sharps</li><li>Non-medical retail product</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; destroy expired injectables with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit.<span class="ws-tip"><b>Tip:</b> Reconstituted neurotoxin has a short shelf life — expired vials are pharmaceutical waste, not trash.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>PRP and microneedling mean blood — and blood-contaminated materials are red-bag waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>PRP tubes &amp; blood-contaminated items</li><li>Blood-soaked gauze</li><li>Contaminated gloves &amp; PPE</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> PRP centrifuge tubes with blood are regulated medical waste — treat them like any clinical blood tube.</span></p></div><div class="wstream"><h3>Controlled substances (if applicable)</h3><p>Most med spas carry none — but if you stock any Schedule I–V drug, it has its own path.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Any expired / unused Schedule I–V stock</li><li>Wasted controlled doses</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled injectables (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable with a DEA Form 41 and witnessed logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled-substance / medication mail-back kit.<span class="ws-tip"><b>Tip:</b> If you don't stock controlled drugs, you can skip this stream entirely.</span></p></div></div><p class="wsfoot">One vendor can take your sharps, expired injectables, and biohazard — by prepaid mail-back kit, with a Certificate of Destruction and no contract. Simple enough for a front-desk team to manage. <a href="/resources/med-spa-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -82,7 +82,7 @@ export default function Page() {
                 <p>Injection sharps, expired injectables (Botox, fillers) & PRP/blood waste — every regulated stream, handled right. Plus a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/med-spa-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/med-spa-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -93,10 +93,10 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
             </div>
           </div>
         </section>
@@ -127,21 +127,21 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/dermatology">Dermatology</a></li>
-                <li><a href="/who-we-serve/plastic-surgery">Plastic surgery</a></li>
-                <li><a href="/who-we-serve/weight-loss-glp1">Weight-loss & GLP-1 clinics</a></li>
-                <li><a href="/who-we-serve/trt-clinics">TRT clinics</a></li>
+                <li><a href="/who-we-serve/dermatology/">Dermatology</a></li>
+                <li><a href="/who-we-serve/plastic-surgery/">Plastic surgery</a></li>
+                <li><a href="/who-we-serve/weight-loss-glp1/">Weight-loss & GLP-1 clinics</a></li>
+                <li><a href="/who-we-serve/trt-clinics/">TRT clinics</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
-                <li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste disposal</a></li>
-                <li><a href="/our-solutions/biohazard-waste-disposal">Biohazard / RMW disposal</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste disposal</a></li>
+                <li><a href="/our-solutions/biohazard-waste-disposal/">Biohazard / RMW disposal</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/med-spa-waste-disposal-guide">Free Med spas guide (PDF)</a></li>
-                <li><a href="/blog/glp-1-pen-disposal">GLP-1 pen disposal</a></li>
-                <li><a href="/blog/sharps-container-sizes-and-types">Sharps container sizes & types</a></li>
+                <li><a href="/resources/med-spa-waste-disposal-guide/">Free Med spas guide (PDF)</a></li>
+                <li><a href="/blog/glp-1-pen-disposal/">GLP-1 pen disposal</a></li>
+                <li><a href="/blog/sharps-container-sizes-and-types/">Sharps container sizes & types</a></li>
               </ul></div>
             </div>
           </div>
@@ -169,15 +169,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Tattoo%20/%20med%20spa">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Tattoo%20/%20med%20spa">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="med-spa-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote?role=Tattoo%20/%20med%20spa" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Tattoo%20/%20med%20spa" }} />
       <Footer />
       <Reveal />
     </>

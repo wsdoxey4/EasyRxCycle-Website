@@ -43,7 +43,7 @@ export const KITS: Kit[] = [
       { q: "What size sharps kit do I need?", a: "The 1-quart suits a home user or very low-volume office; 2–9 gallon fits most clinics; 18–28 gallon suits higher-volume or multi-provider sites. If you're unsure, start smaller — you can reorder anytime." },
       { q: "Is return shipping really included?", a: "Yes. Every sharps kit is prepaid both ways — the price covers shipping to you and the prepaid return label. Orders over $50 also ship free outbound." },
     ],
-    pillar: { href: "/our-solutions/sharps-disposal", label: "Sharps disposal — how it works" },
+    pillar: { href: "/our-solutions/sharps-disposal/", label: "Sharps disposal — how it works" },
   },
   {
     slug: "biohazard-mail-back-kit", category: "biohazard", name: "Biohazard Mail-Back Kit", keyword: "biohazard mail-back kit",
@@ -59,7 +59,7 @@ export const KITS: Kit[] = [
       { q: "How is the waste treated?", a: "Regulated medical waste is treated to render it non-infectious and then destroyed, with documentation you can show in an OSHA or state inspection." },
       { q: "Do you serve my state?", a: "Yes — we ship mail-back kits to all 50 states, and every order includes a Certificate of Destruction for your records." },
     ],
-    pillar: { href: "/our-solutions/biohazard-waste-disposal", label: "Biohazard waste disposal — how it works" },
+    pillar: { href: "/our-solutions/biohazard-waste-disposal/", label: "Biohazard waste disposal — how it works" },
   },
   {
     slug: "pharmaceutical-waste-mail-back-kit", category: "pharma", name: "Pharmaceutical Waste Mail-Back Kit", keyword: "pharmaceutical waste mail-back kit",
@@ -75,7 +75,7 @@ export const KITS: Kit[] = [
       { q: "Can I put controlled substances in this kit?", a: "No — controlled substances (Schedules I–V) require the controlled substance mail-back kit, which is handled to DEA non-retrievable standards." },
       { q: "Is destruction documented?", a: "Yes. Every order is destroyed and documented with a Certificate of Destruction for your DEA, EPA, and state compliance records." },
     ],
-    pillar: { href: "/our-solutions/pharmaceutical-waste-disposal", label: "Pharmaceutical waste disposal — how it works" },
+    pillar: { href: "/our-solutions/pharmaceutical-waste-disposal/", label: "Pharmaceutical waste disposal — how it works" },
   },
   {
     slug: "medication-mail-back-kit", category: "medication", name: "Medication Disposal Kit (Mail-Back)", keyword: "medication mail-back kit",
@@ -91,7 +91,7 @@ export const KITS: Kit[] = [
       { q: "Can I use this for a patient take-back program?", a: "Yes. The tamper-evident design suits take-back collection of unused patient medications, with documented destruction on the back end." },
       { q: "Are controlled substances allowed?", a: "This kit accepts commingled medications for destruction. For dedicated, weight-based controlled substance disposal with full DEA handling, use the controlled substance mail-back kit." },
     ],
-    pillar: { href: "/our-solutions/medication-disposal-kit", label: "Medication disposal — how it works" },
+    pillar: { href: "/our-solutions/medication-disposal-kit/", label: "Medication disposal — how it works" },
   },
   {
     slug: "on-site-medication-disposal-kit", category: "medication-onsite", name: "Medication Disposal Kit (On-Site)", keyword: "on-site medication disposal kit",
@@ -107,7 +107,7 @@ export const KITS: Kit[] = [
       { q: "Why choose on-site instead of mail-back?", a: "On-site is faster and lower-cost, with no return shipping — useful when medications shouldn't leave the building or you want immediate, witnessed deactivation." },
       { q: "Is on-site deactivation DEA-compliant?", a: "Yes — rendering controlled substances non-retrievable on-site aligns with DEA disposal guidance. Follow the included instructions and your facility's witnessing policy." },
     ],
-    pillar: { href: "/our-solutions/medication-disposal-kit", label: "Medication disposal — how it works" },
+    pillar: { href: "/our-solutions/medication-disposal-kit/", label: "Medication disposal — how it works" },
   },
   {
     slug: "trace-chemo-mail-back-kit", category: "chemo", name: "Trace Chemo Mail-Back Kit", keyword: "trace chemo mail-back kit",
@@ -123,7 +123,7 @@ export const KITS: Kit[] = [
       { q: "Does this meet USP 800?", a: "Yes — the kit supports USP 800 segregation and handling of trace hazardous-drug waste, with incineration and documentation on the back end." },
       { q: "What if I have bulk or unused chemotherapy drugs?", a: "Bulk chemo is handled as RCRA-hazardous waste, not trace. Request a custom quote and we'll size the right program." },
     ],
-    pillar: { href: "/our-solutions/trace-chemotherapy-waste", label: "Trace chemotherapy waste — how it works" },
+    pillar: { href: "/our-solutions/trace-chemotherapy-waste/", label: "Trace chemotherapy waste — how it works" },
   },
   {
     slug: "controlled-substance-mail-back-kit", category: "controlled", name: "Controlled Substance Mail-Back Kit", keyword: "controlled substance mail-back kit",
@@ -139,7 +139,7 @@ export const KITS: Kit[] = [
       { q: "How is destruction documented?", a: "Controls are rendered non-retrievable with chain-of-custody, and you receive a Certificate of Destruction attesting to compliant destruction for your DEA records." },
       { q: "Do I need any paperwork?", a: "We'll provide the destruction documentation you need for your records after processing. If you have questions about your registration or reporting, call us at 501-904-2929." },
     ],
-    pillar: { href: "/our-solutions/controlled-substance-destruction", label: "Controlled substance destruction — how it works" },
+    pillar: { href: "/our-solutions/controlled-substance-destruction/", label: "Controlled substance destruction — how it works" },
   },
   {
     slug: "rcra-hazardous-mail-back-kit", category: "hazardous", name: "Hazardous (RCRA) Mail-Back Kit", keyword: "RCRA hazardous waste mail-back kit",
@@ -155,7 +155,7 @@ export const KITS: Kit[] = [
       { q: "How do I know which drugs are RCRA-hazardous?", a: "The kit includes segregation guidance, and our team can help you identify P-listed, U-listed, and characteristic items. Non-hazardous medications go in the pharmaceutical waste kit instead." },
       { q: "Is this destroyed to EPA standards?", a: "Yes — RCRA-hazardous pharmaceutical waste is destroyed to EPA requirements, with a Certificate of Destruction for your compliance records." },
     ],
-    pillar: { href: "/our-solutions/rcra-hazardous-pharmaceutical-waste", label: "RCRA hazardous waste — how it works" },
+    pillar: { href: "/our-solutions/rcra-hazardous-pharmaceutical-waste/", label: "RCRA hazardous waste — how it works" },
   },
   {
     slug: "activated-charcoal-take-back-kit", category: "charcoal", name: "Activated Charcoal Take-Back Kit", keyword: "activated charcoal disposal take-back",
@@ -175,7 +175,7 @@ export const KITS: Kit[] = [
       { q: "Is shipping included?", a: "Yes — prepaid both ways. The kit arrives with outbound and return labels." },
       { q: "What if I have more than 50 lbs?", a: "Order multiple kits, or contact us at 501-904-2929 for a freight quote on larger volumes." },
     ],
-    pillar: { href: "/our-solutions/medication-disposal-kit", label: "Medication disposal — how it works" },
+    pillar: { href: "/our-solutions/medication-disposal-kit/", label: "Medication disposal — how it works" },
   },
 ];
 

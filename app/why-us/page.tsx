@@ -52,8 +52,8 @@ export default function Page() {
               contract to sign.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "26px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/shop">Shop mail-back kits</a>
+              <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/shop/">Shop mail-back kits</a>
             </div>
           </div>
         </section>
@@ -103,13 +103,13 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">One partner</span><h2>Every stream, fully documented.</h2></div>
             <div className="pills">
-              {[["Controlled substances","/our-solutions/controlled-substance-destruction"],["Pharmaceutical waste","/our-solutions/pharmaceutical-waste-disposal"],["Sharps","/our-solutions/sharps-disposal"],["Biohazard / RMW","/our-solutions/biohazard-waste-disposal"],["Trace chemo","/our-solutions/trace-chemotherapy-waste"],["RCRA hazardous","/our-solutions/rcra-hazardous-pharmaceutical-waste"],["Reverse distribution","/our-solutions/reverse-distribution"],["Medication kits","/our-solutions/medication-disposal-kit"]].map(([t,h]) => (
+              {[["Controlled substances","/our-solutions/controlled-substance-destruction/"],["Pharmaceutical waste","/our-solutions/pharmaceutical-waste-disposal/"],["Sharps","/our-solutions/sharps-disposal/"],["Biohazard / RMW","/our-solutions/biohazard-waste-disposal/"],["Trace chemo","/our-solutions/trace-chemotherapy-waste/"],["RCRA hazardous","/our-solutions/rcra-hazardous-pharmaceutical-waste/"],["Reverse distribution","/our-solutions/reverse-distribution/"],["Medication kits","/our-solutions/medication-disposal-kit/"]].map(([t,h]) => (
                 <a className="pill" href={h} key={t}>{t}</a>
               ))}
             </div>
             <p className="lead" style={{ marginTop: "clamp(24px,3vw,34px)", maxWidth: "60ch" }}>
-              See the credentials behind it on our <a href="/capabilities" style={{ color: "var(--teal)", fontWeight: 600 }}>capabilities page</a>,
-              or read <a href="/about-us" style={{ color: "var(--teal)", fontWeight: 600 }}>our story</a>.
+              See the credentials behind it on our <a href="/capabilities/" style={{ color: "var(--teal)", fontWeight: 600 }}>capabilities page</a>,
+              or read <a href="/about-us/" style={{ color: "var(--teal)", fontWeight: 600 }}>our story</a>.
             </p>
           </div>
         </section>
@@ -127,8 +127,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/shop">Shop kits</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/shop/">Shop kits</a>
               </div>
             </div>
           </div>

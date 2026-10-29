@@ -43,11 +43,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Top Medical Waste Disposal Companies" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Top Medical Waste Disposal Companies" }]} />
               <span className="eyebrow">Comparison</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Top Medical Waste Disposal Companies in the US" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Sep 21, 2025</span>
                 <span className="dot-sep" />
@@ -72,7 +72,7 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "The right partner makes compliance easier; the wrong one leaves you exposed to fines, missed documentation, and rigid contracts. Beyond disposal, the best providers deliver regulatory compliance, environmental responsibility, and staff safety &mdash; documented every step." }} />
             <h2 id="companies" dangerouslySetInnerHTML={{ __html: "Top medical waste disposal companies, compared" }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle" }} />
-            <p dangerouslySetInnerHTML={{ __html: "DEA-registered specialist in pharmaceutical and controlled-substance destruction, <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a>, and mail-back &mdash; flat-rate pricing, no contracts, nationwide. Strongest for pharmacies, clinics, and any facility handling controlled substances." }} />
+            <p dangerouslySetInnerHTML={{ __html: "DEA-registered specialist in pharmaceutical and controlled-substance destruction, <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a>, and mail-back &mdash; flat-rate pricing, no contracts, nationwide. Strongest for pharmacies, clinics, and any facility handling controlled substances." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Stericycle" }} />
             <p dangerouslySetInnerHTML={{ __html: "Extensive national infrastructure combining medical waste and pharmaceutical disposal. Watch-outs: higher pricing, often bundled, with rigid long-term contracts." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Waste Management / Clean Harbors / Republic Services" }} />
@@ -83,7 +83,7 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "Drug waste is where general haulers and specialists differ most. Expired and unused medications split into non-hazardous pharmaceuticals, RCRA-hazardous drugs (P- and U-listed), and DEA controlled substances &mdash; and each has its own rules. A hauler built around red-bag pickup may route all of it the same way; a pharmaceutical specialist sorts it, documents it, and destroys controlled substances non-retrievably with a DEA Form 41 trail." }} />
             <p dangerouslySetInnerHTML={{ __html: "If most of your waste is medications, look for a company that handles <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste disposal</a>, <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a>, and <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA hazardous drug waste</a> under one roof, so nothing gets mis-routed between vendors." }} />
             <h2 id="cost" dangerouslySetInnerHTML={{ __html: "What medical waste disposal costs" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Pricing is where companies are least transparent. Route-based haulers usually quote per pickup or per container on a contract, often with fuel surcharges and cancellation fees. Mail-back is priced per kit: at Easy Rx Cycle, prepaid kits run from about <strong>$55 for a 1-quart sharps container</strong> to a few hundred dollars for larger or specialty streams, with no contract or monthly minimum. See the full breakdown by waste stream in our <a href=\"/medical-waste-disposal-cost\">medical waste disposal cost guide</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Pricing is where companies are least transparent. Route-based haulers usually quote per pickup or per container on a contract, often with fuel surcharges and cancellation fees. Mail-back is priced per kit: at Easy Rx Cycle, prepaid kits run from about <strong>$55 for a 1-quart sharps container</strong> to a few hundred dollars for larger or specialty streams, with no contract or monthly minimum. See the full breakdown by waste stream in our <a href=\"/medical-waste-disposal-cost/\">medical waste disposal cost guide</a>." }} />
             <h2 id="criteria" dangerouslySetInnerHTML={{ __html: "Key considerations when choosing a company" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "DEA registration and controlled-substance capability" }} /><li dangerouslySetInnerHTML={{ __html: "Compliance standards (OSHA, DOT, EPA/RCRA)" }} /><li dangerouslySetInnerHTML={{ __html: "Service scope &mdash; sharps, biohazard, pharma, controlled, chemo" }} /><li dangerouslySetInnerHTML={{ __html: "Pricing transparency (flat-rate vs. bundled)" }} /><li dangerouslySetInnerHTML={{ __html: "Documentation &mdash; manifests and Certificates of Destruction" }} /><li dangerouslySetInnerHTML={{ __html: "Flexibility &mdash; contract terms and mail-back options" }} /></ul>
 

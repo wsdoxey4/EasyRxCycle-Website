@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Biohazard Waste Management" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Biohazard Waste Management" }]} />
               <span className="eyebrow">Biohazard / RMW</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Biohazard Waste Management: A Complete Guide")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>7 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Managing biohazard waste isn&rsquo;t one task &mdash; it&rsquo;s a chain, from the moment a red bag is filled to the day it&rsquo;s treated and documented. A weak link anywhere is where citations and staff exposures happen. Here&rsquo;s how to run the whole program compliantly, step by step.")} />
@@ -63,7 +63,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="what" dangerouslySetInnerHTML={H("What biohazard waste management is")} />
-                <p dangerouslySetInnerHTML={H("Biohazard waste management is the end-to-end handling of <a href=\"/blog/what-is-biohazard-waste\">regulated medical waste</a> &mdash; from generation to final treatment. It covers how waste is segregated, contained, stored, transported, treated, and documented. Managed well, it protects your staff, keeps you compliant with OSHA and your state, and keeps cost under control by making sure only truly regulated waste enters the expensive stream.")} />
+                <p dangerouslySetInnerHTML={H("Biohazard waste management is the end-to-end handling of <a href=\"/blog/what-is-biohazard-waste/\">regulated medical waste</a> &mdash; from generation to final treatment. It covers how waste is segregated, contained, stored, transported, treated, and documented. Managed well, it protects your staff, keeps you compliant with OSHA and your state, and keeps cost under control by making sure only truly regulated waste enters the expensive stream.")} />
 
                 <h2 id="steps" dangerouslySetInnerHTML={H("The 6 steps of the process")} />
                 <ol>
@@ -76,17 +76,17 @@ export default function Page() {
                 </ol>
 
                 <h2 id="rules" dangerouslySetInnerHTML={H("The rules behind each step")} />
-                <p dangerouslySetInnerHTML={H("Three layers govern the program at once: <strong>OSHA&rsquo;s <a href=\"/blog/osha-medical-waste-requirements\">Bloodborne Pathogens Standard</a></strong> (29 CFR 1910.1030) drives segregation, containment, labeling, and training; the <strong>DOT</strong> (49 CFR) drives transport; and your <strong>state medical-waste program</strong> sets what&rsquo;s regulated, storage time limits, and treatment. Getting the container and the paperwork right is usually what separates a clean inspection from a <a href=\"/blog/medical-waste-violations-and-fines\">citation</a>.")} />
+                <p dangerouslySetInnerHTML={H("Three layers govern the program at once: <strong>OSHA&rsquo;s <a href=\"/blog/osha-medical-waste-requirements/\">Bloodborne Pathogens Standard</a></strong> (29 CFR 1910.1030) drives segregation, containment, labeling, and training; the <strong>DOT</strong> (49 CFR) drives transport; and your <strong>state medical-waste program</strong> sets what&rsquo;s regulated, storage time limits, and treatment. Getting the container and the paperwork right is usually what separates a clean inspection from a <a href=\"/blog/medical-waste-violations-and-fines/\">citation</a>.")} />
 
                 <h2 id="program" dangerouslySetInnerHTML={H("Building a program that runs itself")} />
-                <p dangerouslySetInnerHTML={H("The goal is a routine, not a scramble: labeled containers at every generation point, staff trained on what goes where, a fixed storage area and pickup or mail-back cadence, and documentation that files itself. The simplest way to get there for most sites is a <a href=\"/our-solutions/biohazard-waste-disposal\">biohazard mail-back program</a> that bundles the container, DOT-compliant shipping, permitted treatment, and documentation into one flat price &mdash; so five of the six steps are handled for you, with a Certificate of Destruction on every order.")} />
+                <p dangerouslySetInnerHTML={H("The goal is a routine, not a scramble: labeled containers at every generation point, staff trained on what goes where, a fixed storage area and pickup or mail-back cadence, and documentation that files itself. The simplest way to get there for most sites is a <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard mail-back program</a> that bundles the container, DOT-compliant shipping, permitted treatment, and documentation into one flat price &mdash; so five of the six steps are handled for you, with a Certificate of Destruction on every order.")} />
 
                 <div className="postcta">
                   <h3>Make biohazard management a routine, not a risk.</h3>
                   <p>Prepaid biohazard / RMW mail-back kits and scheduled pickup &mdash; container, DOT transport, permitted treatment, and documentation in one flat price.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/biohazard-waste-disposal">Biohazard disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/shop/biohazard-mail-back-kit">Shop kits</a>
+                    <a className="btn btn-primary" href="/our-solutions/biohazard-waste-disposal/">Biohazard disposal <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/shop/biohazard-mail-back-kit/">Shop kits</a>
                   </div>
                 </div>
 

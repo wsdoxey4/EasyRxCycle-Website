@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "The Pharmacy Drug Return Process" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "The Pharmacy Drug Return Process" }]} />
               <span className="eyebrow">Reverse Distribution</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("The Pharmacy Drug Return Process: Recover Credit on Expired Drugs")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most facilities treat expired inventory as a write-off. It doesn&rsquo;t have to be. Reverse distribution is how pharmacies and healthcare facilities turn returnable expired and short-dated stock back into <strong>manufacturer credit</strong> &mdash; and compliantly destroy the rest. Here&rsquo;s exactly how the return process works and how to get the most back.")} />
@@ -66,7 +66,7 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("Not every expired drug is a loss, and not every drug is returnable. It comes down to the manufacturer&rsquo;s return policy and the product&rsquo;s dating:")} />
                 <ul>
                   <li dangerouslySetInnerHTML={H("<strong>Returnable for credit</strong> &mdash; in-date, short-dated, or recently expired product inside the manufacturer&rsquo;s return window (often a few months before to up to a year after expiration), in original packaging.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>Destroy-only (no credit)</strong> &mdash; product expired beyond the window, opened or partial, repackaged, non-returnable per policy, and most <a href=\"/blog/reverse-distribution-for-controlled-substances\">controlled substances</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Destroy-only (no credit)</strong> &mdash; product expired beyond the window, opened or partial, repackaged, non-returnable per policy, and most <a href=\"/blog/reverse-distribution-for-controlled-substances/\">controlled substances</a>.")} />
                 </ul>
 
                 <h2 id="process" dangerouslySetInnerHTML={H("The pharmacy drug return process, step by step")} />
@@ -75,7 +75,7 @@ export default function Page() {
                   <li dangerouslySetInnerHTML={H("<strong>Send it to a reverse distributor</strong> (box-and-ship, or on-site service for larger sites).")} />
                   <li dangerouslySetInnerHTML={H("<strong>They sort it</strong> &mdash; separating returnable product from destroy-only.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Returnable stock is submitted</strong> to the manufacturer or wholesaler for credit under each return policy.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>The rest is destroyed</strong> non-retrievably, with a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>The rest is destroyed</strong> non-retrievably, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
                   <li dangerouslySetInnerHTML={H("<strong>You receive credit</strong> on the returnable portion and documentation on the destroyed portion.")} />
                 </ol>
 
@@ -87,15 +87,15 @@ export default function Page() {
                   <li dangerouslySetInnerHTML={H("<strong>Watch the dating</strong> &mdash; return product inside the manufacturer&rsquo;s window instead of letting it fully expire.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Return on a regular cadence</strong> so nothing ages out of eligibility on the shelf.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Keep clean records</strong> and separate returnable from destroy-only up front.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>Use one partner</strong> for returns AND disposal &mdash; so <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a>, <a href=\"/our-solutions/controlled-substance-destruction\">controlled destruction</a>, and your other streams don&rsquo;t need separate vendors.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Use one partner</strong> for returns AND disposal &mdash; so <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a>, <a href=\"/our-solutions/controlled-substance-destruction/\">controlled destruction</a>, and your other streams don&rsquo;t need separate vendors.")} />
                 </ul>
 
                 <div className="postcta">
                   <h3>Turn expired inventory back into credit.</h3>
                   <p>DEA-registered reverse distribution recovers manufacturer credit on returnable stock and compliantly destroys the rest — with documentation, and every other waste stream under one roof.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/reverse-distribution">Reverse distribution <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                    <a className="btn btn-primary" href="/our-solutions/reverse-distribution/">Reverse distribution <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
                   </div>
                 </div>
 

@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "How to Dispose of Controlled Substances (The Compliant Way)" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "How to Dispose of Controlled Substances (The Compliant Way)" }]} />
               <span className="eyebrow">Controlled Substances</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "How to Dispose of Controlled Substances" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -64,9 +64,9 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="facilities" dangerouslySetInnerHTML={{ __html: "For facilities (DEA registrants)" }} />
-            <p dangerouslySetInnerHTML={{ __html: "If you hold a DEA registration, you must dispose of controlled substances through a <a href=\"/our-solutions/reverse-distribution\">DEA-registered reverse distributor</a> or authorized destruction &mdash; rendered non-retrievable, documented on <a href=\"/resources/dea-form-41-222\">DEA Form 41 and Form 222</a>, with a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>. Reverse distribution also recovers credit on returnable stock." }} />
+            <p dangerouslySetInnerHTML={{ __html: "If you hold a DEA registration, you must dispose of controlled substances through a <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> or authorized destruction &mdash; rendered non-retrievable, documented on <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. Reverse distribution also recovers credit on returnable stock." }} />
             <h2 id="individuals" dangerouslySetInnerHTML={{ __html: "For individuals (patients &amp; caregivers)" }} />
-            <p dangerouslySetInnerHTML={{ __html: "At home, use a DEA take-back kiosk, National Take Back Day, or a compliant <a href=\"/our-solutions/medication-disposal-kit\">medication disposal kit</a>. Don&rsquo;t flush (except the few FDA flush-list drugs) and don&rsquo;t trash loose controlled substances." }} />
+            <p dangerouslySetInnerHTML={{ __html: "At home, use a DEA take-back kiosk, National Take Back Day, or a compliant <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a>. Don&rsquo;t flush (except the few FDA flush-list drugs) and don&rsquo;t trash loose controlled substances." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush controlled substances (except FDA flush-list drugs when no take-back exists)" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t put them in regular or red-bag waste" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t skip the DEA Form 41 documentation" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t use an unlicensed vendor" }} /></ul>
 

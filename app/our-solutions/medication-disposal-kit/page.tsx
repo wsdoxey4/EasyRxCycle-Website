@@ -50,13 +50,13 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Medication Disposal Kits" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Medication Disposal Kits" }]} />
             <span className="eyebrow">Medication disposal kits · mail-back</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "The mail-back medication disposal kit. <span style=\"color:var(--teal)\">Fill it, seal it, ship it.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "A DEA-compliant mail-back kit for safe medication disposal &mdash; controlled and non-controlled drugs alike. Fill the prepaid pouch or envelope, seal it, and drop it in any mailbox. We incinerate the contents and issue a Certificate of Destruction. Built for pharmacies, facilities, and consumers." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/medication-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/medication-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/medication-disposal-kit.webp" alt="Easy Rx Cycle medication disposal mail-back kit" /></div>
@@ -78,7 +78,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>One kit, closed loop.</h2><p class=\"lead\">What a DEA-authorized mail-back kit collects, who can use it, and how controlled and non-controlled meds are destroyed together.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>What the kit collects</h3><p>A DEA mail-back package can take the widest range of household and facility medication in one container.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Controlled &amp; non-controlled medications together</li><li>Tablets, capsules, patches</li><li>Liquids in original containers (per program)</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Sharps &amp; needles (own kit)</li><li>Inhalers/aerosols &amp; illicit substances</li><li>Chemo/hazardous drugs (own path)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — an authorized mail-back package may collect controlled and non-controlled medication together for non-retrievable destruction.</p><p class=\"ws-meta\"><b>How to dispose</b> — Seal the inner liner, mail the prepaid package, and we render the contents non-retrievable.<span class=\"ws-tip\"><b>Tip:</b> Keep medications in the mail-back liner only — don't add sharps, which need their own container.</span></p></div><div class=\"wstream\"><h3>Who can use it</h3><p>Mail-back kits serve both institutions and the public.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Pharmacies &amp; LTC facilities (authorized collectors)</li><li>Clinics offering patient take-back</li><li>Households disposing of personal medication</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Anyone using it for illicit-drug disposal</li><li>Facilities substituting it for required inventory destruction records</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — retail pharmacies, hospitals/clinics with an on-site pharmacy, and LTC facilities can be authorized collectors; individuals can use household mail-back.</p><p class=\"ws-meta\"><b>How to dispose</b> — Match the program to your role — collector program vs. single-household kit.<span class=\"ws-tip\"><b>Tip:</b> Long-term care has specific DEA provisions for disposing of a resident's medication — a mail-back program fits cleanly.</span></p></div><div class=\"wstream\"><h3>Documentation & destruction</h3><p>The kit closes the loop with proof, not just a bin.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Non-retrievable destruction of contents</li><li>A Certificate of Destruction</li><li>Tracking on the return package</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Any expectation to inventory individual household contents</li><li>Reselling or reusing collected medication</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA non-retrievable standard — collected medication is permanently destroyed; collectors may not inventory individual contents of a sealed liner.</p><p class=\"ws-meta\"><b>How to dispose</b> — Non-retrievable destruction with documentation returned to the account.<span class=\"ws-tip\"><b>Tip:</b> For facilities, keep the Certificate of Destruction — it's your proof the program is closing the loop compliantly.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · medication mail-back</span><h3>The Medication Mail-Back Kit Guide</h3><p>What a DEA mail-back package can and can't collect, who is authorized to offer it, how controlled substances are handled, and the documentation you get back — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/medication-mail-back-kit-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · medication mail-back</span><h3>The Medication Mail-Back Kit Guide</h3><p>What a DEA mail-back package can and can't collect, who is authorized to offer it, how controlled substances are handled, and the documentation you get back — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/medication-mail-back-kit-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -124,9 +124,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Facility-scale expired medication disposal." }} /></a>
-              <a className="svc" href="/resources/certificate-of-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "What it proves and why it matters." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Facility-scale expired medication disposal." }} /></a>
+              <a className="svc" href="/resources/certificate-of-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "What it proves and why it matters." }} /></a>
             </div>
           </div>
         </section>
@@ -149,12 +149,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Medication disposal guides</span><h2>Learn more about medication disposal.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/blog/drug-take-back-programs-how-they-work"><h4>Drug take-back programs</h4><p>Kiosks vs. mail-back, and how to find one.</p></a>
-              <a className="svc" href="/blog/how-to-dispose-of-expired-medications-at-home"><h4>Dispose of expired meds at home</h4><p>Take-back, mail-back, deactivation, the flush list.</p></a>
-              <a className="svc" href="/blog/glp-1-pen-disposal"><h4>GLP-1 pen disposal</h4><p>How to dispose of Ozempic-type pens safely.</p></a>
-              <a className="svc" href="/blog/how-to-dispose-of-insulin-needles-at-home"><h4>Insulin needle disposal</h4><p>Sharps containers, mail-back, drop-off.</p></a>
-              <a className="svc" href="/blog/medication-take-back-programs-for-pharmacies"><h4>Take-back for pharmacies</h4><p>Mail-back kits vs. kiosks for pharmacies and facilities.</p></a>
-              <a className="svc" href="/blog/diabetic-needle-disposal"><h4>Diabetic needle disposal</h4><p>The compliant options for at-home sharps.</p></a>
+              <a className="svc" href="/blog/drug-take-back-programs-how-they-work/"><h4>Drug take-back programs</h4><p>Kiosks vs. mail-back, and how to find one.</p></a>
+              <a className="svc" href="/blog/how-to-dispose-of-expired-medications-at-home/"><h4>Dispose of expired meds at home</h4><p>Take-back, mail-back, deactivation, the flush list.</p></a>
+              <a className="svc" href="/blog/glp-1-pen-disposal/"><h4>GLP-1 pen disposal</h4><p>How to dispose of Ozempic-type pens safely.</p></a>
+              <a className="svc" href="/blog/how-to-dispose-of-insulin-needles-at-home/"><h4>Insulin needle disposal</h4><p>Sharps containers, mail-back, drop-off.</p></a>
+              <a className="svc" href="/blog/medication-take-back-programs-for-pharmacies/"><h4>Take-back for pharmacies</h4><p>Mail-back kits vs. kiosks for pharmacies and facilities.</p></a>
+              <a className="svc" href="/blog/diabetic-needle-disposal/"><h4>Diabetic needle disposal</h4><p>The compliant options for at-home sharps.</p></a>
             </div>
           </div>
         </section>
@@ -171,14 +171,14 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="medication-mail-back-kit-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/medication-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/medication-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

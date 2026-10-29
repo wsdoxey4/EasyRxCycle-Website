@@ -54,8 +54,8 @@ export default function Page() {
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Controlled drug & medication disposal for <span style=\"color:var(--teal)\">hospice.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Hospice care means managing strong controlled substances \u2014 and safely disposing of a patient\u2019s unused opioids and medications after care ends. We provide DEA-compliant destruction and mail-back kits, with a Certificate of Destruction every time." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote?role=Long-term%20care%20/%20hospice">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/build-your-program?facility=ltc">Build a program</a>
+              <a className="btn btn-primary" href="/get-a-quote/?role=Long-term%20care%20/%20hospice">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/build-your-program/?facility=ltc">Build a program</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -71,7 +71,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every hospice waste stream, explained.</h2><p class="lead">Hospice care leaves unused controlled substances — opioids especially — after a patient passes, in the home or the facility. Safely and promptly destroying them is both a DEA compliance duty and the single most important step in preventing diversion. This guide covers controlled-substance destruction and every other hospice waste stream.</p></div><div class="wstreams"><div class="wstream"><h3>Controlled substances</h3><p>Unused opioids and controlled substances after a patient passes — the defining hospice compliance issue.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Unused opioids &amp; Schedule I–V meds</li><li>Wasted &amp; partial doses</li><li>Discontinued controlled orders</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, DEA Form 41 for surrendered controls, witnessed logs; on-site deactivation meets non-retrievable guidance.</p><p class="ws-meta"><b>How to dispose</b> — Controlled / medication mail-back kit, or on-site deactivation, to DEA standards.<span class="ws-tip"><b>Tip:</b> On-site deactivation lets you render controls non-retrievable immediately — useful when meds shouldn't leave the building.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired and unused non-controlled medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired non-controlled meds</li><li>Discontinued patient meds</li><li>Comfort-care medications</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own path)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit or on-site deactivation.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div><div class="wstream"><h3>Sharps</h3><p>In-home and facility injection sharps.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection needles &amp; syringes</li><li>Subcutaneous &amp; IM sharps</li><li>Lancets</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Wound-care and end-of-life care regulated waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked dressings</li><li>Contaminated PPE</li><li>Wound-care biohazard</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div></div><p class="wsfoot">One DEA-registered vendor gives your team a compliant way to destroy unused opioids — on-site deactivation at the bedside or mail-back — plus sharps and meds, with documentation. No contract. <a href="/resources/hospice-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every hospice waste stream, explained.</h2><p class="lead">Hospice care leaves unused controlled substances — opioids especially — after a patient passes, in the home or the facility. Safely and promptly destroying them is both a DEA compliance duty and the single most important step in preventing diversion. This guide covers controlled-substance destruction and every other hospice waste stream.</p></div><div class="wstreams"><div class="wstream"><h3>Controlled substances</h3><p>Unused opioids and controlled substances after a patient passes — the defining hospice compliance issue.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Unused opioids &amp; Schedule I–V meds</li><li>Wasted &amp; partial doses</li><li>Discontinued controlled orders</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, DEA Form 41 for surrendered controls, witnessed logs; on-site deactivation meets non-retrievable guidance.</p><p class="ws-meta"><b>How to dispose</b> — Controlled / medication mail-back kit, or on-site deactivation, to DEA standards.<span class="ws-tip"><b>Tip:</b> On-site deactivation lets you render controls non-retrievable immediately — useful when meds shouldn't leave the building.</span></p></div><div class="wstream"><h3>Pharmaceutical waste</h3><p>Expired and unused non-controlled medications.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired non-controlled meds</li><li>Discontinued patient meds</li><li>Comfort-care medications</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled substances (own path)</li><li>RCRA-hazardous drugs (own kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Do not drain-dispose; segregate hazardous and controlled drugs; destroy with documentation.</p><p class="ws-meta"><b>How to dispose</b> — Pharmaceutical waste mail-back kit or on-site deactivation.<span class="ws-tip"><b>Tip:</b> Segregate hazardous and controlled drugs first — everything else routes here.</span></p></div><div class="wstream"><h3>Sharps</h3><p>In-home and facility injection sharps.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection needles &amp; syringes</li><li>Subcutaneous &amp; IM sharps</li><li>Lancets</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Wound-care and end-of-life care regulated waste.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood-soaked dressings</li><li>Contaminated PPE</li><li>Wound-care biohazard</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div></div><p class="wsfoot">One DEA-registered vendor gives your team a compliant way to destroy unused opioids — on-site deactivation at the bedside or mail-back — plus sharps and meds, with documentation. No contract. <a href="/resources/hospice-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -83,7 +83,7 @@ export default function Page() {
                 <p>Safely destroy unused opioids after care ends — plus sharps and every stream. Includes a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/hospice-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/hospice-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -94,10 +94,10 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything a hospice needs to dispose of.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
             </div>
           </div>
         </section>
@@ -128,21 +128,21 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/nursing-homes">Nursing homes & LTC</a></li>
-                <li><a href="/who-we-serve/home-health">Home health</a></li>
-                <li><a href="/who-we-serve/group-homes">Group homes</a></li>
-                <li><a href="/who-we-serve/pain-management">Pain management</a></li>
+                <li><a href="/who-we-serve/nursing-homes/">Nursing homes & LTC</a></li>
+                <li><a href="/who-we-serve/home-health/">Home health</a></li>
+                <li><a href="/who-we-serve/group-homes/">Group homes</a></li>
+                <li><a href="/who-we-serve/pain-management/">Pain management</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/controlled-substance-destruction">Controlled substance destruction</a></li>
-                <li><a href="/our-solutions/medication-disposal-kit">Medication mail-back kits</a></li>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
+                <li><a href="/our-solutions/controlled-substance-destruction/">Controlled substance destruction</a></li>
+                <li><a href="/our-solutions/medication-disposal-kit/">Medication mail-back kits</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/hospice-waste-disposal-guide">Free Hospice guide (PDF)</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-hospice-centers">Controlled drug disposal for hospice</a></li>
-                <li><a href="/blog/how-to-dispose-of-opioids-at-home">Opioid disposal at home</a></li>
+                <li><a href="/resources/hospice-waste-disposal-guide/">Free Hospice guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-hospice-centers/">Controlled drug disposal for hospice</a></li>
+                <li><a href="/blog/how-to-dispose-of-opioids-at-home/">Opioid disposal at home</a></li>
               </ul></div>
             </div>
           </div>
@@ -170,15 +170,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Long-term%20care%20/%20hospice">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Long-term%20care%20/%20hospice">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="hospice-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Long-term%20care%20/%20hospice" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=ltc" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Long-term%20care%20/%20hospice" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=ltc" }} />
       <Footer />
       <Reveal />
     </>

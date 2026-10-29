@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Red Bag Waste: What Goes In It (and What Doesn't)" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Red Bag Waste: What Goes In It (and What Doesn't)" }]} />
               <span className="eyebrow">Biohazard</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Red Bag Waste: What Goes In It (and What Doesn&rsquo;t)" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -67,7 +67,7 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "Blood-soaked gauze, dressings &amp; sponges" }} /><li dangerouslySetInnerHTML={{ __html: "Items saturated with blood or OPIM" }} /><li dangerouslySetInnerHTML={{ __html: "Contaminated PPE (gloves, gowns)" }} /><li dangerouslySetInnerHTML={{ __html: "Suction canisters &amp; blood tubing" }} /><li dangerouslySetInnerHTML={{ __html: "Cultures &amp; isolation waste" }} /></ul>
             <h2 id="out" dangerouslySetInnerHTML={{ __html: "What does NOT go in the red bag" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Sharps</strong> &mdash; need a puncture-proof sharps container" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trace chemo</strong> &mdash; yellow container, incinerated" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>RCRA-hazardous drugs</strong> &mdash; manifested separately" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Regular trash</strong> &mdash; don&rsquo;t red-bag non-infectious waste (it&rsquo;s costly and non-compliant)" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "Sharps go in a <a href=\"/our-solutions/sharps-disposal\">sharps container</a>; hazardous drugs go to <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Sharps go in a <a href=\"/our-solutions/sharps-disposal/\">sharps container</a>; hazardous drugs go to <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a>." }} />
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How red-bag waste is disposed of" }} />
             <p dangerouslySetInnerHTML={{ __html: "Red-bag waste is collected in DOT-approved packaging and treated (autoclave) or incinerated at a permitted facility, with a Certificate of Destruction. We handle it by mail-back or scheduled pickup." }} />
 

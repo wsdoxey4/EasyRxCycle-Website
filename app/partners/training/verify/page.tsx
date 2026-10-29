@@ -24,7 +24,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(28px,4vw,40px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Partners", href: "/partners" }, { name: "Rep certification", href: "/partners/training" }, { name: "Verify" }]} />
+            <Breadcrumbs items={[{ name: "Partners", href: "/partners/" }, { name: "Rep certification", href: "/partners/training/" }, { name: "Verify" }]} />
             <span className="eyebrow">Certificate verification</span>
             <h1 className="ph1">Verify a certificate.</h1>
           </div>

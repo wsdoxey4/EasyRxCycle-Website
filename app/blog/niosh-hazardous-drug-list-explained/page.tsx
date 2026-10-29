@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "The NIOSH Hazardous Drug List, Explained (USP 800)" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "The NIOSH Hazardous Drug List, Explained (USP 800)" }]} />
               <span className="eyebrow">Chemo · Hazardous Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "The NIOSH Hazardous Drug List, Explained" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -64,11 +64,11 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="what" dangerouslySetInnerHTML={{ __html: "What is the NIOSH hazardous drug list?" }} />
-            <p dangerouslySetInnerHTML={{ __html: "The NIOSH (National Institute for Occupational Safety and Health) list identifies drugs hazardous to the workers who handle them. <a href=\"/resources/usp-800\">USP 800</a> references it: any drug on the list must be handled with hazardous-drug precautions &mdash; from receiving to disposal." }} />
+            <p dangerouslySetInnerHTML={{ __html: "The NIOSH (National Institute for Occupational Safety and Health) list identifies drugs hazardous to the workers who handle them. <a href=\"/resources/usp-800/\">USP 800</a> references it: any drug on the list must be handled with hazardous-drug precautions &mdash; from receiving to disposal." }} />
             <h2 id="groups" dangerouslySetInnerHTML={{ __html: "The three groups on the list" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Group 1</strong> &mdash; antineoplastic (chemotherapy) drugs" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Group 2</strong> &mdash; non-antineoplastic hazardous drugs" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Group 3</strong> &mdash; drugs with reproductive risk" }} /></ul>
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How hazardous-drug waste is disposed of" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Hazardous-drug waste splits at disposal: <a href=\"/our-solutions/trace-chemotherapy-waste\">trace chemotherapy waste</a> (empty vials, IV bags, PPE) is incinerated in yellow containers, while bulk and RCRA-hazardous drugs are manifested to a permitted facility. Correct disposal is a core part of USP 800." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Hazardous-drug waste splits at disposal: <a href=\"/our-solutions/trace-chemotherapy-waste/\">trace chemotherapy waste</a> (empty vials, IV bags, PPE) is incinerated in yellow containers, while bulk and RCRA-hazardous drugs are manifested to a permitted facility. Correct disposal is a core part of USP 800." }} />
 
                 <div className="postcta">
                   <h3>Close the disposal gap in USP 800.</h3>

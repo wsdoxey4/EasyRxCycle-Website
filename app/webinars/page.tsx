@@ -63,7 +63,7 @@ export default function Page() {
             <p className="lead" style={{ marginTop: "18px", maxWidth: "64ch" }}>{W.summary}</p>
             <div style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="#register">Save my seat <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/resources/guides">Browse free guides</a>
+              <a className="btn btn-ghost" href="/resources/guides/">Browse free guides</a>
             </div>
           </div>
         </section>
@@ -95,7 +95,7 @@ export default function Page() {
               <p className="lead">
                 Each session takes one disposal question practices ask us constantly and answers it in plain English. Registrants
                 get the recording and a written summary afterward. Want us to cover a topic, or run a session for your
-                association&rsquo;s members? <a href="/associations" style={{ color: "var(--teal)", fontWeight: 600 }}>Tell us here</a>.
+                association&rsquo;s members? <a href="/associations/" style={{ color: "var(--teal)", fontWeight: 600 }}>Tell us here</a>.
               </p>
             </div>
           </div>
@@ -110,8 +110,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/shop">Shop kits</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/shop/">Shop kits</a>
               </div>
             </div>
           </div>

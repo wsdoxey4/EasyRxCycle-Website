@@ -50,13 +50,13 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "RCRA Hazardous" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "RCRA Hazardous" }]} />
             <span className="eyebrow">RCRA hazardous · P-, U- &amp; D-listed</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "RCRA-hazardous drug waste, <span style=\"color:var(--teal)\">managed by the book.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "P-listed, U-listed, and characteristic (D-code) pharmaceutical waste disposed of under EPA&rsquo;s RCRA Subpart P rule &mdash; properly identified, manifested, and destroyed, with a Certificate of Destruction and hazardous-waste documentation for your files." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/rcra-hazardous-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/rcra-hazardous-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/rcra-kit.webp" alt="Easy Rx Cycle RCRA hazardous waste mail-back kit" /></div>
@@ -78,7 +78,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Hazardous drugs, identified.</h2><p class=\"lead\">P-listed, U-listed, and characteristic drug waste, the Subpart P management standard, and the absolute sewer ban.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>P-listed (acutely hazardous) drugs</h3><p>The strictest category — acutely hazardous, with low quantity thresholds and even the empty container regulated.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Warfarin &gt;0.3%</li><li>Nicotine (patches, gum, e-liquid)</li><li>Epinephrine base</li><li>Physostigmine, arsenic trioxide</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Epinephrine salts in most formulations (commonly excluded)</li><li>Non-listed, non-characteristic drugs</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — EPA — P-listed wastes are acutely hazardous; residue and contaminated packaging are regulated unless the container is RCRA-empty (triple-rinsed / de minimis).</p><p class=\"ws-meta\"><b>How to dispose</b> — An RCRA-hazardous kit destroyed by permitted high-temperature incineration.<span class=\"ws-tip\"><b>Tip:</b> Nicotine products are P-listed — the nicotine gum and patches in your sample drawer are hazardous waste when discarded.</span></p></div><div class=\"wstream\"><h3>U-listed & characteristic drugs</h3><p>Toxic and characteristic wastes — the largest slice of hazardous drug waste.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>U-listed (many chemo agents, e.g. cyclophosphamide, mercury compounds)</li><li>Ignitable (D001) — many alcohol-based liquids</li><li>Toxic (D-codes) — e.g. certain preservatives, chromium, selenium</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Non-hazardous pharmaceutical waste</li><li>Trace chemo (RCRA-empty) — its own yellow stream</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — EPA — U-listed and characteristic drugs are hazardous waste and must be identified, segregated, and destroyed as such.</p><p class=\"ws-meta\"><b>How to dispose</b> — RCRA-hazardous kit — same incineration path, documented.<span class=\"ws-tip\"><b>Tip:</b> An ignitable characteristic (D001) catches many alcohol-based and aerosol products people assume are ordinary waste.</span></p></div><div class=\"wstream\"><h3>Subpart P & the sewer ban</h3><p>The 2019 rule that reshaped how healthcare manages hazardous drug waste.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>A Subpart P management program</li><li>Trained staff &amp; labeled containers</li><li>A hazardous-drug list mapped to your formulary</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Any hazardous waste pharmaceutical down a drain — a hard prohibition</li><li>Counting these toward your generator status (they're excluded under Subpart P)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — EPA RCRA Subpart P — healthcare facilities manage hazardous waste pharmaceuticals under a dedicated standard, and sewering them is expressly prohibited.</p><p class=\"ws-meta\"><b>How to dispose</b> — A Subpart P-aligned program with permitted destruction and full documentation.<span class=\"ws-tip\"><b>Tip:</b> Under Subpart P, your hazardous-waste-pharmaceutical volumes no longer count toward your monthly generator category — but the sewer ban is absolute.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · RCRA hazardous drugs</span><h3>The RCRA Hazardous Drug Waste Guide</h3><p>The P-list, U-list, and characteristic wastes, what Subpart P changed, the sewer ban, and how to identify and destroy hazardous drug waste — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/rcra-hazardous-drug-waste-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · RCRA hazardous drugs</span><h3>The RCRA Hazardous Drug Waste Guide</h3><p>The P-list, U-list, and characteristic wastes, what Subpart P changed, the sewer ban, and how to identify and destroy hazardous drug waste — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/rcra-hazardous-drug-waste-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -129,9 +129,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Non-hazardous and expired medication disposal." }} /></a>
-              <a className="svc" href="/our-solutions/trace-chemotherapy-waste"><h4 dangerouslySetInnerHTML={{ __html: "Trace chemo waste" }} /><p dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy disposal." }} /></a>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Non-hazardous and expired medication disposal." }} /></a>
+              <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><h4 dangerouslySetInnerHTML={{ __html: "Trace chemo waste" }} /><p dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy disposal." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
             </div>
           </div>
         </section>
@@ -154,12 +154,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">RCRA hazardous guides</span><h2>Learn more about hazardous drug waste.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/blog/hazardous-pharmaceutical-waste-disposal-guide"><h4>Hazardous pharma waste guide</h4><p>RCRA, P/U/D lists, Subpart P, disposal &amp; cost.</p></a>
-              <a className="svc" href="/blog/rcra-p-list-u-list-pharmaceuticals"><h4>P-listed &amp; U-listed drugs</h4><p>The EPA lists, explained.</p></a>
-              <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste"><h4>RCRA Subpart P</h4><p>The management standard &amp; sewering ban.</p></a>
-              <a className="svc" href="/blog/is-nicotine-hazardous-waste"><h4>Is nicotine hazardous waste?</h4><p>A common P-listed surprise.</p></a>
-              <a className="svc" href="/blog/niosh-hazardous-drug-list-explained"><h4>NIOSH hazardous drug list</h4><p>How it relates to RCRA and USP 800.</p></a>
-              <a className="svc" href="/blog/hazardous-vs-non-hazardous-pharmaceutical-waste"><h4>Hazardous vs. non-hazardous</h4><p>Telling the two streams apart.</p></a>
+              <a className="svc" href="/blog/hazardous-pharmaceutical-waste-disposal-guide/"><h4>Hazardous pharma waste guide</h4><p>RCRA, P/U/D lists, Subpart P, disposal &amp; cost.</p></a>
+              <a className="svc" href="/blog/rcra-p-list-u-list-pharmaceuticals/"><h4>P-listed &amp; U-listed drugs</h4><p>The EPA lists, explained.</p></a>
+              <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/"><h4>RCRA Subpart P</h4><p>The management standard &amp; sewering ban.</p></a>
+              <a className="svc" href="/blog/is-nicotine-hazardous-waste/"><h4>Is nicotine hazardous waste?</h4><p>A common P-listed surprise.</p></a>
+              <a className="svc" href="/blog/niosh-hazardous-drug-list-explained/"><h4>NIOSH hazardous drug list</h4><p>How it relates to RCRA and USP 800.</p></a>
+              <a className="svc" href="/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/"><h4>Hazardous vs. non-hazardous</h4><p>Telling the two streams apart.</p></a>
             </div>
           </div>
         </section>
@@ -176,14 +176,14 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="rcra-hazardous-drug-waste-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/rcra-hazardous-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/rcra-hazardous-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

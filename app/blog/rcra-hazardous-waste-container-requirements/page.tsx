@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "RCRA Container Requirements" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "RCRA Container Requirements" }]} />
               <span className="eyebrow">RCRA hazardous</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("RCRA Hazardous Waste Container Requirements")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>5 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Half of hazardous-waste citations come down to the container &mdash; the wrong color, an open lid, a missing date. Get the container right and you&rsquo;ve solved most of your RCRA exposure. Here are the rules for hazardous pharmaceutical waste containers, in plain English.")} />
@@ -63,7 +63,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="black" dangerouslySetInnerHTML={H("The black container")} />
-                <p dangerouslySetInnerHTML={H("RCRA-hazardous pharmaceutical waste goes in a <strong>black container</strong> &mdash; the color that signals hazardous drug waste, kept separate from blue (non-hazardous pharmaceutical), red (biohazard), and yellow (trace chemo). Mixing a hazardous drug into the wrong color is one of the most common and costly errors; see the <a href=\"/blog/medical-waste-color-codes\">color-code guide</a> for the full system.")} />
+                <p dangerouslySetInnerHTML={H("RCRA-hazardous pharmaceutical waste goes in a <strong>black container</strong> &mdash; the color that signals hazardous drug waste, kept separate from blue (non-hazardous pharmaceutical), red (biohazard), and yellow (trace chemo). Mixing a hazardous drug into the wrong color is one of the most common and costly errors; see the <a href=\"/blog/medical-waste-color-codes/\">color-code guide</a> for the full system.")} />
 
                 <h2 id="rules" dangerouslySetInnerHTML={H("The container rules")} />
                 <ul>
@@ -74,17 +74,17 @@ export default function Page() {
                 </ul>
 
                 <h2 id="label" dangerouslySetInnerHTML={H("Labeling &amp; dating")} />
-                <p dangerouslySetInnerHTML={H("Under the <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste\">Subpart P</a> standard for healthcare facilities, the container must be marked <strong>&ldquo;Hazardous Waste,&rdquo;</strong> labeled so the contents are identifiable, and carry the <strong>accumulation start date</strong>. Missing or non-compliant labels are among the most-cited hazardous-waste findings &mdash; and among the easiest to fix.")} />
+                <p dangerouslySetInnerHTML={H("Under the <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/\">Subpart P</a> standard for healthcare facilities, the container must be marked <strong>&ldquo;Hazardous Waste,&rdquo;</strong> labeled so the contents are identifiable, and carry the <strong>accumulation start date</strong>. Missing or non-compliant labels are among the most-cited hazardous-waste findings &mdash; and among the easiest to fix.")} />
 
                 <h2 id="accum" dangerouslySetInnerHTML={H("Accumulation limits")} />
-                <p dangerouslySetInnerHTML={H("Subpart P lets healthcare facilities accumulate hazardous waste pharmaceuticals on site for up to <strong>one year</strong> from the start date, provided the container is properly labeled and dated. Your state may be stricter. When the container is ready, ship it under DOT rules with a manifest to a permitted facility &mdash; a prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA mail-back kit</a> or scheduled pickup handles the container, the manifest, and the destruction together.")} />
+                <p dangerouslySetInnerHTML={H("Subpart P lets healthcare facilities accumulate hazardous waste pharmaceuticals on site for up to <strong>one year</strong> from the start date, provided the container is properly labeled and dated. Your state may be stricter. When the container is ready, ship it under DOT rules with a manifest to a permitted facility &mdash; a prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA mail-back kit</a> or scheduled pickup handles the container, the manifest, and the destruction together.")} />
 
                 <div className="postcta">
                   <h3>Get the container and the paperwork right.</h3>
                   <p>Compliant black RCRA containers with prepaid shipping, the hazardous-waste manifest, permitted-TSDF incineration, and documentation — no contract.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/rcra-hazardous-pharmaceutical-waste">RCRA hazardous disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/shop/rcra-hazardous-mail-back-kit">Shop kits</a>
+                    <a className="btn btn-primary" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA hazardous disposal <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/shop/rcra-hazardous-mail-back-kit/">Shop kits</a>
                   </div>
                 </div>
 

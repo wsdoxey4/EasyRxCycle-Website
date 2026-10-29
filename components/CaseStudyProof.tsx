@@ -13,7 +13,7 @@ export default function CaseStudyProof({ icp, solution }: { icp?: string; soluti
   return (
     <section className="sec csproof-sec">
       <div className="wrap">
-        <a className="csproof" href={`/case-studies/${c.slug}`} aria-label={`Read the ${c.industry} case study`}>
+        <a className="csproof" href={`/case-studies/${c.slug}/`} aria-label={`Read the ${c.industry} case study`}>
           <div className="csproof-head">
             <span className="csproof-eyebrow">Proof · case study</span>
             <span className="csproof-label">{label}</span>

@@ -87,7 +87,7 @@ export default function Page() {
                 <b>Need more than one kit?</b>
                 <span>Build a custom mail-back program — mix any streams, set a frequency for each, add your locations, and start auto-ship.</span>
               </div>
-              <a className="btn btn-primary" href="/build-your-program">Build your program <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/build-your-program/">Build your program <span className="ar">→</span></a>
             </div>
           </div>
         </section>
@@ -105,7 +105,7 @@ export default function Page() {
                   {col.keys.map((key) => {
                     const kit = KIT_BY_CATEGORY[key];
                     return (
-                      <a className="kitcard" key={key} href={`/shop/${kit.slug}`}>
+                      <a className="kitcard" key={key} href={`/shop/${kit.slug}/`}>
                         <div className="kitcard-img">{cat(key).image ? <img src={cat(key).image} alt={cat(key).label} loading="lazy" width={1200} height={800} /> : <span aria-hidden="true">{cat(key).label.split(" ")[0]}</span>}</div>
                         <div className="kitcard-body">
                           <h3>{cat(key).label}</h3>
@@ -126,7 +126,7 @@ export default function Page() {
             ))}
             <p className="lead" style={{ marginTop: "clamp(24px,3vw,36px)", maxWidth: "62ch" }}>
               Higher volume, multiple sites, or need scheduled pickup instead of mail-back?{" "}
-              <a href="/get-a-quote" style={{ color: "var(--teal)", fontWeight: 600 }}>Get a custom quote</a> and we&rsquo;ll size a program to you.
+              <a href="/get-a-quote/" style={{ color: "var(--teal)", fontWeight: 600 }}>Get a custom quote</a> and we&rsquo;ll size a program to you.
             </p>
           </div>
         </section>
@@ -162,7 +162,7 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="#kit-finder">Use the kit finder <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a custom quote</a>
+                <a className="btn btn-outline-w" href="/get-a-quote/">Get a custom quote</a>
               </div>
             </div>
           </div>

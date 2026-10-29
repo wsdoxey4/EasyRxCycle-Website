@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "How to Dispose of Insulin Needles" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "How to Dispose of Insulin Needles" }]} />
               <span className="eyebrow">Sharps · At-Home</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "How to Dispose of Insulin Needles at Home" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 18, 2026</span>
                 <span className="dot-sep" />
@@ -69,7 +69,7 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "Never toss loose needles in the trash. Use an FDA-cleared sharps container &mdash; rigid, puncture-resistant, and leak-proof. In a pinch a heavy-duty plastic laundry-detergent or bleach bottle can work, but an FDA-cleared container is safer and required by many programs. Seal it when it&rsquo;s three-quarters full." }} />
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "Step 2: Dispose of the full container the right way" }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Mail-back (easiest)" }} />
-            <p dangerouslySetInnerHTML={{ __html: "A prepaid <a href=\"/our-solutions/sharps-disposal\">mail-back sharps kit</a> lets you fill the container, seal it, and mail it back &mdash; no drop-off, no trip. It&rsquo;s the simplest at-home option and it&rsquo;s compliant nationwide." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A prepaid <a href=\"/our-solutions/sharps-disposal/\">mail-back sharps kit</a> lets you fill the container, seal it, and mail it back &mdash; no drop-off, no trip. It&rsquo;s the simplest at-home option and it&rsquo;s compliant nationwide." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Drop-off sites" }} />
             <p dangerouslySetInnerHTML={{ __html: "Some pharmacies, hospitals, and household hazardous-waste facilities accept full sharps containers &mdash; availability and rules vary by city and state." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />

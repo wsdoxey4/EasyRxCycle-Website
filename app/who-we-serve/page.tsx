@@ -122,12 +122,12 @@ export default function Page() {
               tailored, compliant program — mail-back or pickup, with a Certificate of Destruction every time.
             </p>
             <div className="lanepaths">
-              <a className="lanepath shop" href="/shop">
+              <a className="lanepath shop" href="/shop/">
                 <span className="lp-tag">🛒 Small practice</span>
                 <b>Shop mail-back kits</b>
                 <span className="lp-sub">Buy online, prepaid, no contract — the fastest path for lower-volume sites.</span>
               </a>
-              <a className="lanepath quote" href="/get-a-quote">
+              <a className="lanepath quote" href="/get-a-quote/">
                 <span className="lp-tag">📋 Facility or system</span>
                 <b>Get a custom quote</b>
                 <span className="lp-sub">Sized to your volume, with pickup and multi-site options.</span>

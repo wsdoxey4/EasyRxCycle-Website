@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Build a disposal program for your health system — every stream, every site, on your schedule.",
-  finalHref: "/build-your-program", finalLabel: "Build your program",
+  finalHref: "/build-your-program/", finalLabel: "Build your program",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at ASHP Midyear 2026 — Booth Special | Orlando";

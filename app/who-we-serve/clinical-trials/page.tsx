@@ -53,8 +53,8 @@ export default function Page() {
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Clinical Trial Waste Disposal for <span style=\"color:var(--teal)\">clinical-trial sites.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Clinical trial waste disposal demands documentation sponsors and auditors will scrutinize: investigational product returns, controlled substances, and study sharps all need chain-of-custody and, where applicable, reverse distribution. We destroy investigational and controlled product non-retrievable and document every batch with a Certificate of Destruction." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/build-your-program?facility=lab">Build a program</a>
+              <a className="btn btn-primary" href="/get-a-quote/?role=Other">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/build-your-program/?facility=lab">Build a program</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -70,7 +70,7 @@ export default function Page() {
         </section>
 
         <section className="sec wsec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
-          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every clinical trial site waste stream, explained.</h2><p class="lead">Clinical trial sites and sponsors must document the destruction of unused and returned investigational product — including controlled substances — with an auditable chain of custody that satisfies sponsors, monitors, and the FDA. Add study sharps and biohazard, and you need a partner who gets the paperwork right. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Investigational product destruction</h3><p>Unused, returned, and expired investigational product — the stream your monitors audit.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Unused &amp; returned IP</li><li>Expired investigational lots</li><li>Non-controlled study drug</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled IP (own path)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Destroyed with documented chain of custody and Certificates of Destruction to satisfy sponsor, monitor, and FDA requirements.</p><p class="ws-meta"><b>How to dispose</b> — Documented destruction with chain-of-custody records.<span class="ws-tip"><b>Tip:</b> Reconcile returned IP before destruction — the audit trail must tie accountability to disposal.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>Investigational or ancillary controlled substances.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused controlled IP</li><li>Wasted quantities</li><li>Surrendered controlled stock</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, DEA Form 41 for surrendered controls, witnessed logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled destruction to DEA standards, with documentation.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Sharps</h3><p>Study-related injection and blood-draw sharps.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection &amp; infusion needles</li><li>Blood-draw sharps</li><li>Lancets &amp; syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Study specimen and procedure biohazard.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood &amp; specimen biohazard</li><li>Contaminated study materials</li><li>Contaminated PPE</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div></div><p class="wsfoot">One DEA-registered partner can destroy investigational product and controls with the chain-of-custody documentation your monitors and sponsors expect — plus sharps and biohazard. No contract. <a href="/resources/clinical-trial-waste-disposal-guide">Get the full guide (free PDF) &rarr;</a></p>` }} />
+          <div className="wrap" dangerouslySetInnerHTML={{ __html: `<div class="shead"><span class="eyebrow">Every waste stream, explained</span><h2>Every clinical trial site waste stream, explained.</h2><p class="lead">Clinical trial sites and sponsors must document the destruction of unused and returned investigational product — including controlled substances — with an auditable chain of custody that satisfies sponsors, monitors, and the FDA. Add study sharps and biohazard, and you need a partner who gets the paperwork right. This guide covers every stream.</p></div><div class="wstreams"><div class="wstream"><h3>Investigational product destruction</h3><p>Unused, returned, and expired investigational product — the stream your monitors audit.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Unused &amp; returned IP</li><li>Expired investigational lots</li><li>Non-controlled study drug</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Controlled IP (own path)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — Destroyed with documented chain of custody and Certificates of Destruction to satisfy sponsor, monitor, and FDA requirements.</p><p class="ws-meta"><b>How to dispose</b> — Documented destruction with chain-of-custody records.<span class="ws-tip"><b>Tip:</b> Reconcile returned IP before destruction — the audit trail must tie accountability to disposal.</span></p></div><div class="wstream"><h3>Controlled substances</h3><p>Investigational or ancillary controlled substances.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Expired / unused controlled IP</li><li>Wasted quantities</li><li>Surrendered controlled stock</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Non-controlled meds (pharmaceutical kit)</li><li>Sharps</li></ul></div></div><p class="ws-meta"><b>The rule</b> — DEA — render non-retrievable, DEA Form 41 for surrendered controls, witnessed logs.</p><p class="ws-meta"><b>How to dispose</b> — Controlled destruction to DEA standards, with documentation.<span class="ws-tip"><b>Tip:</b> Log and witness every wasted controlled dose — the DEA checks the paper trail.</span></p></div><div class="wstream"><h3>Sharps</h3><p>Study-related injection and blood-draw sharps.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Injection &amp; infusion needles</li><li>Blood-draw sharps</li><li>Lancets &amp; syringes</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Bloody gauze (biohazard)</li><li>Expired meds (pharmaceutical)</li><li>Non-sharp packaging</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA Bloodborne Pathogens Standard — FDA-cleared, puncture-resistant containers, no overfilling, annual training.</p><p class="ws-meta"><b>How to dispose</b> — Sharps mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Replace containers at the fill line; keep them upright, closable, and out of reach.</span></p></div><div class="wstream"><h3>Biohazard / regulated medical waste</h3><p>Study specimen and procedure biohazard.</p><div class="ws-io"><div class="ws-col in"><span class="ws-lbl">Goes in</span><ul><li>Blood &amp; specimen biohazard</li><li>Contaminated study materials</li><li>Contaminated PPE</li></ul></div><div class="ws-col out"><span class="ws-lbl">Keep out</span><ul><li>Sharps (sharps kit)</li><li>Lightly soiled everyday items</li><li>Expired meds (pharmaceutical)</li></ul></div></div><p class="ws-meta"><b>The rule</b> — OSHA plus your state's medical-waste rules — red bags, labeling, treatment/destruction, retained documentation.</p><p class="ws-meta"><b>How to dispose</b> — Biohazard mail-back kit or scheduled pickup.<span class="ws-tip"><b>Tip:</b> Only visibly blood/OPIM-contaminated items are red-bag waste — check your state's definition.</span></p></div></div><p class="wsfoot">One DEA-registered partner can destroy investigational product and controls with the chain-of-custody documentation your monitors and sponsors expect — plus sharps and biohazard. No contract. <a href="/resources/clinical-trial-waste-disposal-guide/">Get the full guide (free PDF) &rarr;</a></p>` }} />
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
@@ -82,7 +82,7 @@ export default function Page() {
                 <p>IP destruction with an auditable chain of custody — plus every study stream. Includes a checklist, cheat sheet & FAQ.</p>
               </div>
               <div className="gb-cta">
-                <a className="btn btn-primary" href="/resources/clinical-trial-waste-disposal-guide">Download the free guide <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/resources/clinical-trial-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a>
                 <span className="gb-note">Free PDF · instant download</span>
               </div>
             </div>
@@ -93,12 +93,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
-              <a className="svc" href="/our-solutions/reverse-distribution"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit, destroy the rest." }} /></a>
-              <a className="svc" href="/our-solutions/trace-chemotherapy-waste"><h4 dangerouslySetInnerHTML={{ __html: "Trace chemo waste" }} /><p dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemo." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit, destroy the rest." }} /></a>
+              <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><h4 dangerouslySetInnerHTML={{ __html: "Trace chemo waste" }} /><p dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemo." }} /></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
             </div>
           </div>
         </section>
@@ -129,21 +129,21 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
-                <li><a href="/who-we-serve/research-labs">Research & academic labs</a></li>
-                <li><a href="/who-we-serve/pharma-manufacturers">Manufacturers & distributors</a></li>
-                <li><a href="/who-we-serve/academic-medical-centers">Academic medical centers</a></li>
-                <li><a href="/who-we-serve/hospitals">Hospitals & health systems</a></li>
+                <li><a href="/who-we-serve/research-labs/">Research & academic labs</a></li>
+                <li><a href="/who-we-serve/pharma-manufacturers/">Manufacturers & distributors</a></li>
+                <li><a href="/who-we-serve/academic-medical-centers/">Academic medical centers</a></li>
+                <li><a href="/who-we-serve/hospitals/">Hospitals & health systems</a></li>
                 <li><a href="/who-we-serve/">All industries we serve →</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
-                <li><a href="/our-solutions/controlled-substance-destruction">Controlled substance destruction</a></li>
-                <li><a href="/our-solutions/pharmaceutical-waste-disposal">Pharmaceutical waste disposal</a></li>
-                <li><a href="/our-solutions/sharps-disposal">Sharps disposal</a></li>
+                <li><a href="/our-solutions/controlled-substance-destruction/">Controlled substance destruction</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste disposal</a></li>
+                <li><a href="/our-solutions/sharps-disposal/">Sharps disposal</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
-                <li><a href="/resources/clinical-trial-waste-disposal-guide">Free Clinical trial sites guide (PDF)</a></li>
-                <li><a href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained">Destroying controlled drugs: Forms 222, 41 & COD</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-substances">How to dispose of controlled substances</a></li>
+                <li><a href="/resources/clinical-trial-waste-disposal-guide/">Free Clinical trial sites guide (PDF)</a></li>
+                <li><a href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/">Destroying controlled drugs: Forms 222, 41 & COD</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-substances/">How to dispose of controlled substances</a></li>
               </ul></div>
             </div>
           </div>
@@ -171,15 +171,15 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote?role=Other">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-onteal" href="/get-a-quote/?role=Other">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="clinical-trial-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote?role=Other" }} secondary={{ label: "Build a program", href: "/build-your-program?facility=lab" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Other" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=lab" }} />
       <Footer />
       <Reveal />
     </>

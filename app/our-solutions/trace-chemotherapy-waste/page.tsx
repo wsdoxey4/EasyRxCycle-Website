@@ -50,13 +50,13 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Trace Chemo" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Trace Chemo" }]} />
             <span className="eyebrow">Trace chemo · yellow-container waste</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Trace chemo waste, <span style=\"color:var(--teal)\">incinerated and documented.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Yellow-container trace chemotherapy waste &mdash; empty vials, IV bags, tubing, gowns, and gloves with trace (under 3%) residual &mdash; collected and incinerated at a permitted facility, with a Certificate of Destruction every time. We take trace chemo only; bulk chemo isn't accepted." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/trace-chemo-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/trace-chemo-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/trace-chemo-kit.webp" alt="Easy Rx Cycle trace chemo mail-back kit" /></div>
@@ -78,7 +78,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Trace vs. bulk, drawn clearly.</h2><p class=\"lead\">The one line between trace and bulk chemo, the RCRA-empty rule, and how USP 800 governs handling through disposal.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>Trace chemo waste</h3><p>Materials that held or contacted a hazardous drug but are now RCRA-empty — the everyday chemo stream.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>RCRA-empty vials, syringes &amp; IV bags</li><li>Tubing, gloves, gowns &amp; contaminated PPE</li><li>Empty containers meeting the RCRA-empty test</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>P-listed drug waste or unused drug (bulk)</li><li>More than de minimis residual drug</li><li>Non-chemo sharps or RMW</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — EPA — a container is 'RCRA-empty' when all contents are removed by normal means and only de minimis residue remains; trace chemo is managed in the yellow stream.</p><p class=\"ws-meta\"><b>How to dispose</b> — Yellow trace-chemo containers, destroyed by permitted incineration.<span class=\"ws-tip\"><b>Tip:</b> An IV bag with visible drug still in it is not RCRA-empty — that's bulk, not trace.</span></p></div><div class=\"wstream\"><h3>Bulk chemo & P-listed waste</h3><p>Unused drug and P-listed chemo agents that exceed the trace threshold.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Unused/expired chemo drug</li><li>P-listed agents (e.g. certain nitrogen mustards)</li><li>Containers with more than de minimis residue</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>RCRA-empty trace materials (yellow stream)</li><li>Non-hazardous pharmaceutical waste</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — EPA RCRA — bulk and P-listed chemo is hazardous waste, managed and destroyed as such, not in the trace stream.</p><p class=\"ws-meta\"><b>How to dispose</b> — RCRA-hazardous (black-container) destruction by permitted incineration.<span class=\"ws-tip\"><b>Tip:</b> When a chemo item exceeds the trace threshold, it steps up to full hazardous-waste handling — don't leave it yellow.</span></p></div><div class=\"wstream\"><h3>USP 800 handling</h3><p>The standard that governs how hazardous drugs — including chemo — are handled through disposal.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Designated PPE for chemo handling</li><li>Contained, labeled chemo waste at point of use</li><li>A facility Assessment of Risk where applicable</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Chemo waste in ordinary trash or RMW</li><li>Handling without the USP 800 controls</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — USP 800 — hazardous drugs are handled with defined PPE, containment, and disposal practices from receipt through waste.</p><p class=\"ws-meta\"><b>How to dispose</b> — Segregate at the point of use into the correct (trace vs. bulk) container, then destroy compliantly.<span class=\"ws-tip\"><b>Tip:</b> USP 800 is about worker and environmental safety end to end — disposal is the last link, not a separate silo.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · trace chemo waste</span><h3>The Trace Chemo Waste Guide</h3><p>Trace vs. bulk, the RCRA-empty rule, the yellow-container system, and how USP 800 shapes safe handling — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/trace-chemotherapy-waste-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · trace chemo waste</span><h3>The Trace Chemo Waste Guide</h3><p>Trace vs. bulk, the RCRA-empty rule, the yellow-container system, and how USP 800 shapes safe handling — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/trace-chemotherapy-waste-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -119,9 +119,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "Bulk and P-listed chemo &amp; hazardous drugs." }} /></a>
-              <a className="svc" href="/resources/usp-800"><h4 dangerouslySetInnerHTML={{ __html: "USP 800 compliance" }} /><p dangerouslySetInnerHTML={{ __html: "Hazardous-drug handling, explained." }} /></a>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag and regulated medical waste." }} /></a>
+              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "Bulk and P-listed chemo &amp; hazardous drugs." }} /></a>
+              <a className="svc" href="/resources/usp-800/"><h4 dangerouslySetInnerHTML={{ __html: "USP 800 compliance" }} /><p dangerouslySetInnerHTML={{ __html: "Hazardous-drug handling, explained." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag and regulated medical waste." }} /></a>
             </div>
           </div>
         </section>
@@ -144,12 +144,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Chemo waste guides</span><h2>Learn more about chemo waste.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/blog/chemotherapy-waste-disposal-guide"><h4>Chemo disposal guide</h4><p>Trace vs. bulk, yellow container, USP 800, cost.</p></a>
-              <a className="svc" href="/blog/chemotherapy-waste-disposal-trace-vs-bulk"><h4>Trace vs. bulk</h4><p>The split that decides where it goes.</p></a>
-              <a className="svc" href="/blog/yellow-container-chemo-waste-what-goes-in-it"><h4>The yellow container</h4><p>Exactly what belongs in it.</p></a>
-              <a className="svc" href="/resources/usp-800"><h4>USP 800</h4><p>Hazardous-drug handling standards.</p></a>
-              <a className="svc" href="/blog/hazardous-pharmaceutical-waste-disposal-guide"><h4>Bulk / RCRA-hazardous chemo</h4><p>When chemo is a hazardous waste.</p></a>
-              <a className="svc" href="/blog/medical-waste-color-codes"><h4>Color codes</h4><p>Yellow, black, red &amp; blue explained.</p></a>
+              <a className="svc" href="/blog/chemotherapy-waste-disposal-guide/"><h4>Chemo disposal guide</h4><p>Trace vs. bulk, yellow container, USP 800, cost.</p></a>
+              <a className="svc" href="/blog/chemotherapy-waste-disposal-trace-vs-bulk/"><h4>Trace vs. bulk</h4><p>The split that decides where it goes.</p></a>
+              <a className="svc" href="/blog/yellow-container-chemo-waste-what-goes-in-it/"><h4>The yellow container</h4><p>Exactly what belongs in it.</p></a>
+              <a className="svc" href="/resources/usp-800/"><h4>USP 800</h4><p>Hazardous-drug handling standards.</p></a>
+              <a className="svc" href="/blog/hazardous-pharmaceutical-waste-disposal-guide/"><h4>Bulk / RCRA-hazardous chemo</h4><p>When chemo is a hazardous waste.</p></a>
+              <a className="svc" href="/blog/medical-waste-color-codes/"><h4>Color codes</h4><p>Yellow, black, red &amp; blue explained.</p></a>
             </div>
           </div>
         </section>
@@ -166,14 +166,14 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="trace-chemotherapy-waste-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/trace-chemo-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/trace-chemo-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

@@ -53,7 +53,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero">
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "About Us", href: "/about-us" }, { name: "Our Team" }]} />
+            <Breadcrumbs items={[{ name: "About Us", href: "/about-us/" }, { name: "Our Team" }]} />
             <span className="eyebrow">Our team</span>
             <h1 className="ph1">Meet the people behind <span style={{ color: "var(--teal)" }}>compliant destruction.</span></h1>
             <p className="lead" style={{ marginTop: "16px", maxWidth: "64ch" }}>
@@ -133,8 +133,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/about-us">Our story</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/about-us/">Our story</a>
               </div>
             </div>
           </div>

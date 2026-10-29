@@ -55,8 +55,8 @@ export default function Page() {
               No fuel surcharges, no minimums, no auto-renewals — and a custom quote when you need pickup or higher volume.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "26px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop">Shop kits &amp; prices <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/medical-waste-disposal-cost">What does it cost?</a>
+              <a className="btn btn-primary" href="/shop/">Shop kits &amp; prices <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/medical-waste-disposal-cost/">What does it cost?</a>
             </div>
           </div>
         </section>
@@ -89,7 +89,7 @@ export default function Page() {
               })}
             </div>
             <p className="lead" style={{ marginTop: "clamp(22px,3vw,32px)", maxWidth: "62ch" }}>
-              See every size and add to cart on the <a href="/shop" style={{ color: "var(--teal)", fontWeight: 600 }}>shop</a>.
+              See every size and add to cart on the <a href="/shop/" style={{ color: "var(--teal)", fontWeight: 600 }}>shop</a>.
             </p>
           </div>
         </section>
@@ -104,7 +104,7 @@ export default function Page() {
                     <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
                   ))}
                 </ul>
-                <a className="btn btn-primary" href="/get-a-quote" style={{ marginTop: "20px" }}>Get a custom quote <span className="ar">→</span></a>
+                <a className="btn btn-primary" href="/get-a-quote/" style={{ marginTop: "20px" }}>Get a custom quote <span className="ar">→</span></a>
               </div>
               <div>
                 <div className="shead" style={{ textAlign: "left" }}><span className="eyebrow">Always included</span><h2>No line-item surprises.</h2></div>
@@ -113,7 +113,7 @@ export default function Page() {
                     <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
                   ))}
                 </ul>
-                <a className="btn btn-ghost" href="/why-us" style={{ marginTop: "20px" }}>Why we beat the big haulers</a>
+                <a className="btn btn-ghost" href="/why-us/" style={{ marginTop: "20px" }}>Why we beat the big haulers</a>
               </div>
             </div>
           </div>
@@ -137,8 +137,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/shop">Shop kits <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-onteal" href="/shop/">Shop kits <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
               </div>
             </div>
           </div>

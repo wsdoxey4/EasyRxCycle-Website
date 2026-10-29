@@ -30,7 +30,7 @@ export default function Page() {
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(28px,4vw,40px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Partners", href: "/partners" }, { name: "Rep certification" }]} />
+            <Breadcrumbs items={[{ name: "Partners", href: "/partners/" }, { name: "Rep certification" }]} />
             <span className="eyebrow">Distributor rep certification</span>
             <h1 className="ph1">Know what you&rsquo;re selling.<br /><span style={{ color: "var(--teal)" }}>Get certified.</span></h1>
             <p className="lead" style={{ maxWidth: "680px" }}>

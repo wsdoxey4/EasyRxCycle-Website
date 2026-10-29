@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Diabetic Needle Disposal: How to Do It Safely" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Diabetic Needle Disposal: How to Do It Safely" }]} />
               <span className="eyebrow">Sharps</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Diabetic Needle Disposal: How to Do It Safely" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -68,7 +68,7 @@ export default function Page() {
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do with diabetic sharps" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t toss loose needles in the trash or recycling" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush them" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t clip or recap needles by hand" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t use a container that isn&rsquo;t puncture-proof" }} /></ul>
             <h2 id="mailback" dangerouslySetInnerHTML={{ __html: "Mail-back is the easiest option" }} />
-            <p dangerouslySetInnerHTML={{ __html: "For home users and small clinics, a prepaid mail-back sharps kit is the simplest compliant option &mdash; you fill it, seal it, and mail it from home, with a Certificate of Destruction. See <a href=\"/our-solutions/sharps-disposal\">sharps disposal</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "For home users and small clinics, a prepaid mail-back sharps kit is the simplest compliant option &mdash; you fill it, seal it, and mail it from home, with a Certificate of Destruction. See <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a>." }} />
 
                 <div className="postcta">
                   <h3>Diabetic sharps, handled from home.</h3>

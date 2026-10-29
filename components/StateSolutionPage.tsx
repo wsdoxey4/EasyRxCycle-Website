@@ -22,14 +22,14 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
   const path = `${base}/${s.slug}`;
   const h1 = stream.h1(s);
   const faqs = stream.faqs(s);
-  const primaryHref = stream.shop ?? "/get-a-quote";
+  const primaryHref = stream.shop ?? "/get-a-quote/";
   const secondary = stream.shop
-    ? { label: "Get a quote", href: "/get-a-quote" }
+    ? { label: "Get a quote", href: "/get-a-quote/" }
     : { label: "Talk to us", href: "tel:5019042929" };
 
   const heroCopy = (
     <>
-      <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: stream.name, href: `${base}/` }, { name: s.name }]} />
+      <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: stream.name, href: `${base}/` }, { name: s.name }]} />
       <span className="eyebrow">{stream.eyebrow} · {s.name}</span>
       <h1 className="ph1">{h1.pre} <span style={{ color: "var(--teal)" }}>{h1.accent}</span></h1>
       <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>{stream.heroLead(s)}</p>
@@ -98,7 +98,7 @@ export default function StateSolutionPage({ stream, s }: { stream: Stream; s: St
 
         {/* lead magnet */}
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for {s.name} facilities</span><h3>{stream.guideTitle}</h3><p>{stream.guideBody}</p></div><div className="gb-cta"><a className="btn btn-primary" href={`/resources/${stream.guideSlug}`}>Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · for {s.name} facilities</span><h3>{stream.guideTitle}</h3><p>{stream.guideBody}</p></div><div className="gb-cta"><a className="btn btn-primary" href={`/resources/${stream.guideSlug}/`}>Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         {/* how it works */}

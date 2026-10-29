@@ -72,7 +72,7 @@ export default function Page() {
             <p>Many haulers lock sites into multi-year contracts with automatic renewals, fuel surcharges, and stop fees that inflate the true cost well beyond the headline rate. Easy Rx Cycle requires no contract, so what you see is what you pay. For lower-volume sites &mdash; small clinics, dental and vet practices, pharmacies, and offices that fill a container over weeks rather than days &mdash; a mail-back kit is often meaningfully cheaper than a recurring pickup route, because you pay per kit for exactly the volume you generate instead of a fixed monthly stop.</p>
 
             <h2>Go deeper on pricing</h2>
-            <p>For a full breakdown of how medical waste disposal is priced &mdash; the line items, what to watch for in a hauler agreement, and how to compare mail-back against pickup &mdash; see our <a href="/medical-waste-disposal-cost">medical waste disposal cost</a> guide. When you are ready for an exact number sized to your facility, request a quote and a specialist will scope it, usually the same day.</p>
+            <p>For a full breakdown of how medical waste disposal is priced &mdash; the line items, what to watch for in a hauler agreement, and how to compare mail-back against pickup &mdash; see our <a href="/medical-waste-disposal-cost/">medical waste disposal cost</a> guide. When you are ready for an exact number sized to your facility, request a quote and a specialist will scope it, usually the same day.</p>
           </div>
         </section>
 
@@ -85,14 +85,14 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/shop">Shop kits</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/shop/">Shop kits</a>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
+      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
       <Footer />
       <Reveal />
     </>

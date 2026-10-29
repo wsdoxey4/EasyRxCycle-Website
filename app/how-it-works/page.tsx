@@ -49,8 +49,8 @@ export default function Page() {
               your waste destroyed at our DEA-registered facility, with a Certificate of Destruction. No contract, no guesswork.
             </p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "26px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop">Shop mail-back kits <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/">Shop mail-back kits <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
           </div>
         </section>
@@ -59,9 +59,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Choose your path</span><h2>Three ways to work with us.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/shop"><h4>Mail-back kits</h4><p>Prepaid, self-serve kits shipped to your door. Fill, seal, and drop in the mail — no pickup to schedule. Best for lower-volume sites.</p><span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Shop kits →</span></a>
-              <a className="svc" href="/get-a-quote"><h4>Scheduled pickup</h4><p>Recurring or on-request pickup, sized to your volume. Best for higher-volume facilities and multi-site programs.</p><span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Get a quote →</span></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit"><h4>On-site destruction</h4><p>Deactivate and render medications non-retrievable in-house — nothing to ship back. Best when waste can&rsquo;t leave the building.</p><span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Learn more →</span></a>
+              <a className="svc" href="/shop/"><h4>Mail-back kits</h4><p>Prepaid, self-serve kits shipped to your door. Fill, seal, and drop in the mail — no pickup to schedule. Best for lower-volume sites.</p><span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Shop kits →</span></a>
+              <a className="svc" href="/get-a-quote/"><h4>Scheduled pickup</h4><p>Recurring or on-request pickup, sized to your volume. Best for higher-volume facilities and multi-site programs.</p><span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Get a quote →</span></a>
+              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4>On-site destruction</h4><p>Deactivate and render medications non-retrievable in-house — nothing to ship back. Best when waste can&rsquo;t leave the building.</p><span className="rm" style={{ display: "inline-block", marginTop: "10px", fontFamily: "Poppins", fontWeight: 600, color: "var(--teal)" }}>Learn more →</span></a>
             </div>
           </div>
         </section>
@@ -82,7 +82,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Every stream</span><h2>One partner for everything you generate.</h2><p className="lead">Whatever your site produces, we handle it — compliantly and documented.</p></div>
             <div className="pills">
-              {[["Controlled substances","/our-solutions/controlled-substance-destruction"],["Pharmaceutical waste","/our-solutions/pharmaceutical-waste-disposal"],["Sharps","/our-solutions/sharps-disposal"],["Biohazard / RMW","/our-solutions/biohazard-waste-disposal"],["Trace chemo","/our-solutions/trace-chemotherapy-waste"],["RCRA hazardous","/our-solutions/rcra-hazardous-pharmaceutical-waste"],["Reverse distribution","/our-solutions/reverse-distribution"],["Medication kits","/our-solutions/medication-disposal-kit"]].map(([t,h]) => (
+              {[["Controlled substances","/our-solutions/controlled-substance-destruction/"],["Pharmaceutical waste","/our-solutions/pharmaceutical-waste-disposal/"],["Sharps","/our-solutions/sharps-disposal/"],["Biohazard / RMW","/our-solutions/biohazard-waste-disposal/"],["Trace chemo","/our-solutions/trace-chemotherapy-waste/"],["RCRA hazardous","/our-solutions/rcra-hazardous-pharmaceutical-waste/"],["Reverse distribution","/our-solutions/reverse-distribution/"],["Medication kits","/our-solutions/medication-disposal-kit/"]].map(([t,h]) => (
                 <a className="pill" href={h} key={t}>{t}</a>
               ))}
             </div>
@@ -111,8 +111,8 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · {SITE.phoneDisplay}</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/shop">Shop kits <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                <a className="btn btn-onteal" href="/shop/">Shop kits <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
               </div>
             </div>
           </div>

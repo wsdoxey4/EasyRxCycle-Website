@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: Promise<{ module: strin
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(20px,3vw,32px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Partners", href: "/partners" }, { name: "Rep certification", href: "/partners/training" }, { name: l.title }]} />
+            <Breadcrumbs items={[{ name: "Partners", href: "/partners/" }, { name: "Rep certification", href: "/partners/training/" }, { name: l.title }]} />
             <div className="tl-hero">
               <div>
                 <span className="eyebrow">{l.kicker} of {LESSONS.length}</span>

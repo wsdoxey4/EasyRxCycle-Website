@@ -50,13 +50,13 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Pharmaceutical Waste" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Pharmaceutical Waste" }]} />
             <span className="eyebrow">Pharmaceutical waste · expired &amp; unused Rx</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste, <span style=\"color:var(--teal)\">sorted and destroyed right.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Expired, unused, and non-controlled medications disposed of compliantly &mdash; correctly separated from RCRA-hazardous and controlled streams, destroyed non-retrievable, and documented with a Certificate of Destruction. We route the hazardous and controlled pieces to the right process automatically." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/pharmaceutical-waste-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/pharmaceutical-waste-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/pharmaceutical-kit.webp" alt="Easy Rx Cycle pharmaceutical waste mail-back kit" /></div>
@@ -78,7 +78,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Three streams, one name.</h2><p class=\"lead\">Non-hazardous, RCRA-hazardous, and controlled drug waste — how to tell them apart at the point of generation and route each correctly.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>Non-hazardous pharmaceutical waste</h3><p>The largest stream — expired or unused drugs that are not RCRA-hazardous and not controlled.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Most expired oral &amp; injectable meds</li><li>Non-controlled, non-hazardous drugs</li><li>Manufacturer samples</li><li>IV bags without hazardous drug</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>RCRA P/U-listed or characteristic drugs</li><li>Controlled substances</li><li>Trace chemo waste</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — Not federally hazardous, but still may not be sewered or landfilled loosely — destroy with documentation.</p><p class=\"ws-meta\"><b>How to dispose</b> — A pharmaceutical waste mail-back kit for non-hazardous drugs.<span class=\"ws-tip\"><b>Tip:</b> When you are unsure whether a drug is hazardous, segregate it as hazardous — the safer default.</span></p></div><div class=\"wstream\"><h3>RCRA-hazardous drug waste</h3><p>Drugs that meet an EPA hazardous-waste definition — P-listed, U-listed, or characteristic.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>P-listed (e.g. warfarin &gt;0.3%, nicotine, epinephrine base)</li><li>U-listed (many chemo agents, e.g. cyclophosphamide)</li><li>Characteristic: ignitable, corrosive, toxic (D-codes)</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Non-hazardous drugs (own stream)</li><li>Controlled substances (own path)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — EPA RCRA Subpart P — identify, segregate, and destroy as hazardous waste; hazardous-waste pharmaceuticals may never be sewered.</p><p class=\"ws-meta\"><b>How to dispose</b> — An RCRA-hazardous pharmaceutical waste kit, destroyed by permitted high-temperature incineration.<span class=\"ws-tip\"><b>Tip:</b> A container that once held a P-listed drug can itself be regulated unless it is RCRA-empty — don't toss it in the trash.</span></p></div><div class=\"wstream\"><h3>Controlled substances in the drug stream</h3><p>Controls that turn up alongside pharmaceutical waste have their own rules.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Expired/unused CII&ndash;CV drugs</li><li>Wasted controlled doses</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Non-controlled pharmaceutical waste</li><li>Hazardous drugs (segregate, may co-apply)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DEA — render non-retrievable with the Form 41 documentation; never combine into general drug waste and forget the paperwork.</p><p class=\"ws-meta\"><b>How to dispose</b> — A controlled-substance destruction path (mail-back or registrant destruction).<span class=\"ws-tip\"><b>Tip:</b> A drug can be both controlled and RCRA-hazardous — handle it for both requirements.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · pharmaceutical waste</span><h3>The Pharmaceutical Waste Disposal Guide</h3><p>How to segregate non-hazardous, RCRA-hazardous, and controlled drug waste, why the drain is off-limits, and how to destroy each stream — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/pharmaceutical-waste-disposal-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · pharmaceutical waste</span><h3>The Pharmaceutical Waste Disposal Guide</h3><p>How to segregate non-hazardous, RCRA-hazardous, and controlled drug waste, why the drain is off-limits, and how to destroy each stream — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/pharmaceutical-waste-disposal-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -129,9 +129,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/controlled-substance-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
-              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U-, and D-listed pharmaceutical waste." }} /></a>
-              <a className="svc" href="/our-solutions/reverse-distribution"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover manufacturer credit on returnable Rx." }} /></a>
+              <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
+              <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U-, and D-listed pharmaceutical waste." }} /></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover manufacturer credit on returnable Rx." }} /></a>
             </div>
           </div>
         </section>
@@ -154,12 +154,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Pharmaceutical waste guides</span><h2>Learn more about pharma waste.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast"><h4>Pharmaceutical waste management</h4><p>The five types of drug waste and the rules for each.</p></a>
-              <a className="svc" href="/blog/hazardous-vs-non-hazardous-pharmaceutical-waste"><h4>Hazardous vs. non-hazardous</h4><p>How to tell the two apart and segregate them.</p></a>
-              <a className="svc" href="/blog/pharmaceutical-waste-segregation-guide"><h4>Segregation guide</h4><p>Which drug goes in which container.</p></a>
-              <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste"><h4>RCRA Subpart P</h4><p>P/U-listed drugs and the management standard.</p></a>
-              <a className="svc" href="/blog/who-regulates-pharmaceutical-waste-dea-epa-osha"><h4>Who regulates it</h4><p>DEA, EPA, and OSHA — and what each covers.</p></a>
-              <a className="svc" href="/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs"><h4>Recover credit on expired drugs</h4><p>Reverse distribution for returnable stock.</p></a>
+              <a className="svc" href="/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast/"><h4>Pharmaceutical waste management</h4><p>The five types of drug waste and the rules for each.</p></a>
+              <a className="svc" href="/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/"><h4>Hazardous vs. non-hazardous</h4><p>How to tell the two apart and segregate them.</p></a>
+              <a className="svc" href="/blog/pharmaceutical-waste-segregation-guide/"><h4>Segregation guide</h4><p>Which drug goes in which container.</p></a>
+              <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/"><h4>RCRA Subpart P</h4><p>P/U-listed drugs and the management standard.</p></a>
+              <a className="svc" href="/blog/who-regulates-pharmaceutical-waste-dea-epa-osha/"><h4>Who regulates it</h4><p>DEA, EPA, and OSHA — and what each covers.</p></a>
+              <a className="svc" href="/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs/"><h4>Recover credit on expired drugs</h4><p>Reverse distribution for returnable stock.</p></a>
             </div>
           </div>
         </section>
@@ -176,14 +176,14 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="pharmaceutical-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/pharmaceutical-waste-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/pharmaceutical-waste-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

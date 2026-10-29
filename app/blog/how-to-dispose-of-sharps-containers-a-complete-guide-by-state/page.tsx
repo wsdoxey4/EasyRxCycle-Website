@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Sharps Container Disposal: A Complete Guide" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Sharps Container Disposal: A Complete Guide" }]} />
               <span className="eyebrow">Sharps · Medical Waste</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "How to Dispose of Sharps Containers: A Complete Guide" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jun 1, 2025</span>
                 <span className="dot-sep" />
@@ -78,16 +78,16 @@ export default function Page() {
             <div style={{ overflowX: "auto" }}><table><thead><tr><th dangerouslySetInnerHTML={{ __html: "Container size" }} /><th dangerouslySetInnerHTML={{ __html: "Typical use" }} /></tr></thead><tbody><tr><td dangerouslySetInnerHTML={{ __html: "1&ndash;2 quart" }} /><td dangerouslySetInnerHTML={{ __html: "Home users, exam rooms, travel nurses" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "2&ndash;5 quart" }} /><td dangerouslySetInnerHTML={{ __html: "Small offices, injection stations, veterinary clinics" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "2&ndash;8 gallon" }} /><td dangerouslySetInnerHTML={{ __html: "Urgent care, dental offices" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "12&ndash;18 gallon" }} /><td dangerouslySetInnerHTML={{ __html: "Hospitals, labs" }} /></tr></tbody></table></div>
             <h2 id="methods" dangerouslySetInnerHTML={{ __html: "Sharps disposal methods" }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Mail-back programs" }} />
-            <p dangerouslySetInnerHTML={{ __html: "The simplest option for home users, small clinics, mobile practices, veterinary offices, hospice, and rural facilities. You buy a prepaid container, fill it, seal it, and drop it in the mail; it goes to a licensed facility for incineration. No contracts, no pickups, DOT/USPS/OSHA compliant. See our <a href=\"/our-solutions/sharps-disposal\">sharps disposal</a> program." }} />
+            <p dangerouslySetInnerHTML={{ __html: "The simplest option for home users, small clinics, mobile practices, veterinary offices, hospice, and rural facilities. You buy a prepaid container, fill it, seal it, and drop it in the mail; it goes to a licensed facility for incineration. No contracts, no pickups, DOT/USPS/OSHA compliant. See our <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a> program." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Drop-off locations" }} />
             <p dangerouslySetInnerHTML={{ __html: "Some pharmacies (Walgreens, CVS), fire stations, hospitals, and health departments accept household sharps &mdash; but availability varies by city and county, and many are residents-only. Best for household waste, not clinical volume." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Licensed medical-waste pickup" }} />
-            <p dangerouslySetInnerHTML={{ __html: "For hospitals, long-term care, surgery centers, labs, and dialysis/infusion centers, scheduled pickup with manifest tracking makes sense. This pairs with <a href=\"/our-solutions/biohazard-waste-disposal\">regulated medical waste</a> handling for red-bag waste." }} />
+            <p dangerouslySetInnerHTML={{ __html: "For hospitals, long-term care, surgery centers, labs, and dialysis/infusion centers, scheduled pickup with manifest tracking makes sense. This pairs with <a href=\"/our-solutions/biohazard-waste-disposal/\">regulated medical waste</a> handling for red-bag waste." }} />
             <h2 id="federal" dangerouslySetInnerHTML={{ __html: "Federal regulations for sharps disposal" }} />
             <h3 dangerouslySetInnerHTML={{ __html: "EPA (RCRA)" }} />
-            <p dangerouslySetInnerHTML={{ __html: "When sharps are contaminated with hazardous pharmaceuticals &mdash; chemo, epinephrine, nicotine, controlled substances &mdash; they may be <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous pharmaceutical waste</a>, requiring manifests, accumulation-time limits, and training." }} />
+            <p dangerouslySetInnerHTML={{ __html: "When sharps are contaminated with hazardous pharmaceuticals &mdash; chemo, epinephrine, nicotine, controlled substances &mdash; they may be <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a>, requiring manifests, accumulation-time limits, and training." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "OSHA" }} />
-            <p dangerouslySetInnerHTML={{ __html: "The <a href=\"/resources/bloodborne-training\">OSHA Bloodborne Pathogens Standard</a> (29 CFR 1910.1030) requires point-of-use containers, puncture-resistant and leak-proof design, biohazard labeling, timely replacement, and employee training. Citations can run $5,000&ndash;$15,000+ per violation." }} />
+            <p dangerouslySetInnerHTML={{ __html: "The <a href=\"/resources/bloodborne-training/\">OSHA Bloodborne Pathogens Standard</a> (29 CFR 1910.1030) requires point-of-use containers, puncture-resistant and leak-proof design, biohazard labeling, timely replacement, and employee training. Citations can run $5,000&ndash;$15,000+ per violation." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "DOT" }} />
             <p dangerouslySetInnerHTML={{ __html: "Under the Hazardous Materials Regulations (49 CFR 171&ndash;180), sharps shipped offsite are regulated medical waste requiring the UN3291 designation, proper labeling, and shipping papers. DOT penalties can reach tens of thousands of dollars per day, per violation." }} />
             <h2 id="generators" dangerouslySetInnerHTML={{ __html: "Which generator category are you?" }} />

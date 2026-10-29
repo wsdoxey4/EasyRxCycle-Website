@@ -50,13 +50,13 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Sharps Disposal" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Sharps Disposal" }]} />
             <span className="eyebrow">Sharps disposal · needles, syringes, lancets</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Sharps disposal by mail. <span style=\"color:var(--teal)\">No pickups, no contracts.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "OSHA- and DOT-compliant mail-back sharps kits shipped to your door. Fill the container, seal it, drop it in the mail with the prepaid label &mdash; and get a Certificate of Destruction. You never sign a hauler contract or wait on a truck." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/sharps-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/sharps-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/sharps-kit.webp" alt="Easy Rx Cycle sharps mail-back kit" /></div>
@@ -78,7 +78,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Sharps, stream by stream.</h2><p class=\"lead\">What actually counts as a sharp, the rule that governs each, and the simplest compliant way to dispose of it.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>Needles, syringes & injection devices</h3><p>The core of the stream — anything hollow-bore or attached to a needle that has touched a patient.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Needles &amp; hypodermic syringes</li><li>Insulin pens &amp; pen needles</li><li>Auto-injectors (EpiPen and similar)</li><li>Winged/butterfly sets, IV catheters</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Chemo-contaminated sharps (trace-chemo path)</li><li>Non-sharp bloody waste (biohazard/RMW)</li><li>Intact vials of drug (pharmaceutical waste)</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — OSHA 29 CFR 1910.1030 — sharps go directly into a closable, puncture-resistant, leak-proof, labeled container at the point of use.</p><p class=\"ws-meta\"><b>How to dispose</b> — A mail-back sharps kit — DOT-approved container with a prepaid return label.<span class=\"ws-tip\"><b>Tip:</b> Never recap, bend, or shear a needle by hand. Drop it straight into the container at the point of use.</span></p></div><div class=\"wstream\"><h3>Lancets, blades & solid sharps</h3><p>Solid sharps still puncture and still transmit bloodborne pathogens.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Lancets &amp; fingerstick devices</li><li>Scalpel &amp; surgical blades</li><li>Suture needles</li><li>Broken glass with blood/OPIM</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Unused/clean glassware (general or recycling)</li><li>Pharmaceutical vials without sharps</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — Same OSHA containment standard — a fill line at roughly three-quarters full, and no forcing sharps down.</p><p class=\"ws-meta\"><b>How to dispose</b> — Same sharps kit — solid and hollow sharps share one container.<span class=\"ws-tip\"><b>Tip:</b> Replace the container at the fill line. Overfilled containers are a top inspection finding.</span></p></div><div class=\"wstream\"><h3>Container selection & fill</h3><p>The right size keeps you compliant and keeps cost down.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>1&ndash;2 qt for home use &amp; low-volume offices</li><li>2&ndash;9 gal for clinics &amp; urgent care</li><li>18&ndash;28 gal for high-volume sites</li><li>Wall-mount brackets where required</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Milk jugs, coffee cans, or any non-approved container</li><li>Red bags for loose sharps</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — Containers must be FDA-cleared, upright, closable, and labeled with the biohazard symbol.</p><p class=\"ws-meta\"><b>How to dispose</b> — Order the size that matches your fill rate — you should fill a container in weeks to months, not years.<span class=\"ws-tip\"><b>Tip:</b> Keep the container within arm's reach of where sharps are used — distance drives unsafe handling.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · sharps disposal</span><h3>The Sharps Disposal Compliance Guide</h3><p>Every sharp, the OSHA and DOT rules behind it, container sizing, and how mail-back destruction closes the loop — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/sharps-disposal-compliance-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · sharps disposal</span><h3>The Sharps Disposal Compliance Guide</h3><p>Every sharp, the OSHA and DOT rules behind it, container sizing, and how mail-back destruction closes the loop — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/sharps-disposal-compliance-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -129,9 +129,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/biohazard-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag and regulated medical waste, by mail." }} /></a>
-              <a className="svc" href="/resources/bloodborne-training"><h4 dangerouslySetInnerHTML={{ __html: "Bloodborne training" }} /><p dangerouslySetInnerHTML={{ __html: "OSHA-required annual training for your staff." }} /></a>
-              <a className="svc" href="/resources/certificate-of-destruction"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "What it is and why it protects you." }} /></a>
+              <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag and regulated medical waste, by mail." }} /></a>
+              <a className="svc" href="/resources/bloodborne-training/"><h4 dangerouslySetInnerHTML={{ __html: "Bloodborne training" }} /><p dangerouslySetInnerHTML={{ __html: "OSHA-required annual training for your staff." }} /></a>
+              <a className="svc" href="/resources/certificate-of-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Certificate of Destruction" }} /><p dangerouslySetInnerHTML={{ __html: "What it is and why it protects you." }} /></a>
             </div>
           </div>
         </section>
@@ -162,14 +162,14 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="sharps-disposal-compliance-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/sharps-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/sharps-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

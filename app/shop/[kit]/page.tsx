@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
       <main id="main">
         <section className="subhero pdp-crumbs" style={{ paddingBottom: "clamp(28px,4vw,44px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Shop", href: "/shop" }, { name: k.name }]} />
+            <Breadcrumbs items={[{ name: "Shop", href: "/shop/" }, { name: k.name }]} />
           </div>
         </section>
 
@@ -162,8 +162,8 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
               </div>
               <div className="pdp-links">
                 {k.pillar && <a href={k.pillar.href}>{k.pillar.label} →</a>}
-                <a href="/shop">← Back to all kits</a>
-                <a href="/get-a-quote">Need higher volume? Get a quote →</a>
+                <a href="/shop/">← Back to all kits</a>
+                <a href="/get-a-quote/">Need higher volume? Get a quote →</a>
               </div>
             </aside>
           </div>
@@ -194,8 +194,8 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a custom quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/shop">Back to shop</a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a custom quote <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/shop/">Back to shop</a>
               </div>
             </div>
           </div>

@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Drug Diversion in Healthcare" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Drug Diversion in Healthcare" }]} />
               <span className="eyebrow">Controlled Substances</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Drug Diversion in Healthcare: Prevention, Detection &amp; Disposal")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>7 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Drug diversion &mdash; controlled substances slipping away from their intended patient or purpose &mdash; is one of the biggest DEA and patient-safety risks a facility carries. Most programs focus on dispensing and wasting, and overlook the disposal step. Here&rsquo;s where diversion happens, how to prevent and detect it, and why documented, non-retrievable destruction is the control that closes the loop.")} />
@@ -86,17 +86,17 @@ export default function Page() {
                 </ul>
 
                 <h2 id="disposal" dangerouslySetInnerHTML={H("The disposal blind spot")} />
-                <p dangerouslySetInnerHTML={H("Most diversion programs stop at wasting and never look at disposal &mdash; yet expired and wasted controlled substances waiting to be destroyed are a live diversion risk until they&rsquo;re gone. The DEA requires controls to be rendered <strong>non-retrievable</strong> (21 CFR 1317) and documented on <a href=\"/blog/dea-form-41-requirements-and-pdf\">DEA Form 41</a> (with <a href=\"/blog/how-to-fill-out-dea-form-222\">Form 222</a> for Schedule II transfers). A <a href=\"/our-solutions/controlled-substance-destruction\">DEA-registered destruction</a> partner and a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a> on every event give you an unbroken chain of custody from the shelf to final destruction &mdash; no gap for a diverter to exploit.")} />
+                <p dangerouslySetInnerHTML={H("Most diversion programs stop at wasting and never look at disposal &mdash; yet expired and wasted controlled substances waiting to be destroyed are a live diversion risk until they&rsquo;re gone. The DEA requires controls to be rendered <strong>non-retrievable</strong> (21 CFR 1317) and documented on <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> (with <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a> for Schedule II transfers). A <a href=\"/our-solutions/controlled-substance-destruction/\">DEA-registered destruction</a> partner and a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every event give you an unbroken chain of custody from the shelf to final destruction &mdash; no gap for a diverter to exploit.")} />
 
                 <h2 id="program" dangerouslySetInnerHTML={H("Building a defensible program")} />
-                <p dangerouslySetInnerHTML={H("If the DEA ever asks, what protects you is documentation: witnessed-wasting logs, reconciliations, audit records, and destruction paperwork that ties every controlled substance to a documented end. Easy Rx Cycle handles the disposal side &mdash; <a href=\"/our-solutions/controlled-substance-destruction\">non-retrievable controlled-substance destruction</a> with Form 41/222 and a Certificate of Destruction, plus <a href=\"/our-solutions/reverse-distribution\">reverse distribution</a> for returnable stock &mdash; so the last link in your diversion-control chain is airtight.")} />
+                <p dangerouslySetInnerHTML={H("If the DEA ever asks, what protects you is documentation: witnessed-wasting logs, reconciliations, audit records, and destruction paperwork that ties every controlled substance to a documented end. Easy Rx Cycle handles the disposal side &mdash; <a href=\"/our-solutions/controlled-substance-destruction/\">non-retrievable controlled-substance destruction</a> with Form 41/222 and a Certificate of Destruction, plus <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> for returnable stock &mdash; so the last link in your diversion-control chain is airtight.")} />
 
                 <div className="postcta">
                   <h3>Close the disposal gap in your diversion program.</h3>
                   <p>DEA-registered, non-retrievable controlled-substance destruction with Form 41/222 and a Certificate of Destruction on every event.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/controlled-substance-destruction">Controlled destruction <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+                    <a className="btn btn-primary" href="/our-solutions/controlled-substance-destruction/">Controlled destruction <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
                   </div>
                 </div>
 

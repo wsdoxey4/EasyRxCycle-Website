@@ -64,12 +64,12 @@ export default function Page() {
               Certificate of Destruction every time and no contract.
             </p>
             <div className="lanepaths">
-              <a className="lanepath shop" href="/shop">
+              <a className="lanepath shop" href="/shop/">
                 <span className="lp-tag">🛒 Small practice</span>
                 <b>Shop mail-back kits</b>
                 <span className="lp-sub">Buy online, prepaid, no contract — the fastest path for lower-volume sites.</span>
               </a>
-              <a className="lanepath quote" href="/get-a-quote">
+              <a className="lanepath quote" href="/get-a-quote/">
                 <span className="lp-tag">📋 Facility or system</span>
                 <b>Get a custom quote</b>
                 <span className="lp-sub">Sized to your volume, with pickup and multi-site options.</span>
@@ -81,7 +81,7 @@ export default function Page() {
                 <h2 style={{ fontSize: "clamp(20px,2.4vw,26px)" }}>{g.title}</h2>
                 <div className="bloglist" style={{ marginTop: "18px" }}>
                   {g.sols.map((s) => (
-                    <a className="postcard" key={s.slug} href={`/our-solutions/${s.slug}`}>
+                    <a className="postcard" key={s.slug} href={`/our-solutions/${s.slug}/`}>
                       <h3>{s.name}</h3>
                       <p>{s.blurb}</p>
                       <span className="rm">View solution →</span>
@@ -94,8 +94,8 @@ export default function Page() {
             <p className="lead" style={{ marginTop: "clamp(34px,4vw,48px)", maxWidth: "62ch" }}>
               Not sure which streams apply to you? See disposal built for{" "}
               <a href="/who-we-serve/" style={{ color: "var(--teal)", fontWeight: 600 }}>your industry</a>, browse our{" "}
-              <a href="/resources" style={{ color: "var(--teal)", fontWeight: 600 }}>free compliance guides</a>, or{" "}
-              <a href="/get-a-quote" style={{ color: "var(--teal)", fontWeight: 600 }}>get a tailored quote</a>.
+              <a href="/resources/" style={{ color: "var(--teal)", fontWeight: 600 }}>free compliance guides</a>, or{" "}
+              <a href="/get-a-quote/" style={{ color: "var(--teal)", fontWeight: 600 }}>get a tailored quote</a>.
             </p>
 
             <div className="prose" style={{ marginTop: "clamp(40px,5vw,64px)", maxWidth: "760px" }}>
@@ -126,9 +126,9 @@ export default function Page() {
               <h2 style={{ fontSize: "clamp(20px,2.4vw,26px)" }}>Mail-back or scheduled pickup — which fits</h2>
               <p>
                 Lower-volume sites — a dental office, a clinic, an independent pharmacy — are usually best served by{" "}
-                <a href="/shop">prepaid mail-back kits</a>: buy online, fill, and ship for destruction, with no route
+                <a href="/shop/">prepaid mail-back kits</a>: buy online, fill, and ship for destruction, with no route
                 contract and no minimums. Higher-volume facilities and multi-site systems generally want{" "}
-                <a href="/get-a-quote">scheduled pickup</a> sized to their generation rate. Many facilities use both —
+                <a href="/get-a-quote/">scheduled pickup</a> sized to their generation rate. Many facilities use both —
                 mail-back for the occasional stream and pickup for the steady one. Either way the disposal standard
                 and the documentation are the same.
               </p>
@@ -139,7 +139,7 @@ export default function Page() {
                 on every order, and — for controlled substances — DEA Form 41 and Form 222 handling where the schedule
                 requires it. That documentation is what turns "we disposed of it" into "we can prove exactly how and
                 when it was destroyed." Browse the{" "}
-                <a href="/resources">free compliance guides</a> for the by-stream details, or see how each stream is
+                <a href="/resources/">free compliance guides</a> for the by-stream details, or see how each stream is
                 handled on its own solution page above.
               </p>
             </div>

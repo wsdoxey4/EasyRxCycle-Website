@@ -31,13 +31,13 @@ export default function ComparePage({ c }: { c: Competitor }) {
       <main id="main">
         <section className="subhero">
           <div className="wrap" style={{ maxWidth: "820px" }}>
-            <Breadcrumbs items={[{ name: "Compare", href: "/compare" }, { name: `${c.name} alternative` }]} />
+            <Breadcrumbs items={[{ name: "Compare", href: "/compare/" }, { name: `${c.name} alternative` }]} />
             <span className="eyebrow">Comparison · {c.kind}</span>
             <h1 className="ph1">{c.h1}</h1>
             <p className="lead" style={{ marginTop: "18px" }}>{c.lead}</p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "26px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop">Shop kits &amp; prices <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/">Shop kits &amp; prices <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
           </div>
         </section>
@@ -89,14 +89,14 @@ export default function ComparePage({ c }: { c: Competitor }) {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/shop">Shop kits <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/medical-waste-disposal-cost">What it costs</a>
+                <a className="btn btn-onteal" href="/shop/">Shop kits <span className="ar">→</span></a>
+                <a className="btn btn-outline-w" href="/medical-waste-disposal-cost/">What it costs</a>
               </div>
             </div>
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Shop kits", href: "/shop" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

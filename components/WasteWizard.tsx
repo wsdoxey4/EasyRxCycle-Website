@@ -35,7 +35,7 @@ const TREE: Record<string, Node> = {
       rule: "OSHA Bloodborne Pathogens Standard (29 CFR 1910.1030); DOT UN3291 for transport",
       detail:
         "Needles, syringes with needles, lancets, and blades go in a labeled, leak- and puncture-resistant sharps container — never loose in a bag or the trash. A prepaid mail-back sharps kit is the simplest option for lower-volume sites.",
-      href: "/our-solutions/sharps-disposal",
+      href: "/our-solutions/sharps-disposal/",
       hrefLabel: "Sharps disposal",
     },
   },
@@ -56,7 +56,7 @@ const TREE: Record<string, Node> = {
       rule: "DEA 21 CFR 1317 — rendered non-retrievable; Form 41 (and Form 222 for Schedule II transfers)",
       detail:
         "Controlled substances must be rendered non-retrievable and documented — they can never be flushed, thrown in the trash, or returned for credit like ordinary stock. A DEA-registered destruction company or reverse distributor handles this with a Certificate of Destruction.",
-      href: "/our-solutions/controlled-substance-destruction",
+      href: "/our-solutions/controlled-substance-destruction/",
       hrefLabel: "Controlled substance destruction",
     },
   },
@@ -78,7 +78,7 @@ const TREE: Record<string, Node> = {
       rule: "EPA RCRA 40 CFR (P/U lists at 261.33; characteristics at 261.21–.24); Subpart P (40 CFR 266)",
       detail:
         "RCRA-hazardous drugs are managed as hazardous waste — not the blue bin, not the drain (Subpart P bans sewering them). Empty containers and residues can still carry the designation. Segregate to a black container and dispose through a permitted facility.",
-      href: "/our-solutions/rcra-hazardous-pharmaceutical-waste",
+      href: "/our-solutions/rcra-hazardous-pharmaceutical-waste/",
       hrefLabel: "RCRA hazardous drug disposal",
     },
   },
@@ -90,7 +90,7 @@ const TREE: Record<string, Node> = {
       rule: "Manufacturer return policies; DEA 21 CFR 1317 if any controlled; EPA Subpart P if hazardous",
       detail:
         "Unexpired or short-dated, unopened, creditable stock may be worth returning to a reverse distributor for manufacturer credit before you destroy anything. Product outside the window, opened, non-creditable, or hazardous typically moves to destruction instead.",
-      href: "/our-solutions/reverse-distribution",
+      href: "/our-solutions/reverse-distribution/",
       hrefLabel: "Reverse distribution",
     },
   },
@@ -102,7 +102,7 @@ const TREE: Record<string, Node> = {
       rule: "State pharmaceutical-waste rules; never flushed or landfilled as ordinary trash",
       detail:
         "Non-controlled, non-hazardous drugs — most OTC and many prescription meds — go in the blue pharmaceutical container for compliant destruction with documentation. Keep controlled and RCRA-hazardous drugs out of this stream.",
-      href: "/our-solutions/pharmaceutical-waste-disposal",
+      href: "/our-solutions/pharmaceutical-waste-disposal/",
       hrefLabel: "Pharmaceutical waste disposal",
     },
   },
@@ -123,7 +123,7 @@ const TREE: Record<string, Node> = {
       rule: "OSHA 29 CFR 1910.1030; DOT UN3291; state RMW rules",
       detail:
         "Blood-saturated dressings, gauze, tubing, and similar items are regulated medical waste — red bag, then compliant treatment (autoclave or incineration per your state). Sharps still go in a sharps container, not the red bag.",
-      href: "/our-solutions/biohazard-waste-disposal",
+      href: "/our-solutions/biohazard-waste-disposal/",
       hrefLabel: "Biohazard / RMW disposal",
     },
   },
@@ -135,7 +135,7 @@ const TREE: Record<string, Node> = {
       rule: "State regulated-medical-waste definitions vary",
       detail:
         "Lightly soiled items that would not release fluid if compressed are frequently NOT regulated medical waste under federal OSHA — but several states define RMW more broadly. Confirm your state's rule before treating it as ordinary trash.",
-      href: "/medical-waste-regulations-by-state",
+      href: "/medical-waste-regulations-by-state/",
       hrefLabel: "State regulations",
     },
   },
@@ -156,7 +156,7 @@ const TREE: Record<string, Node> = {
       rule: "USP <800> handling; incinerated at a permitted facility",
       detail:
         "Trace chemo — RCRA-empty vials and contaminated PPE/tubing — goes in a yellow container and is incinerated at a permitted facility. Bulk or P-/U-listed chemo is managed on the RCRA-hazardous path instead.",
-      href: "/our-solutions/trace-chemotherapy-waste",
+      href: "/our-solutions/trace-chemotherapy-waste/",
       hrefLabel: "Trace chemotherapy waste",
     },
   },
@@ -202,7 +202,7 @@ export default function WasteWizard() {
           <p className="wiz-detail">{node.result.detail}</p>
           <div className="wiz-cta">
             <a className="btn btn-primary" href={node.result.href}>{node.result.hrefLabel} <span className="ar">→</span></a>
-            <a className="btn btn-outline-w" href="/get-a-quote">Get a quote</a>
+            <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
           </div>
           <button className="wiz-restart" type="button" onClick={restart}>↺ Start over</button>
         </div>
@@ -211,7 +211,7 @@ export default function WasteWizard() {
       <p className="wiz-disclaimer">
         Educational guidance, not a formal waste determination. Classifications can vary by state and by a
         product&rsquo;s specific formulation — verify against the current regulations and the product&rsquo;s SDS,
-        or <a href="/get-a-quote">ask our team</a>.
+        or <a href="/get-a-quote/">ask our team</a>.
       </p>
     </div>
   );

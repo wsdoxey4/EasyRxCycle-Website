@@ -42,11 +42,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Medical Waste Disposal Guide" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Medical Waste Disposal Guide" }]} />
               <span className="eyebrow">Complete guide</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("Medical Waste Disposal: Types, Methods &amp; How It Works")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>8 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("&ldquo;Medical waste&rdquo; isn&rsquo;t one thing &mdash; it&rsquo;s six regulated streams, each with its own container, rules, and destruction method. Put something in the wrong one and you either risk a violation or overpay. This guide breaks down every type, how each is disposed of, what it costs, and how to choose a provider.")} />
@@ -66,33 +66,33 @@ export default function Page() {
                 <h2 id="types" dangerouslySetInnerHTML={H("The types of medical waste")} />
                 <p dangerouslySetInnerHTML={H("Most of what a healthcare setting throws away is ordinary trash. The <em>regulated</em> portion splits into six streams &mdash; each with its own container and destruction path:")} />
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/sharps-disposal\">Sharps</a></strong> &mdash; needles, syringes, scalpels, lancets (rigid puncture-resistant containers).")} />
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/biohazard-waste-disposal\">Biohazard / RMW</a></strong> &mdash; blood-soaked items, PPE, cultures (red bags).")} />
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/pharmaceutical-waste-disposal\">Pharmaceutical waste</a></strong> &mdash; expired, non-controlled, non-hazardous drugs (blue).")} />
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/controlled-substance-destruction\">Controlled substances</a></strong> &mdash; DEA Schedules I–V, destroyed non-retrievably.")} />
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous drugs</a></strong> &mdash; P/U/D-listed (black).")} />
-                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/trace-chemotherapy-waste\">Trace chemotherapy waste</a></strong> &mdash; RCRA-empty chemo materials (yellow).")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/sharps-disposal/\">Sharps</a></strong> &mdash; needles, syringes, scalpels, lancets (rigid puncture-resistant containers).")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/biohazard-waste-disposal/\">Biohazard / RMW</a></strong> &mdash; blood-soaked items, PPE, cultures (red bags).")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/pharmaceutical-waste-disposal/\">Pharmaceutical waste</a></strong> &mdash; expired, non-controlled, non-hazardous drugs (blue).")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/controlled-substance-destruction/\">Controlled substances</a></strong> &mdash; DEA Schedules I–V, destroyed non-retrievably.")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous drugs</a></strong> &mdash; P/U/D-listed (black).")} />
+                  <li dangerouslySetInnerHTML={H("<strong><a href=\"/our-solutions/trace-chemotherapy-waste/\">Trace chemotherapy waste</a></strong> &mdash; RCRA-empty chemo materials (yellow).")} />
                 </ul>
-                <p dangerouslySetInnerHTML={H("Getting each into the right container is the whole game &mdash; see the <a href=\"/blog/medical-waste-color-codes\">color-code guide</a> for the shorthand.")} />
+                <p dangerouslySetInnerHTML={H("Getting each into the right container is the whole game &mdash; see the <a href=\"/blog/medical-waste-color-codes/\">color-code guide</a> for the shorthand.")} />
 
                 <h2 id="methods" dangerouslySetInnerHTML={H("How medical waste is disposed of")} />
-                <p dangerouslySetInnerHTML={H("Disposal follows the same arc for every stream: <strong>segregate → contain → ship → treat → document.</strong> Shipping is either prepaid <a href=\"/how-it-works\">mail-back</a> (best for low-to-moderate volume) or scheduled pickup. Treatment depends on the stream &mdash; autoclave-then-landfill or incineration for RMW and sharps, non-retrievable destruction for controlled substances, permitted-facility incineration for hazardous and chemo. Every disposal ends with a manifest or a <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>.")} />
+                <p dangerouslySetInnerHTML={H("Disposal follows the same arc for every stream: <strong>segregate → contain → ship → treat → document.</strong> Shipping is either prepaid <a href=\"/how-it-works/\">mail-back</a> (best for low-to-moderate volume) or scheduled pickup. Treatment depends on the stream &mdash; autoclave-then-landfill or incineration for RMW and sharps, non-retrievable destruction for controlled substances, permitted-facility incineration for hazardous and chemo. Every disposal ends with a manifest or a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
 
                 <h2 id="rules" dangerouslySetInnerHTML={H("Who regulates medical waste")} />
-                <p dangerouslySetInnerHTML={H("Four federal layers plus your state: <a href=\"/blog/osha-medical-waste-requirements\">OSHA</a> (worker safety), the DOT (transport), the EPA/RCRA (hazardous waste), and the DEA (controlled substances) &mdash; each state adding its own medical-waste rules on top. A compliant program satisfies all of them, and the fastest way to fall out of compliance is a <a href=\"/blog/medical-waste-violations-and-fines\">segregation or documentation slip</a>.")} />
+                <p dangerouslySetInnerHTML={H("Four federal layers plus your state: <a href=\"/blog/osha-medical-waste-requirements/\">OSHA</a> (worker safety), the DOT (transport), the EPA/RCRA (hazardous waste), and the DEA (controlled substances) &mdash; each state adding its own medical-waste rules on top. A compliant program satisfies all of them, and the fastest way to fall out of compliance is a <a href=\"/blog/medical-waste-violations-and-fines/\">segregation or documentation slip</a>.")} />
 
                 <h2 id="cost" dangerouslySetInnerHTML={H("What medical waste disposal costs")} />
-                <p dangerouslySetInnerHTML={H("For most facilities, prepaid mail-back kits run from about <strong>$55 to a few hundred dollars</strong> each &mdash; flat, one-time, and inclusive of the container, shipping, treatment, and documentation. Route contracts vary and add recurring fees and surcharges. The full breakdown, with real prices by stream, is in our <a href=\"/medical-waste-disposal-cost\">medical waste cost guide</a>.")} />
+                <p dangerouslySetInnerHTML={H("For most facilities, prepaid mail-back kits run from about <strong>$55 to a few hundred dollars</strong> each &mdash; flat, one-time, and inclusive of the container, shipping, treatment, and documentation. Route contracts vary and add recurring fees and surcharges. The full breakdown, with real prices by stream, is in our <a href=\"/medical-waste-disposal-cost/\">medical waste cost guide</a>.")} />
 
                 <h2 id="choose" dangerouslySetInnerHTML={H("Choosing a medical waste provider")} />
-                <p dangerouslySetInnerHTML={H("Look for proper registration (DEA-registered if you handle controlled substances), every stream you generate under one vendor, a Certificate of Destruction, transparent pricing, and no contract. Our full <a href=\"/blog/how-to-choose-a-medical-waste-disposal-company\">buyer&rsquo;s guide</a> covers the criteria and the red flags &mdash; and you can <a href=\"/compare\">compare us to other providers</a> directly.")} />
+                <p dangerouslySetInnerHTML={H("Look for proper registration (DEA-registered if you handle controlled substances), every stream you generate under one vendor, a Certificate of Destruction, transparent pricing, and no contract. Our full <a href=\"/blog/how-to-choose-a-medical-waste-disposal-company/\">buyer&rsquo;s guide</a> covers the criteria and the red flags &mdash; and you can <a href=\"/compare/\">compare us to other providers</a> directly.")} />
 
                 <div className="postcta">
                   <h3>One vendor for every kind of medical waste.</h3>
                   <p>Sharps, biohazard, pharmaceutical, controlled, RCRA, and chemo — mail-back or pickup, DEA-registered, documented, no contract.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions">See all streams <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/medical-waste-disposal-cost">What it costs</a>
+                    <a className="btn btn-primary" href="/our-solutions/">See all streams <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/medical-waste-disposal-cost/">What it costs</a>
                   </div>
                 </div>
 

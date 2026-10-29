@@ -41,11 +41,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "Medical Waste Generator Categories: VSQG, SQG & LQG Explained" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Medical Waste Generator Categories: VSQG, SQG & LQG Explained" }]} />
               <span className="eyebrow">Sharps</span>
               <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Medical Waste Generator Categories: VSQG, SQG &amp; LQG" }} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -68,7 +68,7 @@ export default function Page() {
             <h2 id="matters" dangerouslySetInnerHTML={{ __html: "Why your category matters" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Sets how often you need pickups" }} /><li dangerouslySetInnerHTML={{ __html: "Caps how long you can store waste on-site" }} /><li dangerouslySetInnerHTML={{ __html: "Determines your documentation and training obligations" }} /><li dangerouslySetInnerHTML={{ __html: "Affects your cost structure" }} /></ul>
             <h2 id="right" dangerouslySetInnerHTML={{ __html: "Getting sized right" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Most physician offices, dental practices, and clinics are VSQGs &mdash; which makes mail-back a great fit. Higher-volume sites move up to SQG/LQG and scheduled pickup. We size your <a href=\"/our-solutions/sharps-disposal\">sharps and RMW</a> program to your category so you&rsquo;re compliant without overpaying." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Most physician offices, dental practices, and clinics are VSQGs &mdash; which makes mail-back a great fit. Higher-volume sites move up to SQG/LQG and scheduled pickup. We size your <a href=\"/our-solutions/sharps-disposal/\">sharps and RMW</a> program to your category so you&rsquo;re compliant without overpaying." }} />
 
                 <div className="postcta">
                   <h3>Get a program sized to your volume.</h3>

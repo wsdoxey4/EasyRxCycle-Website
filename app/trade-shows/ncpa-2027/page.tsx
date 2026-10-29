@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Get a quote for your pharmacy — controlled substances, hazardous pharmaceuticals and more, with the paperwork done right.",
-  finalHref: "/who-we-serve/independent-pharmacy", finalLabel: "Pharmacy disposal",
+  finalHref: "/who-we-serve/independent-pharmacy/", finalLabel: "Pharmacy disposal",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at NCPA 2027 — Booth Special | San Antonio";

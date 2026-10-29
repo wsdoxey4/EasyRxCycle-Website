@@ -19,11 +19,11 @@ export const metadata: Metadata = {
 
 type Item = { title: string; desc: string; href: string; cta: string; kind: "tool" | "pdf" | "csv" };
 const TOOLS: Item[] = [
-  { title: "Waste Determination Tool", kind: "tool", href: "/waste-determination", cta: "Open the tool",
+  { title: "Waste Determination Tool", kind: "tool", href: "/waste-determination/", cta: "Open the tool",
     desc: "Answer a few questions about your waste and get the correct stream, container, and governing rule — sharps, RMW, controlled, RCRA-hazardous, trace chemo, and more." },
-  { title: "P/U-List Drug Lookup", kind: "tool", href: "/drug-hazardous-lookup", cta: "Open the tool",
+  { title: "P/U-List Drug Lookup", kind: "tool", href: "/drug-hazardous-lookup/", cta: "Open the tool",
     desc: "Search a drug or RCRA code to see if it's P-listed (acute) or U-listed (toxic) hazardous waste — bounded to EPA's published lists, so the answers are accurate." },
-  { title: "RCRA Generator Status Tool", kind: "tool", href: "/generator-status", cta: "Open the tool",
+  { title: "RCRA Generator Status Tool", kind: "tool", href: "/generator-status/", cta: "Open the tool",
     desc: "Enter roughly how much hazardous waste you generate per month and find your EPA category — VSQG, SQG, or LQG — and what it requires." },
 ];
 const PRINTABLES: Item[] = [
@@ -71,7 +71,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "clamp(24px,3vw,36px)" }}>
           <div className="wrap" style={{ maxWidth: "900px" }}>
-            <Breadcrumbs items={[{ name: "Resources", href: "/resources" }, { name: "Free tools & printables" }]} />
+            <Breadcrumbs items={[{ name: "Resources", href: "/resources/" }, { name: "Free tools & printables" }]} />
             <span className="eyebrow">Free · no signup</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>
               Free tools, charts &amp; data <span style={{ color: "var(--teal)" }}>for regulated waste.</span>
@@ -97,9 +97,9 @@ export default function Page() {
 
             <p className="lead" style={{ marginTop: "clamp(30px,4vw,44px)", maxWidth: "62ch" }}>
               Want the deeper explanations behind these? Browse the{" "}
-              <a href="/resources/guides" style={{ color: "var(--teal)", fontWeight: 600 }}>guide library</a>, the{" "}
-              <a href="/glossary" style={{ color: "var(--teal)", fontWeight: 600 }}>glossary</a>, or{" "}
-              <a href="/medical-waste-regulations-by-state" style={{ color: "var(--teal)", fontWeight: 600 }}>regulations by state</a>.
+              <a href="/resources/guides/" style={{ color: "var(--teal)", fontWeight: 600 }}>guide library</a>, the{" "}
+              <a href="/glossary/" style={{ color: "var(--teal)", fontWeight: 600 }}>glossary</a>, or{" "}
+              <a href="/medical-waste-regulations-by-state/" style={{ color: "var(--teal)", fontWeight: 600 }}>regulations by state</a>.
             </p>
           </div>
         </section>

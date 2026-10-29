@@ -148,8 +148,8 @@ export default function CostCalculator() {
               <div className="calc-thanks">✓ Your estimate PDF just downloaded and is on its way to your inbox — a specialist will follow up with your exact quote.</div>
             )}
             <div className="calc-cta">
-              <a className="btn btn-ghost" href="/shop">Shop kits &amp; exact prices</a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a custom quote</a>
+              <a className="btn btn-ghost" href="/shop/">Shop kits &amp; exact prices</a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a custom quote</a>
             </div>
           </>
         )}

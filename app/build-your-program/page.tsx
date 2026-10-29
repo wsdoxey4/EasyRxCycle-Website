@@ -26,7 +26,7 @@ export default function Page() {
       <main id="main">
         <section className="sec" style={{ paddingBottom: "clamp(20px,3vw,30px)" }}>
           <div className="wrap">
-            <Breadcrumbs items={[{ name: "Shop", href: "/shop" }, { name: "Build your program" }]} />
+            <Breadcrumbs items={[{ name: "Shop", href: "/shop/" }, { name: "Build your program" }]} />
             <span className="eyebrow">Build your program</span>
             <h1 className="ph1" style={{ marginTop: "10px" }}>
               Your mail-back program, <span style={{ color: "var(--teal)" }}>built your way.</span>

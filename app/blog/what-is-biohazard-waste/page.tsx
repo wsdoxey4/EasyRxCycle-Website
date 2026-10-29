@@ -43,11 +43,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "What Is Biohazard Waste?" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "What Is Biohazard Waste?" }]} />
               <span className="eyebrow">Biohazard / RMW</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("What Is Biohazard Waste? Types, Examples &amp; Disposal")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
+                <a className="who" href="/author/william-doxey/">William Doxey</a><span className="dot-sep" /><span>Aug 15, 2026</span>
                 <span className="dot-sep" /><span>6 min read</span>
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Biohazard waste is any material contaminated with blood, bodily fluids, or infectious agents that could spread disease &mdash; and it can&rsquo;t go in the regular trash. Here&rsquo;s a plain-English breakdown of what counts, the main types, real examples, the color-coding rules, and how to dispose of it compliantly.")} />
@@ -94,7 +94,7 @@ export default function Page() {
                 </ul>
 
                 <h2 id="not" dangerouslySetInnerHTML={H("What is NOT biohazard waste")} />
-                <p dangerouslySetInnerHTML={H("Just as important &mdash; over-classifying drives up cost. These usually are <em>not</em> regulated medical waste: paper, packaging, and food waste; gloves or gowns with no contamination; empty IV bags without residual blood; and items with only dried, trace amounts that can&rsquo;t be released. Note that <a href=\"/our-solutions/pharmaceutical-waste-disposal\">pharmaceutical waste</a>, <a href=\"/our-solutions/trace-chemotherapy-waste\">trace chemotherapy waste</a>, and <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste\">RCRA-hazardous drugs</a> are their own regulated streams &mdash; not red-bag biohazard.")} />
+                <p dangerouslySetInnerHTML={H("Just as important &mdash; over-classifying drives up cost. These usually are <em>not</em> regulated medical waste: paper, packaging, and food waste; gloves or gowns with no contamination; empty IV bags without residual blood; and items with only dried, trace amounts that can&rsquo;t be released. Note that <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste</a>, <a href=\"/our-solutions/trace-chemotherapy-waste/\">trace chemotherapy waste</a>, and <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous drugs</a> are their own regulated streams &mdash; not red-bag biohazard.")} />
 
                 <h2 id="rules" dangerouslySetInnerHTML={H("The rules &amp; color-coding")} />
                 <p dangerouslySetInnerHTML={H("Biohazard waste is governed federally by OSHA&rsquo;s <strong>Bloodborne Pathogens Standard (29 CFR 1910.1030)</strong> for worker protection and by the <strong>DOT (49 CFR)</strong> for transport, with each state adding its own medical-waste rules. Segregation is signaled by color:")} />
@@ -106,14 +106,14 @@ export default function Page() {
                 </ul>
 
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of biohazard waste")} />
-                <p dangerouslySetInnerHTML={H("Segregate it into the correct red-bag container, keep sharps in an approved <a href=\"/our-solutions/sharps-disposal\">sharps container</a>, and send it to a permitted treatment facility &mdash; where it&rsquo;s treated by autoclave-then-landfill or incineration and documented. The simplest compliant option for most sites is a prepaid <a href=\"/our-solutions/biohazard-waste-disposal\">biohazard mail-back kit</a>: fill it, seal it, ship it, and get documentation on every order. Higher-volume sites can use scheduled pickup.")} />
+                <p dangerouslySetInnerHTML={H("Segregate it into the correct red-bag container, keep sharps in an approved <a href=\"/our-solutions/sharps-disposal/\">sharps container</a>, and send it to a permitted treatment facility &mdash; where it&rsquo;s treated by autoclave-then-landfill or incineration and documented. The simplest compliant option for most sites is a prepaid <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard mail-back kit</a>: fill it, seal it, ship it, and get documentation on every order. Higher-volume sites can use scheduled pickup.")} />
 
                 <div className="postcta">
                   <h3>Handle biohazard waste the compliant way.</h3>
                   <p>Prepaid biohazard / RMW mail-back kits and scheduled pickup &mdash; OSHA- and DOT-compliant, documented, with no contract.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/biohazard-waste-disposal">Biohazard disposal <span className="ar">→</span></a>
-                    <a className="btn btn-outline-w" href="/shop/biohazard-mail-back-kit">Shop kits</a>
+                    <a className="btn btn-primary" href="/our-solutions/biohazard-waste-disposal/">Biohazard disposal <span className="ar">→</span></a>
+                    <a className="btn btn-outline-w" href="/shop/biohazard-mail-back-kit/">Shop kits</a>
                   </div>
                 </div>
 

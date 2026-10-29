@@ -52,11 +52,11 @@ export default function Page() {
         <section className="sec" style={{ paddingTop: "clamp(30px,4vw,52px)", paddingBottom: "0" }}>
           <div className="blogwrap">
             <article className="article">
-              <Breadcrumbs items={[{ name: "Blog", href: "/blog" }, { name: "DEA Form 41" }]} />
+              <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "DEA Form 41" }]} />
               <span className="eyebrow">Controlled Substances</span>
               <h1 className="ph1" dangerouslySetInnerHTML={H("DEA Form 41: How to Fill It Out (Filled-In Sample + PDF)")} />
               <div className="byline">
-                <a className="who" href="/author/william-doxey">William Doxey</a>
+                <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
                 <span>Jul 20, 2026</span>
                 <span className="dot-sep" />
@@ -89,7 +89,7 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("The registrant that <strong>actually destroys</strong> the drugs completes Form 41. That leaves two common situations:")} />
                 <ul>
                   <li dangerouslySetInnerHTML={H("<strong>You destroy on site.</strong> Your practice or pharmacy completes Form 41 itself, with two of your authorized employees as witnesses.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>You send your controls out for destruction.</strong> The DEA-registered company that destroys them completes Form 41 as the destroying registrant. Your side of the paperwork is the transfer record &mdash; a <a href=\"/resources/dea-form-41-222\">DEA Form 222</a> for Schedule I and II drugs, a transfer form for Schedules III&ndash;V &mdash; plus the <a href=\"/resources/certificate-of-destruction\">Certificate of Destruction</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>You send your controls out for destruction.</strong> The DEA-registered company that destroys them completes Form 41 as the destroying registrant. Your side of the paperwork is the transfer record &mdash; a <a href=\"/resources/dea-form-41-222/\">DEA Form 222</a> for Schedule I and II drugs, a transfer form for Schedules III&ndash;V &mdash; plus the <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
                 </ul>
                 <p dangerouslySetInnerHTML={H("With an Easy Rx Cycle <a href=\"/shop/controlled-substance-mail-back-kit/\">Controlled Substance Mail-Back Kit</a>, you fill out one list &mdash; the Drug Inventory Manifest &mdash; and we complete the DEA Form 222, the Schedule III&ndash;V transfer form and Form 41, then send your Certificate of Destruction.")} />
 

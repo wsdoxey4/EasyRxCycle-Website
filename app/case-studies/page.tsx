@@ -54,7 +54,7 @@ export default function Page() {
           <div className="wrap">
             <div className="csgrid">
               {CASE_STUDIES.map((c) => (
-                <a className="cscard" key={c.slug} href={`/case-studies/${c.slug}`}>
+                <a className="cscard" key={c.slug} href={`/case-studies/${c.slug}/`}>
                   <span className="cs-eyebrow">{c.industry}{c.region ? ` · ${c.region}` : ""}</span>
                   <h2>{c.title}</h2>
                   <p className="cs-tag">{c.tag}</p>
@@ -78,7 +78,7 @@ export default function Page() {
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">
-                <a className="btn btn-onteal" href="/get-a-quote">Get a quote <span className="ar">→</span></a>
+                <a className="btn btn-onteal" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>
                 <a className="btn btn-outline-w" href="/who-we-serve/">See your industry</a>
               </div>
             </div>

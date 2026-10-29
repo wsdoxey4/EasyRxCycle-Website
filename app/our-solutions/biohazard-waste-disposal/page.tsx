@@ -50,13 +50,13 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions" }, { name: "Biohazard / RMW" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Biohazard / RMW" }]} />
             <span className="eyebrow">Biohazard · regulated medical waste (RMW)</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Regulated medical waste, <span style=\"color:var(--teal)\">handled right.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Red-bag waste, sharps, and other regulated medical waste &mdash; collected by mail-back kit and destroyed to OSHA, DOT, and state RMW requirements. No hauler contract, no route fees, and a Certificate of Destruction on every order." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit">Shop a kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote">Get a quote</a>
+              <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/biohazard-kit.webp" alt="Easy Rx Cycle biohazard mail-back kit" /></div>
@@ -78,7 +78,7 @@ export default function Page() {
         <div dangerouslySetInnerHTML={{ __html: "<section class=\"sec wsec\" style=\"padding-top:clamp(48px,6vw,80px)\"><div class=\"wrap\"><div class=\"shead\"><span class=\"eyebrow\">In depth</span><h2>Red-bag waste, in depth.</h2><p class=\"lead\">What qualifies as regulated medical waste, how to package it, and why the rules are set state by state.</p></div><div class=\"wstreams\"><div class=\"wstream\"><h3>What qualifies as RMW</h3><p>The test is contamination with blood or OPIM that could release if compressed — not merely 'was in the room.'</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Blood- or fluid-saturated gauze &amp; dressings</li><li>Contaminated PPE (gloves, gowns) that would release fluid</li><li>Pathology &amp; small tissue (per state)</li><li>Cultures &amp; specimen material</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Sharps (own container)</li><li>Lightly soiled items with no releasable fluid (often general waste)</li><li>Pharmaceutical or chemo waste</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — OSHA + your state's RMW definition — 'regulated' generally means it could release blood/OPIM in a liquid or semi-liquid state if compressed.</p><p class=\"ws-meta\"><b>How to dispose</b> — Red-bag RMW containers, treated and destroyed by a permitted facility.<span class=\"ws-tip\"><b>Tip:</b> A glove with a spot of dried blood is usually general waste — red bags are for releasable contamination.</span></p></div><div class=\"wstream\"><h3>Packaging & labeling</h3><p>Containment is what keeps RMW compliant from your room to destruction.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>Red bags inside rigid, leak-resistant containers</li><li>Biohazard symbol &amp; required labeling</li><li>Secured, closable outer packaging</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>Loose sharps in a red bag</li><li>Overfilled or unsealed containers</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — DOT/state — RMW must be contained, labeled with the biohazard symbol, and packaged to prevent release in transit.</p><p class=\"ws-meta\"><b>How to dispose</b> — Mail-back RMW containers or scheduled pickup, both fully documented.<span class=\"ws-tip\"><b>Tip:</b> Line rigid containers with a red bag — the bag alone is not a compliant shipping container.</span></p></div><div class=\"wstream\"><h3>State rules & tracking</h3><p>RMW is regulated primarily at the state level, and the differences are real.</p><div class=\"ws-io\"><div class=\"ws-col in\"><span class=\"ws-lbl\">What this covers</span><ul><li>State-required tracking/manifest documents</li><li>Registered transporter where required</li><li>Treatment method allowed in your state</li></ul></div><div class=\"ws-col out\"><span class=\"ws-lbl\">Handle separately</span><ul><li>A one-size-fits-all national assumption</li></ul></div></div><p class=\"ws-meta\"><b>The rule</b> — State health/environmental agencies — definitions, generator registration, and transport rules differ; know your state's.</p><p class=\"ws-meta\"><b>How to dispose</b> — A compliant program matched to your state, with a Certificate of Destruction.<span class=\"ws-tip\"><b>Tip:</b> If you operate in more than one state, standardize to the strictest rule to keep multi-site handling simple.</span></p></div></div></div></section>" }} />
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · biohazard / RMW</span><h3>The Biohazard & RMW Disposal Guide</h3><p>What qualifies as red-bag RMW, how to package and label it, the state rules that vary, and how it's treated and destroyed — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/biohazard-rmw-disposal-guide">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · biohazard / RMW</span><h3>The Biohazard & RMW Disposal Guide</h3><p>What qualifies as red-bag RMW, how to package and label it, the state rules that vary, and how it's treated and destroyed — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/biohazard-rmw-disposal-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -129,9 +129,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Learn more</span><h2>Related solutions &amp; guides.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/our-solutions/sharps-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle &amp; syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired and unused medication disposal." }} /></a>
-              <a className="svc" href="/resources/bloodborne-training"><h4 dangerouslySetInnerHTML={{ __html: "Bloodborne training" }} /><p dangerouslySetInnerHTML={{ __html: "OSHA-required annual staff training." }} /></a>
+              <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle &amp; syringe kits." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired and unused medication disposal." }} /></a>
+              <a className="svc" href="/resources/bloodborne-training/"><h4 dangerouslySetInnerHTML={{ __html: "Bloodborne training" }} /><p dangerouslySetInnerHTML={{ __html: "OSHA-required annual staff training." }} /></a>
             </div>
           </div>
         </section>
@@ -140,12 +140,12 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Biohazard guides</span><h2>Learn more about biohazard waste.</h2></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
-              <a className="svc" href="/blog/biohazardous-waste-disposal-for-healthcare-facilities"><h4>Biohazardous waste disposal guide</h4><p>Who generates it, the rules, packaging, treatment &amp; cost.</p></a>
-              <a className="svc" href="/blog/what-is-biohazard-waste"><h4>What is biohazard waste?</h4><p>Types, examples, and the red-bag rules.</p></a>
-              <a className="svc" href="/blog/biohazard-waste-management"><h4>Biohazard waste management</h4><p>The full program, step by step.</p></a>
-              <a className="svc" href="/blog/medical-waste-color-codes"><h4>Medical waste color codes</h4><p>Red, yellow, black &amp; blue explained.</p></a>
-              <a className="svc" href="/blog/biohazard-waste-disposal-cost"><h4>What it costs</h4><p>Real prices and how to pay less.</p></a>
-              <a className="svc" href="/blog/osha-medical-waste-requirements"><h4>OSHA requirements</h4><p>Bloodborne pathogens &amp; compliance.</p></a>
+              <a className="svc" href="/blog/biohazardous-waste-disposal-for-healthcare-facilities/"><h4>Biohazardous waste disposal guide</h4><p>Who generates it, the rules, packaging, treatment &amp; cost.</p></a>
+              <a className="svc" href="/blog/what-is-biohazard-waste/"><h4>What is biohazard waste?</h4><p>Types, examples, and the red-bag rules.</p></a>
+              <a className="svc" href="/blog/biohazard-waste-management/"><h4>Biohazard waste management</h4><p>The full program, step by step.</p></a>
+              <a className="svc" href="/blog/medical-waste-color-codes/"><h4>Medical waste color codes</h4><p>Red, yellow, black &amp; blue explained.</p></a>
+              <a className="svc" href="/blog/biohazard-waste-disposal-cost/"><h4>What it costs</h4><p>Real prices and how to pay less.</p></a>
+              <a className="svc" href="/blog/osha-medical-waste-requirements/"><h4>OSHA requirements</h4><p>Bloodborne pathogens &amp; compliance.</p></a>
             </div>
           </div>
         </section>
@@ -176,14 +176,14 @@ export default function Page() {
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href="/#quote">Get a quote <span className="ar">→</span></a>
-                <a className="btn btn-outline-w" href="/capabilities">See our credentials</a>
+                <a className="btn btn-outline-w" href="/capabilities/">See our credentials</a>
               </div>
             </div>
           </div>
         </section>
       </main>
       <ExitIntentGuide slug="biohazard-rmw-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/biohazard-mail-back-kit" }} secondary={{ label: "Get a quote", href: "/get-a-quote" }} />
+      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/biohazard-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>
