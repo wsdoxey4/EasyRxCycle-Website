@@ -1655,3 +1655,14 @@ header.site .wrap{position:relative;}
   .pdp-buy .buy-sizes-grid .bs-name{flex:1 1 0;}
   .pdp-buy .buy-sizes-grid .bs-price{flex-basis:100%;padding-left:25px;font-size:14px;}
 }
+
+/* Print: reference pages (charts, checklists) print as clean documents. */
+@media print{
+  .util,header.site,footer.site,.mcta,.tbd-bar,.postcta,.related-posts,.relband,.crumb{display:none !important;}
+  body{background:#fff;color:#000;}
+  .sec{padding:0 !important;}
+  .article{max-width:100%;}
+  .prose a{color:inherit;text-decoration:none;}
+  .prose table{font-size:11px;page-break-inside:auto;}
+  .prose tr{page-break-inside:avoid;}
+}
