@@ -118,7 +118,7 @@ export default function Page() {
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
           <div className="wrap">
-            <div className="shead"><span className="eyebrow">Leadership</span><h2>Meet the team.</h2><p className="lead">Decades of combined experience in DEA-compliant pharmaceutical and medical waste solutions — from our CEO and CRO to our directors of DEA compliance and regulatory affairs.</p></div>
+            <div className="shead"><span className="eyebrow">Leadership</span><h2>Meet the team.</h2><p className="lead">Decades of combined experience in DEA-compliant pharmaceutical and medical waste solutions — from our CEO and COO to our directors of DEA compliance and regulatory affairs.</p></div>
             <div style={{ marginTop: "20px" }}>
               <a className="btn btn-primary" href="/our-team/">Meet the team <span className="ar">→</span></a>
             </div>

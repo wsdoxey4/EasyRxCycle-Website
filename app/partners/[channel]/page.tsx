@@ -267,7 +267,7 @@ export default async function Page({ params }: { params: Promise<{ channel: stri
               <div>
                 <h2>Let&rsquo;s build a partnership.</h2>
                 <p>Apply in two minutes and our partnerships team will match you to the right program and onboard you fast.</p>
-                <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Kari Miller, Chief Revenue Officer &amp; team · 501-904-2929</div>
+                <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Easy Rx Cycle Partnerships Team · 501-904-2929</div>
               </div>
               <div className="b">
                 <a className="btn btn-onteal" href={`/partners/apply/?channel=${c.slug}`}>{c.ctaLabel} <span className="ar">→</span></a>

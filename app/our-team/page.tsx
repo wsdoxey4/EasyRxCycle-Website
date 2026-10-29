@@ -21,7 +21,6 @@ type Member = { n: string; r: string; b: string; img?: string };
 const team: Member[] = [
   { n: "Murray Wells", r: "Chief Executive Officer", b: "Focused on vision, teams, and delivering results.", img: "murray-wells" },
   { n: "William Doxey", r: "Chief Operating Officer", b: "Optimizes operations and resources to achieve strategic goals.", img: "william-doxey" },
-  { n: "Kari Miller", r: "Chief Revenue Officer", b: "Leads enterprise sales, distributor, GPO, and health-system partnerships.", img: "kari-miller" },
   { n: "Anthony Lemons", r: "Senior Strategic Advisor", b: "Leads strategy and compliance.", img: "anthony-lemons" },
   { n: "Chuck Miller", r: "VP, Systems & Logistics", b: "Streamlines processes and ensures seamless supply-chain operations.", img: "chuck-miller" },
   { n: "Rick Dovers", r: "VP, Sales", b: "Drives revenue growth and builds client relationships.", img: "rick-dovers" },
