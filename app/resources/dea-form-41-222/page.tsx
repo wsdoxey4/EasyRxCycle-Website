@@ -49,6 +49,7 @@ export default function Page() {
             <span className="eyebrow">Compliance guide · DEA forms</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "DEA Form 41 &amp; Form 222, <span style=\"color:var(--teal)\">explained.</span>" }} />
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Two DEA forms trip up more pharmacies than any others: Form 41 for destroying controlled substances, and Form 222 for ordering and transferring Schedule&nbsp;II drugs. Here&rsquo;s what each one is, when you need it, and how we handle the paperwork so it&rsquo;s done right." }} />
+            <p style={{ marginTop: "12px", maxWidth: "62ch" }}>Need a field-by-field walkthrough? See the <a href="/blog/dea-form-41-requirements-and-pdf/">filled-in DEA Form 41 sample</a> or <a href="/blog/how-to-fill-out-dea-form-222/">how to fill out DEA Form 222</a>.</p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/#quote">Get a quote <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="tel:5019042929">Talk to a specialist</a>

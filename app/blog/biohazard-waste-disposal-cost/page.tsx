@@ -86,7 +86,7 @@ export default function Page() {
 
                 <div className="postcta">
                   <h3>See your biohazard price, skip the quote.</h3>
-                  <p>Every biohazard kit price is published — buy in minutes, or estimate your full cost across streams in a click.</p>
+                  <p>Every biohazard kit price is published — buy in minutes, or estimate your full cost across streams in a click. See how our <a href="/our-solutions/biohazard-waste-disposal/">biohazard waste disposal service</a> works.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit/">Shop biohazard kits <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="/cost-calculator/">Estimate your cost</a>

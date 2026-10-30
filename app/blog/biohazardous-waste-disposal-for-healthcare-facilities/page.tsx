@@ -182,7 +182,7 @@ export default function Page() {
 
                 <div className="postcta">
                   <h3>Make biohazard compliance the easy part.</h3>
-                  <p>Licensed transport or mail-back kits, DOT-compliant packaging, and a Certificate of Destruction on every pickup — sized to your facility, no contracts.</p>
+                  <p>Licensed transport or mail-back kits, DOT-compliant packaging, and a Certificate of Destruction on every pickup — sized to your facility, no contracts. See our <a href="/our-solutions/biohazard-waste-disposal/">biohazard waste disposal service</a>.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit/">Shop biohazard kits <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="/get-a-quote/">Get a same-day quote</a>

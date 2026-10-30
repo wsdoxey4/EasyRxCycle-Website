@@ -9,10 +9,14 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceStates from "@/components/ServiceStates";
 import { SITE, abs } from "@/lib/site";
+import { inCategory, fromPrice, money } from "@/lib/shop";
+
+const KITS = inCategory("biohazard").slice().sort((a, b) => a.cents - b.cents);
+const FROM = money(fromPrice("biohazard"));
 
 const PATH = "/our-solutions/biohazard-waste-disposal";
-const TITLE = "Biohazard & Regulated Medical Waste Disposal | Mail-Back RMW";
-const DESC = "Compliant biohazard and regulated medical waste (RMW) disposal by mail. Red-bag waste, sharps, and pathological waste handled to OSHA, DOT, and state RMW rules \u2014 with a Certificate of Destruction on every order.";
+const TITLE = "Biohazard Waste Disposal by Mail | Red-Bag & RMW Kits";
+const DESC = `Biohazard waste disposal by mail for clinics, labs and practices. Red-bag RMW mail-back kits from ${FROM}, OSHA- and DOT-compliant, no hauler contract, and a Certificate of Destruction on every order.`;
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -26,13 +30,16 @@ const faqs = [
   { q: "Can regulated medical waste be shipped by mail?", a: "Yes \u2014 when packaged in DOT-approved mail-back containers with the correct liners and labeling. Our kits are built to meet those requirements so your RMW ships compliantly." },
   { q: "What\u2019s the difference between biohazard waste and sharps?", a: "Sharps (needles, blades, lancets) are a subset of regulated medical waste that must go in a puncture-resistant container. Other RMW \u2014 like blood-soaked gauze or red-bag waste \u2014 goes in a lined biohazard container. We handle both." },
   { q: "Do you provide a Certificate of Destruction for RMW?", a: "Yes. Every order includes a Certificate of Destruction documenting that your regulated medical waste was treated and destroyed \u2014 archived to your account and ready for any audit." },
-  { q: "Is a contract required?", a: "No. Our mail-back model has no hauler contract, route fees, or monthly minimums. Order kits as your volume requires." }
+  { q: "Is a contract required?", a: "No. Our mail-back model has no hauler contract, route fees, or monthly minimums. Order kits as your volume requires." },
+  { q: "How much does biohazard waste disposal cost?", a: `Our biohazard mail-back kits start at ${FROM} for a 2-gallon kit, with prepaid return shipping, destruction and a Certificate of Destruction included. Larger kits and multi-site programs are priced on the shop or by quote.` },
+  { q: "How do you dispose of biohazard waste?", a: "Keep sharps in their own puncture-resistant container. Put other regulated medical waste in a red bag inside a rigid, leak-resistant container marked with the biohazard symbol. Seal it, ship it to a permitted treatment facility (by mail-back kit or a registered hauler), and keep the Certificate of Destruction. State rules add details, so check your state's requirements." },
+  { q: "Do I need to register as a medical waste generator?", a: "It depends on your state. Some states require generators to register or keep tracking documents, and others exempt small-quantity generators. Our state pages list the regulator and rules for each state." }
 ];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Service", "@id": `${abs(PATH)}#service`, name: "Regulated Medical Waste Disposal", serviceType: "Biohazard / RMW disposal", description: DESC, provider: { "@id": `${SITE.url}/#organization` }, areaServed: { "@type": "Country", name: "United States" }, url: abs(PATH) },
+    { "@type": "Service", "@id": `${abs(PATH)}#service`, name: "Biohazard Waste Disposal", alternateName: "Regulated Medical Waste Disposal", serviceType: "Biohazard / RMW disposal", description: DESC, offers: { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: (KITS[0].cents / 100).toFixed(2), highPrice: (KITS[KITS.length - 1].cents / 100).toFixed(2), offerCount: KITS.length }, provider: { "@id": `${SITE.url}/#organization` }, areaServed: { "@type": "Country", name: "United States" }, url: abs(PATH) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -50,10 +57,10 @@ export default function Page() {
         <section className="subhero">
           <div className="wrap sol-hero">
             <div className="sol-hero-copy">
-            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Biohazard / RMW" }]} />
+            <Breadcrumbs items={[{ name: "Solutions", href: "/our-solutions/" }, { name: "Biohazard waste disposal" }]} />
             <span className="eyebrow">Biohazard · regulated medical waste (RMW)</span>
-            <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Regulated medical waste, <span style=\"color:var(--teal)\">handled right.</span>" }} />
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Red-bag waste, sharps, and other regulated medical waste &mdash; collected by mail-back kit and destroyed to OSHA, DOT, and state RMW requirements. No hauler contract, no route fees, and a Certificate of Destruction on every order." }} />
+            <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Biohazard waste disposal, <span style=\"color:var(--teal)\">by mail.</span>" }} />
+            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: `Red-bag waste, sharps, and other regulated medical waste &mdash; collected by mail-back kit and destroyed to OSHA, DOT, and state RMW requirements. Kits from ${FROM}, no hauler contract, no route fees, and a Certificate of Destruction on every order.` }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/shop/biohazard-mail-back-kit/">Shop a kit <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/get-a-quote/">Get a quote</a>
@@ -71,6 +78,21 @@ export default function Page() {
                 <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+          <div className="wrap" style={{ maxWidth: "820px" }}>
+            <div className="shead"><span className="eyebrow">Published prices</span><h2>What biohazard waste disposal costs.</h2><p className="lead">One price per kit: the container, red liner, prepaid return shipping, treatment and destruction, and your Certificate of Destruction.</p></div>
+            <div style={{ overflowX: "auto", marginTop: "18px" }}>
+              <table className="ctable">
+                <thead><tr><th>Biohazard mail-back kit</th><th>Price</th></tr></thead>
+                <tbody>
+                  {KITS.map((k) => (<tr key={k.sku}><th scope="row">{k.size}</th><td>{money(k.cents)}</td></tr>))}
+                </tbody>
+              </table>
+            </div>
+            <p style={{ marginTop: "14px" }}><a href="/shop/biohazard-mail-back-kit/">Shop biohazard kits</a> &middot; <a href="/blog/biohazard-waste-disposal-cost/">How biohazard disposal pricing compares</a> &middot; <a href="/blog/biohazardous-waste-disposal-for-healthcare-facilities/">Biohazardous waste disposal guide</a> &middot; <a href="/medical-waste-regulations-by-state/">Rules by state</a></p>
           </div>
         </section>
 
@@ -170,7 +192,7 @@ export default function Page() {
           <div className="wrap">
             <div className="finalcta">
               <div>
-                <h2>Handle your RMW the simple way.</h2>
+                <h2>Handle your biohazard waste the simple way.</h2>
                 <p>Get a quote for mail-back regulated medical waste disposal &mdash; compliant, contract-free, documented.</p>
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>

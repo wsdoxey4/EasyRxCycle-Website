@@ -69,7 +69,7 @@ export default function Page() {
             <ol><li dangerouslySetInnerHTML={{ __html: "Enter the supplier/recipient DEA registration details" }} /><li dangerouslySetInnerHTML={{ __html: "List each Schedule II drug, its size, and the number of packages" }} /><li dangerouslySetInnerHTML={{ __html: "Sign and date it as the authorized registrant" }} /><li dangerouslySetInnerHTML={{ __html: "Keep your copy; the other copies go with the transaction" }} /><li dangerouslySetInnerHTML={{ __html: "Retain the record for at least two years" }} /></ol>
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Incomplete or mismatched registrant details" }} /><li dangerouslySetInnerHTML={{ __html: "Errors in package counts (no cross-outs allowed)" }} /><li dangerouslySetInnerHTML={{ __html: "Missing signatures" }} /><li dangerouslySetInnerHTML={{ __html: "Not retaining the copy for two years" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "When you use a DEA-registered reverse distributor, we prepare and guide the <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a> so it&rsquo;s done right." }} />
+            <p dangerouslySetInnerHTML={{ __html: "When you use a DEA-registered reverse distributor, we prepare and guide the <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and Form 222 so it&rsquo;s done right." }} />
 
                 <div className="postcta">
                   <h3>Let us handle the DEA paperwork.</h3>
