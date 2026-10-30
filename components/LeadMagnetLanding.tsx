@@ -7,12 +7,16 @@ import type { LeadMagnet } from "@/lib/leadMagnets";
 import { GUIDE_LINKS } from "@/lib/guideLinks";
 import { GUIDE_BODIES } from "@/lib/guideBodies";
 import { kitsForGuide } from "@/lib/guideKits";
+import { GUIDE_FAQS } from "@/lib/guideFaqs";
+import { fromPrice, money } from "@/lib/shop";
 import { SITE, abs } from "@/lib/site";
 
 // Downloads that are sales documents, not articles: no Article schema even though they carry on-page copy.
 const NOT_ARTICLES = new Set(["capability-statement", "line-card", "sample-certificate-of-destruction"]);
 // From git history: the guide pages shipped 2026-08-13 and their on-page article copy (lib/guideBodies) on 2026-08-15.
 const PUBLISHED = "2026-08-13", MODIFIED = "2026-08-15";
+// Guides that gained an FAQ block (lib/guideFaqs) on this date.
+const FAQ_MODIFIED = "2026-10-30";
 
 const check = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#33C089" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -24,16 +28,23 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
   // Point readers at the kits this guide is about (skipped for non-guide magnets like the capability statement).
   const kits = m.slug === "capability-statement" ? [] : kitsForGuide([m.intro, ...m.bullets, ...(body ?? []).map((b) => b.h + " " + b.p)].join(" "), m.slug);
   const path = `/resources/${m.slug}/`;
+  const gf = GUIDE_FAQS[m.slug];
+  const faqLd = gf ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage", "@id": `${abs(path)}#faq`,
+    mainEntity: gf.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  } : null;
   const articleLd = body?.length && !NOT_ARTICLES.has(m.slug) ? {
     "@context": "https://schema.org",
     "@type": "Article", "@id": `${abs(path)}#article`, headline: m.h1, description: m.desc,
     author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey/") },
-    publisher: { "@id": `${SITE.url}/#organization` }, datePublished: PUBLISHED, dateModified: MODIFIED,
+    publisher: { "@id": `${SITE.url}/#organization` }, datePublished: PUBLISHED, dateModified: gf ? FAQ_MODIFIED : MODIFIED,
     mainEntityOfPage: abs(path), image: abs(m.cover || SITE.ogImage), ...(m.industry ? { audience: { "@type": "Audience", audienceType: m.industry } } : {}),
   } : null;
   return (
     <>
       {articleLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />}
+      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
       <Header />
       <main id="main">
         <section className="subhero" style={{ paddingBottom: "clamp(28px,4vw,44px)" }}>
@@ -78,6 +89,24 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
                   <p>{b.p}</p>
                 </div>
               ))}
+            </div>
+          </section>
+        )}
+
+        {gf && (
+          <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+            <div className="wrap" style={{ maxWidth: "760px" }}>
+              <h2>{gf.h}</h2>
+              <div className="faq" style={{ marginTop: "18px" }}>
+                {gf.items.map((f) => (<details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>))}
+              </div>
+              {gf.cta && (
+                <a className="ind-stream" href={gf.cta.href} style={{ marginTop: "24px" }}>
+                  <h3>{gf.cta.h}</h3>
+                  <p>{gf.cta.p}</p>
+                  <span className="ind-kit">{gf.cta.label} &middot; from {money(fromPrice(gf.cta.cat))} <span className="ar">→</span></span>
+                </a>
+              )}
             </div>
           </section>
         )}
