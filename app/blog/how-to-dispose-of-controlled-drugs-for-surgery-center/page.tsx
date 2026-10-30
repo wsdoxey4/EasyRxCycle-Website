@@ -22,7 +22,7 @@ const faqs = [
   { q: "Do ASCs need DEA Form 222?", a: "Yes, for transferring Schedule II drugs like fentanyl and morphine to a reverse distributor. Form 41 documents the destruction." },
   { q: "What's the best disposal option for a small surgery center?", a: "A DEA-registered reverse distributor with scheduled pickup or mail-back kits \u2014 compliant, documented, and low-overhead for limited staff." },
   { q: "How long do we keep disposal records?", a: "At least two years \u2014 DEA Forms 222 and 41, Certificates of Destruction, and controlled-drug logs." },
-  { q: "Can we destroy controlled substances on-site?", a: "It's legal but high-risk: you must render them irretrievable, complete Form 41, and capture two witness signatures. Most ASCs outsource to avoid audit findings." }
+  { q: "What should we do with expired controlled substances?", a: "Transfer them to a DEA-registered reverse distributor for incineration. The reverse distributor handles the Form 222 for Schedule II, completes DEA Form 41, and returns a Certificate of Destruction, so your team never has to destroy inventory itself." }
 ];
 
 const jsonLd = {
@@ -78,8 +78,6 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "The most reliable, compliant option. A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> collects, transports, and destroys your controls &mdash; handling DEA Form 222 for Schedule II, preparing Form 41, tracking chain of custody, and issuing a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. See our <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> service." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "2. Mail-back programs" }} />
             <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it; the DEA Form 41 paperwork is included." }} />
-            <h3 dangerouslySetInnerHTML={{ __html: "3. On-site destruction (limited use, higher risk)" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Legal but risky: you must render the drugs irretrievable, complete Form 41, capture two licensed witness signatures, and retain records for two years. DEA audits frequently find errors here." }} />
             <h2 id="forms" dangerouslySetInnerHTML={{ __html: "The DEA forms you must know" }} />
             <p dangerouslySetInnerHTML={{ __html: "Two forms cover you: <a href=\"/resources/dea-form-41-222/\">DEA Form 41 and Form 222</a>. Use Form 222 for Schedule II transfers and Form 41 to document destruction of any Schedule I&ndash;V drug. Keep the forms and your Certificates of Destruction for at least two years, and log everything in your controlled-substance log." }} />
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes that fail audits" }} />
