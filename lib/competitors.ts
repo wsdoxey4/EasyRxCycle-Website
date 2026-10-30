@@ -32,7 +32,7 @@ const CTL = inCategory("controlled").map((p) => money(p.cents));
 const CTL_LIST = CTL.join(" / ");
 const from = (cat: string) => money(fromPrice(cat));
 
-export const COMPETITORS: Competitor[] = [
+const ALL_COMPETITORS: Competitor[] = [
   {
     slug: "stericycle-alternative",
     name: "Stericycle",
@@ -367,6 +367,10 @@ export const COMPETITORS: Competitor[] = [
     ],
   },
 ];
+
+// 123 Compliant is held until William OKs its price comparison (their controlled boxes list lower than our kits).
+const HELD = new Set(["123-compliant-alternative"]);
+export const COMPETITORS = ALL_COMPETITORS.filter((c) => !HELD.has(c.slug));
 
 export const competitorBySlug = (slug: string) => COMPETITORS.find((c) => c.slug === slug);
 export const competitorSlugs = () => COMPETITORS.map((c) => c.slug);

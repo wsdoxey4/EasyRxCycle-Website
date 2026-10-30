@@ -8,7 +8,7 @@ import { COMPETITORS } from "@/lib/competitors";
 
 const PATH = "/compare";
 const TITLE = "Compare Easy Rx Cycle — Medical Waste Disposal Alternatives";
-const DESC = "Honest comparisons of Easy Rx Cycle vs. Stericycle (now WM), MedPro, Sharps Compliance (now Sharps MWS), Daniels Health, Rx Destroyer, 123 Compliant, Trilogy MedWaste, Sharps Assure, PureWay, and reverse distributors — published prices, no contract, every stream.";
+const DESC = "Honest comparisons of Easy Rx Cycle vs. Stericycle (now WM), MedPro, Sharps Compliance (now Sharps MWS), Daniels Health, Rx Destroyer, Trilogy MedWaste, Sharps Assure, PureWay, and reverse distributors — published prices, no contract, every stream.";
 
 export const metadata: Metadata = {
   title: TITLE, description: DESC, alternates: { canonical: PATH },
