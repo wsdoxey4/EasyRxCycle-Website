@@ -369,7 +369,7 @@ const ALL_COMPETITORS: Competitor[] = [
 ];
 
 // 123 Compliant is held until William OKs its price comparison (their controlled boxes list lower than our kits).
-const HELD = new Set(["123-compliant-alternative"]);
+const HELD = new Set(["123-compliant-alternative", "rx-destroyer-alternative"]);
 export const COMPETITORS = ALL_COMPETITORS.filter((c) => !HELD.has(c.slug));
 
 export const competitorBySlug = (slug: string) => COMPETITORS.find((c) => c.slug === slug);
