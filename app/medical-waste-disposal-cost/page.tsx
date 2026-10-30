@@ -6,6 +6,10 @@ import TrustBar from "@/components/TrustBar";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SITE, abs } from "@/lib/site";
+import { inCategory, money } from "@/lib/shop";
+
+// Controlled-substance kit prices for the reverse-distribution section, read from the catalog.
+const CTL = inCategory("controlled");
 
 const PATH = "/medical-waste-disposal-cost";
 const TITLE = "How Much Does Medical Waste Disposal Cost? (2026 Prices)";
@@ -84,6 +88,15 @@ export default function Page() {
               ))}
             </div>
             <p style={{ color: "var(--slate)", fontSize: "14px", marginTop: "14px" }}>Prices are per kit, one-time, and include prepaid return shipping + destruction + documentation. <a href="/pricing/" style={{ color: "var(--teal)", fontWeight: 600 }}>Full price list →</a></p>
+          </div>
+        </section>
+
+        {/* reverse distribution / controlled destruction cost */}
+        <section className="sec" style={{ paddingTop: "clamp(44px,6vw,72px)" }}>
+          <div className="wrap" style={{ maxWidth: "820px" }}>
+            <div className="shead"><span className="eyebrow">Controlled substances</span><h2>What reverse distribution costs.</h2></div>
+            <p className="lead" style={{ marginTop: "14px" }}>Most reverse distributors quote controlled-substance destruction privately. Ours is published: {CTL.map((p) => `${money(p.cents)} (${p.size})`).join(", ")}. Each kit includes the weight-rated mailer, prepaid shipping both ways, chain of custody, DEA-registered destruction, the DEA forms completed for you, and a Certificate of Destruction.</p>
+            <p style={{ color: "var(--slate)", fontSize: "14px", marginTop: "14px" }}>How other vendors price, what drives the number, and how credit can offset it: <a href="/blog/reverse-distributor-cost/" style={{ color: "var(--teal)", fontWeight: 600 }}>How much does a reverse distributor cost? →</a></p>
           </div>
         </section>
 

@@ -147,7 +147,7 @@ export default function Page() {
                     <tbody>
                       <tr><td><strong>DEA Form 41</strong></td><td>Records the destruction of controlled substances (Schedules I&ndash;V)</td><td>The registrant that destroys them</td></tr>
                       <tr><td><strong>DEA Form 222</strong></td><td>Transfers Schedule I and II drugs between registrants</td><td>The supplier and receiving registrant</td></tr>
-                      <tr><td><strong>DEA Form 106</strong></td><td>Reports theft or significant loss</td><td>The registrant that suffered the loss</td></tr>
+                      <tr><td><a href="/blog/dea-form-106/"><strong>DEA Form 106</strong></a></td><td>Reports theft or significant loss</td><td>The registrant that suffered the loss</td></tr>
                     </tbody>
                   </table>
                 </div>

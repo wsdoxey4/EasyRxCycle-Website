@@ -58,6 +58,20 @@ export default function ComparePage({ c }: { c: Competitor }) {
           </div>
         </section>
 
+        {c.sections?.map((s) => (
+          <section className="sec" key={s.h2} style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+            <div className="wrap" style={{ maxWidth: "820px" }}>
+              <div className="shead"><span className="eyebrow">{s.eyebrow}</span><h2>{s.h2}</h2></div>
+              <div className="prose" style={{ marginTop: "18px" }}>
+                {s.paras?.map((p) => (<p key={p} dangerouslySetInnerHTML={{ __html: p }} />))}
+                {s.list && (s.ordered
+                  ? <ol>{s.list.map((li) => (<li key={li} dangerouslySetInnerHTML={{ __html: li }} />))}</ol>
+                  : <ul>{s.list.map((li) => (<li key={li} dangerouslySetInnerHTML={{ __html: li }} />))}</ul>)}
+              </div>
+            </div>
+          </section>
+        ))}
+
         <section className="sec how" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
           <div className="wrap" style={{ maxWidth: "820px" }}>
             <div className="shead"><span className="eyebrow">Why facilities switch</span><h2>What you get with Easy Rx Cycle.</h2></div>
