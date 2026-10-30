@@ -85,6 +85,7 @@ export default function Page() {
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
           <div className="wrap"><div className="guideband"><div className="gb-body"><span className="eyebrow">Free guide · reverse distribution</span><h3>The Reverse Distribution Guide</h3><p>Creditable returns vs. destruction, what qualifies for credit, DSCSA chain-of-custody, and how controlled and hazardous returns are handled — plus a checklist and FAQ.</p></div><div className="gb-cta"><a className="btn btn-primary" href="/resources/reverse-distribution-guide/">Download the free guide <span className="ar">→</span></a><span className="gb-note">Free PDF · instant download</span></div></div></div>
+          <div className="wrap"><p style={{ color: "var(--slate)", fontSize: "15px", marginTop: "14px" }}>Comparing providers? See the <a href="/dea-reverse-distributor-directory/">DEA reverse distributor directory</a>: every registrant on DEA&rsquo;s published list, searchable by state.</p></div>
         </section>
 
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
