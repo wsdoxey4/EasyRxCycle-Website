@@ -30,7 +30,6 @@ const faqs = [
   { q: "Is controlled-substance destruction priced by weight or by item?", a: "Both show up. Some vendors price per box or per kit, some by weight, some per item or per visit. Our controlled kits are sized by weight and item count, so you pick the kit that fits what you have. Over 100 lbs, we quote it." },
   { q: "Do I pay extra for Schedule II drugs and Form 222?", a: "Schedule II transfers need a DEA Form 222, which adds paperwork, not necessarily cost. With our controlled substance kit you fill out one inventory list, and we complete the Form 222, the Schedule III–V transfer record, and Form 41 for you." },
   { q: "Can a reverse distributor get me money back?", a: "Sometimes. Returnable products can earn manufacturer credit under each manufacturer's return policy, which can offset some or all of the cost. Expired controls and items that aren't returnable go to destruction." },
-  { q: "Is it cheaper to destroy controlled substances on site?", a: "The supplies cost less, but on-site destruction of inventory still has to meet DEA's non-retrievable standard, with two employee witnesses and a completed Form 41. Count the staff time and the risk of a records gap. Many practices deactivate wasted doses on site and send expired inventory to a reverse distributor." },
 ];
 
 const jsonLd = {
@@ -73,7 +72,7 @@ export default function Page() {
                     <li><a href="#models">How reverse distributors price</a></li>
                     <li><a href="#drivers">What drives the cost</a></li>
                     <li><a href="#credit">Credit can offset the cost</a></li>
-                    <li><a href="#onsite">On-site destruction: the hidden costs</a></li>
+                    <li><a href="#onsite">Wasted doses vs. expired inventory</a></li>
                     <li><a href="#compare">How to compare quotes</a></li>
                   </ol>
                 </div>
@@ -131,9 +130,8 @@ export default function Page() {
                 <h2 id="credit">Credit can offset the cost</h2>
                 <p dangerouslySetInnerHTML={H(`For pharmacies especially, <a href="/our-solutions/reverse-distribution/">reverse distribution</a> isn't only a cost. In-date and returnable products can earn manufacturer credit under each manufacturer's return policy. Credit varies by product and policy, so treat it as an offset, not a guarantee. See <a href="/blog/reverse-distribution-vs-destruction/">reverse distribution vs. destruction</a> for how to sort the two.`)} />
 
-                <h2 id="onsite">On-site destruction: the hidden costs</h2>
-                <p dangerouslySetInnerHTML={H(`DEA's disposal rule (21 CFR 1317) lets a registrant destroy its own inventory, but it has to be rendered <strong>non-retrievable</strong>, witnessed by two authorized employees, and recorded on <a href="/blog/dea-form-41-requirements-and-pdf/">DEA Form 41</a>. The supplies are cheap. The staff time, the witnesses, and the risk of a records gap are not.`)} />
-                <p dangerouslySetInnerHTML={H(`A common middle path: deactivate <em>wasted</em> doses at the point of care with an <a href="/shop/on-site-medication-disposal-kit/">on-site medication disposal kit</a> (from ${money(fromPrice("medication-onsite"))}), and send expired <em>inventory</em> to a DEA-registered reverse distributor that completes Form 41 and returns a Certificate of Destruction.`)} />
+                <h2 id="onsite">Wasted doses vs. expired inventory</h2>
+                <p dangerouslySetInnerHTML={H(`Keep the two separate: deactivate <em>wasted</em> doses at the point of care with an <a href="/shop/on-site-medication-disposal-kit/">on-site medication disposal kit</a> (from ${money(fromPrice("medication-onsite"))}), and send expired <em>inventory</em> to a DEA-registered reverse distributor that completes Form 41 and returns a Certificate of Destruction.`)} />
 
                 <h2 id="compare">How to compare quotes</h2>
                 <ol>

@@ -107,7 +107,7 @@ export default function Page() {
                 <ul>
                   <li dangerouslySetInnerHTML={H("<strong>Breakage and spills you can account for.</strong> A dropped vial isn&rsquo;t a theft or loss. If the drug can be recovered, it&rsquo;s destroyed and recorded on <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a>. If it can&rsquo;t, document what happened in your inventory records.")} />
                   <li><strong>Wastage.</strong> The unused part of a dose that was drawn up and administered is recorded as wastage under your policy, usually with a witness, not reported on Form 106.</li>
-                  <li dangerouslySetInnerHTML={H("<strong>Expired stock.</strong> Expired controls aren&rsquo;t lost &mdash; they need destruction. Send them to a DEA-registered reverse distributor, or destroy on site with Form 41. See <a href=\"/blog/how-to-dispose-of-controlled-substances/\">how to dispose of controlled substances</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Expired stock.</strong> Expired controls aren&rsquo;t lost &mdash; they need destruction. Send them to a DEA-registered reverse distributor, which destroys them and completes Form 41. See <a href=\"/blog/how-to-dispose-of-controlled-substances/\">how to dispose of controlled substances</a>.")} />
                   <li><strong>A lost or stolen blank Form 222.</strong> Unused order forms are reported to DEA separately, not on Form 106.</li>
                 </ul>
                 <p>If a count discrepancy is later explained (a miscount or a recording error), document the correction. If you&rsquo;ve already filed, tell your DEA field office.</p>

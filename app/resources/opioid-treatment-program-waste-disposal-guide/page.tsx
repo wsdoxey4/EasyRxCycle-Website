@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "How does an opioid treatment program dispose of expired methadone?", a: "Expired or unwanted methadone is controlled inventory. Transfer it to a DEA-registered reverse distributor (Schedule II transfers use DEA Form 222), which destroys it and completes DEA Form 41, or destroy it on site to DEA's non-retrievable standard with two employee witnesses and a completed Form 41. Confirm any additional requirements with your State Opioid Treatment Authority." },
-  { q: "How do you dispose of expired Sublocade or Brixadi?", a: "Expired, damaged, or unwanted Sublocade or Brixadi syringes that were never administered are Schedule III inventory. They can go to a DEA-registered reverse distributor with a transfer record (no Form 222 needed for Schedule III), or be destroyed on site with Form 41. Both products are distributed under REMS programs, so follow the program's requirements too." },
+  { q: "How does an opioid treatment program dispose of expired methadone?", a: "Expired or unwanted methadone is controlled inventory. Transfer it to a DEA-registered reverse distributor (Schedule II transfers use DEA Form 222), which destroys it and completes DEA Form 41. Confirm any additional requirements with your State Opioid Treatment Authority." },
+  { q: "How do you dispose of expired Sublocade or Brixadi?", a: "Expired, damaged, or unwanted Sublocade or Brixadi syringes that were never administered are Schedule III inventory. They go to a DEA-registered reverse distributor with a transfer record (no Form 222 needed for Schedule III), which destroys them and completes Form 41. Both products are distributed under REMS programs, so follow the program's requirements too." },
   { q: "What do we do with a used Sublocade or Brixadi syringe?", a: "After an injection, the used syringe goes into an FDA-cleared sharps container. Record any unadministered amount as wastage under your policy. If a full dose wasn't given, document it and check the REMS program and your DEA field office for how to handle it." },
   { q: "Can an OTP take back patients' unused take-home doses?", a: "Only within what DEA and your state allow. Under 21 CFR 1317, narcotic treatment programs are among the registrants that can apply to become authorized collectors of patients' unwanted medications, subject to specific conditions. Many programs also have SAMHSA- and state-approved procedures for returned take-home bottles. Confirm your approach with your DEA field office and State Opioid Treatment Authority before accepting returns." },
   { q: "Is buprenorphine a controlled substance?", a: "Yes. Buprenorphine products, including sublingual tablets and films, Sublocade, and Brixadi, are Schedule III. Methadone is Schedule II." },
@@ -88,7 +88,7 @@ export default function Page() {
                 <h2 id="rules">The rules that apply</h2>
                 <ul>
                   <li dangerouslySetInnerHTML={H("<strong>Schedules.</strong> Methadone is <strong>Schedule II</strong>. Buprenorphine products &mdash; tablets, films, Sublocade, and Brixadi &mdash; are <strong>Schedule III</strong>.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>DEA disposal rule, 21 CFR 1317.</strong> Controlled substances must be destroyed to a <em>non-retrievable</em> state, either by transferring them to a DEA-registered reverse distributor or by destroying them on site with two employee witnesses and a <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>DEA disposal rule, 21 CFR 1317.</strong> Controlled substances must be destroyed to a <em>non-retrievable</em> state, and the destruction is recorded on <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a>. Transferring expired inventory to a DEA-registered reverse distributor is the simplest way to meet it.")} />
                   <li><strong>DEA recordkeeping, 21 CFR 1304.</strong> Inventories, dispensing records, and, for narcotic treatment programs, specific dispensing and administration records.</li>
                   <li><strong>SAMHSA and your State Opioid Treatment Authority (SOTA).</strong> Certification standards and state rules may add procedures, especially for take-home doses and returns.</li>
                   <li><strong>REMS programs.</strong> Sublocade and Brixadi are distributed under REMS programs that limit who can receive and administer them.</li>
@@ -107,7 +107,7 @@ export default function Page() {
 
                 <h2 id="injectables">Sublocade and Brixadi</h2>
                 <ul>
-                  <li><strong>Unused, expired, or damaged syringes</strong> are Schedule III inventory. Send them to a reverse distributor or destroy on site with Form 41, and follow the REMS program&rsquo;s requirements.</li>
+                  <li><strong>Unused, expired, or damaged syringes</strong> are Schedule III inventory. Send them to a DEA-registered reverse distributor, and follow the REMS program&rsquo;s requirements.</li>
                   <li><strong>Used syringes</strong> go into an FDA-cleared sharps container right after the injection.</li>
                   <li><strong>A dose that wasn&rsquo;t fully given</strong> should be documented in your administration record. Check the REMS program and your DEA field office for how to handle the remainder.</li>
                   <li><strong>Cold-chain failures.</strong> Product that has been out of required storage conditions is unusable inventory. Quarantine it, record it, and send it for destruction.</li>
