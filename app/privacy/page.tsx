@@ -47,6 +47,9 @@ export default function Page() {
       <p>If you check the texting box on our quote form, we may send text messages to the number you provide about your quote, orders and account. Message frequency varies, and message and data rates may apply. Reply <strong>STOP</strong> to opt out at any time or <strong>HELP</strong> for help, or contact us at <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>. Consent to receive texts is not a condition of purchase.</p>
       <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text-messaging opt-in data and consent are not shared with any third parties, except service providers (such as our messaging provider) that deliver messages on our behalf.</p>
 
+      <h2>YouTube API Services</h2>
+      <p>We use YouTube API Services to upload {SITE.name}&rsquo;s own videos to our own YouTube channel. By viewing our YouTube content you agree to the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube Terms of Service</a>; see also the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. We store only the video ID and link of our own uploads. You can revoke access at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>; we delete stored API data within 30 days of revocation or on request to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+
       <h2>Data retention &amp; security</h2>
       <p>We keep information only as long as needed for the purposes above or as required by law and regulation (for example, disposal records are retained per DEA and state requirements). We use administrative, technical, and physical safeguards to protect your information.</p>
 
