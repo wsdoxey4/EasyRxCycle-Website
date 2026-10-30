@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 const LATEST_N = RD_COMPANIES.filter((c) => c.onLatest).length;
+const SERVICE_N = RD_COMPANIES.filter((c) => c.onLatest && c.provider).length;
 const DROPPED = RD_COMPANIES.length - LATEST_N;
 const updated = new Date(RD_UPDATED + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 
@@ -48,7 +49,7 @@ export default function Page() {
             <Breadcrumbs items={[{ name: "DEA Reverse Distributor Directory" }]} />
             <span className="eyebrow">Reference · updated {updated}</span>
             <h1 className="ph1">DEA reverse distributor <span style={{ color: "var(--teal)" }}>directory.</span></h1>
-            <p className="lead" style={{ marginTop: "18px" }}>DEA publishes its list of registered reverse distributors as a PDF that can&rsquo;t be searched, and most university and state agency pages link to a copy that is years old. We read every copy of the list we could find, from 2015 to October 2025, and put it in one searchable table. <strong>{LATEST_N} registrants</strong> are on the most recent list; <strong>{DROPPED} more</strong> appear on older copies but not the latest one. Free to cite and link.</p>
+            <p className="lead" style={{ marginTop: "18px" }}>DEA publishes its list of registered reverse distributors as a PDF that can&rsquo;t be searched, and most university and state agency pages link to a copy that is years old. We read every copy of the list we could find, from 2015 to October 2025, and put it in one searchable table. <strong>{LATEST_N} registrants</strong> are on the most recent list, {SERVICE_N} of them companies that serve outside customers; <strong>{DROPPED} more</strong> appear on older copies but not the latest one. We also note who has been acquired or renamed since. Free to cite and link.</p>
           </div>
         </section>
 

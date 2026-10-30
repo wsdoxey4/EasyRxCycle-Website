@@ -9,6 +9,8 @@ export type RdCompany = {
   name: string;
   formerNames?: string[];
   website?: string;
+  note?: string; // ownership change (acquired / renamed), sourced
+  provider: boolean; // false = in-house or non-service registration (university, manufacturer, landfill...)
   hq: string; // "City, ST" as printed on the DEA list
   states: string[]; // states of the listed registrations (latest list where present)
   kind: RdKind;
@@ -38,11 +40,6 @@ export const RD_LISTS: { date: string; label: string; url: string }[] = [
     "date": "2024-08",
     "label": "DEA 'Registered Reverse Distributors' list (August 2024), hosted by UCF Environmental Health & Safety",
     "url": "https://ehs.ucf.edu/forms/dea-registered-reverse-distributors"
-  },
-  {
-    "date": "2024-02",
-    "label": "New York State Department of Health, Bureau of Narcotic Enforcement 'Reverse Distributor List: Surrender to Independent Companies' (Updated 2/22/2024), hosted by Stony Brook University Office of Research Compliance",
-    "url": "https://www.stonybrook.edu/research-compliance/_media/Reverse%20Distributors.pdf"
   },
   {
     "date": "2022-12",
@@ -84,6 +81,8 @@ export const RD_LISTS: { date: string; label: string; url: string }[] = [
 export const RD_COMPANIES: RdCompany[] = [
   {
     "name": "123 Compliant Logistics, LLC",
+    "website": "https://123compliant.com/",
+    "provider": true,
     "hq": "Phoenix, AZ",
     "states": [
       "AZ",
@@ -101,7 +100,10 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "21st Century Environmental Management of Nevada LLC",
-    "hq": "NV",
+    "website": "https://www.cleanearthinc.com",
+    "note": "A Clean Earth company (Clean Earth is now Veolia)",
+    "provider": false,
+    "hq": "Fernley, NV",
     "states": [
       "NV"
     ],
@@ -114,7 +116,13 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "3M Drug Delivery Systems",
-    "hq": "MN",
+    "formerNames": [
+      "3M Drug Delivery Systems"
+    ],
+    "website": "https://www.kindevadd.com/",
+    "note": "Now Kindeva Drug Delivery",
+    "provider": false,
+    "hq": "Woodbury, MN",
     "states": [
       "MN"
     ],
@@ -129,6 +137,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Achieva Group Returns, Inc.",
+    "provider": true,
     "hq": "OH",
     "states": [
       "OH"
@@ -145,7 +154,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Advanced Environmental Options, Inc.",
-    "hq": "SC",
+    "website": "https://aeoweb.com/",
+    "provider": true,
+    "hq": "Spartanburg, SC",
     "states": [
       "SC"
     ],
@@ -161,6 +172,7 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Advanced RX Returns"
     ],
+    "provider": true,
     "hq": "Jersey City, NJ",
     "states": [
       "NJ"
@@ -180,6 +192,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Aemerge Redpak Services Southern California, LLC",
+    "provider": true,
     "hq": "Hesperia, CA",
     "states": [
       "CA"
@@ -196,6 +209,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Almac Clinical Services",
+    "website": "https://www.almacgroup.com/clinical-services",
+    "provider": false,
     "hq": "Durham, NC",
     "states": [
       "NC"
@@ -218,8 +233,13 @@ export const RD_COMPANIES: RdCompany[] = [
     "name": "Arcwood Environmental",
     "formerNames": [
       "Heritage Thermal Services Inc.",
-      "Heritage - WTI"
+      "Heritage - WTI",
+      "Heritage Environmental Services",
+      "Heritage Thermal Services (East Liverpool, OH incinerator)"
     ],
+    "website": "https://www.arcwoodenviro.com",
+    "note": "Formerly Heritage (renamed 2025)",
+    "provider": false,
     "hq": "East Liverpool, OH",
     "states": [
       "OH"
@@ -241,6 +261,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Ark Business Services Inc. / Ark Rx Returns Solutions",
+    "website": "https://arkbs.com/",
+    "provider": true,
     "hq": "Bronx, NY",
     "states": [
       "NY"
@@ -262,6 +284,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Arkansas Redistributors, LLC dba Easy Rx Cycle",
+    "website": "https://easyrxcycle.com/",
+    "provider": true,
     "hq": "Little Rock, AR",
     "states": [
       "AR"
@@ -282,6 +306,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "ARX Returns, Inc.",
+    "provider": true,
     "hq": "FL",
     "states": [
       "FL"
@@ -295,6 +320,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Assured Waste Solutions, LLC",
+    "provider": true,
     "hq": "NC",
     "states": [
       "NC"
@@ -308,6 +334,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Bio-Haz Solutions, Inc.",
+    "website": "https://bio-haz.com",
+    "provider": false,
     "hq": "Nesquehoning, PA",
     "states": [
       "PA"
@@ -326,9 +354,12 @@ export const RD_COMPANIES: RdCompany[] = [
   {
     "name": "Capital Returns, Inc. dba Genco Pharmaceutical Services",
     "formerNames": [
-      "Capital Returns, Inc."
+      "Capital Returns, Inc.",
+      "GENCO Pharmaceutical Services"
     ],
-    "hq": "WI",
+    "note": "Assets acquired by Inmar (2019)",
+    "provider": true,
+    "hq": "Milwaukee, WI",
     "states": [
       "WI"
     ],
@@ -346,6 +377,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "CAVU Medical Products & Services LLC"
     ],
+    "website": "http://www.pharmatechservices.com/",
+    "provider": true,
     "hq": "Odessa, FL",
     "states": [
       "FL"
@@ -368,8 +401,12 @@ export const RD_COMPANIES: RdCompany[] = [
   {
     "name": "Clean Earth",
     "formerNames": [
-      "Stericycle Environmental Solutions"
+      "Stericycle Environmental Solutions",
+      "Stericycle Environmental Solutions (ESOL)"
     ],
+    "website": "https://www.cleanearthinc.com",
+    "note": "Now part of Veolia (2026)",
+    "provider": true,
     "hq": "",
     "states": [
       "PA",
@@ -392,7 +429,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Clean Harbors",
-    "hq": "",
+    "website": "https://www.cleanharbors.com",
+    "provider": true,
+    "hq": "Norwell, MA",
     "states": [
       "AR",
       "CT",
@@ -420,6 +459,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Complete Rx Returns dba CRX",
+    "website": "https://www.crxreturns.com/",
+    "provider": true,
     "hq": "Wilkes-Barre, PA",
     "states": [
       "PA"
@@ -440,7 +481,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "CoreRX Returns LLC",
-    "hq": "NY",
+    "website": "https://corerxreturns.com/",
+    "provider": true,
+    "hq": "Lynbrook, NY",
     "states": [
       "NY"
     ],
@@ -457,7 +500,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "D's Ventures, LLC dba Logmet Solutions"
     ],
-    "hq": "Redlands, CA",
+    "provider": true,
+    "hq": "Decatur, GA",
     "states": [
       "GA"
     ],
@@ -473,6 +517,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Danox Environmental Services",
+    "note": "Now part of Triumvirate Environmental",
+    "provider": true,
     "hq": "Cumming, GA",
     "states": [
       "GA"
@@ -494,7 +540,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "DFYoung",
-    "hq": "PA",
+    "website": "https://www.dfyoung.com/",
+    "provider": false,
+    "hq": "Berwyn, PA",
     "states": [
       "PA"
     ],
@@ -511,6 +559,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Drug & Laboratory Disposal, Inc."
     ],
+    "website": "http://www.dld-inc.com/",
+    "provider": true,
     "hq": "Plainwell, MI",
     "states": [
       "MI"
@@ -532,6 +582,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "E Z Pharmacy Returns, LLC",
+    "provider": true,
     "hq": "Anoka, MN",
     "states": [
       "MN"
@@ -552,6 +603,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Environmental Enterprises, Inc.",
+    "website": "https://www.eeienv.com",
+    "provider": false,
     "hq": "Cincinnati, OH",
     "states": [
       "OH"
@@ -571,6 +624,12 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "EQ Detroit, Inc.",
+    "formerNames": [
+      "EQ - The Environmental Quality Company (Detroit site)"
+    ],
+    "website": "https://www.republicservices.com/businesses/healthcare",
+    "note": "Now part of Republic Services",
+    "provider": true,
     "hq": "Detroit, MI",
     "states": [
       "MI"
@@ -590,6 +649,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "EXP Pharmaceutical Services Corporation",
+    "note": "Acquired by Inmar (2014)",
+    "provider": true,
     "hq": "CA",
     "states": [
       "CA"
@@ -603,6 +664,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Express Rx Returns",
+    "provider": true,
     "hq": "Dania Beach, FL",
     "states": [
       "FL"
@@ -622,6 +684,10 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Far West Returns",
+    "formerNames": [
+      "Far West Returns"
+    ],
+    "provider": true,
     "hq": "CA",
     "states": [
       "CA"
@@ -637,7 +703,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Flash Returns",
-    "hq": "OH",
+    "website": "https://wp.flashreturns.com/",
+    "provider": true,
+    "hq": "Cincinnati, OH",
     "states": [
       "OH"
     ],
@@ -650,6 +718,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Gaiaca, LLC",
+    "website": "https://gaiaca.com",
+    "provider": true,
     "hq": "Gonzales, CA",
     "states": [
       "CA"
@@ -666,6 +736,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Green Frontier Environmental Services LLC",
+    "provider": true,
     "hq": "VT",
     "states": [
       "VT"
@@ -683,6 +754,7 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Devos, Ltd. dba Guaranteed Returns"
     ],
+    "provider": true,
     "hq": "Holbrook, NY",
     "states": [
       "NY"
@@ -702,7 +774,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Hashemechad / Ecopharm",
-    "hq": "Hollywood, FL",
+    "website": "https://www.ecopharm.com/",
+    "provider": true,
+    "hq": "Dania Beach, FL",
     "states": [
       "FL"
     ],
@@ -719,6 +793,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "HDS Returns LLC",
+    "provider": true,
     "hq": "PA",
     "states": [
       "PA"
@@ -733,7 +808,12 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Inmar Rx Solutions, Inc.",
-    "hq": "Grand Prairie, TX",
+    "formerNames": [
+      "Med-Turn, Inc."
+    ],
+    "website": "https://www.inmar.com/",
+    "provider": true,
+    "hq": "Winston-Salem, NC",
     "states": [
       "TX"
     ],
@@ -754,7 +834,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "JG Environmental Disposal, LLC",
-    "hq": "PA",
+    "provider": true,
+    "hq": "Lancaster, PA",
     "states": [
       "PA"
     ],
@@ -767,7 +848,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Mahaska County Solid Waste Management Commission / Mahaska County Sanitary Landfill",
-    "hq": "IA",
+    "provider": false,
+    "hq": "Oskaloosa, IA",
     "states": [
       "IA"
     ],
@@ -780,6 +862,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Maks Pharma and Diagnostics Inc",
+    "provider": true,
     "hq": "NY",
     "states": [
       "NY"
@@ -793,6 +876,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Maximum Rx Credit, Inc.",
+    "provider": true,
     "hq": "Loganville, GA",
     "states": [
       "GA"
@@ -814,6 +898,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Med Safe Solutions USA LLC",
+    "provider": true,
     "hq": "FL",
     "states": [
       "FL"
@@ -827,6 +912,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Medsafe Waste LLC",
+    "provider": true,
     "hq": "TN",
     "states": [
       "TN"
@@ -844,6 +930,7 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Medwiz Solutions LLC, Returns Division"
     ],
+    "provider": true,
     "hq": "Bardonia, NY",
     "states": [
       "NY"
@@ -864,6 +951,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Megarx Returns LLC",
+    "provider": true,
     "hq": "NY",
     "states": [
       "NY"
@@ -880,6 +968,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "National Pharmaceutical"
     ],
+    "website": "https://www.npreturns.com/",
+    "provider": true,
     "hq": "Urbandale, IA",
     "states": [
       "IA"
@@ -901,6 +991,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "National Products Sales (Pharmaceutical Division)",
+    "provider": true,
     "hq": "Salt Lake City, UT",
     "states": [
       "UT"
@@ -919,6 +1010,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Nortru LLC",
+    "note": "Clean Earth subsidiary (Clean Earth is now Veolia)",
+    "provider": true,
     "hq": "Detroit, MI",
     "states": [
       "MI"
@@ -939,6 +1032,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Outdate Rx, LLC",
+    "website": "https://outdaterx.com/",
+    "provider": true,
     "hq": "Redlands, CA",
     "states": [
       "CA"
@@ -959,6 +1054,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "P.S. Industries Inc.",
+    "provider": true,
     "hq": "Seattle, WA",
     "states": [
       "WA"
@@ -983,6 +1079,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Returns R US Inc DBA Pharma Logistics LTD"
     ],
+    "website": "https://pharmalogistics.com/",
+    "provider": true,
     "hq": "Libertyville, IL",
     "states": [
       "IL"
@@ -1007,6 +1105,7 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Pharmamate dba Return Co"
     ],
+    "provider": true,
     "hq": "Chattanooga, TN",
     "states": [
       "TN"
@@ -1028,6 +1127,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Pharmaceutical Credit Company, LLC",
+    "provider": true,
     "hq": "TN",
     "states": [
       "TN"
@@ -1041,7 +1141,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Pharmaceutical Dimensions",
-    "hq": "NC",
+    "provider": true,
+    "hq": "Greensboro, NC",
     "states": [
       "NC"
     ],
@@ -1058,6 +1159,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Pharmaceutical Returns Services",
+    "website": "https://pharmreturns.net/",
+    "provider": true,
     "hq": "Sugar Grove, IL",
     "states": [
       "IL"
@@ -1079,6 +1182,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Pharmacy Returns Logistics",
+    "provider": true,
     "hq": "FL",
     "states": [
       "FL"
@@ -1092,6 +1196,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "PharmaLink",
+    "website": "https://pharmalinkinc.com/",
+    "provider": true,
     "hq": "Largo, FL",
     "states": [
       "FL"
@@ -1113,6 +1219,11 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "PharmaReturns",
+    "formerNames": [
+      "Cybornetic Systems, Inc. dba PharmaReturns, Inc."
+    ],
+    "note": "Acquired by PharmaLink (2023)",
+    "provider": true,
     "hq": "Montgomeryville, PA",
     "states": [
       "PA"
@@ -1132,6 +1243,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Pharmax Returns LLC",
+    "provider": true,
     "hq": "Bradenton, FL",
     "states": [
       "CO",
@@ -1149,7 +1261,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Prestigious Rx Returns dba PRX Returns",
-    "hq": "PA",
+    "provider": true,
+    "hq": "Sugar Notch, PA",
     "states": [
       "PA"
     ],
@@ -1162,6 +1275,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Progressive Returns",
+    "provider": true,
     "hq": "IL",
     "states": [
       "IL"
@@ -1175,6 +1289,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Qualanex, LLC",
+    "website": "https://www.qualanex.com/",
+    "note": "Now part of Inmar Intelligence",
+    "provider": true,
     "hq": "Libertyville, IL",
     "states": [
       "IL"
@@ -1196,6 +1313,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Quality Rx Returns, LLC",
+    "provider": true,
     "hq": "TN",
     "states": [
       "TN"
@@ -1209,6 +1327,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Regents of the University of Colorado",
+    "website": "https://research.cuanschutz.edu/",
+    "provider": false,
     "hq": "Aurora, CO",
     "states": [
       "CO"
@@ -1222,6 +1342,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Releaf LLC",
+    "provider": true,
     "hq": "AL",
     "states": [
       "AL"
@@ -1235,6 +1356,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Reliable Pharmaceutical Returns, LLC",
+    "website": "https://rpreturns.com/",
+    "provider": true,
     "hq": "Nashville, TN",
     "states": [
       "TN"
@@ -1259,6 +1382,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Return Logistics/International Corp."
     ],
+    "note": "Acquired by Triumvirate Environmental (2022)",
+    "provider": true,
     "hq": "Savannah, GA",
     "states": [
       "GA"
@@ -1278,6 +1403,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Return Solutions",
+    "website": "https://drugreturns.com/",
+    "provider": true,
     "hq": "Knoxville, TN",
     "states": [
       "TN"
@@ -1301,8 +1428,14 @@ export const RD_COMPANIES: RdCompany[] = [
     "name": "Reworld",
     "formerNames": [
       "Covanta Environmental Solutions, LLC",
-      "Environmental Pharmaceuticals, LLC (Covanta)"
+      "Environmental Pharmaceuticals, LLC (Covanta)",
+      "Covanta",
+      "Covanta Environmental Solutions",
+      "Chesapeake Waste Solutions (PA site, acquired 2015)"
     ],
+    "website": "https://www.reworldwaste.com",
+    "note": "Formerly Covanta (renamed 2024)",
+    "provider": true,
     "hq": "",
     "states": [
       "IN",
@@ -1328,6 +1461,8 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "RX Max Returns"
     ],
+    "website": "https://www.rxmaxreturns.com/",
+    "provider": true,
     "hq": "Mahwah, NJ",
     "states": [
       "NJ"
@@ -1344,6 +1479,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Rx Return Services",
+    "website": "https://rxrs.com/",
+    "provider": true,
     "hq": "Clearwater, FL",
     "states": [
       "FL"
@@ -1364,6 +1501,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Rx Reverse Distributors, Inc.",
+    "note": "Joined Pharma Logistics",
+    "provider": true,
     "hq": "Sebastian, FL",
     "states": [
       "FL"
@@ -1384,6 +1523,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Rx Secure Disposal, LLC",
+    "provider": true,
     "hq": "St. George, UT",
     "states": [
       "UT"
@@ -1402,6 +1542,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Safety-Kleen Systems, Inc.",
+    "website": "https://www.safety-kleen.com",
+    "note": "Part of Clean Harbors",
+    "provider": false,
     "hq": "Lexington, SC",
     "states": [
       "SC"
@@ -1418,6 +1561,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Sedgwick Claims Management Services, Inc.",
+    "website": "https://www.sedgwick.com/",
+    "provider": false,
     "hq": "",
     "states": [
       "IN"
@@ -1433,6 +1578,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Sharps Assure",
+    "website": "https://www.sharpsassure.com/",
+    "provider": true,
     "hq": "Freehold, NJ",
     "states": [
       "NJ"
@@ -1451,7 +1598,13 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Sharps Compliance, Inc.",
-    "hq": "Carthage, TX",
+    "formerNames": [
+      "Sharps Compliance, Inc."
+    ],
+    "website": "https://sharpsmws.com/",
+    "note": "Now Sharps Medical Waste Services",
+    "provider": true,
+    "hq": "Houston, TX",
     "states": [
       "TX"
     ],
@@ -1472,6 +1625,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "SMC Returns Corp",
+    "website": "https://www.smcreturns.com/",
+    "provider": true,
     "hq": "Hewlett, NY",
     "states": [
       "NY"
@@ -1490,7 +1645,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Specialty Disposal Services, Inc. (SDS)",
-    "hq": "Boyertown, PA",
+    "website": "https://specialtydisposal.com",
+    "provider": true,
+    "hq": "Mountain Lakes, NJ",
     "states": [
       "PA"
     ],
@@ -1510,6 +1667,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Stericycle",
+    "website": "https://www.stericycle.com",
+    "note": "Now part of WM (WM Healthcare Solutions)",
+    "provider": true,
     "hq": "",
     "states": [
       "FL",
@@ -1535,7 +1695,9 @@ export const RD_COMPANIES: RdCompany[] = [
     "formerNames": [
       "Burke Horton, Inc. dba The Rx Exchange"
     ],
-    "hq": "Norcross, GA",
+    "website": "https://therxe.com/",
+    "provider": true,
+    "hq": "Brighton, MI",
     "states": [
       "GA"
     ],
@@ -1556,6 +1718,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Total Returns",
+    "provider": true,
     "hq": "Marietta, OK",
     "states": [
       "OK"
@@ -1576,7 +1739,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Trilogy MedWaste Southeast, LLC",
-    "hq": "Gastonia, NC",
+    "website": "https://www.trilogymedwaste.com",
+    "provider": true,
+    "hq": "Houston, TX",
     "states": [
       "NC"
     ],
@@ -1595,7 +1760,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Tris Pharma Inc.",
-    "hq": "NJ",
+    "website": "https://www.trispharma.com/",
+    "provider": false,
+    "hq": "Monmouth Junction, NJ",
     "states": [
       "NJ"
     ],
@@ -1608,6 +1775,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Triumvirate Environmental",
+    "website": "https://www.triumvirate.com",
+    "provider": true,
     "hq": "Somerville, MA",
     "states": [
       "GA",
@@ -1627,6 +1796,7 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "U S Industrial Technologies, Inc.",
+    "provider": true,
     "hq": "Livonia, MI",
     "states": [
       "MI"
@@ -1646,6 +1816,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "UEG, Inc. dba Unitek Environmental Guam",
+    "website": "https://www.unitekguam.com",
+    "provider": false,
     "hq": "GU",
     "states": [
       "GU"
@@ -1660,6 +1832,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "United Returns, Inc. dba United Rx Solutions",
+    "website": "https://www.unitedrxsolutions.com/",
+    "provider": true,
     "hq": "Bohemia, NY",
     "states": [
       "NY"
@@ -1680,6 +1854,11 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "University of Minnesota / UHS",
+    "formerNames": [
+      "Health, Safety and Risk Management (HSRM)"
+    ],
+    "website": "https://uhs.umn.edu/",
+    "provider": false,
     "hq": "Minneapolis, MN",
     "states": [
       "MN"
@@ -1693,6 +1872,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "US Ecology",
+    "website": "https://www.republicservices.com/environmental-solutions",
+    "note": "Now part of Republic Services (2022)",
+    "provider": true,
     "hq": "",
     "states": [
       "NV",
@@ -1713,6 +1895,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Veolia ES Technical Solutions, L.L.C.",
+    "website": "https://www.veolianorthamerica.com",
+    "provider": true,
     "hq": "",
     "states": [
       "TX",
@@ -1735,6 +1919,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Washington State University Environmental Health and Safety",
+    "website": "https://ehs.wsu.edu/",
+    "provider": false,
     "hq": "Pullman, WA",
     "states": [
       "WA"
@@ -1748,7 +1934,8 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Woodfield Distribution, LLC",
-    "hq": "FL",
+    "provider": true,
+    "hq": "Boca Raton, FL",
     "states": [
       "FL"
     ],
@@ -1764,7 +1951,9 @@ export const RD_COMPANIES: RdCompany[] = [
   },
   {
     "name": "Zinvictus, Inc.",
-    "hq": "GA",
+    "website": "https://zinvictus.com/",
+    "provider": false,
+    "hq": "Manchester, GA",
     "states": [
       "GA"
     ],
@@ -1868,5 +2057,41 @@ export const RD_LIST_PAGES: { org: string; url: string; listDate: string; status
     "url": "https://www.stonybrook.edu/research-compliance/_media/Reverse%20Distributors.pdf",
     "listDate": "2024-02-22",
     "status": "Live; linked from https://www.stonybrook.edu/commcms/research-compliance/Controlled-Substances/Forms-and-Resources"
+  },
+  {
+    "org": "New York State Department of Health, Bureau of Narcotic Enforcement",
+    "url": "https://www.health.ny.gov/professionals/narcotic/licensing_and_certification/docs/reverse_distributor.pdf",
+    "listDate": "not printed; PDF created 2025-06-04 (file metadata)",
+    "status": "Live URL returns HTTP 403 to automated requests (checked 2026-10-30); Internet Archive capture 2026-01-05 read instead"
+  },
+  {
+    "org": "Becker's ASC Review (trade publication)",
+    "url": "https://www.beckersasc.com/pdfs/reversedistributor.pdf",
+    "listDate": "2011-04",
+    "status": "Not reachable at mail.beckersasc.com on 2026-10-30; Internet Archive capture 2022-12-11 read"
+  },
+  {
+    "org": "Malsparo (medical waste information website)",
+    "url": "https://www.malsparo.com/reverse.htm",
+    "listDate": "2020-08 ('As of August 2020')",
+    "status": "Live"
+  },
+  {
+    "org": "Arizona State Veterinary Medical Examining Board",
+    "url": "https://vetboard.az.gov/sites/default/files/documents/files/DEA%20Registered%20Reverse%20Distributors%20-%202016.pdf",
+    "listDate": "2016-01 (per search-result title)",
+    "status": "Could not open (bot-check, HTTP 403)"
+  },
+  {
+    "org": "Western University of Health Sciences, IACUC",
+    "url": "https://www.westernu.edu/research/research-committees/research-iacuc/controlled-substances/",
+    "listDate": "links to May 2019 list",
+    "status": "Live"
+  },
+  {
+    "org": "Kansas State University, Environmental Health and Safety",
+    "url": "https://www.k-state.edu/safety/docs/controlled_substance.pdf",
+    "listDate": "guide revised 2024-04-10; points to October 2021 list",
+    "status": "Live"
   }
 ];

@@ -15,12 +15,12 @@ export default function RdDirectory() {
   const rows = useMemo(() => {
     const s = q.trim().toLowerCase();
     return RD_COMPANIES
-      .filter((c) => all || c.onLatest)
+      .filter((c) => all || (c.onLatest && c.provider))
       .filter((c) => !st || c.states.includes(st))
       .filter((c) => !kind || c.kind === kind)
       .filter((c) => !s || [c.name, ...(c.formerNames || []), c.hq].some((v) => v.toLowerCase().includes(s)));
   }, [q, st, kind, all]);
-  const dropped = RD_COMPANIES.filter((c) => !c.onLatest).length;
+  const hidden = RD_COMPANIES.filter((c) => !(c.onLatest && c.provider)).length;
 
   return (
     <div>
@@ -36,7 +36,7 @@ export default function RdDirectory() {
         </select>
       </div>
       <label style={{ display: "flex", gap: "8px", alignItems: "center", fontSize: "14px", color: "var(--slate)", marginTop: "10px" }}>
-        <input type="checkbox" checked={all} onChange={(e) => setAll(e.target.checked)} /> Also show the {dropped} registrants on older DEA lists that are not on the {ym(RD_LATEST)} list
+        <input type="checkbox" checked={all} onChange={(e) => setAll(e.target.checked)} /> Also show the {hidden} registrants that are only on older DEA lists, or that register for in-house use (universities, manufacturers, a landfill) rather than serving customers
       </label>
       <p style={{ color: "var(--slate)", fontSize: "14px", margin: "8px 0 0" }}>Showing {rows.length} of {RD_COMPANIES.length}</p>
 
@@ -51,6 +51,8 @@ export default function RdDirectory() {
                 <th scope="row" style={{ fontWeight: 600 }}>
                   {c.website ? <a href={c.website} target="_blank" rel="noopener nofollow" style={{ color: "var(--teal)" }}>{c.name}</a> : c.name}
                   {c.formerNames?.length ? <div style={{ fontSize: "12.5px", color: "var(--slate)", fontWeight: 400 }}>also listed as {c.formerNames.join("; ")}</div> : null}
+                  {c.note ? <div style={{ fontSize: "12.5px", color: "var(--slate)", fontWeight: 400 }}>{c.note}</div> : null}
+                  {!c.provider ? <div style={{ fontSize: "12.5px", color: "var(--slate)", fontWeight: 400 }}>In-house registration; no public service found</div> : null}
                   {c.collector ? <div style={{ fontSize: "12.5px", color: "var(--slate)", fontWeight: 400 }}>Also noted as an authorized collector</div> : null}
                 </th>
                 <td>{c.hq || "—"}</td>

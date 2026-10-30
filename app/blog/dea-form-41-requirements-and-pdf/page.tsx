@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: "What is DEA Form 41 used for?", a: "DEA Form 41, the Registrant Record of Controlled Substances Destroyed, documents the destruction of controlled substances: what was destroyed, how much, the method, the date and place, and the two witnesses." },
-  { q: "Who fills out DEA Form 41?", a: "The registrant that actually destroys the controlled substances. If your practice destroys its own stock on site, you complete it. If you send expired controls to a DEA-registered company for destruction, that company completes Form 41 as the destroying registrant, and you keep the transfer paperwork and the Certificate of Destruction." },
+  { q: "Who fills out DEA Form 41?", a: "The registrant that actually destroys the controlled substances. When you send expired controls to a DEA-registered company for destruction, that company completes Form 41 as the destroying registrant, and you keep the transfer paperwork and the Certificate of Destruction." },
   { q: "Do I send DEA Form 41 to the DEA?", a: "Generally no. Form 41 is kept with your records and made available for inspection; it is not routinely mailed to DEA. Keep it at least two years, longer if your state requires." },
   { q: "How many witnesses does DEA Form 41 need?", a: "Two. Two authorized employees witness the destruction and sign the form by hand." },
   { q: "Where can I get the DEA Form 41 PDF?", a: "The official fillable PDF is published by the DEA Diversion Control Division on deadiversion.usdoj.gov. If a reverse distributor or destruction company handles your controls, they complete Form 41 for you." },
@@ -86,10 +86,9 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("You need one whenever controlled substances are destroyed: expired or unwanted inventory, recalled product, and controlled substances collected through take-back. It covers Schedules I through V.")} />
 
                 <h2 id="who">Who fills out DEA Form 41?</h2>
-                <p dangerouslySetInnerHTML={H("The registrant that <strong>actually destroys</strong> the drugs completes Form 41. That leaves two common situations:")} />
+                <p dangerouslySetInnerHTML={H("The registrant that <strong>actually destroys</strong> the drugs completes Form 41. When you send your controls to a DEA-registered company for destruction, that company completes Form 41 as the destroying registrant.")} />
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong>You destroy on site.</strong> Your practice or pharmacy completes Form 41 itself, with two of your authorized employees as witnesses.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>You send your controls out for destruction.</strong> The DEA-registered company that destroys them completes Form 41 as the destroying registrant. Your side of the paperwork is the transfer record &mdash; a <a href=\"/resources/dea-form-41-222/\">DEA Form 222</a> for Schedule I and II drugs, a transfer form for Schedules III&ndash;V &mdash; plus the <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Your side of the paperwork</strong> is the transfer record &mdash; a <a href=\"/resources/dea-form-41-222/\">DEA Form 222</a> for Schedule I and II drugs, a transfer form for Schedules III&ndash;V &mdash; plus the <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
                 </ul>
                 <p dangerouslySetInnerHTML={H("With an Easy Rx Cycle <a href=\"/shop/controlled-substance-mail-back-kit/\">Controlled Substance Mail-Back Kit</a>, you fill out one list &mdash; the Drug Inventory Manifest &mdash; and we complete the DEA Form 222, the Schedule III&ndash;V transfer form and Form 41, then send your Certificate of Destruction.")} />
 
@@ -138,7 +137,7 @@ export default function Page() {
                 </ul>
 
                 <h2 id="pdf">Where to get the DEA Form 41 PDF</h2>
-                <p dangerouslySetInnerHTML={H("The official fillable PDF is published by the DEA Diversion Control Division at <a href=\"https://www.deadiversion.usdoj.gov/\" target=\"_blank\" rel=\"noopener\">deadiversion.usdoj.gov</a>. If you&rsquo;d rather not destroy controls on site, a DEA-registered destruction company completes Form 41 for you &mdash; see <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a>.")} />
+                <p dangerouslySetInnerHTML={H("The official fillable PDF is published by the DEA Diversion Control Division at <a href=\"https://www.deadiversion.usdoj.gov/\" target=\"_blank\" rel=\"noopener\">deadiversion.usdoj.gov</a>. When you send controls to a DEA-registered destruction company, it completes Form 41 for you &mdash; see <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a>.")} />
 
                 <h2 id="vs">Form 41 vs. Form 222 vs. Form 106</h2>
                 <div style={{ overflowX: "auto" }}>
