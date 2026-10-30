@@ -111,7 +111,7 @@ export default function Page() {
                 <p>You&rsquo;ll run into four pricing models. None is wrong; they just make comparison hard.</p>
                 <ul>
                   <li dangerouslySetInnerHTML={H(`<strong>Published per kit or per box.</strong> You see the price and buy online. Few companies do this. We're one of them. Box capacity and what's included differ between vendors, so compare like for like.`)} />
-                  <li><strong>Quote only.</strong> Most of the industry prices privately, by phone or form. When we searched in October 2026, we found very few published per-item or per-pound destruction rates. Sharps Medical Waste Services&rsquo; online store, for example, lists products with quote prompts rather than prices.</li>
+                  <li><strong>Quote only.</strong> Most of the industry prices privately, by phone or form. When we searched in October 2026, we found very few published per-item or per-pound destruction rates.</li>
                   <li><strong>Per pound or per item.</strong> Common for larger cleanouts and pickups. Ask whether there&rsquo;s a minimum charge and whether packaging weight counts.</li>
                   <li><strong>A share of returned credit.</strong> For pharmacies returning creditable stock, some returns programs take a fee or a percentage of the credit recovered. Ask what happens to items that earn no credit; they still need destruction.</li>
                 </ul>
