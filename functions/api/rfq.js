@@ -75,7 +75,7 @@ export async function onRequestPost({ request, env }) {
       }
       results.resend = "sent"; results.reply = instantSent ? "instant-quote" : "personal";
     } catch { results.resend = "error"; }
-    results.sms = await sendSms(env, d);                                                                         // 3: personalized SMS (if phone + Twilio)
+    results.sms = await sendSms(env, d, instantSent);                                                            // 3: personalized SMS (if phone + Twilio)
   }
 
   // --- Portal: partner applications also land in the operating platform (admin Requests) ---
@@ -248,7 +248,7 @@ function clientEmail(d) {
     `Thanks for reaching out about ${a.noun} for your ${a.who} &mdash; that&rsquo;s exactly the kind of work we handle every day.`,
     `Whether it&rsquo;s prepaid mail-back kits or scheduled on-site pickup, we keep it simple: DEA-registered destruction, a Certificate of Destruction on every order, and no long-term contracts.`,
     `The quickest way to get you a price is to reach out to me directly &mdash; we can put together a quote for you fast, sized to your monthly volume.`,
-    `Call or text me anytime at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a>, or just reply to this email and I&rsquo;ll take care of it.`,
+    `Call me anytime at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a>, or just reply to this email and I&rsquo;ll take care of it.`,
   ];
   const inner = `
     <p style="${p}">Hi ${esc(firstName(d.name))},</p>
@@ -266,17 +266,33 @@ function confirmEmail(d) {
   const inner = `
     <p style="margin:0 0 14px;font-size:15px;color:#123A44;line-height:1.6;">Hi ${esc(firstName(d.name))},</p>
     <p style="margin:0 0 14px;font-size:15px;color:#123A44;line-height:1.6;">Thanks &mdash; we&rsquo;ve received your request for ${a.noun}. William Doxey will follow up shortly with your quote.</p>
-    <p style="margin:0 0 18px;font-size:15px;color:#123A44;line-height:1.6;">Need anything sooner? Call or text us at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a>.</p>
+    <p style="margin:0 0 18px;font-size:15px;color:#123A44;line-height:1.6;">Need anything sooner? Call us at <a href="tel:5019042929" style="color:#005770;font-weight:bold;text-decoration:none;">501-904-2929</a>.</p>
     <p style="margin:0;color:#55646B;font-size:14px;">&mdash; The Easy Rx Cycle team</p>`;
   return shell("We've received your request — William will follow up shortly.", inner);
 }
 // (3) Personalized SMS via Twilio — only if the lead opted in to texts (separate checkbox) and Twilio creds are set.
-async function sendSms(env, d) {
+// From William, naming the streams they picked. Replies to TWILIO_FROM land in /api/sms-inbound (emailed to sales@ +
+// William) — 501-904-2929 is voice-only, so never ask anyone to text it.
+const SMS_STREAM = { "Sharps": "sharps", "Biohazard / RMW": "biohazard", "Pharmaceutical": "pharmaceutical waste", "Controlled substances": "controlled substance",
+  "RCRA hazardous": "RCRA hazardous waste", "Trace chemo": "trace chemo", "Medication kits": "medication disposal kit", "Reverse distribution": "reverse distribution" };
+function streamPhrase(streams) {
+  const xs = String(streams || "").split(",").map((x) => SMS_STREAM[x.trim()]).filter(Boolean);
+  if (!xs.length) return "";
+  const list = xs.length === 1 ? xs[0] : xs.length === 2 ? `${xs[0]} and ${xs[1]}` : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+  return `${list} disposal`;
+}
+async function sendSms(env, d, instantSent) {
   if (!d.phone) return "no phone";
   if (!d.smsConsent) return "skipped (no SMS opt-in)";
   if (!(env.TWILIO_ACCOUNT_SID && env.TWILIO_AUTH_TOKEN && env.TWILIO_FROM)) return "skipped (Twilio not set)";
-  const a = icpAngle(d.role);
-  const body = `Easy Rx Cycle: Hi ${firstName(d.name)} — thanks for reaching out about ${a.noun} for your ${a.who}. William is putting your quote together and will follow up shortly. Call or text 501-904-2929 anytime. Reply STOP to opt out.`;
+  const what = streamPhrase(d.streams) || icpAngle(d.role).noun;
+  const fn = firstName(d.name);
+  const body = [
+    `Hi${fn ? " " + fn : ""}, this is William with Easy Rx Cycle. Thanks for your quote request for ${what}.`,
+    instantSent ? "Your pricing is in your inbox now, and you can order anytime at easyrxcycle.com/shop." : "I'm putting your quote together and will follow up shortly.",
+    /Controlled/i.test(String(d.streams || "")) ? "Have your DEA number handy when you order." : "",
+    "Questions? Just reply to this text. Reply STOP to opt out.",
+  ].filter(Boolean).join(" ");
   try {
     const b = new URLSearchParams({ To: String(d.phone), From: env.TWILIO_FROM, Body: body });
     const r = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${env.TWILIO_ACCOUNT_SID}/Messages.json`, {
