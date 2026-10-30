@@ -21,11 +21,18 @@ export type Competitor = {
   edges: string[];      // why switch — our verifiable advantages
   faqs: { q: string; a: string }[];
   sections?: CompareSection[];
+  // Optional list-price comparison, rendered under the feature table. Only sizes where both
+  // companies publish a price; `source` names where and when their prices were checked.
+  prices?: { rows: { item: string; them: string; us: string }[]; source: string };
 };
 
 import { inCategory, fromPrice, money } from "@/lib/shop";
 
 const US = "Easy Rx Cycle";
+
+const kit = (sku: string) => inCategory(sku.split("-")[1] === "SHP" ? "sharps" : "chemo").find((p) => p.sku === sku)!;
+const perGal = (p: { cents: number; size: string }) => money(Math.round(p.cents / parseFloat(p.size)));
+const SHP2 = kit("ERX-SHP-02G-EA"), CHM18 = kit("ERX-CHM-18G-EA"), CHM28 = kit("ERX-CHM-28G-EA");
 
 // Our controlled-substance kit prices, read from the shop catalog (never hard-coded).
 const CTL = inCategory("controlled").map((p) => money(p.cents));
@@ -134,6 +141,13 @@ const ALL_COMPETITORS: Competitor[] = [
       { feature: "Controlled / DEA", them: "Offered", us: "DEA-registered destruction + Form 41/222" },
       { feature: "Contract", them: "Varies", us: "None" },
     ],
+    prices: {
+      rows: [
+        { item: "2-gallon sharps mail-back", them: "$98.50", us: money(SHP2.cents) },
+        { item: "Trace chemo, about 20 gallons", them: "$512.75 for 20 gal ($25.64/gal)", us: `${money(CHM18.cents)} for 18 gal (${perGal(CHM18)}/gal) · ${money(CHM28.cents)} for 28 gal (${perGal(CHM28)}/gal)` },
+      ],
+      source: "Sharps MWS list prices from store.sharpsmws.com, checked October 30, 2026; its store adds a 3% surcharge on card payments. Our price includes the container, prepaid shipping both ways, destruction, and a Certificate of Destruction. Compare the sizes you actually use.",
+    },
     edges: [
       "Controlled substances destroyed by a DEA-registered reverse distributor, with Form 41 completed for you.",
       "One vendor for all 8 regulated streams, from sharps to RCRA hazardous drugs.",

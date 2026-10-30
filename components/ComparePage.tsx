@@ -55,6 +55,22 @@ export default function ComparePage({ c }: { c: Competitor }) {
                 </tbody>
               </table>
             </div>
+            {c.prices && (
+              <>
+                <div className="shead" style={{ marginTop: "clamp(28px,4vw,40px)" }}><h3>Published prices, side by side</h3></div>
+                <div style={{ overflowX: "auto" }}>
+                  <table className="ctable">
+                    <thead><tr><th>Kit</th><th>{c.name}</th><th style={{ color: "var(--teal)" }}>Easy Rx Cycle</th></tr></thead>
+                    <tbody>
+                      {c.prices.rows.map((r) => (
+                        <tr key={r.item}><th scope="row">{r.item}</th><td>{r.them}</td><td className="us">{r.us}</td></tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p style={{ marginTop: "12px", fontSize: "14px", color: "var(--muted,#42565c)" }}>{c.prices.source}</p>
+              </>
+            )}
           </div>
         </section>
 

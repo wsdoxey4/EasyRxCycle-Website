@@ -10,6 +10,7 @@ import { SITE, abs } from "@/lib/site";
 import { STATES, stateBySlug, stateSlugs } from "@/lib/geo";
 import { notFound } from "next/navigation";
 import { StateIndustryLinks } from "@/components/IndustryStateLinks";
+import { fromPrice, money } from "@/lib/shop";
 
 const BASE = "/locations";
 
@@ -25,9 +26,10 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   // City-first wording: these pages rank for "[city] medical waste" searches, so the snippet should say the city.
   // Absolute title (no brand suffix) keeps the city inside Google's ~60-character cutoff.
   const dc = s.slug === "washington-dc";
-  const title = dc ? "Washington, DC Medical Waste Disposal | Pickup & Mail-Back" : `${s.name} Medical Waste Disposal | ${s.cities[0]} & Statewide`;
+  // "Medical & Chemo": many of these pages get "chemotherapy waste disposal [city]" impressions. Every state fits ~60 characters.
+  const title = dc ? "Washington, DC Medical Waste Disposal | Pickup & Mail-Back" : `${s.name} Medical & Chemo Waste Disposal | ${s.cities[0]}`;
   const where = dc ? "Washington, DC" : `${s.cities.slice(0, 2).join(", ")} and all of ${s.name}`;
-  const desc = `Medical waste mail-back and pickup in ${where}: sharps, biohazard, pharmaceutical & DEA controlled substances. No contracts, Certificate of Destruction included.`;
+  const desc = `Medical waste mail-back and pickup in ${where}: sharps, biohazard, trace chemo, pharmaceutical & DEA controlled substances. No contracts, Certificate of Destruction included.`;
   return {
     title: { absolute: title }, description: desc, alternates: { canonical: path },
     openGraph: { type: "website", title: `${title} — ${SITE.name}`, description: desc, url: abs(path), images: [{ url: SITE.ogImage }] },
@@ -53,6 +55,29 @@ const STREAMS = [
   { slug: "reverse-distribution", name: "Reverse distribution", blurb: "Credit recovery + destruction.", waste: "Expired but returnable inventory you want processed for manufacturer credit" },
 ];
 
+// City sections for the cities that drive the most "[city] medical waste" / "chemotherapy waste disposal [city]"
+// impressions (GSC, Oct 2026). Keep each paragraph specific to how that city's facilities use the service.
+const CITY_FOCUS: Record<string, { city: string; text: string }[]> = {
+  kentucky: [
+    { city: "Louisville", text: "Hospitals, oncology groups, and infusion centers across Louisville and Jefferson County use our trace chemo kits for RCRA-empty vials, tubing, and PPE, next to sharps and pharmaceutical kits. Sites with steady volume can add scheduled pickup by quote." },
+    { city: "Lexington", text: "Lexington clinics, compounding pharmacies, and veterinary practices ship trace chemo, sharps, and expired medications by prepaid mail-back, so a small stream never needs a hauler contract or a route stop." },
+    { city: "Bowling Green", text: "Practices in Bowling Green and south-central Kentucky get the same kits and paperwork as a Louisville hospital: delivered to any ZIP, prepaid both ways, and a Certificate of Destruction on every order." },
+  ],
+  ohio: [
+    { city: "Columbus", text: "Columbus infusion suites, oncology practices, and hospital pharmacies use yellow trace chemo kits for RCRA-empty chemo waste, and send unused or partial doses down the separate RCRA hazardous path." },
+    { city: "Cincinnati", text: "Cincinnati clinics and surgery centers that generate a few gallons of trace chemo or sharps a month ship by mail instead of paying for a hauler stop and fuel surcharges." },
+    { city: "Cleveland", text: "Cleveland practices and multi-site groups order kits sized to each location, with one Certificate of Destruction per container for the records." },
+  ],
+  massachusetts: [
+    { city: "Boston", text: "Boston physician offices, dental and med spa practices, and research-adjacent clinics use mail-back for sharps, biohazard, trace chemo, and pharmaceutical waste, without a hauler contract or minimum." },
+    { city: "Cambridge and Worcester", text: "Smaller sites outside downtown Boston get the same kits and documentation, delivered to any Massachusetts address and returned prepaid." },
+  ],
+  "new-jersey": [
+    { city: "Atlantic City", text: "Atlantic City and Atlantic County practices, urgent care centers, and pharmacies use prepaid mail-back for sharps, biohazard, and trace chemo, with a Certificate of Destruction on every container." },
+    { city: "Newark and Jersey City", text: "North Jersey offices with steady volume can pair mail-back with scheduled pickup by quote, keeping every stream with one vendor." },
+  ],
+};
+
 export default async function Page({ params }: { params: Promise<{ state: string }> }) {
   const { state } = await params;
   const s = stateBySlug(state);
@@ -71,6 +96,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
     { q: `Is mail-back medical waste disposal legal in ${s.name}?`, a: `Yes — our mail-back packaging is DOT-approved (UN3291) and compliant in ${s.name}. It's the simplest way for ${s.cities[0]} and statewide facilities to dispose of sharps, biohazard, and pharmaceutical waste, with tracking and documentation on every order.` },
     { q: `Do you offer scheduled pickup in ${s.name}?`, a: `Yes — scheduled pickup is available across ${s.name} for higher-volume sites, and prepaid mail-back reaches every ZIP from ${s.cities[0]} to ${lastCity}. We match the option to your volume.` },
     { q: `What types of medical waste can you handle in ${s.name}?`, a: `All of them — sharps, biohazard/RMW, pharmaceutical, controlled substances, RCRA-hazardous drugs, trace chemotherapy, patient medication take-back, and reverse distribution. One ${s.name} partner for every stream, so nothing gets mis-routed.` },
+    { q: `Do you handle chemotherapy waste disposal in ${s.cities[0]} and across ${s.name}?`, a: `Yes, for trace chemo: RCRA-empty vials, syringes, IV bags, tubing, and contaminated gowns and gloves go in our yellow trace chemo mail-back kits, from ${money(fromPrice("chemo"))}, delivered to any ${s.name} address with prepaid return shipping, incineration, and a Certificate of Destruction. Bulk chemo (unused drug, partial doses, spill cleanup) is not trace waste; it is managed as RCRA hazardous waste on a separate path.` },
     { q: `Is there a contract for service in ${s.name}?`, a: `No — mail-back kits have no contract or monthly minimum, and pickup plans are flexible. Order what your ${s.name} facility needs, when you need it.` },
     { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — we serve ${cityList} and communities across all of ${s.name}, with mail-back to any address and scheduled pickup statewide.` },
   ];
@@ -78,7 +104,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${abs(path)}#service`, name: `Medical Waste Disposal in ${s.name}`, serviceType: "Medical & pharmaceutical waste disposal", description: desc, provider: { "@id": `${SITE.url}/#organization` }, areaServed: { "@type": "State", name: s.name }, url: abs(path) },
+      { "@type": "Service", "@id": `${abs(path)}#service`, name: `Medical Waste Disposal in ${s.name}`, serviceType: "Medical & pharmaceutical waste disposal", description: desc, provider: { "@id": `${SITE.url}/#organization` }, areaServed: [{ "@type": "State", name: s.name }, ...(CITY_FOCUS[s.slug] ?? []).flatMap((c) => c.city.split(" and ")).map((name) => ({ "@type": "City", name }))], url: abs(path) },
       { "@type": "FAQPage", "@id": `${abs(path)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
       { "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
@@ -124,6 +150,20 @@ export default async function Page({ params }: { params: Promise<{ state: string
             </div>
           </div>
         </section>
+
+        {CITY_FOCUS[s.slug] && (
+          <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+            <div className="wrap" style={{ maxWidth: "920px" }}>
+              <div className="shead"><span className="eyebrow">Local service</span><h2>Medical and chemo waste disposal in {CITY_FOCUS[s.slug][0].city} and across {s.name}.</h2></div>
+              <div className="prose" style={{ marginTop: "18px" }}>
+                {CITY_FOCUS[s.slug].map((c) => (
+                  <div key={c.city}><h3>{c.city}</h3><p>{c.text}</p></div>
+                ))}
+                <p>See <a href={link("trace-chemotherapy-waste")}>trace chemo disposal in {s.name}</a> for kit sizes, or <a href="/get-a-quote/">get a quote</a> for pickup.</p>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* decision guide — educator */}
         <section className="sec how" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
