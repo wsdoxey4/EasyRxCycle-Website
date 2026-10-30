@@ -9,6 +9,12 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceStates from "@/components/ServiceStates";
 import { SITE, abs } from "@/lib/site";
+import { inCategory, money, fromPrice } from "@/lib/shop";
+
+const CHEMO = inCategory("chemo");
+const gal = (size: string) => parseFloat(size);
+const CHEMO_FIT = ["A single prep area or occasional infusions", "A small infusion suite", "A busy infusion center or compounding room", "High volume, fewer shipments"];
+const RANGE = `${money(fromPrice("chemo"))} to ${money(Math.max(...CHEMO.map((p) => p.cents)))}`;
 
 const PATH = "/our-solutions/trace-chemotherapy-waste";
 const TITLE = "Trace Chemotherapy Waste Disposal | Yellow-Container Chemo";
@@ -25,6 +31,7 @@ const faqs = [
   { q: "What is trace chemotherapy waste?", a: "Trace chemo waste is materials contaminated with only residual (trace) amounts of chemotherapy drugs \u2014 empty vials and syringes, IV bags, tubing, and contaminated PPE \u2014 generally defined as RCRA-empty with under 3% residual by weight. It goes in yellow containers and is incinerated." },
   { q: "What\u2019s the difference between trace and bulk chemo waste?", a: "Trace chemo is contaminated materials with residual drug; bulk chemo is unused drug, spill cleanup, or containers with more than trace amounts. Bulk chemo must be managed as RCRA-hazardous waste, and our trace kits don't accept it." },
   { q: "What color container is used for trace chemo?", a: "Yellow containers labeled for trace chemotherapy waste. They\u2019re used for empty chemo vials, tubing, IV bags, and contaminated PPE destined for incineration." },
+  { q: "How much does trace chemo disposal cost?", a: `Our trace chemo mail-back kits run ${RANGE}, depending on size. Each price includes the yellow container, prepaid shipping both ways, incineration at a permitted facility, and a Certificate of Destruction. No route fees and no contract.` },
   { q: "Does trace chemo have to be incinerated?", a: "Yes \u2014 trace chemotherapy waste is destroyed by incineration at a permitted facility. We handle transport and provide a Certificate of Destruction." },
   { q: "How does this relate to USP 800?", a: "USP 800 governs safe handling of hazardous drugs, including chemo, to protect staff. Proper trace-chemo segregation and disposal is part of a compliant hazardous-drug program." }
 ];
@@ -90,6 +97,29 @@ export default function Page() {
               <div className="step"><div className="n">3</div><h4>Compliant transport</h4><p>Shipped to a permitted incineration facility under the correct documentation.</p></div>
               <div className="step"><div className="n">4</div><h4>Incinerated + documented</h4><p>Destroyed by incineration &mdash; Certificate of Destruction returned to your account.</p></div>
             </div>
+          </div>
+        </section>
+
+        <section className="sec" id="cost" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Pricing</span><h2>What trace chemo disposal costs.</h2><p className="lead">One flat price per kit: the yellow container, shipping both ways, incineration, and your Certificate of Destruction. No route fees, no fuel surcharges, no contract.</p></div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="ctable">
+                <thead><tr><th>Kit size</th><th>Price</th><th>Per gallon</th><th>Usually fits</th></tr></thead>
+                <tbody>
+                  {CHEMO.map((p, i) => (
+                    <tr key={p.sku}><th><a href="/shop/trace-chemo-mail-back-kit/">{p.size}</a></th><td className="us">{money(p.cents)}</td><td>{money(Math.round(p.cents / gal(p.size)))}</td><td>{CHEMO_FIT[i] ?? ""}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="shead" style={{ marginTop: "clamp(28px,4vw,40px)" }}><h3>Three ways facilities overpay</h3></div>
+            <ul className="covers">
+              <li>{check}<span dangerouslySetInnerHTML={{ __html: `<strong>Sending trace waste as hazardous.</strong> RCRA-empty vials, tubing, and PPE belong in a trace kit (from ${money(fromPrice("chemo"))}), not a hazardous waste kit (from ${money(fromPrice("hazardous"))}). Segregating at the point of use keeps the cheaper stream cheap.` }} /></li>
+              <li>{check}<span dangerouslySetInnerHTML={{ __html: "<strong>Shipping containers half full.</strong> Larger kits cost less per gallon. Pick the size you can fill in a reasonable time, and keep the container closed between uses." }} /></li>
+              <li>{check}<span dangerouslySetInnerHTML={{ __html: "<strong>Paying route fees for a small stream.</strong> A trace kit ships by mail, so a few gallons a month doesn&rsquo;t need a hauler stop or a fuel surcharge." }} /></li>
+            </ul>
+            <p style={{ marginTop: "14px" }} dangerouslySetInnerHTML={{ __html: "The reverse is not a savings: bulk chemo (unused drug, partial doses, spill cleanup) never goes in a trace container. It is managed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA hazardous waste</a> on a separate path. Over 28 gallons a month, or several locations? <a href=\"/get-a-quote/\">Get a quote</a> and we&rsquo;ll price a program." }} />
           </div>
         </section>
 
