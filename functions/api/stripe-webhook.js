@@ -25,6 +25,26 @@ const STREAM_BY_PREFIX = {
 const streamOf = (sku) => STREAM_BY_PREFIX[(sku || "").slice(0, 7)] || "other";
 const parseCart = (str) => { try { const c = JSON.parse(str || "[]"); return Array.isArray(c) ? c : []; } catch { return []; } };
 const tsIso = (unixSecs) => new Date(unixSecs ? unixSecs * 1000 : Date.now()).toISOString();
+const itemName = (it) => (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit";
+
+// Controlled-kit expedite add-on (+$250). checkout.js charges it as its own Stripe line, but the compact cart
+// metadata only lists kits — so count it here: Stripe's own line items first, else the subtotal gap.
+const EXPEDITE_CENTS = 25000;
+const hasControlled = (cart) => (cart || []).some((it) => String(it.s || "").startsWith("ERX-CTL"));
+const cartCents = (cart) => (cart || []).reduce((a, it) => a + (Number(it.c) || 0) * (Number(it.q) || 1), 0);
+function expediteFromGap(cart, subtotal) {
+  if (!hasControlled(cart) || subtotal == null) return 0;
+  const gap = Number(subtotal) - cartCents(cart);
+  return gap > 0 && gap % EXPEDITE_CENTS === 0 ? gap / EXPEDITE_CENTS : 0;
+}
+async function expediteCount(env, s, cart) {
+  if (!hasControlled(cart)) return 0;
+  if (env.STRIPE_SECRET_KEY && s.id) {
+    const li = await stripeGet(`checkout/sessions/${s.id}/line_items?limit=100`, env.STRIPE_SECRET_KEY);
+    if (li && Array.isArray(li.data)) return li.data.filter((l) => /^expedited service/i.test(l.description || "")).reduce((a, l) => a + (Number(l.quantity) || 1), 0);
+  }
+  return expediteFromGap(cart, s.amount_subtotal);
+}
 
 export function onRequestGet({ env }) {
   return new Response(JSON.stringify({ ok: true, configured: Boolean(env.STRIPE_WEBHOOK_SECRET && env.PORTAL_SUPABASE_SERVICE_KEY), renewals: Boolean(env.STRIPE_SECRET_KEY) }),
@@ -68,9 +88,10 @@ export async function onRequestPost({ request, env }) {
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
     const m = s.metadata || {};
     const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null, gbraid: m.attr_gbraid || null, wbraid: m.attr_wbraid || null, msclkid: m.attr_msclkid || null };
-    const _resp = await ingest(db, { extRef: s.id, cart, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
-    await orderEmails(env, { buyer, cart, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
-    await orderToHubspot(env, { buyer, cart, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
+    const expedite = await expediteCount(env, s, cart).catch(() => expediteFromGap(cart, s.amount_subtotal));
+    const _resp = await ingest(db, { extRef: s.id, cart, expedite, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
+    await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    await orderToHubspot(env, { buyer, cart, expedite, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
     if (s.total_details?.amount_discount > 0) await rewardReferrer(env, db, s, buyer).catch(() => {});
     return _resp;
   }
@@ -114,9 +135,10 @@ export async function onRequestPost({ request, env }) {
     if (!cart.length) return new Response("no cart on subscription", { status: 200 });
     const sh = inv.customer_shipping || {};
     const buyer = { email: (inv.customer_email || "").toLowerCase(), name: sh.name || inv.customer_name, phone: sh.phone || inv.customer_phone, addr: sh.address || inv.customer_address || {} };
-    const _resp = await ingest(db, { extRef: inv.id, cart, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total } });
-    await orderEmails(env, { buyer, cart, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase() }).catch(() => {});
-    await orderToHubspot(env, { buyer, cart, totals: { total: inv.amount_paid ?? inv.total }, orderRef: String(inv.id || "").slice(-8).toUpperCase(), source: "autoship", placedAtSec: inv.created, kind: "renewal" }).catch(() => {});
+    const expedite = expediteFromGap(cart, inv.subtotal);
+    const _resp = await ingest(db, { extRef: inv.id, cart, expedite, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total } });
+    await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    await orderToHubspot(env, { buyer, cart, expedite, totals: { total: inv.amount_paid ?? inv.total }, orderRef: String(inv.id || "").slice(-8).toUpperCase(), source: "autoship", placedAtSec: inv.created, kind: "renewal" }).catch(() => {});
     return _resp;
   }
 
@@ -193,7 +215,7 @@ async function resolveClientSite(db, buyer, createIfMissing = true, attribution 
 
 // Insert orders (split by stream × on-site/mail-back) + order_items for a paid cart,
 // inheriting partner attribution + a contract-pricing review flag from the matched client.
-async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionRef, paymentRef, totals, attribution }) {
+async function ingest(db, { extRef, cart, expedite, buyer, placedAt, source, subscriptionRef, paymentRef, totals, attribution }) {
   const already = await db(`orders?ext_ref=eq.${encodeURIComponent(extRef)}&select=id`).then((r) => r.json()).catch(() => []);
   if (Array.isArray(already) && already.length) return new Response("already processed", { status: 200 });
 
@@ -212,9 +234,11 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
   const groups = {};
   for (const it of cart) { const k = streamOf(it.s) + "|" + (isOnsite(it.s) ? "on" : "mb"); (groups[k] ||= []).push(it); }
 
+  let expediteLeft = Number(expedite) || 0;   // the fee rides on the controlled order so revenue matches what was charged
   for (const [key, items] of Object.entries(groups)) {
     const [stream, kind] = key.split("|");
-    const amount = items.reduce((a, it) => a + (Number(it.c) || 0) * (Number(it.q) || 1), 0);
+    let amount = items.reduce((a, it) => a + (Number(it.c) || 0) * (Number(it.q) || 1), 0);
+    if (expediteLeft && stream === "controlled") { amount += expediteLeft * EXPEDITE_CENTS; expediteLeft = 0; }
     // order_no is assigned by the DB sequence default (collision-proof) — omit it here so the default applies.
     const ord = await db(`orders`, {
       method: "POST", headers: { Prefer: "return=representation" },
@@ -235,7 +259,8 @@ async function ingest(db, { extRef, cart, buyer, placedAt, source, subscriptionR
     const invNo = "R-" + String(extRef).slice(-10).toUpperCase();
     const exists = await db(`invoices?invoice_no=eq.${encodeURIComponent(invNo)}&select=id&limit=1`).then((r) => r.json()).catch(() => []);
     if (!(Array.isArray(exists) && exists.length)) {
-      const li = cart.map((it) => ({ description: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit", qty: Number(it.q) || 1, unit: "kit", rate_cents: Number(it.c) || 0, amount_cents: (Number(it.c) || 0) * (Number(it.q) || 1) }));
+      const li = cart.map((it) => ({ description: itemName(it), qty: Number(it.q) || 1, unit: "kit", rate_cents: Number(it.c) || 0, amount_cents: (Number(it.c) || 0) * (Number(it.q) || 1) }));
+      if (expedite) li.push({ description: "Expedited service", qty: expedite, unit: "service", rate_cents: EXPEDITE_CENTS, amount_cents: expedite * EXPEDITE_CENTS });
       const total = totals && totals.total != null ? totals.total : li.reduce((s, l) => s + l.amount_cents, 0);
       await db(`invoices`, { method: "POST", body: JSON.stringify({
         invoice_no: invNo, client_id: clientId, basis: "sku", line_items: li,
@@ -313,7 +338,7 @@ async function verifyStripe(raw, header, secret) {
 const MANIFEST_URL = "https://docs.google.com/spreadsheets/d/1qx4B-gr7z369juOqenSZFpTqtYU5sHhxFSWHy8JO1n8/copy";
 // ---- HubSpot: mirror every paid order into the "Mail Back Program" pipeline as a Closed/Paid-Won
 // deal, with the buyer as a contact and each kit as a line item (what they bought + amount + date). ----
-async function orderToHubspot(env, { buyer, cart, totals, orderRef, source, placedAtSec, kind }) {
+async function orderToHubspot(env, { buyer, cart, expedite, totals, orderRef, source, placedAtSec, kind }) {
   try {
     const token = env.HUBSPOT_PRIVATE_TOKEN;
     if (!token || !buyer || !buyer.email) return;
@@ -337,7 +362,7 @@ async function orderToHubspot(env, { buyer, cart, totals, orderRef, source, plac
 
     // 2) create the deal in Mail Back Program → Client Paid - Won (paid orders are already won)
     const label = kind === "renewal" ? "Auto-ship renewal" : (source === "autoship" ? "Auto-ship order" : "Shop order");
-    const itemsText = (cart || []).map((it) => `${it.q || 1}× ${(PRICES[it.s] && PRICES[it.s].n) || it.s}`).join("\n");
+    const itemsText = (cart || []).map((it) => `${it.q || 1}× ${itemName(it)}`).concat(expedite ? [`${expedite}× Expedited service`] : []).join("\n");
     const dprops = {
       dealname: `${label} #${orderRef} — ${buyer.name || buyer.email}`,
       amount: money(totals && totals.total),
@@ -356,12 +381,16 @@ async function orderToHubspot(env, { buyer, cart, totals, orderRef, source, plac
         const li = { name: (PRICES[it.s] && PRICES[it.s].n) || it.s || "Kit", quantity: String(it.q || 1), price: money(it.c) };
         await fetch("https://api.hubapi.com/crm/v3/objects/line_items", { method: "POST", headers: h, body: JSON.stringify({ properties: li, associations: [{ to: { id: dealId }, types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: 20 }] }] }) }).catch(() => {});
       }
+      if (expedite) {
+        const li = { name: "Expedited service", quantity: String(expedite), price: money(EXPEDITE_CENTS) };
+        await fetch("https://api.hubapi.com/crm/v3/objects/line_items", { method: "POST", headers: h, body: JSON.stringify({ properties: li, associations: [{ to: { id: dealId }, types: [{ associationCategory: "HUBSPOT_DEFINED", associationTypeId: 20 }] }] }) }).catch(() => {});
+      }
     }
     return { contactId, dealId };
   } catch { return null; }
 }
 
-async function orderEmails(env, { buyer, cart, totals, kind, orderRef }) {
+async function orderEmails(env, { buyer, cart, expedite, totals, kind, orderRef }) {
   try {
     if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
     const money = (c) => "$" + (((c || 0)) / 100).toFixed(2);
@@ -369,10 +398,9 @@ async function orderEmails(env, { buyer, cart, totals, kind, orderRef }) {
     const label = isRenew ? "Auto-ship renewal" : (kind === "first-autoship" ? "New auto-ship order" : "New order");
     const controlled = (cart || []).some((it) => String(it.s || "").startsWith("ERX-CTL"));
     const who = esc(buyer.name || buyer.email || "Web customer");
-    const rowHtml = (cart || []).map((it) => {
-      const name = esc((PRICES[it.s] && PRICES[it.s].n) || it.s || "Item"); const qty = it.q || 1;
-      return `<tr><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#123A44;">${name}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#55646B;text-align:center;">${qty}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#123A44;text-align:right;">${money((it.c || 0) * qty)}</td></tr>`;
-    }).join("");
+    const rowFor = (name, qty, cents) => `<tr><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#123A44;">${name}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#55646B;text-align:center;">${qty}</td><td style="padding:8px 0;border-bottom:1px solid #eef3f1;font-size:14px;color:#123A44;text-align:right;">${money(cents)}</td></tr>`;
+    const rowHtml = (cart || []).map((it) => { const qty = it.q || 1; return rowFor(esc(itemName(it)), qty, (it.c || 0) * qty); }).join("")
+      + (expedite ? rowFor("<b>Expedited service</b>", expedite, expedite * EXPEDITE_CENTS) : "");
     const tRows = [];
     if (totals && totals.subtotal != null) tRows.push(["Subtotal", money(totals.subtotal)]);
     if (totals && totals.shipping != null) tRows.push(["Shipping", totals.shipping ? money(totals.shipping) : "Free"]);
@@ -387,11 +415,13 @@ async function orderEmails(env, { buyer, cart, totals, kind, orderRef }) {
       const receipt = shell(`<h1 style="margin:0 0 6px;font-size:22px;color:#123A44;">Thanks${buyer.name ? ", " + esc(String(buyer.name).split(" ")[0]) : ""} &mdash; your order is confirmed.</h1><p style="margin:0 0 4px;color:#55646B;font-size:14px;">Order <b>#${esc(orderRef || "")}</b>${isRenew ? " &middot; auto-ship shipment" : ""}. We&rsquo;re processing it now, and you&rsquo;ll receive a <b>Certificate of Destruction</b> once your waste is destroyed.</p>${itemsTable}${ship ? `<p style="margin:18px 0 0;color:#55646B;font-size:13px;"><b>Ship to:</b><br>${ship}</p>` : ""}${manifestBlock}<p style="margin:20px 0 0;color:#8aa0a8;font-size:13px;">Questions? Reply to this email or call 501-904-2929.</p>`);
       await resendSend(env, buyer.email, `Your Easy Rx Cycle order is confirmed${orderRef ? " — #" + orderRef : ""}`, receipt, "sales@easyrxcycle.com");
     }
-    const alert = shell(`<span style="display:inline-block;background:${controlled ? "#fde7d3" : "#eafaf3"};color:${controlled ? "#b3671e" : "#1c9d6c"};font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">${label}${controlled ? " &middot; controlled" : ""}</span><h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${money(totals && totals.total)} &middot; ${who}</h1><p style="margin:0 0 10px;color:#55646B;font-size:14px;">Order #${esc(orderRef || "")} &middot; ${esc(buyer.email || "")}${buyer.phone ? " &middot; " + esc(buyer.phone) : ""}</p>${itemsTable}${ship ? `<p style="margin:16px 0 0;color:#55646B;font-size:13px;"><b>Ship to:</b><br>${ship}</p>` : ""}${controlled ? `<p style="margin:14px 0 0;color:#b3671e;font-size:13px;font-weight:bold;">&#9888; Controlled substances &mdash; customer must include the DEA manifest.</p>` : ""}`);
+    const expediteBanner = expedite ? `<p style="margin:0 0 14px;background:#fde7d3;border:1px solid #f2c98a;border-radius:9px;padding:12px 14px;color:#b3671e;font-size:15px;font-weight:bold;">EXPEDITED &mdash; the customer paid for expedited service. Send their label and process this order first.</p>` : "";
+    const alert = shell(`${expediteBanner}<span style="display:inline-block;background:${controlled ? "#fde7d3" : "#eafaf3"};color:${controlled ? "#b3671e" : "#1c9d6c"};font-size:11px;font-weight:bold;letter-spacing:.5px;padding:5px 10px;border-radius:6px;text-transform:uppercase;">${label}${controlled ? " &middot; controlled" : ""}${expedite ? " &middot; expedited" : ""}</span><h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${money(totals && totals.total)} &middot; ${who}</h1><p style="margin:0 0 10px;color:#55646B;font-size:14px;">Order #${esc(orderRef || "")} &middot; ${esc(buyer.email || "")}${buyer.phone ? " &middot; " + esc(buyer.phone) : ""}</p>${itemsTable}${ship ? `<p style="margin:16px 0 0;color:#55646B;font-size:13px;"><b>Ship to:</b><br>${ship}</p>` : ""}${controlled ? `<p style="margin:14px 0 0;color:#b3671e;font-size:13px;font-weight:bold;">&#9888; Controlled substances &mdash; customer must include the DEA manifest.</p>` : ""}`);
     // Renewals are a "ship today" alert for the shipping team as well (William's request 2026-10-25).
-    const alertTo = isRenew ? ["william@easyrxcycle.com", "sales@easyrxcycle.com", "summer@easyrxcycle.com", "tanner@arkansasredistributors.com"] : ["william@easyrxcycle.com", "sales@easyrxcycle.com"];
+    // Summer + Lori get every order alert (William's request 2026-10-31); renewals were already going to them.
+    const alertTo = ["william@easyrxcycle.com", "sales@easyrxcycle.com", "summer@easyrxcycle.com", "tanner@arkansasredistributors.com"];
     const alertHtml = isRenew ? alert.replace('<td style="padding:28px;">', '<td style="padding:28px;"><p style="margin:0 0 12px;font-weight:bold;color:#b3671e;font-size:15px;">This auto-ship order renewed today. Please ship it today.</p>') : alert;
-    await resendSend(env, alertTo, `${isRenew ? "Ship today: " : ""}${label}${controlled ? " (controlled)" : ""} — ${money(totals && totals.total)} · ${buyer.name || buyer.email || "web"}`, alertHtml, buyer.email);
+    await resendSend(env, alertTo, `${expedite ? "EXPEDITED: " : ""}${isRenew ? "Ship today: " : ""}${label}${controlled ? " (controlled)" : ""} — ${money(totals && totals.total)} · ${buyer.name || buyer.email || "web"}`, alertHtml, buyer.email);
   } catch {}
 }
 function resendSend(env, to, subject, html, replyTo) {
