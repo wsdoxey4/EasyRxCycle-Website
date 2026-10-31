@@ -290,7 +290,7 @@ async function sendSms(env, d, instantSent) {
   const body = [
     `Hi${fn ? " " + fn : ""}, this is William with Easy Rx Cycle. Thanks for your quote request for ${what}.`,
     instantSent ? "Your pricing is in your inbox now, and you can order anytime at easyrxcycle.com/shop." : "I'm putting your quote together and will follow up shortly.",
-    /Controlled/i.test(String(d.streams || "")) ? "Have your DEA number handy when you order." : "",
+    /Controlled/i.test(String(d.streams || "")) ? "If possible, have your DEA number handy when you order." : "",
     "Expect a call from us from a 912 or 501 number.",
     "Questions? Just reply to this text. Reply STOP to opt out.",
   ].filter(Boolean).join(" ");
