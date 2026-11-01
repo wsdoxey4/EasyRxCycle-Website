@@ -698,12 +698,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (seg[0] === "our-solutions" && seg.length === 3) return streamIndexable(seg[1]);
     return true;
   });
+  // Pages with a real content update since the 2026-07-31 baseline. Accurate lastmod is what tells
+  // Google to recrawl, so add a path here (with the change date) whenever a page is materially rewritten.
+  const updated: Record<string, string> = {
+    "/who-we-serve/cannabis": "2026-11-01",
+    "/resources/cannabis-waste-disposal-guide": "2026-11-01",
+    "/blog/medical-cannabis-schedule-iii-dispensary-disposal": "2026-11-01",
+    "/blog/dea-timely-applicant-trading-partner-verification": "2026-11-01",
+    "/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box": "2026-11-01",
+  };
   return live.map((path) => {
     // trailingSlash:true — emit canonical (trailing-slash) URLs so the sitemap never self-redirects
     const p = path === "/" ? "/" : path.endsWith("/") ? path : `${path}/`;
     return {
       url: `${SITE.url}${p}`,
-      lastModified: new Date("2026-07-31"),
+      lastModified: new Date(updated[path.replace(/\/$/, "")] ?? "2026-07-31"),
       changeFrequency: "weekly" as const,
       priority: path === "/" ? 1 : 0.7,
     };
