@@ -68,7 +68,7 @@ export default function Page() {
             <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>If you&rsquo;re a DEA-registered dispensary or a timely applicant, expired, damaged, recalled and returned product is now controlled-substance inventory. Send it to us: we destroy it by incineration, complete DEA Form 41, and send your Certificate of Destruction.</p>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href={KIT}>Order the Controlled Substance Kit <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote/?role=Other">Get our DEA verification packet</a>
+              <a className="btn btn-ghost" href="/get-a-quote/?role=Medical%20cannabis&packet=1">Get our DEA verification packet</a>
             </div>
             <p className="hero-callus">Multi-location operator? Call William directly &middot; <a href="tel:5019042929">501-904-2929</a></p>
           </div>
@@ -103,7 +103,7 @@ export default function Page() {
             </table>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "24px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href={KIT}>Choose your kit size <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="/get-a-quote/?role=Other">Multi-location pricing</a>
+              <a className="btn btn-ghost" href="/get-a-quote/?role=Medical%20cannabis">Multi-location pricing</a>
             </div>
           </div>
         </section>
@@ -124,10 +124,10 @@ export default function Page() {
           <div className="wrap" style={{ maxWidth: "820px" }}>
             <div className="shead"><span className="eyebrow">Due by November 29, 2026</span><h2>Your trading-partner file, done.</h2><p className="lead">DEA expects timely applicants to verify every trading partner and keep the proof. For a DEA registrant, that&rsquo;s a copy of its certificate of registration. Ask once and we send the whole packet the same day.</p></div>
             <ul className="covers" style={{ marginTop: "22px" }}>
-              {["Copy of our DEA certificate of registration", "W-9 and certificate of insurance", "Company details for your vendor file", "Sample Certificate of Destruction and transfer record"].map((t) => (<li key={t}>{check}<span>{t}</span></li>))}
+              {["Copy of our DEA certificate of registration", "W-9 (certificate of insurance on request)", "Company details for your vendor file", "Sample Certificate of Destruction and transfer record"].map((t) => (<li key={t}>{check}<span>{t}</span></li>))}
             </ul>
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "24px", flexWrap: "wrap" }}>
-              <a className="btn btn-primary" href="/get-a-quote/?role=Other">Request the verification packet <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/get-a-quote/?role=Medical%20cannabis&packet=1">Request the verification packet <span className="ar">→</span></a>
             </div>
           </div>
         </section>
@@ -185,7 +185,7 @@ export default function Page() {
         </section>
       </main>
       <ExitIntentGuide slug="cannabis-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Order the kit", href: KIT }} secondary={{ label: "Verification packet", href: "/get-a-quote/?role=Other" }} />
+      <MobileCTA primary={{ label: "Order the kit", href: KIT }} secondary={{ label: "Verification packet", href: "/get-a-quote/?role=Medical%20cannabis&packet=1" }} />
       <Footer />
       <Reveal />
     </>

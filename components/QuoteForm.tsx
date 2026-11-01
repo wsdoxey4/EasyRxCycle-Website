@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const ROLES = [
   "Physician / medical office", "Dental practice", "Veterinary", "Hospital / health system",
   "Pharmacy (retail / independent)", "Pharmacy (chain / specialty / 340B)", "Surgery center", "Long-term care / hospice",
-  "Lab / research", "Tattoo / med spa", "GPO / distributor / broker", "Other",
+  "Lab / research", "Medical cannabis", "Tattoo / med spa", "GPO / distributor / broker", "Other",
 ];
 const STREAMS = [
   "Sharps", "Biohazard / RMW", "Pharmaceutical", "Controlled substances",
@@ -20,11 +20,14 @@ export default function QuoteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [err, setErr] = useState("");
   const [role, setRole] = useState("");
+  const [msg, setMsg] = useState("");
 
   // Pre-fill the industry from a ?role= param (ICP pages link here with their industry).
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get("role");
     if (p && ROLES.includes(p)) setRole(p);
+    // ?packet=1 (cannabis page) pre-writes the request so the team knows to send the DEA verification packet.
+    if (new URLSearchParams(window.location.search).get("packet") === "1") setMsg("Please send your DEA trading-partner verification packet (DEA certificate, W-9, sample Certificate of Destruction).");
   }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -102,7 +105,7 @@ export default function QuoteForm() {
       <label className="full">Estimated volume
         <select name="volume" defaultValue=""><option value="" disabled>Select…</option>{VOLUMES.map((v) => <option key={v}>{v}</option>)}</select>
       </label>
-      <label className="full">Anything else?<textarea name="message" placeholder="States you operate in, timing, current vendor, etc." /></label>
+      <label className="full">Anything else?<textarea name="message" value={msg} onChange={(e) => setMsg(e.target.value)} placeholder="States you operate in, timing, current vendor, etc." /></label>
       {/* SMS opt-in (TCPA / A2P 10DLC): unchecked by default and separate from email; keep in sync with SMS_CONSENT_TEXT in functions/api/rfq.js */}
       <label className="full consent">
         <input type="checkbox" name="sms_consent" value="yes" />
