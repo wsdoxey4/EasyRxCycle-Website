@@ -506,6 +506,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // blog
     "/blog",
     "/blog/reverse-distribution-vs-destruction",
+    "/blog/medical-cannabis-schedule-iii-dispensary-disposal",
+    "/blog/dea-timely-applicant-trading-partner-verification",
     "/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box",
     "/blog/how-to-dispose-of-sharps-at-home",
     "/blog/sharps-disposal-cost",
