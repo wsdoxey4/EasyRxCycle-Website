@@ -19,6 +19,8 @@ function AdRollRouteViews() {
 
 // Loads GA4 (gtag) + GTM + Microsoft Clarity + ad pixels (Meta, LinkedIn, Microsoft UET, AdRoll) — only when NEXT_PUBLIC_ANALYTICS=true.
 // Dormant on staging so test traffic never pollutes production data.
+// GA4, GTM, Meta and AdRoll load afterInteractive (conversion events need them early; lib/track.ts skips AdRoll if it is not loaded yet).
+// HubSpot, Clarity, UET and LinkedIn wait for the load event: HubSpot analytics alone cost 2-40s of main-thread time per page in Lighthouse (2026-11-01).
 export default function Analytics() {
   if (!ANALYTICS.on) return null;
   return (
@@ -40,14 +42,14 @@ export default function Analytics() {
         `}</Script>
       )}
       {ANALYTICS.clarity && (
-        <Script id="clarity-init" strategy="afterInteractive">{`
+        <Script id="clarity-init" strategy="lazyOnload">{`
           (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${ANALYTICS.clarity}");
         `}</Script>
       )}
       {ANALYTICS.hubspot && (
-        <Script id="hs-script-loader" src={`https://js.hs-scripts.com/${ANALYTICS.hubspot}.js`} strategy="afterInteractive" />
+        <Script id="hs-script-loader" src={`https://js.hs-scripts.com/${ANALYTICS.hubspot}.js`} strategy="lazyOnload" />
       )}
       {ANALYTICS.metaPixel && (
         <>
@@ -59,7 +61,7 @@ export default function Analytics() {
         </>
       )}
       {ANALYTICS.bingUet && (
-        <Script id="bing-uet" strategy="afterInteractive">{`
+        <Script id="bing-uet" strategy="lazyOnload">{`
           (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"${ANALYTICS.bingUet}",enableAutoSpaTracking:true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},
           n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},
           i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","https://bat.bing.net/bat.js","uetq");
@@ -79,7 +81,7 @@ export default function Analytics() {
         </>
       )}
       {ANALYTICS.linkedin && (
-        <Script id="linkedin-insight" strategy="afterInteractive">{`
+        <Script id="linkedin-insight" strategy="lazyOnload">{`
           _linkedin_partner_id="${ANALYTICS.linkedin}";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);
           (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s);})(window.lintrk);
         `}</Script>

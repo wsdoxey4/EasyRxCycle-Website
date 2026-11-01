@@ -40,12 +40,12 @@ const offers = [
 ];
 
 const tools: [string, string, string][] = [
-  ["Hazardous drug lookup", "/drug-hazardous-lookup", "Check whether a drug is RCRA hazardous waste."],
-  ["Disposal cost calculator", "/cost-calculator", "Estimate disposal costs by waste stream."],
-  ["Waste determination guide", "/waste-determination", "Which waste stream an item belongs in."],
-  ["Disposal guides by practice", "/resources/guides", "Free guides for 50+ practice types."],
-  ["Disposal rules by state", "/medical-waste-regulations-by-state", "State-by-state medical waste rules."],
-  ["Glossary", "/glossary", "Waste and DEA terms in plain English."],
+  ["Hazardous drug lookup", "/drug-hazardous-lookup/", "Check whether a drug is RCRA hazardous waste."],
+  ["Disposal cost calculator", "/cost-calculator/", "Estimate disposal costs by waste stream."],
+  ["Waste determination guide", "/waste-determination/", "Which waste stream an item belongs in."],
+  ["Disposal guides by practice", "/resources/guides/", "Free guides for 50+ practice types."],
+  ["Disposal rules by state", "/medical-waste-regulations-by-state/", "State-by-state medical waste rules."],
+  ["Glossary", "/glossary/", "Waste and DEA terms in plain English."],
 ];
 
 const codes: [string, string][] = [

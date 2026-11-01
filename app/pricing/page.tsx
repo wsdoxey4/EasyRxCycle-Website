@@ -80,7 +80,7 @@ export default function Page() {
               {CATEGORIES.map((c) => {
                 const kit = KIT_BY_CATEGORY[c.key];
                 return (
-                  <a className="pricerow" href={kit ? `/shop/${kit.slug}` : "/shop"} key={c.key}>
+                  <a className="pricerow" href={kit ? `/shop/${kit.slug}/` : "/shop/"} key={c.key}>
                     <span className="pr-name">{c.label}</span>
                     <span className="pr-blurb">{c.blurb}</span>
                     <span className="pr-price">from {money(fromPrice(c.key))}</span>

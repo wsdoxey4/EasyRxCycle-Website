@@ -8,14 +8,15 @@ import { INDUSTRIES, INDUSTRY_LIVE } from "@/lib/industryGeo";
 
 export const dynamic = "force-static";
 
-// lastModified comes from git: the last commit that touched each route's page file. CI must check
+// lastModified comes from git: the last commit that touched each route's page file (or, for generated state pages,
+// the lib/ data file that holds their copy and noindex gate — whichever is newer). CI must check
 // out full history (fetch-depth: 0 in .github/workflows/deploy.yml) or every page gets one date.
 const BASELINE = "2026-07-31"; // repo start; used when a route has no git history
 
 function gitDates(): Map<string, string> {
   const dates = new Map<string, string>();
   try {
-    const out = execSync("git log --format=@%cs --name-only -- app", { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+    const out = execSync("git log --format=@%cs --name-only -- app lib", { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
     let d = "";
     for (const line of out.split("\n")) {
       if (line.startsWith("@")) d = line.slice(1);
@@ -748,7 +749,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastMod = (route: string) => {
     const key = route === "/" ? "/" : route.replace(/\/$/, "");
     const file = pageFile(key);
-    const fromGit = (file && dates.get(file)) || BASELINE;
+    const seg = key.split("/").filter(Boolean);
+    // Generated state pages take their copy and their index/noindex gate from lib data, so a change there is a change to the page.
+    const data = seg.length === 3 && seg[0] === "our-solutions" ? "lib/geo.ts" : seg.length === 3 && seg[0] === "who-we-serve" ? "lib/industryGeo.ts" : seg.length === 2 && seg[0] === "locations" ? "lib/geo.ts" : null;
+    const fromGit = [(file && dates.get(file)) || BASELINE, (data && dates.get(data)) || ""].sort().pop()!;
     const manual = updated[key];
     return manual && manual > fromGit ? manual : fromGit;
   };
