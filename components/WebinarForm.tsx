@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/track";
-import { getAttribution } from "@/lib/attribution";
+import { getAttribution, getTrail } from "@/lib/attribution";
 import type { Webinar } from "@/lib/webinars";
 
 const INDUSTRIES = ["Pharmacy", "Veterinary", "Dental", "Surgery center", "Long-term care", "Home health", "Physician / clinic", "Government / public agency", "Other"];
@@ -25,7 +25,7 @@ export default function WebinarForm({ webinar }: { webinar: Webinar }) {
       industry: String(fd.get("industry") || ""),
       company_website: String(fd.get("company_website") || ""), // honeypot
       slug: webinar.slug, title: webinar.title, when: webinar.when,
-      pageUri: window.location.href, channel: a.channel, utm: a.utm,
+      pageUri: window.location.href, channel: a.channel, utm: { ...a.utm, pages: getTrail() },
     };
     try {
       const r = await fetch("/api/webinar", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });

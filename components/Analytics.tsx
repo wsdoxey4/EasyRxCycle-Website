@@ -20,7 +20,9 @@ function AdRollRouteViews() {
 // Loads GA4 (gtag) + GTM + Microsoft Clarity + ad pixels (Meta, LinkedIn, Microsoft UET, AdRoll) — only when NEXT_PUBLIC_ANALYTICS=true.
 // Dormant on staging so test traffic never pollutes production data.
 // GA4, GTM, Meta and AdRoll load afterInteractive (conversion events need them early; lib/track.ts skips AdRoll if it is not loaded yet).
-// HubSpot, Clarity, UET and LinkedIn wait for the load event: HubSpot analytics alone cost 2-40s of main-thread time per page in Lighthouse (2026-11-01).
+// Clarity, UET and LinkedIn wait for the load event. HubSpot's browser script was removed 2026-11-01 (2-40s of main-thread
+// time per page in Lighthouse); leads still reach HubSpot server-side, and the page history it kept now travels with each lead
+// as utm.pages (lib/attribution.ts → portal lead journey + sales alert).
 export default function Analytics() {
   if (!ANALYTICS.on) return null;
   return (
@@ -47,9 +49,6 @@ export default function Analytics() {
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${ANALYTICS.clarity}");
         `}</Script>
-      )}
-      {ANALYTICS.hubspot && (
-        <Script id="hs-script-loader" src={`https://js.hs-scripts.com/${ANALYTICS.hubspot}.js`} strategy="lazyOnload" />
       )}
       {ANALYTICS.metaPixel && (
         <>

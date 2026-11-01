@@ -57,7 +57,6 @@ export const ANALYTICS = {
   gtm: process.env.NEXT_PUBLIC_GTM_ID || "GTM-KSR8H9XZ",
   ga4: process.env.NEXT_PUBLIC_GA4_ID || "G-DBFLW3D87G",
   clarity: process.env.NEXT_PUBLIC_CLARITY_ID || "xvbemtcn1a",
-  hubspot: process.env.NEXT_PUBLIC_HUBSPOT_ID || "49645219",  // HubSpot page tracking (CRM attribution for known contacts)
   metaPixel: process.env.NEXT_PUBLIC_META_PIXEL || "2102144507047431",  // Meta Pixel — conversion tracking + retargeting audiences
   linkedin: process.env.NEXT_PUBLIC_LINKEDIN_PARTNER || "9623498",       // LinkedIn Insight Tag — conversion tracking + retargeting audiences
   bingUet: process.env.NEXT_PUBLIC_BING_UET || "187283214",              // Microsoft Ads UET tag — conversion tracking + remarketing

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { trackEvent } from "@/lib/track";
-import { getAttribution } from "@/lib/attribution";
+import { getAttribution, getTrail } from "@/lib/attribution";
 
 export default function LeadMagnetForm({ magnet, file, title, industry, bullets }: { magnet: string; file: string; title: string; industry?: string; bullets?: string[] }) {
   const [done, setDone] = useState(false);
@@ -17,7 +17,7 @@ export default function LeadMagnetForm({ magnet, file, title, industry, bullets 
     if (!email) { setErr("Please enter your email."); return; }
     setBusy(true); setErr("");
     const a = getAttribution();
-    const payload = { name: String(fd.get("name") || ""), email, org: String(fd.get("org") || ""), magnet, file, title, industry, bullets, channel: a.channel, utm: a.utm, pageUri: typeof window !== "undefined" ? window.location.pathname : file };
+    const payload = { name: String(fd.get("name") || ""), email, org: String(fd.get("org") || ""), magnet, file, title, industry, bullets, channel: a.channel, utm: { ...a.utm, pages: getTrail() }, pageUri: typeof window !== "undefined" ? window.location.pathname : file };
     try {
       await fetch("/api/lead-magnet", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true });
     } catch {}

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { trackEvent } from "@/lib/track";
-import { getAttribution } from "@/lib/attribution";
+import { getAttribution, getTrail } from "@/lib/attribution";
 
 const CHANNELS = [
   "GPO / purchasing group",
@@ -53,7 +53,7 @@ export default function PartnerForm({ variant }: { variant?: "association" } = {
       consent: fd.get("consent") ? "Opted in" : "Opted out",
       company_website: String(fd.get("company_website") || ""), // honeypot
       pageUri: typeof window !== "undefined" ? window.location.href : "",
-      channel: a.channel, utm: a.utm,
+      channel: a.channel, utm: { ...a.utm, pages: getTrail() },
     };
     try {
       const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });

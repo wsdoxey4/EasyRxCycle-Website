@@ -319,14 +319,25 @@ async function askClaude(env, system, user) {
     return t || null;
   } catch { return null; }
 }
+function pagesViewed(d) {
+  const pages = Array.isArray(d.utm && d.utm.pages) ? d.utm.pages.filter((v) => v && typeof v.p === "string").slice(-25) : [];
+  return pages.map((v) => ({ p: String(v.p).slice(0, 200), t: String(v.t || "").slice(0, 10) }));
+}
 function leadFacts(d) {
-  return `Name: ${d.name || "—"}\nOrganization: ${d.org || "—"}\nRole / ICP: ${d.role || "—"}\nWaste streams: ${d.streams || "—"}\nEstimated volume: ${d.volume || "—"}\nMessage: ${d.message || "—"}`;
+  const pages = pagesViewed(d).map((v) => v.p).join(", ");
+  return `Pages viewed before the form: ${pages || "—"}\nName: ${d.name || "—"}\nOrganization: ${d.org || "—"}\nRole / ICP: ${d.role || "—"}\nWaste streams: ${d.streams || "—"}\nEstimated volume: ${d.volume || "—"}\nMessage: ${d.message || "—"}`;
 }
 async function aiSalesBrief(env, d) {
   const system = `You are a sales-ops assistant for a DEA-registered medical/pharma waste destruction company. Given a new inbound lead, write a TIGHT internal brief for the rep. Output EXACTLY these four labeled lines, each one short sentence, no fluff:\nFit: <how good a fit and why>\nNeed: <the waste streams/volume in plain terms>\nMove: <suggested next step and quote approach — mail-back kit vs pickup vs contract>\nWatch: <any red flag, or "none">`;
   return await askClaude(env, system, `Lead:\n${leadFacts(d)}`);
 }
 
+// Pages this browser viewed before submitting (utm.pages from lib/attribution.ts) — internal alert only.
+function pagesBox(d) {
+  const pages = pagesViewed(d);
+  if (!pages.length) return "";
+  return `<div style="margin:14px 0 0;font-size:13px;color:#55646B;"><div style="font-weight:bold;color:#123A44;font-size:11px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Pages viewed before reaching out (${pages.length})</div>${pages.map((v) => `<div style="padding:3px 0;border-bottom:1px solid #eef3f1;"><span style="color:#123A44;">${esc(v.p)}</span>${v.t ? ` <span style="color:#8a979c;">&middot; ${esc(v.t)}</span>` : ""}</div>`).join("")}</div>`;
+}
 function notifyHtml(d, brief, rep) {
   const first = esc((d.name || "").split(" ")[0] || "there");
   const briefBox = brief ? `<div style="margin:14px 0 0;padding:12px 14px;background:#f2f8f5;border:1px solid #d7ece1;border-radius:10px;font-size:13.5px;color:#123A44;line-height:1.7;"><div style="font-weight:bold;color:#1c7a4a;font-size:11px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">AI brief</div>${esc(brief).replace(/\n/g, "<br>")}</div>` : "";
@@ -336,6 +347,7 @@ function notifyHtml(d, brief, rep) {
     <h1 style="margin:12px 0 4px;font-size:22px;color:#123A44;">${esc(d.name)}${d.org ? " &middot; " + esc(d.org) : ""}</h1>
     <p style="margin:0 0 14px;color:#55646B;font-size:14px;">Submitted via the website RFQ form${assigned}. Contact + deal created in HubSpot.</p>
     ${detailsTable(d)}
+    ${pagesBox(d)}
     ${briefBox}
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr>
       <td style="background:#005770;border-radius:9px;"><a href="mailto:${esc(d.email)}" style="display:inline-block;padding:12px 20px;color:#fff;font-weight:bold;text-decoration:none;font-size:14px;">Reply to ${first}</a></td>

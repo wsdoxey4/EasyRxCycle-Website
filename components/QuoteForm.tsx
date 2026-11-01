@@ -1,7 +1,7 @@
 "use client";
 
 import { trackEvent } from "@/lib/track";
-import { getAttribution } from "@/lib/attribution";
+import { getAttribution, getTrail } from "@/lib/attribution";
 
 import { useState, useEffect } from "react";
 
@@ -52,7 +52,7 @@ export default function QuoteForm() {
     };
     const attr = getAttribution();
     (data as Record<string, unknown>).channel = attr.channel;      // derived marketing channel
-    (data as Record<string, unknown>).utm = { ...attr.utm, channel: attr.channel, referrer: attr.referrer, landing: attr.landing };
+    (data as Record<string, unknown>).utm = { ...attr.utm, channel: attr.channel, referrer: attr.referrer, landing: attr.landing, pages: getTrail() };
     try {
       const r = await fetch("/api/rfq", {
         method: "POST",

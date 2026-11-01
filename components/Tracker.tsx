@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/track";
-import { captureAttribution } from "@/lib/attribution";
+import { captureAttribution, recordPageView } from "@/lib/attribution";
 
 // One delegated listener fires cta_click for every Shop / Get-a-Quote / primary CTA, site-wide.
 export default function Tracker() {
+  const path = usePathname();
+  useEffect(() => { recordPageView(path); }, [path]); // page trail for lead forms (lib/attribution.ts)
   useEffect(() => {
     captureAttribution();   // first-touch attribution: stamp channel/UTM on landing, site-wide
     function onClick(e: MouseEvent) {

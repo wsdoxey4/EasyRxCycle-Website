@@ -75,3 +75,28 @@ export function getAttribution(): Attribution {
   } catch { /* no-op */ }
   return { ...fallback, referrer: typeof document !== "undefined" ? document.referrer : "" };
 }
+
+// Page trail: the last pages this browser viewed, sent inside `utm.pages` with lead forms so the portal lead
+// journey and the sales alert show what a lead read before reaching out (replaces HubSpot's page history).
+// Kept out of getAttribution() on purpose: checkout sends that object to Stripe, whose metadata is size-capped.
+export type PageView = { p: string; t: string };
+const TRAIL = "erx_trail";
+const TRAIL_MAX = 25;
+
+export function recordPageView(path: string): void {
+  if (typeof window === "undefined" || !path) return;
+  try {
+    const trail: PageView[] = JSON.parse(localStorage.getItem(TRAIL) || "[]");
+    if (trail[trail.length - 1]?.p === path) return; // same page re-render, not a new view
+    trail.push({ p: path, t: new Date().toISOString() });
+    localStorage.setItem(TRAIL, JSON.stringify(trail.slice(-TRAIL_MAX)));
+  } catch { /* private mode / storage disabled — no-op */ }
+}
+
+export function getTrail(): PageView[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const trail = JSON.parse(localStorage.getItem(TRAIL) || "[]");
+    return Array.isArray(trail) ? trail.slice(-TRAIL_MAX) : [];
+  } catch { return []; }
+}
