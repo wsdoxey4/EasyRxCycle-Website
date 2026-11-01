@@ -95,6 +95,7 @@ export default function Page() {
 
                 <h2 id="list">Checking the timely applicant list</h2>
                 <p>DEA posts the timely applicant list on the Medical Marijuana Information page of its Diversion Control website. It&rsquo;s a text file updated daily, listing each applicant&rsquo;s state, business activity and control number. It has no business names, so match a partner by the DCN on its confirmation, and re-check before large transfers: the list changes as applicants are registered, withdraw or drop off.</p>
+                <p>For the big picture, we count the list by state and activity: <a href="/resources/medical-cannabis-dea-registration-data/">medical cannabis DEA registration data by state</a>.</p>
 
                 <h2 id="file">Keeping the file</h2>
                 <ul>

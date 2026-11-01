@@ -55,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources/independent-pharmacy-waste-disposal-guide",
     "/resources/chain-pharmacy-waste-disposal-guide",
     "/resources/cannabis-waste-disposal-guide",
+    "/resources/medical-cannabis-dea-registration-data",
     "/resources/research-lab-waste-disposal-guide",
     "/resources/clinical-lab-waste-disposal-guide",
     "/resources/blood-plasma-center-waste-disposal-guide",
@@ -741,6 +742,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updated: Record<string, string> = {
     "/who-we-serve/cannabis": "2026-11-01",
     "/resources/cannabis-waste-disposal-guide": "2026-11-01",
+    "/resources/medical-cannabis-dea-registration-data": "2026-11-01",
     "/blog/medical-cannabis-schedule-iii-dispensary-disposal": "2026-11-01",
     "/blog/dea-timely-applicant-trading-partner-verification": "2026-11-01",
     "/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box": "2026-11-01",

@@ -139,6 +139,7 @@ export default function Page() {
               <div className="relcol"><h3>Cannabis &amp; DEA</h3><ul>
                 <li><a href="/blog/medical-cannabis-schedule-iii-dispensary-disposal/">Schedule III: what dispensaries do with expired product</a></li>
                 <li><a href="/blog/dea-timely-applicant-trading-partner-verification/">Timely applicant trading-partner checklist</a></li>
+                <li><a href="/resources/medical-cannabis-dea-registration-data/">DEA timely applicants by state (data)</a></li>
                 <li><a href="/blog/controlled-substance-inventory-and-recordkeeping/">Controlled substance recordkeeping</a></li>
               </ul></div>
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
