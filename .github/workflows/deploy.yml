@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: app/sitemap.ts dates each page from its last commit
 
       - name: Set up Node
         uses: actions/setup-node@v4

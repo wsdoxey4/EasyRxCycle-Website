@@ -1,9 +1,44 @@
 import type { MetadataRoute } from "next";
+import { execSync } from "node:child_process";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
 import { SITE } from "@/lib/site";
 import { streamIndexable, stateSlugs } from "@/lib/geo";
 import { INDUSTRIES, INDUSTRY_LIVE } from "@/lib/industryGeo";
 
 export const dynamic = "force-static";
+
+// lastModified comes from git: the last commit that touched each route's page file. CI must check
+// out full history (fetch-depth: 0 in .github/workflows/deploy.yml) or every page gets one date.
+const BASELINE = "2026-07-31"; // repo start; used when a route has no git history
+
+function gitDates(): Map<string, string> {
+  const dates = new Map<string, string>();
+  try {
+    const out = execSync("git log --format=@%cs --name-only -- app", { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+    let d = "";
+    for (const line of out.split("\n")) {
+      if (line.startsWith("@")) d = line.slice(1);
+      else if (line && !dates.has(line)) dates.set(line, d); // newest commit comes first
+    }
+  } catch {
+    // no git (e.g. a source tarball): fall back to BASELINE
+  }
+  return dates;
+}
+
+// Route → its page.tsx, following [param] folders for generated pages (e.g. /our-solutions/x/texas).
+function pageFile(route: string): string | null {
+  let dir = "app";
+  for (const seg of route.split("/").filter(Boolean)) {
+    if (existsSync(path.join(dir, seg))) { dir = path.join(dir, seg); continue; }
+    const param = readdirSync(dir).find((n) => n.startsWith("[") && !n.startsWith("[quote]"));
+    if (!param) return null;
+    dir = path.join(dir, param);
+  }
+  const f = path.join(dir, "page.tsx");
+  return existsSync(f) ? f : null;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -75,6 +110,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/shop/trace-chemo-mail-back-kit",
     "/shop/controlled-substance-mail-back-kit",
     "/shop/rcra-hazardous-mail-back-kit",
+    "/shop/activated-charcoal-take-back-kit",
+    "/privacy", "/terms", "/returns", "/shipping-policy", "/tax-exempt",
     // product pillars
     "/our-solutions/controlled-substance-destruction",
     "/our-solutions/controlled-substance-destruction/alabama",
@@ -698,8 +735,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (seg[0] === "our-solutions" && seg.length === 3) return streamIndexable(seg[1]);
     return true;
   });
-  // Pages with a real content update since the 2026-07-31 baseline. Accurate lastmod is what tells
-  // Google to recrawl, so add a path here (with the change date) whenever a page is materially rewritten.
+  // Pages whose content lives in shared lib/ data rather than their own page.tsx, so git can't see
+  // the change. Add a path + date here when one of those is materially rewritten.
   const updated: Record<string, string> = {
     "/who-we-serve/cannabis": "2026-11-01",
     "/resources/cannabis-waste-disposal-guide": "2026-11-01",
@@ -707,12 +744,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/dea-timely-applicant-trading-partner-verification": "2026-11-01",
     "/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box": "2026-11-01",
   };
+  const dates = gitDates();
+  const lastMod = (route: string) => {
+    const key = route === "/" ? "/" : route.replace(/\/$/, "");
+    const file = pageFile(key);
+    const fromGit = (file && dates.get(file)) || BASELINE;
+    const manual = updated[key];
+    return manual && manual > fromGit ? manual : fromGit;
+  };
   return live.map((path) => {
     // trailingSlash:true — emit canonical (trailing-slash) URLs so the sitemap never self-redirects
     const p = path === "/" ? "/" : path.endsWith("/") ? path : `${path}/`;
     return {
       url: `${SITE.url}${p}`,
-      lastModified: new Date(updated[path.replace(/\/$/, "")] ?? "2026-07-31"),
+      lastModified: new Date(lastMod(path)),
       changeFrequency: "weekly" as const,
       priority: path === "/" ? 1 : 0.7,
     };
