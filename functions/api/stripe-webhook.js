@@ -90,7 +90,7 @@ export async function onRequestPost({ request, env }) {
     const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null, gbraid: m.attr_gbraid || null, wbraid: m.attr_wbraid || null, msclkid: m.attr_msclkid || null };
     const expedite = await expediteCount(env, s, cart).catch(() => expediteFromGap(cart, s.amount_subtotal));
     const _resp = await ingest(db, { extRef: s.id, cart, expedite, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
-    await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase(), subId: s.subscription || null }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, expedite, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
     if (s.total_details?.amount_discount > 0) await rewardReferrer(env, db, s, buyer).catch(() => {});
     return _resp;
@@ -137,7 +137,7 @@ export async function onRequestPost({ request, env }) {
     const buyer = { email: (inv.customer_email || "").toLowerCase(), name: sh.name || inv.customer_name, phone: sh.phone || inv.customer_phone, addr: sh.address || inv.customer_address || {} };
     const expedite = expediteFromGap(cart, inv.subtotal);
     const _resp = await ingest(db, { extRef: inv.id, cart, expedite, buyer, placedAt: tsIso(inv.created), source: "autoship", subscriptionRef: inv.subscription || null, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total } });
-    await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase() }).catch(() => {});
+    await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: inv.subtotal, tax: inv.tax, total: inv.amount_paid ?? inv.total }, kind: "renewal", orderRef: String(inv.id || "").slice(-8).toUpperCase(), subId: inv.subscription || null }).catch(() => {});
     await orderToHubspot(env, { buyer, cart, expedite, totals: { total: inv.amount_paid ?? inv.total }, orderRef: String(inv.id || "").slice(-8).toUpperCase(), source: "autoship", placedAtSec: inv.created, kind: "renewal" }).catch(() => {});
     return _resp;
   }
@@ -313,6 +313,19 @@ async function upsertSubscription(db, env, sub) {
   else await db(`subscriptions`, { method: "POST", body: JSON.stringify({ ...row, stripe_sub_id: sub.id }) });
 }
 
+// "Every 3 months" + next renewal date for the staff alert, read from the Stripe subscription.
+async function autoshipSchedule(env, subId) {
+  if (!env.STRIPE_SECRET_KEY) return null;
+  const sub = await stripeGet(`subscriptions/${encodeURIComponent(subId)}`, env.STRIPE_SECRET_KEY);
+  const rec = sub?.items?.data?.[0]?.price?.recurring;
+  if (!rec) return null;
+  const n = rec.interval_count || 1;
+  const every = n === 1 ? `Every ${rec.interval}` : `Every ${n} ${rec.interval}s`;
+  const end = sub.current_period_end || sub.items?.data?.[0]?.current_period_end || null;
+  const next = end ? new Date(end * 1000).toLocaleDateString("en-US", { timeZone: "America/Chicago", month: "short", day: "numeric", year: "numeric" }) : null;
+  return { every, next };
+}
+
 function stripeGet(path, key) {
   return fetch(`https://api.stripe.com/v1/${path}`, { headers: { Authorization: `Bearer ${key}` } }).then((r) => r.json()).catch(() => null);
 }
@@ -390,7 +403,7 @@ async function orderToHubspot(env, { buyer, cart, expedite, totals, orderRef, so
   } catch { return null; }
 }
 
-async function orderEmails(env, { buyer, cart, expedite, totals, kind, orderRef }) {
+async function orderEmails(env, { buyer, cart, expedite, totals, kind, orderRef, subId }) {
   try {
     if (!env.RESEND_API_KEY || !env.RESEND_FROM) return;
     const money = (c) => "$" + (((c || 0)) / 100).toFixed(2);
@@ -420,7 +433,10 @@ async function orderEmails(env, { buyer, cart, expedite, totals, kind, orderRef 
     // Renewals are a "ship today" alert for the shipping team as well (William's request 2026-10-25).
     // Summer + Lori get every order alert (William's request 2026-10-31); renewals were already going to them.
     const alertTo = ["william@easyrxcycle.com", "sales@easyrxcycle.com", "summer@easyrxcycle.com", "tanner@arkansasredistributors.com"];
-    const alertHtml = isRenew ? alert.replace('<td style="padding:28px;">', '<td style="padding:28px;"><p style="margin:0 0 12px;font-weight:bold;color:#b3671e;font-size:15px;">This auto-ship order renewed today. Please ship it today.</p>') : alert;
+    const sched = subId ? await autoshipSchedule(env, subId) : null;
+    const schedLine = sched ? `<p style="margin:0 0 12px;background:#eafaf3;border:1px solid #bfe9d6;border-radius:9px;padding:10px 14px;color:#123A44;font-size:14px;"><b>Auto-ship:</b> ${esc(sched.every)}${sched.next ? ` &middot; next shipment ${esc(sched.next)}` : ""}</p>` : "";
+    const alertWithSched = schedLine ? alert.replace('<td style="padding:28px;">', '<td style="padding:28px;">' + schedLine) : alert;
+    const alertHtml = isRenew ? alertWithSched.replace('<td style="padding:28px;">', '<td style="padding:28px;"><p style="margin:0 0 12px;font-weight:bold;color:#b3671e;font-size:15px;">This auto-ship order renewed today. Please ship it today.</p>') : alertWithSched;
     await resendSend(env, alertTo, `${expedite ? "EXPEDITED: " : ""}${isRenew ? "Ship today: " : ""}${label}${controlled ? " (controlled)" : ""} — ${money(totals && totals.total)} · ${buyer.name || buyer.email || "web"}`, alertHtml, buyer.email);
   } catch {}
 }
