@@ -12,6 +12,7 @@ function metaEvent(name: string, p: Params): [string, Params] | null {
     case "begin_checkout": return ["InitiateCheckout", money];
     case "add_to_cart": return ["AddToCart", money];
     case "view_item": return ["ViewContent", {}];
+    case "click_to_call": return ["Contact", {}];
     case "quote_request": return ["Lead", money];
     case "generate_lead":
       if (p.form === "rfq" || p.lead_source === "program_builder") return null;
@@ -29,6 +30,7 @@ function uetEvent(name: string, p: Params): [string, Params] | null {
     case "begin_checkout": return ["begin_checkout", revenue];
     case "add_to_cart": return ["add_to_cart", revenue];
     case "quote_request": return ["quote_request", revenue];
+    case "click_to_call": return ["click_to_call", {}];
     default: return null;
   }
 }

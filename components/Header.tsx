@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { trackEvent } from "@/lib/track";
 import TakeBackBanner from "@/components/TakeBackBanner";
 
 type Col = { title: string; links: { t: string; h: string }[] };
@@ -155,7 +154,7 @@ export default function Header() {
           <div className="right">
             <a href="/contact/">Contact</a>
             <a href="/partners/">Partners</a>
-            <a href="tel:5019042929" onClick={() => trackEvent("click_to_call")}><strong>501-904-2929</strong></a>
+            <a href="tel:5019042929"><strong>501-904-2929</strong></a>
           </div>
         </div>
       </div>

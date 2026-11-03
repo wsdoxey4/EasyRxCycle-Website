@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/track";
 import { captureAttribution, recordPageView } from "@/lib/attribution";
 
-// One delegated listener fires cta_click for every Shop / Get-a-Quote / primary CTA, site-wide.
+// One delegated listener fires cta_click for every Shop / Get-a-Quote / primary CTA, and click_to_call for every
+// tap on a tel: link (header, sticky bar, page CTAs), site-wide.
 export default function Tracker() {
   const path = usePathname();
   useEffect(() => { recordPageView(path); }, [path]); // page trail for lead forms (lib/attribution.ts)
@@ -16,6 +17,7 @@ export default function Tracker() {
       if (!a) return;
       const href = a.getAttribute("href") || "";
       const text = (a.textContent || "").trim().slice(0, 48);
+      if (href.startsWith("tel:")) { trackEvent("click_to_call", { link_text: text, page: window.location.pathname }); return; }
       let cta = "";
       if (/#quote|\/get-a-quote/.test(href) || /quote/i.test(text)) cta = "get_quote";
       else if (/shop/i.test(text)) cta = "shop";
