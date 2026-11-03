@@ -28,6 +28,27 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); } catch { /* reminders may be empty */ }
   const mode = body.mode || "send";
 
+  // ---------- ONE-OFF TEXT (portal service key) ----------
+  // Replies to a caller who asked us to call back (e.g. an AnswerConnect message). Twilio creds only live here, so the
+  // portal schedules these through pg_cron. Refuses outside 9am-8pm in the recipient's time zone (TCPA quiet hours are
+  // 8am-9pm) and always ends with opt-out language; Twilio blocks numbers that reply STOP. Added 2026-11-02.
+  if (mode === "text") {
+    const bearer = (request.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+    const isService = bearer && await fetch(`${base}/auth/v1/admin/users?per_page=1`, { headers: { apikey: bearer, Authorization: `Bearer ${bearer}` } }).then((r) => r.ok).catch(() => false);
+    if (!isService) return json({ error: "unauthorized" }, 401);
+    const to = String(body.to || "").replace(/[^\d+]/g, "");
+    if (!/^\+1\d{10}$/.test(to) || !body.body) return json({ error: "to (+1XXXXXXXXXX) and body required" }, 400);
+    const tz = body.tz || "America/New_York";
+    const hour = Number(new Intl.DateTimeFormat("en-US", { timeZone: tz, hour: "numeric", hourCycle: "h23" }).format(new Date()));
+    if (hour < 9 || hour >= 20) return json({ ok: false, error: `quiet hours in ${tz} (local hour ${hour})` }, 409);
+    if (!env.TWILIO_ACCOUNT_SID || !env.TWILIO_AUTH_TOKEN || !env.TWILIO_FROM) return json({ error: "Twilio not set" }, 500);
+    const text = /reply stop/i.test(body.body) ? body.body : `${body.body} Reply STOP to opt out.`;
+    const r = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${env.TWILIO_ACCOUNT_SID}/Messages.json`, { method: "POST", headers: { Authorization: "Basic " + btoa(`${env.TWILIO_ACCOUNT_SID}:${env.TWILIO_AUTH_TOKEN}`), "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ To: to, From: env.TWILIO_FROM, Body: text }).toString() });
+    const tw = await r.json().catch(() => ({}));
+    await db("messages", { method: "POST", headers: { Prefer: "return=minimal" }, body: JSON.stringify({ channel: "sms", direction: "out", to_addr: to, from_addr: env.TWILIO_FROM, body: text, template_key: body.template_key || "one-off-text", sent_by: body.sent_by || null, status: r.ok ? "sent" : "failed", provider_id: tw.sid || null }) }).catch(() => {});
+    return json({ ok: r.ok, sid: tw.sid || null, error: r.ok ? undefined : tw.message });
+  }
+
   // ---------- REMINDERS (cron) ----------
   if (mode === "reminders") {
     const secret = env.CRON_SECRET;
