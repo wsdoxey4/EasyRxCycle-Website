@@ -8,8 +8,8 @@ import { SITE, abs } from "@/lib/site";
 import { STATES } from "@/lib/geo";
 
 const PATH = "/blog/biohazardous-waste-disposal-for-healthcare-facilities";
-const TITLE = "Biohazardous Waste Disposal for Healthcare Facilities: 2026 Guide";
-const DESC = "What counts as biohazardous waste (with examples), who generates it, OSHA, DOT and state rules, packaging and storage, treatment methods, pickup vs. mail-back, and cost.";
+const TITLE = "Biohazardous Waste Disposal for Healthcare Facilities";
+const DESC = "Biohazardous waste disposal for healthcare facilities nationwide: what counts, packaging rules, prepaid mail-back kits vs. scheduled pickup, no contracts, and a Certificate of Destruction on every order.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -28,13 +28,16 @@ const faqs = [
   { q: "How often should pickups occur?", a: "Often enough to stay inside your state\u2019s storage-time limit, which depends on whether the waste is refrigerated. High-volume sites usually need weekly or more frequent service; low-volume sites such as dental or dermatology practices often fit mail-back, shipping a box when it fills." },
   { q: "Who regulates medical waste in my state?", a: "Usually the state health department or environmental agency. There has been no single federal medical waste law since the Medical Waste Tracking Act expired in 1991, so storage limits, registration and tracking rules come from the state. OSHA and DOT rules apply everywhere." },
   { q: "What happens to biohazardous waste after it leaves my facility?", a: "A licensed transporter or carrier takes it to a permitted treatment facility, where it is autoclaved or incinerated so it is no longer infectious. The treated residue goes to a landfill or is destroyed, and the paperwork closes the cradle-to-grave trail back to your facility." },
+  { q: "How is biohazardous medical waste disposed of?", a: "It is segregated at the point of generation into red bags and sharps containers, packaged in rigid, labeled DOT packaging, then picked up by a licensed transporter or shipped in a mail-back kit to a permitted facility, where it is autoclaved or incinerated. The manifest and Certificate of Destruction document each step." },
+  { q: "What is biohazard waste management?", a: "Biohazard waste management is the full program around infectious waste: identifying it, segregating it from trash and pharmaceutical waste, using the right containers, training staff under OSHA, storing it inside your state's time limits, and keeping manifests and destruction records." },
+  { q: "Who can pick up biohazard waste?", a: "In most states only a transporter registered or permitted for medical waste can haul it, and the generator stays responsible until it is treated. Low-volume sites can instead use a mail-back system that ships under DOT rules to a permitted treatment facility." },
   { q: "Is biohazard waste the same as hazardous waste?", a: "No. Biohazardous waste is infectious and regulated mainly by states, OSHA and DOT. Hazardous waste is chemical waste regulated by the EPA under RCRA, which includes some drugs (P- and U-listed). A few items, like chemo-contaminated sharps, can be both and need special handling." }
 ];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2025-06-02", dateModified: "2026-10-24", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
+    { "@type": "Article", "@id": `${abs(PATH)}#article`, headline: TITLE, description: DESC, author: { "@type": "Person", name: "William Doxey", url: abs("/author/william-doxey") }, publisher: { "@id": `${SITE.url}/#organization` }, datePublished: "2025-06-02", dateModified: "2026-11-02", mainEntityOfPage: abs(PATH), image: abs(SITE.ogImage) },
     { "@type": "FAQPage", "@id": `${abs(PATH)}#faq`, mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
   ],
 };
@@ -50,7 +53,7 @@ export default function Page() {
             <article className="article">
               <Breadcrumbs items={[{ name: "Blog", href: "/blog/" }, { name: "Biohazardous Waste Disposal" }]} />
               <span className="eyebrow">Biohazard · Medical Waste</span>
-              <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Biohazardous Waste Disposal for Healthcare Facilities: A Complete Guide (2026)" }} />
+              <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Biohazardous Waste Disposal for Healthcare Facilities" }} />
               <div className="byline">
                 <a className="who" href="/author/william-doxey/">William Doxey</a>
                 <span className="dot-sep" />
@@ -58,9 +61,9 @@ export default function Page() {
                 <span className="dot-sep" />
                 <span>18 min read</span>
                 <span className="dot-sep" />
-                <span>Updated Oct 2026</span>
+                <span>Updated Nov 2026</span>
               </div>
-              <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Biohazardous waste isn&rsquo;t just a box to check &mdash; it&rsquo;s central to patient safety, the environment, and your facility&rsquo;s legal standing. This guide covers what counts as biohazardous waste, who generates it, the six waste types, federal and state rules, packaging and storage, treatment methods, and how to build a program that stays compliant." }} />
+              <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Biohazardous waste disposal (also called biohazard waste disposal, or simply bio waste disposal) is how a healthcare facility collects, packages, ships and treats infectious waste so it can no longer spread disease. It&rsquo;s central to patient safety, the environment, and your facility&rsquo;s legal standing. This guide covers what counts as biohazardous waste, who generates it, the six waste types, federal and state rules, packaging and storage, treatment methods, and how to build a program that stays compliant." }} />
 
               <div className="prose">
             <div className="tocbox">
@@ -73,9 +76,11 @@ export default function Page() {
                 <li><a href="#types" dangerouslySetInnerHTML={{ __html: "The six types of biohazard waste" }} /></li>
                 <li><a href="#rules" dangerouslySetInnerHTML={{ __html: "Federal regulations" }} /></li>
                 <li><a href="#packaging" dangerouslySetInnerHTML={{ __html: "Packaging, storage & labeling" }} /></li>
+                <li><a href="#vs-pharma" dangerouslySetInnerHTML={{ __html: "Biohazardous vs. pharmaceutical waste" }} /></li>
                 <li><a href="#treatment" dangerouslySetInnerHTML={{ __html: "Approved treatment methods" }} /></li>
                 <li><a href="#program" dangerouslySetInnerHTML={{ __html: "Building a compliant program" }} /></li>
                 <li><a href="#options" dangerouslySetInnerHTML={{ __html: "Pickup vs. mail-back" }} /></li>
+                <li><a href="#after" dangerouslySetInnerHTML={{ __html: "What happens after it leaves your facility" }} /></li>
                 <li><a href="#states" dangerouslySetInnerHTML={{ __html: "Rules by state &amp; cost" }} /></li>
               </ol>
             </div>
@@ -83,6 +88,7 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "Biohazardous waste &mdash; also called regulated medical waste (RMW) &mdash; is any material capable of transmitting disease or infection, generated in healthcare and lab settings. Proper segregation prevents cross-contamination, OSHA breaches, environmental harm, and reputational damage." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>Common categories include:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Blood-soaked materials (gauze, sponges, suction canisters)" }} /><li dangerouslySetInnerHTML={{ __html: "Sharps (needles, syringes, scalpels, broken glass)" }} /><li dangerouslySetInnerHTML={{ __html: "Pathological waste (tissues, organs, body parts)" }} /><li dangerouslySetInnerHTML={{ __html: "Microbiological waste (cultures, petri dishes, vaccines)" }} /><li dangerouslySetInnerHTML={{ __html: "Contaminated PPE (gloves, gowns, masks)" }} /><li dangerouslySetInnerHTML={{ __html: "Animal research waste (carcasses, bedding, tissue)" }} /></ul>
+            <div className="callout"><p dangerouslySetInnerHTML={{ __html: "<strong>Need it gone now?</strong> Order a prepaid <a href=\"/shop/biohazard-mail-back-kit/\">biohazard mail-back kit</a> (no contract, ships nationwide) or <a href=\"/get-a-quote/\">get a same-day quote</a> for scheduled pickup. For the wider picture, see our <a href=\"/blog/medical-waste-disposal-guide/\">medical waste disposal guide</a>." }} /></div>
             <h2 id="test">Is it biohazardous waste? The drip-or-flake test</h2>
             <p dangerouslySetInnerHTML={{ __html: "The simplest test for regulated medical waste: <strong>would it drip, pour or flake blood or other potentially infectious material if you squeezed it?</strong> If yes, it&rsquo;s biohazardous and goes in a red bag inside a rigid container. If not &mdash; a glove with a dot of dried blood, a lightly stained bandage &mdash; it&rsquo;s usually regular trash. State definitions vary, so when in doubt, treat it as biohazard." }} />
             <div style={{ overflowX: "auto" }}>
@@ -143,6 +149,9 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "<strong>Packaging:</strong> rigid, puncture-resistant, leak-proof containers for sharps; red, tear-resistant (often double-lined) bags for red-bag waste; hard-sided, DOT-approved secondary bins for transport." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>Labeling:</strong> the universal biohazard symbol, generator name and address, the container start date, and UN markings where required &mdash; on weatherproof, smudge-resistant labels." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>Storage:</strong> secure, locked, clearly signed areas with spill containment. Storage-time limits are set by each state and usually allow longer storage for refrigerated waste; pathological and trace-chemo waste may be stricter. Date every container when you start filling it so you can show you are inside the limit." }} />
+            <h2 id="vs-pharma" dangerouslySetInnerHTML={{ __html: "Biohazardous waste vs. pharmaceutical waste: why they can&rsquo;t share a container" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Red-bag waste and drug waste are regulated by different agencies and treated differently. Biohazardous waste is infectious and falls under state medical waste rules, OSHA and DOT; it is usually autoclaved. Pharmaceutical waste falls under EPA rules (and DEA rules for controlled substances) and has to be incinerated. A vial tossed into a red bag can send drugs to an autoclave and a landfill, which breaks EPA&rsquo;s sewering and disposal rules and, for a controlled substance, the DEA&rsquo;s destruction rules." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Keep a separate, labeled container for medications and route it to a <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste disposal</a> service. Our guide to <a href=\"/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/\">hazardous vs. non-hazardous pharmaceutical waste</a> explains how to sort the drug side, and <a href=\"/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast/\">pharmaceutical waste management</a> covers the full program." }} />
             <h2 id="treatment" dangerouslySetInnerHTML={{ __html: "Approved treatment &amp; disposal methods" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Autoclaving</strong> &mdash; high-pressure steam (121&ndash;134&deg;C) for red-bag waste, PPE, cultures." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Incineration</strong> &mdash; high-heat destruction required for pathological, trace-chemo, and pharmaceutical waste." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Chemical disinfection</strong> &mdash; EPA-registered agents for lab waste and fluids." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Microwave treatment</strong> &mdash; shred, moisten, and microwave soft waste." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Encapsulation</strong> &mdash; embedding sharps or chemical byproducts before landfill." }} /></ul>
 
@@ -171,6 +180,10 @@ export default function Page() {
               </table>
             </div>
             <p dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle offers both: <a href=\"/shop/biohazard-mail-back-kit/\">biohazard mail-back kits</a> from 2 to 28 gallons, and scheduled pickups by same-day quote." }} />
+            <div className="callout"><p dangerouslySetInnerHTML={{ __html: "<strong>Low volume?</strong> Start with a <a href=\"/shop/biohazard-mail-back-kit/\">biohazard mail-back kit</a>. <strong>Filling several boxes a week?</strong> <a href=\"/get-a-quote/\">Get a same-day pickup quote</a>. No contracts either way." }} /></div>
+
+            <h2 id="after" dangerouslySetInnerHTML={{ __html: "What happens after it leaves your facility" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Your responsibility for biohazardous waste doesn&rsquo;t end at the loading dock. With Easy Rx Cycle, every box is tracked from your door to a permitted treatment facility, where it is treated so it is no longer infectious. You get the medical waste manifest and a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every order, which is the record an inspector asks for. File both for as long as your state requires." }} />
 
             <h2 id="states">Biohazard waste rules by state, and what it costs</h2>
             <p dangerouslySetInnerHTML={{ __html: "States are the main regulators of medical waste, so storage limits, registration and tracking rules vary. See your state: <a href=\"/our-solutions/biohazard-waste-disposal/texas/\">Texas</a>, <a href=\"/our-solutions/biohazard-waste-disposal/california/\">California</a>, <a href=\"/our-solutions/biohazard-waste-disposal/florida/\">Florida</a>, <a href=\"/our-solutions/biohazard-waste-disposal/new-york/\">New York</a>, <a href=\"/our-solutions/biohazard-waste-disposal/pennsylvania/\">Pennsylvania</a>, <a href=\"/our-solutions/biohazard-waste-disposal/ohio/\">Ohio</a> &mdash; or <a href=\"/our-solutions/biohazard-waste-disposal/\">every state</a>." }} />
