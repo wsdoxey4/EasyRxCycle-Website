@@ -65,13 +65,6 @@
 /our-solutions/medical-supply-store/sharps-containers /shop/ 301
 /our-solutions/regulated-medical-pharmaceutical-waste-services /our-solutions/ 301
 /our-solutions/regulated-medical-pharmaceutical-waste-services/biohazard-waste-disposal /our-solutions/biohazard-waste-disposal/ 301
-# State pages for the 3 legacy service paths, as pattern rules (Cloudflare stopped honoring rules past ~495; these replace 300 static ones), 2026-11-02
-/our-solutions/regulated-medical-pharmaceutical-waste-services/sharps-waste-disposal/:state /our-solutions/sharps-disposal/:state/ 301
-/our-solutions/regulated-medical-pharmaceutical-waste-services/sharps-waste-disposal/:state/ /our-solutions/sharps-disposal/:state/ 301
-/our-solutions/regulated-medical-pharmaceutical-waste-services/expired-drug-disposal-solutions/:state /our-solutions/pharmaceutical-waste-disposal/:state/ 301
-/our-solutions/regulated-medical-pharmaceutical-waste-services/expired-drug-disposal-solutions/:state/ /our-solutions/pharmaceutical-waste-disposal/:state/ 301
-/our-solutions/regulated-medical-pharmaceutical-waste-services/biohazard-waste-disposal/:state /our-solutions/biohazard-waste-disposal/:state/ 301
-/our-solutions/regulated-medical-pharmaceutical-waste-services/biohazard-waste-disposal/:state/ /our-solutions/biohazard-waste-disposal/:state/ 301
 /our-solutions/regulated-medical-pharmaceutical-waste-services/chemotherapy-waste-disposal /our-solutions/trace-chemotherapy-waste/ 301
 /our-solutions/regulated-medical-pharmaceutical-waste-services/controlled-substance-waste-disposal /our-solutions/controlled-substance-destruction/ 301
 /our-solutions/regulated-medical-pharmaceutical-waste-services/expired-drug-disposal-solutions /our-solutions/pharmaceutical-waste-disposal/ 301
@@ -272,7 +265,6 @@
 /blog/how-to-properly-destroy-controlled-drugs-form-41-cod-explained /blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/ 301
 /blog/how-to-properly-destroy-drag-dea-forms-222-41-and-cod-explained /blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/ 301
 /about-us/company-overview/locations /locations/ 301
-/about-us/company-overview/locations/:state /locations/:state/ 301
 /home/about-us/company-overview/our-story /about-us/ 301
 /home/about-us/careers/postings /about-us/ 301
 /terms-of-service /terms/ 301
@@ -284,9 +276,6 @@
 /announcements /press/ 301
 /quote /get-a-quote/ 301
 # Old HubSpot blog listing pages (tags, authors, pagination) -> blog index.
-/blog/tag/* /blog/ 301
-/blog/author/* /blog/ 301
-/blog/page/* /blog/ 301
 
 # Trailing-slash variants of the legacy redirects above (old links ending in "/" were 404ing), 2026-11-02
 /who-we-serve/emergency-services/ /who-we-serve/ems-fire/ 301
@@ -503,3 +492,15 @@
 /newsroom/ /press/ 301
 /announcements/ /press/ 301
 /quote/ /get-a-quote/ 301
+
+# Pattern rules LAST: Cloudflare counts every rule after the first pattern rule as dynamic (100 max), 2026-11-02
+/our-solutions/regulated-medical-pharmaceutical-waste-services/sharps-waste-disposal/:state /our-solutions/sharps-disposal/:state/ 301
+/our-solutions/regulated-medical-pharmaceutical-waste-services/sharps-waste-disposal/:state/ /our-solutions/sharps-disposal/:state/ 301
+/our-solutions/regulated-medical-pharmaceutical-waste-services/expired-drug-disposal-solutions/:state /our-solutions/pharmaceutical-waste-disposal/:state/ 301
+/our-solutions/regulated-medical-pharmaceutical-waste-services/expired-drug-disposal-solutions/:state/ /our-solutions/pharmaceutical-waste-disposal/:state/ 301
+/our-solutions/regulated-medical-pharmaceutical-waste-services/biohazard-waste-disposal/:state /our-solutions/biohazard-waste-disposal/:state/ 301
+/our-solutions/regulated-medical-pharmaceutical-waste-services/biohazard-waste-disposal/:state/ /our-solutions/biohazard-waste-disposal/:state/ 301
+/about-us/company-overview/locations/:state /locations/:state/ 301
+/blog/tag/* /blog/ 301
+/blog/author/* /blog/ 301
+/blog/page/* /blog/ 301
