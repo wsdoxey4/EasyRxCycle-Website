@@ -4,11 +4,12 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained";
-const TITLE = "How to Properly Destroy Controlled Drugs: DEA Forms 222, 41 & COD Explained";
-const DESC = "A clear guide to destroying controlled substances the DEA way: when you need Form 222 vs. Form 41, what a Certificate of Destruction proves, and the exact steps to stay audit-ready.";
+const TITLE = "DEA Drug Disposal: Form 222 vs. Form 41 vs. COD";
+const DESC = "When DEA Form 222 applies, when Form 41 does, and what a Certificate of Destruction proves. How to destroy controlled drugs the DEA way, paperwork done.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -57,6 +58,7 @@ export default function Page() {
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "If your facility handles controlled substances, destroying them incorrectly is one of the fastest ways to fail a DEA audit. Here&rsquo;s exactly when you need DEA Form 222 versus Form 41, what a Certificate of Destruction proves, and the step-by-step process that keeps your records clean." }} />
               <p className="article-lead" style={{ fontSize: "16px", marginTop: "10px" }}>Looking for a filled-in DEA Form 41 and every field explained? See <a href="/blog/dea-form-41-requirements-and-pdf/">DEA Form 41: How to Fill It Out (Filled-In Sample + PDF)</a>.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -92,9 +94,10 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "Hospitals and surgery centers" }} /><li dangerouslySetInnerHTML={{ __html: "Retail, mail-order, and compounding pharmacies" }} /><li dangerouslySetInnerHTML={{ __html: "Long-term care facilities" }} /><li dangerouslySetInnerHTML={{ __html: "Veterinary clinics" }} /><li dangerouslySetInnerHTML={{ __html: "Research labs and universities" }} /><li dangerouslySetInnerHTML={{ __html: "Distributors and manufacturers" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Not sure whether a drug is also <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> under the EPA? That&rsquo;s a separate (and common) compliance trap worth understanding." }} />
             <h2 id="partner" dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle: your compliance partner for drug destruction" }} />
-            <p dangerouslySetInnerHTML={{ __html: "We&rsquo;re a <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> built for exactly this. Every engagement includes help completing DEA Forms 222 and 41, secure mail-back or scheduled pickup, certified non-retrievable <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a>, and a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> delivered to your account." }} />
+            <p dangerouslySetInnerHTML={{ __html: "We&rsquo;re a <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> built for exactly this. Every engagement includes help completing DEA Forms 222 and 41, secure <a href=\"/shop/controlled-substance-mail-back-kit/\">mail-back kits</a> or scheduled pickup, certified non-retrievable <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a>, and a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> delivered to your account." }} />
             <p dangerouslySetInnerHTML={{ __html: "No contracts, no route fees &mdash; just the paperwork done right. <a href=\"/#quote\">request a quote</a> and we&rsquo;ll walk you through it." }} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Destroy controlled drugs the compliant way.</h3>
                   <p>We handle DEA Forms 222 and 41, render your controls non-retrievable, and send a Certificate of Destruction every time. No contracts.</p>

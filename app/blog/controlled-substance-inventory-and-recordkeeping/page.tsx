@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/controlled-substance-inventory-and-recordkeeping";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Controlled-substance compliance lives or dies on records. The DEA doesn&rsquo;t just care that you disposed of a drug &mdash; it cares that you can trace every unit from receipt to dispensing or documented destruction. Here are the inventory and recordkeeping rules, in plain English, and how disposal closes the chain.")} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -79,8 +81,9 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("A <strong>perpetual inventory</strong> is a running, real-time log of every controlled-substance transaction, so on-hand counts can always be reconciled against records. It isn&rsquo;t required in every setting, but it&rsquo;s the strongest protection against <a href=\"/blog/drug-diversion-in-healthcare-prevention-and-disposal/\">diversion</a> and the fastest way to survive an audit &mdash; because a discrepancy shows up immediately instead of months later.")} />
 
                 <h2 id="loop" dangerouslySetInnerHTML={H("Closing the loop with documented disposal")} />
-                <p dangerouslySetInnerHTML={H("Recordkeeping only works if the chain has no gap &mdash; and disposal is where gaps hide. When expired or wasted controlled substances are destroyed, they need to leave your inventory <em>on paper</em> as cleanly as they came in: rendered non-retrievable (21 CFR 1317), documented on Form 41, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. A <a href=\"/our-solutions/controlled-substance-destruction/\">DEA-registered destruction</a> partner (and <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> for returnable stock) gives you that final, documented link.")} />
+                <p dangerouslySetInnerHTML={H("Recordkeeping only works if the chain has no gap &mdash; and disposal is where gaps hide. When expired or wasted controlled substances are destroyed, they need to leave your inventory <em>on paper</em> as cleanly as they came in: rendered non-retrievable (21 CFR 1317), documented on Form 41, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. A <a href=\"/our-solutions/controlled-substance-destruction/\">DEA-registered destruction</a> partner (and <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> for returnable stock) gives you that final, documented link. For a small batch, a prepaid <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kit</a> does the same job.")} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Close the loop on your controlled-substance records.</h3>
                   <p>DEA-registered, non-retrievable destruction with Form 41/222 and a Certificate of Destruction — the documented end your inventory needs.</p>

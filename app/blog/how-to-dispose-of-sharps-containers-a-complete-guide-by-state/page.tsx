@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-dispose-of-sharps-containers-a-complete-guide-by-state";
@@ -58,6 +59,7 @@ export default function Page() {
                 A full sharps container has only a few legal destinations, and which one you can use depends on who generated the sharps. This reference covers every setting (clinics and other businesses, schools, tattoo studios, travel and home users), the OSHA container rules, and how state rules differ.
               </p>
 
+              <KitCTA cat="sharps" />
               <div className="prose">
                 <h2 id="glance" style={{ marginTop: "28px" }}>At a glance: where a full container can go</h2>
                 <div style={{ overflowX: "auto" }}>
@@ -200,6 +202,7 @@ export default function Page() {
                   This page is general information, not legal advice. State and local requirements vary; confirm with your state health or environmental agency.
                 </p>
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>Sharps disposal without a contract.</h3>
                   <p>Prepaid mail-back kits from 1 quart to 28 gallons, FDA-cleared containers, and a Certificate of Destruction for every return. Or call us to set up pickup.</p>

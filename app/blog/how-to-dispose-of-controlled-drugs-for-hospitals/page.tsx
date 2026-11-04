@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-dispose-of-controlled-drugs-for-hospitals";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Hospitals are among the largest handlers of controlled substances in the country &mdash; across the ER, OR, ICU, oncology, and pharmacy &mdash; which makes disposal a high-volume, high-scrutiny chain-of-custody problem. Here&rsquo;s how to keep it compliant." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -77,7 +79,7 @@ export default function Page() {
             <h3 dangerouslySetInnerHTML={{ __html: "1. Use a DEA-registered reverse distributor (recommended)" }} />
             <p dangerouslySetInnerHTML={{ __html: "The most reliable, compliant option. A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> collects, transports, and destroys your controls &mdash; handling DEA Form 222 for Schedule II, preparing Form 41, tracking chain of custody, and issuing a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. See our <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> service." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "2. Mail-back programs" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it; we handle the DEA paperwork." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it; we handle the DEA paperwork." }} />
             <h2 id="forms" dangerouslySetInnerHTML={{ __html: "The DEA forms you must know" }} />
             <p dangerouslySetInnerHTML={{ __html: "Two forms cover you: <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>. When you use Easy Rx Cycle, we handle the DEA paperwork, including Form 222 for Schedule II transfers and Form 41 for destruction of any Schedule I&ndash;V drug. Keep the forms and your Certificates of Destruction for at least two years, and log everything in your controlled-substance log." }} />
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes that fail audits" }} />
@@ -85,6 +87,7 @@ export default function Page() {
             <h2 id="checklist" dangerouslySetInnerHTML={{ __html: "Controlled-drug disposal checklist for hospitals" }} />
             <ol><li dangerouslySetInnerHTML={{ __html: "Maintain an accurate controlled-substance log" }} /><li dangerouslySetInnerHTML={{ __html: "Review inventory regularly for expired stock" }} /><li dangerouslySetInnerHTML={{ __html: "Segregate expired controls securely" }} /><li dangerouslySetInnerHTML={{ __html: "Use a DEA-registered reverse distributor" }} /><li dangerouslySetInnerHTML={{ __html: "Complete DEA Forms 222 and 41" }} /><li dangerouslySetInnerHTML={{ __html: "Retain records and CODs for two years" }} /><li dangerouslySetInnerHTML={{ __html: "Schedule disposal every 30 to 90 days based on volume" }} /></ol>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Get a DEA-compliant quote for hospitals.</h3>
                   <p>We handle the forms, render your controls non-retrievable, and send a Certificate of Destruction &mdash; nationwide, flat-rate, no contracts.</p>

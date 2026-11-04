@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast";
@@ -60,6 +61,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste management is the process of sorting, storing, documenting and destroying expired, unused or contaminated medications so each stream meets EPA, DEA and state rules. Nearly every healthcare organization generates pharmaceutical waste, and it&rsquo;s rarely one category. This guide covers the five types of drug waste, who is responsible, the rules that govern each, and how to get it destroyed and documented anywhere in the U.S." }} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
             <p><strong>The streams a pharmaceutical waste program has to cover:</strong></p>
             <ul>
@@ -132,6 +134,7 @@ export default function Page() {
             <h2 id="regional" dangerouslySetInnerHTML={{ __html: "Regional coverage: pharmaceutical waste management in the Southeast and nationwide" }} />
             <p dangerouslySetInnerHTML={{ __html: "Federal DEA and EPA rules apply everywhere, but states add their own. Several Southeastern states schedule gabapentin as a controlled substance, and states differ on whether they have adopted EPA&rsquo;s Subpart P and how they license waste haulers. Easy Rx Cycle is based in Arkansas and serves facilities in every state, so the same kits, paperwork and Certificate of Destruction work wherever you are. Check your state&rsquo;s rules on our <a href=\"/medical-waste-regulations-by-state/\">regulations by state</a> page." }} />
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Build a compliant pharmaceutical waste program.</h3>
                   <p>One partner for hazardous, non-hazardous, controlled, and chemo waste — segregated, destroyed, and documented, with flat-rate pricing.</p>

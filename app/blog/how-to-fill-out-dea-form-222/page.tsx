@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-fill-out-dea-form-222";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "DEA Form 222 is the official record for ordering and transferring Schedule II controlled substances &mdash; including sending them to a reverse distributor for destruction. Here&rsquo;s how to fill it out correctly, and the common mistakes to avoid." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -69,8 +71,9 @@ export default function Page() {
             <ol><li dangerouslySetInnerHTML={{ __html: "Enter the supplier/recipient DEA registration details" }} /><li dangerouslySetInnerHTML={{ __html: "List each Schedule II drug, its size, and the number of packages" }} /><li dangerouslySetInnerHTML={{ __html: "Sign and date it as the authorized registrant" }} /><li dangerouslySetInnerHTML={{ __html: "Keep your copy; the other copies go with the transaction" }} /><li dangerouslySetInnerHTML={{ __html: "Retain the record for at least two years" }} /></ol>
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Incomplete or mismatched registrant details" }} /><li dangerouslySetInnerHTML={{ __html: "Errors in package counts (no cross-outs allowed)" }} /><li dangerouslySetInnerHTML={{ __html: "Missing signatures" }} /><li dangerouslySetInnerHTML={{ __html: "Not retaining the copy for two years" }} /></ul>
-            <p dangerouslySetInnerHTML={{ __html: "When you use a DEA-registered reverse distributor, we prepare and guide the <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and Form 222 so it&rsquo;s done right." }} />
+            <p dangerouslySetInnerHTML={{ __html: "When you use a DEA-registered reverse distributor, we prepare and guide the <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and Form 222 so it&rsquo;s done right. For a small batch, a prepaid <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kit</a> covers the whole process." }} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Let us handle the DEA paperwork.</h3>
                   <p>We prepare Form 222 and Form 41 and render your controls non-retrievable &mdash; with a Certificate of Destruction, no contract.</p>

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/best-reverse-distributors-a-comparison";
@@ -58,6 +59,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Not all reverse distributors are built the same. The best ones don&rsquo;t just destroy drugs &mdash; they make your compliance easier, price transparently, and actually pick up the phone. Here&rsquo;s how to compare them, and an honest look at how the major players stack up." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -94,11 +96,12 @@ export default function Page() {
             <h2 id="near-me" dangerouslySetInnerHTML={{ __html: "Is there a reverse distributor near me?" }} />
             <p dangerouslySetInnerHTML={{ __html: "You don&rsquo;t need one in your city. Reverse distribution runs on shipping and scheduled pickup, so what matters is DEA registration, documentation, and turnaround, not distance. Easy Rx Cycle serves pharmacies, clinics, and long-term care facilities in all 50 states." }} />
             <h2 id="erc" dangerouslySetInnerHTML={{ __html: "Where Easy Rx Cycle fits" }} />
-            <p dangerouslySetInnerHTML={{ __html: "We built our <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> around what pharmacies, clinics, and care facilities actually need: a compliance-first process, real controlled-substance handling, flat-rate pricing, and no long-term contracts." }} />
+            <p dangerouslySetInnerHTML={{ __html: "We built our <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> around what pharmacies, clinics, and care facilities actually need: a compliance-first process, real controlled-substance handling, flat-rate pricing, and no long-term contracts. Small batches can go out in a prepaid <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kit</a>." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>Who we serve:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Retail and independent pharmacies" }} /><li dangerouslySetInnerHTML={{ __html: "Mail-order and compounding pharmacies" }} /><li dangerouslySetInnerHTML={{ __html: "Veterinary clinics" }} /><li dangerouslySetInnerHTML={{ __html: "Long-term care and assisted living" }} /><li dangerouslySetInnerHTML={{ __html: "Hospitals and outpatient clinics" }} /><li dangerouslySetInnerHTML={{ __html: "DEA registrants of every size" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Clients tend to stay for the same reasons: fast turnaround, clear pricing, and a compliance-first approach &mdash; especially for controlled substances. If you also need credit recovery on returnable stock, that&rsquo;s built into our <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> program." }} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Compare us the easy way — get a quote.</h3>
                   <p>Flat-rate pricing, Form 222/41 support, and a Certificate of Destruction on every order. See what compliant, contract-free reverse distribution looks like.</p>

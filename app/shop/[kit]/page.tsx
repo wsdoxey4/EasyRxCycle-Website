@@ -46,6 +46,8 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
   // Shopping-ineligible kits (controlled / hazardous / chemo) keep a Product node for organic rich
   // results but emit NO Offer schema, so Google free-listings / auto-crawl never lists them.
   const shoppable = isShoppable({ category: k.category });
+  // The on-site kit is a no-return fallback, so it gets its own label and points readers to the mail-back kit.
+  const onsite = k.category === "medication-onsite";
 
   const product: Record<string, unknown> = {
     "@type": "Product", "@id": `${abs(path)}#product`, name: k.name, description: k.desc,
@@ -111,7 +113,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
                 <div className="pdp-head">
                   {img && <img src={img} alt="" aria-hidden="true" className="pdp-thumb" />}
                   <div>
-                    <span className="eyebrow">Mail-back kit</span>
+                    <span className="eyebrow">{onsite ? "On-site kit" : "Mail-back kit"}</span>
                     <h1 className="ph1" style={{ fontSize: "clamp(26px,3.4vw,38px)", marginTop: "8px" }}>{k.name}</h1>
                   </div>
                 </div>
@@ -169,10 +171,22 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           </div>
         </section>
 
+        {!onsite && (
         <section className="sec" style={{ paddingTop: "clamp(24px,3vw,36px)" }}>
           <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
+        )}
 
+        {onsite ? (
+        <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Prefer we destroy it?</span><h2>Mail it back for incineration instead.</h2><p className="lead">Our mail-back medication kit is prepaid both ways. You fill it and send it to us; we incinerate it and send your Certificate of Destruction.</p></div>
+            <div style={{ textAlign: "center", marginTop: "18px" }}>
+              <a className="btn btn-primary" href="/shop/medication-mail-back-kit/">See the mail-back kit <span className="ar">→</span></a>
+            </div>
+          </div>
+        </section>
+        ) : (
         <section className="sec how" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
           <div className="wrap">
             <div className="shead"><span className="eyebrow">How it works</span><h2>Order it. Fill it. Mail it back.</h2></div>
@@ -184,6 +198,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
             </div>
           </div>
         </section>
+        )}
 
         <section className="sec" style={{ paddingTop: "0" }}>
           <div className="wrap">

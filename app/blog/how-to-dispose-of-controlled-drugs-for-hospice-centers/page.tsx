@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-dispose-of-controlled-drugs-for-hospice-centers";
@@ -58,6 +59,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Hospice care runs on strong controlled substances for comfort &mdash; and creates a hard problem: what to do with a patient&rsquo;s unused opioids after they pass. Here&rsquo;s how hospice centers dispose of controlled drugs compliantly." }} />
 
+              <KitCTA cat="medication" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -81,7 +83,7 @@ export default function Page() {
             <h3 dangerouslySetInnerHTML={{ __html: "1. Use a DEA-registered reverse distributor (recommended)" }} />
             <p dangerouslySetInnerHTML={{ __html: "The most reliable, compliant option. A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> collects, transports, and destroys your controls &mdash; handling DEA Form 222 for Schedule II, preparing Form 41, tracking chain of custody, and issuing a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. See our <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> service." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "2. Mail-back programs" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it. We incinerate the contents and complete the destruction paperwork, including DEA Form 41, as the destroying registrant." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/shop/medication-mail-back-kit/\">mail-back medication disposal kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it. We incinerate the contents and complete the destruction paperwork, including DEA Form 41, as the destroying registrant." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "3. A patient&rsquo;s own medications in the home" }} />
             <p dangerouslySetInnerHTML={{ __html: "Drugs dispensed to a patient belong to the patient, not to your agency&rsquo;s inventory, so a reverse distributor can&rsquo;t take them. Federal law and many states give hospice staff a defined role in disposing of them at the home. We cover the <a href=\"#support-act\">SUPPORT Act</a> and the <a href=\"#states\">state laws</a> below. The path we recommend is a witnessed <a href=\"/shop/medication-mail-back-kit/\">mail-back package</a> that goes to incineration." }} />
 
@@ -119,6 +121,7 @@ export default function Page() {
             <h2 id="checklist" dangerouslySetInnerHTML={{ __html: "Controlled-drug disposal checklist for hospice centers" }} />
             <ol><li dangerouslySetInnerHTML={{ __html: "Maintain an accurate controlled-substance log" }} /><li dangerouslySetInnerHTML={{ __html: "Review inventory regularly for expired stock" }} /><li dangerouslySetInnerHTML={{ __html: "Segregate expired controls securely" }} /><li dangerouslySetInnerHTML={{ __html: "Use a DEA-registered reverse distributor" }} /><li dangerouslySetInnerHTML={{ __html: "Let your reverse distributor handle the DEA paperwork (Form 222 for Schedule II and Form 41)" }} /><li dangerouslySetInnerHTML={{ __html: "Retain records and CODs for two years" }} /><li dangerouslySetInnerHTML={{ __html: "Schedule disposal every 30 to 90 days based on volume" }} /></ol>
 
+                <KitCTA cat="medication" place="end" />
                 <div className="postcta">
                   <h3>Get a DEA-compliant quote for hospice centers.</h3>
                   <p>We handle the forms, render your controls non-retrievable, and send a Certificate of Destruction &mdash; nationwide, flat-rate, no contracts.</p>

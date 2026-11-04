@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-dispose-of-controlled-drugs-for-ambulance-services";
@@ -59,6 +60,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "EMS providers carry controlled substances into the field every day &mdash; opioids, sedatives, and emergency medications. That makes your service a DEA registrant with strict obligations for storage, tracking, and disposal. Here&rsquo;s how to dispose of controlled drugs compliantly." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -84,7 +86,7 @@ export default function Page() {
             <h3 dangerouslySetInnerHTML={{ __html: "1. Use a DEA-registered reverse distributor (recommended)" }} />
             <p dangerouslySetInnerHTML={{ __html: "The most reliable, compliant option. A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> collects, transports, and destroys your controls &mdash; handling DEA Form 222 for Schedule II, preparing Form 41, tracking chain of custody, and issuing a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. See our <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> service." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "2. Mail-back programs" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it. We incinerate the contents and complete the DEA Form 41 as the destroying registrant." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it. We incinerate the contents and complete the DEA Form 41 as the destroying registrant." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "3. Return to your supplying hospital or pharmacy" }} />
             <p dangerouslySetInnerHTML={{ __html: "Many agencies stock their rigs under a hospital&rsquo;s or pharmacy&rsquo;s registration. If that&rsquo;s your setup, expired controls may have to go back to that registrant, which then sends them to a reverse distributor. DEA rules allow return to the registrant you got the drugs from (<a href=\"https://www.law.cornell.edu/cfr/text/21/1317.05\" target=\"_blank\" rel=\"noopener\">21 CFR 1317.05</a>), and some states require it. Check your supply agreement." }} />
 
@@ -141,6 +143,7 @@ export default function Page() {
             <h2 id="checklist" dangerouslySetInnerHTML={{ __html: "Controlled-drug disposal checklist for EMS teams" }} />
             <ol><li dangerouslySetInnerHTML={{ __html: "Maintain an accurate controlled-substance log" }} /><li dangerouslySetInnerHTML={{ __html: "Review inventory regularly for expired stock" }} /><li dangerouslySetInnerHTML={{ __html: "Segregate expired controls securely" }} /><li dangerouslySetInnerHTML={{ __html: "Use a DEA-registered reverse distributor" }} /><li dangerouslySetInnerHTML={{ __html: "Let your reverse distributor handle the DEA paperwork (Form 222 for Schedule II and Form 41)" }} /><li dangerouslySetInnerHTML={{ __html: "Retain records and CODs for two years" }} /><li dangerouslySetInnerHTML={{ __html: "Schedule disposal every 30 to 90 days based on volume" }} /></ol>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Get a DEA-compliant quote for EMS teams.</h3>
                   <p>We handle the forms, render your controls non-retrievable, and send a Certificate of Destruction &mdash; nationwide, flat-rate, no contracts.</p>

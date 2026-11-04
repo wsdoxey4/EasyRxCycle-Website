@@ -4,11 +4,12 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/dea-form-41-requirements-and-pdf";
-const TITLE = "DEA Form 41: How to Fill It Out (Filled-In Sample + PDF)";
-const DESC = "See a filled-in DEA Form 41 sample, every section explained, who completes it, the two-witness and two-year recordkeeping rules, common mistakes, and where to get the official PDF.";
+const TITLE = "DEA Form 41: Filled-In Sample, Free PDF & Rules";
+const DESC = "DEA Form 41 explained: a filled-in sample, every section, who completes it, the witness and two-year rules, and the official PDF. Or let us do it.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -68,6 +69,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("DEA Form 41 is the official record that controlled substances were destroyed the legal way. Below: a filled-in sample, what goes in every section, who has to complete it, the witness and recordkeeping rules, and the mistakes that show up in inspections.")} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="callout">
                   <p><strong>DEA Form 41 at a glance</strong></p>
@@ -181,6 +183,7 @@ export default function Page() {
                 <h2 id="history">Old vs. current DEA Form 41</h2>
                 <p dangerouslySetInnerHTML={H("Before DEA&rsquo;s 2014 disposal rule (21 CFR 1317), Form 41 was titled <strong>Registrants Inventory of Drugs Surrendered</strong>, and registrants sent it to DEA to ask permission to destroy controlled substances. The rule renamed it the <strong>Registrant Record of Controlled Substances Destroyed</strong> and made it a record you keep on file. That&rsquo;s why older guides, and some university and state pages, still say to mail Form 41 to DEA.")} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Let us handle Form 41.</h3>
                   <p>Fill out one list. We complete the DEA Form 222, the 3&ndash;5 transfer form and Form 41, destroy your controls by witnessed incineration, and send your Certificate of Destruction. No contract.</p>

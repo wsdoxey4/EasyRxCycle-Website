@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/blog/how-to-dispose-of-controlled-substances";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Controlled substances can&rsquo;t just be thrown away or flushed &mdash; the DEA requires they be rendered <strong>non-retrievable</strong> and documented. Here&rsquo;s the compliant way to dispose of controlled substances, for facilities and individuals." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -64,12 +66,13 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="facilities" dangerouslySetInnerHTML={{ __html: "For facilities (DEA registrants)" }} />
-            <p dangerouslySetInnerHTML={{ __html: "If you hold a DEA registration, you must dispose of controlled substances through a <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> or authorized destruction &mdash; rendered non-retrievable, documented on <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. Reverse distribution also recovers credit on returnable stock." }} />
+            <p dangerouslySetInnerHTML={{ __html: "If you hold a DEA registration, you must dispose of controlled substances through a <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> or authorized destruction &mdash; rendered non-retrievable, documented on <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. Reverse distribution also recovers credit on returnable stock. For a small batch, a prepaid <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kit</a> is the simplest route." }} />
             <h2 id="individuals" dangerouslySetInnerHTML={{ __html: "For individuals (patients &amp; caregivers)" }} />
             <p dangerouslySetInnerHTML={{ __html: "At home, use a DEA take-back kiosk, National Take Back Day, or a compliant <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a>. Don&rsquo;t flush (except the few FDA flush-list drugs) and don&rsquo;t trash loose controlled substances." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush controlled substances (except FDA flush-list drugs when no take-back exists)" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t put them in regular or red-bag waste" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t skip the DEA Form 41 documentation" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t use an unlicensed vendor" }} /></ul>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Dispose of controls the compliant way.</h3>
                   <p>DEA non-retrievable destruction with Form 41 handled and a Certificate of Destruction &mdash; reverse distribution or mail-back, no contract.</p>

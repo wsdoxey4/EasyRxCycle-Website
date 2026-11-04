@@ -7,8 +7,8 @@ import ServiceStates from "@/components/ServiceStates";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/resources/dea-form-41-222";
-const TITLE = "DEA Form 41 & Form 222 Explained | Controlled Substance Forms";
-const DESC = "A plain-English guide to DEA Form 41 (destruction of controlled substances) and DEA Form 222 (Schedule II ordering and transfer) \u2014 when each is required, how they're filed, and how Easy Rx Cycle handles them for you.";
+const TITLE = "DEA Form 222 vs. Form 41: Which One, and When";
+const DESC = "Form 222 transfers Schedule I\u2013II drugs, including to a reverse distributor. Form 41 records destruction. Which applies when, and how we handle both.";
 
 export const metadata: Metadata = {
   title: TITLE,

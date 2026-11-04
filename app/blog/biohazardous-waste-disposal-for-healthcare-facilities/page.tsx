@@ -4,12 +4,13 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
 import { STATES } from "@/lib/geo";
 
 const PATH = "/blog/biohazardous-waste-disposal-for-healthcare-facilities";
-const TITLE = "Biohazardous Waste Disposal for Healthcare Facilities";
-const DESC = "Biohazardous waste disposal for healthcare facilities nationwide: what counts, packaging rules, prepaid mail-back kits vs. scheduled pickup, no contracts, and a Certificate of Destruction on every order.";
+const TITLE = "Biohazard Waste Disposal: What Counts, Rules & Costs";
+const DESC = "What counts as biohazard waste, how to bag and label it, state rules and costs. Prepaid mail-back kits from $75 with a Certificate of Destruction.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -65,6 +66,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Biohazardous waste disposal (also called biohazard waste disposal, or simply bio waste disposal) is how a healthcare facility collects, packages, ships and treats infectious waste so it can no longer spread disease. It&rsquo;s central to patient safety, the environment, and your facility&rsquo;s legal standing. This guide covers what counts as biohazardous waste, who generates it, the six waste types, federal and state rules, packaging and storage, treatment methods, and how to build a program that stays compliant." }} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -193,6 +195,7 @@ export default function Page() {
             </div>
             <p dangerouslySetInnerHTML={{ __html: "On cost: mail-back biohazard kits start at $75 for a 2-gallon box, prepaid both ways with destruction included. Pickup pricing depends on volume and frequency. Our <a href=\"/blog/biohazard-waste-disposal-cost/\">biohazard disposal cost guide</a> breaks down both." }} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Make biohazard compliance the easy part.</h3>
                   <p>Licensed transport or mail-back kits, DOT-compliant packaging, and a Certificate of Destruction on every pickup — sized to your facility, no contracts. See our <a href="/our-solutions/biohazard-waste-disposal/">biohazard waste disposal service</a>.</p>
