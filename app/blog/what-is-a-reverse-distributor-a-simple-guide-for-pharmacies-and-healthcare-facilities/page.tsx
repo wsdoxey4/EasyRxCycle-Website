@@ -74,6 +74,7 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "Reverse distribution is the process of sending returned items &mdash; expired, unused, or recalled pharmaceutical products &mdash; back through the supply chain to a licensed company that can safely dispose of them." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>It&rsquo;s essential for:</strong>" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "DEA compliance" }} /><li dangerouslySetInnerHTML={{ __html: "Environmental protection" }} /><li dangerouslySetInnerHTML={{ __html: "Preventing drug misuse or theft" }} /><li dangerouslySetInnerHTML={{ __html: "Meeting recordkeeping requirements" }} /></ul>
+            <p dangerouslySetInnerHTML={{ __html: "To see who is registered near you, browse our <a href=\"/dea-reverse-distributor-directory/\">DEA reverse distributor directory</a>." }} />
             <h2 id="controlled" dangerouslySetInnerHTML={{ __html: "Reverse distribution for controlled substances" }} />
             <p dangerouslySetInnerHTML={{ __html: "Only a DEA-registered reverse distributor can accept and destroy controlled substances like opioids, ADHD medications, and benzodiazepines. Losing track of these creates financial, legal, and reputational risk." }} />
             <p dangerouslySetInnerHTML={{ __html: "<strong>A DEA reverse distributor will:</strong>" }} />

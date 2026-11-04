@@ -106,7 +106,7 @@ export default function Page() {
                 <h2 id="who">Who fills out DEA Form 41?</h2>
                 <p dangerouslySetInnerHTML={H("The registrant that <strong>actually destroys</strong> the drugs completes Form 41. When you send your controls to a DEA-registered company for destruction, that company completes Form 41 as the destroying registrant.")} />
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong>Your side of the paperwork</strong> is the transfer record &mdash; a <a href=\"/blog/how-to-fill-out-dea-form-222/\">DEA Form 222</a> for Schedule I and II drugs, a transfer form for Schedules III&ndash;V &mdash; plus the <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Your side of the paperwork</strong> is one list of what you&rsquo;re sending. The transfer records (<a href=\"/blog/how-to-fill-out-dea-form-222/\">DEA Form 222</a> for Schedule I and II, a transfer form for Schedules III&ndash;V) are handled by the reverse distributor, and you keep the <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>.")} />
                 </ul>
                 <p dangerouslySetInnerHTML={H("With an Easy Rx Cycle <a href=\"/shop/controlled-substance-mail-back-kit/\">Controlled Substance Mail-Back Kit</a>, you fill out one list &mdash; the Drug Inventory Manifest &mdash; and we complete the DEA Form 222, the Schedule III&ndash;V transfer form and Form 41, then send your Certificate of Destruction.")} />
 

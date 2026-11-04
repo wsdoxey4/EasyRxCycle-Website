@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NewsletterBox from "@/components/NewsletterBox";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -199,6 +200,10 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           </div>
         </section>
         )}
+
+        <section className="sec" style={{ paddingTop: "0", paddingBottom: "0" }}>
+          <div className="wrap"><NewsletterBox /></div>
+        </section>
 
         <section className="sec" style={{ paddingTop: "0" }}>
           <div className="wrap">

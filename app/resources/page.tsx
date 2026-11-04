@@ -32,7 +32,7 @@ type Card = { t: string; d: string; h: string; dl?: boolean };
 // Compliance reference explainers (all real pages) + RCRA/agency articles on the blog.
 const compliance: Card[] = [
   { t: "USP 800 compliance", d: "What the standard requires for handling and disposing of hazardous drugs.", h: "/resources/usp-800/" },
-  { t: "DEA Form 41 & 222", d: "When each form applies, and how controlled destruction stays compliant.", h: "/resources/dea-form-41-222/" },
+  { t: "DEA Form 41 & 222", d: "When each form applies, and how controlled destruction stays compliant.", h: "/blog/dea-form-41-requirements-and-pdf/" },
   { t: "Certificate of Destruction", d: "What it proves and why auditors ask for it.", h: "/resources/certificate-of-destruction/" },
   { t: "OSHA / Bloodborne training", d: "The annual training the Bloodborne Pathogens Standard requires.", h: "/resources/bloodborne-training/" },
   { t: "RCRA Subpart P", d: "Hazardous pharmaceutical waste rules for healthcare generators.", h: "/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/" },

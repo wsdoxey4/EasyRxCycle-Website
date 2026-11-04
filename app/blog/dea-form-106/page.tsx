@@ -128,7 +128,7 @@ export default function Page() {
                     </tbody>
                   </table>
                 </div>
-                <p dangerouslySetInnerHTML={H("For the side-by-side on destruction and transfer paperwork, see <a href=\"/resources/dea-form-41-222/\">DEA Form 41 &amp; 222 explained</a> and <a href=\"/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/\">how to properly destroy controlled drugs</a>.")} />
+                <p dangerouslySetInnerHTML={H("For the side-by-side on destruction and transfer paperwork, see <a href=\"/blog/dea-form-41-requirements-and-pdf/#vs\">DEA Form 41 vs. 222 vs. 106</a> and <a href=\"/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/\">how to properly destroy controlled drugs</a>.")} />
 
                 <h2 id="prevent">Preventing the next one</h2>
                 <p>Losses often trace back to expired and unwanted stock that sits in a cabinet long after anyone is counting it. A few habits shrink that risk:</p>

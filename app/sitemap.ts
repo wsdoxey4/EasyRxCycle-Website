@@ -532,7 +532,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/our-solutions/medication-disposal-kit/wyoming",
     "/our-solutions/medication-disposal-kit/washington-dc",
     // compliance resources
-    "/resources/dea-form-41-222",
     "/resources/usp-800",
     "/resources/certificate-of-destruction",
     "/resources/bloodborne-training",

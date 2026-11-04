@@ -2,6 +2,7 @@
 // and links straight to the product page (kit pages convert far better than the quote form for small orders).
 import { KITS } from "@/lib/shopContent";
 import { fromPrice, money } from "@/lib/shop";
+import NewsletterBox from "@/components/NewsletterBox";
 
 const LINE: Record<string, string> = {
   sharps: "Needles, syringes, lancets and pen needles. FDA-cleared container, prepaid both ways.",
@@ -17,7 +18,7 @@ export default function KitCTA({ cat, place = "top" }: { cat: string; place?: "t
   const k = KITS.find((x) => x.category === cat);
   if (!k) return null;
   const href = `/shop/${k.slug}/`;
-  return (
+  const box = (
     <div className={`kitcta kitcta-${place}`}>
       <div className="kitcta-txt">
         <span className="kitcta-eye">{place === "top" ? "Need it gone? Shop the kit" : "Ready to ship it out?"}</span>
@@ -30,4 +31,6 @@ export default function KitCTA({ cat, place = "top" }: { cat: string; place?: "t
       </div>
     </div>
   );
+  // The end-of-article box also offers the newsletter, for readers not ready to buy.
+  return place === "end" ? <>{box}<NewsletterBox /></> : box;
 }

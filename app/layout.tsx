@@ -77,7 +77,7 @@ const jsonLd = {
         addressRegion: SITE.address.region,
         addressCountry: SITE.address.country,
       },
-      sameAs: ["https://www.linkedin.com/company/easy-rx-cycle"],
+      sameAs: ["https://www.linkedin.com/company/easy-rx-cycle", "https://www.facebook.com/profile.php?id=61583516006148", "https://www.instagram.com/easy_rx_cycle/"],
       memberOf: { "@type": "Organization", name: "National Waste & Recycling Association (NWRA)", url: "https://wasterecycling.org" },
       areaServed: { "@type": "Country", name: "United States" },
       contactPoint: {

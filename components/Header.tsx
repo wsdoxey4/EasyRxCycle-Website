@@ -30,7 +30,7 @@ const MENU: Item[] = [
         { t: "How it works", h: "/how-it-works/" },
       ]},
       { title: "Compliance", links: [
-        { t: "DEA Forms 41 / 222", h: "/resources/dea-form-41-222/" },
+        { t: "DEA Forms 41 / 222", h: "/blog/dea-form-41-requirements-and-pdf/" },
         { t: "USP 800", h: "/resources/usp-800/" },
         { t: "Certificate of Destruction", h: "/resources/certificate-of-destruction/" },
         { t: "OSHA / Bloodborne Training", h: "/resources/bloodborne-training/" },
@@ -85,7 +85,7 @@ const MENU: Item[] = [
       { title: "Guides & compliance", links: [
         { t: "The guide library (60+)", h: "/resources/guides/" },
         { t: "Glossary of terms", h: "/glossary/" },
-        { t: "DEA Form 41 / 222", h: "/resources/dea-form-41-222/" },
+        { t: "DEA Form 41 / 222", h: "/blog/dea-form-41-requirements-and-pdf/" },
         { t: "USP 800", h: "/resources/usp-800/" },
         { t: "Certificate of Destruction", h: "/resources/certificate-of-destruction/" },
         { t: "OSHA / Bloodborne training", h: "/resources/bloodborne-training/" },

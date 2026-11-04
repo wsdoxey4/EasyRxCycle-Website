@@ -392,6 +392,16 @@ footer a:hover{color:#fff;}
 .news-ok{color:#7fe0b6;font-family:'Poppins';font-weight:600;font-size:15px;margin:0;}
 @media(max-width:640px){.news-form,.news-form input[type=email]{width:100%;}.news-form input[type=email]{min-width:0;}}
 
+/* in-page newsletter box (guides, kit pages) — light variant of the footer form */
+.newsbox{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid #d9e7ea;border-radius:14px;background:#f7fafb;padding:18px 22px;margin:18px 0 6px;}
+.newsbox-copy{flex:1 1 300px;min-width:0;}
+.newsbox-copy b{font-family:'Poppins';font-weight:600;color:var(--ink,#123A44);font-size:16px;}
+.newsbox-copy p{margin:4px 0 0;font-size:14px;color:#55646B;max-width:52ch;}
+.newsbox .news-form input[type=email]{background:#fff;border-color:#c9d9dd;color:#123A44;}
+.newsbox .news-form input[type=email]::placeholder{color:#8aa0a8;}
+.newsbox .news-ok{color:#0f7a55;}
+.newsbox .news-err{color:#b3261e;}
+
 /* --- mega menu --- */
 header.site .wrap{position:relative;}
 .navitem{position:relative;display:flex;align-items:center;}
