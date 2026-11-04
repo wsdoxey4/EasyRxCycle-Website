@@ -142,6 +142,12 @@ async function handlePost({ request, env }) {
       put("attr_gbraid", a.utm.gbraid); // Google iOS click IDs (no gclid on some iPhone traffic)
       put("attr_wbraid", a.utm.wbraid);
       put("attr_msclkid", a.utm.msclkid); // Microsoft ad-click ID → offline conversion push to Microsoft Ads
+      put("attr_partner", a.utm.partner); // sticky affiliate code (lib/attribution.ts) — wins for commissions
+      put("attr_first_channel", a.utm.first_channel); // first-ever touch; attr_channel above is the last tagged touch
+      put("attr_first_src", a.utm.first_source);
+      put("attr_first_campaign", a.utm.first_campaign);
+      put("attr_first_landing", a.utm.first_landing);
+      put("attr_first_at", a.utm.first_at);
     }
   } catch { /* attribution is best-effort — never break checkout */ }
   // Abandoned-checkout recovery (one-time payments). The 1h expiry fires checkout.session.expired → our

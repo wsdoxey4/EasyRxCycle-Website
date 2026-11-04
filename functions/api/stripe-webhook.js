@@ -87,7 +87,8 @@ export async function onRequestPost({ request, env }) {
     const source = s.mode === "subscription" ? "autoship" : "shop";
     const paymentRef = typeof s.payment_intent === "string" ? s.payment_intent : (s.payment_intent?.id || null);
     const m = s.metadata || {};
-    const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null, gbraid: m.attr_gbraid || null, wbraid: m.attr_wbraid || null, msclkid: m.attr_msclkid || null };
+    const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null, gbraid: m.attr_gbraid || null, wbraid: m.attr_wbraid || null, msclkid: m.attr_msclkid || null,
+      partner: m.attr_partner || null, first: m.attr_first_channel ? { channel: m.attr_first_channel, source: m.attr_first_src || null, campaign: m.attr_first_campaign || null, landing: m.attr_first_landing || null, at: m.attr_first_at || null } : null };
     const expedite = await expediteCount(env, s, cart).catch(() => expediteFromGap(cart, s.amount_subtotal));
     const _resp = await ingest(db, { extRef: s.id, cart, expedite, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
     await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase(), subId: s.subscription || null }).catch(() => {});
@@ -174,6 +175,13 @@ export async function onRequestPost({ request, env }) {
 }
 
 // Resolve (or create) the client + ship-to site for a buyer.
+// First touch + sticky partner code (lib/attribution.ts → checkout metadata). Same columns on orders and new clients.
+function touchCols(a) {
+  const f = a?.first || {};
+  return { attr_partner: a?.partner || null, attr_first_channel: f.channel || null, attr_first_source: f.source || null,
+    attr_first_campaign: f.campaign || null, attr_first_landing: f.landing || null, attr_first_at: f.at || null };
+}
+
 async function resolveClientSite(db, buyer, createIfMissing = true, attribution = null) {
   const addr = buyer.addr || {};
   const email = buyer.email || "";
@@ -190,7 +198,7 @@ async function resolveClientSite(db, buyer, createIfMissing = true, attribution 
     const ins = await db(`clients`, {
       method: "POST", headers: { Prefer: "return=representation" },
       body: JSON.stringify({ name: fullName, contact_email: email || null, contact_first_name: first || null, contact_last_name: rest.join(" ") || null, phone: buyer.phone || null, street, city: addr.city || null, state: addr.state || null, zip: addr.postal_code || null, status: "active",
-        attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null }),
+        attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null, ...touchCols(attribution) }),
     }).then((r) => r.json()).catch(() => null);
     clientId = Array.isArray(ins) ? ins[0]?.id : ins?.id;
   }
@@ -246,7 +254,7 @@ async function ingest(db, { extRef, cart, expedite, buyer, placedAt, source, sub
         amount_cents: amount, placed_at: placedAt, ext_ref: extRef, subscription_ref: subscriptionRef, payment_ref: paymentRef || null,
         partner_id: partnerId, commission_cents: Math.round(amount * commissionPct / 100), price_review: priceReview, onsite: kind === "on",
         attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null, attr_gclid: attribution?.gclid || null,
-        attr_gbraid: attribution?.gbraid || null, attr_wbraid: attribution?.wbraid || null, attr_msclkid: attribution?.msclkid || null }),
+        attr_gbraid: attribution?.gbraid || null, attr_wbraid: attribution?.wbraid || null, attr_msclkid: attribution?.msclkid || null, ...touchCols(attribution) }),
     }).then((r) => r.json()).catch(() => null);
     const orderId = Array.isArray(ord) ? ord[0]?.id : ord?.id;
     if (!orderId) continue;

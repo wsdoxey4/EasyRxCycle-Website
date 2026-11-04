@@ -1,6 +1,12 @@
-// First-touch attribution spine. Captures how a visitor arrived (UTM params, gclid,
-// referrer) on their FIRST landing, persists it, and derives a marketing channel so
-// every lead can be attributed end-to-end in the portal's per-channel funnel.
+// Attribution spine. Keeps three touches per browser and derives a marketing channel for each, so every lead and
+// order can be attributed end-to-end in the portal's per-channel funnel:
+//   erx_attr    LAST tagged touch: replaced by any visit carrying UTM or an ad click ID (ad click IDs must be last-click
+//               for the Google/Microsoft offline conversion uploads).
+//   erx_ft      FIRST touch: written once, never replaced.
+//   erx_partner partner code from an affiliate link (utm_medium=affiliate&utm_campaign=<CODE>), kept 12 months so a
+//               later email or ad click can't take the partner's commission.
+// getAttribution() returns the last touch with the first touch and partner folded into `utm` (first_*, partner),
+// so every form that already sends `utm` carries them with no extra wiring.
 
 export type Attribution = {
   source: string;                    // utm_source, else the derived channel
@@ -12,6 +18,9 @@ export type Attribution = {
 };
 
 const KEY = "erx_attr";
+const FIRST = "erx_ft";
+const PARTNER = "erx_partner";
+const PARTNER_MS = 365 * 24 * 3600 * 1000;
 
 // Canonical channel keys the Marketing hub uses. If a UTM already names one, trust it.
 const CHANNEL_KEYS = new Set(["organic", "paid_search", "shopping", "bing", "paid_social", "linkedin_ads", "retargeting", "video", "direct", "referral", "email", "social", "content", "generative", "outbound", "sms", "direct_mail", "events", "webinar", "local", "directories", "amazon", "pr", "affiliate", "other"]);
@@ -55,15 +64,23 @@ export function captureAttribution(): void {
     ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "msclkid"].forEach((k) => {
       const v = params.get(k); if (v) utm[k] = v;
     });
-    const hasExisting = !!localStorage.getItem(KEY);
-    // Keep first-touch: only (re)write if nothing stored yet, or this visit carries explicit UTM or an ad click ID.
-    if (hasExisting && Object.keys(utm).length === 0) return;
-    const channel = deriveChannel(utm, document.referrer);
-    const attr: Attribution = {
-      source: utm.utm_source || channel, channel, utm,
-      referrer: document.referrer || "", landing: window.location.pathname, first_ts: new Date().toISOString(),
-    };
-    localStorage.setItem(KEY, JSON.stringify(attr));
+    const prev = localStorage.getItem(KEY);
+    let cur = prev;
+    // Last touch: (re)write only if nothing stored yet, or this visit carries explicit UTM or an ad click ID.
+    if (!prev || Object.keys(utm).length) {
+      const channel = deriveChannel(utm, document.referrer);
+      const attr: Attribution = {
+        source: utm.utm_source || channel, channel, utm,
+        referrer: document.referrer || "", landing: window.location.pathname, first_ts: new Date().toISOString(),
+      };
+      cur = JSON.stringify(attr);
+      localStorage.setItem(KEY, cur);
+    }
+    // First touch: once. Browsers from before erx_ft existed seed it from their stored touch, the earliest we still have.
+    if (!localStorage.getItem(FIRST) && (prev || cur)) localStorage.setItem(FIRST, (prev || cur)!);
+    if ((utm.utm_medium || "").toLowerCase() === "affiliate" && utm.utm_campaign) {
+      localStorage.setItem(PARTNER, JSON.stringify({ code: utm.utm_campaign.toUpperCase(), at: new Date().toISOString() }));
+    }
   } catch { /* private mode / storage disabled — no-op */ }
 }
 
@@ -71,14 +88,27 @@ export function getAttribution(): Attribution {
   const fallback: Attribution = { source: "direct", channel: "direct", utm: {}, referrer: "", landing: "", first_ts: "" };
   if (typeof window === "undefined") return fallback;
   try {
+    if (!localStorage.getItem(KEY)) captureAttribution(); // nothing stored yet: capture now
     const raw = localStorage.getItem(KEY);
-    if (raw) return JSON.parse(raw) as Attribution;
-    // Nothing stored yet — capture now and return it.
-    captureAttribution();
-    const raw2 = localStorage.getItem(KEY);
-    if (raw2) return JSON.parse(raw2) as Attribution;
+    if (raw) return withTouches(JSON.parse(raw) as Attribution);
   } catch { /* no-op */ }
   return { ...fallback, referrer: typeof document !== "undefined" ? document.referrer : "" };
+}
+
+// Fold the first touch and the partner code into utm (first_channel, first_source, first_campaign, first_landing,
+// first_at, partner). Checkout copies them into Stripe metadata; lead forms store utm as-is.
+function withTouches(a: Attribution): Attribution {
+  const extra: Record<string, string> = {};
+  try {
+    const ft = JSON.parse(localStorage.getItem(FIRST) || "null") as Attribution | null;
+    if (ft) {
+      extra.first_channel = ft.channel; extra.first_source = ft.source; extra.first_landing = ft.landing; extra.first_at = ft.first_ts;
+      if (ft.utm?.utm_campaign) extra.first_campaign = ft.utm.utm_campaign;
+    }
+    const p = JSON.parse(localStorage.getItem(PARTNER) || "null") as { code: string; at: string } | null;
+    if (p?.code && Date.now() - new Date(p.at).getTime() < PARTNER_MS) extra.partner = p.code;
+  } catch { /* no-op */ }
+  return { ...a, utm: { ...a.utm, ...extra } };
 }
 
 // Page trail: the last pages this browser viewed, sent inside `utm.pages` with lead forms so the portal lead
