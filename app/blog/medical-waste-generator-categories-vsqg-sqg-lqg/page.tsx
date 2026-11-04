@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "How much regulated waste you generate each month puts you in a &ldquo;generator category&rdquo; &mdash; and that category drives your pickup frequency, storage limits, and paperwork. Here&rsquo;s what VSQG, SQG, and LQG mean for your facility." }} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="right" dangerouslySetInnerHTML={{ __html: "Getting sized right" }} />
             <p dangerouslySetInnerHTML={{ __html: "Most physician offices, dental practices, and clinics are VSQGs &mdash; which makes mail-back a great fit. Higher-volume sites move up to SQG/LQG and scheduled pickup. We size your <a href=\"/our-solutions/sharps-disposal/\">sharps and RMW</a> program to your category so you&rsquo;re compliant without overpaying." }} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Get a program sized to your volume.</h3>
                   <p>Mail-back for VSQGs, scheduled pickup for SQG/LQG &mdash; compliant, right-sized, and documented, with no contract.</p>

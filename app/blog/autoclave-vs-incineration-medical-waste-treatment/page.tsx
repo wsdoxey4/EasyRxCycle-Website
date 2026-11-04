@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -57,6 +58,7 @@ export default function Page() {
                 Every container of medical waste ends up in one of two places: an autoclave or an incinerator. Which one depends on what&rsquo;s inside. This reference explains how each works, which waste must be incinerated, the rules that govern treatment, and the path a mail-back container takes from your office to its Certificate of Destruction.
               </p>
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <h2 id="glance" style={{ marginTop: "28px" }}>Which treatment for which waste</h2>
                 <div style={{ overflowX: "auto" }}>
@@ -143,6 +145,7 @@ export default function Page() {
                   This page is general information, not legal advice. Treatment requirements vary by state; confirm with your state health or environmental agency.
                 </p>
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Every stream, the right treatment, documented.</h3>
                   <p>Mail-back kits for sharps, biohazard, pharmaceutical, RCRA hazardous, trace chemo and controlled substances, with a Certificate of Destruction for every return.</p>

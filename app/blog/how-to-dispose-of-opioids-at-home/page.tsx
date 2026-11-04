@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Leftover opioids in the medicine cabinet are a real risk &mdash; for accidental overdose and for diversion. Here&rsquo;s how to dispose of opioids safely at home, and the one case where the FDA actually recommends flushing." }} />
 
+              <KitCTA cat="medication" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t leave opioids in an accessible cabinet after treatment ends" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t share leftover opioids with anyone" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t trash them loose in the original bottle" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush non-flush-list medications" }} /></ul>
 
+                <KitCTA cat="medication" place="end" />
                 <div className="postcta">
                   <h3>Get opioids out of the cabinet safely.</h3>
                   <p>A mail-back kit disposes of leftover opioids and any medication compliantly &mdash; with a Certificate of Destruction. No contract.</p>

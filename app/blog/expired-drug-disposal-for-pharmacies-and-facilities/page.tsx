@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Expired inventory is money and risk sitting on a shelf. Handled right, some of it comes back as credit and the rest leaves compliantly and documented. Handled wrong &mdash; thrown out, flushed, or mixed &mdash; it&rsquo;s a violation. Here&rsquo;s the sort that gets it right.")} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -78,6 +80,7 @@ export default function Page() {
                 <h2 id="cadence" dangerouslySetInnerHTML={H("Set a cadence so nothing ages out")} />
                 <p dangerouslySetInnerHTML={H("Clear expired stock on a regular schedule &mdash; monthly or quarterly &mdash; so returnable product doesn&rsquo;t age past its credit window and expired inventory doesn&rsquo;t pile up as a diversion or compliance risk. A recurring <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">mail-back or pickup</a> schedule makes the whole thing routine, with a Certificate of Destruction on every order.")} />
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Turn expired inventory into credit and clean documentation.</h3>
                   <p>Reverse distribution for the returnable, compliant destruction for the rest — controlled, hazardous, and non-hazardous, all under one vendor.</p>

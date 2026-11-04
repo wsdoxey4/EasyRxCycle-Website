@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "If you&rsquo;ve ever wondered what happens to a pharmacy&rsquo;s expired and unused medications, the answer is usually a reverse distributor. Here&rsquo;s what they do, why DEA registrants need one, and how to pick a good one." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -83,6 +85,7 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "DEA registration for Schedules I&ndash;V" }} /><li dangerouslySetInnerHTML={{ __html: "Secure transport and certified destruction" }} /><li dangerouslySetInnerHTML={{ __html: "Help with pharmaceutical returns and expired stock" }} /><li dangerouslySetInnerHTML={{ __html: "Full DEA, EPA, and state compliance" }} /><li dangerouslySetInnerHTML={{ __html: "Certificates of Destruction and supporting documentation" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle provides reliable, secure, fully compliant <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> for healthcare and pharmaceutical clients across the U.S. &mdash; with flat-rate pricing and fast service. <a href=\"/#quote\">request a quote</a> to start." }} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>See what compliant reverse distribution looks like.</h3>
                   <p>DEA-registered, flat-rate, and documented on every order — with credit recovery on returnable stock built in.</p>

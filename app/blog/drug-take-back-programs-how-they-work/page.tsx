@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "A drug take-back program is the safe, legal way to get rid of unused and expired medications &mdash; instead of flushing them or tossing them in the trash. Here&rsquo;s how take-back works, the difference between drop-off and mail-back, and how to find an option that fits." }} />
 
+              <KitCTA cat="medication" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -75,6 +77,7 @@ export default function Page() {
             <h2 id="facilities" dangerouslySetInnerHTML={{ __html: "Take-back for pharmacies, LTC &amp; clinics" }} />
             <p dangerouslySetInnerHTML={{ __html: "Facilities have to go further than a kiosk: unused controlled substances require DEA-authorized collection, <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>, and documentation. Our <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> and <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> cover both non-controlled and controlled medications, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every order." }} />
 
+                <KitCTA cat="medication" place="end" />
                 <div className="postcta">
                   <h3>Set up a compliant take-back.</h3>
                   <p>Mail-back kits for controlled and non-controlled medications — DEA-compliant, with a Certificate of Destruction and no contract.</p>

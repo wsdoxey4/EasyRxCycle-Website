@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "The single most important pharmaceutical-waste habit is segregation &mdash; sorting each drug into the right bin at the moment you discard it. Get this right and everything downstream stays compliant. Here&rsquo;s the system." }} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common segregation mistakes" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Putting a P-listed drug (warfarin, nicotine) in the non-hazardous bin" }} /><li dangerouslySetInnerHTML={{ __html: "Mixing controlled substances into general pharmaceutical waste" }} /><li dangerouslySetInnerHTML={{ __html: "Red-bagging pharmaceutical waste" }} /><li dangerouslySetInnerHTML={{ __html: "Putting bulk chemo in a trace (yellow) container" }} /></ul>
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Set up compliant segregation.</h3>
                   <p>We help you build the right bins and route hazardous, non-hazardous, controlled, and chemo waste correctly &mdash; documented every time.</p>

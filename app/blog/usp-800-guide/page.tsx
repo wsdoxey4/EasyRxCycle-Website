@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("USP &lt;800&gt; is the standard that governs how healthcare handles hazardous drugs &mdash; and it&rsquo;s one of the most-searched, least-understood compliance topics in the field. If your staff touch anything on the NIOSH list, it applies to you. Here&rsquo;s the whole standard in plain English, and how the disposal piece fits.")} />
 
+              <KitCTA cat="chemo" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -86,6 +88,7 @@ export default function Page() {
                 <h2 id="rcra" dangerouslySetInnerHTML={H("USP 800 vs. RCRA &mdash; how they fit together")} />
                 <p dangerouslySetInnerHTML={H("They&rsquo;re different standards that overlap: <strong>USP &lt;800&gt;</strong> protects <em>people</em> by governing handling; <strong>RCRA</strong> protects the <em>environment</em> by governing hazardous-waste disposal. Many drugs are covered by both &mdash; you handle them under USP &lt;800&gt; and dispose of them under <a href=\"/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/\">RCRA / Subpart P</a>. A complete program does both, and one disposal partner can cover the waste side of each.")} />
 
+                <KitCTA cat="chemo" place="end" />
                 <div className="postcta">
                   <h3>Cover the disposal side of your USP 800 program.</h3>
                   <p>Yellow-container trace chemo and black-container RCRA-hazardous disposal — incinerated, manifested, and documented, with no contract.</p>

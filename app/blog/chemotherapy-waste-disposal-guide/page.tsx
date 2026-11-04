@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Chemotherapy waste is one of the most mishandled streams in healthcare, because it splits by <em>how much drug remains</em> &mdash; and the two halves go to completely different places. Get it right and it&rsquo;s routine; get it wrong and it&rsquo;s both a safety and a hazardous-waste violation. Here&rsquo;s the complete breakdown.")} />
 
+              <KitCTA cat="chemo" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -78,6 +80,7 @@ export default function Page() {
                 <h2 id="cost" dangerouslySetInnerHTML={H("What chemo waste disposal costs")} />
                 <p dangerouslySetInnerHTML={H("Trace chemo mail-back kits run from about <strong>$105 to $445</strong> by container size &mdash; flat, one-time, including the yellow container, shipping, incineration, and documentation. Bulk/RCRA-hazardous chemo is quoted by volume and waste profile. Full pricing context is in our <a href=\"/medical-waste-disposal-cost/\">cost guide</a>.")} />
 
+                <KitCTA cat="chemo" place="end" />
                 <div className="postcta">
                   <h3>Handle trace and bulk chemo the right way.</h3>
                   <p>Yellow-container trace chemo mail-back plus RCRA-hazardous handling for bulk — USP &lt;800&gt;-aware, incinerated, documented, no contract.</p>

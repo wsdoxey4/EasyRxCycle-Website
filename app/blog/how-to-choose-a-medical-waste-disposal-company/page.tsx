@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("The wrong disposal vendor costs you twice &mdash; in money, through contracts and surcharges, and in risk, if documentation ever fails an audit. Here are the criteria that actually matter, the red flags to walk away from, and the exact questions to ask before you sign anything.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -95,6 +97,7 @@ export default function Page() {
                 <h2 id="fit" dangerouslySetInnerHTML={H("Match the model to your volume")} />
                 <p dangerouslySetInnerHTML={H("Low-to-moderate volume almost always favors no-contract <a href=\"/how-it-works/\">mail-back</a>: a flat price per kit, prepaid both ways, with documentation included &mdash; see real numbers on our <a href=\"/medical-waste-disposal-cost/\">medical waste cost breakdown</a> and how we <a href=\"/compare/\">compare to other providers</a>. Very high-volume, multi-site operations may still want scheduled route service. The right vendor sizes to you and puts the price in writing either way.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>See the price, skip the contract.</h3>
                   <p>Every kit price is published, DEA-registered destruction, a Certificate of Destruction on every order, and no contract. Compare us or estimate your cost in a click.</p>

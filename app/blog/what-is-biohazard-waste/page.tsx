@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -52,6 +53,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Biohazard waste is any material contaminated with blood, bodily fluids, or infectious agents that could spread disease &mdash; and it can&rsquo;t go in the regular trash. Here&rsquo;s a plain-English breakdown of what counts, the main types, real examples, the color-coding rules, and how to dispose of it compliantly.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -108,6 +110,7 @@ export default function Page() {
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of biohazard waste")} />
                 <p dangerouslySetInnerHTML={H("Segregate it into the correct red-bag container, keep sharps in an approved <a href=\"/our-solutions/sharps-disposal/\">sharps container</a>, and send it to a permitted treatment facility &mdash; where it&rsquo;s treated by autoclave-then-landfill or incineration and documented. The simplest compliant option for most sites is a prepaid <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard mail-back kit</a>: fill it, seal it, ship it, and get documentation on every order. Higher-volume sites can use scheduled pickup.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Handle biohazard waste the compliant way.</h3>
                   <p>Prepaid biohazard / RMW mail-back kits and scheduled pickup &mdash; OSHA- and DOT-compliant, documented, with no contract.</p>

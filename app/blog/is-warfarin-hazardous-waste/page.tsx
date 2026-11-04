@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Warfarin is on nearly every pharmacy&rsquo;s shelf &mdash; and it&rsquo;s one of the most-cited hazardous pharmaceutical wastes in the country. Toss it in the regular drug waste and you&rsquo;ve got a RCRA violation. The short answer: <strong>yes, warfarin is hazardous waste</strong> &mdash; and how you classify it depends on the concentration.")} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -79,6 +81,7 @@ export default function Page() {
                 <h2 id="others" dangerouslySetInnerHTML={H("Other common drugs that are hazardous waste")} />
                 <p dangerouslySetInnerHTML={H("Warfarin isn&rsquo;t alone on the shelf. <a href=\"/blog/is-nicotine-hazardous-waste/\">Nicotine</a> (P075), physostigmine, certain epinephrine forms, and many chemotherapy agents are also RCRA-hazardous, plus a long U-list. Cross-check the P- and U-lists and the <a href=\"/blog/niosh-hazardous-drug-list-explained/\">NIOSH hazardous drug list</a>, and see our full <a href=\"/blog/hazardous-pharmaceutical-waste-disposal-guide/\">hazardous pharmaceutical waste guide</a> for the complete picture.")} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Dispose of warfarin and other hazardous drugs compliantly.</h3>
                   <p>Black-container RCRA mail-back and pickup — P/U-listed drugs, manifested and incinerated, documented on every order.</p>

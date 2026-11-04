@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "If your facility disposes of medications, RCRA Subpart P is the EPA rule you can&rsquo;t ignore. It governs how hazardous pharmaceutical waste must be handled &mdash; and it bans a practice a lot of facilities still do. Here&rsquo;s what it requires, in plain English." }} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -75,6 +77,7 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "Identify and segregate hazardous pharmaceutical waste" }} /><li dangerouslySetInnerHTML={{ __html: "Use labeled, closed, leak-proof containers" }} /><li dangerouslySetInnerHTML={{ __html: "Never sewer (flush) hazardous pharmaceuticals" }} /><li dangerouslySetInnerHTML={{ __html: "Manifest and ship to a permitted destruction facility" }} /><li dangerouslySetInnerHTML={{ __html: "Keep documentation and Certificates of Destruction" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "We handle the identification and <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> so hazardous drugs never end up in the red bag or the drain." }} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Get RCRA-hazardous waste handled.</h3>
                   <p>We identify, segregate, manifest, and destroy your RCRA-hazardous pharmaceutical waste — with a Certificate of Destruction and audit-ready records.</p>

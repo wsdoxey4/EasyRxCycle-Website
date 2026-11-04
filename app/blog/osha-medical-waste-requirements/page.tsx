@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("OSHA doesn&rsquo;t regulate where your waste goes &mdash; it regulates how you protect the people handling it. The Bloodborne Pathogens Standard is the rule inspectors cite most, and the fixes are usually cheap. Here&rsquo;s exactly what it requires, how it fits with DOT and EPA rules, and the violations that get facilities fined.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -92,6 +94,7 @@ export default function Page() {
                 <h2 id="stay" dangerouslySetInnerHTML={H("How to stay compliant")} />
                 <p dangerouslySetInnerHTML={H("Keep the exposure control plan current, use approved <a href=\"/our-solutions/sharps-disposal/\">sharps</a> and <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard</a> containers, train annually and document it, and send waste to a permitted facility with documentation on every order. Our <a href=\"/resources/bloodborne-training/\">bloodborne pathogens training</a> covers the annual requirement, and our mail-back kits handle the containment and disposal side &mdash; so the OSHA, DOT, and treatment layers are covered together.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Cover the OSHA training and disposal in one place.</h3>
                   <p>Bloodborne pathogens training for the annual requirement, plus approved sharps and biohazard mail-back kits with documentation on every order.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -67,6 +68,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("<strong>Short answer:</strong> a mail-back kit is the best option for most people. It sends medication, including controlled substances, to be incinerated and gives you proof it was destroyed. A drop box is a good free option if one is near you. A drug deactivation pouch only binds the drug so it can go in the trash, so use it as a last resort.")} />
 
+              <KitCTA cat="medication" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -147,6 +149,7 @@ export default function Page() {
                 </ul>
                 <p dangerouslySetInnerHTML={H("More on home disposal: <a href=\"/blog/how-to-dispose-of-expired-medications-at-home/\">how to dispose of expired medications at home</a>.")} />
 
+                <KitCTA cat="medication" place="end" />
                 <div className="postcta">
                   <h3>Send it to be incinerated, with proof.</h3>
                   <p>Prepaid mail-back kits for controlled and non-controlled medication, with a Certificate of Destruction on every kit and no contract.</p>

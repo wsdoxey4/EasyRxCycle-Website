@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most companies make you request a quote to find out. We don&rsquo;t. Prepaid biohazard / red-bag mail-back kits run from about <strong>$75 to $405</strong> each &mdash; a flat, one-time price that already includes the container, shipping both ways, treatment, and documentation. No contract, no monthly fees. Here&rsquo;s what drives the number and how to pay less.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -84,6 +86,7 @@ export default function Page() {
                   <li dangerouslySetInnerHTML={H("<strong>Segregate correctly</strong> so only truly regulated waste enters the red-bag stream.")} />
                 </ul>
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>See your biohazard price, skip the quote.</h3>
                   <p>Every biohazard kit price is published — buy in minutes, or estimate your full cost across streams in a click. See how our <a href="/our-solutions/biohazard-waste-disposal/">biohazard waste disposal service</a> works.</p>

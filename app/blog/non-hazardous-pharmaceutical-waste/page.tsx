@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Non-hazardous pharmaceutical waste is the biggest drug-waste category by volume &mdash; and the one people get wrong by putting the <em>other</em> streams into it. Get the blue bin right and you keep your hazardous and controlled costs down and your compliance clean. Here&rsquo;s exactly what belongs.")} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -78,6 +80,7 @@ export default function Page() {
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of it")} />
                 <p dangerouslySetInnerHTML={H("Segregate into the blue container, keep it out of the trash and the drain (never flush), and send it to a permitted facility for destruction &mdash; by prepaid <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical mail-back</a> or scheduled pickup &mdash; with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. Even though it&rsquo;s non-hazardous, it&rsquo;s still regulated and can&rsquo;t be landfilled as ordinary trash.")} />
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Dispose of non-hazardous pharmaceutical waste right.</h3>
                   <p>Blue-bin pharmaceutical mail-back and pickup — documented, with the controlled and hazardous streams handled too, all under one vendor.</p>

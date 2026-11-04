@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -63,6 +64,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H(`Ask most reverse distributors what controlled-substance destruction costs and you'll get a quote form. Here are real, published prices (our controlled substance kits run <strong>${CTL_LOW} to ${CTL_HIGH}</strong>), the pricing models you'll run into, what moves the number, and how to compare quotes fairly.`)} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -143,6 +145,7 @@ export default function Page() {
                 </ol>
                 <p dangerouslySetInnerHTML={H(`For every other stream, our <a href="/medical-waste-disposal-cost/">medical waste disposal cost guide</a> lists published prices by stream.`)} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>See the price. Skip the quote form.</h3>
                   <p>{`Controlled substance kits from ${CTL_LOW}: prepaid shipping both ways, chain of custody, DEA forms handled, and a Certificate of Destruction. No contract.`}</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -45,6 +46,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("If you inject medication at home, you generate sharps that can't go in the household trash or recycling. Here is how to handle used needles safely, step by step, and the simplest at-home option.")} />
 
+              <KitCTA cat="sharps" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -71,6 +73,7 @@ export default function Page() {
                 <h2 id="sec-the-simplest-at-home-option-a-prepaid-ma" dangerouslySetInnerHTML={H("The simplest at-home option: a prepaid mail-back kit")} />
                 <div dangerouslySetInnerHTML={H("For most people injecting at home, a <strong>prepaid mail-back sharps kit</strong> is the easiest compliant option. You receive an FDA-cleared, DOT-compliant container and a prepaid return label. You fill the container as you go, seal it at the fill line, and hand it to any mail carrier — no route service to schedule, no drop-off to hunt for, and no contract to sign. The provider then destroys the contents and issues documentation.<br><br>Easy Rx Cycle is a <strong>DEA-registered destruction company</strong>. Our mail-back kits ship to all 50 states, the containers meet the OSHA Bloodborne Pathogens Standard (29 CFR 1910.1030) for containment and are DOT-compliant for transport, and every kit comes back with a <strong>Certificate of Destruction</strong>. You can <a href=\"/shop/\">shop mail-back kits</a> with published pricing, read more on our <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a> page, or if you manage diabetes see our companion guide on <a href=\"/blog/diabetic-needle-disposal/\">diabetic needle disposal</a>.")} />
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>Sharps handled from home.</h3>
                   <p>A prepaid mail-back kit for needles, syringes, insulin pens, and lancets — FDA-cleared container, Certificate of Destruction included, no contract and no pickup to schedule.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "&ldquo;Regulated medical waste&rdquo; &mdash; RMW, biohazard, or red-bag waste &mdash; is any material that can transmit infection and therefore can&rsquo;t go in the regular trash. Here&rsquo;s exactly what counts, and how it&rsquo;s handled." }} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -71,6 +73,7 @@ export default function Page() {
             <h2 id="vs" dangerouslySetInnerHTML={{ __html: "RMW vs. trash vs. hazardous waste" }} />
             <p dangerouslySetInnerHTML={{ __html: "RMW is <em>infectious</em> waste (OSHA/state rules). It&rsquo;s different from RCRA-hazardous <em>chemical/drug</em> waste (EPA rules) and from general trash. Many facilities generate all three and must segregate each &mdash; mixing them up is the most common compliance error." }} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Handle your RMW the simple way.</h3>
                   <p>Mail-back or pickup for every category of regulated medical waste &mdash; compliant, contract-free, documented.</p>

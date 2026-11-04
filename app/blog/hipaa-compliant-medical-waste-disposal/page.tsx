@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most facilities think about medical waste as a biohazard problem &mdash; and forget it&rsquo;s also a privacy problem. A prescription vial or IV bag with a patient&rsquo;s name on it is protected health information (PHI), and HIPAA requires it to be destroyed so it can&rsquo;t be read. Here&rsquo;s how HIPAA applies to your waste, when you need a BAA, and how to handle it right.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -80,6 +82,7 @@ export default function Page() {
                 <h2 id="dispose" dangerouslySetInnerHTML={H("How to dispose of PHI-bearing waste")} />
                 <p dangerouslySetInnerHTML={H("Keep PHI-bearing items in the correct regulated container, use a vendor operating under a BAA with a documented chain of custody, and ensure the material is destroyed so the information can&rsquo;t be reconstructed &mdash; with documentation on completion. Our <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical</a>, <a href=\"/our-solutions/medication-disposal-kit/\">medication</a>, and <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard</a> disposal all include destruction and a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>, so the PHI is gone and documented in one step.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Dispose of PHI-bearing waste compliantly.</h3>
                   <p>HIPAA-compliant handling, a BAA on request, and a Certificate of Destruction on every order &mdash; for medication, pharmaceutical, and biohazard waste alike.</p>

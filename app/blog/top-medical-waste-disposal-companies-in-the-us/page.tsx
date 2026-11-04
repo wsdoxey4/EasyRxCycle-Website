@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -57,6 +58,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Choosing a medical waste disposal company shapes your compliance, your costs, and your audit-readiness. Here&rsquo;s an honest look at the major players in the U.S. &mdash; what each does well &mdash; and the criteria that should drive your decision." }} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -87,6 +89,7 @@ export default function Page() {
             <h2 id="criteria" dangerouslySetInnerHTML={{ __html: "Key considerations when choosing a company" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "DEA registration and controlled-substance capability" }} /><li dangerouslySetInnerHTML={{ __html: "Compliance standards (OSHA, DOT, EPA/RCRA)" }} /><li dangerouslySetInnerHTML={{ __html: "Service scope &mdash; sharps, biohazard, pharma, controlled, chemo" }} /><li dangerouslySetInnerHTML={{ __html: "Pricing transparency (flat-rate vs. bundled)" }} /><li dangerouslySetInnerHTML={{ __html: "Documentation &mdash; manifests and Certificates of Destruction" }} /><li dangerouslySetInnerHTML={{ __html: "Flexibility &mdash; contract terms and mail-back options" }} /></ul>
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>See what a specialist looks like.</h3>
                   <p>DEA-registered, flat-rate, and documented on every order — compare Easy Rx Cycle against the field with a same-day quote.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -58,6 +59,7 @@ export default function Page() {
                 Red bags are the most expensive bag in most facilities, and the most often misused. This reference sets out what OSHA counts as regulated waste, a quick in-or-out list, the bag standards, and what happens to red-bag waste after it leaves your building.
               </p>
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <h2 id="glance" style={{ marginTop: "28px" }}>In or out: a quick check</h2>
                 <div style={{ overflowX: "auto" }}>
@@ -163,6 +165,7 @@ export default function Page() {
                   This page is general information, not legal advice. State definitions and storage limits vary; confirm with your state health or environmental agency.
                 </p>
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Red-bag waste by mail, no contract.</h3>
                   <p>Biohazard mail-back kits with the bags, box and prepaid shipping included, and a Certificate of Destruction for every return.</p>

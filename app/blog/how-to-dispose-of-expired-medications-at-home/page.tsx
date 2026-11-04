@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Got a cabinet full of expired pills? Don&rsquo;t flush them and don&rsquo;t just toss the bottle in the trash. Here are the safe, legal ways to dispose of expired medications at home &mdash; ranked from best to last resort." }} />
 
+              <KitCTA cat="medication" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -72,6 +74,7 @@ export default function Page() {
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush non-flush-list medications &mdash; it contaminates waterways" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t leave drugs in the original labeled bottle in the trash" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t give leftover prescriptions to anyone else" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t hoard expired controlled substances &mdash; use take-back" }} /></ul>
 
+                <KitCTA cat="medication" place="end" />
                 <div className="postcta">
                   <h3>Dispose of medications the easy way.</h3>
                   <p>A prepaid mail-back kit handles any medication — controlled or not — safely and legally, with a Certificate of Destruction.</p>

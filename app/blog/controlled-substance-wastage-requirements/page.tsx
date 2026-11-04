@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -59,6 +60,7 @@ export default function Page() {
               </div>
               <p className="article-lead">A nurse draws 50 mg from a 100 mg vial. The other 50 mg is wastage. It needs a record, often a witness, and a disposal method that keeps it from being diverted. It does not go on DEA Form 41. Here&rsquo;s how wastage differs from inventory, and where each one goes.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -145,6 +147,7 @@ export default function Page() {
                 </ol>
                 <p style={{ fontSize: "14px", color: "var(--slate)" }}>This guide is general information, not legal advice. Wastage rules vary by state; confirm specifics with your state board and DEA field office.</p>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Expired controls? Send them to us for incineration.</h3>
                   <p>{`Controlled substance mail-back kits from ${CTL_FROM}: prepaid shipping both ways, chain of custody, DEA-registered incineration, Form 41 completed, and a Certificate of Destruction. No contract.`}</p>

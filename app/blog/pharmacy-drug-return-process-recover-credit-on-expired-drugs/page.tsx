@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Most facilities treat expired inventory as a write-off. It doesn&rsquo;t have to be. Reverse distribution is how pharmacies and healthcare facilities turn returnable expired and short-dated stock back into <strong>manufacturer credit</strong> &mdash; and compliantly destroy the rest. Here&rsquo;s exactly how the return process works and how to get the most back.")} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -90,6 +92,7 @@ export default function Page() {
                   <li dangerouslySetInnerHTML={H("<strong>Use one partner</strong> for returns AND disposal &mdash; so <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a>, <a href=\"/our-solutions/controlled-substance-destruction/\">controlled destruction</a>, and your other streams don&rsquo;t need separate vendors.")} />
                 </ul>
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Turn expired inventory back into credit.</h3>
                   <p>DEA-registered reverse distribution recovers manufacturer credit on returnable stock and compliantly destroys the rest — with documentation, and every other waste stream under one roof.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Not all drug waste is the same &mdash; and the single biggest pharmaceutical-waste mistake is putting a hazardous drug in the non-hazardous bin. Here&rsquo;s how to tell hazardous from non-hazardous pharmaceutical waste, and why it matters." }} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why the difference matters" }} />
             <p dangerouslySetInnerHTML={{ __html: "Misclassifying a hazardous drug as non-hazardous (or sewering it) is the most common &mdash; and most cited &mdash; pharmaceutical-waste violation. We identify and route each stream correctly. See our <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste disposal</a> service." }} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Segregate your pharmaceutical waste right.</h3>
                   <p>We identify hazardous vs. non-hazardous vs. controlled, and route each to the right compliant process &mdash; documented every time.</p>

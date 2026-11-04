@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -71,6 +72,7 @@ export default function Page() {
                 The color of a medical waste container tells staff, haulers and inspectors which waste stream is inside and how it will be treated. Here is a printable chart of the U.S. colors, what goes in each, and which parts are legal requirements versus industry convention.
               </p>
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <h2 id="chart" style={{ marginTop: "28px" }}>Medical waste color chart</h2>
                 <div style={{ overflowX: "auto" }}>
@@ -173,6 +175,7 @@ export default function Page() {
                   This page is general information, not legal advice. Confirm requirements with your state health or environmental agency.
                 </p>
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>One vendor for every color.</h3>
                   <p>Red, yellow, black, blue, sharps and controlled substances, all handled by mail-back with a Certificate of Destruction on every order and no contract.</p>

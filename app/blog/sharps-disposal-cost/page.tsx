@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -45,6 +46,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Sharps disposal pricing is rarely apples-to-apples. Here is how the two service models work, what really drives the number, how to compare quotes fairly, and the fees that quietly inflate a pickup contract.")} />
 
+              <KitCTA cat="sharps" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -71,6 +73,7 @@ export default function Page() {
                 <h2 id="sec-which-model-fits-your-practice" dangerouslySetInnerHTML={H("Which model fits your practice")} />
                 <div dangerouslySetInnerHTML={H("If your practice generates sharps at a low-to-moderate, uneven pace, <strong>mail-back kits</strong> usually win on both cost and simplicity: a flat, published price per kit, prepaid shipping both ways, destruction, and a Certificate of Destruction — with no contract, no monthly minimum, and no surprise surcharges. You pay only when you ship.<br><br>Easy Rx Cycle is a <strong>DEA-registered destruction company</strong> offering both mail-back kits and, where a site's volume calls for it, pickup service — so the model can follow your actual output rather than a locked contract. Our sharps containers meet the OSHA Bloodborne Pathogens Standard (29 CFR 1910.1030) for containment and are DOT-compliant for transport, and every job returns a Certificate of Destruction. See published per-kit prices in <a href=\"/shop/\">the shop</a>, review the drivers on our <a href=\"/medical-waste-disposal-cost/\">cost</a> page, or read more about <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a>.")} />
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>See your sharps cost, no sales call.</h3>
                   <p>Flat, published mail-back kit prices — container, prepaid shipping both ways, destruction, and a Certificate of Destruction included. No contract, no surcharges, no monthly minimum.</p>

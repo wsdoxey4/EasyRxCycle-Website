@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead">A count comes up short, a bottle goes missing, or a shipment never arrives. DEA Form 106 is how a registrant reports it. Here&rsquo;s when a report is required, the two deadlines, how to file, and the situations that look like losses but aren&rsquo;t.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -139,6 +141,7 @@ export default function Page() {
                 </ul>
                 <p className="small" style={{ fontSize: "14px", color: "var(--slate)" }}>This article is general information, not legal advice. Confirm current requirements with DEA and your state.</p>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Get expired controls off your books.</h3>
                   <p>Our controlled substance mail-back kit includes chain of custody, DEA-registered destruction, Form 222 and Form 41 handled for you, and a Certificate of Destruction. No contract.</p>

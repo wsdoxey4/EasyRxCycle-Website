@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -70,6 +71,7 @@ export default function Page() {
               </div>
               <p className="article-lead">Med spas, weight-loss clinics, and TRT clinics go through a lot of multi-dose vials. A partly used semaglutide vial, a used syringe, and an expired testosterone vial look like the same kind of waste. They aren&rsquo;t. Each one goes to a different place. Here&rsquo;s how to sort them.</p>
 
+              <KitCTA cat="pharma" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -158,6 +160,7 @@ export default function Page() {
                   ))}
                 </div>
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Send it to us for incineration.</h3>
                   <p>{`Pharmaceutical waste kits from ${PHARMA_FROM}, sharps from ${SHARPS_FROM}, and DEA-registered destruction for testosterone and other controls. Certificate of Destruction on every order. No contract.`}</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "If you manage diabetes, you generate sharps every day &mdash; insulin syringes, pen needles, and lancets. Here&rsquo;s how to dispose of diabetic needles safely and legally, whether you&rsquo;re at home or managing a clinic." }} />
 
+              <KitCTA cat="sharps" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="mailback" dangerouslySetInnerHTML={{ __html: "Mail-back is the easiest option" }} />
             <p dangerouslySetInnerHTML={{ __html: "For home users and small clinics, a prepaid mail-back sharps kit is the simplest compliant option &mdash; you fill it, seal it, and mail it from home, with a Certificate of Destruction. See <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a>." }} />
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>Diabetic sharps, handled from home.</h3>
                   <p>A prepaid mail-back kit for insulin syringes, pen needles, and lancets &mdash; Certificate of Destruction included, no contract.</p>

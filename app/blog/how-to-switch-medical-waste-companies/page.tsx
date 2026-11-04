@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -60,6 +61,7 @@ export default function Page() {
               </div>
               <p className="article-lead">Switching medical waste vendors is mostly paperwork. The hard parts are reading the agreement you signed, hitting the notice window, and making sure there&rsquo;s no gap in pickups or records. Here&rsquo;s how to do it cleanly.</p>
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -147,6 +149,7 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H("Route pickup fits high, steady volume. Mail-back often fits small and mid-size sites with lower volume, because you pay per container when you ship, with no monthly service fee. Our <a href=\"/medical-waste-disposal-cost/\">medical waste disposal cost guide</a> lists published prices by stream, and <a href=\"/blog/how-to-choose-a-medical-waste-disposal-company/\">how to choose a medical waste company</a> covers the questions to ask any vendor.")} />
                 <p dangerouslySetInnerHTML={H("Easy Rx Cycle has no contract, no auto-renewal, and no monthly minimum. If you&rsquo;re mid-contract, you can start with us for any stream today and move fully over at renewal. For multiple sites or high volume, <a href=\"/get-a-quote/\">request a quote</a>.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Switch without a contract.</h3>
                   <p>{`Prepaid mail-back for every regulated stream, sharps from ${SHARPS_FROM}. Certificate of Destruction on every order. No auto-renewal, no minimum.`}</p>

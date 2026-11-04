@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -45,6 +46,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("When you have expired, unused, or unwanted pharmaceuticals, you have two very different disposal paths: send returnable stock to a reverse distributor for manufacturer credit, or send everything else to certified destruction. Most inventory needs a mix of both, and choosing wrong either leaves money on the table or creates a compliance gap.")} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -71,6 +73,7 @@ export default function Page() {
                 <h2 id="sec-doing-both-with-one-vendor" dangerouslySetInnerHTML={H("Doing both with one vendor")} />
                 <div dangerouslySetInnerHTML={H("The practical answer for most pharmacies, hospitals, and facilities is not \"returns or destruction\" &mdash; it is <em>both</em>, handled together. Easy Rx Cycle is a DEA-registered <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> and a certified destruction provider, so a single shipment gets sorted into credit-eligible and non-creditable, the returnable portion is processed for manufacturer credit, and the remainder is destroyed to its class's requirements &mdash; non-hazardous, <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous</a>, or <a href=\"/our-solutions/controlled-substance-destruction/\">controlled</a>. Form 222 and Form 41 are handled, and you get a Certificate of Destruction on every order. All eight waste streams are covered, by mail-in or scheduled pickup, with no contract. That means you capture whatever credit exists without leaving a compliance gap on everything that can't be returned &mdash; and you keep the credit reconciliation and the destruction documentation together for a clean audit trail.")} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Capture the credit. Destroy the rest.</h3>
                   <p>Send us your expired and unwanted stock and we'll sort it into manufacturer credit and compliant destruction, with a Certificate of Destruction on every order.</p>

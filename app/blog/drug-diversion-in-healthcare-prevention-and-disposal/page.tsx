@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Drug diversion &mdash; controlled substances slipping away from their intended patient or purpose &mdash; is one of the biggest DEA and patient-safety risks a facility carries. Most programs focus on dispensing and wasting, and overlook the disposal step. Here&rsquo;s where diversion happens, how to prevent and detect it, and why documented, non-retrievable destruction is the control that closes the loop.")} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -91,6 +93,7 @@ export default function Page() {
                 <h2 id="program" dangerouslySetInnerHTML={H("Building a defensible program")} />
                 <p dangerouslySetInnerHTML={H("If the DEA ever asks, what protects you is documentation: witnessed-wasting logs, reconciliations, audit records, and destruction paperwork that ties every controlled substance to a documented end. Easy Rx Cycle handles the disposal side &mdash; <a href=\"/our-solutions/controlled-substance-destruction/\">non-retrievable controlled-substance destruction</a> with Form 41/222 and a Certificate of Destruction, plus <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> for returnable stock &mdash; so the last link in your diversion-control chain is airtight.")} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Close the disposal gap in your diversion program.</h3>
                   <p>DEA-registered, non-retrievable controlled-substance destruction with Form 41/222 and a Certificate of Destruction on every event.</p>

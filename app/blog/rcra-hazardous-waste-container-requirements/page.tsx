@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Half of hazardous-waste citations come down to the container &mdash; the wrong color, an open lid, a missing date. Get the container right and you&rsquo;ve solved most of your RCRA exposure. Here are the rules for hazardous pharmaceutical waste containers, in plain English.")} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -79,6 +81,7 @@ export default function Page() {
                 <h2 id="accum" dangerouslySetInnerHTML={H("Accumulation limits")} />
                 <p dangerouslySetInnerHTML={H("Subpart P lets healthcare facilities accumulate hazardous waste pharmaceuticals on site for up to <strong>one year</strong> from the start date, provided the container is properly labeled and dated. Your state may be stricter. When the container is ready, ship it under DOT rules with a manifest to a permitted facility &mdash; a prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA mail-back kit</a> or scheduled pickup handles the container, the manifest, and the destruction together.")} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Get the container and the paperwork right.</h3>
                   <p>Compliant black RCRA containers with prepaid shipping, the hazardous-waste manifest, permitted-TSDF incineration, and documentation — no contract.</p>

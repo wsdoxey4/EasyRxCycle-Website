@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Using a reverse distributor sounds complicated, but it&rsquo;s really five steps. Here&rsquo;s the whole process &mdash; from finding a DEA-registered vendor to keeping your records audit-ready." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -78,6 +80,7 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "Active DEA registration" }} /><li dangerouslySetInnerHTML={{ __html: "Controlled-substance handling experience" }} /><li dangerouslySetInnerHTML={{ __html: "Form 222/41 assistance" }} /><li dangerouslySetInnerHTML={{ __html: "Documented chain-of-custody procedures" }} /><li dangerouslySetInnerHTML={{ __html: "Responsive customer service" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Easy Rx Cycle offers full-service <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> with secure transport, custom programs, and complete compliance documentation nationwide. <a href=\"/#quote\">request a quote</a> to get started." }} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Ready to schedule your first pickup?</h3>
                   <p>We'll walk you through the forms, arrange secure transport, and send a Certificate of Destruction — flat-rate, no contracts.</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Yellow containers are for trace chemotherapy waste &mdash; but putting the wrong thing in one (or the right thing in the wrong bin) is a compliance failure. Here&rsquo;s exactly what goes in the yellow chemo container." }} />
 
+              <KitCTA cat="chemo" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -71,6 +73,7 @@ export default function Page() {
             <h2 id="incin" dangerouslySetInnerHTML={{ __html: "How yellow-container waste is destroyed" }} />
             <p dangerouslySetInnerHTML={{ __html: "Trace-chemo yellow containers are incinerated at a permitted facility &mdash; never landfilled. Proper yellow-container use is a core part of a <a href=\"/resources/usp-800/\">USP 800</a> hazardous-drug program." }} />
 
+                <KitCTA cat="chemo" place="end" />
                 <div className="postcta">
                   <h3>Handle trace chemo the right way.</h3>
                   <p>Yellow-container trace-chemo disposal, incinerated per USP 800 &mdash; with a Certificate of Destruction on every order.</p>

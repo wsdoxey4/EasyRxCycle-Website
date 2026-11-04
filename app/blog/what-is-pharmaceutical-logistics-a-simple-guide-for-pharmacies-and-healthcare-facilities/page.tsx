@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Pharmaceutical logistics is the system that manages the movement, tracking, and disposal of medications across the supply chain &mdash; and it&rsquo;s about far more than delivery. The part most pharmacies underestimate is the reverse side: getting expired, returned, and recalled drugs <em>off</em> the shelf compliantly." }} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -76,6 +78,7 @@ export default function Page() {
             <h2 id="mailorder" dangerouslySetInnerHTML={{ __html: "Mail-order &amp; specialty pharmacies need cleanup too" }} />
             <p dangerouslySetInnerHTML={{ __html: "High-volume mail-order and specialty operations face more returns, recalls, damaged shipments, and shelf-life issues &mdash; which makes reverse logistics and <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> support essential rather than optional." }} />
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Clean up your pharmaceutical supply chain.</h3>
                   <p>DEA-compliant removal of expired, returned, and recalled drugs — with reverse distribution, credit recovery, and a Certificate of Destruction.</p>

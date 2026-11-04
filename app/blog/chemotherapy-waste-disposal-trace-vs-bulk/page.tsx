@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Chemotherapy waste disposal has one rule that trips up most facilities: trace and bulk chemo are handled completely differently, and mixing them up is a compliance failure. Here&rsquo;s the difference, the container rules, and how each is destroyed." }} />
 
+              <KitCTA cat="chemo" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -75,6 +77,7 @@ export default function Page() {
             <h2 id="usp" dangerouslySetInnerHTML={{ __html: "How it ties to USP 800" }} />
             <p dangerouslySetInnerHTML={{ __html: "Proper chemo segregation and disposal is a core part of a compliant hazardous-drug program under <a href=\"/resources/usp-800/\">USP 800</a>, which governs safe handling of hazardous drugs to protect staff. Get the disposal side right and you close a major USP 800 gap." }} />
 
+                <KitCTA cat="chemo" place="end" />
                 <div className="postcta">
                   <h3>Handle chemo waste compliantly.</h3>
                   <p>Trace and bulk chemo, segregated and incinerated per USP 800 — with a Certificate of Destruction on every order.</p>

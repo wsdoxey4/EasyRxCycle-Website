@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("A surprising number of the drugs on a pharmacy shelf aren&rsquo;t just pharmaceutical waste when discarded &mdash; they&rsquo;re <strong>hazardous</strong> waste under EPA rules. Here&rsquo;s how a pharmacy identifies them, what Subpart P requires, and how to set up disposal that passes an inspection.")} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -74,6 +76,7 @@ export default function Page() {
                 <h2 id="setup" dangerouslySetInnerHTML={H("Setting up disposal that passes inspection")} />
                 <p dangerouslySetInnerHTML={H("Put a black hazardous-waste container where returns are processed, keep the formulary list posted, train staff on what&rsquo;s hazardous, and set a shipping cadence. For most pharmacies, a prepaid <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA mail-back</a> program is the simplest compliant setup &mdash; container, manifest, permitted-facility incineration, and documentation in one flat price, with no contract. Pair it with your <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">non-hazardous pharmaceutical</a> and <a href=\"/our-solutions/controlled-substance-destruction/\">controlled-substance</a> disposal so one vendor covers the whole shelf.")} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Set up compliant hazardous-drug disposal for your pharmacy.</h3>
                   <p>RCRA mail-back and pickup, plus every other stream a pharmacy generates — one vendor, published pricing, documented, no contract.</p>

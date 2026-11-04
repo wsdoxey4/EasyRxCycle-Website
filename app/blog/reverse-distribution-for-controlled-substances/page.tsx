@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Returning controlled substances is not the same as returning ordinary Rx &mdash; every transfer is a DEA event with its own forms and reporting. A <strong>DEA-registered reverse distributor</strong> is the compliant way to recover credit on returnable controlled stock and destroy the rest. Here&rsquo;s how it works, the forms you need, and what to look for.")} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -78,6 +80,7 @@ export default function Page() {
                 <h2 id="choose" dangerouslySetInnerHTML={H("Choosing a reverse distributor for controlled substances")} />
                 <p dangerouslySetInnerHTML={H("Verify the <strong>DEA registration</strong>, that they handle your schedules, and that they support Form 222/41 and ARCOS with a documented chain of custody and a Certificate of Destruction. Then ask two practical questions: what are the credit terms and turnaround, and do they also handle your other <a href=\"/our-solutions/\">waste streams</a> &mdash; sharps, biohazard, pharmaceutical, RCRA &mdash; so you&rsquo;re not managing separate vendors for returns and disposal? Easy Rx Cycle is a DEA-registered reverse distributor <em>and</em> a full-stream disposal partner, so it&rsquo;s one relationship from returns to destruction.")} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>One partner for controlled returns and destruction.</h3>
                   <p>DEA-registered reverse distribution with Form 222/41 and ARCOS, plus non-retrievable destruction and a Certificate of Destruction — and every other regulated stream under one roof.</p>

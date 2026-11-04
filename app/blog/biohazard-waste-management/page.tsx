@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Managing biohazard waste isn&rsquo;t one task &mdash; it&rsquo;s a chain, from the moment a red bag is filled to the day it&rsquo;s treated and documented. A weak link anywhere is where citations and staff exposures happen. Here&rsquo;s how to run the whole program compliantly, step by step.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -81,6 +83,7 @@ export default function Page() {
                 <h2 id="program" dangerouslySetInnerHTML={H("Building a program that runs itself")} />
                 <p dangerouslySetInnerHTML={H("The goal is a routine, not a scramble: labeled containers at every generation point, staff trained on what goes where, a fixed storage area and pickup or mail-back cadence, and documentation that files itself. The simplest way to get there for most sites is a <a href=\"/our-solutions/biohazard-waste-disposal/\">biohazard mail-back program</a> that bundles the container, DOT-compliant shipping, permitted treatment, and documentation into one flat price &mdash; so five of the six steps are handled for you, with a Certificate of Destruction on every order.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Make biohazard management a routine, not a risk.</h3>
                   <p>Prepaid biohazard / RMW mail-back kits and scheduled pickup &mdash; container, DOT transport, permitted treatment, and documentation in one flat price.</p>

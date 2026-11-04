@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "GLP-1 medications like Ozempic, Wegovy, and Mounjaro come in injector pens &mdash; which means two disposal problems in one: the sharp needle and the leftover medication. Here&rsquo;s how to dispose of GLP-1 pens safely." }} />
 
+              <KitCTA cat="sharps" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="facility" dangerouslySetInnerHTML={{ __html: "For clinics dispensing GLP-1s" }} />
             <p dangerouslySetInnerHTML={{ __html: "Weight-loss and GLP-1 clinics generate volumes of pen needles, vials, and expired product &mdash; handled with mail-back sharps and pharmaceutical waste, documented with a Certificate of Destruction. See our <a href=\"/who-we-serve/weight-loss-glp1/\">GLP-1 clinic</a> page." }} />
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>GLP-1 disposal, handled.</h3>
                   <p>Mail-back sharps and medication kits for pens, needles, and leftover GLP-1 product &mdash; from home or for your clinic. Certificate of Destruction included.</p>

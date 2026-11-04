@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -45,6 +46,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Subpart P is the EPA rule that governs how healthcare handles hazardous waste pharmaceuticals. Here is what it requires, who it applies to, and the practical steps a facility takes to comply.")} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -74,6 +76,7 @@ export default function Page() {
                 <h2 id="sec-how-a-facility-complies" dangerouslySetInnerHTML={H("How a facility complies")} />
                 <div dangerouslySetInnerHTML={H("<p>Practical compliance with Subpart P comes down to a handful of steps:</p><ul><li><strong>Identify</strong> your hazardous waste pharmaceuticals by mapping your formulary to the P-list, U-list, and characteristics, and separating creditable from non-creditable.</li><li><strong>Segregate</strong> non-creditable HWPs into proper, labeled containers &mdash; kept closed, marked &ldquo;Hazardous Waste,&rdquo; and dated. Facilities may accumulate on site for <strong>up to one year</strong>, and state rules can be stricter.</li><li><strong>Never sewer</strong> a hazardous waste pharmaceutical.</li><li><strong>Train staff</strong> so the right drug reaches the right container, and document that training.</li><li><strong>Notify</strong> the EPA of Subpart P activity as required, and <strong>dispose</strong> to a permitted facility on a hazardous-waste manifest, retaining the paperwork.</li></ul><p>None of these steps is individually difficult; the failures regulators cite tend to be the ordinary ones &mdash; an open lid, a missing accumulation date, a hazardous drug that reached the wrong container, or an expired product that went down a drain out of old habit. A short written procedure and periodic staff refreshers prevent most of them, and a disposal partner that supplies the containers and paperwork removes the guesswork on the back end.</p><p>Easy Rx Cycle is a DEA-registered destruction and reverse-distribution company covering all eight waste streams by <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">mail-back and pickup</a>, returning a Certificate of Destruction and manifest copies with no contract required. <a href=\"/get-a-quote/\">Get a quote</a> to build a Subpart P-aligned program.</p>")} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Build a Subpart P-compliant program.</h3>
                   <p>DEA-registered destruction and reverse distribution for hazardous waste pharmaceuticals by mail-back or pickup, with proper containers, manifesting, permitted-facility destruction, and a Certificate of Destruction. No contract.</p>

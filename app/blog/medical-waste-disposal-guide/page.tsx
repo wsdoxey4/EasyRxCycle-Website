@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("&ldquo;Medical waste&rdquo; isn&rsquo;t one thing &mdash; it&rsquo;s six regulated streams, each with its own container, rules, and destruction method. Put something in the wrong one and you either risk a violation or overpay. This guide breaks down every type, how each is disposed of, what it costs, and how to choose a provider.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -87,6 +89,7 @@ export default function Page() {
                 <h2 id="choose" dangerouslySetInnerHTML={H("Choosing a medical waste provider")} />
                 <p dangerouslySetInnerHTML={H("Look for proper registration (DEA-registered if you handle controlled substances), every stream you generate under one vendor, a Certificate of Destruction, transparent pricing, and no contract. Our full <a href=\"/blog/how-to-choose-a-medical-waste-disposal-company/\">buyer&rsquo;s guide</a> covers the criteria and the red flags &mdash; and you can <a href=\"/compare/\">compare us to other providers</a> directly.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>One vendor for every kind of medical waste.</h3>
                   <p>Sharps, biohazard, pharmaceutical, controlled, RCRA, and chemo — mail-back or pickup, DEA-registered, documented, no contract.</p>

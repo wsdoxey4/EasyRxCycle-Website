@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "It surprises almost every facility: nicotine is federally hazardous waste. Here&rsquo;s why nicotine is P-listed under RCRA, which products count, and how it has to be disposed of." }} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How to dispose of it" }} />
             <p dangerouslySetInnerHTML={{ __html: "Hazardous nicotine waste is segregated, containerized, manifested, and incinerated at a permitted facility &mdash; never sewered or trashed. If you stock or dispense nicotine products, we help you identify what&rsquo;s regulated and handle it." }} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Don't get caught by hidden hazardous drugs.</h3>
                   <p>We identify P-listed drugs like nicotine and destroy them compliantly &mdash; manifested, documented, audit-ready.</p>

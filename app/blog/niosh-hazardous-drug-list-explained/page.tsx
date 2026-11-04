@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "USP 800 tells you to protect staff from hazardous drugs &mdash; but which drugs count? That&rsquo;s the NIOSH hazardous drug list. Here&rsquo;s what it is, and what it means for how you handle and dispose of those drugs." }} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How hazardous-drug waste is disposed of" }} />
             <p dangerouslySetInnerHTML={{ __html: "Hazardous-drug waste splits at disposal: <a href=\"/our-solutions/trace-chemotherapy-waste/\">trace chemotherapy waste</a> (empty vials, IV bags, PPE) is incinerated in yellow containers, while bulk and RCRA-hazardous drugs are manifested to a permitted facility. Correct disposal is a core part of USP 800." }} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Close the disposal gap in USP 800.</h3>
                   <p>Trace chemo and RCRA-hazardous drug disposal, handled to spec &mdash; incinerated or manifested, with a Certificate of Destruction.</p>

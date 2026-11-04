@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead">More than 900 medical dispensaries just became DEA registrants, and about 6,000 more operators are close behind. Most have never managed controlled-substance inventory before. Here&rsquo;s what changed, which records now apply, and what to do with product you can&rsquo;t sell.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -111,6 +113,7 @@ export default function Page() {
                   <li>File every Certificate of Destruction with its transfer record, and close the item out in your state system.</li>
                 </ul>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postfaq">
                   <h2>Frequently asked questions</h2>
                   <div className="faq" style={{ marginTop: "18px" }}>

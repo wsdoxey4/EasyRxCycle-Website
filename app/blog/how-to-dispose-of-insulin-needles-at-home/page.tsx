@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -56,6 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "If you inject insulin, you generate sharps &mdash; and loose needles in the trash injure sanitation workers and are illegal in many states. Here&rsquo;s how to dispose of insulin needles, pen needles, and lancets safely and legally at home." }} />
 
+              <KitCTA cat="sharps" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -75,6 +77,7 @@ export default function Page() {
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t throw loose needles in the trash or recycling" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush needles down the toilet" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t clip, bend, or recap needles by hand" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t overfill the container &mdash; seal it at 3/4 full" }} /></ul>
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>Dispose of your sharps from home.</h3>
                   <p>A prepaid mail-back sharps kit ships to your door — fill it, seal it, mail it, and get a Certificate of Destruction. No contract.</p>

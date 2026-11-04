@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Pharmaceutical and medical waste isn&rsquo;t governed by one rule &mdash; it&rsquo;s a stack of agencies, each covering a different piece. Here&rsquo;s who regulates what, so you know which rules apply to which waste." }} />
 
+              <KitCTA cat="pharma" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -70,6 +72,7 @@ export default function Page() {
             <h2 id="help" dangerouslySetInnerHTML={{ __html: "How we keep it straight" }} />
             <p dangerouslySetInnerHTML={{ __html: "We handle the disposal side of all of them &mdash; DEA-registered controlled destruction, RCRA-manifested hazardous waste, OSHA/DOT-compliant packaging, and state-specific requirements &mdash; with documentation for each." }} />
 
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>One partner for every rule.</h3>
                   <p>DEA, EPA, OSHA, DOT, and state requirements &mdash; we handle the disposal side of all of them, documented with a Certificate of Destruction.</p>

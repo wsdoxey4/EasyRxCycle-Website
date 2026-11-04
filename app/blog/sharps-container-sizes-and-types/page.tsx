@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "A sharps container is the rigid, puncture-proof box every needle has to go in &mdash; but the size and type you need depends on your volume. Here&rsquo;s how to choose the right sharps container, the FDA/OSHA rules, and how to dispose of a full one." }} />
 
+              <KitCTA cat="sharps" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -72,6 +74,7 @@ export default function Page() {
             <h2 id="dispose" dangerouslySetInnerHTML={{ __html: "How to dispose of a full sharps container" }} />
             <p dangerouslySetInnerHTML={{ __html: "A full, sealed sharps container can&rsquo;t go in the regular trash. The simplest option is a prepaid mail-back kit &mdash; fill, seal, and ship it back, with a Certificate of Destruction returned. Higher-volume sites use scheduled pickup." }} />
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>Get the right sharps container.</h3>
                   <p>Prepaid mail-back sharps containers in every size, with two-way shipping and a Certificate of Destruction. No contract.</p>

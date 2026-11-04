@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Some of the most common drugs on your shelf &mdash; warfarin, nicotine patches, epinephrine &mdash; aren&rsquo;t just pharmaceutical waste. They&rsquo;re <strong>hazardous</strong> waste under EPA rules, and disposing of them like ordinary drugs is a RCRA violation. Here&rsquo;s how to identify hazardous pharmaceutical waste and dispose of it compliantly.")} />
 
+              <KitCTA cat="hazardous" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -83,6 +85,7 @@ export default function Page() {
                 <h2 id="cost" dangerouslySetInnerHTML={H("What hazardous pharmaceutical waste disposal costs")} />
                 <p dangerouslySetInnerHTML={H("RCRA-hazardous mail-back kits run from about <strong>$145 to $475</strong> by container size &mdash; flat, one-time, including the black container, DOT-compliant shipping, the manifest, permitted-TSDF incineration, and documentation. Higher-volume or complex profiles are quoted. Full pricing context is in our <a href=\"/medical-waste-disposal-cost/\">cost guide</a>.")} />
 
+                <KitCTA cat="hazardous" place="end" />
                 <div className="postcta">
                   <h3>Manage hazardous drug waste the compliant way.</h3>
                   <p>Black-container RCRA mail-back and pickup — P/U/D-listed drugs, Subpart P, manifested and incinerated, with documentation on every order.</p>

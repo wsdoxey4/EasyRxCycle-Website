@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,6 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("Medical waste is regulated by five different agencies, and a single sloppy step can trigger more than one of them. The good news: almost every common violation is cheap to prevent and only expensive if you get cited. Here are the ones inspectors find most, what they can cost, and how to stay clear.")} />
 
+              <KitCTA cat="biohazard" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -81,6 +83,7 @@ export default function Page() {
                 <h2 id="avoid" dangerouslySetInnerHTML={H("How to avoid them")} />
                 <p dangerouslySetInnerHTML={H("Segregate every stream into the correct container, keep your OSHA plan and training current, render controlled substances non-retrievable with <a href=\"/blog/dea-form-41-requirements-and-pdf/\">Form 41/222</a> documentation, keep <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous drugs</a> out of regular pharmaceutical waste, and get a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every disposal. The paperwork is what proves compliance when an inspector asks &mdash; and the right disposal vendor handles most of it for you.")} />
 
+                <KitCTA cat="biohazard" place="end" />
                 <div className="postcta">
                   <h3>Make compliance the easy part.</h3>
                   <p>One vendor for every stream, DEA-registered destruction, and a Certificate of Destruction on every order &mdash; the documentation that keeps an inspection uneventful.</p>

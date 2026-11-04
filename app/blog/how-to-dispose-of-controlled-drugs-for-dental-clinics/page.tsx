@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -59,6 +60,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Dental practices handle more controlled substances than you&rsquo;d think &mdash; sedation and anti-anxiety drugs, plus the occasional post-op opioid &mdash; which makes a dental clinic a DEA registrant. Here&rsquo;s how to dispose of controlled drugs compliantly." }} />
 
+              <KitCTA cat="controlled" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -118,6 +120,7 @@ export default function Page() {
             <h2 id="checklist" dangerouslySetInnerHTML={{ __html: "Controlled-drug disposal checklist for dental clinics" }} />
             <ol><li dangerouslySetInnerHTML={{ __html: "Maintain an accurate controlled-substance log" }} /><li dangerouslySetInnerHTML={{ __html: "Review inventory regularly for expired stock" }} /><li dangerouslySetInnerHTML={{ __html: "Segregate expired controls securely" }} /><li dangerouslySetInnerHTML={{ __html: "Use a DEA-registered reverse distributor" }} /><li dangerouslySetInnerHTML={{ __html: "Let your reverse distributor handle the DEA paperwork (Form 222 for Schedule II and Form 41)" }} /><li dangerouslySetInnerHTML={{ __html: "Retain records and CODs for two years" }} /><li dangerouslySetInnerHTML={{ __html: "Schedule disposal every 30 to 90 days based on volume" }} /></ol>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Get a DEA-compliant quote for dental clinics.</h3>
                   <p>We handle the forms, render your controls non-retrievable, and send a Certificate of Destruction &mdash; nationwide, flat-rate, no contracts.</p>

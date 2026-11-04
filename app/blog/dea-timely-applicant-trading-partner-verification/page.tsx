@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -55,6 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead">If you applied for DEA registration as a medical cannabis dispensary, manufacturer or distributor, DEA expects your supply chain to be verified by November 29, 2026. Here&rsquo;s who counts, what to collect, and how to keep the file.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -109,6 +111,7 @@ export default function Page() {
                 <h2 id="after">After November 29</h2>
                 <p dangerouslySetInnerHTML={H("DEA keeps registering applicants in phases, so the file is never finished. Keep it current, and keep your disposal records tight: once you&rsquo;re registered, expired and damaged product is controlled-substance inventory with <a href=\"/blog/medical-cannabis-schedule-iii-dispensary-disposal/\">its own recordkeeping and destruction rules</a>.")} />
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postfaq">
                   <h2>Frequently asked questions</h2>
                   <div className="faq" style={{ marginTop: "18px" }}>
