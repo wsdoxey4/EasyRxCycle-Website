@@ -16,6 +16,9 @@ const KEY = "erx_attr";
 // Canonical channel keys the Marketing hub uses. If a UTM already names one, trust it.
 const CHANNEL_KEYS = new Set(["organic", "paid_search", "shopping", "bing", "paid_social", "linkedin_ads", "retargeting", "video", "direct", "referral", "email", "social", "content", "generative", "outbound", "sms", "direct_mail", "events", "webinar", "local", "directories", "amazon", "pr", "affiliate", "other"]);
 
+// AI assistants (ChatGPT tags its links utm_source=chatgpt.com; others only send a referrer). Same list as the portal's ga-sync.
+const AI_SOURCE = /chatgpt|openai|perplexity|copilot\.microsoft|gemini\.google|bard\.google|claude\.ai|anthropic|you\.com|phind|poe\.com|meta\.ai|deepseek|grok|mistral\.ai/;
+
 function deriveChannel(utm: Record<string, string>, referrer: string): string {
   const s = (utm.utm_source || "").toLowerCase();
   const m = (utm.utm_medium || "").toLowerCase();
@@ -32,11 +35,13 @@ function deriveChannel(utm: Record<string, string>, referrer: string): string {
   if (/event|expo|tradeshow|conference/.test(m) || /expo|event/.test(s)) return "events";
   if (isSocialSrc || /social/.test(m)) return "social";
   if (/organic/.test(m)) return "organic";
+  if (AI_SOURCE.test(s)) return "generative";
   if (s) return "referral";                          // tagged but uncategorized → referral/partner
   // No UTM — infer from referrer.
   const ref = (referrer || "").toLowerCase();
   if (!ref) return "direct";
   if (/easyrxcycle\.com/.test(ref)) return "direct";
+  if (AI_SOURCE.test(ref)) return "generative";
   if (/google|bing|yahoo|duckduckgo|ecosia|search/.test(ref)) return "organic";
   if (/facebook|instagram|linkedin|t\.co|twitter|tiktok|reddit/.test(ref)) return "social";
   return "referral";
