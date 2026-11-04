@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -77,6 +78,7 @@ export default function Page() {
                 When a clinic, pharmacy, school or studio needs to dispose of sharps or medications, it often starts with a state or county web page. We reviewed {TOTAL} of those pages across all 50 states to see what they actually tell a business to do, and who they tell it to call.
               </p>
 
+              <KitCTA cat="sharps" />
               <div className="prose">
                 <h2 id="findings" style={{ marginTop: "28px" }}>Key findings</h2>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,200px),1fr))", gap: 12, margin: "8px 0 20px" }}>
@@ -175,6 +177,7 @@ export default function Page() {
                   </div>
                 </div>
 
+                <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>Need a provider that checks these boxes?</h3>
                   <p>Easy Rx Cycle is a DEA-registered reverse distributor with prepaid mail-back kits for sharps, medications and medical waste, and a Certificate of Destruction for every return.</p>

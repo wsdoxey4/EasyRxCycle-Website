@@ -15,7 +15,7 @@ const KITS: KitRef[] = [
   { cat: "charcoal", href: "/shop/activated-charcoal-take-back-kit/", name: "Activated Charcoal Take-Back Kit", what: "Return full charcoal disposal containers", re: /charcoal/gi },
 ];
 
-export type GuideKit = { href: string; name: string; what: string; from: string | null };
+export type GuideKit = { cat: string; href: string; name: string; what: string; from: string | null };
 
 // Manual corrections where keyword counts mislead (e.g. a funeral guide discussing formaldehyde, which we don't take).
 const EXCLUDE: Record<string, string[]> = {
@@ -25,9 +25,32 @@ const EXCLUDE: Record<string, string[]> = {
   "school-health-waste-disposal-guide": ["hazardous"],
   "crime-scene-cleanup-waste-disposal-guide": ["controlled"],
 };
+// The kit a guide leads with (listed first, and used for its "See the kit" box) when keyword counts pick the wrong one.
 const LEAD: Record<string, string> = {
   "trace-chemotherapy-waste-guide": "chemo",
   "reverse-distribution-guide": "controlled",
+  "medication-mail-back-kit-guide": "medication",
+  "pharmaceutical-waste-disposal-guide": "pharma",
+  "pharma-manufacturer-product-destruction-guide": "pharma",
+  "clinical-trial-waste-disposal-guide": "pharma",
+  "pharmacy-waste-disposal-guide": "controlled",
+  "independent-pharmacy-waste-disposal-guide": "controlled",
+  "chain-pharmacy-waste-disposal-guide": "controlled",
+  "closed-door-pharmacy-waste-disposal-guide": "controlled",
+  "mail-order-pharmacy-waste-disposal-guide": "controlled",
+  "340b-pharmacy-waste-disposal-guide": "controlled",
+  "correctional-pharmacy-waste-disposal-guide": "controlled",
+  "hospital-waste-disposal-guide": "controlled",
+  "academic-medical-center-waste-disposal-guide": "controlled",
+  "trt-clinic-waste-disposal-guide": "controlled",
+  "oncology-infusion-waste-disposal-guide": "chemo",
+  "hospice-waste-disposal-guide": "medication",
+  "nursing-home-waste-disposal-guide": "medication",
+  "group-home-waste-disposal-guide": "medication",
+  "medical-waste-compliance-checklist": "biohazard",
+  "dialysis-center-waste-disposal-guide": "biohazard",
+  "blood-plasma-center-waste-disposal-guide": "biohazard",
+  "research-lab-waste-disposal-guide": "biohazard",
 };
 
 export function kitsForGuide(text: string, slug = "", max = 4): GuideKit[] {
@@ -40,6 +63,6 @@ export function kitsForGuide(text: string, slug = "", max = 4): GuideKit[] {
     .slice(0, max)
     .map(({ k }) => {
       const ps = inCategory(k.cat);
-      return { href: k.href, name: k.name, what: k.what, from: ps.length ? money(Math.min(...ps.map((p) => p.cents))) : null };
+      return { cat: k.cat, href: k.href, name: k.name, what: k.what, from: ps.length ? money(Math.min(...ps.map((p) => p.cents))) : null };
     });
 }

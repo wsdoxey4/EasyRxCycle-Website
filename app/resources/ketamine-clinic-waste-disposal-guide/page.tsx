@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -63,6 +64,7 @@ export default function Page() {
               </div>
               <p className="article-lead">Ketamine clinics run on a Schedule III drug, so every vial, every partial dose, and every expired box has a paper trail the DEA can ask to see. Here&rsquo;s how to handle each waste stream a ketamine or esketamine clinic generates, and the records that keep you inspection-ready.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -134,6 +136,7 @@ export default function Page() {
                   ))}
                 </div>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>One vendor for every ketamine clinic stream.</h3>
                   <p>DEA-registered destruction for expired controls, on-site kits for wastage, and mail-back for sharps, with a Certificate of Destruction on every mail-back order. No contract.</p>

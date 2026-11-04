@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -65,6 +66,9 @@ export default function Page() {
             <h1 className="ph1">Medical cannabis DEA registration <span style={{ color: "var(--teal)" }}>by state.</span></h1>
             <p className="lead" style={{ marginTop: "18px" }}>DEA publishes its medical marijuana timely applicant list as a raw text file with one line per applicant and no totals. We counted it. Here is how many dispensaries, manufacturers and distributors have applied in each state, what stands out, and a CSV you can use.</p>
           </div>
+        </section>
+        <section className="sec" style={{ paddingTop: "clamp(24px,3vw,36px)", paddingBottom: "0" }}>
+          <div className="wrap" style={{ maxWidth: "900px" }}><KitCTA cat="controlled" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(32px,4vw,52px)" }}>
@@ -149,6 +153,9 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </section>
+        <section className="sec" style={{ paddingTop: "clamp(24px,3vw,36px)", paddingBottom: "0" }}>
+          <div className="wrap" style={{ maxWidth: "900px" }}><KitCTA cat="controlled" place="end" /></div>
         </section>
       </main>
       <Footer />

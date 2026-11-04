@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -63,6 +64,7 @@ export default function Page() {
               </div>
               <p className="article-lead">Opioid treatment programs handle more Schedule II and III medication than almost any other outpatient setting, and the DEA, SAMHSA, and your state all watch the records. Here&rsquo;s how to dispose of expired methadone and buprenorphine, Sublocade and Brixadi syringes, wastage, and returned doses, and what to confirm with your regulators.</p>
 
+              <KitCTA cat="controlled" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -150,6 +152,7 @@ export default function Page() {
                   ))}
                 </div>
 
+                <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>Clear expired controls without a contract.</h3>
                   <p>DEA-registered destruction for methadone and buprenorphine, with Form 222 and Form 41 handled and a Certificate of Destruction. Larger programs get a same-day quote.</p>

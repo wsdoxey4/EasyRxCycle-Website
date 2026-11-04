@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import KitCTA from "@/components/KitCTA";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -54,6 +55,9 @@ export default function Page() {
               <a className="btn btn-ghost" href="tel:5019042929">Talk to a specialist</a>
             </div>
           </div>
+        </section>
+        <section className="sec" style={{ paddingTop: "clamp(24px,3vw,36px)", paddingBottom: "0" }}>
+          <div className="wrap" style={{ maxWidth: "900px" }}><KitCTA cat="chemo" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(48px,6vw,80px)" }}>
@@ -142,6 +146,9 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </section>
+        <section className="sec" style={{ paddingTop: "clamp(24px,3vw,36px)", paddingBottom: "0" }}>
+          <div className="wrap" style={{ maxWidth: "900px" }}><KitCTA cat="chemo" place="end" /></div>
         </section>
       </main>
       <Footer />

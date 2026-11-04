@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
+import KitCTA from "@/components/KitCTA";
 import type { LeadMagnet } from "@/lib/leadMagnets";
 import { GUIDE_LINKS } from "@/lib/guideLinks";
 import { GUIDE_BODIES } from "@/lib/guideBodies";
@@ -27,6 +28,10 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
   const body = m.body ?? GUIDE_BODIES[m.slug];
   // Point readers at the kits this guide is about (skipped for non-guide magnets like the capability statement).
   const kits = m.slug === "capability-statement" ? [] : kitsForGuide([m.intro, ...m.bullets, ...(body ?? []).map((b) => b.h + " " + b.p)].join(" "), m.slug);
+  // "See the kit" box for the guide's main kit. Sales documents get none, and the on-site kit is never the lead
+  // (it's a no-return fallback; the mail-back kits are what we sell).
+  // The cannabis guide has no single kit that fits state-legal cannabis waste, so it gets no box.
+  const leadKit = NOT_ARTICLES.has(m.slug) || m.slug === "cannabis-waste-disposal-guide" ? undefined : kits.find((k) => k.cat !== "medication-onsite")?.cat;
   const path = `/resources/${m.slug}/`;
   const gf = GUIDE_FAQS[m.slug];
   const faqLd = gf ? {
@@ -83,12 +88,14 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
         {body && body.length > 0 && (
           <section className="sec" style={{ paddingTop: "clamp(40px,5vw,64px)" }}>
             <div className="wrap lm-body" style={{ maxWidth: "760px" }}>
+              {leadKit && <KitCTA cat={leadKit} />}
               {body.map((b) => (
                 <div className="lm-body-block" key={b.h}>
                   <h2>{b.h}</h2>
                   <p>{b.p}</p>
                 </div>
               ))}
+              {leadKit && <KitCTA cat={leadKit} place="end" />}
             </div>
           </section>
         )}
