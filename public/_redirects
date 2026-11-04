@@ -504,3 +504,8 @@
 /blog/tag/* /blog/ 301
 /blog/author/* /blog/ 301
 /blog/page/* /blog/ 301
+
+# 2026-11-04: three press pitches went out with ")." / ")," stuck to the study link. Catch them.
+/resources/state-disposal-guidance-review-2026/). /resources/state-disposal-guidance-review-2026/ 301
+/resources/state-disposal-guidance-review-2026/), /resources/state-disposal-guidance-review-2026/ 301
+/resources/state-disposal-guidance-review-2026/) /resources/state-disposal-guidance-review-2026/ 301
