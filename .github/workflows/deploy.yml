@@ -42,9 +42,16 @@ jobs:
           NEXT_PUBLIC_ANALYTICS: "true"
           NEXT_PUBLIC_INDEXABLE: ${{ secrets.NEXT_PUBLIC_INDEXABLE }}
 
+      - name: Save the live sitemap (for the IndexNow diff)
+        run: curl -sfL https://easyrxcycle.com/sitemap.xml -o /tmp/live-sitemap.xml || true
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy out --project-name=easyrxcycle-website --branch=main
+
+      - name: Ping IndexNow with new/changed pages (never fails the deploy)
+        continue-on-error: true
+        run: node scripts/indexnow.mjs out/sitemap.xml /tmp/live-sitemap.xml
