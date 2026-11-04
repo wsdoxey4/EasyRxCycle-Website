@@ -23,7 +23,7 @@ const faqs = [
   { q: "How often should we dispose of expired controlled drugs?", a: "Every 30 to 90 days depending on inventory, and promptly for any wasted or expired product, to limit diversion and audit risk." },
   { q: "Do you handle field sharps and trauma waste too?", a: "Yes. Sharps ship in DOT-approved containers and biohazard/trauma waste is handled to OSHA and state RMW rules, alongside your controlled-substance disposal." },
   { q: "What documentation do we get?", a: "DEA Form 41 for destruction, Certificates of Destruction, and controlled-drug logs \u2014 all retained for at least two years for audits." },
-  { q: "How do we handle wasted narcotics in the field?", a: "Witness and log each wasted dose per your protocol, then render the collected controlled waste non-retrievable with a DEA Form 41. The wasting log plus a Certificate of Destruction keeps your records audit-ready — the area the DEA examines most for EMS." },
+  { q: "How do we handle wasted narcotics in the field?", a: "Witness and log each wasted dose per your protocol, then send expired or unused controls to us for incineration; we handle the DEA Form 41. The wasting log plus a Certificate of Destruction keeps your records audit-ready — the area the DEA examines most for EMS." },
   { q: "What do we do with expired rig narcotics?", a: "Rendered non-retrievable and documented with a Form 41 — never trashed or flushed." },
   { q: "Can you cover multiple stations or apparatus?", a: "Yes — one program and unified documentation across every station and rig, no contract." },
   { q: "Do we need a contract?", a: "No — no contract, no minimums." }

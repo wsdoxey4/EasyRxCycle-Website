@@ -110,7 +110,7 @@ export default function Page() {
 
                 <h2 id="when">When you don&rsquo;t need DEA Form 41</h2>
                 <ul>
-                  <li dangerouslySetInnerHTML={H("<strong>Controls you send to a reverse distributor.</strong> You complete the transfer paperwork (Form 222 for Schedule I&ndash;II, an invoice or transfer form for III&ndash;V). The <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> destroys the drugs and completes Form 41.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Controls you send to a reverse distributor.</strong> The reverse distributor handles the transfer paperwork (Form 222 for Schedule I&ndash;II, a transfer record for III&ndash;V). With Easy Rx Cycle, we do all of it. The <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> destroys the drugs and completes Form 41.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Wasted doses.</strong> The leftover portion of a dose after it&rsquo;s administered (pharmaceutical wastage) goes in your dispensing or administration records, with a witness per your facility&rsquo;s policy. It isn&rsquo;t recorded on Form 41. Our <a href=\"/shop/on-site-medication-disposal-kit/\">On-Site Medication Disposal Kit</a> is made for those wasted partial doses.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Theft or loss.</strong> That&rsquo;s <a href=\"/blog/dea-form-106/\">DEA Form 106</a>, not Form 41.")} />
                 </ul>
@@ -146,7 +146,7 @@ export default function Page() {
                   <li><strong>Two witnesses</strong> for every destruction, signing by hand.</li>
                   <li><strong>Keep it at least two years</strong> &mdash; longer if your state Board of Pharmacy requires &mdash; and make it available for inspection.</li>
                   <li><strong>It isn&rsquo;t mailed to DEA unless DEA asks for it.</strong> Form 41 stays with your controlled-substance records.</li>
-                  <li><strong>Keep it with the related paperwork</strong>: the Form 222 or transfer form for anything you sent out, and the Certificate of Destruction.</li>
+                  <li><strong>Keep it with the related paperwork</strong>: the transfer records and the Certificate of Destruction your reverse distributor sends you.</li>
                 </ul>
 
                 <h2 id="mistakes">Common DEA Form 41 mistakes</h2>

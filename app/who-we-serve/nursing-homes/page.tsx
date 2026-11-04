@@ -24,7 +24,7 @@ const faqs = [
   { q: "Is gabapentin controlled in nursing homes?", a: "Federally it's unscheduled, but many states classify gabapentin as Schedule V \u2014 where scheduled, it must be logged and disposed of under controlled-drug protocols." },
   { q: "Do you handle resident-care sharps and biohazard too?", a: "Yes. Insulin and injection sharps plus biohazard waste are handled alongside your pharmaceutical and controlled disposal, all to OSHA and state RMW rules." },
   { q: "How often should we dispose of controlled drugs?", a: "Every 30 to 90 days, and promptly whenever medications are discontinued or a resident leaves, to limit accumulation and diversion risk." },
-  { q: "How do we destroy unused controlled meds after a resident passes?", a: "Render them non-retrievable — either mail them back for destruction or use an on-site deactivation kit — and complete a DEA Form 41. Prompt, documented destruction prevents diversion." },
+  { q: "How do we destroy unused controlled meds after a resident passes?", a: "Send them to us in a prepaid mail-back kit for incineration. We handle the DEA paperwork and send a Certificate of Destruction. Prompt, documented destruction prevents diversion." },
   { q: "Can we deactivate meds on-site?", a: "Yes — on-site deactivation kits render medications non-retrievable immediately, which is useful when meds shouldn't leave the facility." },
   { q: "How do we handle blister-pack returns?", a: "Non-controlled returns are destroyed as pharmaceutical waste with documentation." },
   { q: "Do we need a contract?", a: "No — no contract, no minimums." }
