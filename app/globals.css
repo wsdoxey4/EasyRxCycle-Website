@@ -1716,3 +1716,5 @@ header.site .wrap{position:relative;}
   .co2-sum-h{display:none}
   .co2-top-call{font-size:13px}
 }
+.co2 .btn-outline-w{color:var(--teal,#005770);border-color:var(--line,#cfdadd);background:#fff}
+.co2 .btn-outline-w:hover{border-color:var(--teal,#005770);background:#f5faf8}
