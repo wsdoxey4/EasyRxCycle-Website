@@ -11,6 +11,7 @@ import { Suspense } from "react";
 import AddFromUrl from "@/components/cart/AddFromUrl";
 import KitFinder from "@/components/cart/KitFinder";
 import TrackView from "@/components/TrackView";
+import KitTiles from "@/components/KitTiles";
 
 const PATH = "/shop";
 const TITLE = "Shop Mail-Back Kits — Buy Online, Prepaid, No Contract";
@@ -67,28 +68,30 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main id="main">
-        <section className="subhero">
+        <section className="subhero shop-hero">
           <div className="wrap">
             <Breadcrumbs items={[{ name: "Shop" }]} />
             <span className="eyebrow">Mail-back kits · buy online</span>
             <h1 className="ph1">Shop <span style={{ color: "var(--teal)" }}>mail-back kits.</span></h1>
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }}>
-              Prepaid, self-serve kits shipped to your door. Fill it, seal it, mail it back — and get a Certificate of Destruction.
-              No pickups, no contract. Pick a kit to choose your size and check out securely.
+            <p className="lead" style={{ marginTop: "14px", maxWidth: "62ch" }}>
+              Prepaid kits shipped to your door. Fill it, seal it, mail it back, and get a Certificate of Destruction. No pickups, no contract.
             </p>
-            <div className="badges">
-              <span className="badge">DEA-registered</span>
-              <span className="badge">Prepaid both ways</span>
-              <span className="badge">Free shipping over $50</span>
-              <span className="badge">Certificate of Destruction</span>
-            </div>
-            <div className="buildbanner">
-              <div>
-                <b>Need more than one kit?</b>
-                <span>Build a custom mail-back program — mix any streams, set a frequency for each, add your locations, and start auto-ship.</span>
-              </div>
-              <a className="btn btn-primary" href="/build-your-program/">Build your program <span className="ar">→</span></a>
-            </div>
+            <ul className="shop-checks">
+              <li>DEA-registered</li>
+              <li>Prepaid both ways</li>
+              <li>Free shipping over $50 (auto-ship always ships free)</li>
+              <li>Certificate of Destruction</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="sec shop-quick" style={{ paddingTop: "16px", paddingBottom: "0" }}>
+          <div className="wrap">
+            <KitTiles cats={["sharps", "biohazard", "controlled", "pharma", "medication", "hazardous", "chemo", "charcoal"]} cta="kit_shop" />
+            <p className="shop-quick-links">
+              <a href="#kit-finder">Not sure which kit? Answer 3 questions <span className="ar">→</span></a>
+              <a href="/build-your-program/">Need several kinds of kits or more than one location? Build a program <span className="ar">→</span></a>
+            </p>
           </div>
         </section>
 

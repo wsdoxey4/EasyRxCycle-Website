@@ -1737,3 +1737,13 @@ header.site .wrap{position:relative;}
 .kit-tile-what{font-size:13px;color:var(--slate);line-height:1.35;}
 .kit-tile-from{margin-top:auto;padding-top:6px;font-weight:600;color:var(--teal,#005770);font-size:14px;}
 @media (max-width:560px){.kit-tiles-grid{grid-template-columns:repeat(2,1fr);gap:10px}.kit-tile{padding:9px}.kit-tile-what{display:none}}
+/* shop index: plain check line (not button-like badges), quick-pick kit tiles first */
+.shop-checks{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:16px 0 0;padding:0;font-size:14.5px;color:var(--ink);}
+.shop-checks li{display:inline-flex;align-items:center;gap:8px;}
+.shop-checks li::before{content:"";width:9px;height:5px;border-left:2px solid var(--emer,#33C089);border-bottom:2px solid var(--emer,#33C089);transform:rotate(-45deg) translateY(-2px);flex:none;}
+.subhero.shop-hero{padding-bottom:24px;}
+.shop-quick .kit-tile img{aspect-ratio:auto;height:90px;object-fit:contain;background:#fff;}
+@media (min-width:900px){.shop-quick .kit-tiles-grid{grid-template-columns:repeat(4,1fr);}}
+.shop-quick-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin:14px 0 0;font-size:14.5px;}
+.shop-quick-links a{color:var(--teal,#005770);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+@media (max-width:560px){.shop-hero .eyebrow,.shop-hero .lead{display:none}.shop-hero .ph1{font-size:30px}.subhero.shop-hero{padding-bottom:14px}.shop-checks{font-size:13px;gap:4px 14px;margin-top:10px}.shop-quick .kit-tile img{height:70px}}
