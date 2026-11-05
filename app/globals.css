@@ -66,6 +66,13 @@ img{max-width:100%;display:block;}
 .util .dot{width:6px;height:6px;border-radius:50%;background:var(--emer);}
 .util .right{display:flex;gap:22px;align-items:center;}
 .util a:hover{color:#fff;}
+.util-promo{flex:1 1 auto;min-width:0;color:#c8dee1;text-decoration:none;font-size:13px;}
+.util-promo strong{color:#fff;}
+.util-promo em{font-style:normal;}
+.util-promo span{color:var(--emer);font-weight:600;margin-left:6px;white-space:nowrap;}
+.util-promo:hover span{text-decoration:underline;}
+.util:has(.util-promo) .right a[href^="tel"]{white-space:nowrap;}
+.util:has(.util-promo) .right a[href^="tel"]::before{content:"Call ";color:#9fc7d6;}
 
 /* header */
 header.site{position:sticky;top:0;z-index:50;background:rgba(252,254,253,.9);backdrop-filter:saturate(1.2) blur(10px);
@@ -1228,7 +1235,10 @@ header.site .wrap{position:relative;}
 @media(max-width:760px){
   .util .creds{display:none;}
   .util .right{margin-left:auto;gap:0;}
-  .util .right a[href="/contact"],.util .right a[href="/partners"]{display:none;}
+  .util .right a[href^="/contact"],.util .right a[href^="/partners"]{display:none;}
+  .util-promo{font-size:12.5px;line-height:1.35;padding:6px 0;}
+  .util-promo .up-sub{display:none;}
+  .util-promo span{margin-left:4px;}
   .util a[href^="tel"]{white-space:nowrap;}
 }
 /* 4) SEO parity: don't HIDE the pricing blurb on mobile — reflow it full-width instead. */
@@ -1256,6 +1266,8 @@ header.site .wrap{position:relative;}
   .util .wrap{justify-content:center;}
   .util .right{margin:0;}
   .util .right a[href^="tel"]::before{content:"Questions? Call ";font-weight:400;color:#9fc7d6;}
+  .util:has(.util-promo) .wrap{justify-content:space-between;}
+  .util:has(.util-promo) .right a[href^="tel"]::before{content:"Call ";}
 }
 /* hero "talk to a specialist" sub-link on ICP pages */
 .hero-callus{margin-top:15px;font-size:14.5px;color:var(--muted,#55646b);}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TakeBackBanner from "@/components/TakeBackBanner";
 
 type Col = { title: string; links: { t: string; h: string }[] };
@@ -140,17 +140,26 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [sub, setSub] = useState<string | null>("Solutions");
   const close = () => setOpen(false);
+  // Year-end promo in the utility bar; switches back to the credential badges on Jan 1 without a redeploy.
+  const [promo, setPromo] = useState(true);
+  useEffect(() => { if (Date.now() >= new Date("2027-01-01T00:00:00-06:00").getTime()) setPromo(false); }, []);
   return (
     <>
       <TakeBackBanner />
       <div className="util">
         <div className="wrap">
-          <div className="creds">
-            <span><i className="dot" />DEA-Registered</span>
-            <span><i className="dot" />EPA-Compliant</span>
-            <span><i className="dot" />HIPAA &amp; DOT</span>
-            <span><i className="dot" />Nationwide mail-back</span>
-          </div>
+          {promo ? (
+            <a className="util-promo" href="/shop/" data-cta="topbar_yearend">
+              <strong>Clear out expired controls before year-end.</strong> <em className="up-sub">Kits ship nationwide.</em> <span>Shop kits &rarr;</span>
+            </a>
+          ) : (
+            <div className="creds">
+              <span><i className="dot" />DEA-Registered</span>
+              <span><i className="dot" />EPA-Compliant</span>
+              <span><i className="dot" />HIPAA &amp; DOT</span>
+              <span><i className="dot" />Nationwide mail-back</span>
+            </div>
+          )}
           <div className="right">
             <a href="/contact/">Contact</a>
             <a href="/partners/">Partners</a>
