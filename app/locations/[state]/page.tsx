@@ -282,7 +282,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
         </section>
         <StateIndustryLinks stateSlug={s.slug} stateName={s.name} />
       </main>
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/" }} secondary={{ label: "Call us", href: "tel:5019042929" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

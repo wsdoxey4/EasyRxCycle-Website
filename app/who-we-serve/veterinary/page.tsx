@@ -97,7 +97,7 @@ export default function Page() {
         <IndustryStateLinks slug="veterinary" />
       </main>
       <ExitIntentGuide slug="veterinary-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Veterinary" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Veterinary" }} />
       <Footer />
       <Reveal />
     </>

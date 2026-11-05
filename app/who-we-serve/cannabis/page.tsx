@@ -193,7 +193,7 @@ export default function Page() {
         </section>
       </main>
       <ExitIntentGuide slug="cannabis-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Order the kit", href: KIT }} secondary={{ label: "Verification packet", href: "/get-a-quote/?role=Medical%20cannabis&packet=1" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

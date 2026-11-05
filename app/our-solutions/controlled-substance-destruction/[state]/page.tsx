@@ -210,7 +210,7 @@ export default async function Page({ params }: { params: Promise<{ state: string
         </section>
       </main>
       <ExitIntentGuide slug="controlled-substance-destruction-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: SHOP }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
+      <MobileCTA primary={{ label: "Shop the kit", href: SHOP }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>

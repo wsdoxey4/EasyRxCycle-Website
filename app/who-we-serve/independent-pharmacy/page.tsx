@@ -96,7 +96,7 @@ export default function Page() {
         <IndustryStateLinks slug="independent-pharmacy" />
       </main>
       <ExitIntentGuide slug="independent-pharmacy-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Pharmacy%20%28retail%20/%20independent%29" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Pharmacy%20%28retail%20/%20independent%29" }} />
       <Footer />
       <Reveal />
     </>

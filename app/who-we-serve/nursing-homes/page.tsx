@@ -188,7 +188,7 @@ export default function Page() {
         <IndustryStateLinks slug="nursing-homes" />
       </main>
       <ExitIntentGuide slug="nursing-home-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Long-term%20care%20/%20hospice" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=ltc" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Long-term%20care%20/%20hospice" }} />
       <Footer />
       <Reveal />
     </>

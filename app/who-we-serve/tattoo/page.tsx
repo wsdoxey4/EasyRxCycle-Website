@@ -181,7 +181,7 @@ export default function Page() {
         </section>
       </main>
       <ExitIntentGuide slug="tattoo-studio-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Tattoo%20/%20med%20spa" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Tattoo%20/%20med%20spa" }} />
       <Footer />
       <Reveal />
     </>

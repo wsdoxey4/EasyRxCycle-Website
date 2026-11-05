@@ -187,7 +187,7 @@ export default function Page() {
         </section>
       </main>
       <ExitIntentGuide slug="oncology-infusion-waste-disposal-guide" />
-      <MobileCTA primary={{ label: "Get a quote", href: "/get-a-quote/?role=Hospital%20/%20health%20system" }} secondary={{ label: "Build a program", href: "/build-your-program/?facility=oncology" }} />
+      <MobileCTA primary={{ label: "Shop kits", href: "/shop/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/?role=Hospital%20/%20health%20system" }} />
       <Footer />
       <Reveal />
     </>

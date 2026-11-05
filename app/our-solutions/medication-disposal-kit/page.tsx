@@ -178,7 +178,7 @@ export default function Page() {
         </section>
       </main>
       <ExitIntentGuide slug="medication-mail-back-kit-guide" />
-      <MobileCTA primary={{ label: "Shop a kit", href: "/shop/medication-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
+      <MobileCTA primary={{ label: "Shop the kit", href: "/shop/medication-mail-back-kit/" }} secondary={{ label: "Get a quote", href: "/get-a-quote/" }} />
       <Footer />
       <Reveal />
     </>
