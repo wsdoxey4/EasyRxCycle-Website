@@ -1711,9 +1711,6 @@ header.site .wrap{position:relative;}
   .co2-recap-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--muted,#55646B);margin-top:4px}
   .co2-edit{background:none;border:0;padding:6px 0;font-size:14px;font-weight:600;color:var(--teal,#005770);text-decoration:underline;cursor:pointer}
   .co2-grid{grid-template-areas:"summary" "main" "pay"}
-  .co2-summary{display:none}
-  .co2-summary.open{display:block}
-  .co2-sum-h{display:none}
   .co2-top-call{font-size:13px}
 }
 .co2 .btn-outline-w{color:var(--teal,#005770);border-color:var(--line,#cfdadd);background:#fff}

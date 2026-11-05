@@ -47,7 +47,7 @@ const imgFor = (sku: string) => {
   return k ? `/images/products/${k}.webp` : null;
 };
 
-// Phone-first checkout (preview at /checkout-new/): order recap on top, Apple Pay / Google Pay (Express Checkout
+// Checkout (/checkout/ and /checkout-new/): order summary on top on phones, Apple Pay / Google Pay (Express Checkout
 // Element) before the typed form, slim page. Same Stripe session as /checkout/, so email, phone and shipping
 // address stay required on every path (wallets must supply them too). Steps are tracked as GA4 checkout_step.
 export default function CheckoutV2() {
@@ -77,7 +77,6 @@ export default function CheckoutV2() {
   const [exemptOk, setExemptOk] = useState(false);
   const [paying, setPaying] = useState(false);
   const [hasExpress, setHasExpress] = useState(false);
-  const [showEdit, setShowEdit] = useState(false);
   // One GA4 event per step per page load, so we can see exactly where phone buyers stop.
   const step = (name: string, extra: Record<string, unknown> = {}, once = true) => {
     if (once) { if (stepsSent.current.has(name)) return; stepsSent.current.add(name); }
@@ -122,20 +121,23 @@ export default function CheckoutV2() {
     co.current = checkout;
     sync();
     checkout.on("change", sync);
-    const ee = checkout.createExpressCheckoutElement({ buttonHeight: 48, buttonType: { applePay: "buy", googlePay: "buy" }, layout: { maxColumns: 1, overflow: "never" } });
-    ee.on("availablepaymentmethodschange", ({ paymentMethods }: any) => {
-      const shown = Boolean(paymentMethods && Object.values(paymentMethods).some(Boolean));
-      setHasExpress(shown);
-      if (shown) step("express_shown", { methods: Object.keys(paymentMethods).filter((k) => paymentMethods[k]).join(",") });
-    });
-    ee.on("confirm", async (ev: any) => {
-      step("express_confirm");
-      try {
-        const res = await checkout.confirm({ expressCheckoutConfirmEvent: ev });
-        if (res?.type === "error" || res?.error) { setErr(res.error?.message || "That payment didn’t go through. Try again, or pay with a card below."); step("express_error", { message: String(res.error?.message || "").slice(0, 90) }, false); }
-      } catch { setErr("That payment didn’t go through. Try again, or pay with a card below."); step("express_error", {}, false); }
-    });
-    ee.mount("#co-express"); expEl.current = ee;
+    // One-tap wallets are extra: if they fail to load, the typed card checkout below still works.
+    try {
+      const ee = checkout.createExpressCheckoutElement({ buttonHeight: 48, buttonType: { applePay: "buy", googlePay: "buy" }, layout: { maxColumns: 1, overflow: "never" } });
+      ee.on("availablepaymentmethodschange", ({ paymentMethods }: any) => {
+        const shown = Boolean(paymentMethods && Object.values(paymentMethods).some(Boolean));
+        setHasExpress(shown);
+        if (shown) step("express_shown", { methods: Object.keys(paymentMethods).filter((k) => paymentMethods[k]).join(",") });
+      });
+      ee.on("confirm", async (ev: any) => {
+        step("express_confirm");
+        try {
+          const res = await checkout.confirm({ expressCheckoutConfirmEvent: ev });
+          if (res?.type === "error" || res?.error) { setErr(res.error?.message || "That payment didn’t go through. Try again, or pay with a card below."); step("express_error", { message: String(res.error?.message || "").slice(0, 90) }, false); }
+        } catch { setErr("That payment didn’t go through. Try again, or pay with a card below."); step("express_error", {}, false); }
+      });
+      ee.mount("#co-express"); expEl.current = ee;
+    } catch { setHasExpress(false); step("express_unavailable"); }
     const se = checkout.createShippingAddressElement(); se.mount("#co-shipping"); shipEl.current = se;
     se.on("change", (e: any) => { if (e?.complete) step("address_done"); });
     const pe = checkout.createPaymentElement(); pe.mount("#co-payment"); payEl.current = pe;
@@ -231,20 +233,6 @@ export default function CheckoutV2() {
   return (
     <div className="co2">
       {busy && <div className="co-updating"><span className="co-spin" /><span>Updating your order…</span></div>}
-      {/* RECAP — phones only: what you're buying and the total, before anything to fill in */}
-      {state !== "loading" && (
-        <div className="co2-recap">
-          {lines.map((l, i) => { const p = BY_SKU[l.sku]; if (!p) return null; const img = imgFor(l.sku); return (
-            <div className="co2-recap-row" key={l.sku + "|r" + i}>
-              {img ? <img className="co2-recap-img" src={img} alt="" width={40} height={40} /> : null}
-              <span className="co2-recap-name">{p.family} · {p.size}{l.qty > 1 ? ` × ${l.qty}` : ""}{l.interval ? " · auto-ship" : ""}</span>
-              <span className="co2-recap-amt">{dollars(lineCents(l))}</span>
-            </div>); })}
-          <div className="co2-recap-total"><span>Total {total.taxExclusive?.minorUnitsAmount > 0 ? "(incl. tax)" : ""}</span><span>{summaryTotal}</span></div>
-          <div className="co2-recap-foot"><span>Free shipping · prepaid return label</span>
-            <button type="button" className="co2-edit" onClick={() => { setShowEdit((v) => !v); step("edit_order", {}, false); }}>{showEdit ? "Done" : "Change order"}</button></div>
-        </div>
-      )}
       <div className="co-grid co2-grid">
         <div className="co-main">
           {err && <div className="lm-err" style={{ padding: "12px 14px", marginBottom: 14 }}>{err}</div>}
@@ -264,8 +252,8 @@ export default function CheckoutV2() {
           <p className="co2-trust">We handle all the DEA paperwork. A Certificate of Destruction comes with every order. Payments are processed by Stripe.</p>
         </div>
 
-      <aside className={"co-summary co2-summary" + (showEdit ? " open" : "")}>
-        <h3 className="co-h co2-sum-h">Order summary</h3>
+      <aside className="co-summary co2-summary">
+        <h3 className="co-h">Your order</h3>
         <div className="co-items" style={{ opacity: busy ? 0.55 : 1 }}>
           {lines.map((l, i) => {
             const p = BY_SKU[l.sku]; if (!p) return null;
