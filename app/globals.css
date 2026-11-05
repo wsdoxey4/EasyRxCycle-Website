@@ -1228,7 +1228,7 @@ header.site .wrap{position:relative;}
 @media(max-width:760px){
   .util .creds{display:none;}
   .util .right{margin-left:auto;gap:0;}
-  .util .right a[href="/contact"],.util .right a[href="/partners"]{display:none;}
+  .util .right a[href^="/contact"],.util .right a[href^="/partners"]{display:none;}
   .util a[href^="tel"]{white-space:nowrap;}
 }
 /* 4) SEO parity: don't HIDE the pricing blurb on mobile — reflow it full-width instead. */
