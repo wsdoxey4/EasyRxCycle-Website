@@ -9,12 +9,15 @@ export async function onRequestPost({ request, env }) {
   const svc = env.PORTAL_SUPABASE_SERVICE_KEY;
   if (!svc) return new Response(null, { status: 204 });
   try {
-    const b = JSON.parse((await request.text()).slice(0, 4000) || "{}");
+    const b = JSON.parse((await request.text()).slice(0, 16000) || "{}");
     const u = b.utm && typeof b.utm === "object" ? b.utm : {};
     const row = {
       page: cap(b.page, 300), channel: cap(b.channel, 40), source: cap(b.source), campaign: cap(u.utm_campaign),
       partner: cap(u.partner, 40), first_channel: cap(u.first_channel, 40), first_source: cap(u.first_source), first_campaign: cap(u.first_campaign),
       gclid: cap(u.gclid, 200), msclkid: cap(u.msclkid, 200), mobile: /Mobi|Android|iPhone/i.test(request.headers.get("user-agent") || ""),
+      gbraid: cap(u.gbraid, 200), wbraid: cap(u.wbraid, 200), landing: cap(b.landing || u.landing, 300),
+      // The visitor's page trail before the tap (lib/attribution.ts getTrail), so a matched call shows the journey.
+      pages: Array.isArray(b.pages) ? b.pages.slice(-25).map((v) => ({ p: cap(v && v.p, 300), t: cap(v && v.t, 40) })) : null,
     };
     await fetch(`${env.PORTAL_SUPABASE_URL || SB}/rest/v1/phone_clicks`, {
       method: "POST", headers: { apikey: svc, Authorization: `Bearer ${svc}`, "Content-Type": "application/json", Prefer: "return=minimal" },

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/track";
-import { captureAttribution, getAttribution, recordPageView } from "@/lib/attribution";
+import { captureAttribution, getAttribution, recordPageView, getTrail } from "@/lib/attribution";
 
 // One delegated listener fires cta_click for every Shop / Get-a-Quote / primary CTA, and click_to_call for every
 // tap on a tel: link (header, sticky bar, page CTAs), site-wide. Taps are also beaconed to /api/call-click.
@@ -22,7 +22,7 @@ export default function Tracker() {
         // Server-side record so the call can be matched to its AnswerConnect message (functions/api/call-click.js).
         try {
           const at = getAttribution();
-          navigator.sendBeacon?.("/api/call-click", JSON.stringify({ page: window.location.pathname, channel: at.channel, source: at.source, utm: at.utm }));
+          navigator.sendBeacon?.("/api/call-click", JSON.stringify({ page: window.location.pathname, channel: at.channel, source: at.source, landing: at.landing, utm: at.utm, pages: getTrail() }));
         } catch { /* never block the call */ }
         return;
       }
