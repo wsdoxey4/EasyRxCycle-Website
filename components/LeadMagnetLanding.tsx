@@ -77,7 +77,7 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
                   <p className="lm-who"><b>Who it&rsquo;s for:</b> {m.audience}</p>
                 </div>
                 <div className="lm-card lm-formcard">
-                  <LeadMagnetForm magnet={m.slug} file={m.file} title={m.h1} industry={m.industry} bullets={m.bullets} />
+                  <LeadMagnetForm magnet={m.slug} file={m.file} title={m.h1} industry={m.industry} bullets={m.bullets} kit={leadKit ? kits.find((k) => k.cat === leadKit) : undefined} />
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import ExitIntentGuide from "@/components/ExitIntentGuide";
 import TrustBar from "@/components/TrustBar";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import KitTiles from "@/components/KitTiles";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/who-we-serve/group-homes";
@@ -57,6 +58,12 @@ export default function Page() {
               <a className="btn btn-ghost" href="/get-a-quote/?role=Other">Get a quote</a>
             </div>
             <p className="hero-callus">Questions? Talk to a specialist &middot; <a href="tel:5019042929">501-904-2929</a></p>
+          </div>
+        </section>
+
+        <section className="sec kit-icp" style={{ paddingTop: "28px", paddingBottom: "0" }}>
+          <div className="wrap">
+            <KitTiles cats={["controlled", "pharma", "sharps"]} cta="kit_icp" heading="Kits for group homes" sub="Order online. Each kit ships with a prepaid return label and a Certificate of Destruction." />
           </div>
         </section>
 

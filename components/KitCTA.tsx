@@ -27,7 +27,7 @@ export default function KitCTA({ cat, place = "top" }: { cat: string; place?: "t
       </div>
       <div className="kitcta-act">
         <span className="kitcta-price">From {money(fromPrice(cat))}</span>
-        <a className="btn btn-primary" href={href}>See the kit <span className="ar">→</span></a>
+        <a className="btn btn-primary" href={href} data-cta={`kit_${place}`} data-kit={cat}>See the kit <span className="ar">→</span></a>
       </div>
     </div>
   );

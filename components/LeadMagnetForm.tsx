@@ -3,7 +3,8 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/track";
 import { getAttribution, getTrail } from "@/lib/attribution";
 
-export default function LeadMagnetForm({ magnet, file, title, industry, bullets }: { magnet: string; file: string; title: string; industry?: string; bullets?: string[] }) {
+// kit: the guide's lead kit (same as its "See the kit" box), offered once the download is ready.
+export default function LeadMagnetForm({ magnet, file, title, industry, bullets, kit }: { magnet: string; file: string; title: string; industry?: string; bullets?: string[]; kit?: { cat: string; name: string; href: string; from: string | null } }) {
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
@@ -34,6 +35,12 @@ export default function LeadMagnetForm({ magnet, file, title, industry, bullets 
         <h3>Your download is ready.</h3>
         <p>We&rsquo;ve also emailed you a copy.</p>
         <a className="btn btn-primary" href={file} target="_blank" rel="noopener" download>Download PDF <span className="ar">↓</span></a>
+        {kit && (
+          <div className="lm-done-kit">
+            <span>Ready to take care of it?</span>
+            <a href={kit.href} data-cta="kit_download" data-kit={kit.cat}>See the {kit.name}{kit.from ? ` (from ${kit.from})` : ""} <span className="ar">→</span></a>
+          </div>
+        )}
       </div>
     );
   }

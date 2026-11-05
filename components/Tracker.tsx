@@ -26,11 +26,14 @@ export default function Tracker() {
         } catch { /* never block the call */ }
         return;
       }
-      let cta = "";
-      if (/#quote|\/get-a-quote/.test(href) || /quote/i.test(text)) cta = "get_quote";
+      // Links can name themselves with data-cta (e.g. the kit boxes: kit_top / kit_end / kit_download / kit_tile).
+      let cta = a.dataset.cta || "";
+      if (cta) { /* explicit label wins */ }
+      else if (/#quote|\/get-a-quote/.test(href) || /quote/i.test(text)) cta = "get_quote";
       else if (/shop/i.test(text)) cta = "shop";
+      else if (/^\/shop\/[^/?#]+/.test(href)) cta = "kit_link";   // any in-text or card link to a kit page
       else if (a.classList.contains("btn-primary") || a.classList.contains("btn-onteal") || a.classList.contains("btn-grad")) cta = "primary_cta";
-      if (cta) trackEvent("cta_click", { cta, link_text: text, link_url: href, page: window.location.pathname });
+      if (cta) trackEvent("cta_click", { cta, kit: a.dataset.kit || undefined, link_text: text, link_url: href, page: window.location.pathname });
     }
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);

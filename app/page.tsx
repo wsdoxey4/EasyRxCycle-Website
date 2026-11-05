@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import MobileCTA from "@/components/MobileCTA";
 import StatsBand from "@/components/StatsBand";
+import KitTiles from "@/components/KitTiles";
 
 export default function Home() {
   return (
@@ -62,6 +63,10 @@ export default function Home() {
     <b>Flat-rate pricing</b>
   </div>
 </div></div>
+
+<section className="sec" id="shop-by-waste" style={{paddingBottom:"0"}}><div className="wrap">
+  <KitTiles cats={["sharps","biohazard","controlled","pharma","medication","hazardous","chemo","charcoal"]} cta="kit_tile" heading="Shop by waste type" sub="Every kit ships with a prepaid return label and a Certificate of Destruction." />
+</div></section>
 
 <section className="sec" id="solutions"><div className="wrap">
   <div className="shead">

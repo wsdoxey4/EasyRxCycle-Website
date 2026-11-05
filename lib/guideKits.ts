@@ -67,3 +67,11 @@ export function kitsForGuide(text: string, slug = "", max = 4): GuideKit[] {
       return { cat: k.cat, href: k.href, name: k.name, what: k.what, from: ps.length ? money(Math.min(...ps.map((p) => p.cents))) : null };
     });
 }
+
+// One kit by category, with its lowest price (for kit tiles and cards).
+export function kitByCat(cat: string): GuideKit | null {
+  const k = KITS.find((x) => x.cat === cat);
+  if (!k) return null;
+  const ps = inCategory(k.cat);
+  return { cat: k.cat, href: k.href, name: k.name, what: k.what, from: ps.length ? money(Math.min(...ps.map((p) => p.cents))) : null };
+}

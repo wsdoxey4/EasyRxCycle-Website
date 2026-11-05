@@ -3,11 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { MAGNET_BY_SLUG } from "@/lib/leadMagnets";
 import { trackEvent } from "@/lib/track";
 import { getAttribution, getTrail } from "@/lib/attribution";
+import { GUIDE_KITS } from "@/functions/api/_guideKits";
 
 // Exit-intent capture that offers THIS page's ICP guide. Desktop = mouse-leave modal;
 // mobile = a compliant bottom sheet after a delay (never a full-screen interstitial).
 export default function ExitIntentGuide({ slug }: { slug: string }) {
   const m = MAGNET_BY_SLUG[slug];
+  const kitCat = (GUIDE_KITS.guides as Record<string, string>)[slug];
+  const kit = kitCat ? { cat: kitCat, ...(GUIDE_KITS.kits as Record<string, { name: string; href: string; from: string | null }>)[kitCat] } : undefined;
   const [open, setOpen] = useState(false);
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -61,6 +64,12 @@ export default function ExitIntentGuide({ slug }: { slug: string }) {
             <h3>Your guide is on its way.</h3>
             <p>We&rsquo;ve emailed it — or grab it now.</p>
             <a className="btn btn-primary" href={m.file} target="_blank" rel="noopener" download>Download the PDF ↓</a>
+            {kit?.href && (
+              <div className="lm-done-kit">
+                <span>Ready to take care of it?</span>
+                <a href={kit.href} data-cta="kit_download" data-kit={kit.cat}>See the {kit.name}{kit.from ? ` (from ${kit.from})` : ""} <span className="ar">→</span></a>
+              </div>
+            )}
           </div>
         ) : (
           <>
