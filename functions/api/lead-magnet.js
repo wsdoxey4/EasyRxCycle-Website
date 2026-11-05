@@ -2,6 +2,8 @@
 // Always returns ok so the client can reveal the instant download even if integrations aren't configured yet.
 // Env: HUBSPOT_PRIVATE_TOKEN (optional), RESEND_API_KEY + RESEND_FROM (optional), LEAD_NOTIFY_EMAIL (optional).
 
+import { GUIDE_KITS } from "./_guideKits.js";
+
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
 const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { ...CORS, "Content-Type": "application/json" } });
 export function onRequestOptions() { return new Response(null, { headers: CORS }); }
@@ -27,7 +29,7 @@ export async function onRequestPost({ request, env }) {
       const ex = await fetch(`${base}/rest/v1/quote_requests?email=eq.${encodeURIComponent(em)}&select=id&limit=1`, { headers: h }).then((r) => r.json()).catch(() => []);
       if (!Array.isArray(ex) || !ex.length) {
         await fetch(`${base}/rest/v1/quote_requests`, { method: "POST", headers: { ...h, Prefer: "return=minimal" },
-          body: JSON.stringify({ email: em, name: d.name || null, company: d.org || null, phone: d.phone || null, role: d.industry || null, source: "lead-magnet", page_uri: d.pageUri || d.file || null, message: `Downloaded lead magnet: ${magnet}`, status: "magnet", utm: { ...(d.utm || {}), channel: d.channel || null, form: "lead-magnet" } }) });
+          body: JSON.stringify({ email: em, name: d.name || null, company: d.org || null, phone: d.phone || null, role: d.industry || null, source: "lead-magnet", page_uri: d.pageUri || d.file || null, message: `Downloaded lead magnet: ${magnet}`, status: "magnet", utm: { ...(d.utm || {}), channel: d.channel || null, form: "lead-magnet", magnet: d.magnet || null } }) });
       }
     } catch {}
   }
@@ -47,7 +49,7 @@ export async function onRequestPost({ request, env }) {
   // Resend: email the download to the requester + internal alert to William + sales.
   const results = {};
   if (env.RESEND_API_KEY && env.RESEND_FROM) {
-    results.client = await sendStatus(env, d.email, `Your guide is ready — ${magnet}`, downloadHtml(d.name, magnet, link, d.bullets));
+    results.client = await sendStatus(env, d.email, `Your guide is ready — ${magnet}`, downloadHtml(d.name, magnet, link, d.bullets, guideKit(d.magnet, magnet)));
     const notify = Array.from(new Set([...(env.LEAD_NOTIFY_EMAIL ? String(env.LEAD_NOTIFY_EMAIL).split(",").map((s) => s.trim()).filter(Boolean) : []), "william@easyrxcycle.com", "sales@easyrxcycle.com"]));
     results.notify = await sendStatus(env, notify, `New lead-magnet download — ${magnet}`, notifyHtml(d, magnet), d.email);
   } else {
@@ -84,7 +86,13 @@ function shell(inner) {
       Easy Rx Cycle &middot; <a href="tel:5019042929" style="color:#9fd7c8;text-decoration:none;">501-904-2929</a> &middot; <a href="mailto:sales@easyrxcycle.com" style="color:#9fd7c8;text-decoration:none;">sales@easyrxcycle.com</a></td></tr>
   </table></td></tr></table></body></html>`;
 }
-function downloadHtml(name, magnet, link, bullets) {
+// The kit this guide leads with (same pick as the guide page's "See the kit" box), or null for non-kit guides.
+function guideKit(slug, title) {
+  const cat = GUIDE_KITS.guides[String(slug || "").toLowerCase()] || GUIDE_KITS.guides[String(title || "").toLowerCase()];
+  return cat ? GUIDE_KITS.kits[cat] : null;
+}
+const TRACK = "utm_source=easyrxcycle&utm_medium=email&utm_campaign=guide-download";
+function downloadHtml(name, magnet, link, bullets, kit) {
   const inside = Array.isArray(bullets) && bullets.length
     ? `<div style="background:#f1f7f5;border-radius:11px;border:1px solid #e4ecea;padding:16px 18px;margin:0 0 22px;">
          <div style="font-size:12px;font-weight:bold;letter-spacing:.4px;text-transform:uppercase;color:#177f86;margin-bottom:9px;">Inside your guide</div>
@@ -99,8 +107,9 @@ function downloadHtml(name, magnet, link, bullets) {
     ${inside}
     <div style="border-top:1px solid #eef3f1;padding-top:18px;">
       <div style="font-size:12px;font-weight:bold;letter-spacing:.4px;text-transform:uppercase;color:#177f86;margin-bottom:10px;">What you can do next</div>
-      <p style="margin:0 0 7px;font-size:14px;color:#123A44;line-height:1.5;">&bull; <a href="https://easyrxcycle.com/shop" style="color:#005770;font-weight:bold;text-decoration:none;">Shop mail-back kits</a> with prices online &mdash; prepaid, no contract.</p>
-      <p style="margin:0 0 7px;font-size:14px;color:#123A44;line-height:1.5;">&bull; <a href="https://easyrxcycle.com/get-a-quote" style="color:#005770;font-weight:bold;text-decoration:none;">Get a custom quote</a> for pickup or higher volume.</p>
+      ${kit ? `<p style="margin:0 0 7px;font-size:14px;color:#123A44;line-height:1.5;">&bull; Ready to take care of it? <a href="https://easyrxcycle.com${kit.href}?${TRACK}&utm_content=kit" style="color:#005770;font-weight:bold;text-decoration:none;">See the ${esc(kit.name)}</a>${kit.from ? ` &mdash; from ${esc(kit.from)}` : ""}, prepaid, no contract.</p>`
+        : `<p style="margin:0 0 7px;font-size:14px;color:#123A44;line-height:1.5;">&bull; <a href="https://easyrxcycle.com/shop/?${TRACK}&utm_content=shop" style="color:#005770;font-weight:bold;text-decoration:none;">Shop mail-back kits</a> with prices online &mdash; prepaid, no contract.</p>`}
+      <p style="margin:0 0 7px;font-size:14px;color:#123A44;line-height:1.5;">&bull; <a href="https://easyrxcycle.com/get-a-quote/?${TRACK}&utm_content=quote" style="color:#005770;font-weight:bold;text-decoration:none;">Get a custom quote</a> for pickup or higher volume.</p>
       <p style="margin:0 0 7px;font-size:14px;color:#123A44;line-height:1.5;">&bull; Have a question? Just reply to this email, or call <b>501-904-2929</b>.</p>
     </div>
     <p style="margin:22px 0 0;color:#8aa0a8;font-size:13px;">One partner for every regulated waste stream &mdash; destroyed compliantly, documented on every order.</p>`);

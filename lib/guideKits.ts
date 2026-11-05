@@ -20,7 +20,7 @@ export type GuideKit = { cat: string; href: string; name: string; what: string; 
 // Manual corrections where keyword counts mislead (e.g. a funeral guide discussing formaldehyde, which we don't take).
 const EXCLUDE: Record<string, string[]> = {
   "funeral-home-waste-disposal-guide": ["hazardous", "chemo"],
-  "cannabis-waste-disposal-guide": ["hazardous", "controlled"],
+  "cannabis-waste-disposal-guide": ["hazardous"],
   "allergy-clinic-waste-disposal-guide": ["hazardous"],
   "school-health-waste-disposal-guide": ["hazardous"],
   "crime-scene-cleanup-waste-disposal-guide": ["controlled"],
@@ -29,6 +29,7 @@ const EXCLUDE: Record<string, string[]> = {
 const LEAD: Record<string, string> = {
   "trace-chemotherapy-waste-guide": "chemo",
   "reverse-distribution-guide": "controlled",
+  "cannabis-waste-disposal-guide": "controlled",
   "medication-mail-back-kit-guide": "medication",
   "pharmaceutical-waste-disposal-guide": "pharma",
   "pharma-manufacturer-product-destruction-guide": "pharma",

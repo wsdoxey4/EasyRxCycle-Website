@@ -30,8 +30,7 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
   const kits = m.slug === "capability-statement" ? [] : kitsForGuide([m.intro, ...m.bullets, ...(body ?? []).map((b) => b.h + " " + b.p)].join(" "), m.slug);
   // "See the kit" box for the guide's main kit. Sales documents get none, and the on-site kit is never the lead
   // (it's a no-return fallback; the mail-back kits are what we sell).
-  // The cannabis guide has no single kit that fits state-legal cannabis waste, so it gets no box.
-  const leadKit = NOT_ARTICLES.has(m.slug) || m.slug === "cannabis-waste-disposal-guide" ? undefined : kits.find((k) => k.cat !== "medication-onsite")?.cat;
+  const leadKit = NOT_ARTICLES.has(m.slug) ? undefined : kits.find((k) => k.cat !== "medication-onsite")?.cat;
   const path = `/resources/${m.slug}/`;
   const gf = GUIDE_FAQS[m.slug];
   const faqLd = gf ? {
