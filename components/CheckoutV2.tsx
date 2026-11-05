@@ -124,11 +124,17 @@ export default function CheckoutV2() {
     // One-tap wallets are extra: if they fail to load, the typed card checkout below still works.
     try {
       const ee = checkout.createExpressCheckoutElement({ buttonHeight: 48, buttonType: { applePay: "buy", googlePay: "buy" }, layout: { maxColumns: 1, overflow: "never" } });
-      ee.on("availablepaymentmethodschange", ({ paymentMethods }: any) => {
-        const shown = Boolean(paymentMethods && Object.values(paymentMethods).some(Boolean));
+      // Show the section only once a wallet button has actually rendered (the element's own availability
+      // flags can say yes while nothing draws), so shoppers never see an empty "Express checkout" box.
+      const box = document.getElementById("co-express");
+      const check = () => {
+        const h = box?.offsetHeight || 0;
+        const shown = h >= 36;
         setHasExpress(shown);
-        if (shown) step("express_shown", { methods: Object.keys(paymentMethods).filter((k) => paymentMethods[k]).join(",") });
-      });
+        if (shown) step("express_shown", { height: h });
+      };
+      if (box && "ResizeObserver" in window) { const ro = new ResizeObserver(check); ro.observe(box); }
+      ee.on("ready", check);
       ee.on("confirm", async (ev: any) => {
         step("express_confirm");
         try {

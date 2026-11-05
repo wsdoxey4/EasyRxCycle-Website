@@ -1695,8 +1695,11 @@ header.site .wrap{position:relative;}
 .co2-foot{text-align:center;font-size:13px;color:var(--muted,#55646B);padding:22px 16px 120px}
 .co2-foot a{color:var(--muted,#55646B)}
 .co2-recap{display:none}
-.co2-express{visibility:hidden;height:0;overflow:hidden;margin:0}
-.co2-express.on{visibility:visible;height:auto;overflow:visible;margin-bottom:22px}
+.co2-express{margin:0}
+.co2-express > :not(#co-express){display:none}
+.co2-express.on{margin-bottom:22px}
+.co2-express.on > :not(#co-express){display:block}
+.co2-express.on > .co2-or{display:flex}
 .co2-express-note{font-size:12.5px;color:var(--muted,#55646B);margin:8px 0 0}
 .co2-or{display:flex;align-items:center;gap:10px;color:var(--muted,#55646B);font-size:13px;margin:18px 0 0}
 .co2-or::before,.co2-or::after{content:"";flex:1;height:1px;background:var(--line,#e6e9ec)}
