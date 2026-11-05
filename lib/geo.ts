@@ -21,7 +21,7 @@ export const AGENCY: Record<string, string> = {
   hawaii: "Hawaii Department of Health",
   idaho: "Idaho Department of Environmental Quality (DEQ)",
   illinois: "Illinois Environmental Protection Agency (IEPA)",
-  indiana: "Indiana Department of Environmental Management (IDEM)",
+  indiana: "Indiana Department of Health (IDOH)",
   iowa: "Iowa Department of Natural Resources (DNR)",
   kansas: "Kansas Department of Health & Environment (KDHE)",
   kentucky: "Kentucky Energy & Environment Cabinet",
@@ -113,6 +113,52 @@ export const STATES: StateInfo[] = [
   { name: "Wisconsin", abbr: "WI", slug: "wisconsin", cities: ["Milwaukee", "Madison", "Green Bay", "Kenosha"] },
   { name: "Wyoming", abbr: "WY", slug: "wyoming", cities: ["Cheyenne", "Casper", "Laramie", "Gillette"] },
 ];
+
+// State medical-waste rule detail for the states with the most search impressions (verified 2026-11-04 against
+// the official rule text / agency pages linked in `url`). Rendered in StateSnapshot on every page for that state.
+export type RegDetail = { rule: string; generators: string; url?: string; urlLabel?: string };
+export const REG_DETAIL: Record<string, RegDetail> = {
+  kentucky: {
+    rule: "No single medical-waste rule. Duties are split: Cabinet for Health and Family Services rules (902 KAR 20) require hospitals, nursing homes and similar facilities to treat medical waste or use a disposal contractor; Kentucky OSH covers sharps, containers and labeling; the Division of Waste Management permits transfer stations and landfills.",
+    generators: "No state generator registration. Medical waste haulers register with, and report yearly to, each county they serve (Form DEP 5033).",
+    url: "https://eec.ky.gov/Environmental-Protection/Waste/recycling-and-local-assistance/Pages/medical-waste.aspx",
+    urlLabel: "Kentucky Energy & Environment Cabinet: medical waste",
+  },
+  colorado: {
+    rule: "6 CCR 1007-2, Part 1, Section 13 (Medical Waste), administered by CDPHE's Hazardous Materials and Waste Management Division.",
+    generators: "Each facility needs a written onsite medical waste management plan with a named employee responsible for it (Section 13.4.1). Section 13 records are kept onsite for 3 years. Household generators are exempt.",
+  },
+  florida: {
+    rule: "Chapter 64E-16, Florida Administrative Code (Biomedical Waste), enforced by the Florida Department of Health through county health departments.",
+    generators: "Facilities that generate 25 lbs or more of biomedical waste in any 30-day period need an annual DOH permit. Smaller generators can claim an exemption (Form DH4089) but must still follow every other part of 64E-16.",
+    url: "https://www.floridahealth.gov/environmental-health/biomedical-waste/index.html",
+    urlLabel: "Florida DOH Biomedical Waste Program",
+  },
+  ohio: {
+    rule: "Ohio Administrative Code Chapter 3745-570 (infectious waste), which replaced the older Chapter 3745-27 rules. Local health districts handle inspections.",
+    generators: "A generator of 50 lbs or more of infectious waste in any month must register with Ohio EPA within 30 days after that month ends (OAC 3745-570-125). Smaller generators don't register but still follow the handling rules.",
+    url: "https://codes.ohio.gov/ohio-administrative-code/chapter-3745-570",
+    urlLabel: "Ohio Administrative Code Chapter 3745-570",
+  },
+  michigan: {
+    rule: "Medical Waste Regulatory Act, Part 138 of the Public Health Code (1978 PA 368), run by EGLE's Medical Waste Regulatory Program.",
+    generators: "Every facility that generates medical waste (medical and dental offices, clinics, funeral homes, tattoo studios) registers with EGLE through the MiEnviro Portal, keeps a written medical waste management plan on site, and sends waste for treatment at least every 90 days.",
+    url: "https://www.michigan.gov/egle/about/organization/materials-management/medical-waste-regulatory-program",
+    urlLabel: "EGLE Medical Waste Regulatory Program",
+  },
+  illinois: {
+    rule: "Potentially Infectious Medical Waste (PIMW) rules, 35 Ill. Adm. Code Parts 1420 to 1422, enforced by Illinois EPA.",
+    generators: "Apply to anyone who generates, transports, treats, stores or disposes of PIMW in Illinois: packaging, labeling and transport (Part 1421) and treatment (Part 1422). Hospitals segregate PIMW into sharps, oversized and all other PIMW.",
+    url: "https://epa.illinois.gov/topics/waste-management/waste-disposal/general-regulations.html",
+    urlLabel: "Illinois EPA waste regulations",
+  },
+  indiana: {
+    rule: "Infectious waste rule 410 IAC 1-3 and IC 16-41-16, administered by the Indiana Department of Health. IDEM permits infectious-waste treatment facilities.",
+    generators: "Generators stay responsible for proper containment, labeling, effective treatment, transport and disposal of their infectious waste, including when a service provider handles it (410 IAC 1-3-22).",
+    url: "https://www.in.gov/idem/waste/solid-waste/infectious-waste/",
+    urlLabel: "IDEM: infectious waste",
+  },
+};
 
 // Statewide pharmaceutical EPR / drug take-back laws (manufacturer-funded statewide collection
 // via kiosks + mail-back), with enactment year. Exactly 8 states as of Aug 2026.

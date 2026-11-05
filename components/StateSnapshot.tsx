@@ -1,4 +1,4 @@
-import { TAKE_BACK_LAW, SHARPS_TRASH_BAN, ESTAB, type StateInfo } from "@/lib/geo";
+import { TAKE_BACK_LAW, SHARPS_TRASH_BAN, ESTAB, REG_DETAIL, type StateInfo } from "@/lib/geo";
 
 const fmt = (n: number) => n.toLocaleString("en-US");
 
@@ -11,9 +11,11 @@ export default function StateSnapshot({ s, heading = true }: { s: StateInfo; hea
   const tb = TAKE_BACK_LAW[s.slug];
   const sharps = SHARPS_TRASH_BAN[s.slug];
   const e = ESTAB[s.slug];
+  const reg = REG_DETAIL[s.slug];
 
   const rows: { k: string; v: string }[] = [
-    { k: "Environmental regulator", v: s.agency ?? `${s.name} environmental agency` },
+    { k: "State regulator", v: s.agency ?? `${s.name} environmental agency` },
+    ...(reg ? [{ k: "Medical waste rule", v: reg.rule }, { k: "What generators must do", v: reg.generators }] : []),
     { k: "Pharmacy oversight", v: `${s.name} Board of Pharmacy` },
     {
       k: "Statewide drug take-back law",
@@ -49,6 +51,11 @@ export default function StateSnapshot({ s, heading = true }: { s: StateInfo; hea
           {fmt(e.physicians)} physician offices, {fmt(e.dentists)} dental practices, {fmt(e.nursing)} nursing &amp; long-term-care
           facilities, and {fmt(e.vet)} veterinary clinics — every one a generator of regulated waste we serve.{" "}
           <span className="statesnap-src">Source: U.S. Census County Business Patterns, 2022.</span>
+        </p>
+      )}
+      {reg?.url && (
+        <p className="statesnap-note">
+          Official source: <a href={reg.url} target="_blank" rel="noopener">{reg.urlLabel}</a>
         </p>
       )}
       <p className="statesnap-note">
