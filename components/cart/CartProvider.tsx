@@ -31,9 +31,9 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 
   const count = cart.reduce((n, l) => n + l.qty, 0);
   const subtotal = cart.reduce((n, l) => n + lineTotal(l), 0);
-  const freeShip = subtotal >= FREE_SHIP_THRESHOLD_CENTS;
-  const toFree = Math.max(0, FREE_SHIP_THRESHOLD_CENTS - subtotal);
   const hasSub = cart.some((l) => l.interval);
+  const freeShip = hasSub || subtotal >= FREE_SHIP_THRESHOLD_CENTS; // auto-ship orders always ship free (checkout omits shipping)
+  const toFree = freeShip ? 0 : FREE_SHIP_THRESHOLD_CENTS - subtotal;
   const subInterval = cart.find((l) => l.interval)?.interval || null;
 
   function add(sku: string, opts: AddOpts = {}) {
