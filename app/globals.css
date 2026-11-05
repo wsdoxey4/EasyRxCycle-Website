@@ -1686,3 +1686,33 @@ header.site .wrap{position:relative;}
   .prose table{font-size:11px;page-break-inside:auto;}
   .prose tr{page-break-inside:avoid;}
 }
+
+/* ---- Phone-first checkout preview (/checkout-new/, components/CheckoutV2.tsx). Additive only. ---- */
+.co2-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line,#e6e9ec);background:#fff}
+.co2-top-call{font-size:14px;font-weight:600;color:var(--teal,#005770);text-decoration:none;white-space:nowrap}
+.co2-sec{padding-top:22px}
+.co2-h1{font-size:clamp(22px,3vw,30px);margin:0 0 14px}
+.co2-foot{text-align:center;font-size:13px;color:var(--muted,#55646B);padding:22px 16px 120px}
+.co2-foot a{color:var(--muted,#55646B)}
+.co2-recap{display:none}
+.co2-express{visibility:hidden;height:0;overflow:hidden;margin:0}
+.co2-express.on{visibility:visible;height:auto;overflow:visible;margin-bottom:22px}
+.co2-express-note{font-size:12.5px;color:var(--muted,#55646B);margin:8px 0 0}
+.co2-or{display:flex;align-items:center;gap:10px;color:var(--muted,#55646B);font-size:13px;margin:18px 0 0}
+.co2-or::before,.co2-or::after{content:"";flex:1;height:1px;background:var(--line,#e6e9ec)}
+.co2-trust{font-size:13px;color:var(--muted,#55646B);line-height:1.5;margin:-6px 0 0}
+@media (max-width:860px){
+  .co2-recap{display:block;border:1px solid var(--line,#e6e9ec);border-radius:14px;padding:12px 14px;margin:0 0 18px;background:#fff}
+  .co2-recap-row{display:flex;align-items:center;gap:10px;font-size:14px;margin:0 0 8px}
+  .co2-recap-img{width:40px;height:40px;object-fit:contain;border-radius:8px;background:#f5faf8;flex:none}
+  .co2-recap-name{flex:1;min-width:0;color:var(--ink,#123A44)}
+  .co2-recap-amt{font-weight:600;color:var(--ink,#123A44)}
+  .co2-recap-total{display:flex;justify-content:space-between;font-weight:700;font-size:16px;border-top:1px solid var(--line,#e6e9ec);padding-top:9px;color:var(--ink,#123A44)}
+  .co2-recap-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--muted,#55646B);margin-top:4px}
+  .co2-edit{background:none;border:0;padding:6px 0;font-size:14px;font-weight:600;color:var(--teal,#005770);text-decoration:underline;cursor:pointer}
+  .co2-grid{grid-template-areas:"summary" "main" "pay"}
+  .co2-summary{display:none}
+  .co2-summary.open{display:block}
+  .co2-sum-h{display:none}
+  .co2-top-call{font-size:13px}
+}
