@@ -271,6 +271,7 @@ export default function CheckoutV2() {
                   {img ? <img className="co-thumb" src={img} alt="" width={56} height={56} /> : <div className="co-thumb co-thumb-ph" />}
                   <div className="co-item-mid">
                     <div className="co-item-name">{p.family} · {p.size}</div>
+                    {l.expedite && <div className="co-exp"><span className="co-exp-tag">Expedited</span> includes ${EXPEDITE_CENTS / 100} rush processing</div>}
                     <div className="co-qty">
                       <button type="button" onClick={() => changeQty(i, l.qty - 1)} disabled={busy} aria-label="decrease">−</button>
                       <span>{l.qty}</span>
