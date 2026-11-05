@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import MobileCTA from "@/components/MobileCTA";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ProductBuy from "@/components/cart/ProductBuy";
 import TrustBar from "@/components/TrustBar";
@@ -119,13 +118,14 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
                   </div>
                 </div>
                 <p className="lead" style={{ marginTop: "12px" }}>{k.tagline}</p>
+                <ProductBuy category={k.category}>
                 {(() => { const x = PDP_EXTRAS[k.category]; return x && (x.audience || x.accepts) ? (
                   <ul className="pdp-fit">
                     {x.audience && <li className="pdp-fit-aud">{x.audience}</li>}
                     {x.accepts && <li><b>Accepts:</b> {x.accepts}</li>}
                     {x.notFor && <li><b>Not for:</b> {x.notFor}</li>}
                   </ul>) : null; })()}
-                <ProductBuy category={k.category} />
+                </ProductBuy>
                 <BuyConfidence category={k.category} />
               </div>
             </div>
@@ -221,7 +221,6 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           </div>
         </section>
       </main>
-      <MobileCTA primary={{ label: "Choose size & buy", href: "#buy" }} secondary={{ label: "Call", href: "tel:5019042929" }} />
       <TrackView event="view_item" params={{ currency: "USD", value: sizes[0] ? sizes[0].cents / 100 : 0, items: sizes.slice(0, 1).map((s) => ({ item_id: s.sku, item_name: k.name, item_category: k.category, price: s.cents / 100 })) }} />
       <Footer />
       <Reveal />

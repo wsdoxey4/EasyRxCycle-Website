@@ -1,23 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { inCategory, money, autoshipCents, INTERVALS, EXPEDITE_CENTS, canExpedite, FREE_SHIP_THRESHOLD_CENTS } from "@/lib/shop";
 import { PDP_EXTRAS, REVIEWS } from "@/lib/pdpExtras";
 import { useCart } from "./CartProvider";
 
-export default function ProductBuy({ category }: { category: string }) {
+// children (the kit's Accepts / Not for lines) render just under the Add to cart row.
+export default function ProductBuy({ category, children }: { category: string; children?: ReactNode }) {
   const items = inCategory(category);
   const [sku, setSku] = useState(items[0]?.sku || "");
   const [qty, setQty] = useState(1);
   const [plan, setPlan] = useState<"once" | "auto">("once");
   const [interval, setInterval] = useState("month");
   const [expedite, setExpedite] = useState(false);
-  const { add } = useCart();
+  const [picked, setPicked] = useState(false); // phone bar turns into Add to cart once they choose a size or delivery
+  const { add, count, setOpen } = useCart();
   const x = PDP_EXTRAS[category];
 
   const sel = items.find((p) => p.sku === sku) || items[0];
   const canExp = canExpedite(sel.sku);
   const unit = plan === "auto" ? autoshipCents(sel.cents) : sel.cents;
   const total = unit * qty + (canExp && expedite ? EXPEDITE_CENTS : 0);
+  const addIt = () => add(sku, { qty, interval: plan === "auto" ? interval : null, expedite: canExp && expedite });
 
   return (
     <div className="buybox">
@@ -31,7 +34,7 @@ export default function ProductBuy({ category }: { category: string }) {
         <legend>Choose a size</legend>
         {items.map((p) => (
           <label key={p.sku} className={"buy-size" + (p.sku === sku ? " on" : "")}>
-            <input type="radio" name="size" value={p.sku} checked={p.sku === sku} onChange={() => setSku(p.sku)} />
+            <input type="radio" name="size" value={p.sku} checked={p.sku === sku} onChange={() => { setSku(p.sku); setPicked(true); }} />
             <span className="bs-name">{p.size}{x?.bestValue === p.size && <span className="bs-badge">Best value</span>}{x?.bestFor?.[p.size] && <small className="bs-hint">{x.bestFor[p.size]}</small>}</span>
             <span className="bs-price">{money(plan === "auto" ? autoshipCents(p.cents) : p.cents)}</span>
           </label>
@@ -41,12 +44,12 @@ export default function ProductBuy({ category }: { category: string }) {
       <fieldset className="buy-plan">
         <legend>Delivery</legend>
         <label className={"buy-opt" + (plan === "once" ? " on" : "")}>
-          <input type="radio" name="plan" checked={plan === "once"} onChange={() => setPlan("once")} />
+          <input type="radio" name="plan" checked={plan === "once"} onChange={() => { setPlan("once"); setPicked(true); }} />
           <span className="bo-main">One-time purchase</span>
           <span className="bo-sub">Ship once</span>
         </label>
         <label className={"buy-opt" + (plan === "auto" ? " on" : "")}>
-          <input type="radio" name="plan" checked={plan === "auto"} onChange={() => setPlan("auto")} />
+          <input type="radio" name="plan" checked={plan === "auto"} onChange={() => { setPlan("auto"); setPicked(true); }} />
           <span className="bo-main">Auto-ship · {money(autoshipCents(sel.cents))} each</span>
           <span className="bo-sub">Save 20% · cancel anytime</span>
         </label>
@@ -76,10 +79,11 @@ export default function ProductBuy({ category }: { category: string }) {
           <span>{qty}</span>
           <button type="button" onClick={() => setQty((q) => Math.min(99, q + 1))} aria-label="Increase quantity">+</button>
         </div>
-        <button className="btn btn-primary buy-add" onClick={() => add(sku, { qty, interval: plan === "auto" ? interval : null, expedite: canExp && expedite })}>
+        <button className="btn btn-primary buy-add" onClick={addIt}>
           Add to cart · {money(total)}
         </button>
       </div>
+      {children}
 
       <ul className="buy-trust">
         <li>{sel.cents < FREE_SHIP_THRESHOLD_CENTS ? "Free shipping over $50" : category === "medication-onsite" ? "Free shipping" : "Shipping included both ways"}</li>
@@ -94,6 +98,19 @@ export default function ProductBuy({ category }: { category: string }) {
             <figcaption>{r.who}</figcaption>
           </figure>
         ))}
+      </div>
+
+      {/* Phone-only sticky bar (replaces the generic MobileCTA on kit pages). Holds the cart button too, so the
+          floating cart pill never covers the size prices. */}
+      <div className="mcta pdp-mcta" role="navigation" aria-label="Quick actions">
+        {picked
+          ? <button type="button" className="mcta-primary" onClick={addIt} data-cta="pdp_sticky_add">Add to cart · {money(total)}</button>
+          : <a className="mcta-primary" href="#buy">Choose size &amp; buy</a>}
+        <a className="mcta-secondary" href="tel:5019042929">Call</a>
+        <button type="button" className="mcta-cart" onClick={() => setOpen(true)} aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h2l2.2 11.2a1.6 1.6 0 001.6 1.3h7.8a1.6 1.6 0 001.6-1.3L21 8H7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /><circle cx="10" cy="21" r="1.4" fill="currentColor" /><circle cx="18" cy="21" r="1.4" fill="currentColor" /></svg>
+          {count > 0 && <span className="mcta-cart-n">{count}</span>}
+        </button>
       </div>
     </div>
   );
