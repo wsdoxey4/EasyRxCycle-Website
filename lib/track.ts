@@ -1,5 +1,7 @@
 // Fire a conversion / analytics event to GA4 (gtag) + GTM (dataLayer), mirrored to the Meta Pixel, Microsoft UET and AdRoll.
 // Safe no-op on the server or before analytics loads.
+import { getAttribution } from "@/lib/attribution";
+
 type Params = Record<string, unknown>;
 
 // GA4 event → Meta standard event. Meta gets only value/currency (no product or stream details:
@@ -66,4 +68,46 @@ export function trackEvent(name: string, params: Params = {}) {
   if (a && typeof w.adroll?.track === "function") {
     try { w.adroll.track(a[0], a[1]); } catch {}
   }
+  logStep(name, params);
+}
+
+// Instant first-party funnel (William 11-06): shopping steps also go to our own database through /api/step
+// (functions/api/step.js -> portal site_steps), so today's numbers are exact right away, with no GA4 processing lag.
+const STEP_EVENTS = new Set(["view_item", "add_to_cart", "begin_checkout", "checkout_step", "purchase", "quote_request", "click_to_call"]);
+function browserId(store: Storage, key: string): string {
+  try {
+    let v = store.getItem(key);
+    if (!v) { v = Math.random().toString(36).slice(2, 12) + Date.now().toString(36); store.setItem(key, v); }
+    return v;
+  } catch { return ""; }
+}
+export function logStep(name: string, params: Params = {}) {
+  if (typeof window === "undefined" || (name !== "visit" && !STEP_EVENTS.has(name))) return;
+  try {
+    const at = getAttribution();
+    const items = Array.isArray(params.items) ? (params.items as { item_id?: string }[]) : [];
+    const detail = name === "checkout_step"
+      ? String(params.step || "") + (params.message ? `: ${String(params.message)}` : "")   // errors carry what the buyer saw
+      : items.map((i) => i.item_id).filter(Boolean).join(",");
+    const body = JSON.stringify({
+      step: name, detail, value: typeof params.value === "number" ? params.value : undefined,
+      sid: browserId(window.sessionStorage, "erx_step_sid"), vid: browserId(window.localStorage, "erx_step_vid"),
+      page: window.location.pathname, landing: at.landing, referrer: name === "visit" ? document.referrer : undefined,
+      channel: at.channel, source: at.source, campaign: at.utm?.utm_campaign,
+      wd: (navigator as Navigator & { webdriver?: boolean }).webdriver === true,
+    });
+    if (!navigator.sendBeacon?.("/api/step", new Blob([body], { type: "application/json" }))) {
+      fetch("/api/step", { method: "POST", body, keepalive: true, headers: { "content-type": "application/json" } }).catch(() => {});
+    }
+  } catch { /* never affects the page */ }
+}
+
+// One "visit" per browser session (call on every page; only the first page of a session logs it).
+export function logVisit() {
+  if (typeof window === "undefined") return;
+  try {
+    if (window.sessionStorage.getItem("erx_step_visit")) return;
+    window.sessionStorage.setItem("erx_step_visit", "1");
+  } catch { return; }
+  logStep("visit");
 }

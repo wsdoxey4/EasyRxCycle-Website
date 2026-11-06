@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { trackEvent } from "@/lib/track";
+import { trackEvent, logVisit } from "@/lib/track";
 import { captureAttribution, getAttribution, recordPageView, getTrail } from "@/lib/attribution";
 
 // One delegated listener fires cta_click for every Shop / Get-a-Quote / primary CTA, and click_to_call for every
@@ -12,6 +12,7 @@ export default function Tracker() {
   useEffect(() => { recordPageView(path); }, [path]); // page trail for lead forms (lib/attribution.ts)
   useEffect(() => {
     captureAttribution();   // first-touch attribution: stamp channel/UTM on landing, site-wide
+    logVisit();             // instant funnel: one "visit" row per browser session (lib/track.ts -> /api/step)
     function onClick(e: MouseEvent) {
       const a = (e.target as HTMLElement)?.closest?.("a");
       if (!a) return;
