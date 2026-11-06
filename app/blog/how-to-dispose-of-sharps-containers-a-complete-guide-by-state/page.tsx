@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/how-to-dispose-of-sharps-containers-a-complete-guide-by-state";
 const TITLE = "Where to Dispose of Sharps Containers: Every Option, by Situation and State";
@@ -142,6 +143,8 @@ export default function Page() {
                   Some pharmacies, hospitals, fire stations, health departments and household hazardous waste programs accept home-generated sharps. These programs are usually limited to residents and should not be used for business waste. Availability varies by county.
                 </p>
 
+                <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Sharps mail-back kits" }} />
+                <p dangerouslySetInnerHTML={{ __html: "For clinics, pharmacies and people who inject at home, our <a href=\"/shop/sharps-mail-back-kit/\">Sharps Mail-Back Kit</a> is the simplest of the three routes and works in all 50 states, priced from " + money(fromPrice("sharps")) + " for the smallest size. Each kit includes an FDA-cleared container, a prepaid return label and instructions. Fill it, seal it, ship it back, and we send a Certificate of Destruction. No contract." }} />
                 <h2 id="settings">Disposal by setting</h2>
                 <h3>Clinics, pharmacies, dental and veterinary offices</h3>
                 <p>

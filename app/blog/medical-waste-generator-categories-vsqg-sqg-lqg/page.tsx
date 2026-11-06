@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/medical-waste-generator-categories-vsqg-sqg-lqg";
 const TITLE = "Medical Waste Generator Categories: VSQG, SQG & LQG Explained";
@@ -69,6 +70,8 @@ export default function Page() {
             <div style={{ overflowX: "auto" }}><table><thead><tr><th dangerouslySetInnerHTML={{ __html: "Category" }} /><th dangerouslySetInnerHTML={{ __html: "Monthly volume" }} /><th dangerouslySetInnerHTML={{ __html: "What it means" }} /></tr></thead><tbody><tr><td dangerouslySetInnerHTML={{ __html: "VSQG" }} /><td dangerouslySetInnerHTML={{ __html: "&lt; 220 lbs" }} /><td dangerouslySetInnerHTML={{ __html: "Flexible storage, less frequent pickups, simpler records" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "SQG" }} /><td dangerouslySetInnerHTML={{ __html: "220&ndash;2,200 lbs" }} /><td dangerouslySetInnerHTML={{ __html: "Manifests, regular pickups, secure storage" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "LQG" }} /><td dangerouslySetInnerHTML={{ __html: "&gt; 2,200 lbs" }} /><td dangerouslySetInnerHTML={{ __html: "Strict timelines, staff training, detailed tracking" }} /></tr></tbody></table></div>
             <h2 id="matters" dangerouslySetInnerHTML={{ __html: "Why your category matters" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Sets how often you need pickups" }} /><li dangerouslySetInnerHTML={{ __html: "Caps how long you can store waste on-site" }} /><li dangerouslySetInnerHTML={{ __html: "Determines your documentation and training obligations" }} /><li dangerouslySetInnerHTML={{ __html: "Affects your cost structure" }} /></ul>
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits for small generators" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Most small practices generate too little waste to justify a route pickup. Our <a href=\"/shop/sharps-mail-back-kit/\">Sharps Mail-Back Kit</a> is priced from " + money(fromPrice("sharps")) + ", and a <a href=\"/shop/biohazard-mail-back-kit/\">biohazard mail-back kit</a> starts at " + money(fromPrice("biohazard")) + ". Each kit includes an FDA-cleared container, a prepaid return label and instructions. Fill it, seal it, ship it back, and we send a Certificate of Destruction. No contract." }} />
             <h2 id="right" dangerouslySetInnerHTML={{ __html: "Getting sized right" }} />
             <p dangerouslySetInnerHTML={{ __html: "Most physician offices, dental practices, and clinics are VSQGs &mdash; which makes mail-back a great fit. Higher-volume sites move up to SQG/LQG and scheduled pickup. We size your <a href=\"/our-solutions/sharps-disposal/\">sharps and RMW</a> program to your category so you&rsquo;re compliant without overpaying." }} />
 

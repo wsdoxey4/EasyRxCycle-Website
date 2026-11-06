@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/what-is-pharmaceutical-waste-management-a-complete-guide-for-the-southeast";
 const TITLE = "Pharmaceutical Waste Management: A Complete Guide";
@@ -131,6 +132,8 @@ export default function Page() {
             </div>
             <p dangerouslySetInnerHTML={{ __html: "Red-bag and sharps waste is a separate stream from drug waste. Our <a href=\"/blog/biohazardous-waste-disposal-for-healthcare-facilities/\">biohazardous waste disposal guide</a> covers that side, and the <a href=\"/blog/medical-waste-disposal-guide/\">medical waste disposal guide</a> ties both together." }} />
 
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits and prices" }} />
+            <p dangerouslySetInnerHTML={{ __html: "For a single site that doesn&rsquo;t need a route pickup, our <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a> is priced from " + money(fromPrice("pharma")) + ". RCRA-hazardous drugs go in an <a href=\"/shop/rcra-hazardous-mail-back-kit/\">RCRA hazardous kit</a> from " + money(fromPrice("hazardous")) + ", and sharps in a <a href=\"/shop/sharps-mail-back-kit/\">sharps kit</a> from " + money(fromPrice("sharps")) + ". Controlled drugs go in a separate <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance kit</a> (from " + money(fromPrice("controlled")) + "), and we handle the DEA paperwork. Each kit includes a container, prepaid return shipping and instructions, and we send a Certificate of Destruction when the contents are destroyed. No contract." }} />
             <h2 id="regional" dangerouslySetInnerHTML={{ __html: "Regional coverage: pharmaceutical waste management in the Southeast and nationwide" }} />
             <p dangerouslySetInnerHTML={{ __html: "Federal DEA and EPA rules apply everywhere, but states add their own. Several Southeastern states schedule gabapentin as a controlled substance, and states differ on whether they have adopted EPA&rsquo;s Subpart P and how they license waste haulers. Easy Rx Cycle is based in Arkansas and serves facilities in every state, so the same kits, paperwork and Certificate of Destruction work wherever you are. Check your state&rsquo;s rules on our <a href=\"/medical-waste-regulations-by-state/\">regulations by state</a> page." }} />
 

@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/sharps-container-sizes-and-types";
 const TITLE = "Sharps Containers: Sizes, Types & How to Choose";
@@ -68,6 +69,8 @@ export default function Page() {
             <h2 id="sizes" dangerouslySetInnerHTML={{ __html: "Sharps container sizes" }} />
             <p dangerouslySetInnerHTML={{ __html: "Sharps containers run from pocket-sized to floor-standing. Match the size to how fast you fill it:" }} />
             <div style={{ overflowX: "auto" }}><table><thead><tr><th dangerouslySetInnerHTML={{ __html: "Size" }} /><th dangerouslySetInnerHTML={{ __html: "Best for" }} /></tr></thead><tbody><tr><td dangerouslySetInnerHTML={{ __html: "1&ndash;1.5 quart" }} /><td dangerouslySetInnerHTML={{ __html: "Home users, travel nurses, exam rooms" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "2&ndash;3 quart" }} /><td dangerouslySetInnerHTML={{ __html: "Small offices, injection stations, vet clinics" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "2&ndash;8 gallon" }} /><td dangerouslySetInnerHTML={{ __html: "Urgent care, dental, surgery centers" }} /></tr><tr><td dangerouslySetInnerHTML={{ __html: "12&ndash;18 gallon" }} /><td dangerouslySetInnerHTML={{ __html: "Hospitals, labs, high-volume sites" }} /></tr></tbody></table></div>
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits in common sizes" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Our <a href=\"/shop/sharps-mail-back-kit/\">Sharps Mail-Back Kit</a> comes in sizes from a 1-quart home container up to 28-gallon clinic containers, priced from " + money(fromPrice("sharps")) + ". Each kit includes an FDA-cleared container, a prepaid return label and instructions. Fill it, seal it, ship it back, and we send a Certificate of Destruction. No contract." }} />
             <h2 id="req" dangerouslySetInnerHTML={{ __html: "What makes a sharps container compliant" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Rigid &amp; puncture-resistant walls and lid" }} /><li dangerouslySetInnerHTML={{ __html: "Leak-proof sides and bottom" }} /><li dangerouslySetInnerHTML={{ __html: "Tightly sealable (snap or twist lock)" }} /><li dangerouslySetInnerHTML={{ __html: "Clearly labeled with the biohazard symbol" }} /><li dangerouslySetInnerHTML={{ __html: "FDA-cleared / OSHA-compliant" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "Seal it at the fill line &mdash; three-quarters full &mdash; and never force extra sharps in. Overfilled containers are a common OSHA citation. See our <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a> service for containers and disposal." }} />

@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/hazardous-vs-non-hazardous-pharmaceutical-waste";
 const TITLE = "Hazardous vs. Non-Hazardous Pharmaceutical Waste: The Difference";
@@ -69,6 +70,8 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "Under EPA RCRA, certain drugs are hazardous waste: P-listed (warfarin, nicotine, epinephrine), U-listed, and characteristic drugs (ignitable, corrosive, toxic). These must be segregated, manifested, and destroyed as <a href=\"/our-solutions/rcra-hazardous-pharmaceutical-waste/\">RCRA-hazardous pharmaceutical waste</a> &mdash; and never sewered." }} />
             <h2 id="nonhaz" dangerouslySetInnerHTML={{ __html: "Non-hazardous pharmaceutical waste" }} />
             <p dangerouslySetInnerHTML={{ __html: "Most medications &mdash; saline, antibiotics, OTC drugs, topicals, expired vitamins &mdash; aren&rsquo;t RCRA-hazardous, but still can&rsquo;t be flushed or trashed loosely. They go in designated pharmaceutical waste containers for compliant destruction." }} />
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits for each stream" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Non-hazardous drugs go in our <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a>, priced from " + money(fromPrice("pharma")) + ". RCRA-hazardous drugs go in an <a href=\"/shop/rcra-hazardous-mail-back-kit/\">RCRA hazardous kit</a>, from " + money(fromPrice("hazardous")) + ". Controlled drugs go in a separate <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance kit</a> (from " + money(fromPrice("controlled")) + "), and we handle the DEA paperwork. Each kit includes a container, prepaid return shipping and instructions, and we send a Certificate of Destruction when the contents are destroyed. No contract." }} />
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why the difference matters" }} />
             <p dangerouslySetInnerHTML={{ __html: "Misclassifying a hazardous drug as non-hazardous (or sewering it) is the most common &mdash; and most cited &mdash; pharmaceutical-waste violation. We identify and route each stream correctly. See our <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste disposal</a> service." }} />
 

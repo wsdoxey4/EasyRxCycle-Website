@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/pharmaceutical-waste-segregation-guide";
 const TITLE = "Pharmaceutical Waste Segregation: The Multi-Bin System";
@@ -67,6 +68,8 @@ export default function Page() {
             </div>
             <h2 id="bins" dangerouslySetInnerHTML={{ __html: "The bins you actually need" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>RCRA-hazardous</strong> (black container) &mdash; P-, U-, and D-listed drugs, manifested" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Non-hazardous pharmaceutical</strong> (blue/white container) &mdash; most meds" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Controlled substances</strong> (secure, logged) &mdash; DEA destruction" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trace chemo</strong> (yellow container) &mdash; incinerated" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Sharps</strong> (rigid container) &mdash; never mixed with drugs" }} /></ul>
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits for each bin" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Each bin has a matching kit: our <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a> from " + money(fromPrice("pharma")) + ", an <a href=\"/shop/rcra-hazardous-mail-back-kit/\">RCRA hazardous kit</a> from " + money(fromPrice("hazardous")) + " and a <a href=\"/shop/sharps-mail-back-kit/\">sharps kit</a> from " + money(fromPrice("sharps")) + ". Controlled drugs go in a separate <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance kit</a> (from " + money(fromPrice("controlled")) + "), and we handle the DEA paperwork. Each kit includes a container, prepaid return shipping and instructions, and we send a Certificate of Destruction when the contents are destroyed. No contract." }} />
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why segregate at the source" }} />
             <p dangerouslySetInnerHTML={{ __html: "Once streams are mixed, the whole container often has to be managed as the <em>most</em> hazardous thing in it &mdash; which drives up cost and creates violations. Sorting at the point of generation keeps each stream in its correct, lower-cost path. We help you set up the bins and route each. See <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste</a>." }} />
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common segregation mistakes" }} />

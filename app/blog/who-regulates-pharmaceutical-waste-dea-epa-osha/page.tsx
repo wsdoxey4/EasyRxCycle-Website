@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/who-regulates-pharmaceutical-waste-dea-epa-osha";
 const TITLE = "Who Regulates Pharmaceutical Waste? DEA, EPA & OSHA Explained";
@@ -69,6 +70,8 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>DEA</strong> &mdash; controlled substances: Form 222/41, reverse distribution, non-retrievable destruction" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>EPA (RCRA)</strong> &mdash; hazardous pharmaceutical waste: P/U-listed drugs, Subpart P, the sewering ban" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>OSHA</strong> &mdash; worker safety: Bloodborne Pathogens Standard, hazardous-drug handling (with USP 800)" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>DOT</strong> &mdash; transport: UN packaging, manifests, labeling" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>State boards</strong> &mdash; add licensing, reporting, and tracking on top of federal rules" }} /></ul>
             <h2 id="overlap" dangerouslySetInnerHTML={{ __html: "Where the rules overlap" }} />
             <p dangerouslySetInnerHTML={{ __html: "A single drug can trigger several at once. A controlled substance that&rsquo;s also RCRA-hazardous falls under both the DEA <em>and</em> the EPA; shipping any of it involves the DOT. That&rsquo;s why <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">pharmaceutical waste</a> means routing each stream to satisfy every applicable rule." }} />
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits that cover the paperwork" }} />
+            <p dangerouslySetInnerHTML={{ __html: "For a practice that only fills a bin or two a year, our <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a> is the simplest way to stay on the right side of each agency, priced from " + money(fromPrice("pharma")) + ". RCRA-hazardous drugs go in an <a href=\"/shop/rcra-hazardous-mail-back-kit/\">RCRA hazardous kit</a>, from " + money(fromPrice("hazardous")) + ". Controlled drugs go in a separate <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance kit</a> (from " + money(fromPrice("controlled")) + "), and we handle the DEA paperwork. Each kit includes a container, prepaid return shipping and instructions, and we send a Certificate of Destruction when the contents are destroyed. No contract." }} />
             <h2 id="help" dangerouslySetInnerHTML={{ __html: "How we keep it straight" }} />
             <p dangerouslySetInnerHTML={{ __html: "We handle the disposal side of all of them &mdash; DEA-registered controlled destruction, RCRA-manifested hazardous waste, OSHA/DOT-compliant packaging, and state-specific requirements &mdash; with documentation for each." }} />
 

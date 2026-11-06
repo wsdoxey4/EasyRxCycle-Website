@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/how-to-dispose-of-insulin-needles-at-home";
 const TITLE = "How to Dispose of Insulin Needles at Home (Safely & Legally)";
@@ -74,6 +75,8 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "A prepaid <a href=\"/our-solutions/sharps-disposal/\">mail-back sharps kit</a> lets you fill the container, seal it, and mail it back &mdash; no drop-off, no trip. It&rsquo;s the simplest at-home option and it&rsquo;s compliant nationwide." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Drop-off sites" }} />
             <p dangerouslySetInnerHTML={{ __html: "Some pharmacies, hospitals, and household hazardous-waste facilities accept full sharps containers &mdash; availability and rules vary by city and state." }} />
+            <h2 id="kit" dangerouslySetInnerHTML={{ __html: "A mail-back kit for home injectors" }} />
+            <p dangerouslySetInnerHTML={{ __html: "If there&rsquo;s no drop-off site near you, our <a href=\"/shop/sharps-mail-back-kit/\">Sharps Mail-Back Kit</a> lets you mail your needles back from home, priced from " + money(fromPrice("sharps")) + ". Each kit includes an FDA-cleared container, a prepaid return label and instructions. Fill it, seal it, ship it back, and we send a Certificate of Destruction. No contract." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t throw loose needles in the trash or recycling" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush needles down the toilet" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t clip, bend, or recap needles by hand" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t overfill the container &mdash; seal it at 3/4 full" }} /></ul>
 

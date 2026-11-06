@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/expired-drug-disposal-for-pharmacies-and-facilities";
 const TITLE = "Expired Drug Disposal for Pharmacies & Facilities";
@@ -77,6 +78,8 @@ export default function Page() {
                   <li dangerouslySetInnerHTML={H("<strong>Non-hazardous, non-controlled</strong> &rarr; <a href=\"/blog/non-hazardous-pharmaceutical-waste/\">blue-bin pharmaceutical</a> destruction.")} />
                 </ul>
 
+                <h2 id="kit" dangerouslySetInnerHTML={{ __html: "Mail-back kits for what&rsquo;s left" }} />
+                <p dangerouslySetInnerHTML={{ __html: "Once creditable stock is returned, the rest can ship in a kit: our <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a> from " + money(fromPrice("pharma")) + ", an <a href=\"/shop/rcra-hazardous-mail-back-kit/\">RCRA hazardous kit</a> from " + money(fromPrice("hazardous")) + " for RCRA-hazardous drugs. Controlled drugs go in a separate <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance kit</a> (from " + money(fromPrice("controlled")) + "), and we handle the DEA paperwork. Each kit includes a container, prepaid return shipping and instructions, and we send a Certificate of Destruction when the contents are destroyed. No contract." }} />
                 <h2 id="cadence" dangerouslySetInnerHTML={H("Set a cadence so nothing ages out")} />
                 <p dangerouslySetInnerHTML={H("Clear expired stock on a regular schedule &mdash; monthly or quarterly &mdash; so returnable product doesn&rsquo;t age past its credit window and expired inventory doesn&rsquo;t pile up as a diversion or compliance risk. A recurring <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">mail-back or pickup</a> schedule makes the whole thing routine, with a Certificate of Destruction on every order.")} />
 

@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/diabetic-needle-disposal";
 const TITLE = "Diabetic Needle Disposal: How to Do It Safely";
@@ -70,6 +71,7 @@ export default function Page() {
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do with diabetic sharps" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t toss loose needles in the trash or recycling" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush them" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t clip or recap needles by hand" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t use a container that isn&rsquo;t puncture-proof" }} /></ul>
             <h2 id="mailback" dangerouslySetInnerHTML={{ __html: "Mail-back is the easiest option" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Our <a href=\"/shop/sharps-mail-back-kit/\">Sharps Mail-Back Kit</a> is priced from " + money(fromPrice("sharps")) + " and ships to all 50 states. Each kit includes an FDA-cleared container, a prepaid return label and instructions. Fill it, seal it, ship it back, and we send a Certificate of Destruction. No contract." }} />
             <p dangerouslySetInnerHTML={{ __html: "For home users and small clinics, a prepaid mail-back sharps kit is the simplest compliant option &mdash; you fill it, seal it, and mail it from home, with a Certificate of Destruction. See <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a>." }} />
 
                 <KitCTA cat="sharps" place="end" />
