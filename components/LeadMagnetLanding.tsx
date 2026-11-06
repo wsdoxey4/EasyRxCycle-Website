@@ -9,7 +9,7 @@ import { GUIDE_LINKS } from "@/lib/guideLinks";
 import { GUIDE_BODIES } from "@/lib/guideBodies";
 import { kitsForGuide } from "@/lib/guideKits";
 import { GUIDE_FAQS } from "@/lib/guideFaqs";
-import { fromPrice, money } from "@/lib/shop";
+import { fromPrice, money, CATEGORIES } from "@/lib/shop";
 import { SITE, abs } from "@/lib/site";
 
 // Downloads that are sales documents, not articles: no Article schema even though they carry on-page copy.
@@ -124,6 +124,7 @@ export default function LeadMagnetLanding({ m }: { m: LeadMagnet }) {
               <div className="ind-streams">
                 {kits.map((k) => (
                   <a className="ind-stream" key={k.href} href={k.href}>
+                    {CATEGORIES.find((c) => c.key === k.cat)?.image && <img className="ind-stream-img" src={CATEGORIES.find((c) => c.key === k.cat)!.image} alt="" width={1200} height={800} loading="lazy" />}
                     <h3>{k.name}</h3>
                     <p>{k.what}</p>
                     <span className="ind-kit">{k.from ? `From ${k.from}` : "Shop now"} <span className="ar">→</span></span>

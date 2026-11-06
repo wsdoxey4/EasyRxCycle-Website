@@ -1,7 +1,7 @@
 // "See the kit" block for guides: names the kit that matches the guide's waste stream, its starting price,
 // and links straight to the product page (kit pages convert far better than the quote form for small orders).
 import { KITS } from "@/lib/shopContent";
-import { fromPrice, money } from "@/lib/shop";
+import { fromPrice, money, CATEGORIES } from "@/lib/shop";
 import NewsletterBox from "@/components/NewsletterBox";
 
 const LINE: Record<string, string> = {
@@ -18,8 +18,10 @@ export default function KitCTA({ cat, place = "top" }: { cat: string; place?: "t
   const k = KITS.find((x) => x.category === cat);
   if (!k) return null;
   const href = `/shop/${k.slug}/`;
+  const img = CATEGORIES.find((c) => c.key === cat)?.image;
   const box = (
-    <div className={`kitcta kitcta-${place}`}>
+    <div className={`kitcta kitcta-${place}${img ? " kitcta-has-img" : ""}`}>
+      {img && <a className="kitcta-img" href={href} data-cta={`kit_${place}_img`} data-kit={cat} tabIndex={-1} aria-hidden="true"><img src={img} alt="" width={1200} height={800} loading="lazy" /></a>}
       <div className="kitcta-txt">
         <span className="kitcta-eye">{place === "top" ? "Need it gone? Shop the kit" : "Ready to ship it out?"}</span>
         <b>{k.name}</b>

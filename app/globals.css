@@ -1758,3 +1758,17 @@ header.site .wrap{position:relative;}
   .mcta-cart-n{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--emer,#33C089);color:#04321f;font-size:12px;line-height:20px;text-align:center;}
   body:has(.pdp-mcta) .cartfab{display:none;}
 }
+
+/* Kit photo in the "See the kit" box and the guide kit grid (11-05) */
+.kitcta.kitcta-has-img{display:grid;grid-template-columns:132px minmax(0,1fr);gap:12px 20px;align-items:center;}
+.kitcta-has-img .kitcta-act{grid-column:2;}
+.kitcta-img{flex:0 0 auto;display:block;width:132px;border-radius:10px;background:#fff;border:1px solid #d7efe4;overflow:hidden;}
+.kitcta-img img{display:block;width:100%;height:88px;object-fit:contain;}
+.ind-stream-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;background:#fff;border-radius:10px;margin-bottom:4px;}
+@media (max-width:560px){
+  .kitcta.kitcta-has-img{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px 14px;align-items:start;padding:16px;}
+  .kitcta-has-img .kitcta-img{width:84px;}
+  .kitcta-has-img .kitcta-img img{height:64px;}
+  .kitcta-has-img .kitcta-act{grid-column:1 / -1;justify-content:space-between;}
+  .kitcta-txt b{font-size:16.5px;}
+}
