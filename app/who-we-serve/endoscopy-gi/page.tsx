@@ -148,7 +148,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/endoscopy-gi-waste-disposal-guide/">Free Endoscopy & GI guide (PDF)</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-surgery-center/">Controlled drugs in surgery centers</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-endoscopy-centers/">Controlled drug disposal for endoscopy centers</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-substances/">How to dispose of controlled substances</a></li>
               </ul></div>
             </div>

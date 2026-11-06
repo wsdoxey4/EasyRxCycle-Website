@@ -148,7 +148,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/plastic-surgery-waste-disposal-guide/">Free Plastic surgery guide (PDF)</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-surgery-center/">Controlled drugs in surgery centers</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-plastic-surgery-practices/">Controlled drug disposal for plastic surgery</a></li>
                 <li><a href="/blog/red-bag-waste-what-goes-in-it/">Red-bag waste: what goes in it</a></li>
               </ul></div>
             </div>

@@ -148,6 +148,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/fertility-ivf-waste-disposal-guide/">Free Fertility & IVF guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-fertility-clinics/">Controlled drug disposal for fertility clinics</a></li>
                 <li><a href="/blog/sharps-container-sizes-and-types/">Sharps container sizes & types</a></li>
                 <li><a href="/blog/how-to-dispose-of-insulin-needles-at-home/">Insulin needle disposal</a></li>
               </ul></div>

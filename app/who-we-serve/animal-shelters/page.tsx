@@ -147,6 +147,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/animal-shelter-waste-disposal-guide/">Free Animal shelters guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-animal-shelters/">Controlled drug disposal for shelters</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-veterinary-clinic/">Controlled drug disposal for vets</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-substances/">How to dispose of controlled substances</a></li>
               </ul></div>

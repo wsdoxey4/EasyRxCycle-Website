@@ -146,6 +146,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/weight-loss-clinic-waste-disposal-guide/">Free Weight-loss & GLP-1 clinics guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-weight-loss-clinics/">Controlled drug disposal for weight loss clinics</a></li>
                 <li><a href="/blog/glp-1-pen-disposal/">GLP-1 pen disposal</a></li>
                 <li><a href="/blog/diabetic-needle-disposal/">Diabetic needle disposal</a></li>
               </ul></div>

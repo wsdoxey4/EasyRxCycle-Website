@@ -147,6 +147,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/med-spa-waste-disposal-guide/">Free Med spas guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-med-spas/">Controlled drug disposal for med spas</a></li>
                 <li><a href="/blog/glp-1-pen-disposal/">GLP-1 pen disposal</a></li>
                 <li><a href="/blog/sharps-container-sizes-and-types/">Sharps container sizes & types</a></li>
               </ul></div>

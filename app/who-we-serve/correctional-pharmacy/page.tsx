@@ -148,6 +148,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/correctional-pharmacy-waste-disposal-guide/">Free Correctional pharmacies guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-correctional-facilities/">Controlled drug disposal for correctional health</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-pharmacies/">Controlled drug disposal for pharmacies</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-substances/">How to dispose of controlled substances</a></li>
               </ul></div>

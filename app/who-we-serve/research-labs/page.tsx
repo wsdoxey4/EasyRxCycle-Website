@@ -149,6 +149,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/research-lab-waste-disposal-guide/">Free Research & academic labs guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-research-labs/">Controlled substance disposal for labs</a></li>
                 <li><a href="/blog/medical-waste-generator-categories-vsqg-sqg-lqg/">Generator categories: VSQG/SQG/LQG</a></li>
                 <li><a href="/blog/niosh-hazardous-drug-list-explained/">NIOSH hazardous drug list</a></li>
               </ul></div>

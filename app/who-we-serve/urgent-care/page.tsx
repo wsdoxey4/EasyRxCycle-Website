@@ -149,7 +149,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/urgent-care-waste-disposal-guide/">Free Urgent care guide (PDF)</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-physican-offices/">Controlled drugs in physician offices</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-urgent-care-centers/">Controlled drug disposal for urgent care</a></li>
                 <li><a href="/blog/red-bag-waste-what-goes-in-it/">Red-bag waste: what goes in it</a></li>
                 <li><a href="/blog/sharps-container-sizes-and-types/">Sharps container sizes & types</a></li>
               </ul></div>

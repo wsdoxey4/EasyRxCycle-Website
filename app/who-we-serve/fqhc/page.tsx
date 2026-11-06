@@ -148,7 +148,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/fqhc-waste-disposal-guide/">Free FQHCs & community health guide (PDF)</a></li>
-                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-physican-offices/">Controlled drugs in physician offices</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-community-health-centers/">Controlled drug disposal for health centers</a></li>
                 <li><a href="/blog/hazardous-vs-non-hazardous-pharmaceutical-waste/">Hazardous vs. non-hazardous pharma waste</a></li>
               </ul></div>
             </div>

@@ -150,6 +150,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/oncology-infusion-waste-disposal-guide/">Free Oncology & infusion guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-oncology-and-infusion-centers/">Controlled drug disposal for oncology centers</a></li>
                 <li><a href="/blog/chemotherapy-waste-disposal-trace-vs-bulk/">Trace vs. bulk chemo waste</a></li>
                 <li><a href="/blog/niosh-hazardous-drug-list-explained/">NIOSH hazardous drug list</a></li>
               </ul></div>

@@ -147,6 +147,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/iv-hydration-clinic-waste-disposal-guide/">Free IV hydration & ketamine guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-iv-hydration-and-ketamine-clinics/">Controlled drug disposal for ketamine clinics</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-substances/">How to dispose of controlled substances</a></li>
                 <li><a href="/blog/how-to-properly-destroy-controlled-drugs-dea-forms-222-41-and-cod-explained/">Destroying controlled drugs: Forms 222, 41 & COD</a></li>
               </ul></div>

@@ -150,6 +150,7 @@ export default function Page() {
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/503b-pharmacy-waste-disposal-guide/">Free 503B outsourcing facilities guide (PDF)</a></li>
+                <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-compounding-pharmacies/">Controlled drug disposal for compounders</a></li>
                 <li><a href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/">RCRA Subpart P explained</a></li>
                 <li><a href="/blog/how-to-dispose-of-controlled-drugs-for-pharmacies/">Controlled drug disposal for pharmacies</a></li>
               </ul></div>
