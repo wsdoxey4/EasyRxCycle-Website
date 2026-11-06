@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/how-to-dispose-of-controlled-drugs-for-trt-clinics";
 const TITLE = "How to Dispose of Controlled Drugs for TRT Clinics (DEA Guide)";
@@ -65,6 +66,7 @@ export default function Page() {
                 <li><a href="#what" dangerouslySetInnerHTML={{ __html: "Which controlled drugs TRT clinics handle" }} /></li>
                 <li><a href="#why" dangerouslySetInnerHTML={{ __html: "Why proper disposal matters" }} /></li>
                 <li><a href="#options" dangerouslySetInnerHTML={{ __html: "DEA-compliant disposal options" }} /></li>
+                <li><a href="#mailback" dangerouslySetInnerHTML={{ __html: "Mail-back kits for TRT clinics" }} /></li>
                 <li><a href="#forms" dangerouslySetInnerHTML={{ __html: "The DEA forms you need" }} /></li>
                 <li><a href="#mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes to avoid" }} /></li>
               </ol>
@@ -80,6 +82,8 @@ export default function Page() {
             <p dangerouslySetInnerHTML={{ __html: "The most reliable, compliant option. A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> collects, transports, and destroys your controls &mdash; handling DEA Form 222 for Schedule II, preparing Form 41, tracking chain of custody, and issuing a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. See our <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> service." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "2. Mail-back programs" }} />
             <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it; we handle the DEA paperwork." }} />
+            <h2 id="mailback" dangerouslySetInnerHTML={{ __html: "Mail-back kits for TRT clinics" }} />
+            <p dangerouslySetInnerHTML={{ __html: "For expired testosterone vials and other controlled stock, our <a href=\"/shop/controlled-substance-mail-back-kit/\">Controlled Substance Mail-Back Kit</a> is the simplest compliant option, priced from " + money(fromPrice("controlled")) + ". Each kit includes a tamper-evident mailer, prepaid return shipping and instructions. We handle the DEA paperwork, complete the Form 41 when we destroy the contents, and send your <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. No contract." }} />
             <h2 id="forms" dangerouslySetInnerHTML={{ __html: "The DEA forms you must know" }} />
             <p dangerouslySetInnerHTML={{ __html: "Two forms cover you: <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>. When you use Easy Rx Cycle, we handle the DEA paperwork, including Form 222 for Schedule II transfers and Form 41 for destruction of any Schedule I&ndash;V drug. Keep the forms and your Certificates of Destruction for at least two years, and log everything in your controlled-substance log." }} />
             <h2 id="mistakes" dangerouslySetInnerHTML={{ __html: "Common mistakes that fail audits" }} />

@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import KitCTA from "@/components/KitCTA";
 import { SITE, abs } from "@/lib/site";
+import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/how-to-dispose-of-controlled-drugs-for-ambulance-services";
 const TITLE = "How to Dispose of Controlled Drugs for Ambulance Services (DEA Guide)";
@@ -68,6 +69,7 @@ export default function Page() {
                 <li><a href="#what" dangerouslySetInnerHTML={{ __html: "Which controlled drugs EMS teams handle" }} /></li>
                 <li><a href="#why" dangerouslySetInnerHTML={{ __html: "Why proper disposal matters" }} /></li>
                 <li><a href="#options" dangerouslySetInnerHTML={{ __html: "DEA-compliant disposal options" }} /></li>
+                <li><a href="#mailback" dangerouslySetInnerHTML={{ __html: "Mail-back kits for EMS stations and rigs" }} /></li>
                 <li><a href="#expired" dangerouslySetInnerHTML={{ __html: "Expired fentanyl, midazolam and ketamine" }} /></li>
                 <li><a href="#wastage" dangerouslySetInnerHTML={{ __html: "Wastage vs. inventory" }} /></li>
                 <li><a href="#ohio" dangerouslySetInnerHTML={{ __html: "Ohio&rsquo;s EMS rule" }} /></li>
@@ -90,6 +92,8 @@ export default function Page() {
             <h3 dangerouslySetInnerHTML={{ __html: "3. Return to your supplying hospital or pharmacy" }} />
             <p dangerouslySetInnerHTML={{ __html: "Many agencies stock their rigs under a hospital&rsquo;s or pharmacy&rsquo;s registration. If that&rsquo;s your setup, expired controls may have to go back to that registrant, which then sends them to a reverse distributor. DEA rules allow return to the registrant you got the drugs from (<a href=\"https://www.law.cornell.edu/cfr/text/21/1317.05\" target=\"_blank\" rel=\"noopener\">21 CFR 1317.05</a>), and some states require it. Check your supply agreement." }} />
 
+            <h2 id="mailback" dangerouslySetInnerHTML={{ __html: "Mail-back kits for EMS stations and rigs" }} />
+            <p dangerouslySetInnerHTML={{ __html: "For a single station, a volunteer squad, or expired stock pulled from several rigs, our <a href=\"/shop/controlled-substance-mail-back-kit/\">Controlled Substance Mail-Back Kit</a> is the simplest compliant option, priced from " + money(fromPrice("controlled")) + ". Each kit includes a tamper-evident mailer, prepaid return shipping and instructions. We handle the DEA paperwork, complete the Form 41 when we destroy the contents, and send your <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. No contract." }} />
             <h2 id="expired" dangerouslySetInnerHTML={{ __html: "Expired fentanyl, midazolam and ketamine" }} />
             <p dangerouslySetInnerHTML={{ __html: "These three drive most EMS disposal questions. Each sits in a different DEA schedule, and the schedule sets the paperwork:" }} />
             <div style={{ overflowX: "auto" }}>
