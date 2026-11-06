@@ -1772,3 +1772,4 @@ header.site .wrap{position:relative;}
   .kitcta-has-img .kitcta-act{grid-column:1 / -1;justify-content:space-between;}
   .kitcta-txt b{font-size:16.5px;}
 }
+@media (max-width:560px){ .ind-stream:has(> .ind-stream-img){grid-template-columns:76px minmax(0,1fr);column-gap:14px;row-gap:6px;padding:16px;} .ind-stream > .ind-stream-img{grid-column:1;grid-row:1 / span 3;margin:0;align-self:start;} .ind-stream:has(> .ind-stream-img) > :not(.ind-stream-img){grid-column:2;} }

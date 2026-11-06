@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm";
 import TrustBar from "@/components/TrustBar";
 import { SITE, abs } from "@/lib/site";
 import { KITS } from "@/lib/shopContent";
-import { inCategory, fromPrice, money } from "@/lib/shop";
+import { inCategory, fromPrice, money, CATEGORIES } from "@/lib/shop";
 
 const PATH = "/get-a-quote";
 const TITLE = "Request a Quote";
@@ -48,7 +48,7 @@ const SIZE_NOTE: Record<string, string> = { controlled: "Sized by weight, 5 to 1
 const kits = KIT_ORDER.map((cat) => {
   const k = KITS.find((x) => x.category === cat)!;
   const sizes = inCategory(cat);
-  return { href: `/shop/${k.slug}/`, name: k.name, what: WHAT[cat], from: money(fromPrice(cat)), sizes: SIZE_NOTE[cat] ?? `${sizes[0].size} to ${sizes[sizes.length - 1].size}` };
+  return { href: `/shop/${k.slug}/`, name: k.name, what: WHAT[cat], from: money(fromPrice(cat)), sizes: SIZE_NOTE[cat] ?? `${sizes[0].size} to ${sizes[sizes.length - 1].size}`, img: CATEGORIES.find((c) => c.key === cat)?.image };
 });
 
 const point = (t: string) => (
@@ -83,8 +83,9 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Published prices</span><h2>Choose the kit for your waste.</h2><p className="lead">One waste stream per kit. No contract, no minimums.</p></div>
             <div className="ind-streams">
-              {kits.map((k) => (
+              {kits.map((k, i) => (
                 <a className="ind-stream" key={k.href} href={k.href}>
+                  {k.img && <img className="ind-stream-img" src={k.img} alt="" width={1200} height={800} loading={i < 4 ? "eager" : "lazy"} />}
                   <h3>{k.name}</h3>
                   <p>{k.what}<br /><span style={{ fontSize: "13px" }}>{k.sizes}</span></p>
                   <span className="ind-kit">From {k.from} <span className="ar">→</span></span>
