@@ -66,7 +66,7 @@ export const LESSONS: Lesson[] = [
       ] } },
       { h: "Which kit for which waste", table: { head: ["If the customer has…", "Sell this kit"], rows: [
         ["Needles, syringes, lancets, blades", "Sharps"], ["Blood-soaked gauze, PPE, cultures", "Biohazard / RMW"],
-        ["Expired regular (non-controlled) drugs", "Pharmaceutical"], ["Patients' unused medications (take-back)", "Medication Disposal — Mail-Back"],
+        ["Expired regular (non-controlled) drugs", "Pharmaceutical"], ["Wasted partial doses of non-controlled medications", "Medication Disposal — Mail-Back"],
         ["Wants to deactivate medications on site", "Medication Disposal — On-Site"], ["Expired DEA-scheduled drugs (registrant)", "Controlled Substance"],
         ["Empty chemo vials, chemo PPE and tubing", "Trace Chemo"], ["P-listed, U-listed or characteristic hazardous drugs", "Hazardous (RCRA)"],
         ["Full activated-charcoal disposal containers", "Activated Charcoal Take-Back"],

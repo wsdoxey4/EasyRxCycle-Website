@@ -10,7 +10,7 @@ const KITS: KitRef[] = [
   { cat: "pharma", href: "/shop/pharmaceutical-waste-mail-back-kit/", name: "Pharmaceutical Waste Kit", what: "Expired non-controlled medications", re: /non-controlled|non-hazardous pharmaceutical|pharmaceutical waste|expired (?:medications?|drugs|meds|rx)/gi },
   { cat: "hazardous", href: "/shop/rcra-hazardous-mail-back-kit/", name: "Hazardous (RCRA) Kit", what: "P-, U- and D-listed hazardous drugs", re: /\bRCRA\b|p-listed|u-listed|hazardous (?:drugs?|pharmaceuticals?|waste pharmaceuticals)/gi },
   { cat: "chemo", href: "/shop/trace-chemo-mail-back-kit/", name: "Trace Chemo Kit", what: "RCRA-empty chemotherapy waste", re: /chemo(?:therapy)?/gi },
-  { cat: "medication", href: "/shop/medication-mail-back-kit/", name: "Medication Disposal Kit (Mail-Back)", what: "Patients' unused medications (take-back)", re: /take-back|patient(?:s'|s)? (?:unused )?medications?|resident medications?/gi },
+  { cat: "medication", href: "/shop/medication-mail-back-kit/", name: "Medication Disposal Kit (Mail-Back)", what: "Wastage of non-controlled medications", re: /medication wast(?:e|age)|wasted (?:partial )?doses?|partial doses?/gi },
   { cat: "medication-onsite", href: "/shop/on-site-medication-disposal-kit/", name: "Medication Disposal Kit (On-Site)", what: "Deactivate medications at your site", re: /deactivat\w*|on-site (?:disposal|destruction)/gi },
   { cat: "charcoal", href: "/shop/activated-charcoal-take-back-kit/", name: "Activated Charcoal Take-Back Kit", what: "Return full charcoal disposal containers", re: /charcoal/gi },
 ];
