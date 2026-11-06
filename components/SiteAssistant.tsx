@@ -23,6 +23,18 @@ const S_KEY = "erx_asst_v1";      // sessionStorage: this visit's chat, so it fo
 const ARM_KEY = "erx_asst_arm";   // localStorage: the visitor's test arm, kept across visits
 const VID_KEY = "erx_asst_vid";
 const PREVIEW_KEY = "erx_asst_preview";
+const CHATTED_KEY = "erx_asst_chatted";
+
+// GA4 user properties: tag the visitor's test group (and whether they chatted) so every later visit and purchase can be
+// split by group in the Monday report. Same queue gtag() uses, so it works before gtag.js has loaded.
+function setUserProps(p: Record<string, string>) {
+  try {
+    const w = window as unknown as { dataLayer?: unknown[] };
+    w.dataLayer = w.dataLayer || [];
+    // eslint-disable-next-line prefer-rest-params
+    (function gtag(..._a: unknown[]) { w.dataLayer!.push(arguments); })("set", "user_properties", p);
+  } catch { /* analytics blocked */ }
+}
 
 const money = (c: number) => `$${(c / 100).toFixed(2)}`;
 const read = <T,>(store: Storage | undefined, k: string, d: T): T => { try { const v = store?.getItem(k); return v ? (JSON.parse(v) as T) : d; } catch { return d; } };
@@ -57,18 +69,22 @@ export default function SiteAssistant() {
     if (q) write(ss, PREVIEW_KEY, q);
     const pv = read<string | null>(ss, PREVIEW_KEY, null);
     setPreview(pv);
+    // On EVERY page (checkout included), keep the visitor's group on their GA4 hits so purchases are credited to it.
+    const known = read<"on" | "off" | null>(ls, ARM_KEY, null);
+    if (pv) setUserProps({ assistant_arm: "preview" });
+    else if (known === "on" || known === "off") setUserProps({ assistant_arm: known, ...(read<boolean>(ls, CHATTED_KEY, false) ? { assistant_chatted: "yes" } : {}) });
     const desktop = window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches;
     const pageOk = ALLOWED.some((r) => r.test(path)) && !BLOCKED.some((r) => r.test(path));
     if (!desktop || !pageOk || (!LIVE && !pv)) { setEligible(false); return; }
     let a = read<"on" | "off" | null>(ls, ARM_KEY, null);
     if (pv) a = "on";
-    else if (a !== "on" && a !== "off") { a = Math.random() < 0.5 ? "on" : "off"; write(ls, ARM_KEY, a); }
+    else if (a !== "on" && a !== "off") { a = Math.random() < 0.5 ? "on" : "off"; write(ls, ARM_KEY, a); setUserProps({ assistant_arm: a }); }
     vid.current = read<string>(ls, VID_KEY, "") || crypto.randomUUID();
     write(ls, VID_KEY, vid.current);
     setArm(a);
     setEligible(true);
     // One exposure event per visit for BOTH arms, so GA4 can compare revenue per session on vs off.
-    if (!read<boolean>(ss, "erx_asst_exposed", false)) { trackEvent("assistant_exposure", { assistant_arm: a, preview: pv ? 1 : 0 }); write(ss, "erx_asst_exposed", true); }
+    if (!pv && !read<boolean>(ss, "erx_asst_exposed", false)) { trackEvent("assistant_exposure", { assistant_arm: a }); write(ss, "erx_asst_exposed", true); }
     setSt(read<State>(ss, S_KEY, { chatId: null, msgs: [], open: false }));
   }, [path]);
 
@@ -93,7 +109,7 @@ export default function SiteAssistant() {
 
   function logEvent(name: string, detail?: Record<string, unknown>) {
     try {
-      fetch(API, { method: "POST", keepalive: true, headers: { "content-type": "application/json" }, body: JSON.stringify({ type: "event", event: name, chat_id: st.chatId, visitor_id: vid.current, arm, page: path, detail, preview }) }).catch(() => null);
+      fetch(API, { method: "POST", keepalive: true, headers: { "content-type": "application/json" }, body: JSON.stringify({ type: "event", event: name, chat_id: st.chatId, visitor_id: vid.current, arm: preview ? "preview" : arm, page: path, detail, preview }) }).catch(() => null);
     } catch { /* ignore */ }
   }
 
@@ -134,8 +150,9 @@ export default function SiteAssistant() {
     setSt((s) => ({ ...s, open: true, msgs: [...s.msgs, { role: "user", text: msg }] }));
     setBusy(true);
     trackEvent("assistant_message", { assistant_arm: arm, page_path: path });
+    if (!preview) { write(window.localStorage, CHATTED_KEY, true); setUserProps({ assistant_arm: "on", assistant_chatted: "yes" }); }
     try {
-      const r = await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ message: msg, chat_id: st.chatId, visitor_id: vid.current, arm, page: path, preview }) });
+      const r = await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ message: msg, chat_id: st.chatId, visitor_id: vid.current, arm: preview ? "preview" : arm, page: path, preview }) });
       const j = await r.json();
       if (j.disabled) throw new Error("disabled");
       setSt((s) => ({ ...s, chatId: j.chat_id || s.chatId, msgs: [...s.msgs, { role: "assistant", text: j.reply || "", kits: j.kits?.length ? j.kits : undefined }] }));
