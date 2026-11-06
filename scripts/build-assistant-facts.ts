@@ -10,16 +10,27 @@ import { PDP_EXTRAS } from "../lib/pdpExtras";
 // The on-site kit is only for WASTED partial doses (William 2026-10-30). The assistant never recommends it.
 const HIDDEN = new Set(["medication-onsite"]);
 
+// William 2026-11-06: the Medication Disposal Kit is ONLY for wastage (leftover partial doses) of NON-controlled
+// medications. The site's kit page still describes take-back and controlled use, so the assistant gets this instead.
+const OVERRIDE: Record<string, { summary: string; who_for: string; faqs: { q: string; a: string }[] }> = {
+  medication: {
+    summary: "For wastage of non-controlled medications only: leftover partial doses that are wasted during care (for example the unused part of a vial or syringe of a non-controlled drug). Not for controlled substances, not for expired or unused stock, and not for take-back programs.",
+    who_for: "Clinics, med spas, LTC, hospice and home health that waste partial doses of non-controlled medications.",
+    faqs: [],
+  },
+};
+
 const kits = KITS.filter((k) => !HIDDEN.has(k.category)).map((k) => {
   const cat = CATEGORIES.find((c) => c.key === k.category);
   const x = PDP_EXTRAS[k.category] || ({} as (typeof PDP_EXTRAS)[string]);
   const sizes = PRODUCTS.filter((p) => p.category === k.category).map((p) => ({
     sku: p.sku, size: p.size, cents: p.cents, autoship_cents: autoshipCents(p.cents), best_for: x.bestFor?.[p.size] || null,
   }));
+  const o = OVERRIDE[k.category];
   return {
     category: k.category, name: k.name, url: `/shop/${k.slug}/`, image: cat?.image || null,
-    summary: k.intro, accepts: x.accepts || null, not_for: x.notFor || null, includes: k.included, who_for: k.whoFor,
-    best_value: x.bestValue || null, faqs: k.faqs, sizes,
+    summary: o?.summary ?? k.intro, accepts: o ? null : x.accepts || null, not_for: o ? null : x.notFor || null, includes: k.included, who_for: o?.who_for ?? k.whoFor,
+    best_value: x.bestValue || null, faqs: o?.faqs ?? k.faqs, sizes,
   };
 });
 

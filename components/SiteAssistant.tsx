@@ -164,6 +164,22 @@ export default function SiteAssistant() {
     }
   }
 
+  // Buy now: put this kit in the cart (same storage the shop and checkout read) and go straight to secure checkout.
+  function buyNow(k: Kit) {
+    try {
+      const ls = window.localStorage;
+      const cart = read<{ sku: string; qty: number; interval?: string | null; expedite?: boolean }[]>(ls, "erx_cart_v2", []);
+      const list = Array.isArray(cart) ? cart.filter((l) => l && l.sku) : [];
+      if (!list.some((l) => l.sku === k.sku && !l.interval && !l.expedite)) list.push({ sku: k.sku, qty: 1, interval: null, expedite: false });
+      write(ls, "erx_cart_v2", list);
+    } catch { /* storage blocked: the kit page still works */ window.location.href = k.url; return; }
+    trackEvent("add_to_cart", { currency: "USD", value: k.cents / 100, items: [{ item_id: k.sku, item_name: k.name, quantity: 1 }] });
+    trackEvent("assistant_buy_now", { assistant_arm: arm, item_id: k.sku, value: k.cents / 100, currency: "USD" });
+    logEvent("checkout_click", { sku: k.sku });
+    write(window.sessionStorage, S_KEY, { ...st, open: false });
+    window.location.href = "/checkout/";
+  }
+
   function kitClick(k: Kit, kind: "view" | "add") {
     const name = kind === "add" ? "assistant_add_to_cart" : "assistant_kit_click";
     trackEvent(name, { assistant_arm: arm, item_id: k.sku, value: k.cents / 100, currency: "USD" });
@@ -214,14 +230,14 @@ export default function SiteAssistant() {
                   <div className="asst-kits">
                     {m.kits.map((k) => (
                       <div key={k.sku} className="asst-kit">
-                        {k.image && <img src={k.image} alt="" width={56} height={56} />}
+                        <a href={k.url} onClick={() => kitClick(k, "view")} aria-label={`View ${k.name}`}>{k.image && <img src={k.image} alt="" width={56} height={56} />}</a>
                         <div className="asst-kit-info">
-                          <strong>{k.name}</strong>
+                          <a className="asst-kit-name" href={k.url} onClick={() => kitClick(k, "view")}><strong>{k.name}</strong></a>
                           <span>{k.size}{k.best_for ? ` · ${k.best_for}` : ""}</span>
                           <span className="asst-price">{money(k.cents)} <em>or {money(k.autoship_cents)} on auto-ship</em></span>
                           <div className="asst-kit-actions">
+                            <button type="button" className="asst-buy" onClick={() => buyNow(k)}>Buy now</button>
                             <a className="asst-add" href={`/shop/?add=${encodeURIComponent(k.sku)}`} onClick={() => kitClick(k, "add")}>Add to cart</a>
-                            <a href={k.url} onClick={() => kitClick(k, "view")}>View kit</a>
                           </div>
                         </div>
                       </div>
