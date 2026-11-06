@@ -3,6 +3,7 @@ import { SITE, abs, ANALYTICS} from "@/lib/site";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 import Tracker from "@/components/Tracker";
+import SiteAssistant from "@/components/SiteAssistant";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -133,6 +134,8 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        {/* Website assistant: renders nothing unless NEXT_PUBLIC_ASSISTANT=on or a ?assistant= preview link (William 2026-11-06). */}
+        <SiteAssistant />
         <span hidden dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />
       </body>
     </html>
