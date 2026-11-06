@@ -70,8 +70,8 @@ export default function Page() {
               <a href="/">Home</a> <span aria-hidden="true">/</span> <span>Request a Quote</span>
             </nav>
             <span className="eyebrow">Pricing &amp; quotes</span>
-            <h1 className="ph1">Most orders don&rsquo;t need a quote.<br /><span style={{ color: "var(--teal)" }}>Pick your kit and it ships today.</span></h1>
-            <p className="lead" style={{ marginTop: "14px", maxWidth: "62ch" }}>Kit prices are published, shipping is prepaid both ways, and every order ends with a Certificate of Destruction. Fill out the quote form below, or scroll down to pick your kit.</p>
+            <h1 className="ph1">Request a quote in a minute.<br /><span style={{ color: "var(--teal)" }}>Or pick your kit and it ships today.</span></h1>
+            <p className="lead" style={{ marginTop: "14px", maxWidth: "62ch" }}>Tell us what you generate and a specialist replies the same day. Already know what you need? Kit prices are published, shipping is prepaid both ways, and every order ends with a Certificate of Destruction.</p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "20px" }}>
               <a className="btn btn-primary" href="#quote-form">Get a quote <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="#kits">Shop the kits</a>
