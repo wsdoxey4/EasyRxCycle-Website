@@ -6,9 +6,9 @@ import { trackEvent } from "@/lib/track";
 
 type Line = { sku: string; qty: number };
 
-export default function SaveCart({ lines, label = "Not ready to order? Email me this cart", source = "cart" }: { lines: Line[]; label?: string; source?: string }) {
+export default function SaveCart({ lines, label = "Not ready to order? Email me this cart", source = "cart", defaultEmail = "" }: { lines: Line[]; label?: string; source?: string; defaultEmail?: string }) {
   const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(defaultEmail);
   const [hp, setHp] = useState("");
   const [state, setState] = useState<"idle" | "busy" | "done" | "err">("idle");
   const [msg, setMsg] = useState("");

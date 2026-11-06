@@ -92,11 +92,21 @@ export default function CheckoutV2() {
       if (!cart.length) { setState("empty"); return; }
       if (!STRIPE_PK) { setErr("Checkout isn’t configured yet. Please call 501-904-2929."); setState("error"); return; }
       setLines(cart);
+      // Someone who just sent the quote form (QuoteForm stores it in their own browser) gets email and phone filled in.
+      let known: { email?: string; phone?: string } = {};
+      try { const c = JSON.parse(localStorage.getItem("erx_contact_v1") || "{}"); if (c && Date.now() - (c.at || 0) < 30 * 864e5) known = c; } catch {}
+      if (known.email) setEmail(known.email);
+      if (known.phone) setPhone(known.phone);
       try {
         stripeRef.current = (await loadStripeJs())(STRIPE_PK);
         await initSession(cart);
         setState("ready");
         step("view");
+        try {
+          if (known.email) await co.current?.updateEmail(known.email);
+          if (known.phone) { const p = normPhone(known.phone); if (p.replace(/\D/g, "").length >= 10) await co.current?.updatePhoneNumber(p); }
+          if (known.email) step("prefilled", { phone: Boolean(known.phone) });
+        } catch { /* prefill is a convenience only */ }
       } catch { setErr("Could not load checkout. Please try again, or call 501-904-2929."); setState("error"); }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps

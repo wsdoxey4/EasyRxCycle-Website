@@ -3,7 +3,9 @@
 import { trackEvent } from "@/lib/track";
 import { getAttribution, getTrail } from "@/lib/attribution";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import CartProvider from "@/components/cart/CartProvider";
+import QuoteKitFinder from "@/components/cart/QuoteKitFinder";
 
 const ROLES = [
   "Physician / medical office", "Dental practice", "Veterinary", "Hospital / health system",
@@ -14,6 +16,17 @@ const STREAMS = [
   "Sharps", "Biohazard / RMW", "Pharmaceutical", "Controlled substances",
   "RCRA hazardous", "Trace chemo", "Medication kits", "Reverse distribution",
 ];
+// After submit, single-site requests go straight into the kit finder for the streams they checked.
+// Multi-site / bulk / pickup and reverse-distribution-only requests get a person instead.
+const FINDER_KEY: Record<string, string> = {
+  "Sharps": "sharps", "Biohazard / RMW": "biohazard", "Pharmaceutical": "pharma", "Controlled substances": "controlled",
+  "RCRA hazardous": "hazardous", "Trace chemo": "chemo", "Medication kits": "meds",
+};
+const BIG_VOLUME = /multiple sites|bulk|pickup/i;
+type After = { finder: boolean; streams: string[]; big: boolean; contact: { email: string; name: string; phone: string } };
+// Their contact details, kept in their own browser so checkout can fill in email and phone (read by CheckoutV2).
+export const CONTACT_KEY = "erx_contact_v1";
+
 const VOLUMES = ["Single site — standard volume", "Single site — high volume", "Multiple sites", "Bulk / pickup", "Not sure yet"];
 
 export default function QuoteForm() {
@@ -21,6 +34,15 @@ export default function QuoteForm() {
   const [err, setErr] = useState("");
   const [role, setRole] = useState("");
   const [msg, setMsg] = useState("");
+  const [after, setAfter] = useState<After>({ finder: false, streams: [], big: false, contact: { email: "", name: "", phone: "" } });
+  const okRef = useRef<HTMLDivElement>(null);
+
+  // The form is long; bring the confirmation into view (instant jump, smooth scroll can stall in some browsers).
+  useEffect(() => {
+    if (status !== "ok" || !okRef.current) return;
+    const top = okRef.current.getBoundingClientRect().top;
+    if (top < 90 || top > window.innerHeight * 0.6) window.scrollTo({ top: top + window.scrollY - 120, behavior: "instant" as ScrollBehavior });
+  }, [status]);
 
   // Pre-fill the industry from a ?role= param (ICP pages link here with their industry).
   useEffect(() => {
@@ -61,6 +83,13 @@ export default function QuoteForm() {
       });
       const j = await r.json().catch(() => ({ ok: false }));
       if (j.ok) {
+        const picked = fd.getAll("streams").map(String);
+        const big = BIG_VOLUME.test(data.volume || "");
+        const streams = picked.map((x) => FINDER_KEY[x]).filter(Boolean);
+        const reverseOnly = picked.length > 0 && streams.length === 0;
+        const contact = { email: data.email.trim(), name: data.name.trim(), phone: data.phone.trim() };
+        try { localStorage.setItem(CONTACT_KEY, JSON.stringify({ ...contact, org: data.org.trim(), at: Date.now() })); } catch { /* storage blocked */ }
+        setAfter({ finder: !big && !reverseOnly, streams, big, contact });
         setStatus("ok");
         trackEvent("generate_lead", { form: "rfq", currency: "USD" });
         // Quote-only event so Google Ads can value a real quote request ($50) apart from guide downloads etc.
@@ -75,12 +104,21 @@ export default function QuoteForm() {
 
   if (status === "ok") {
     return (
-      <div className="form-ok">
+      <div className="form-ok" ref={okRef}>
         <div className="ok-badge">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.2 4.2L19 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </div>
         <h3>Request received.</h3>
-        <p>A specialist will reach out shortly with your quote. Need it now? Call <b>501-904-2929</b>.</p>
+        {after.finder ? (
+          <>
+            <p>A specialist will follow up today. Want your kits now? Pick your sizes below and check out in a minute.</p>
+            <div className="qkf-wrap"><CartProvider><QuoteKitFinder initial={after.streams} contact={after.contact} /></CartProvider></div>
+          </>
+        ) : (
+          <p>{after.big
+            ? "A specialist will build your pickup, multi-site or bulk quote and reach out today."
+            : "A specialist will reach out shortly with your quote."} Need it now? Call <b>501-904-2929</b>.</p>
+        )}
       </div>
     );
   }
