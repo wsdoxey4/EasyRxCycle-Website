@@ -295,6 +295,7 @@ const traceChemo: Stream = {
     { href: "/who-we-serve/asc/", label: "Surgery centers (ASC)" },
     { href: "/who-we-serve/veterinary/", label: "Veterinary" },
     { href: "/who-we-serve/oncology-infusion/", label: "Oncology & infusion" },
+    { href: "/who-we-serve/compounding-pharmacy/", label: "Compounding pharmacies" },
     { href: "/who-we-serve/503b-pharmacy/", label: "503B facilities" },
     { href: "/who-we-serve/", label: "All industries →" },
   ],

@@ -18,7 +18,7 @@ export const industrySegments: Segment[] = [
 // slug → segment key. Every industry guide is assigned exactly one primary segment.
 const SEGMENT: Record<string, string> = {
   // Pharmacies
-  "340b-pharmacy-waste-disposal-guide": "pharmacy", "503b-pharmacy-waste-disposal-guide": "pharmacy",
+  "340b-pharmacy-waste-disposal-guide": "pharmacy", "503b-pharmacy-waste-disposal-guide": "pharmacy", "compounding-pharmacy-waste-disposal-guide": "pharmacy",
   "chain-pharmacy-waste-disposal-guide": "pharmacy", "closed-door-pharmacy-waste-disposal-guide": "pharmacy",
   "correctional-pharmacy-waste-disposal-guide": "pharmacy", "independent-pharmacy-waste-disposal-guide": "pharmacy",
   "mail-order-pharmacy-waste-disposal-guide": "pharmacy", "pharmacy-waste-disposal-guide": "pharmacy",

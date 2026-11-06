@@ -137,6 +137,7 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">Explore more</span><h2>Related industries, solutions &amp; guides.</h2></div>
             <div className="relcols">
               <div className="relcol"><h3>Related industries</h3><ul>
+                <li><a href="/who-we-serve/compounding-pharmacy/">Compounding pharmacies</a></li>
                 <li><a href="/who-we-serve/pharma-manufacturers/">Manufacturers & distributors</a></li>
                 <li><a href="/who-we-serve/specialty-pharmacy/">Specialty pharmacies</a></li>
                 <li><a href="/who-we-serve/hospitals/">Hospitals & health systems</a></li>

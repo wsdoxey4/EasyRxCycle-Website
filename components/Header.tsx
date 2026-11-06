@@ -55,6 +55,7 @@ const MENU: Item[] = [
         { t: "Chain pharmacies", h: "/who-we-serve/chain-pharmacy/" },
         { t: "Specialty pharmacies", h: "/who-we-serve/specialty-pharmacy/" },
         { t: "Mail-order", h: "/who-we-serve/mail-order-pharmacy/" },
+        { t: "Compounding pharmacies", h: "/who-we-serve/compounding-pharmacy/" },
         { t: "503B outsourcing", h: "/who-we-serve/503b-pharmacy/" },
       ]},
       { title: "Vet & emergency", links: [
