@@ -71,32 +71,12 @@ export default function Page() {
             </nav>
             <span className="eyebrow">Pricing &amp; quotes</span>
             <h1 className="ph1">Most orders don&rsquo;t need a quote.<br /><span style={{ color: "var(--teal)" }}>Pick your kit and it ships today.</span></h1>
-            <p className="lead" style={{ marginTop: "14px", maxWidth: "62ch" }}>Kit prices are published, shipping is prepaid both ways, and every order ends with a Certificate of Destruction. Need pickup, several sites or bulk volume? The quote form is right below the kits.</p>
+            <p className="lead" style={{ marginTop: "14px", maxWidth: "62ch" }}>Kit prices are published, shipping is prepaid both ways, and every order ends with a Certificate of Destruction. Fill out the quote form below, or scroll down to pick your kit.</p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginTop: "20px" }}>
-              <a className="btn btn-primary" href="#kits">Shop the kits <span className="ar">→</span></a>
-              <a className="btn btn-ghost" href="#quote-form">Get a custom quote</a>
+              <a className="btn btn-primary" href="#quote-form">Get a quote <span className="ar">→</span></a>
+              <a className="btn btn-ghost" href="#kits">Shop the kits</a>
             </div>
           </div>
-        </section>
-
-        <section className="sec" id="kits" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
-          <div className="wrap">
-            <div className="shead"><span className="eyebrow">Published prices</span><h2>Choose the kit for your waste.</h2><p className="lead">One waste stream per kit. No contract, no minimums.</p></div>
-            <div className="ind-streams">
-              {kits.map((k, i) => (
-                <a className="ind-stream" key={k.href} href={k.href}>
-                  {k.img && <img className="ind-stream-img" src={k.img} alt="" width={1200} height={800} loading={i < 4 ? "eager" : "lazy"} />}
-                  <h3>{k.name}</h3>
-                  <p>{k.what}<br /><span style={{ fontSize: "13px" }}>{k.sizes}</span></p>
-                  <span className="ind-kit">From {k.from} <span className="ar">→</span></span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)", paddingBottom: "0" }}>
-          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec" id="quote-form" style={{ paddingTop: "clamp(36px,5vw,60px)" }}>
@@ -120,6 +100,26 @@ export default function Page() {
               <QuoteForm />
             </div>
           </div>
+        </section>
+
+        <section className="sec" id="kits" style={{ paddingTop: "clamp(28px,4vw,44px)" }}>
+          <div className="wrap">
+            <div className="shead"><span className="eyebrow">Published prices</span><h2>Choose the kit for your waste.</h2><p className="lead">One waste stream per kit. No contract, no minimums.</p></div>
+            <div className="ind-streams">
+              {kits.map((k, i) => (
+                <a className="ind-stream" key={k.href} href={k.href}>
+                  {k.img && <img className="ind-stream-img" src={k.img} alt="" width={1200} height={800} loading={i < 4 ? "eager" : "lazy"} />}
+                  <h3>{k.name}</h3>
+                  <p>{k.what}<br /><span style={{ fontSize: "13px" }}>{k.sizes}</span></p>
+                  <span className="ind-kit">From {k.from} <span className="ar">→</span></span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" style={{ paddingTop: "clamp(28px,4vw,44px)", paddingBottom: "0" }}>
+          <div className="wrap"><TrustBar heading="Compliant, documented, certified" /></div>
         </section>
 
         <section className="sec" style={{ paddingTop: "clamp(28px,4vw,48px)" }}>
