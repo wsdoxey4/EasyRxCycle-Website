@@ -1755,7 +1755,7 @@ header.site .wrap{position:relative;}
 .shop-quick-links{display:flex;flex-wrap:wrap;gap:8px 28px;margin:14px 0 0;font-size:14.5px;}
 .shop-quick-links a{color:var(--teal,#005770);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
 @media (max-width:560px){.shop-hero .eyebrow,.shop-hero .lead{display:none}.shop-hero .ph1{font-size:30px}.subhero.shop-hero{padding-bottom:14px}.shop-checks{font-size:13px;gap:4px 14px;margin-top:10px}.shop-quick .kit-tile img{height:70px}}
-/* kit page phone bar: Add to cart once a size is chosen, Call, and the cart (the floating cart pill is hidden here) */
+/* kit page phone bar: Add to cart (for the selected size), Call, and the cart (the floating cart pill is hidden here) */
 @media(max-width:960px){
   .pdp-mcta button{font-family:'Poppins';font-weight:600;font-size:15px;line-height:1;padding:13px 8px;border-radius:11px;border:none;cursor:pointer;}
   .pdp-mcta .mcta-primary{flex:1.7 1 0;white-space:nowrap;}

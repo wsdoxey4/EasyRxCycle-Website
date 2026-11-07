@@ -12,7 +12,6 @@ export default function ProductBuy({ category, children }: { category: string; c
   const [plan, setPlan] = useState<"once" | "auto">("once");
   const [interval, setInterval] = useState("month");
   const [expedite, setExpedite] = useState(false);
-  const [picked, setPicked] = useState(false); // phone bar turns into Add to cart once they choose a size or delivery
   const { add, count, setOpen } = useCart();
   const x = PDP_EXTRAS[category];
 
@@ -34,7 +33,7 @@ export default function ProductBuy({ category, children }: { category: string; c
         <legend>Choose a size</legend>
         {items.map((p) => (
           <label key={p.sku} className={"buy-size" + (p.sku === sku ? " on" : "")}>
-            <input type="radio" name="size" value={p.sku} checked={p.sku === sku} onChange={() => { setSku(p.sku); setPicked(true); }} />
+            <input type="radio" name="size" value={p.sku} checked={p.sku === sku} onChange={() => setSku(p.sku)} />
             <span className="bs-name">{p.size}{x?.bestValue === p.size && <span className="bs-badge">Best value</span>}{x?.bestFor?.[p.size] && <small className="bs-hint">{x.bestFor[p.size]}</small>}</span>
             <span className="bs-price">{money(plan === "auto" ? autoshipCents(p.cents) : p.cents)}</span>
           </label>
@@ -44,12 +43,12 @@ export default function ProductBuy({ category, children }: { category: string; c
       <fieldset className="buy-plan">
         <legend>Delivery</legend>
         <label className={"buy-opt" + (plan === "once" ? " on" : "")}>
-          <input type="radio" name="plan" checked={plan === "once"} onChange={() => { setPlan("once"); setPicked(true); }} />
+          <input type="radio" name="plan" checked={plan === "once"} onChange={() => setPlan("once")} />
           <span className="bo-main">One-time purchase</span>
           <span className="bo-sub">Ship once</span>
         </label>
         <label className={"buy-opt" + (plan === "auto" ? " on" : "")}>
-          <input type="radio" name="plan" checked={plan === "auto"} onChange={() => { setPlan("auto"); setPicked(true); }} />
+          <input type="radio" name="plan" checked={plan === "auto"} onChange={() => setPlan("auto")} />
           <span className="bo-main">Auto-ship · {money(autoshipCents(sel.cents))} each</span>
           <span className="bo-sub">Save 20% · cancel anytime</span>
         </label>
@@ -101,11 +100,12 @@ export default function ProductBuy({ category, children }: { category: string; c
       </div>
 
       {/* Phone-only sticky bar (replaces the generic MobileCTA on kit pages). Holds the cart button too, so the
-          floating cart pill never covers the size prices. */}
+          floating cart pill never covers the size prices. Its Add to cart works from the start for the size and
+          delivery already selected (ads plan W3, 2026-11-07): on phones the in-page button sits below the first screen,
+          and the old "Choose size & buy" only jumped to the box the visitor was already looking at. Adding opens the
+          cart, which shows the size. */}
       <div className="mcta pdp-mcta" role="navigation" aria-label="Quick actions">
-        {picked
-          ? <button type="button" className="mcta-primary" onClick={addIt} data-cta="pdp_sticky_add">Add to cart · {money(total)}</button>
-          : <a className="mcta-primary" href="#buy">Choose size &amp; buy</a>}
+        <button type="button" className="mcta-primary" onClick={addIt} data-cta="pdp_sticky_add">Add to cart · {money(total)}</button>
         <a className="mcta-secondary" href="tel:5019042929">Call</a>
         <button type="button" className="mcta-cart" onClick={() => setOpen(true)} aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h2l2.2 11.2a1.6 1.6 0 001.6 1.3h7.8a1.6 1.6 0 001.6-1.3L21 8H7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /><circle cx="10" cy="21" r="1.4" fill="currentColor" /><circle cx="18" cy="21" r="1.4" fill="currentColor" /></svg>
