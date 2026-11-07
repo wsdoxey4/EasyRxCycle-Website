@@ -71,13 +71,15 @@ export default function CostCalculator() {
       const a = document.createElement("a"); a.href = url; a.download = pdf.filename; a.click();
       setTimeout(() => URL.revokeObjectURL(url), 4000);
     } catch { /* non-fatal: still send the email without the attachment */ }
+    let track = true;
     try {
       const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: fd.get("name") || fd.get("org") || "Website visitor", email: fd.get("email"), org: fd.get("org"), role: "Cost calculator lead", streams, volume: vol, message: msg, pageUri: "/cost-calculator", company_website: fd.get("company_website"), attachment }) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || j.ok === false) { setBusy(false); setErr(true); return; }
+      track = j.track !== false; // false = the server screened it as a bot or sales pitch: no ad conversion
     } catch { setBusy(false); setErr(true); return; }
-    trackEvent("generate_lead", { lead_source: "cost_calculator" });
+    if (track) trackEvent("generate_lead", { lead_source: "cost_calculator" });
     setBusy(false); setDone(true);
   }
 

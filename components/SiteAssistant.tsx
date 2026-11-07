@@ -133,7 +133,8 @@ export default function SiteAssistant() {
       const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
       const j = await r.json().catch(() => ({ ok: false }));
       if (!j.ok) throw new Error("rfq");
-      trackEvent("quote_request", { form: "site_assistant", lead_source: "site_assistant", value: 50, currency: "USD" });
+      // false = the server screened it as a bot or sales pitch: delivered, but no ad conversion
+      if (j.track !== false) trackEvent("quote_request", { form: "site_assistant", lead_source: "site_assistant", value: 50, currency: "USD" });
       trackEvent("assistant_lead", { assistant_arm: arm });
       logEvent("lead_sent", { streams: lead.streams });
     } catch {

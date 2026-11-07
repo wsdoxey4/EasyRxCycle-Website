@@ -356,6 +356,9 @@ footer a:hover{color:#fff;}
 .rfq .streams label{flex-direction:row;align-items:center;gap:8px;font-weight:500;font-size:14px;color:var(--slate);}
 .rfq .streams input{width:auto;}
 .rfq .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;}
+/* Turnstile bot check: out of the layout until Cloudflare asks for a tick (QuoteForm humanAsk). */
+.rfq .rfq-human{position:absolute;width:1px;height:1px;overflow:hidden;}
+.rfq .rfq-human.ask{position:static;width:auto;height:auto;overflow:visible;}
 .te-file{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px dashed #c3d4cf;border-radius:10px;padding:12px 14px;background:#f8fbfa;cursor:pointer;}
 .te-file input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;}
 .te-file-btn{font-family:'Poppins';font-weight:600;font-size:14px;color:#fff;background:var(--teal);padding:9px 16px;border-radius:8px;white-space:nowrap;}

@@ -29,6 +29,29 @@ export const CONTACT_KEY = "erx_contact_v1";
 
 const VOLUMES = ["Single site — standard volume", "Single site — high volume", "Multiple sites", "Bulk / pickup", "Not sure yet"];
 
+// Cloudflare Turnstile bot check (Paid Ads Deep Dive W2). Off unless the site key reaches the build. It never stops a
+// request: it runs out of sight, shows a tick box only when Cloudflare is unsure, and the server uses its answer only
+// to decide whether the request counts as an ad conversion (functions/api/_screen.js).
+const TURNSTILE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
+type Turnstile = { render: (el: HTMLElement, o: Record<string, unknown>) => string; reset: (id: string) => void; remove: (id: string) => void };
+type Human = { api: Turnstile; id: string; token: string };
+let turnstileLoad: Promise<Turnstile | null> | null = null;
+function loadTurnstile(): Promise<Turnstile | null> {
+  const w = window as unknown as { turnstile?: Turnstile };
+  if (w.turnstile) return Promise.resolve(w.turnstile);
+  if (!turnstileLoad) {
+    turnstileLoad = new Promise((resolve) => {
+      const s = document.createElement("script");
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      s.async = true;
+      s.onload = () => resolve(w.turnstile || null);
+      s.onerror = () => { turnstileLoad = null; resolve(null); }; // blocked by an extension or firewall: the form works as today
+      document.head.appendChild(s);
+    });
+  }
+  return turnstileLoad;
+}
+
 export default function QuoteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [err, setErr] = useState("");
@@ -36,6 +59,60 @@ export default function QuoteForm() {
   const [msg, setMsg] = useState("");
   const [after, setAfter] = useState<After>({ finder: false, streams: [], big: false, contact: { email: "", name: "", phone: "" } });
   const okRef = useRef<HTMLDivElement>(null);
+  const humanBox = useRef<HTMLDivElement>(null);
+  const human = useRef<Human | null>(null);
+  const humanOff = useRef(!TURNSTILE_KEY);
+  const [humanAsk, setHumanAsk] = useState(false); // Cloudflare wants a tick: show its box above the button
+  const done = status === "ok";
+
+  // Start the bot check when the form shows, so its answer is ready by the time they press Request my quote.
+  useEffect(() => {
+    if (!TURNSTILE_KEY || done) return;
+    let gone = false;
+    loadTurnstile().then((api) => {
+      if (gone) return;
+      if (!api || !humanBox.current) { humanOff.current = true; return; }
+      const h: Human = { api, id: "", token: "" };
+      try {
+        h.id = api.render(humanBox.current, {
+          sitekey: TURNSTILE_KEY, action: "quote", appearance: "interaction-only", "response-field": false,
+          callback: (t: string) => { h.token = t; },
+          "expired-callback": () => { h.token = ""; },  // Turnstile fetches a fresh answer by itself
+          "error-callback": () => { h.token = ""; },
+          "before-interactive-callback": () => setHumanAsk(true),
+          "after-interactive-callback": () => setHumanAsk(false),
+        });
+        human.current = h;
+      } catch { humanOff.current = true; }
+    });
+    return () => {
+      gone = true;
+      const h = human.current;
+      human.current = null;
+      if (h && h.id) { try { h.api.remove(h.id); } catch { /* already gone */ } }
+    };
+  }, [done]);
+
+  // What the bot check adds to the request. Waits up to 5 seconds for an answer that is still coming (rare: the form
+  // takes longer than that to fill in). No check on the page (key not set, script blocked) sends nothing, as today.
+  async function humanFields(): Promise<Record<string, string>> {
+    const end = Date.now() + 5000;
+    while (Date.now() < end) {
+      if (humanOff.current) return {};
+      const h = human.current;
+      if (h && h.token) return { ts: "1", turnstile_token: h.token };
+      await new Promise((r) => setTimeout(r, 150));
+    }
+    return human.current ? { ts: "1", turnstile_token: "" } : {};
+  }
+
+  // An answer is good for one request, so a failed send gets a new one for the next try.
+  function resetHuman() {
+    const h = human.current;
+    if (!h || !h.id) return;
+    h.token = "";
+    try { h.api.reset(h.id); } catch { /* ignore */ }
+  }
 
   // The form is long; bring the confirmation into view (instant jump, smooth scroll can stall in some browsers).
   useEffect(() => {
@@ -75,6 +152,7 @@ export default function QuoteForm() {
     const attr = getAttribution();
     (data as Record<string, unknown>).channel = attr.channel;      // derived marketing channel
     (data as Record<string, unknown>).utm = { ...attr.utm, channel: attr.channel, referrer: attr.referrer, landing: attr.landing, pages: getTrail() };
+    Object.assign(data, await humanFields());
     try {
       const r = await fetch("/api/rfq", {
         method: "POST",
@@ -91,14 +169,19 @@ export default function QuoteForm() {
         try { localStorage.setItem(CONTACT_KEY, JSON.stringify({ ...contact, org: data.org.trim(), at: Date.now() })); } catch { /* storage blocked */ }
         setAfter({ finder: !big && !reverseOnly, streams, big, contact });
         setStatus("ok");
-        trackEvent("generate_lead", { form: "rfq", currency: "USD" });
-        // Quote-only event so Google Ads can value a real quote request ($50) apart from guide downloads etc.
-        trackEvent("quote_request", { form: "rfq", currency: "USD", value: 50, streams: data.streams || "", volume: data.volume || "" });
+        // The request is always delivered. The server only says whether it counts as an ad conversion: bots and
+        // sales pitches (track: false) must not teach the ads to find more of them. Older servers send no track.
+        if (j.track !== false) {
+          trackEvent("generate_lead", { form: "rfq", currency: "USD" });
+          // Quote-only event so Google Ads can value a real quote request ($50) apart from guide downloads etc.
+          trackEvent("quote_request", { form: "rfq", currency: "USD", value: 50, streams: data.streams || "", volume: data.volume || "" });
+        }
       }
-      else { setStatus("error"); setErr(j.error || "Something went wrong."); }
+      else { setStatus("error"); setErr(j.error || "Something went wrong."); resetHuman(); }
     } catch {
       setStatus("error");
       setErr("Network error — please call 501-904-2929.");
+      resetHuman();
     }
   }
 
@@ -154,6 +237,7 @@ export default function QuoteForm() {
         <span>Keep me posted with occasional compliance tips &amp; offers. <span className="form-note">Uncheck to opt out &mdash; we&rsquo;ll still reply about your request.</span></span>
       </label>
       <input className="hp" type="text" name="company_website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      {TURNSTILE_KEY && <div className={"full rfq-human" + (humanAsk ? " ask" : "")} ref={humanBox} />}
       <div className="rfq-submit">
         <button className="btn btn-primary" type="submit" disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : <>Request my quote <span className="ar">→</span></>}

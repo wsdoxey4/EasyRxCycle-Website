@@ -42,6 +42,8 @@ jobs:
           NEXT_PUBLIC_ANALYTICS: "true"
           NEXT_PUBLIC_ASSISTANT: "on"
           NEXT_PUBLIC_INDEXABLE: ${{ secrets.NEXT_PUBLIC_INDEXABLE }}
+          # Quote-form bot check (Cloudflare Turnstile site key). Empty or unset = the check stays off.
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
 
       - name: Save the live sitemap (for the IndexNow diff)
         run: curl -sfL https://easyrxcycle.com/sitemap.xml -o /tmp/live-sitemap.xml || true

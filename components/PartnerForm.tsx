@@ -58,7 +58,7 @@ export default function PartnerForm({ variant }: { variant?: "association" } = {
     try {
       const r = await fetch("/api/rfq", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       const j = await r.json().catch(() => ({ ok: false }));
-      if (j.ok) { setStatus("ok"); trackEvent("generate_lead", { form: "partner", currency: "USD" }); }
+      if (j.ok) { setStatus("ok"); if (j.track !== false) trackEvent("generate_lead", { form: "partner", currency: "USD" }); } // false = screened as a bot or pitch
       else { setStatus("error"); setErr(j.error || "Something went wrong."); }
     } catch {
       setStatus("error");

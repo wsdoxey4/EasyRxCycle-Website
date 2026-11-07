@@ -1,6 +1,8 @@
 // Cloudflare Pages Function — RFQ intake → HubSpot (contact + deal) + Resend (client + sales emails).
 // Env: HUBSPOT_PRIVATE_TOKEN | (HUBSPOT_PORTAL_ID+HUBSPOT_FORM_GUID);
 //      RESEND_API_KEY, RESEND_FROM (verified), RFQ_NOTIFY_EMAIL; optional HUBSPOT_PIPELINE/HUBSPOT_DEALSTAGE.
+//      Optional TURNSTILE_SECRET (quote screening, see _screen.js).
+import { pitchIndex, turnstilePass } from "./_screen.js";
 
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };
 // Exact SMS opt-in wording shown next to the quote form's texting checkbox (components/QuoteForm.tsx) — stored with
@@ -22,9 +24,16 @@ export function onRequestGet({ env }) {
 export async function onRequestPost({ request, env }) {
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, error: "Bad request" }, 400); }
-  if (d.company_website) return json({ ok: true });                 // honeypot
+  if (d.company_website) return json({ ok: true, track: false });   // honeypot: a bot filled the hidden field
   d.smsConsent = d.sms_consent === "yes" && Boolean(d.phone);       // texting only with an explicit, separate opt-in
   if (!d.name || !d.email) return json({ ok: false, error: "Name and email are required." }, 400);
+
+  // Screening (_screen.js) decides only whether the browser reports this request to the ad platforms as a quote
+  // conversion. Everything below still runs for every request, exactly as before.
+  const pitch = pitchIndex(d);
+  const human = await turnstilePass(env, d, request.headers.get("CF-Connecting-IP"));
+  const track = pitch < 0 && human;
+  if (!track) d.screen = pitch >= 0 ? `pitch:${pitch}` : "turnstile";
 
   const results = {};
 
@@ -86,7 +95,7 @@ export async function onRequestPost({ request, env }) {
   // --- Portal: EVERY quote request lands in Leads & Journeys (visibility + convert-to-order) ---
   try { const rq = await toPortalQuote(env, d); results.quote = rq.status; } catch { results.quote = "error"; }
 
-  return json({ ok: true, configured: Boolean(env.HUBSPOT_PRIVATE_TOKEN || env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
+  return json({ ok: true, track, configured: Boolean(env.HUBSPOT_PRIVATE_TOKEN || env.HUBSPOT_PORTAL_ID || env.RESEND_API_KEY), results });
 }
 
 // ---- Instant quote (portal lead-qualify, mode "instant") — returns its JSON, or null if unreachable ----
@@ -163,7 +172,8 @@ function toPortalQuote(env, d) {
     body: JSON.stringify({
       name: d.name, email: d.email, company: d.org || null, phone: d.phone || null,
       role: d.role || null, streams: d.streams || null, volume: d.volume || null, message: d.message || null,
-      source: d.channel || "website", page_uri: d.pageUri || null, utm: { ...(d.utm || {}), channel: d.channel || null },
+      source: d.channel || "website", page_uri: d.pageUri || null,
+      utm: { ...(d.utm || {}), channel: d.channel || null, ...(d.screen ? { screen: d.screen } : {}) },
       sms_consent: d.smsConsent, sms_consent_at: d.smsConsent ? new Date().toISOString() : null, sms_consent_text: d.smsConsent ? SMS_CONSENT_TEXT : null,
     }),
   });
