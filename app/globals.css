@@ -1739,6 +1739,12 @@ header.site .wrap{position:relative;}
 .kit-tile-what{font-size:13px;color:var(--slate);line-height:1.35;}
 .kit-tile-from{margin-top:auto;padding-top:6px;font-weight:600;color:var(--teal,#005770);font-size:14px;}
 @media (max-width:560px){.kit-tiles-grid{grid-template-columns:repeat(2,1fr);gap:10px}.kit-tile{padding:9px}.kit-tile-what{display:none}}
+/* Pharmaceutical Waste service page chooser (ads plan W1): on phones each kit is one row that keeps what it takes,
+   so the three choices read at a glance. */
+.kit-pick-help{margin:14px 0 0;font-size:14px;color:var(--slate);}
+.kit-pick-help a{color:var(--teal);font-weight:600;}
+.kit-pick-help a[href^="tel:"]{white-space:nowrap;}
+@media (max-width:560px){.kit-pick .kit-tiles-grid{grid-template-columns:1fr}.kit-pick .kit-tile{display:grid;grid-template-columns:92px 1fr;column-gap:12px;row-gap:2px;align-content:center;padding:10px}.kit-pick .kit-tile-name{text-wrap:balance}.kit-pick .kit-tile img{grid-row:1/span 3;margin:0;align-self:center}.kit-pick .kit-tile-what{display:block}.kit-pick .kit-tile-from{padding-top:2px}}
 /* shop index: plain check line (not button-like badges), quick-pick kit tiles first */
 .shop-checks{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:16px 0 0;padding:0;font-size:14.5px;color:var(--ink);}
 .shop-checks li{display:inline-flex;align-items:center;gap:8px;}

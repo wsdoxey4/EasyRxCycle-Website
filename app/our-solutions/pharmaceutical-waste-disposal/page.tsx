@@ -8,6 +8,7 @@ import ExitIntentGuide from "@/components/ExitIntentGuide";
 import Reveal from "@/components/Reveal";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ServiceStates from "@/components/ServiceStates";
+import KitTiles from "@/components/KitTiles";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/our-solutions/pharmaceutical-waste-disposal";
@@ -60,6 +61,15 @@ export default function Page() {
             </div>
             </div>
             <div className="sol-hero-media"><img src="/images/products/pharmaceutical-kit.webp" alt="Easy Rx Cycle pharmaceutical waste mail-back kit" /></div>
+          </div>
+        </section>
+
+        {/* Ads plan W1 (2026-11-07): paid visitors land on this page (Google won't approve the kit page as an ad landing
+            page), so the three kits sit right under the hero. */}
+        <section className="sec" style={{ paddingTop: "clamp(24px,4vw,40px)", paddingBottom: "0" }}>
+          <div className="wrap kit-pick">
+            <KitTiles cats={["pharma", "hazardous", "controlled"]} cta="kit_solution" heading="Choose your kit" sub="Order online. Each kit ships with a prepaid return label and a Certificate of Destruction." />
+            <p className="kit-pick-help">Not sure if a drug is RCRA-hazardous? <a href="/drug-hazardous-lookup/">Check our P- and U-list lookup</a> or call <a href="tel:5019042929">501-904-2929</a>.</p>
           </div>
         </section>
 
