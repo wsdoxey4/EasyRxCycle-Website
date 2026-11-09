@@ -25,6 +25,17 @@ const EXACT = {
   "/categories/medical-waste-kits": "/shop/",
   "/categories/accessories": "/shop/",
   "/categories/dental-amalgam-waste": "/get-a-quote/",
+  // 2026-11-09: dead-URL audit (GSC impressions) + Google/Microsoft ad display paths
+  "/vetsnap-controlled-substance-kit": "/shop/controlled-substance-mail-back-kit/",
+  "/about": "/about-us/",
+  "/guides": "/resources/guides/",
+  "/medication": "/shop/medication-mail-back-kit/",
+  "/pharma": "/shop/pharmaceutical-waste-mail-back-kit/",
+  "/pharmaceutical": "/shop/pharmaceutical-waste-mail-back-kit/",
+  "/controlled": "/shop/controlled-substance-mail-back-kit/",
+  "/rcra": "/shop/rcra-hazardous-mail-back-kit/",
+  "/reverse": "/our-solutions/reverse-distribution/",
+  "/veterinary": "/who-we-serve/veterinary/",
 };
 const PREFIX = [
   ["/products/sharps-", "/shop/sharps-mail-back-kit/"],
