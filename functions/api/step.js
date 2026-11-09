@@ -30,6 +30,7 @@ export async function onRequestPost({ request, env }) {
       value: Number.isFinite(value) ? Math.round(value * 100) / 100 : null,
       page: cap(b.page, 300), landing: cap(b.landing, 300), referrer: cap(b.referrer, 300),
       channel: cap(b.channel, 40), source: cap(b.source), campaign: cap(b.campaign),
+      keyword: cap(b.keyword, 120), match_type: cap(b.match_type, 20), search_query: cap(b.search_query, 200),
       device: /iPad|Tablet/i.test(ua) ? "tablet" : /Mobi|Android|iPhone/i.test(ua) ? "mobile" : "desktop",
       city: cap(cf.city, 80), region: cap(cf.region, 80), country: cap(cf.country, 4), network,
       bot: reasons.length > 0, bot_reason: reasons.length ? reasons.join(", ") : null,

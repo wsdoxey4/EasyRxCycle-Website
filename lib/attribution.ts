@@ -61,7 +61,7 @@ export function captureAttribution(): void {
   try {
     const params = new URLSearchParams(window.location.search);
     const utm: Record<string, string> = {};
-    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "msclkid"].forEach((k) => {
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "msclkid", "ad_kw", "ad_mt", "ad_q"].forEach((k) => {
       const v = params.get(k); if (v) utm[k] = v;
     });
     const prev = localStorage.getItem(KEY);

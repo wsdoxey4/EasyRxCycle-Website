@@ -94,6 +94,9 @@ export function logStep(name: string, params: Params = {}) {
       sid: browserId(window.sessionStorage, "erx_step_sid"), vid: browserId(window.localStorage, "erx_step_vid"),
       page: window.location.pathname, landing: at.landing, referrer: name === "visit" ? document.referrer : undefined,
       channel: at.channel, source: at.source, campaign: at.utm?.utm_campaign,
+      // Paid search: the keyword that matched, its match type, and (Microsoft only) what the person typed.
+      // Set by each ad account's final URL suffix (ad_kw={keyword}&ad_mt={matchtype}[&ad_q={QueryString}]).
+      keyword: at.utm?.ad_kw, match_type: at.utm?.ad_mt, search_query: at.utm?.ad_q,
       wd: (navigator as Navigator & { webdriver?: boolean }).webdriver === true,
     });
     if (!navigator.sendBeacon?.("/api/step", new Blob([body], { type: "application/json" }))) {
