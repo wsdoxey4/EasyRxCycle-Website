@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import CheckoutV2 from "@/components/CheckoutV2";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
+import CustomCheckout from "@/components/CustomCheckout";
 
 export const metadata: Metadata = {
   title: "Secure Checkout — Easy Rx Cycle",
@@ -7,26 +10,26 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },   // transactional page — never index
 };
 
-// Slim page: logo + phone only (no site menu, signup form or footer to wander off through).
-// Rollback to the previous checkout: render components/CustomCheckout.tsx with <Header />/<Footer /> again (git 43232f9).
 export default function Page() {
   return (
     <>
-      <header className="co2-top">
-        <a href="/" aria-label="Easy Rx Cycle home"><img src="/images/logo-full.png" alt="Easy Rx Cycle" width={160} height={27} style={{ height: "auto", width: 150 }} /></a>
-        <a className="co2-top-call" href="tel:5019042929">Questions? 501-904-2929</a>
-      </header>
+      <Header />
       <main id="main">
-        <section className="sec co2-sec">
+        <section className="sec">
           <div className="wrap" style={{ maxWidth: "1040px" }}>
-            <h1 className="ph1 co2-h1">Secure checkout</h1>
-            <CheckoutV2 />
+            <span className="eyebrow">Secure checkout</span>
+            <h1 className="ph1" style={{ marginTop: "8px", marginBottom: "6px", fontSize: "clamp(24px,3vw,34px)" }}>
+              Complete your order
+            </h1>
+            <p className="lead" style={{ margin: "0 0 24px", color: "var(--muted)" }}>
+              Fast, secure, and handled entirely on easyrxcycle.com — a Certificate of Destruction comes with every order.
+            </p>
+            <CustomCheckout />
           </div>
         </section>
       </main>
-      <footer className="co2-foot">
-        <a href="/shop/">Back to the shop</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/shipping-policy/">Shipping</a> · <a href="/returns/">Returns</a>
-      </footer>
+      <Footer />
+      <Reveal />
     </>
   );
 }
