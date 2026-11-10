@@ -5,8 +5,6 @@
 //   checkout.session.completed                → one-time order (source='shop') or first auto-ship shipment (source='autoship')
 //   invoice.paid / invoice.payment_succeeded  → each auto-ship RENEWAL (billing_reason=subscription_cycle)
 //   customer.subscription.created/updated/deleted → keep the portal `subscriptions` row in sync
-//   metadata.source = 'quote' / 'quote_balance' → quote links (functions-lib/quote.js): checkout.session.completed,
-//     checkout.session.async_payment_succeeded/failed, payment_intent.succeeded/payment_failed
 // Orders split one-per-waste-stream; renewals link to their subscription via orders.subscription_ref.
 //
 // Env (set in the Cloudflare Pages project — NEVER in code or chat):
@@ -18,7 +16,6 @@
 // Idempotent per Stripe object id via orders.ext_ref; subscriptions upsert by stripe_sub_id.
 
 import PRICES from "../_prices.json";
-import { quoteSessionPaid, quoteSessionPending, quoteBalancePaid, quotePaymentFailed } from "../../functions-lib/quote.js";
 
 const STREAM_BY_PREFIX = {
   "ERX-SHP": "sharps", "ERX-BIO": "biohazard", "ERX-CHM": "trace-chemo",
@@ -75,8 +72,6 @@ export async function onRequestPost({ request, env }) {
   // ---- One-time order, or the first shipment of an auto-ship ----
   if (event.type === "checkout.session.completed") {
     const s = event.data.object || {};
-    // Quote links (functions/api/quote-pay.js) — own branch, never reaches the shop flow. ACH completes 'unpaid' and settles later.
-    if (s.metadata?.source === "quote") return s.payment_status === "paid" ? quoteSessionPaid(db, env, s) : quoteSessionPending(db, s);
     if (s.payment_status && s.payment_status !== "paid" && s.payment_status !== "no_payment_required") return new Response("unpaid", { status: 200 });
     // Paying an existing quote order via its payment link → mark it paid + stop reminders (don't create a new order).
     if (s.metadata?.order_id) {
@@ -100,19 +95,6 @@ export async function onRequestPost({ request, env }) {
     await orderToHubspot(env, { buyer, cart, expedite, totals: { total: s.amount_total }, orderRef: String(s.id || "").slice(-8).toUpperCase(), source, placedAtSec: s.created, kind: source === "autoship" ? "first-autoship" : "order" }).catch(() => {});
     if (s.total_details?.amount_discount > 0) await rewardReferrer(env, db, s, buyer).catch(() => {});
     return _resp;
-  }
-
-  // ---- Quote links only: bank (ACH) quote payments settling, and off-session balance charges from the portal.
-  // Every branch returns "ignored" unless metadata marks it as a quote, so shop / auto-ship events are untouched. ----
-  if (event.type === "checkout.session.async_payment_succeeded" || event.type === "checkout.session.async_payment_failed") {
-    const s = event.data.object || {};
-    if (s.metadata?.source !== "quote") return new Response("ignored", { status: 200 });
-    return event.type === "checkout.session.async_payment_succeeded" ? quoteSessionPaid(db, env, s) : quotePaymentFailed(db, env, s.metadata.quote_id, "deposit");
-  }
-  if (event.type === "payment_intent.succeeded" || event.type === "payment_intent.payment_failed") {
-    const pi = event.data.object || {};
-    if (pi.metadata?.source !== "quote_balance") return new Response("ignored", { status: 200 });
-    return event.type === "payment_intent.succeeded" ? quoteBalancePaid(db, env, pi) : quotePaymentFailed(db, env, pi.metadata.quote_id, "balance");
   }
 
   // ---- Abandoned checkout — session expired without payment. Record it (if we captured an email) so the
