@@ -36,7 +36,7 @@ export async function onRequestGet({ request, env }) {
   // Association affinity codes: reusable member discounts (not first-order-only).
   for (const [cid, pct, code, label] of AFFINITY_CODES) {
     const ac = await fetch("https://api.stripe.com/v1/coupons", { method: "POST", headers: sH, body: new URLSearchParams({ id: cid, percent_off: String(pct), duration: "once", name: label }).toString() });
-    out[cid] = ac.ok ? "created" : (await ac.json()).error?.code || "exists";
+    out[cid] = ac.ok ? "created" : JSON.stringify((await ac.json()).error).slice(0, 200);
     const ap = await fetch("https://api.stripe.com/v1/promotion_codes", { method: "POST", headers: sH, body: new URLSearchParams({ coupon: cid, code }).toString() });
     out[code] = ap.ok ? "created" : (await ap.json()).error?.message?.slice(0, 80) || "exists";
   }
