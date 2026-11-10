@@ -17,7 +17,7 @@ export const OUTBOUND_CODES = {
 };
 const EXPIRES = "2027-06-30";
 // [coupon id, % off, code, name] for association member programs (every order, no expiry).
-const AFFINITY_CODES = [["nsa-affinity-20", 20, "NSA20", "National Sheriffs' Association members 20% off"]];
+const AFFINITY_CODES = [["nsa-affinity-20", 20, "NSA20", "NSA members 20% off"]];
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
