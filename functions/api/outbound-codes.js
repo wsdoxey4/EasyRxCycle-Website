@@ -12,6 +12,7 @@ export const OUTBOUND_CODES = {
   "nursing-homes": "LTC10",
   asc: "ASC10",
   "home-health": "HOMEHEALTH10",
+  ncia: "NCIA10",
   default: "EASYRX10",
 };
 const EXPIRES = "2027-06-30";
