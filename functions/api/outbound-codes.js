@@ -16,6 +16,8 @@ export const OUTBOUND_CODES = {
   default: "EASYRX10",
 };
 const EXPIRES = "2027-06-30";
+// [coupon id, % off, code, name] for association member programs (every order, no expiry).
+const AFFINITY_CODES = [["nsa-affinity-20", 20, "NSA20", "National Sheriffs' Association members 20% off"]];
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
@@ -30,6 +32,13 @@ export async function onRequestGet({ request, env }) {
     const pf = new URLSearchParams({ coupon: COUPON_ID, code, "restrictions[first_time_transaction]": "true", expires_at: String(Math.floor(new Date(EXPIRES + "T23:59:59Z").getTime() / 1000)) });
     const pr = await fetch("https://api.stripe.com/v1/promotion_codes", { method: "POST", headers: sH, body: pf.toString() });
     out[code] = pr.ok ? "created" : (await pr.json()).error?.message?.slice(0, 80) || "exists";
+  }
+  // Association affinity codes: reusable member discounts (not first-order-only).
+  for (const [cid, pct, code, label] of AFFINITY_CODES) {
+    const ac = await fetch("https://api.stripe.com/v1/coupons", { method: "POST", headers: sH, body: new URLSearchParams({ id: cid, percent_off: String(pct), duration: "once", name: label }).toString() });
+    out[cid] = ac.ok ? "created" : (await ac.json()).error?.code || "exists";
+    const ap = await fetch("https://api.stripe.com/v1/promotion_codes", { method: "POST", headers: sH, body: new URLSearchParams({ coupon: cid, code }).toString() });
+    out[code] = ap.ok ? "created" : (await ap.json()).error?.message?.slice(0, 80) || "exists";
   }
   return json({ ok: true, result: out });
 }
