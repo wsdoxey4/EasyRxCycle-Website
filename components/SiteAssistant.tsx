@@ -33,7 +33,7 @@ const VID_KEY = "erx_asst_vid";
 const PREVIEW_KEY = "erx_asst_preview";
 const CHATTED_KEY = "erx_asst_chatted";
 const CAPTURED_KEY = "erx_asst_captured"; // localStorage: we already have their email, never ask again
-const MAX_ASKS = 2;                       // the email card shows after answer 1, once more after answer 2, then never
+const MAX_ASKS = 0;                       // email card under answers: OFF (William 11-10, it sat under Buy now)
 
 // GA4 user properties: tag the visitor's test group (and whether they chatted) so every later visit and purchase can be
 // split by group in the Monday report. Same queue gtag() uses, so it works before gtag.js has loaded.
