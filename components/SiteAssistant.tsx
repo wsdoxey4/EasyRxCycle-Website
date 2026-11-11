@@ -23,9 +23,9 @@ const BLOCKED = [/^\/checkout/, /^\/order/, /^\/quote\//, /^\/portal/];
 
 type Kit = { sku: string; name: string; size: string; url: string; image: string | null; cents: number; autoship_cents: number; best_for: string | null };
 type Msg = { role: "user" | "assistant"; text: string; kits?: Kit[] };
-// card = index of the assistant message the email card sits under (null = not showing); asks = times shown this visit;
-// done = we have their email (typed in the card or given to the bot) or they went to buy, so never ask again.
-type State = { chatId: string | null; msgs: Msg[]; open: boolean; card?: number | null; asks?: number; done?: boolean };
+// closeAsk = the one-time "want us to follow up?" prompt is showing (they tried to close the chat without buying);
+// askedClose = it was already shown this visit; done = we have their email or they went to buy, so never ask.
+type State = { chatId: string | null; msgs: Msg[]; open: boolean; closeAsk?: boolean; askedClose?: boolean; done?: boolean };
 
 const S_KEY = "erx_asst_v1";      // sessionStorage: this visit's chat, so it follows the visitor from page to page
 const ARM_KEY = "erx_asst_arm";   // localStorage: the visitor's test arm, kept across visits
@@ -33,7 +33,6 @@ const VID_KEY = "erx_asst_vid";
 const PREVIEW_KEY = "erx_asst_preview";
 const CHATTED_KEY = "erx_asst_chatted";
 const CAPTURED_KEY = "erx_asst_captured"; // localStorage: we already have their email, never ask again
-const MAX_ASKS = 0;                       // email card under answers: OFF (William 11-10, it sat under Buy now)
 
 // GA4 user properties: tag the visitor's test group (and whether they chatted) so every later visit and purchase can be
 // split by group in the Monday report. Same queue gtag() uses, so it works before gtag.js has loaded.
@@ -109,12 +108,7 @@ export default function SiteAssistant() {
   useEffect(() => { if (eligible && arm === "on") write(window.sessionStorage, S_KEY, st); }, [st, eligible, arm]);
   useEffect(() => { endRef.current?.scrollIntoView({ block: "end" }); }, [st.msgs, busy, st.open]);
   useEffect(() => { if (st.open) inputRef.current?.focus(); }, [st.open]);
-  // Log each email-card showing once (outside the state update, which React may run twice).
-  const loggedAsk = useRef(0);
-  useEffect(() => {
-    if (st.card != null && (st.asks || 0) > loggedAsk.current) { loggedAsk.current = st.asks || 0; logEvent("email_card_shown", { ask: st.asks }); }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [st.card, st.asks]);
+
 
   // One timed opener per visit (no pop-up on load, no exit intent).
   useEffect(() => {
@@ -192,14 +186,15 @@ export default function SiteAssistant() {
     try {
       const attr = getAttribution();
       const r = await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({
-        type: "capture", email, phone, chat_id: st.chatId, visitor_id: vid.current, arm: preview ? "preview" : arm, page: path, preview, ...stepIds(),
+        type: "capture", via: "close", email, phone, chat_id: st.chatId, visitor_id: vid.current, arm: preview ? "preview" : arm, page: path, preview, ...stepIds(),
         page_url: window.location.href, channel: attr.channel, utm: { ...attr.utm, channel: attr.channel, referrer: attr.referrer, landing: attr.landing },
       }) });
       const j = await r.json().catch(() => ({ ok: false }));
       if (!j.ok) throw new Error("capture");
       markDone();
       trackEvent("assistant_email", { assistant_arm: arm });
-      setSt((s) => ({ ...s, done: true, card: null, msgs: [...s.msgs, { role: "assistant", text: `Thanks! We'll follow up at ${email}. Ask me anything else here.` }] }));
+      setSt((s) => ({ ...s, done: true, closeAsk: false, open: false }));
+      logEvent("close");
       setCapEmail(""); setCapPhone("");
     } catch {
       setCapErr("That didn't go through. Please try again, or call 501-904-2929.");
@@ -208,9 +203,21 @@ export default function SiteAssistant() {
     }
   }
 
-  function skipCard() {
-    logEvent("email_skipped", { ask: st.asks || 1 });
-    setSt((s) => ({ ...s, card: null }));
+  // Closing the chat: if they asked something, haven't bought and we don't have their email, ask once (per visit)
+  // whether they'd like a follow-up. Never shown next to kit cards or mid-conversation (William 11-10).
+  function closeChat() {
+    const askedSomething = st.msgs.some((m) => m.role === "user");
+    if (askedSomething && !st.done && !st.askedClose && !captured() && !busy) {
+      setSt((s) => ({ ...s, closeAsk: true, askedClose: true }));
+      logEvent("close_prompt_shown");
+      return;
+    }
+    setSt((s) => ({ ...s, open: false, closeAsk: false }));
+    logEvent("close");
+  }
+  function noThanks() {
+    logEvent("close_prompt_no");
+    setSt((s) => ({ ...s, open: false, closeAsk: false }));
   }
 
   async function send(text?: string) {
@@ -226,14 +233,9 @@ export default function SiteAssistant() {
       const r = await fetch(API, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ message: msg, chat_id: st.chatId, visitor_id: vid.current, arm: preview ? "preview" : arm, page: path, preview, ...stepIds() }) });
       const j = await r.json();
       if (j.disabled) throw new Error("disabled");
-      if (j.lead) markDone();
-      setSt((s) => {
-        const msgs: Msg[] = [...s.msgs, { role: "assistant", text: j.reply || "", kits: j.kits?.length ? j.kits : undefined }];
-        const done = s.done || !!j.lead || captured();
-        // Ask for an email under this answer: never before an answer, never once we have it, at most twice a visit.
-        const ask = !done && !j.paused && (s.asks || 0) < MAX_ASKS && s.card == null;
-        return { ...s, chatId: j.chat_id || s.chatId, msgs, done, card: ask ? msgs.length - 1 : s.card, asks: ask ? (s.asks || 0) + 1 : s.asks };
-      });
+      // The bot itself saved their email (bulk quote, or they asked us to follow up): never ask again.
+      if (j.lead || j.followup) markDone();
+      setSt((s) => ({ ...s, chatId: j.chat_id || s.chatId, done: s.done || !!j.lead || !!j.followup, msgs: [...s.msgs, { role: "assistant", text: j.reply || "", kits: j.kits?.length ? j.kits : undefined }] }));
       if (j.lead) sendLead(j.lead);
     } catch {
       setSt((s) => ({ ...s, msgs: [...s.msgs, { role: "assistant", text: "Sorry, I can't answer right now. Our team can help at 501-904-2929 (Mon-Fri 8am-5pm Central) or sales@easyrxcycle.com." }] }));
@@ -254,7 +256,7 @@ export default function SiteAssistant() {
     trackEvent("add_to_cart", { currency: "USD", value: k.cents / 100, items: [{ item_id: k.sku, item_name: k.name, quantity: 1 }] });
     trackEvent("assistant_buy_now", { assistant_arm: arm, item_id: k.sku, value: k.cents / 100, currency: "USD" });
     logEvent("checkout_click", { sku: k.sku });
-    write(window.sessionStorage, S_KEY, { ...st, open: false, card: null, done: true });
+    write(window.sessionStorage, S_KEY, { ...st, open: false, closeAsk: false, done: true });
     window.location.href = "/checkout/";
   }
 
@@ -263,7 +265,7 @@ export default function SiteAssistant() {
     trackEvent(name, { assistant_arm: arm, item_id: k.sku, value: k.cents / 100, currency: "USD" });
     logEvent(kind === "add" ? "add_to_cart" : "kit_click", { sku: k.sku });
     // The shop opens its cart drawer after adding; close the chat so the two don't stack.
-    if (kind === "add") write(window.sessionStorage, S_KEY, { ...st, open: false, card: null, done: true });
+    if (kind === "add") write(window.sessionStorage, S_KEY, { ...st, open: false, closeAsk: false, done: true });
   }
 
   const starters = /^\/shop\/.+/.test(path)
@@ -293,7 +295,7 @@ export default function SiteAssistant() {
               <strong>Easy Rx Cycle assistant</strong>
               <span>AI assistant. A person is a call away: <a href="tel:+15019042929">501-904-2929</a></span>
             </div>
-            <button className="asst-x" aria-label="Close assistant" onClick={() => { setSt((s) => ({ ...s, open: false })); logEvent("close"); }}>×</button>
+            <button className="asst-x" aria-label="Close assistant" onClick={closeChat}>×</button>
           </header>
           <div className="asst-body">
             {!st.msgs.length && (
@@ -323,24 +325,23 @@ export default function SiteAssistant() {
                     ))}
                   </div>
                 )}
-                {st.card === i && !st.done && (
-                  <form className="asst-capture" onSubmit={capture}>
-                    <strong>So we don&apos;t lose this, what&apos;s the best email to reach you?</strong>
-                    <input type="email" required autoComplete="email" placeholder="you@yourpractice.com" value={capEmail} onChange={(e) => setCapEmail(e.target.value)} aria-label="Email" />
-                    <input type="tel" autoComplete="tel" placeholder="Phone (optional)" value={capPhone} onChange={(e) => setCapPhone(e.target.value)} aria-label="Phone (optional)" />
-                    {capErr && <span className="asst-capture-err" role="alert">{capErr}</span>}
-                    <div className="asst-capture-actions">
-                      <button type="submit" disabled={capBusy}>{capBusy ? "Sending…" : "Send"}</button>
-                      <button type="button" className="asst-skip" onClick={skipCard}>Skip</button>
-                    </div>
-                    <span className="asst-capture-fine">We&apos;ll only email about your disposal needs. Unsubscribe anytime.</span>
-                  </form>
-                )}
               </div>
             ))}
             {busy && <div className="asst-msg asst-assistant asst-typing" aria-label="Assistant is typing"><span /><span /><span /></div>}
             <div ref={endRef} />
           </div>
+          {st.closeAsk ? (
+            <form className="asst-capture asst-close-ask" onSubmit={capture}>
+              <strong>Before you go, want us to follow up by email?</strong>
+              <input type="email" required autoComplete="email" placeholder="you@yourpractice.com" value={capEmail} onChange={(e) => setCapEmail(e.target.value)} aria-label="Email" autoFocus />
+              {capErr && <span className="asst-capture-err" role="alert">{capErr}</span>}
+              <div className="asst-capture-actions">
+                <button type="submit" disabled={capBusy}>{capBusy ? "Sending…" : "Yes, follow up"}</button>
+                <button type="button" className="asst-skip" onClick={noThanks}>No thanks</button>
+              </div>
+              <span className="asst-capture-fine">We&apos;ll only email about your disposal needs. Unsubscribe anytime.</span>
+            </form>
+          ) : (
           <form className="asst-input" onSubmit={(e) => { e.preventDefault(); send(); }}>
             <textarea
               ref={inputRef} rows={1} maxLength={1000} value={draft} placeholder="Type your question…"
@@ -349,6 +350,7 @@ export default function SiteAssistant() {
             />
             <button type="submit" disabled={busy || !draft.trim()}>Send</button>
           </form>
+          )}
           <p className="asst-fine">Please don't share card numbers, DEA numbers or patient information here.</p>
         </section>
       )}
