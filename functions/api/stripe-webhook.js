@@ -89,6 +89,7 @@ export async function onRequestPost({ request, env }) {
     const m = s.metadata || {};
     const attribution = { channel: m.attr_channel || null, source: m.attr_src || null, campaign: m.attr_campaign || null, icp: m.attr_icp || null, gclid: m.attr_gclid || null, gbraid: m.attr_gbraid || null, wbraid: m.attr_wbraid || null, msclkid: m.attr_msclkid || null,
       partner: m.attr_partner || null, first: m.attr_first_channel ? { channel: m.attr_first_channel, source: m.attr_first_src || null, campaign: m.attr_first_campaign || null, landing: m.attr_first_landing || null, at: m.attr_first_at || null } : null };
+    attribution.promo = await promoCodeOf(env, s).catch(() => null);   // the code Stripe actually applied (D8) → orders.promo_code
     const expedite = await expediteCount(env, s, cart).catch(() => expediteFromGap(cart, s.amount_subtotal));
     const _resp = await ingest(db, { extRef: s.id, cart, expedite, buyer, placedAt: tsIso(s.created), source, subscriptionRef: s.subscription || null, paymentRef, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, total: s.amount_total }, attribution });
     await orderEmails(env, { buyer, cart, expedite, totals: { subtotal: s.amount_subtotal, tax: s.total_details?.amount_tax, shipping: (s.total_details?.amount_shipping ?? s.shipping_cost?.amount_total), total: s.amount_total }, kind: source === "autoship" ? "first-autoship" : "order", orderRef: String(s.id || "").slice(-8).toUpperCase(), subId: s.subscription || null }).catch(() => {});
@@ -223,6 +224,15 @@ async function resolveClientSite(db, buyer, createIfMissing = true, attribution 
 
 // Insert orders (split by stream × on-site/mail-back) + order_items for a paid cart,
 // inheriting partner attribution + a contract-pricing review flag from the matched client.
+// The promotion code on a paid session (e.g. LTC10), so every order shows which code it used. Falls back to the code a
+// /go/ cart link sent at checkout (metadata.attr_promo) only when Stripe applied a discount but its code can't be read.
+async function promoCodeOf(env, s) {
+  if (!(s.total_details?.amount_discount > 0)) return null;
+  const full = await stripeGet(`checkout/sessions/${s.id}?expand[]=total_details.breakdown.discounts.discount.promotion_code`, env.STRIPE_SECRET_KEY);
+  const codes = (full?.total_details?.breakdown?.discounts || []).map((d) => d.discount?.promotion_code?.code).filter(Boolean);
+  return codes.length ? codes.join(",").slice(0, 80) : (s.metadata?.attr_promo || null);
+}
+
 async function ingest(db, { extRef, cart, expedite, buyer, placedAt, source, subscriptionRef, paymentRef, totals, attribution }) {
   const already = await db(`orders?ext_ref=eq.${encodeURIComponent(extRef)}&select=id`).then((r) => r.json()).catch(() => []);
   if (Array.isArray(already) && already.length) return new Response("already processed", { status: 200 });
@@ -254,7 +264,7 @@ async function ingest(db, { extRef, cart, expedite, buyer, placedAt, source, sub
         amount_cents: amount, placed_at: placedAt, ext_ref: extRef, subscription_ref: subscriptionRef, payment_ref: paymentRef || null,
         partner_id: partnerId, commission_cents: Math.round(amount * commissionPct / 100), price_review: priceReview, onsite: kind === "on",
         attr_channel: attribution?.channel || null, attr_campaign: attribution?.campaign || null, attr_icp: attribution?.icp || null, attr_gclid: attribution?.gclid || null,
-        attr_gbraid: attribution?.gbraid || null, attr_wbraid: attribution?.wbraid || null, attr_msclkid: attribution?.msclkid || null, ...touchCols(attribution) }),
+        attr_gbraid: attribution?.gbraid || null, attr_wbraid: attribution?.wbraid || null, attr_msclkid: attribution?.msclkid || null, promo_code: attribution?.promo || null, ...touchCols(attribution) }),
     }).then((r) => r.json()).catch(() => null);
     const orderId = Array.isArray(ord) ? ord[0]?.id : ord?.id;
     if (!orderId) continue;

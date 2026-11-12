@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { STRIPE_PK } from "@/lib/site";
 import { BY_SKU, autoshipCents, INTERVALS, EXPEDITE_CENTS, canExpedite } from "@/lib/shop";
 import { getAttribution } from "@/lib/attribution";
+import { readPromo, savePromo, clearPromo } from "@/lib/startCarts";
 
 const STORE_KEY = "erx_cart_v2";
 type Line = { sku: string; qty: number; interval?: string | null; expedite?: boolean };
@@ -54,6 +55,7 @@ export default function CustomCheckout() {
   const payEl = useRef<any>(null);
   const reinitSeq = useRef(0);         // guards against out-of-order re-inits
   const exemptRef = useRef("");        // tax-exempt account email, sent to /api/checkout
+  const promoRef = useRef("");         // applied promo code — re-applied after every session rebuild (D8)
   const qtyTimer = useRef<any>(null);
   const [state, setState] = useState<"loading" | "ready" | "empty" | "error">("loading");
   const [busy, setBusy] = useState(false);   // re-initializing session
@@ -80,6 +82,7 @@ export default function CustomCheckout() {
       if (!cart.length) { setState("empty"); return; }
       if (!STRIPE_PK) { setErr("Checkout isn’t configured yet. Please call 501-904-2929."); setState("error"); return; }
       setLines(cart);
+      promoRef.current = readPromo();   // code from a /go/ cart link (or applied earlier)
       try {
         stripeRef.current = (await loadStripeJs())(STRIPE_PK);
         await initSession(cart);
@@ -93,7 +96,7 @@ export default function CustomCheckout() {
   async function initSession(cartItems: Line[]) {
     const stripe = stripeRef.current;
     const seq = ++reinitSeq.current;
-    const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cartItems, ui: "custom", exemptEmail: exemptRef.current, attribution: getAttribution() }) });
+    const r = await fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items: cartItems, ui: "custom", exemptEmail: exemptRef.current, promo: promoRef.current, attribution: getAttribution() }) });
     const j = await r.json();
     if (seq !== reinitSeq.current) return;              // a newer re-init superseded this one
     if (!j.ok || !j.clientSecret) throw new Error(j.error || "init failed");
@@ -111,6 +114,14 @@ export default function CustomCheckout() {
     const pe = checkout.createPaymentElement(); pe.mount("#co-payment"); payEl.current = pe;
     if (email) { try { await checkout.updateEmail(email); } catch {} }
     if (phone) { const p = normPhone(phone); if (p.replace(/\D/g, "").length >= 10) { try { await checkout.updatePhoneNumber(p); } catch {} } }
+    if (promoRef.current) {
+      try {
+        const res = await checkout.applyPromotionCode(promoRef.current);
+        if (res?.error) { setPromoMsg(res.error.message); promoRef.current = ""; clearPromo(); }
+        else setPromoMsg(`Code ${promoRef.current} applied.`);
+      } catch { promoRef.current = ""; }
+      sync();
+    }
   }
 
   function sync() {
@@ -159,7 +170,7 @@ export default function CustomCheckout() {
   async function applyPromo() {
     const c = co.current; if (!c || !promo.trim()) return;
     setPromoMsg("");
-    try { const res = await c.applyPromotionCode(promo.trim()); if (res?.error) setPromoMsg(res.error.message); else { setPromoMsg("Code applied."); setPromo(""); } sync(); } catch { setPromoMsg("Couldn’t apply that code."); }
+    try { const res = await c.applyPromotionCode(promo.trim()); if (res?.error) setPromoMsg(res.error.message); else { promoRef.current = promo.trim().toUpperCase(); savePromo(promoRef.current); setPromoMsg("Code applied."); setPromo(""); } sync(); } catch { setPromoMsg("Couldn’t apply that code."); }
   }
   async function applyExempt() {
     const em = exemptEmail.trim().toLowerCase();

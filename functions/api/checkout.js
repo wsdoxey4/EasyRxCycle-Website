@@ -135,6 +135,7 @@ async function handlePost({ request, env }) {
     const put = (k, v) => { const s = String(v == null ? "" : v).slice(0, 400); if (s) { f.set(`metadata[${k}]`, s); if (subscription) f.set(`subscription_data[metadata][${k}]`, s); } };
     put("attr_channel", a.channel);
     put("attr_src", a.source);
+    put("attr_promo", String(body.promo || "").toUpperCase().replace(/[^A-Z0-9_-]/g, "").slice(0, 40)); // code from a /go/ cart link (D8); the webhook prefers the code Stripe actually applied
     if (a.utm && typeof a.utm === "object") {
       put("attr_campaign", a.utm.utm_campaign);
       put("attr_icp", a.utm.utm_term);
