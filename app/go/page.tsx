@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import GoCart from "@/components/GoCart";
 
 export const metadata: Metadata = {
-  title: "Opening your cart — Easy Rx Cycle",
+  title: "Opening your cart",
   robots: { index: false, follow: false },   // link-only redirect page — never index
 };
 
