@@ -65,7 +65,7 @@ function render(q, client, prep, url) {
   if (q.status === "paid") status = banner("ok", "Paid in full. Thank you.", `We received your payment${q.paid_at ? ` on ${esc(fmtDate(q.paid_at))}` : ""}. A receipt is on its way to your email, and we'll be in touch to schedule your shipment.`);
   else if (q.status === "deposit_paid") status = banner("ok", "Deposit received. Thank you.", "Your 50% deposit is in. The balance is billed to the same payment method when your job is complete, and we'll email you before we charge it.");
   else if (q.status === "invoiced") status = banner("ok", "Invoice requested.", `We'll email your invoice${q.ap_email ? ` to ${esc(q.ap_email)}` : ""}${q.po_number ? ` referencing PO ${esc(q.po_number)}` : ""}, payable Net 30.`);
-  else if (url.searchParams.get("paid") === "1") status = banner("ok", "Thank you. Your payment is processing.", "You'll get a confirmation by email.");
+  else if (url.searchParams.get("paid") === "1") status = banner("ok", "Thank you. Your payment is processing.", "You'll get a confirmation by email. Bank (ACH) payments can take a few business days to clear.");
   else if (expired) status = banner("warn", "This quote has expired.", `It was valid through ${esc(fmtDate(q.valid_until))}. Call 501-904-2929 or reply to the email you received, and we'll send an updated quote.`);
   if (done === "invoice" && q.status !== "invoiced") status = banner("ok", "Invoice requested.", "We'll email your invoice shortly.");
   if (err) status += banner("warn", "That didn't go through.", esc(err.slice(0, 200)) + " You can try again, or call 501-904-2929.");
@@ -75,9 +75,9 @@ function render(q, client, prep, url) {
   if (payable) {
     const btns = [];
     if (opts.includes("full")) btns.push(`<form method="post" action="/api/quote-pay"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="option" value="full">
-      <button class="btn primary" type="submit">Pay in full &middot; ${money(subtotal)}</button><div class="hint">Card${exempt ? "" : ", plus tax where applicable"}</div></form>`);
+      <button class="btn primary" type="submit">Pay in full &middot; ${money(subtotal)}</button><div class="hint">Card or bank transfer (ACH)${exempt ? "" : ", plus tax where applicable"}</div></form>`);
     if (opts.includes("deposit")) btns.push(`<form method="post" action="/api/quote-pay"><input type="hidden" name="slug" value="${esc(slug)}"><input type="hidden" name="option" value="deposit">
-      <button class="btn ${opts.includes("full") ? "ghost" : "primary"}" type="submit">Pay 50% deposit &middot; ${money(depositCents(subtotal))}</button><div class="hint">Your card is saved securely with Stripe, and the balance is charged when the job is complete.</div></form>`);
+      <button class="btn ${opts.includes("full") ? "ghost" : "primary"}" type="submit">Pay 50% deposit &middot; ${money(depositCents(subtotal))}</button><div class="hint">Your card or bank account is saved securely with Stripe, and the balance is charged when the job is complete.</div></form>`);
     if (opts.includes("invoice")) btns.push(`<details class="inv"${opts.length === 1 ? " open" : ""}><summary class="btn ghost">Pay by invoice / PO (Net 30)</summary>
       <form method="post" action="/api/quote-invoice" class="invform"><input type="hidden" name="slug" value="${esc(slug)}">
         <label>PO number <span class="muted">(optional)</span><input name="po" maxlength="60" autocomplete="off"></label>
@@ -89,7 +89,7 @@ function render(q, client, prep, url) {
   }
 
   const included = (Array.isArray(q.included) && q.included.length ? q.included : DEFAULT_INCLUDED).map((t) => `<li>${esc(t)}</li>`).join("");
-  const terms = q.terms || `Final billing is based on the actual weight and items received. Shipping is billed at cost, and sales tax is added where applicable. Payment by card or invoice. This quote is valid through ${fmtDate(q.valid_until)}.`;
+  const terms = q.terms || `Final billing is based on the actual weight and items received. Shipping is billed at cost, and sales tax is added where applicable. Payment by card, ACH or invoice. This quote is valid through ${fmtDate(q.valid_until)}.`;
 
   return `${status}
   <div class="card">
