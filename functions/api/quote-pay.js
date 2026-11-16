@@ -3,7 +3,7 @@
 //   full    → every quote line, tax via STRIPE_TAX_RATE_ID unless the client is tax-exempt (same rule as checkout.js)
 //   deposit → one line for ceil(subtotal / 2), with a Stripe customer + setup_future_usage=off_session so the portal
 //             can charge the balance later (quote-charge-balance edge function).
-// Payment methods: card only.
+// Payment methods: card + US bank account (ACH), falling back to card-only if ACH isn't activated on the account.
 // metadata.source = "quote" + quote_id + option → handled by functions/api/quote-webhook.js (its own Stripe endpoint). No metadata.cart / order_id,
 // so none of the shop branches ever see these sessions.
 // Env: STRIPE_SECRET_KEY, PORTAL_SUPABASE_SERVICE_KEY (both already set for checkout/webhook), STRIPE_TAX_RATE_ID (optional).
@@ -79,8 +79,10 @@ export async function onRequestPost({ request, env }) {
         body: g.toString(),
       }).then(async (r) => ({ ok: r.ok, j: await r.json().catch(() => ({})) }));
     };
-    // Card only (William, 11-04: "DO NOT BREAK ANYTHING"). ACH waits until the shop has async-payment handling.
-    const res = await start(["card"]);
+    // Card + bank transfer (ACH) on quotes (William, 2026-11-15). Named explicitly, so the shop's own checkout methods
+    // never change. Falls back to card-only if ACH isn't activated on the Stripe account.
+    let res = await start(["card", "us_bank_account"]);
+    if (!res.ok) res = await start(["card"]);
     if (!res.ok || !res.j.url) return back("Checkout couldn't start.");
     return Response.redirect(res.j.url, 303);
   } catch {
