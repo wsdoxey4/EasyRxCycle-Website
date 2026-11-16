@@ -826,7 +826,7 @@ export const GUIDE_BODIES: Record<string, { h: string; p: string }[]> = {
     },
     {
       "h": "Kits That Follow Your Clinicians",
-      "p": "The practical fix for distributed care is equipping the clinician, not the building. Prepaid, DOT-compliant mail-back sharps and RMW kits go house to house, so a clinician fills, seals, and ships from anywhere on the route rather than transporting waste back to an office. Insulin pens and needles, injection syringes, and lancets go in the sharps kit; blood-soaked dressings and contaminated PPE go in the biohazard kit; expired and discontinued non-controlled patient meds route through a medication kit. Keep controlled substances and any RCRA-hazardous drugs in their own paths. Because there's no central pickup, mail-back isn't a compromise for home health — it's the natural fit, and it keeps disposal at the point of care instead of accumulating in a vehicle or a patient's home."
+      "p": "The practical fix for distributed care is equipping the clinician, not the building. Prepaid, DOT-compliant mail-back sharps and RMW kits go house to house, so a clinician fills, seals, and ships from anywhere on the route rather than transporting waste back to an office. Insulin pens and needles, injection syringes, and lancets go in the sharps kit; blood-soaked dressings and contaminated PPE go in the biohazard kit; expired and discontinued non-controlled patient meds route through the pharmaceutical waste kit. Keep controlled substances and any RCRA-hazardous drugs in their own paths. Because there's no central pickup, mail-back isn't a compromise for home health — it's the natural fit, and it keeps disposal at the point of care instead of accumulating in a vehicle or a patient's home."
     },
     {
       "h": "Documentation Across a Distributed Caseload",
@@ -834,7 +834,7 @@ export const GUIDE_BODIES: Record<string, { h: string; p: string }[]> = {
     },
     {
       "h": "One Vendor Built for In-Home Care",
-      "p": "Easy Rx Cycle supplies prepaid, DOT-compliant mail-back sharps, biohazard, and medication kits that travel with your clinicians, plus on-site deactivation and mail-back for patient controls as a DEA-registered company — every order closed out with a Certificate of Destruction, and no contract or minimum, so you buy kits as your caseload requires. Consolidating sharps, biohazard, non-controlled medications, and controls under one vendor means one documentation trail instead of stitching together separate services for a workforce that's rarely in the same place twice. Map your visit types to a home health checklist so every clinician carries the right kit before the first stop, and disposal stays at the point of care from the first house to the last."
+      "p": "Easy Rx Cycle supplies prepaid, DOT-compliant mail-back sharps, biohazard, and pharmaceutical waste kits that travel with your clinicians, plus mail-back for patient controls as a DEA-registered company — every order closed out with a Certificate of Destruction, and no contract or minimum, so you buy kits as your caseload requires. Consolidating sharps, biohazard, non-controlled medications, and controls under one vendor means one documentation trail instead of stitching together separate services for a workforce that's rarely in the same place twice. Map your visit types to a home health checklist so every clinician carries the right kit before the first stop, and disposal stays at the point of care from the first house to the last."
     }
   ],
   "group-home-waste-disposal-guide": [
@@ -1592,7 +1592,7 @@ export const GUIDE_BODIES: Record<string, { h: string; p: string }[]> = {
     },
     {
       "h": "What Is on the Easy Rx Cycle Line Card",
-      "p": "The card lays out our full offering across all eight regulated streams — sharps, biohazard/regulated medical waste, non-controlled pharmaceutical waste, controlled substance destruction, RCRA-hazardous pharmaceutical waste, trace chemotherapy waste, medication mail-back kits, and reverse distribution — alongside the formats we deliver them in: prepaid mail-back kits, scheduled pickup, and on-site programs. Because we are DEA-registered, controlled substances are handled in-house to non-retrievable destruction with the documentation a registrant needs, rather than referred out."
+      "p": "The card lays out our full offering across all seven regulated streams — sharps, biohazard/regulated medical waste, non-controlled pharmaceutical waste, controlled substance destruction, RCRA-hazardous pharmaceutical waste, trace chemotherapy waste, and reverse distribution — alongside the formats we deliver them in: prepaid mail-back kits, scheduled pickup, and on-site programs. Because we are DEA-registered, controlled substances are handled in-house to non-retrievable destruction with the documentation a registrant needs, rather than referred out."
     },
     {
       "h": "Who Uses It and How",

@@ -760,3 +760,17 @@
 /resources/state-disposal-guidance-review-2026/) /resources/state-disposal-guidance-review-2026/ 301
 /resources/dea-form-41-222 /blog/dea-form-41-requirements-and-pdf/ 301
 /resources/dea-form-41-222/ /blog/dea-form-41-requirements-and-pdf/ 301
+# --- medication kits hidden 11-16 (William): delete this block to restore (with HIDDEN_CATEGORIES in lib/shop.ts) ---
+/shop/medication-mail-back-kit /shop/pharmaceutical-waste-mail-back-kit/ 301
+/shop/medication-mail-back-kit/ /shop/pharmaceutical-waste-mail-back-kit/ 301
+/shop/on-site-medication-disposal-kit /shop/pharmaceutical-waste-mail-back-kit/ 301
+/shop/on-site-medication-disposal-kit/ /shop/pharmaceutical-waste-mail-back-kit/ 301
+/our-solutions/medication-disposal-kit /our-solutions/pharmaceutical-waste-disposal/ 301
+/our-solutions/medication-disposal-kit/* /our-solutions/pharmaceutical-waste-disposal/:splat 301
+/resources/medication-mail-back-kit-guide /resources/pharmaceutical-waste-disposal-guide/ 301
+/resources/medication-mail-back-kit-guide/ /resources/pharmaceutical-waste-disposal-guide/ 301
+/partners/training/medkits /partners/training/ 301
+/partners/training/medkits/ /partners/training/ 301
+/downloads/guides/sol-medication-disposal-kit.pdf /downloads/guides/sol-pharmaceutical-waste-disposal.pdf 301
+/downloads/cobrand/cobrand-medication.pdf /downloads/cobrand/cobrand-pharmaceutical.pdf 301
+# --- end medication kits hidden ---

@@ -52,7 +52,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("A medication take-back program is one of the highest-trust, lowest-cost services a pharmacy can offer &mdash; and it keeps patients coming back to your counter. Here&rsquo;s how to set one up, what the DEA allows, and why it&rsquo;s worth doing.")} />
 
-              <KitCTA cat="medication" />
+              <KitCTA cat="pharma" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -65,7 +65,7 @@ export default function Page() {
                 </div>
 
                 <h2 id="options" dangerouslySetInnerHTML={H("Your options: mail-back kits vs. kiosks")} />
-                <p dangerouslySetInnerHTML={H("Two main models: <strong>mail-back kits and envelopes</strong> that patients fill and mail for destruction, and an on-site <strong>collection receptacle (kiosk)</strong>. Mail-back is the simplest to start &mdash; stock the kits, patients do the rest &mdash; while a kiosk is a bigger commitment with more foot-traffic benefit. Many pharmacies offer both. Our <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kits</a> cover the mail-back side.")} />
+                <p dangerouslySetInnerHTML={H("Two main models: <strong>mail-back kits and envelopes</strong> that patients fill and mail for destruction, and an on-site <strong>collection receptacle (kiosk)</strong>. Mail-back is the simplest to start &mdash; stock the kits, patients do the rest &mdash; while a kiosk is a bigger commitment with more foot-traffic benefit. Many pharmacies offer both.")} />
 
                 <h2 id="dea" dangerouslySetInnerHTML={H("What the DEA allows")} />
                 <p dangerouslySetInnerHTML={H("The DEA take-back framework (21 CFR 1317) lets patients dispose of unused medications &mdash; <strong>including controlled substances</strong> &mdash; through authorized mail-back packages and collection receptacles, rendered non-retrievable. Offering authorized mail-back packages does not require becoming a full DEA collector; installing a receptacle that takes controlled substances does have collector requirements, which we help you navigate. See how <a href=\"/blog/drug-take-back-programs-how-they-work/\">take-back works</a> in general.")} />
@@ -79,14 +79,14 @@ export default function Page() {
                 </ul>
 
                 <h2 id="setup" dangerouslySetInnerHTML={H("Setting up your program")} />
-                <p dangerouslySetInnerHTML={H("Start with prepaid <a href=\"/our-solutions/medication-disposal-kit/\">mail-back kits</a> at the counter, train staff on what patients can bring, and promote it in-store &mdash; then add a kiosk if the volume justifies it. Each kit is a flat price with non-retrievable destruction and a Certificate of Destruction included, so the program is predictable to run and easy to explain to patients.")} />
+                <p dangerouslySetInnerHTML={H("Start with prepaid <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">mail-back kits</a> at the counter, train staff on what patients can bring, and promote it in-store &mdash; then add a kiosk if the volume justifies it. Each kit is a flat price with non-retrievable destruction and a Certificate of Destruction included, so the program is predictable to run and easy to explain to patients.")} />
 
-                <KitCTA cat="medication" place="end" />
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Launch a compliant take-back program.</h3>
-                  <p>DEA-compliant medication mail-back kits and kiosks for patient take-back — controlled and non-controlled, documented, no special license required to start.</p>
+                  <p>Pharmaceutical Waste and Controlled Substance mail-back kits for your pharmacy&rsquo;s own stock: prepaid, documented, Certificate of Destruction included.</p>
                   <div className="b">
-                    <a className="btn btn-primary" href="/our-solutions/medication-disposal-kit/">Medication disposal kits <span className="ar">→</span></a>
+                    <a className="btn btn-primary" href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>
                   </div>
                 </div>

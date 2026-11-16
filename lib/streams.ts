@@ -501,12 +501,13 @@ const reverse: Stream = {
   proofSolution: "reverse-distribution",
 };
 
+// "medication-disposal-kit": medication — hidden 11-16 with the Medication Disposal Kits (see HIDDEN_CATEGORIES in lib/shop.ts). Re-add the line below to restore.
+export const HIDDEN_STREAMS: Record<string, Stream> = { "medication-disposal-kit": medication };
 export const STREAMS: Record<string, Stream> = {
   "sharps-disposal": sharps,
   "biohazard-waste-disposal": biohazard,
   "pharmaceutical-waste-disposal": pharmaceutical,
   "trace-chemotherapy-waste": traceChemo,
   "rcra-hazardous-pharmaceutical-waste": rcra,
-  "medication-disposal-kit": medication,
   "reverse-distribution": reverse,
 };

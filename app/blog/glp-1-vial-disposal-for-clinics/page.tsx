@@ -12,7 +12,6 @@ import { fromPrice, money } from "@/lib/shop";
 const PHARMA_FROM = money(fromPrice("pharma"));
 const SHARPS_FROM = money(fromPrice("sharps"));
 const CTL_FROM = money(fromPrice("controlled"));
-const MED_FROM = money(fromPrice("medication"));
 
 const PATH = "/blog/glp-1-vial-disposal-for-clinics";
 const TITLE = "GLP-1 Vial Disposal for Clinics: Semaglutide, Tirzepatide & TRT";
@@ -30,7 +29,7 @@ const faqs = [
   { q: "Do GLP-1 pens go in a sharps container?", a: "The needle does. Single-dose autoinjector pens with a built-in needle go whole into the sharps container. For multi-dose pens, remove the pen needle into the sharps container; a pen with leftover drug goes to pharmaceutical waste." },
   { q: "How do TRT clinics dispose of expired testosterone?", a: "Testosterone is Schedule III. Expired or unwanted vials are controlled inventory and go to a DEA-registered reverse distributor for incineration. The reverse distributor completes DEA Form 41 and returns a Certificate of Destruction." },
   { q: "What about the leftover testosterone after a partial dose?", a: "That's wastage. Record it in your administration log, with a witness where your state or policy requires one, and handle it by the method your policy names. It doesn't go on Form 41." },
-  { q: "Can patients bring leftover GLP-1 pens or testosterone back to the clinic?", a: "A clinic can't accept patients' controlled substances unless it's registered with DEA as a collector. Point patients to a take-back site or a medication mail-back kit for home use." },
+  { q: "Can patients bring leftover GLP-1 pens or testosterone back to the clinic?", a: "A clinic can't accept patients' controlled substances unless it's registered with DEA as a collector. Point patients to a take-back site or a DEA-authorized mail-back package for home use." },
 ];
 
 const jsonLd = {
@@ -45,7 +44,6 @@ const KITS = [
   { name: "Pharmaceutical waste kit", what: "Partially used, expired, and past-discard GLP-1 vials and pens with leftover drug.", href: "/shop/pharmaceutical-waste-mail-back-kit/", cat: "pharma" },
   { name: "Sharps mail-back kit", what: "Syringes, pen needles, and single-dose autoinjector pens.", href: "/shop/sharps-mail-back-kit/", cat: "sharps" },
   { name: "Controlled substance kit", what: "Expired and unwanted testosterone and phentermine. Transfer paperwork and Form 41 handled.", href: "/shop/controlled-substance-mail-back-kit/", cat: "controlled" },
-  { name: "Medication mail-back kit", what: "For patients' leftover home medications, or a take-back program you offer them.", href: "/shop/medication-mail-back-kit/", cat: "medication" },
 ];
 
 const H = (s: string) => ({ __html: s });
@@ -139,7 +137,7 @@ export default function Page() {
                 </ul>
 
                 <h2 id="patients">Patients&rsquo; leftover medication</h2>
-                <p dangerouslySetInnerHTML={H(`Patients who inject at home end up with leftover pens, vials, and needles. DEA and FDA point people to take-back first: a drop box or a mail-back envelope. A clinic can&rsquo;t accept patients&rsquo; controlled substances, such as testosterone, unless it&rsquo;s registered with DEA as a collector. A <a href="/shop/medication-mail-back-kit/">medication mail-back kit</a> (from ${MED_FROM}) gives patients a take-back option at home, and a sharps mail-back kit covers their needles.`)} />
+                <p dangerouslySetInnerHTML={H(`Patients who inject at home end up with leftover pens, vials, and needles. DEA and FDA point people to take-back first: a drop box or a mail-back envelope. A clinic can&rsquo;t accept patients&rsquo; controlled substances, such as testosterone, unless it&rsquo;s registered with DEA as a collector. A take-back site or a DEA-authorized mail-back package gives patients an option at home, and a sharps mail-back kit covers their needles.`)} />
 
                 <h2 id="checklist">A clinic checklist</h2>
                 <ol>

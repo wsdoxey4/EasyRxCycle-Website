@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import TrainingTest from "@/components/TrainingTest";
-import bank from "@/lib/training/bank.json";
+import bankAll from "@/lib/training/bank.json";
 import { SITE, abs } from "@/lib/site";
 
 const PATH = "/partners/training";
@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 };
 
 // Server-rendered module list only (titles + counts) — the answer key never reaches the browser.
+// Hidden modules (hidden:true in bank.json) are left out.
+const bank = { ...bankAll, modules: bankAll.modules.filter((m) => !("hidden" in m && m.hidden)) };
 const MODULES = bank.modules.map((m) => ({ id: m.id, title: m.title, n: m.questions.length }));
 const TOTAL_Q = bank.per_module * bank.modules.length;
 

@@ -103,7 +103,7 @@ export default function Page() {
               <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
               <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
               <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit, destroy the rest." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for expired and unused medications." }} /></a>
             </div>
           </div>
         </section>
@@ -143,7 +143,7 @@ export default function Page() {
               <div className="relcol"><h3>Solutions you&rsquo;ll use</h3><ul>
                 <li><a href="/our-solutions/reverse-distribution/">Pharmaceutical reverse distribution</a></li>
                 <li><a href="/our-solutions/controlled-substance-destruction/">Controlled substance destruction</a></li>
-                <li><a href="/our-solutions/medication-disposal-kit/">Medication mail-back kits</a></li>
+                <li><a href="/our-solutions/pharmaceutical-waste-disposal/">Pharmaceutical waste mail-back kits</a></li>
               </ul></div>
               <div className="relcol"><h3>Guides &amp; articles</h3><ul>
                 <li><a href="/resources/closed-door-pharmacy-waste-disposal-guide/">Free Closed-door pharmacies guide (PDF)</a></li>

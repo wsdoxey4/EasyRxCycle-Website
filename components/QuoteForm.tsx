@@ -14,13 +14,13 @@ const ROLES = [
 ];
 const STREAMS = [
   "Sharps", "Biohazard / RMW", "Pharmaceutical", "Controlled substances",
-  "RCRA hazardous", "Trace chemo", "Medication kits", "Reverse distribution",
+  "RCRA hazardous", "Trace chemo", "Reverse distribution",
 ];
 // After submit, single-site requests go straight into the kit finder for the streams they checked.
 // Multi-site / bulk / pickup and reverse-distribution-only requests get a person instead.
 const FINDER_KEY: Record<string, string> = {
   "Sharps": "sharps", "Biohazard / RMW": "biohazard", "Pharmaceutical": "pharma", "Controlled substances": "controlled",
-  "RCRA hazardous": "hazardous", "Trace chemo": "chemo", "Medication kits": "meds",
+  "RCRA hazardous": "hazardous", "Trace chemo": "chemo",
 };
 const BIG_VOLUME = /multiple sites|bulk|pickup/i;
 type After = { finder: boolean; streams: string[]; big: boolean; contact: { email: string; name: string; phone: string } };

@@ -111,7 +111,6 @@ export default function Page() {
               <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><h4>Trace chemo</h4><p>USP 800 hazardous-drug waste.</p></a>
               <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4>RCRA hazardous</h4><p>P/U-listed &amp; characteristic waste.</p></a>
               <a className="svc" href="/our-solutions/reverse-distribution/"><h4>Reverse distribution</h4><p>Recover credit on returnable Rx.</p></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4>Medication disposal</h4><p>Mail-back &amp; on-site kits.</p></a>
             </div>
           </div>
         </section>

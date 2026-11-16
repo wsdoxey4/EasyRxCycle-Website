@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: "Is ketamine a controlled substance?", a: "Yes. Ketamine is a Schedule III controlled substance, and esketamine (Spravato) is also Schedule III. A clinic that stores or administers it needs a DEA registration for that location and must keep DEA-compliant records, including disposal records." },
-  { q: "How do I dispose of leftover ketamine from a partially used vial?", a: "The unused remainder of a dose that was drawn up for a patient is wastage. Record it in your administration or wastage log, ideally with a second licensed staff member as witness, and render it unrecoverable, for example with an on-site medication disposal kit. Many states and accrediting bodies require the witness, so check your state rules." },
+  { q: "How do I dispose of leftover ketamine from a partially used vial?", a: "The unused remainder of a dose that was drawn up for a patient is wastage. Record it in your administration or wastage log, ideally with a second licensed staff member as witness, and render it unrecoverable. Many states and accrediting bodies require the witness, so check your state rules." },
   { q: "How do I dispose of expired ketamine vials?", a: "Expired or unwanted vials are inventory. Transfer them to a DEA-registered reverse distributor, which destroys them to DEA's non-retrievable standard, completes DEA Form 41, and returns a Certificate of Destruction." },
   { q: "Do I need a DEA Form 222 to send ketamine to a reverse distributor?", a: "No. Form 222 is for Schedule I and II drugs. Ketamine is Schedule III, so the transfer is documented with a transfer record such as an invoice. With our controlled substance kit, we prepare the transfer paperwork and Form 41 for you." },
   { q: "How do we dispose of used Spravato devices?", a: "Follow the Spravato REMS program requirements and your clinic's controlled-substance procedures, since a used device can still hold residual drug. If you have questions about a specific device or lot, check with the manufacturer's REMS program and your DEA field office." },
@@ -36,7 +36,6 @@ const jsonLd = {
 
 const KITS = [
   { name: "Controlled substance kit", what: "Expired and unwanted ketamine and other controls, sized by weight. Transfer paperwork and Form 41 handled.", href: "/shop/controlled-substance-mail-back-kit/", cat: "controlled" },
-  { name: "On-site medication disposal kit", what: "Render wasted doses unrecoverable at the point of care. Nothing to ship back.", href: "/shop/on-site-medication-disposal-kit/", cat: "medication-onsite" },
   { name: "Sharps mail-back kit", what: "IV catheters, needles, and syringes in an FDA-cleared container.", href: "/shop/sharps-mail-back-kit/", cat: "sharps" },
   { name: "Pharmaceutical waste kit", what: "Expired non-controlled drugs such as antiemetics and IV additives.", href: "/shop/pharmaceutical-waste-mail-back-kit/", cat: "pharma" },
 ];
@@ -92,7 +91,7 @@ export default function Page() {
                 <ul>
                   <li><strong>Record it the same day</strong> in your administration or wastage log: patient or encounter, drug, amount administered, amount wasted.</li>
                   <li><strong>Use a witness.</strong> A second licensed staff member who watches and co-signs is required in many states and expected by most accreditors.</li>
-                  <li dangerouslySetInnerHTML={H(`<strong>Make it unrecoverable.</strong> Don&rsquo;t pour it down the sink or into a sharps container where it can be drawn back out. An <a href="/shop/on-site-medication-disposal-kit/">on-site medication disposal kit</a> (from ${money(fromPrice("medication-onsite"))}) deactivates it at the point of care.`)} />
+                  <li dangerouslySetInnerHTML={H(`<strong>Make it unrecoverable.</strong> Don&rsquo;t pour it down the sink or into a sharps container where it can be drawn back out.`)} />
                 </ul>
 
                 <h2 id="expired">Expired and unwanted vials</h2>
@@ -139,7 +138,7 @@ export default function Page() {
                 <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>One vendor for every ketamine clinic stream.</h3>
-                  <p>DEA-registered destruction for expired controls, on-site kits for wastage, and mail-back for sharps, with a Certificate of Destruction on every mail-back order. No contract.</p>
+                  <p>DEA-registered destruction for expired controls and mail-back for sharps, with a Certificate of Destruction on every mail-back order. No contract.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/who-we-serve/iv-hydration-ketamine/">IV hydration &amp; ketamine clinics <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>

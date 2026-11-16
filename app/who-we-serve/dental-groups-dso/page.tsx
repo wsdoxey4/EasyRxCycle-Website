@@ -104,7 +104,7 @@ export default function Page() {
               <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
               <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
               <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for expired and unused medications." }} /></a>
             </div>
           </div>
         </section>

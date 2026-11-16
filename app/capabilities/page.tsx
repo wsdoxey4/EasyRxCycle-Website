@@ -48,7 +48,7 @@ const streams: [string, string][] = [
   ["Controlled substance destruction", "/our-solutions/controlled-substance-destruction/"],
   ["RCRA hazardous pharmaceutical waste", "/our-solutions/rcra-hazardous-pharmaceutical-waste/"],
   ["Trace chemotherapy waste", "/our-solutions/trace-chemotherapy-waste/"],
-  ["Medication disposal kits", "/our-solutions/medication-disposal-kit/"],
+  ["Pharmaceutical waste", "/our-solutions/pharmaceutical-waste-disposal/"],
   ["Pharmaceutical reverse distribution", "/our-solutions/reverse-distribution/"],
 ];
 

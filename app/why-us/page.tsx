@@ -103,7 +103,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">One partner</span><h2>Every stream, fully documented.</h2></div>
             <div className="pills">
-              {[["Controlled substances","/our-solutions/controlled-substance-destruction/"],["Pharmaceutical waste","/our-solutions/pharmaceutical-waste-disposal/"],["Sharps","/our-solutions/sharps-disposal/"],["Biohazard / RMW","/our-solutions/biohazard-waste-disposal/"],["Trace chemo","/our-solutions/trace-chemotherapy-waste/"],["RCRA hazardous","/our-solutions/rcra-hazardous-pharmaceutical-waste/"],["Reverse distribution","/our-solutions/reverse-distribution/"],["Medication kits","/our-solutions/medication-disposal-kit/"]].map(([t,h]) => (
+              {[["Controlled substances","/our-solutions/controlled-substance-destruction/"],["Pharmaceutical waste","/our-solutions/pharmaceutical-waste-disposal/"],["Sharps","/our-solutions/sharps-disposal/"],["Biohazard / RMW","/our-solutions/biohazard-waste-disposal/"],["Trace chemo","/our-solutions/trace-chemotherapy-waste/"],["RCRA hazardous","/our-solutions/rcra-hazardous-pharmaceutical-waste/"],["Reverse distribution","/our-solutions/reverse-distribution/"]].map(([t,h]) => (
                 <a className="pill" href={h} key={t}>{t}</a>
               ))}
             </div>

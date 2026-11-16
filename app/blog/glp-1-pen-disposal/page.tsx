@@ -68,14 +68,14 @@ export default function Page() {
             <h2 id="needle" dangerouslySetInnerHTML={{ __html: "The pen needle is a sharp" }} />
             <p dangerouslySetInnerHTML={{ __html: "The needle on a GLP-1 pen is a regulated sharp. It goes in an FDA-cleared sharps container &mdash; never loose in the trash. A prepaid <a href=\"/our-solutions/sharps-disposal/\">sharps disposal</a> handles it from home." }} />
             <h2 id="pen" dangerouslySetInnerHTML={{ __html: "The pen and leftover medication" }} />
-            <p dangerouslySetInnerHTML={{ __html: "An empty pen with the needle removed can often go in household trash, but a pen with leftover medication is pharmaceutical waste. The cleanest approach is a <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> that takes the whole pen and any leftover drug." }} />
+            <p dangerouslySetInnerHTML={{ __html: "An empty pen with the needle removed can often go in household trash, but a pen with leftover medication is pharmaceutical waste. The cleanest approach is a <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a> that takes the whole pen and any leftover drug." }} />
             <h2 id="facility" dangerouslySetInnerHTML={{ __html: "For clinics dispensing GLP-1s" }} />
             <p dangerouslySetInnerHTML={{ __html: "Weight-loss and GLP-1 clinics generate volumes of pen needles, vials, and expired product &mdash; handled with mail-back sharps and pharmaceutical waste, documented with a Certificate of Destruction. See our <a href=\"/who-we-serve/weight-loss-glp1/\">GLP-1 clinic</a> page." }} />
 
                 <KitCTA cat="sharps" place="end" />
                 <div className="postcta">
                   <h3>GLP-1 disposal, handled.</h3>
-                  <p>Mail-back sharps and medication kits for pens, needles, and leftover GLP-1 product &mdash; from home or for your clinic. Certificate of Destruction included.</p>
+                  <p>Mail-back sharps and pharmaceutical waste kits for pens, needles, and leftover GLP-1 product &mdash; from home or for your clinic. Certificate of Destruction included.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/#quote">Get a quote <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="tel:5019042929">Call 501-904-2929</a>

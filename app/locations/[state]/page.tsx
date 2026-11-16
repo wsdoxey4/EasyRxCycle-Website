@@ -51,7 +51,6 @@ const STREAMS = [
   { slug: "controlled-substance-destruction", name: "Controlled substance destruction", blurb: "DEA non-retrievable destruction.", waste: "Expired or unusable controlled substances (DEA Schedules I–V)" },
   { slug: "rcra-hazardous-pharmaceutical-waste", name: "RCRA hazardous", blurb: "P-, U- & D-listed drug waste.", waste: "Drugs that are also hazardous waste — P-, U-, or D-listed (e.g. warfarin, nicotine)" },
   { slug: "trace-chemotherapy-waste", name: "Trace chemo waste", blurb: "Yellow-container trace chemo.", waste: "RCRA-empty chemo vials/syringes and trace-contaminated PPE (yellow container)" },
-  { slug: "medication-disposal-kit", name: "Medication disposal kits", blurb: "Patient & consumer take-back.", waste: "Patient- or consumer-returned medications, including controlled substances (take-back)" },
   { slug: "reverse-distribution", name: "Reverse distribution", blurb: "Credit recovery + destruction.", waste: "Expired but returnable inventory you want processed for manufacturer credit" },
 ];
 

@@ -56,7 +56,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Leftover opioids in the medicine cabinet are a real risk &mdash; for accidental overdose and for diversion. Here&rsquo;s how to dispose of opioids safely at home, and the one case where the FDA actually recommends flushing." }} />
 
-              <KitCTA cat="medication" />
+              <KitCTA cat="pharma" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -66,13 +66,13 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="best" dangerouslySetInnerHTML={{ __html: "The safest ways to dispose of opioids" }} />
-            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> A drug take-back kiosk, National Take Back Day, or a compliant <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> is the gold standard for opioids." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Deactivation pouch (fallback only).</strong> If no take-back or mail-back option is available, bind the opioid in a pouch and trash it. It goes to a landfill rather than being incinerated, so use take-back whenever you can." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Flush (flush-list opioids only).</strong> The FDA specifically recommends flushing certain high-risk opioids (like fentanyl patches) when no take-back is available &mdash; because the overdose risk outweighs the environmental concern." }} /></ol>
+            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> A drug take-back kiosk, National Take Back Day, or a DEA-authorized mail-back package is the gold standard for opioids." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Deactivation pouch (fallback only).</strong> If no take-back or mail-back option is available, bind the opioid in a pouch and trash it. It goes to a landfill rather than being incinerated, so use take-back whenever you can." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Flush (flush-list opioids only).</strong> The FDA specifically recommends flushing certain high-risk opioids (like fentanyl patches) when no take-back is available &mdash; because the overdose risk outweighs the environmental concern." }} /></ol>
             <h2 id="flush" dangerouslySetInnerHTML={{ __html: "Why some opioids are on the FDA flush list" }} />
             <p dangerouslySetInnerHTML={{ __html: "Most medications should never be flushed &mdash; but the FDA maintains a short flush list of drugs so dangerous that flushing is advised when take-back isn&rsquo;t available. It&rsquo;s mostly potent opioids (fentanyl patches, oxycodone, hydromorphone) where a single dose can be fatal to a child or pet." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t leave opioids in an accessible cabinet after treatment ends" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t share leftover opioids with anyone" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t trash them loose in the original bottle" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush non-flush-list medications" }} /></ul>
 
-                <KitCTA cat="medication" place="end" />
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Get opioids out of the cabinet safely.</h3>
                   <p>A mail-back kit disposes of leftover opioids and any medication compliantly &mdash; with a Certificate of Destruction. No contract.</p>

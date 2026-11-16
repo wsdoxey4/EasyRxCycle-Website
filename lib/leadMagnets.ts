@@ -15,7 +15,7 @@ export type LeadMagnet = {
   body?: { h: string; p: string }[]; // unique ungated on-page content (SEO — beats a thin capture page)
 };
 
-export const MAGNETS: LeadMagnet[] = [
+export const MAGNETS_ALL: LeadMagnet[] = [
   {
     slug: "capability-statement",
     file: "/downloads/easy-rx-cycle-capability-statement.pdf",
@@ -1003,4 +1003,8 @@ export const MAGNETS: LeadMagnet[] = [
   },
 ];
 
+// Guides hidden with the Medication Disposal Kits (11-16, see HIDDEN_CATEGORIES in lib/shop.ts). Empty to restore
+// (and move app/resources/_medication-mail-back-kit-guide back to medication-mail-back-kit-guide).
+export const HIDDEN_MAGNETS = new Set<string>(["medication-mail-back-kit-guide"]);
+export const MAGNETS: LeadMagnet[] = MAGNETS_ALL.filter((m) => !HIDDEN_MAGNETS.has(m.slug));
 export const MAGNET_BY_SLUG: Record<string, LeadMagnet> = Object.fromEntries(MAGNETS.map((m) => [m.slug, m]));

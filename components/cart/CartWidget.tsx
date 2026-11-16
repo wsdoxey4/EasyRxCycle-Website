@@ -3,13 +3,12 @@ import { useCart, lineId, lineTotal } from "./CartProvider";
 import { BY_SKU, money, INTERVALS, intervalLabel, EXPEDITE_CENTS } from "@/lib/shop";
 import SaveCart from "./SaveCart";
 
-// Cross-sell: map each waste stream to its shop kit page. "medication-onsite" collapses to medication.
-const BASE_CAT: Record<string, string> = { "medication-onsite": "medication" };
+// Cross-sell: map each waste stream to its shop kit page. Retired medication kits (old carts) count as pharmaceutical.
+const BASE_CAT: Record<string, string> = { "medication-onsite": "pharma", medication: "pharma" };
 const CROSSSELL = [
   { key: "sharps", label: "Sharps", href: "/shop/sharps-mail-back-kit/" },
   { key: "biohazard", label: "Biohazard / RMW", href: "/shop/biohazard-mail-back-kit/" },
   { key: "pharma", label: "Pharmaceutical", href: "/shop/pharmaceutical-waste-mail-back-kit/" },
-  { key: "medication", label: "Medication kits", href: "/shop/medication-mail-back-kit/" },
   { key: "controlled", label: "Controlled", href: "/shop/controlled-substance-mail-back-kit/" },
   { key: "chemo", label: "Trace chemo", href: "/shop/trace-chemo-mail-back-kit/" },
   { key: "hazardous", label: "RCRA hazardous", href: "/shop/rcra-hazardous-mail-back-kit/" },

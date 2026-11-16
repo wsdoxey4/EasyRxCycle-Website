@@ -87,7 +87,7 @@ export default function Page() {
 
         <section className="sec shop-quick" style={{ paddingTop: "16px", paddingBottom: "0" }}>
           <div className="wrap">
-            <KitTiles cats={["sharps", "biohazard", "controlled", "pharma", "medication", "hazardous", "chemo", "charcoal"]} cta="kit_shop" />
+            <KitTiles cats={["sharps", "biohazard", "controlled", "pharma", "hazardous", "chemo", "charcoal"]} cta="kit_shop" />
             <p className="shop-quick-links">
               <a href="#kit-finder">Not sure which kit? Answer 3 questions <span className="ar">→</span></a>
               <a href="/build-your-program/">Need several kinds of kits or more than one location? Build a program <span className="ar">→</span></a>

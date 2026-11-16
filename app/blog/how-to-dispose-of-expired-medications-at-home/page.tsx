@@ -57,7 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Got a cabinet full of expired pills? Don&rsquo;t flush them and don&rsquo;t just toss the bottle in the trash. Here are the safe, legal ways to dispose of expired medications at home &mdash; ranked from best to last resort." }} />
 
-              <KitCTA cat="medication" />
+              <KitCTA cat="pharma" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -68,13 +68,13 @@ export default function Page() {
               </ol>
             </div>
             <h2 id="best" dangerouslySetInnerHTML={{ __html: "The safest ways to dispose of expired meds" }} />
-            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> The gold standard &mdash; a drug take-back kiosk or a prepaid <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> handles any medication, including controlled substances, safely and legally." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Drug deactivation pouch (fallback only).</strong> If no take-back or mail-back option is available, add water and the medication; the pouch binds it so it can go in the household trash. Note that it ends up in a landfill, not an incinerator, so take-back is always the better choice. See <a href=\"/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box/\">deactivation pouch vs. mail-back kit vs. drop box</a>." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trash (deactivated).</strong> If no take-back is available, mix meds with an unappealing substance (used coffee grounds or dirt), seal in a bag, and trash it &mdash; after scratching out your info on the label." }} /></ol>
+            <ol><li dangerouslySetInnerHTML={{ __html: "<strong>Take-back or mail-back.</strong> The gold standard &mdash; a drug take-back kiosk or a prepaid DEA-authorized mail-back package handles any medication, including controlled substances, safely and legally." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Drug deactivation pouch (fallback only).</strong> If no take-back or mail-back option is available, add water and the medication; the pouch binds it so it can go in the household trash. Note that it ends up in a landfill, not an incinerator, so take-back is always the better choice. See <a href=\"/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box/\">deactivation pouch vs. mail-back kit vs. drop box</a>." }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Trash (deactivated).</strong> If no take-back is available, mix meds with an unappealing substance (used coffee grounds or dirt), seal in a bag, and trash it &mdash; after scratching out your info on the label." }} /></ol>
             <h2 id="flush" dangerouslySetInnerHTML={{ __html: "When flushing is actually OK" }} />
             <p dangerouslySetInnerHTML={{ __html: "Flushing is discouraged for almost everything &mdash; but the FDA maintains a short &ldquo;flush list&rdquo; of a few high-risk medications (mostly powerful opioids like fentanyl patches) that are dangerous enough that flushing is recommended when no take-back is available. For everything else, don&rsquo;t flush." }} />
             <h2 id="never" dangerouslySetInnerHTML={{ __html: "What never to do" }} />
             <ul><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t flush non-flush-list medications &mdash; it contaminates waterways" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t leave drugs in the original labeled bottle in the trash" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t give leftover prescriptions to anyone else" }} /><li dangerouslySetInnerHTML={{ __html: "Don&rsquo;t hoard expired controlled substances &mdash; use take-back" }} /></ul>
 
-                <KitCTA cat="medication" place="end" />
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Dispose of medications the easy way.</h3>
                   <p>A prepaid mail-back kit handles any medication — controlled or not — safely and legally, with a Certificate of Destruction.</p>

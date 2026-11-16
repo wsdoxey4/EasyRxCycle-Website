@@ -150,7 +150,7 @@ export default function Page() {
             <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4>Pharmaceutical waste</h4></a>
             <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4>Controlled substances</h4></a>
             <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4>RCRA hazardous</h4></a>
-            <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4>Medication kits</h4></a>
+            
             </div>
           </div>
         </section>

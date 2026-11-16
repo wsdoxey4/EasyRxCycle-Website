@@ -80,7 +80,7 @@ export default function Page() {
                 <a href="/our-solutions/controlled-substance-destruction/">controlled substances</a>,{" "}
                 <a href="/our-solutions/rcra-hazardous-pharmaceutical-waste/">RCRA-hazardous drugs</a>,{" "}
                 <a href="/our-solutions/trace-chemotherapy-waste/">trace chemotherapy</a>,{" "}
-                <a href="/our-solutions/medication-disposal-kit/">medication mail-back</a>, and{" "}
+                <a href="/our-solutions/pharmaceutical-waste-disposal/">medication mail-back</a>, and{" "}
                 <a href="/our-solutions/reverse-distribution/">reverse distribution</a>. For the full definitions, see
                 the <a href="/glossary/">glossary</a>; for the rules by state, see{" "}
                 <a href="/medical-waste-regulations-by-state/">regulations by state</a>.

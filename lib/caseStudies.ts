@@ -144,7 +144,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "home-health-on-site-opioid-deactivation",
     industry: "Home health agency", region: "",
     icp: "home-health", icpLabel: "home health agencies",
-    solutions: ["medication-disposal-kit", "controlled-substance-destruction", "sharps-disposal"],
+    solutions: ["pharmaceutical-waste-disposal", "controlled-substance-destruction", "sharps-disposal"],
     tag: "Diversion risk closed, every clinician equipped, rolled out in under a month",
     title: "How a Home Health Agency Closed Its Opioid Diversion Risk — Across the Whole Field Team",
     desc: "A home health agency equipped every field clinician with on-site deactivation kits — unused opioids neutralized at the bedside, diversion risk closed, audit-ready — rolled out in under a month.",
@@ -212,6 +212,5 @@ export const SOLUTION_LABELS: Record<string, string> = {
   "biohazard-waste-disposal": "Biohazard / RMW disposal",
   "rcra-hazardous-pharmaceutical-waste": "RCRA hazardous drug disposal",
   "reverse-distribution": "Pharmaceutical reverse distribution",
-  "medication-disposal-kit": "Medication mail-back kits",
   "trace-chemotherapy-waste": "Trace chemotherapy waste",
 };

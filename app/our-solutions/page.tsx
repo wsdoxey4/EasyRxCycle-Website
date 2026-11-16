@@ -25,7 +25,6 @@ const groups: Group[] = [
     { slug: "sharps-disposal", name: "Sharps disposal", blurb: "Mail-back needle & syringe kits — OSHA-compliant, no contract." },
     { slug: "biohazard-waste-disposal", name: "Biohazard / RMW disposal", blurb: "Red-bag regulated medical waste, by mail-back or pickup." },
     { slug: "pharmaceutical-waste-disposal", name: "Pharmaceutical waste disposal", blurb: "Expired & unused non-controlled meds, destroyed with documentation." },
-    { slug: "medication-disposal-kit", name: "Medication mail-back kits", blurb: "Prepaid kits & on-site deactivation for unwanted medications." },
   ]},
   { title: "Controlled & hazardous destruction", sols: [
     { slug: "controlled-substance-destruction", name: "Controlled substance destruction", blurb: "DEA non-retrievable destruction with Form 41 and witnessed logs." },

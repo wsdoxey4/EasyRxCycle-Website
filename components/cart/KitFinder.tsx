@@ -11,7 +11,7 @@ import SaveCart from "./SaveCart";
 const WASTE = [
   { key: "sharps", label: "Needles, syringes, lancets or pen needles" },
   { key: "biohazard", label: "Blood- or fluid-contaminated items, PPE, red-bag waste" },
-  { key: "meds", label: "Expired or unused medications (not controlled)" },
+  { key: "pharma", label: "Expired or unused medications (not controlled)" },  // medication kits retired 11-16: straight to the Pharmaceutical Waste kit
   { key: "controlled", label: "Controlled substances (Schedules I–V)" },
   { key: "chemo", label: "Trace chemotherapy waste" },
   { key: "hazardous", label: "RCRA hazardous pharmaceuticals" },
@@ -19,9 +19,7 @@ const WASTE = [
   { key: "unsure", label: "Not sure, or several types" },
 ];
 const MEDS = [
-  { key: "medication", label: "Mail them back to be destroyed", sub: "Commingled medications, with a Certificate of Destruction" },
   { key: "pharma", label: "An ongoing pharmaceutical waste stream", sub: "Non-hazardous expired and unused pharmaceuticals from your facility" },
-  { key: "medication-onsite", label: "Deactivate them on-site", sub: "Renders medications non-retrievable, no return shipping" },
 ];
 const BY_WEIGHT = new Set(["controlled", "charcoal"]);
 const IV_KEYS = ["month", "3month", "6month"];

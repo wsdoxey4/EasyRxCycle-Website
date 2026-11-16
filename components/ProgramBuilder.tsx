@@ -13,22 +13,22 @@ const nid = () => ++uid;
 const FREQ = [{ key: "", label: "One-time" }, ...INTERVALS.map((i) => ({ key: i.key, label: i.label }))];
 const catOf = (sku: string) => BY_SKU[sku]?.category || "sharps";
 
-const STREAM_ORDER = ["sharps", "biohazard", "pharma", "medication", "medication-onsite", "chemo", "controlled", "hazardous"];
+const STREAM_ORDER = ["sharps", "biohazard", "pharma", "chemo", "controlled", "hazardous"];
 const STREAM_SHORT: Record<string, string> = {
   sharps: "Sharps", biohazard: "Biohazard / RMW", pharma: "Pharmaceutical", medication: "Medication (mail-back)",
   "medication-onsite": "Medication (on-site)", chemo: "Trace chemo", controlled: "Controlled substances", hazardous: "RCRA hazardous",
 };
 const DEFAULT_SKU: Record<string, string> = {
-  sharps: "ERX-SHP-02G-EA", biohazard: "ERX-BIO-08G-EA", pharma: "ERX-PHW-08G-EA", medication: "ERX-MED-125G-EA",
-  "medication-onsite": "ERX-MED-125G-OS-EA", chemo: "ERX-CHM-08G-EA", controlled: "ERX-CTL-C05-EA", hazardous: "ERX-HAZ-08G-EA",
+  sharps: "ERX-SHP-02G-EA", biohazard: "ERX-BIO-08G-EA", pharma: "ERX-PHW-08G-EA",
+  chemo: "ERX-CHM-08G-EA", controlled: "ERX-CTL-C05-EA", hazardous: "ERX-HAZ-08G-EA",
 };
 const FACILITIES = [
   { key: "physician", label: "Physician / medical office", streams: ["sharps", "biohazard", "pharma"] },
   { key: "dental", label: "Dental practice", streams: ["sharps", "biohazard", "pharma"] },
   { key: "veterinary", label: "Veterinary clinic", streams: ["controlled", "sharps", "pharma", "biohazard"] },
-  { key: "pharmacy", label: "Pharmacy", streams: ["pharma", "controlled", "hazardous", "medication"] },
+  { key: "pharmacy", label: "Pharmacy", streams: ["pharma", "controlled", "hazardous"] },
   { key: "surgery", label: "Surgery center / hospital", streams: ["controlled", "sharps", "biohazard", "pharma"] },
-  { key: "ltc", label: "Long-term care / hospice / home health", streams: ["medication", "controlled", "sharps"] },
+  { key: "ltc", label: "Long-term care / hospice / home health", streams: ["pharma", "controlled", "sharps"] },
   { key: "aesthetic", label: "Med spa / TRT / weight-loss clinic", streams: ["sharps", "pharma", "controlled"] },
   { key: "lab", label: "Lab / research", streams: ["biohazard", "sharps", "hazardous"] },
   { key: "oncology", label: "Oncology / infusion center", streams: ["chemo", "sharps", "hazardous"] },

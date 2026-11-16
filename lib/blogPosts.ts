@@ -10,7 +10,7 @@ export const clusters: Cluster[] = [
   { key: "sharps", label: "Sharps Disposal", pillar: "/our-solutions/sharps-disposal/" },
   { key: "biohazard", label: "Biohazard / RMW", pillar: "/our-solutions/biohazard-waste-disposal/" },
   { key: "pharma", label: "Pharmaceutical Waste", pillar: "/our-solutions/pharmaceutical-waste-disposal/" },
-  { key: "medkit", label: "Medication Disposal Kits", pillar: "/our-solutions/medication-disposal-kit/" },
+  { key: "medkit", label: "Medication take-back & home disposal", pillar: "/our-solutions/pharmaceutical-waste-disposal/" },
   { key: "chemo", label: "Trace Chemo Waste", pillar: "/our-solutions/trace-chemotherapy-waste/" },
   { key: "rcra", label: "RCRA Hazardous", pillar: "/our-solutions/rcra-hazardous-pharmaceutical-waste/" },
 ];
@@ -25,7 +25,7 @@ export const CLUSTER_GUIDE: Record<string, string> = {
   sharps: "sharps-disposal-compliance-guide",
   biohazard: "biohazard-rmw-disposal-guide",
   pharma: "pharmaceutical-waste-disposal-guide",
-  medkit: "medication-mail-back-kit-guide",
+  medkit: "pharmaceutical-waste-disposal-guide",
   chemo: "trace-chemotherapy-waste-guide",
   rcra: "rcra-hazardous-drug-waste-guide",
 };

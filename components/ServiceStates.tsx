@@ -54,7 +54,7 @@ const STATES = [
   { slug: "wyoming", name: "Wyoming" },
 ];
 
-const GEO = new Set(["sharps-disposal", "biohazard-waste-disposal", "pharmaceutical-waste-disposal", "controlled-substance-destruction", "rcra-hazardous-pharmaceutical-waste", "trace-chemotherapy-waste", "medication-disposal-kit", "reverse-distribution"]);
+const GEO = new Set(["sharps-disposal", "biohazard-waste-disposal", "pharmaceutical-waste-disposal", "controlled-substance-destruction", "rcra-hazardous-pharmaceutical-waste", "trace-chemotherapy-waste", "reverse-distribution"]);
 
 export default function ServiceStates({ service, label }: { service: string; label: string }) {
   if (!GEO.has(service)) return null;

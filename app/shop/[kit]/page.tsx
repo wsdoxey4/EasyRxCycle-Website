@@ -183,7 +183,7 @@ export default async function Page({ params }: { params: Promise<{ kit: string }
           <div className="wrap">
             <div className="shead"><span className="eyebrow">Prefer we destroy it?</span><h2>Mail it back for incineration instead.</h2><p className="lead">Our mail-back medication kit is prepaid both ways. You fill it and send it to us; we incinerate it and send your Certificate of Destruction.</p></div>
             <div style={{ textAlign: "center", marginTop: "18px" }}>
-              <a className="btn btn-primary" href="/shop/medication-mail-back-kit/">See the mail-back kit <span className="ar">→</span></a>
+              <a className="btn btn-primary" href="/shop/pharmaceutical-waste-mail-back-kit/">See the mail-back kit <span className="ar">→</span></a>
             </div>
           </div>
         </section>

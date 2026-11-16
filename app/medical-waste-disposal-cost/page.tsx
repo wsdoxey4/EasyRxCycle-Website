@@ -29,8 +29,6 @@ const STREAMS = [
   { name: "Sharps disposal", low: 55, high: 405, href: "/shop/sharps-mail-back-kit/", note: "1 qt to 28 gal containers" },
   { name: "Biohazard / RMW", low: 75, high: 405, href: "/shop/biohazard-mail-back-kit/", note: "red-bag regulated medical waste" },
   { name: "Pharmaceutical waste", low: 100, high: 285, href: "/shop/pharmaceutical-waste-mail-back-kit/", note: "non-controlled expired Rx" },
-  { name: "Medication mail-back kits", low: 95, high: 700, href: "/shop/medication-mail-back-kit/", note: "patient & consumer take-back" },
-  { name: "On-site medication kits", low: 40, high: 350, href: "/shop/on-site-medication-disposal-kit/", note: "activated-charcoal deactivation" },
   { name: "Trace chemotherapy", low: 105, high: 445, href: "/shop/trace-chemo-mail-back-kit/", note: "yellow-container trace chemo" },
   { name: "RCRA hazardous", low: 145, high: 475, href: "/shop/rcra-hazardous-mail-back-kit/", note: "P/U/D-listed drug waste" },
   { name: "Controlled substances", low: 499, high: 1999, href: "/shop/controlled-substance-mail-back-kit/", note: "DEA-registered destruction" },

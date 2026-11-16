@@ -26,11 +26,6 @@ export const GUIDE_KITS = {
    "href": "/shop/trace-chemo-mail-back-kit/",
    "from": "$105"
   },
-  "medication": {
-   "name": "Medication Disposal Kit (Mail-Back)",
-   "href": "/shop/medication-mail-back-kit/",
-   "from": "$95"
-  },
   "pharma": {
    "name": "Pharmaceutical Waste Kit",
    "href": "/shop/pharmaceutical-waste-mail-back-kit/",
@@ -98,14 +93,14 @@ export const GUIDE_KITS = {
   "the endoscopy & gi center's guide to compliant waste disposal": "sharps",
   "allergy-clinic-waste-disposal-guide": "sharps",
   "the allergy clinic's guide to compliant waste disposal": "sharps",
-  "nursing-home-waste-disposal-guide": "medication",
-  "the nursing home / ltc guide to compliant waste disposal": "medication",
-  "hospice-waste-disposal-guide": "medication",
-  "the hospice guide to compliant waste disposal": "medication",
+  "nursing-home-waste-disposal-guide": "pharma",
+  "the nursing home / ltc guide to compliant waste disposal": "pharma",
+  "hospice-waste-disposal-guide": "pharma",
+  "the hospice guide to compliant waste disposal": "pharma",
   "home-health-waste-disposal-guide": "sharps",
   "the home health agency's guide to compliant waste disposal": "sharps",
-  "group-home-waste-disposal-guide": "medication",
-  "the group home's guide to compliant waste disposal": "medication",
+  "group-home-waste-disposal-guide": "pharma",
+  "the group home's guide to compliant waste disposal": "pharma",
   "school-health-waste-disposal-guide": "sharps",
   "the school health office's guide to compliant waste disposal": "sharps",
   "correctional-facility-waste-disposal-guide": "sharps",
@@ -158,8 +153,7 @@ export const GUIDE_KITS = {
   "the rcra hazardous drug waste guide": "hazardous",
   "reverse-distribution-guide": "controlled",
   "the reverse distribution guide": "controlled",
-  "medication-mail-back-kit-guide": "medication",
-  "the medication mail-back kit guide": "medication",
+  "the medication mail-back kit guide": "pharma",
   "trace-chemotherapy-waste-guide": "chemo",
   "the trace chemo waste guide": "chemo"
  }

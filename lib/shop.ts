@@ -11,7 +11,10 @@ export type Product = { sku: string; family: string; size: string; cents: number
 export const SHOPPING_INELIGIBLE = new Set(["controlled", "hazardous", "chemo"]);
 export const isShoppable = (p: { category: string }) => !SHOPPING_INELIGIBLE.has(p.category);
 
-export const PRODUCTS: Product[] = [
+// HIDDEN KITS (11-16, William): the Medication Disposal Kits (mail-back + on-site, ERX-MED-*) are off the site for now.
+// To bring them back: empty this set and remove the "medication kits hidden" block in public/_redirects.
+export const HIDDEN_CATEGORIES = new Set<string>(["medication", "medication-onsite"]);
+export const PRODUCTS_ALL: Product[] = [
   {"sku": "ERX-SHP-01QT-EA", "family": "Sharps Mail-Back Kit", "size": "1 Quart", "cents": 5500, "category": "sharps", "restricted": false},
   {"sku": "ERX-SHP-125G-EA", "family": "Sharps Mail-Back Kit", "size": "1.25 Gallon", "cents": 9500, "category": "sharps", "restricted": false},
   {"sku": "ERX-SHP-02G-EA", "family": "Sharps Mail-Back Kit", "size": "2 Gallon", "cents": 7500, "category": "sharps", "restricted": false},
@@ -50,10 +53,11 @@ export const PRODUCTS: Product[] = [
   {"sku": "ERX-ACR-25LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 25 lbs", "cents": 35000, "category": "charcoal", "restricted": false},
   {"sku": "ERX-ACR-50LB-EA", "family": "Activated Charcoal Take-Back Kit", "size": "Up to 50 lbs", "cents": 60000, "category": "charcoal", "restricted": false}
 ];
+export const PRODUCTS: Product[] = PRODUCTS_ALL.filter((p) => !HIDDEN_CATEGORIES.has(p.category));
 
 export type Category = { key: string; label: string; blurb: string; note?: string; image?: string };
 
-export const CATEGORIES: Category[] = [
+const CATEGORIES_ALL: Category[] = [
   { key: "sharps", label: "Sharps mail-back kit", blurb: "Needles, syringes, lancets & pen needles. FDA-cleared containers, 1-quart to 28-gallon.", image: "/images/products/sharps.webp" },
   { key: "biohazard", label: "Biohazard / RMW mail-back kit", blurb: "Red-bag regulated medical waste — gauze, gloves, cultures & contaminated PPE.", image: "/images/products/biohazard.webp" },
   { key: "pharma", label: "Pharmaceutical waste mail-back kit", blurb: "Non-hazardous expired & unused pharmaceuticals, destroyed and documented.", image: "/images/products/pharmaceutical.webp" },
@@ -64,11 +68,12 @@ export const CATEGORIES: Category[] = [
   { key: "hazardous", label: "Hazardous (RCRA) mail-back kit", blurb: "RCRA-hazardous pharmaceutical waste (P/U-listed & characteristic), destroyed to EPA rules.", image: "/images/products/rcra.webp" },
   { key: "charcoal", label: "Activated charcoal take-back kit", blurb: "Mail back your used/full activated charcoal products for destruction. Priced by weight.", image: "/images/products/activated-charcoal.webp" },
 ];
+export const CATEGORIES: Category[] = CATEGORIES_ALL.filter((c) => !HIDDEN_CATEGORIES.has(c.key));
 
 export const FREE_SHIP_THRESHOLD_CENTS = 5000; // free shipping over $50
 export const FLAT_SHIP_CENTS = 995;            // flat $9.95 under $50
 
-export const BY_SKU: Record<string, Product> = Object.fromEntries(PRODUCTS.map((p) => [p.sku, p]));
+export const BY_SKU: Record<string, Product> = Object.fromEntries(PRODUCTS_ALL.map((p) => [p.sku, p])); // all SKUs, hidden included: old carts/autoship still price
 export const inCategory = (key: string) => PRODUCTS.filter((p) => p.category === key);
 export const money = (c: number) => "$" + (c / 100).toLocaleString("en-US", { minimumFractionDigits: c % 100 ? 2 : 0, maximumFractionDigits: 2 });
 export const fromPrice = (key: string) => Math.min(...inCategory(key).map((p) => p.cents));

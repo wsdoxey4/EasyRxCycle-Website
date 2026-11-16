@@ -68,7 +68,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={H("<strong>Short answer:</strong> a mail-back kit is the best option for most people. It sends medication, including controlled substances, to be incinerated and gives you proof it was destroyed. A drop box is a good free option if one is near you. A drug deactivation pouch only binds the drug so it can go in the trash, so use it as a last resort.")} />
 
-              <KitCTA cat="medication" />
+              <KitCTA cat="pharma" />
               <div className="prose">
                 <div className="tocbox">
                   <h4>In this guide</h4>
@@ -109,7 +109,7 @@ export default function Page() {
                 <p>Bottles, cups and containers that use activated charcoal work the same way and have the same limits.</p>
 
                 <h2 id="mailback">Mail-back kits</h2>
-                <p dangerouslySetInnerHTML={H("A <a href=\"/our-solutions/medication-disposal-kit/\">mail-back kit</a> is a prepaid envelope or container. You fill it with unused or expired medication, seal it and drop it in the mail. It goes to a permitted facility, the contents are incinerated, and with Easy Rx Cycle you get a <strong>Certificate of Destruction</strong>.")} />
+                <p dangerouslySetInnerHTML={H("A <a href=\"/our-solutions/pharmaceutical-waste-disposal/\">mail-back kit</a> is a prepaid envelope or container. You fill it with unused or expired medication, seal it and drop it in the mail. It goes to a permitted facility, the contents are incinerated, and with Easy Rx Cycle you get a <strong>Certificate of Destruction</strong>.")} />
                 <p dangerouslySetInnerHTML={H("Under DEA rules (21 CFR Part 1317), an authorized mail-back package is one of the few methods that can collect <strong>controlled substances</strong> (Schedules II&ndash;V) together with non-controlled and OTC medication. Incineration meets DEA&rsquo;s &ldquo;non-retrievable&rdquo; standard.")} />
                 <ul>
                   <li><strong>Good:</strong> works anywhere, takes controls and non-controls together, proof of destruction, no contract.</li>
@@ -149,7 +149,7 @@ export default function Page() {
                 </ul>
                 <p dangerouslySetInnerHTML={H("More on home disposal: <a href=\"/blog/how-to-dispose-of-expired-medications-at-home/\">how to dispose of expired medications at home</a>.")} />
 
-                <KitCTA cat="medication" place="end" />
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Send it to be incinerated, with proof.</h3>
                   <p>Prepaid mail-back kits for controlled and non-controlled medication, with a Certificate of Destruction on every kit and no contract.</p>

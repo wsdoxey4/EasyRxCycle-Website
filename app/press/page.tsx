@@ -47,7 +47,7 @@ const topics: [string, string][] = [
   ["Controlled substance destruction", "How DEA registrants destroy expired and unwanted controlled drugs, and what DEA Form 41 documents."],
   ["Reverse distribution vs. destruction", "When unused drugs can earn credit back, and when they simply need to be destroyed."],
   ["Hazardous waste pharmaceuticals", "What EPA's rules for hazardous pharmaceuticals mean for pharmacies, clinics, and long-term care."],
-  ["Drug take-back", "National Prescription Drug Take Back Day, medication disposal kits, and keeping drugs out of water and homes."],
+  ["Drug take-back", "National Prescription Drug Take Back Day and keeping drugs out of water and homes."],
   ["Sharps and home health", "Safe sharps disposal for clinics, home health agencies, and patients who inject at home."],
   ["Small-practice compliance", "Why independent practices struggle with waste rules, and simple ways to stay audit-ready."],
 ];

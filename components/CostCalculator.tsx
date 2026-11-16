@@ -8,7 +8,6 @@ const STREAMS = [
   { key: "sharps", label: "Sharps", cat: "sharps" },
   { key: "pharma", label: "Pharmaceutical waste", cat: "pharma" },
   { key: "biohazard", label: "Biohazard / RMW", cat: "biohazard" },
-  { key: "medication", label: "Medication disposal", cat: "medication" },
   { key: "controlled", label: "Controlled substances", cat: "controlled" },
   { key: "chemo", label: "Trace chemo", cat: "chemo" },
   { key: "hazardous", label: "RCRA hazardous", cat: "hazardous" },

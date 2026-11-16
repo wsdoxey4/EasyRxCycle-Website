@@ -3,7 +3,9 @@
 // POST {action:"submit", attempt_id, answers}   → grades it; on a pass issues a certificate number, builds the PDF and emails it.
 // GET  ?verify=<cert_no>                        → public certificate check.
 // Env: PORTAL_SUPABASE_SERVICE_KEY (+ PORTAL_SUPABASE_URL), RESEND_API_KEY + RESEND_FROM.
-import bank from "../../lib/training/bank.json";
+import bankAll from "../../lib/training/bank.json";
+// Hidden modules/questions (hidden:true in bank.json) are never drawn or graded.
+const bank = { ...bankAll, modules: bankAll.modules.filter((m) => !m.hidden).map((m) => ({ ...m, questions: m.questions.filter((q) => !q.hidden) })) };
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
 

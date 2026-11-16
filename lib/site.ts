@@ -33,7 +33,7 @@ export const SITE = {
     "Controlled substance destruction",
     "RCRA hazardous pharmaceutical waste",
     "Trace chemotherapy waste disposal",
-    "Medication disposal kits",
+    "Pharmaceutical waste",
     "Pharmaceutical reverse distribution",
   ],
 } as const;

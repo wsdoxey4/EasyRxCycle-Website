@@ -101,7 +101,7 @@ export default function Page() {
             <div className="shead"><span className="eyebrow">What we handle for you</span><h2>Everything you generate, handled.</h2><p className="lead">Every stream you generate, routed to the right compliant process.</p></div>
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
-              <a className="svc" href="/our-solutions/medication-disposal-kit/"><h4 dangerouslySetInnerHTML={{ __html: "Medication disposal kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for meds." }} /></a>
+              <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for expired and unused medications." }} /></a>
               <a className="svc" href="/our-solutions/biohazard-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Biohazard / RMW" }} /><p dangerouslySetInnerHTML={{ __html: "Red-bag regulated medical waste." }} /></a>
               <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
             </div>
@@ -173,7 +173,7 @@ export default function Page() {
             <div className="finalcta">
               <div>
                 <h2>Get a compliant quote.</h2>
-                <p>Sharps disposal, Medication disposal kits, Biohazard / RMW &mdash; segregated, destroyed, and documented, with no contract.</p>
+                <p>Sharps disposal, Pharmaceutical waste, Biohazard / RMW &mdash; segregated, destroyed, and documented, with no contract.</p>
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>
               <div className="b">

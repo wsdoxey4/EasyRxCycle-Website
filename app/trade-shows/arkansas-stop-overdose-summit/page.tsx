@@ -10,7 +10,7 @@ const S: TradeShow = {
   h2: "Get unused medications out of circulation — safely and on the record.",
   intro: "Easy Rx Cycle is an Arkansas-based, DEA-registered destruction company. We give clinics, pharmacies and community programs a simple way to destroy unused and expired medications, with a Certificate of Destruction for every shipment.",
   covers: [
-    "Medication disposal kits — mail medications back for documented destruction",
+    "Pharmaceutical waste — mail medications back for documented destruction",
     "On-site deactivation kits — render medications non-retrievable, no shipping needed",
     "Controlled substances — non-retrievable destruction for DEA registrants",
     "Activated charcoal take-back — return used disposal containers for destruction",
@@ -19,7 +19,7 @@ const S: TradeShow = {
   ],
   finalH2: "Can't make it to the booth?",
   finalP: "Set up medication disposal for your clinic, pharmacy or program — kits shipped prepaid, destruction documented.",
-  finalHref: "/shop/medication-mail-back-kit/", finalLabel: "Medication disposal kits",
+  finalHref: "/shop/pharmaceutical-waste-mail-back-kit/", finalLabel: "Pharmaceutical waste",
 };
 const PATH = `/trade-shows/${S.slug}`;
 const TITLE = "Easy Rx Cycle at the 2026 Arkansas Stop Overdose Summit | Fort Smith";

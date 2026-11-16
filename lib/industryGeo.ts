@@ -26,8 +26,7 @@ const SH = { cat: "sharps", kit: "/shop/sharps-mail-back-kit/", kitName: "Sharps
 const BIO = { cat: "biohazard", kit: "/shop/biohazard-mail-back-kit/", kitName: "Biohazard Mail-Back Kit" };
 const PH = { cat: "pharma", kit: "/shop/pharmaceutical-waste-mail-back-kit/", kitName: "Pharmaceutical Waste Kit" };
 const CTL = { cat: "controlled", kit: "/shop/controlled-substance-mail-back-kit/", kitName: "Controlled Substance Kit" };
-const MED = { cat: "medication", kit: "/shop/medication-mail-back-kit/", kitName: "Medication Disposal Kit (Mail-Back)" };
-const ONS = { cat: "medication-onsite", kit: "/shop/on-site-medication-disposal-kit/", kitName: "Medication Disposal Kit (On-Site)" };
+const MED = PH; // medication kits retired 11-16: patient take-back goes in the Pharmaceutical Waste kit
 const RCRA = { cat: "hazardous", kit: "/shop/rcra-hazardous-mail-back-kit/", kitName: "Hazardous (RCRA) Kit" };
 const CHM = { cat: "chemo", kit: "/shop/trace-chemo-mail-back-kit/", kitName: "Trace Chemo Kit" };
 const ACR = { cat: "charcoal", kit: "/shop/activated-charcoal-take-back-kit/", kitName: "Activated Charcoal Take-Back Kit" };
@@ -112,7 +111,7 @@ export const INDUSTRIES: Industry[] = [
       { q: `Can a ${s.name} pharmacy offer patients medication take-back?`, a: "Yes. The Medication Disposal Mail-Back kit is a tamper-evident mailer for patients' unused medications, including their controlled drugs. Your own expired controlled inventory goes in the Controlled Substance kit instead." },
       { q: `Do you serve pharmacies in ${s.cities[0]} and across ${s.name}?`, a: `Yes. Mail-back kits ship to any ${s.name} address, from ${s.cities[0]} to ${s.cities[s.cities.length - 1]}, and larger volumes or pickups are available by same-day quote.` },
     ],
-    stateStreams: ["controlled-substance-destruction", "pharmaceutical-waste-disposal", "rcra-hazardous-pharmaceutical-waste", "medication-disposal-kit"],
+    stateStreams: ["controlled-substance-destruction", "pharmaceutical-waste-disposal", "rcra-hazardous-pharmaceutical-waste"],
   },
   {
     slug: "physician-offices", label: "Physician office", name: "Physician offices", one: "physician office", estab: "physicians",
@@ -144,12 +143,11 @@ export const INDUSTRIES: Industry[] = [
     board: (s) => `the ${s.name} health department`, guide: "/resources/nursing-home-waste-disposal-guide/",
     lead: (s, n) => `Medication and sharps disposal for the ${n} nursing and long-term-care facilities across ${s.name} — on-site deactivation at the nursing station, documented destruction of the full containers, controlled substances and sharps.`,
     streams: [
-      { name: "On-site deactivation", what: "Residents' discontinued medications, deactivated at the nursing station", ...ONS },
       { name: "Full deactivation containers", what: "Used activated-charcoal containers sent back for documented destruction", ...ACR },
       { name: "Controlled substances", what: "Expired and wasted controlled drugs", ...CTL },
       { name: "Sharps", what: "Insulin pens, needles and lancets", ...SH },
     ],
-    notTaken: ["Pathological waste", "Bulk chemotherapy (trace chemo only)", "Inhalers and aerosols in medication kits"],
+    notTaken: ["Pathological waste", "Bulk chemotherapy (trace chemo only)", "Inhalers and aerosols"],
     rules: (s) => [
       { label: "DEA", text: "controlled-substance disposal and take-back rules (21 CFR 1317)" },
       { label: "CMS", text: "federal long-term-care survey expectations for drug disposal records" },
@@ -157,12 +155,11 @@ export const INDUSTRIES: Industry[] = [
       { label: s.name, text: `${s.name} health department and Board of Pharmacy requirements` },
     ],
     faqs: (s) => [
-      { q: `How do ${s.name} nursing homes dispose of residents' medications?`, a: "Many use on-site deactivation containers at each nursing station: medications go in and the compound inside renders them non-retrievable. Nothing ships back, so the facility follows its own witnessing and logging procedures. Full containers then go back in an Activated Charcoal Take-Back kit for documented destruction." },
-      { q: "Does the on-site kit come with a Certificate of Destruction?", a: "No. Nothing ships back, so we issue no Certificate for on-site deactivation. When the full containers come back in a Charcoal Take-Back kit, you receive a Certificate of Destruction." },
+      { q: `How do ${s.name} nursing homes dispose of residents' medications?`, a: "Most send expired and unused non-controlled medications back in a Pharmaceutical Waste mail-back kit for incineration, with a Certificate of Destruction on every kit." },
       CTL_FAQ(s, "long-term care facility"),
       { q: `Do you serve long-term care in ${s.cities[0]} and across ${s.name}?`, a: `Yes. Kits ship to any ${s.name} address, and multi-facility programs are available by same-day quote.` },
     ],
-    stateStreams: ["medication-disposal-kit", "controlled-substance-destruction", "sharps-disposal", "pharmaceutical-waste-disposal"],
+    stateStreams: ["pharmaceutical-waste-disposal", "controlled-substance-destruction", "sharps-disposal"],
   },
   {
     slug: "hospitals", label: "Hospital", name: "Hospitals", one: "hospital", estab: "hospitals",

@@ -1,4 +1,5 @@
 // Per-product content for the shop's product detail pages (PDPs).
+import { HIDDEN_CATEGORIES } from "./shop";
 // Each kit maps to a CATEGORIES key in lib/shop.ts; sizes/prices come from PRODUCTS.
 export type FAQ = { q: string; a: string };
 export type Collection = { title: string; keys: string[] };
@@ -20,15 +21,17 @@ export type Kit = {
 };
 
 // Storefront collections (order + grouping of the 8 kits)
-export const COLLECTIONS: Collection[] = [
+const COLLECTIONS_ALL: Collection[] = [
   { title: "Sharps & biohazard", keys: ["sharps", "biohazard"] },
   { title: "Medication disposal", keys: ["medication", "medication-onsite"] },
   { title: "Activated charcoal take-back", keys: ["charcoal"] },
   { title: "Pharmaceutical & specialty", keys: ["pharma", "chemo"] },
   { title: "Controlled & hazardous", keys: ["controlled", "hazardous"] },
 ];
+// Hidden kits (lib/shop.ts HIDDEN_CATEGORIES) drop out of collections; an emptied collection disappears.
+export const COLLECTIONS: Collection[] = COLLECTIONS_ALL.map((c) => ({ ...c, keys: c.keys.filter((k) => !HIDDEN_CATEGORIES.has(k)) })).filter((c) => c.keys.length);
 
-export const KITS: Kit[] = [
+export const KITS_ALL: Kit[] = [
   {
     slug: "sharps-mail-back-kit", category: "sharps", name: "Sharps Mail-Back Kit", keyword: "sharps mail-back kit",
     title: "Sharps Mail-Back Kit — Buy Online, Prepaid Both Ways",
@@ -175,9 +178,10 @@ export const KITS: Kit[] = [
       { q: "Is shipping included?", a: "Yes — prepaid both ways. The kit arrives with outbound and return labels." },
       { q: "What if I have more than 50 lbs?", a: "Order multiple kits, or contact us at 501-904-2929 for a freight quote on larger volumes." },
     ],
-    pillar: { href: "/our-solutions/medication-disposal-kit/", label: "Medication disposal — how it works" },
+    pillar: { href: "/our-solutions/pharmaceutical-waste-disposal/", label: "Pharmaceutical waste disposal — how it works" },
   },
 ];
+export const KITS: Kit[] = KITS_ALL.filter((k) => !HIDDEN_CATEGORIES.has(k.category));
 
 export const KIT_BY_CATEGORY: Record<string, Kit> = Object.fromEntries(KITS.map((k) => [k.category, k]));
 export const KIT_BY_SLUG: Record<string, Kit> = Object.fromEntries(KITS.map((k) => [k.slug, k]));

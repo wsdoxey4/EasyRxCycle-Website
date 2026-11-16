@@ -47,7 +47,6 @@ const guides: Card[] = [
   { t: "Biohazard & RMW Disposal Guide", d: "What's red-bag, packaging, and state rules.", h: "/resources/biohazard-rmw-disposal-guide/" },
   { t: "RCRA Hazardous Drug Waste Guide", d: "P/U-list, characteristic, Subpart P & the sewer ban.", h: "/resources/rcra-hazardous-drug-waste-guide/" },
   { t: "Reverse Distribution Guide", d: "Creditable returns vs. destruction, DSCSA.", h: "/resources/reverse-distribution-guide/" },
-  { t: "Medication Mail-Back Kit Guide", d: "DEA-authorized collection, what's allowed.", h: "/resources/medication-mail-back-kit-guide/" },
   { t: "Trace Chemo Waste Guide", d: "Trace vs. bulk, RCRA-empty, USP 800.", h: "/resources/trace-chemotherapy-waste-guide/" },
 ];
 

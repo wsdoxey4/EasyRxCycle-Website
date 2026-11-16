@@ -35,7 +35,7 @@ export default function Home() {
       <div className="kname">Every regulated stream</div>
       <div className="kmeta">Prepaid, DEA-compliant, non-retrievable &mdash; ships flat-rate, nationwide.</div>
       
-      <div className="hero-rotator" role="img" aria-label="Easy Rx Cycle mail-back kits for every regulated waste stream"><img src="/images/products/sharps.webp" alt="Sharps mail-back kit" width={1200} height={800} /><img src="/images/products/biohazard.webp" alt="Biohazard / RMW mail-back kit" width={1200} height={800} /><img src="/images/products/pharmaceutical.webp" alt="Pharmaceutical waste mail-back kit" width={1200} height={800} /><img src="/images/products/controlled.webp" alt="Controlled substance mail-back kit" width={1200} height={800} /><img src="/images/products/rcra.webp" alt="RCRA hazardous waste mail-back kit" width={1200} height={800} /><img src="/images/products/trace-chemo.webp" alt="Trace chemotherapy waste mail-back kit" width={1200} height={800} /><img src="/images/products/medication-disposal.webp" alt="Medication disposal kit" width={1200} height={800} /></div>
+      <div className="hero-rotator" role="img" aria-label="Easy Rx Cycle mail-back kits for every regulated waste stream"><img src="/images/products/sharps.webp" alt="Sharps mail-back kit" width={1200} height={800} /><img src="/images/products/biohazard.webp" alt="Biohazard / RMW mail-back kit" width={1200} height={800} /><img src="/images/products/pharmaceutical.webp" alt="Pharmaceutical waste mail-back kit" width={1200} height={800} /><img src="/images/products/controlled.webp" alt="Controlled substance mail-back kit" width={1200} height={800} /><img src="/images/products/rcra.webp" alt="RCRA hazardous waste mail-back kit" width={1200} height={800} /><img src="/images/products/trace-chemo.webp" alt="Trace chemotherapy waste mail-back kit" width={1200} height={800} /></div>
       <div className="steps3">
         <div className="s"><b>Fill</b><span>Load the kit</span></div>
         <div className="s"><b>Seal</b><span>Prepaid label</span></div>
@@ -65,7 +65,7 @@ export default function Home() {
 </div></div>
 
 <section className="sec" id="shop-by-waste" style={{paddingBottom:"0"}}><div className="wrap">
-  <KitTiles cats={["sharps","biohazard","controlled","pharma","medication","hazardous","chemo","charcoal"]} cta="kit_tile" heading="Shop by waste type" sub="Every kit ships with a prepaid return label and a Certificate of Destruction." />
+  <KitTiles cats={["sharps","biohazard","controlled","pharma","hazardous","chemo","charcoal"]} cta="kit_tile" heading="Shop by waste type" sub="Every kit ships with a prepaid return label and a Certificate of Destruction." />
 </div></section>
 
 <section className="sec" id="solutions"><div className="wrap">
@@ -115,7 +115,6 @@ export default function Home() {
     <a className="svc" href="/our-solutions/controlled-substance-destruction/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="#005770" strokeWidth="1.7"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#005770" strokeWidth="1.7"/><circle cx="12" cy="15" r="1.6" fill="#33C089"/></svg></div><h4>Controlled substances</h4><p>DEA Form 41/222, non-retrievable.</p></a>
     <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 3h4v5l4 9a2 2 0 01-1.8 3H7.8A2 2 0 016 17l4-9V3z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8.5 14h7" stroke="#33C089" strokeWidth="1.7"/></svg></div><h4>RCRA hazardous</h4><p>Subpart P &amp; hazardous pharma.</p></a>
     <a className="svc" href="/our-solutions/trace-chemotherapy-waste/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M10 14a2 2 0 002 2" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round"/></svg></div><h4>Trace chemo</h4><p>Yellow-container trace chemo waste.</p></a>
-    <a className="svc" href="/our-solutions/medication-disposal-kit/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#005770" strokeWidth="1.7" strokeLinejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#33C089" strokeWidth="1.6"/></svg></div><h4>Medication kits</h4><p>At-home &amp; take-back deactivation.</p></a>
     <a className="svc" href="/our-solutions/reverse-distribution/"><div className="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0113.7-5.6M20 12A8 8 0 016.3 17.6" stroke="#005770" strokeWidth="1.7" strokeLinecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#33C089" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg></div><h4>Reverse distribution</h4><p>Credit-eligible returns &amp; recalls.</p></a>
   </div>
 </div></section>

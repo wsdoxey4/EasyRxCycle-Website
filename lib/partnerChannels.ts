@@ -138,7 +138,7 @@ export const SUB_SEGMENTS: Record<string, SubSegment[]> = {
     { name: "Pharmacy & drug wholesalers", note: "Reverse distribution, controlled destruction, and RCRA-hazardous handling.", href: "/who-we-serve/retail-pharmacy/" },
     { name: "Laboratory suppliers", note: "Sharps, biohazard, and chemical/RCRA streams for research and clinical labs.", href: "/who-we-serve/clinical-labs/" },
     { name: "Veterinary distributors", note: "Controlled-substance and sharps kits for vet clinics.", href: "/who-we-serve/veterinary/" },
-    { name: "Home-health & DME suppliers", note: "Mail-back sharps and medication kits for in-home care.", href: "/who-we-serve/home-health/" },
+    { name: "Home-health & DME suppliers", note: "Mail-back sharps and pharmaceutical waste kits for in-home care.", href: "/who-we-serve/home-health/" },
   ],
   "3pls-fulfillment": [
     { name: "Pharma 3PLs", note: "White-label destruction and reverse distribution behind your fulfillment.", href: "/who-we-serve/pharma-manufacturers/" },

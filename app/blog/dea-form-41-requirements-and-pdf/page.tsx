@@ -113,7 +113,7 @@ export default function Page() {
                 <h2 id="when">When you don&rsquo;t need DEA Form 41</h2>
                 <ul>
                   <li dangerouslySetInnerHTML={H("<strong>Controls you send to a reverse distributor.</strong> The reverse distributor handles the transfer paperwork (Form 222 for Schedule I&ndash;II, a transfer record for III&ndash;V). With Easy Rx Cycle, we do all of it. The <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> destroys the drugs and completes Form 41.")} />
-                  <li dangerouslySetInnerHTML={H("<strong>Wasted doses.</strong> The leftover portion of a dose after it&rsquo;s administered (pharmaceutical wastage) goes in your dispensing or administration records, with a witness per your facility&rsquo;s policy. It isn&rsquo;t recorded on Form 41. Our <a href=\"/shop/on-site-medication-disposal-kit/\">On-Site Medication Disposal Kit</a> is made for those wasted partial doses.")} />
+                  <li dangerouslySetInnerHTML={H("<strong>Wasted doses.</strong> The leftover portion of a dose after it&rsquo;s administered (pharmaceutical wastage) goes in your dispensing or administration records, with a witness per your facility&rsquo;s policy. It isn&rsquo;t recorded on Form 41.")} />
                   <li dangerouslySetInnerHTML={H("<strong>Theft or loss.</strong> That&rsquo;s <a href=\"/blog/dea-form-106/\">DEA Form 106</a>, not Form 41.")} />
                 </ul>
 

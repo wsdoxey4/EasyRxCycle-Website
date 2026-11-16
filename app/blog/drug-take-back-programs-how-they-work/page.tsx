@@ -57,7 +57,7 @@ export default function Page() {
               </div>
               <p className="article-lead" dangerouslySetInnerHTML={{ __html: "A drug take-back program is the safe, legal way to get rid of unused and expired medications &mdash; instead of flushing them or tossing them in the trash. Here&rsquo;s how take-back works, the difference between drop-off and mail-back, and how to find an option that fits." }} />
 
-              <KitCTA cat="medication" />
+              <KitCTA cat="pharma" />
               <div className="prose">
             <div className="tocbox">
               <h4>In this guide</h4>
@@ -73,11 +73,11 @@ export default function Page() {
             <h3 dangerouslySetInnerHTML={{ __html: "Drop-off (DEA take-back &amp; kiosks)" }} />
             <p dangerouslySetInnerHTML={{ __html: "The DEA runs National Prescription Drug Take Back Day twice a year, and many pharmacies, police stations, and hospitals host permanent collection kiosks. Great for consumers &mdash; but locations and hours vary." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "Mail-back kits" }} />
-            <p dangerouslySetInnerHTML={{ __html: "A prepaid, tamper-evident <a href=\"/our-solutions/medication-disposal-kit/\">medication disposal kit</a> lets you fill an envelope or container, seal it, and drop it in any mailbox &mdash; no drive, no kiosk. It&rsquo;s the simplest option for facilities and for anyone without a nearby drop-off. For how both compare with at-home charcoal pouches, see <a href=\"/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box/\">deactivation pouch vs. mail-back kit vs. drop box</a>." }} />
+            <p dangerouslySetInnerHTML={{ __html: "A prepaid, tamper-evident DEA-authorized mail-back package lets you fill an envelope or container, seal it, and drop it in any mailbox &mdash; no drive, no kiosk. It&rsquo;s the simplest option for facilities and for anyone without a nearby drop-off. For how both compare with at-home charcoal pouches, see <a href=\"/blog/mail-back-kit-vs-deactivation-pouch-vs-drop-box/\">deactivation pouch vs. mail-back kit vs. drop box</a>." }} />
             <h2 id="facilities" dangerouslySetInnerHTML={{ __html: "Take-back for pharmacies, LTC &amp; clinics" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Facilities have to go further than a kiosk: unused controlled substances require DEA-authorized collection, <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>, and documentation. Our <a href=\"/our-solutions/medication-disposal-kit/\">mail-back medication disposal kits</a> and <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> cover both non-controlled and controlled medications, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every order." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Facilities have to go further than a kiosk: unused controlled substances require DEA-authorized collection, <a href=\"/blog/dea-form-41-requirements-and-pdf/\">DEA Form 41</a> and <a href=\"/blog/how-to-fill-out-dea-form-222/\">Form 222</a>, and documentation. Our <a href=\"/shop/pharmaceutical-waste-mail-back-kit/\">Pharmaceutical Waste Mail-Back Kit</a> and <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> cover both non-controlled and controlled medications, with a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a> on every order." }} />
 
-                <KitCTA cat="medication" place="end" />
+                <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Set up a compliant take-back.</h3>
                   <p>Mail-back kits for controlled and non-controlled medications — DEA-compliant, with a Certificate of Destruction and no contract.</p>

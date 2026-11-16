@@ -12,16 +12,14 @@ import SaveCart from "./SaveCart";
 const WASTE = [
   { key: "sharps", label: "Needles, syringes, lancets or pen needles" },
   { key: "biohazard", label: "Blood- or fluid-contaminated items, PPE, red-bag waste" },
-  { key: "meds", label: "Expired or unused medications (not controlled)" },
+  { key: "pharma", label: "Expired or unused medications (not controlled)" },  // medication kits retired 11-16: straight to the Pharmaceutical Waste kit
   { key: "controlled", label: "Controlled substances (Schedules I–V)" },
   { key: "chemo", label: "Trace chemotherapy waste" },
   { key: "hazardous", label: "RCRA hazardous pharmaceuticals" },
   { key: "charcoal", label: "Used activated-charcoal disposal containers" },
 ];
 const MEDS = [
-  { key: "medication", label: "Mail them back to be destroyed", sub: "Commingled medications, with a Certificate of Destruction" },
   { key: "pharma", label: "An ongoing pharmaceutical waste stream", sub: "Non-hazardous expired and unused pharmaceuticals from your facility" },
-  { key: "medication-onsite", label: "Deactivate them on-site", sub: "Renders medications non-retrievable, no return shipping" },
 ];
 const STREAM_NAME: Record<string, string> = {
   sharps: "Sharps", biohazard: "Biohazard", meds: "Medications", pharma: "Pharmaceutical", controlled: "Controlled substances",
@@ -36,7 +34,7 @@ const sizeKey = (size: string, cents: number) => {
   return cents;
 };
 type Pick = { cat: string; sku: string };
-const imgFor = (cat: string) => CATEGORIES.find((c) => c.key === (cat === "meds" ? "medication" : cat))?.image;
+const imgFor = (cat: string) => CATEGORIES.find((c) => c.key === (cat === "meds" ? "pharma" : cat))?.image;
 type Contact = { email: string; name?: string; phone?: string };
 // "Most ordered" size per kit, from real portal orders (order_items, counted 2026-11-05). Only kits with enough orders
 // to mean something: sharps 2 gal 22 of 47, controlled 5 lb 33 of 61, pharma 2 gal 12 of 28, biohazard 2 gal 15 of 18,

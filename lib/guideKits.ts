@@ -1,6 +1,6 @@
 // Picks the kits a guide should point readers to, from what the guide itself covers (its intro, bullets and body).
 // Each kit's score = how many times its waste stream comes up; the top few (with at least one mention) are shown.
-import { inCategory, money } from "@/lib/shop";
+import { inCategory, money, HIDDEN_CATEGORIES } from "@/lib/shop";
 
 type KitRef = { cat: string; href: string; name: string; what: string; re: RegExp };
 const KITS: KitRef[] = [
@@ -56,9 +56,11 @@ const LEAD: Record<string, string> = {
 
 export function kitsForGuide(text: string, slug = "", max = 4): GuideKit[] {
   const skip = EXCLUDE[slug] ?? [];
+  // Hidden kits (HIDDEN_CATEGORIES) are never offered; a guide that leads with one leads with the Pharmaceutical Waste kit.
+  const lead = LEAD[slug] && HIDDEN_CATEGORIES.has(LEAD[slug]) ? "pharma" : LEAD[slug];
   return KITS
-    .filter((k) => !skip.includes(k.cat))
-    .map((k) => ({ k, n: (text.match(k.re) || []).length + (LEAD[slug] === k.cat ? 1000 : 0) }))
+    .filter((k) => !skip.includes(k.cat) && !HIDDEN_CATEGORIES.has(k.cat))
+    .map((k) => ({ k, n: (text.match(k.re) || []).length + (lead === k.cat ? 1000 : 0) }))
     .filter((x) => x.n > 0)
     .sort((a, b) => b.n - a.n)
     .slice(0, max)

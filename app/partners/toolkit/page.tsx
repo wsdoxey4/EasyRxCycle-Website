@@ -30,7 +30,6 @@ const groups: { title: string; note: string; items: Item[] }[] = [
       { t: "Controlled substances", h: "/downloads/cobrand/cobrand-controlled.pdf", dl: true },
       { t: "RCRA-hazardous drugs", h: "/downloads/cobrand/cobrand-rcra.pdf", dl: true },
       { t: "Trace chemo waste", h: "/downloads/cobrand/cobrand-chemo.pdf", dl: true },
-      { t: "Medication mail-back", h: "/downloads/cobrand/cobrand-medication.pdf", dl: true },
       { t: "Reverse distribution", h: "/downloads/cobrand/cobrand-reverse.pdf", dl: true },
     ],
   },
@@ -120,7 +119,7 @@ export default function Page() {
               <p>
                 The toolkit is the collateral you need to sell compliant destruction under your own name. The co-branded
                 sell sheets cover the story stream by stream &mdash; a master sheet plus one each for sharps, biohazard,
-                pharmaceutical, controlled, RCRA-hazardous, chemo, medication mail-back, and reverse distribution &mdash;
+                pharmaceutical, controlled, RCRA-hazardous, chemo, and reverse distribution &mdash;
                 so you hand an account the page that matches what it actually generates. Alongside those sit a co-branded
                 line card and case study, email and social templates, program one-pagers for each channel, the wholesale
                 catalog, and a rep battle card. Every co-branded piece is built to take your logo and contact details.

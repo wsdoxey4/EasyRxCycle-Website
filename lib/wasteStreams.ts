@@ -9,7 +9,7 @@ export type WasteStream = {
   goesIn: string[];  // representative examples
 };
 
-export const wasteStreams: WasteStream[] = [
+const wasteStreamsAll: WasteStream[] = [
   {
     id: "sharps",
     name: "Sharps",
@@ -75,3 +75,5 @@ export const wasteStreams: WasteStream[] = [
     goesIn: ["In-date returnable inventory (credit)", "Expired non-returnable stock (destroy)", "Recalls & overstock"],
   },
 ];
+// "medkit" hidden 11-16 with the Medication Disposal Kits (lib/shop.ts HIDDEN_CATEGORIES); drop the filter to restore.
+export const wasteStreams: WasteStream[] = wasteStreamsAll.filter((w) => w.id !== "medkit");

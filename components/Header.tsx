@@ -20,7 +20,6 @@ const MENU: Item[] = [
       ]},
       { title: "Products & programs", links: [
         { t: "Build a mail-back program", h: "/build-your-program/" },
-        { t: "Medication Disposal Kits", h: "/our-solutions/medication-disposal-kit/" },
         { t: "Reverse Distribution", h: "/our-solutions/reverse-distribution/" },
         { t: "Mail-back kits (Shop)", h: "/shop/" },
         { t: "Auto-ship (save 20%)", h: "/shop/" },

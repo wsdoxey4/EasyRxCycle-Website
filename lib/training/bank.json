@@ -499,7 +499,8 @@
           "a": 2,
           "e": "Inhalers, aerosols, sharps, chemo and illicit drugs are not accepted."
         }
-      ]
+      ],
+      "hidden": true
     },
     {
       "id": "controlled",
@@ -1479,9 +1480,11 @@
             "Nothing"
           ],
           "a": 1,
-          "e": "Non-registrants collecting patients' medications use the Medication Disposal kits."
+          "e": "Non-registrants collecting patients' medications use the Medication Disposal kits.",
+          "hidden": true
         }
       ]
     }
-  ]
+  ],
+  "_hidden_note": "11-16: modules/questions with hidden:true are off with the Medication Disposal Kits (lib/shop.ts HIDDEN_CATEGORIES). Delete the hidden flags to restore."
 }

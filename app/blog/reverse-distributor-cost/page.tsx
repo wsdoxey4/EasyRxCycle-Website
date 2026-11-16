@@ -104,7 +104,6 @@ export default function Page() {
                       <tr><td><a href="/shop/pharmaceutical-waste-mail-back-kit/"><strong>Pharmaceutical waste</strong></a></td><td>Non-controlled, non-hazardous expired drugs</td><td>{range("pharma")}</td></tr>
                       <tr><td><a href="/shop/rcra-hazardous-mail-back-kit/"><strong>RCRA hazardous</strong></a></td><td>P-listed, U-listed, and characteristic hazardous drugs</td><td>{range("hazardous")}</td></tr>
                       <tr><td><a href="/shop/trace-chemo-mail-back-kit/"><strong>Trace chemo</strong></a></td><td>RCRA-empty chemotherapy waste</td><td>{range("chemo")}</td></tr>
-                      <tr><td><a href="/shop/on-site-medication-disposal-kit/"><strong>On-site medication kit</strong></a></td><td>Wasted doses deactivated at the point of care</td><td>{range("medication-onsite")}</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -133,7 +132,7 @@ export default function Page() {
                 <p dangerouslySetInnerHTML={H(`For pharmacies especially, <a href="/our-solutions/reverse-distribution/">reverse distribution</a> isn't only a cost. In-date and returnable products can earn manufacturer credit under each manufacturer's return policy. Credit varies by product and policy, so treat it as an offset, not a guarantee. See <a href="/blog/reverse-distribution-vs-destruction/">reverse distribution vs. destruction</a> for how to sort the two.`)} />
 
                 <h2 id="onsite">Wasted doses vs. expired inventory</h2>
-                <p dangerouslySetInnerHTML={H(`Keep the two separate: deactivate <em>wasted</em> doses at the point of care with an <a href="/shop/on-site-medication-disposal-kit/">on-site medication disposal kit</a> (from ${money(fromPrice("medication-onsite"))}), and send expired <em>inventory</em> to a DEA-registered reverse distributor that completes Form 41 and returns a Certificate of Destruction.`)} />
+                <p dangerouslySetInnerHTML={H(`Keep the two separate: record and witness <em>wasted</em> doses under your facility&rsquo;s policy, and send expired <em>inventory</em> to a DEA-registered reverse distributor that completes Form 41 and returns a Certificate of Destruction.`)} />
 
                 <h2 id="compare">How to compare quotes</h2>
                 <ol>

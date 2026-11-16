@@ -242,7 +242,6 @@ export const STREAM_WAVE: Record<string, number> = {
   "sharps-disposal": 1,
   "biohazard-waste-disposal": 1,
   "pharmaceutical-waste-disposal": 1,
-  "medication-disposal-kit": 2,
   "controlled-substance-destruction": 2,
   "rcra-hazardous-pharmaceutical-waste": 3,
   "trace-chemotherapy-waste": 3,

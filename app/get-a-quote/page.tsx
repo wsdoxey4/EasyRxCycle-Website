@@ -33,12 +33,11 @@ const jsonLd = {
 };
 
 // Kits shown above the form: most small or one-time orders are a published-price kit, not a quote.
-const KIT_ORDER = ["sharps", "biohazard", "pharma", "medication", "controlled", "hazardous", "chemo", "charcoal"];
+const KIT_ORDER = ["sharps", "biohazard", "pharma", "controlled", "hazardous", "chemo", "charcoal"];
 const WHAT: Record<string, string> = {
   sharps: "Needles, syringes, lancets, pen needles",
   biohazard: "Red-bag waste: gauze, gloves, PPE",
   pharma: "Expired non-controlled medications",
-  medication: "Unused medications, mailed back for incineration",
   controlled: "Schedules I–V. We do all the DEA paperwork",
   hazardous: "P-, U- and D-listed hazardous drugs",
   chemo: "Trace (RCRA-empty) chemo waste",

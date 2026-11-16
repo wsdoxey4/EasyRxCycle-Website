@@ -36,7 +36,6 @@ const jsonLd = {
 
 const KITS = [
   { name: "Controlled substance kit", what: "Expired methadone, buprenorphine, Sublocade, and Brixadi, sized by weight. Form 222 and Form 41 handled.", href: "/shop/controlled-substance-mail-back-kit/", cat: "controlled" },
-  { name: "On-site medication disposal kit", what: "Render wasted doses and spills unrecoverable at the dosing window. Nothing to ship back.", href: "/shop/on-site-medication-disposal-kit/", cat: "medication-onsite" },
   { name: "Sharps mail-back kit", what: "Used injection syringes and needles, lancets from point-of-care testing.", href: "/shop/sharps-mail-back-kit/", cat: "sharps" },
   { name: "Pharmaceutical waste kit", what: "Expired non-controlled drugs, such as naloxone and other clinic stock.", href: "/shop/pharmaceutical-waste-mail-back-kit/", cat: "pharma" },
 ];
@@ -117,7 +116,7 @@ export default function Page() {
 
                 <h2 id="wastage">Wastage, spills, and breakage</h2>
                 <ul>
-                  <li dangerouslySetInnerHTML={H(`<strong>Wastage.</strong> A dose prepared but not fully taken (for example, a refused or partially taken methadone dose) is recorded under your policy, witnessed by a second staff member, and made unrecoverable. An <a href="/shop/on-site-medication-disposal-kit/">on-site medication disposal kit</a> (from ${money(fromPrice("medication-onsite"))}) works at the dosing window.`)} />
+                  <li dangerouslySetInnerHTML={H(`<strong>Wastage.</strong> A dose prepared but not fully taken (for example, a refused or partially taken methadone dose) is recorded under your policy, witnessed by a second staff member, and made unrecoverable.`)} />
                   <li dangerouslySetInnerHTML={H("<strong>Spills and breakage.</strong> These generally aren&rsquo;t a reportable loss when the drug can be accounted for. Recoverable product is destroyed and recorded on Form 41; unrecoverable spills are documented in your records. Pump calibration discrepancies should be investigated and documented. A theft or unexplained significant loss is a <a href=\"/blog/dea-form-106/\">DEA Form 106</a> matter.")} />
                 </ul>
 

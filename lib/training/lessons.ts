@@ -34,7 +34,9 @@ export const FORM_SAMPLES: Record<string, FormSample> = {
   "epa": { src: F + "epa-manifest.jpg", title: "RCRA Form — EPA Form 8700-22", caption: "Uniform Hazardous Waste Manifest: generator → transporter → TSDF" },
 };
 
-export const LESSONS: Lesson[] = [
+// Chapters hidden 11-16 with the Medication Disposal Kits (lib/shop.ts HIDDEN_CATEGORIES). Empty to restore.
+export const HIDDEN_LESSONS = new Set<string>(["medkits"]);
+const LESSONS_ALL: Lesson[] = [
   {
     id: "basics", title: "The basics", kicker: "Chapter 1",
     summary: "What Easy Rx Cycle does, how a mail-back kit works from start to finish, and the rules that keep every order compliant.",
@@ -135,12 +137,10 @@ export const LESSONS: Lesson[] = [
         "It is <b>not</b> for a practice's own inventory. A pharmacy or clinic clearing its own expired controlled drugs needs the Controlled Substance kit, which carries the DEA transfer paperwork.",
       ], yes: ["Patients' unused or expired medications", "Pills, capsules, tablets, patches, creams", "Liquids in original containers", "Patients' controlled substances (commingled)"],
         no: ["A practice's own controlled inventory → Controlled Substance kit", "Sharps → Sharps kit", "Inhalers, aerosols, illicit drugs", "Chemo or hazardous drugs"] },
-      { h: "Mail-back sizes and MSRP", skus: "medication" },
       { h: "On-site: deactivate at the customer's location", p: [
         "The On-Site kit is a deactivation container. Medications go in, the container is closed, and the compound inside renders them non-retrievable — right at the nursing station or pharmacy. <b>Nothing ships back</b>, so Easy Rx Cycle issues no Certificate of Destruction.",
         "The facility follows its own witnessing and logging procedures. When the containers are full, they come back to us for documented destruction in an <b>Activated Charcoal Take-Back kit</b>.",
       ] },
-      { h: "On-site sizes and MSRP", skus: "medication-onsite" },
       { h: "The rules behind it", p: ["DEA take-back rules (21 CFR 1317, Secure and Responsible Drug Disposal Act) and Board of Pharmacy recordkeeping. Controlled substances destroyed on site must still be logged per the facility's DEA recordkeeping."] },
       { h: "What the customer receives", table: { head: ["Kit", "Documents"], rows: [["Mail-Back", "Certificate of Destruction (the mailer is listed by weight)"], ["On-Site", "None from Easy Rx Cycle — nothing ships back"]] }, forms: ["cod-medication"] },
     ],
@@ -158,7 +158,7 @@ export const LESSONS: Lesson[] = [
           ["IV", "Low abuse potential", "Alprazolam, diazepam, lorazepam, tramadol, zolpidem"],
           ["V", "Lowest abuse potential", "Pregabalin, lacosamide, low-dose codeine cough preparations"],
         ] } },
-      { h: "Who can buy it", callout: { label: "DEA registrants only", warn: true, text: "Pharmacies, hospitals, LTC and hospice, veterinary, dental (sedation), surgery centers, pain management and clinics. They need their DEA registration number, and we validate it when the kit comes back. Non-registrants collecting patients' medications use the Medication Disposal kits." } },
+      { h: "Who can buy it", callout: { label: "DEA registrants only", warn: true, text: "Pharmacies, hospitals, LTC and hospice, veterinary, dental (sedation), surgery centers, pain management and clinics. They need their DEA registration number, and we validate it when the kit comes back." } },
       { h: "What goes in — and what never does", yes: ["Expired controlled substances", "Schedule II narcotics", "Schedules III–V", "Unused and returned prescriptions", "Patient-returned controls (LTC/hospice)", "Overstock and recalls", "Partial or wasted doses"],
         no: ["RCRA-hazardous drugs → RCRA kit", "Chemo → Trace Chemo kit", "Pathological waste"] },
       { h: "Pricing: by weight (lbs) and NDC", skus: "controlled", p: ["Controlled destruction is priced by <b>weight in pounds</b> and the <b>NDCs</b> (drug line items) on the customer's Drug Inventory Manifest. Weigh what's going out and pick the tier that covers it. Over 100 lbs is a custom quote. Optional expedite: +$250 for rush shipping and priority destruction."] },
@@ -261,7 +261,7 @@ export const LESSONS: Lesson[] = [
           ["Signatures", "Two electronic signatures (operator and CEO)", "Signed by hand"],
         ] } },
       { h: "Destruction method printed on each COD", table: { head: ["Stream", "Method"], rows: [
-        ["Sharps · Biohazard", "Autoclave sterilization"], ["Non-controlled drugs · Medication kits · Trace chemo", "Regulated incineration"],
+        ["Sharps · Biohazard", "Autoclave sterilization"], ["Non-controlled drugs · Trace chemo", "Regulated incineration"],
         ["RCRA hazardous", "Incineration at a permitted TSDF"], ["Controlled (I–V)", "Witnessed incineration to non-retrievable — DEA-registered"],
         ["Activated charcoal containers", "Regulated destruction"],
       ] }, forms: ["cod-sharps", "cod-biohazard", "cod-pharmaceutical", "cod-medication", "cod-rcra", "cod-controlled", "cod-trace-chemo", "cod-charcoal"] },
@@ -314,7 +314,7 @@ export const LESSONS: Lesson[] = [
         ["Am I liable for the waste?", "No. You sell an empty kit. The waste goes from your customer directly to Easy Rx Cycle, and the DEA transfer is between your customer and us."],
         ["How much should I stock?", "Start with the fast movers and reorder in bulk as they sell."],
         ["Who answers compliance questions?", "We do. Bring us into the call, or have your customer call 501-904-2929."],
-        ["Can anyone buy the Controlled kit?", "No — DEA registrants only. Non-registrants collecting patients' medications use the Medication Disposal kits."],
+        ["Can anyone buy the Controlled kit?", "No — DEA registrants only."],
       ] } },
       { h: "The 30-second pitch", callout: { label: "Say this", text: "\"How are you handling expired meds and sharps right now? We carry Easy Rx Cycle mail-back kits. You fill it, seal it and send it back with the prepaid label, and they destroy it and send you a Certificate of Destruction for your records. No pickups, no contract. For controlled substances they even complete the DEA forms — you just fill out one list. Want me to add a kit to your next order?\"" } },
     ],
@@ -322,4 +322,6 @@ export const LESSONS: Lesson[] = [
   },
 ];
 
+// Visible chapters, renumbered so "Chapter N" has no gap.
+export const LESSONS: Lesson[] = LESSONS_ALL.filter((l) => !HIDDEN_LESSONS.has(l.id)).map((l, i) => (/^Chapter \d+$/.test(l.kicker) ? { ...l, kicker: `Chapter ${i + 1}` } : l));
 export const LESSON_BY_ID: Record<string, Lesson> = Object.fromEntries(LESSONS.map((l) => [l.id, l]));

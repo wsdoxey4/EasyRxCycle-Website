@@ -21,7 +21,7 @@ const faqs = [
   { q: "Can my pharmacy, clinic or practice use Take Back Day?", a: "No. Take Back Day collects medications from households (the people they were prescribed to). Businesses and DEA registrants — pharmacies, clinics, veterinary practices, dental offices, surgery centers — need to destroy their inventory through a DEA-compliant process such as a reverse distributor or a DEA-registered destruction service." },
   { q: "What can and can't be dropped off at Take Back Day?", a: "Collection sites take tablets, capsules, patches and other prescription medications, plus liquid medications sealed in their original containers. They don't take syringes, other sharps or illicit drugs. Sharps need their own disposal route — for example a sharps mail-back container." },
   { q: "How does Easy Rx Cycle handle facility waste?", a: "Order a prepaid mail-back kit for each waste stream, fill and seal it, and ship it back with the prepaid label. We destroy the contents at our DEA-registered facility and send a Certificate of Destruction for your records. Controlled substances are rendered non-retrievable, and every kit includes a manifest to list what you're returning." },
-  { q: "I'm a household, not a business. What should I do?", a: "Find a collection site at DEATakeBack.com. If you can't make it on October 24, the DEA notes that more than 15,300 pharmacies, hospitals and businesses offer medication disposal year-round — or a medication mail-back kit lets you send them for documented destruction any day." },
+  { q: "I'm a household, not a business. What should I do?", a: "Find a collection site at DEATakeBack.com. If you can't make it on October 24, the DEA notes that more than 15,300 pharmacies, hospitals and businesses offer medication disposal year-round." },
 ];
 
 const jsonLd = {
@@ -35,7 +35,6 @@ const jsonLd = {
 const KITS = [
   { name: "Controlled substance kit", blurb: "Schedules I–V, non-retrievable destruction, priced by weight.", href: "/shop/controlled-substance-mail-back-kit/", img: "/images/products/controlled.webp" },
   { name: "Pharmaceutical waste kit", blurb: "Expired and unused non-hazardous medications.", href: "/shop/pharmaceutical-waste-mail-back-kit/", img: "/images/products/pharmaceutical.webp" },
-  { name: "Medication disposal kit", blurb: "Mail unused medications back for documented destruction.", href: "/shop/medication-mail-back-kit/", img: "/images/products/medication-disposal.webp" },
   { name: "Sharps mail-back kit", blurb: "Needles and syringes — not accepted at Take Back Day sites.", href: "/shop/sharps-mail-back-kit/", img: "/images/products/sharps.webp" },
 ];
 
@@ -64,7 +63,7 @@ export default function Page() {
            </div>
             <div className="tbd-hero-media">
               <div className="tbd-date"><span>Sat</span><b>24</b><span>Oct 2026</span></div>
-              <img src="/images/products/medication-disposal.webp" alt="Easy Rx Cycle medication disposal container" width={1200} height={800} className="tbd-jug" />
+              <img src="/images/products/pharmaceutical.webp" alt="Easy Rx Cycle pharmaceutical waste mail-back kit" width={1200} height={800} className="tbd-jug" />
               <img src="/images/products/controlled.webp" alt="Easy Rx Cycle controlled substance mail-back kit" width={1200} height={800} className="tbd-bag" fetchPriority="high" />
             </div>
           </div>
@@ -80,7 +79,7 @@ export default function Page() {
               <div className="svc">
                 <h4 style={{ margin: "0 0 8px" }}>Households</h4>
                 <p style={{ margin: "0 0 10px" }}>Bring unused pills, patches and sealed liquid medications to a local collection site on October 24, 10 a.m.&ndash;2 p.m.</p>
-                <p style={{ margin: 0 }}>Find a site at <a href="https://www.deatakeback.com/" target="_blank" rel="noopener" style={{ color: "var(--teal)", fontWeight: 600 }}>DEATakeBack.com</a>, or use a <a href="/shop/medication-mail-back-kit/" style={{ color: "var(--teal)", fontWeight: 600 }}>medication mail-back kit</a> any day.</p>
+                <p style={{ margin: 0 }}>Find a site at <a href="https://www.deatakeback.com/" target="_blank" rel="noopener" style={{ color: "var(--teal)", fontWeight: 600 }}>DEATakeBack.com</a>.</p>
               </div>
               <div className="svc">
                 <h4 style={{ margin: "0 0 8px" }}>Pharmacies, clinics &amp; practices</h4>
