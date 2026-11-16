@@ -13,6 +13,7 @@ const DEFAULT_INCLUDED = [
   "A Certificate of Destruction for every shipment, for your records.",
 ];
 const fmtDate = (d) => (d ? new Date(String(d).length <= 10 ? d + "T12:00:00Z" : d).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" }) : "");
+const unitText = (q, u = "") => (Number(q) !== 1 && u && u !== "service" && !/s$/.test(u) ? u + (/x$/.test(u) ? "es" : "s") : u);
 const qtyText = (n) => Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 2 });
 
 export async function onRequestGet(ctx) {
@@ -50,10 +51,10 @@ function render(q, client, prep, url) {
     client && client.client_no ? `<b>Client no.</b> ${esc(client.client_no)}` : ""].filter(Boolean).join("<br>");
 
   const rows = lines.map((l) => `<tr>
-      <td><div class="svc">${esc(l.description || l.sku || "Service")}</div>${l.detail ? `<div class="det">${esc(l.detail)}</div>` : ""}</td>
-      <td class="r">${esc(qtyText(l.qty))} ${esc(l.unit || "")}</td>
-      <td class="r">${money(l.price_cents)}${l.unit === "lbs" ? " / lb" : ""}</td>
-      <td class="r">${money(lineCents(l))}</td></tr>`).join("");
+      <td class="c-svc"><div class="svc">${esc(l.description || l.sku || "Service")}</div>${l.detail ? `<div class="det">${esc(l.detail)}</div>` : ""}</td>
+      <td class="r c-q">${esc(qtyText(l.qty))} ${esc(unitText(l.qty, l.unit))}</td>
+      <td class="r c-u">${money(l.price_cents)}${l.unit === "lbs" ? " / lb" : ""}</td>
+      <td class="r c-a">${money(lineCents(l))}</td></tr>`).join("");
   const shipNote = q.shipping_note || "Billed at cost, invoiced after shipment";
   const totals = `
     <tr class="tot"><td colspan="2"></td><td class="r b">Subtotal</td><td class="r b">${money(subtotal)}</td></tr>
@@ -136,7 +137,7 @@ h1{font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(21px,3vw,27px)
 .lines th{background:var(--teal);color:#fff;text-align:left;font:600 12.5px Poppins,sans-serif;padding:9px 10px}
 .lines td{padding:9px 10px;vertical-align:top;border-bottom:1px solid var(--line)}.lines tr.tot td{border:0;padding:5px 10px}
 .lines tr.grand td.r{background:var(--cloud);border-top:2px solid var(--teal)}.r{text-align:right;white-space:nowrap}.b{font-weight:700}
-.svc{font-weight:600}.det{color:var(--slate);font-size:12.5px;margin-top:2px}
+.lines th:first-child,.lines td.c-svc{width:52%}.lines tr.tot td.r{white-space:normal}.svc{font-weight:600}.det{color:var(--slate);font-size:12.5px;margin-top:2px}
 .box{background:var(--cloud);border-radius:12px;padding:6px 20px 12px;margin-top:20px}.box ul{margin:4px 0 0;padding-left:18px}.box li{margin:4px 0;font-size:14px}
 .body{margin:0;color:var(--slate);font-size:14px}.muted{color:var(--slate)}.small{font-size:13px}
 .accept h2{margin-top:0}.pay{display:grid;gap:14px;margin:10px 0 14px}.pay form{margin:0}
@@ -148,7 +149,17 @@ h1{font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(21px,3vw,27px)
 .banner{display:flex;flex-direction:column;gap:2px;border-radius:12px;padding:14px 18px;margin-bottom:14px;font-size:14px}
 .banner.ok{background:#e6f6ee;border:1px solid #bfe8d3}.banner.warn{background:#fff6e5;border:1px solid #f3dca8}
 .foot{color:#8aa0a8;font-size:12px;text-align:center;margin-top:18px}
-@media (max-width:640px){.meta3{grid-template-columns:1fr;gap:12px}.pad{padding:20px 18px}.hdr{padding:16px 18px}.hdr img{height:28px}}
+@media (max-width:640px){.meta3{grid-template-columns:1fr;gap:12px}.pad{padding:20px 18px}.hdr{padding:16px 18px}.hdr img{height:26px}.hdr-r{font-size:11px}
+h1{font-size:22px}body{font-size:16px}
+.tablewrap{overflow:visible}.lines,.lines tbody{display:block;min-width:0;font-size:15px}.lines thead{display:none}
+.lines tr{display:grid;grid-template-columns:auto auto 1fr;column-gap:6px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.lines td{display:block;border:0;padding:0}.lines .c-svc{grid-column:1/-1;margin-bottom:6px}.svc{font-size:15.5px}.det{font-size:13.5px;line-height:1.45}
+.lines .c-q{text-align:left;color:var(--slate)}.lines .c-u{text-align:left;color:var(--slate)}.lines .c-u::before{content:"× "}.lines .c-a{text-align:right;font-weight:700}
+.lines tr.tot{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border:0}.lines tr.tot td{padding:0}.lines tr.tot td:first-child{display:none}
+.lines tr.tot td:last-child{white-space:normal;text-align:right;max-width:58%}.lines tr.tot td.r:not(:last-child){text-align:left;white-space:normal}
+.lines tr.grand{background:var(--cloud);border-top:2px solid var(--teal);border-radius:0 0 8px 8px;padding:10px 10px;margin-top:4px}.lines tr.grand td.r{background:none;border:0}
+.box{padding:6px 16px 12px}.box li{font-size:15px}.body{font-size:15px}
+.pay .btn,details.inv summary.btn{display:block;width:100%;text-align:center}.invform{max-width:none}.banner{font-size:15px}}
 </style></head><body><main class="wrap">${inner}
 <p class="foot">Easy Rx Cycle &middot; DEA-registered reverse distributor &middot; Serving all 50 states &middot; 501-904-2929 &middot; easyrxcycle.com</p></main></body></html>`;
   return new Response(html, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow", "Referrer-Policy": "no-referrer" } });
