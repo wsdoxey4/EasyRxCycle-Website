@@ -10,7 +10,7 @@
 - RCRA hazardous pharmaceutical waste: P-, U- and D-listed drugs under EPA's Subpart P rule, with a hazardous waste manifest.
 - Trace chemotherapy waste: yellow-container mail-back, incinerated and documented.
 - Pharmaceutical waste: patient and consumer take-back, including controlled substances.
-- Reverse distribution: manufacturer credit on returnable drugs, destruction of the rest.
+- Reverse distribution: DEA-registered destruction of expired, unusable and controlled drugs. Destruction only; we do not process returns for manufacturer credit.
 
 ## Who it serves
 Pharmacies (independent, chain, compounding, 503A/503B, mail-order), physician offices, dental and veterinary practices, urgent care, surgery centers, hospitals, nursing homes, home health and hospice, labs, med spas, tattoo studios, funeral homes, EMS, and other DEA registrants and medical waste generators of every size.

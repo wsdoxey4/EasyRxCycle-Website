@@ -89,7 +89,7 @@ export default function Page() {
                 <KitCTA cat="controlled" place="end" />
                 <div className="postcta">
                   <h3>See what compliant reverse distribution looks like.</h3>
-                  <p>DEA-registered, flat-rate, and documented on every order — with credit recovery on returnable stock built in.</p>
+                  <p>DEA-registered, flat-rate, and documented on every order.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/#quote">Get a quote <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="tel:5019042929">Call 501-904-2929</a>

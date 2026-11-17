@@ -70,9 +70,9 @@ const wasteStreamsAll: WasteStream[] = [
     id: "reverse",
     name: "Reverse distribution",
     href: "/our-solutions/reverse-distribution/",
-    what: "Returning expired/unwanted drugs up the supply chain — creditable stock for credit, the rest for destruction.",
+    what: "Sending expired and unwanted drugs to a DEA-registered reverse distributor for destruction (we are destruction only — no credit processing).",
     rule: "Manufacturer return policies + DSCSA chain-of-custody; controlled returns need a registered distributor.",
-    goesIn: ["In-date returnable inventory (credit)", "Expired non-returnable stock (destroy)", "Recalls & overstock"],
+    goesIn: ["Stock your returns company won't take", "Expired non-returnable stock (destroy)", "Recalls & overstock"],
   },
 ];
 // "medkit" hidden 11-16 with the Medication Disposal Kits (lib/shop.ts HIDDEN_CATEGORIES); drop the filter to restore.

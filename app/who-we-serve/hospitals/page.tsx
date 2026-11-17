@@ -72,7 +72,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What you deal with</span><h2 dangerouslySetInnerHTML={{ __html: "What you actually throw out." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "From Sharps & red-bag biohazard to Controlled substances (Schedules II\u2013V) \u2014 here\u2019s what hospitals & health systems generates — and how each stream stays compliant." }} /></div>
             <ul className="covers">
-              {["Sharps & red-bag biohazard", "Controlled substances (Schedules II\u2013V)", "RCRA-hazardous pharmaceutical waste", "Trace & bulk chemotherapy waste", "Reverse distribution & credit recovery", "Centralized chain-of-custody documentation"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
+              {["Sharps & red-bag biohazard", "Controlled substances (Schedules II\u2013V)", "RCRA-hazardous pharmaceutical waste", "Trace & bulk chemotherapy waste", "Reverse distribution & destruction recovery", "Centralized chain-of-custody documentation"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
             </ul>
           </div>
         </section>

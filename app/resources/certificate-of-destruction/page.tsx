@@ -116,7 +116,7 @@ export default function Page() {
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction with Form 41." }} /></a>
               <a className="svc" href="/blog/dea-form-41-requirements-and-pdf/"><h4 dangerouslySetInnerHTML={{ __html: "DEA Form 41 &amp; 222" }} /><p dangerouslySetInnerHTML={{ __html: "The controlled-substance forms, explained." }} /></a>
-              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit and destroy the rest." }} /></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Destroyed, documented, done." }} /></a>
             </div>
           </div>
         </section>

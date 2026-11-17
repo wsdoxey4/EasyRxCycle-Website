@@ -2,7 +2,7 @@
 // RULE: describe each competitor's PUBLIC business model factually (contract/route/quote/product) —
 // no invented fees or unverifiable negative claims. Lead with Easy Rx Cycle's verifiable strengths:
 // published pricing, no contract, DEA-registered certified destruction + COD, all 8 streams,
-// on-site deactivation AND mail-back, reverse distribution, self-serve shop.
+// mail-back for incineration, reverse distribution (DESTRUCTION ONLY — never offer manufacturer credit), self-serve shop.
 
 export type Row = { feature: string; them: string; us: string };
 // Optional extra content blocks (e.g. a rebrand note or a contract-exit checklist), rendered after
@@ -55,7 +55,7 @@ const ALL_COMPETITORS: Competitor[] = [
       { feature: "Model", them: "Route pickup (plus SafeDrop sharps mail-back)", us: "Mail-back + scheduled pickup" },
       { feature: "Best for", them: "High-volume, multi-site enterprise", us: "Small-to-mid sites (and enterprise, without the contract)" },
       { feature: "Controlled / DEA", them: "Available", us: "DEA-registered destruction + Form 41/222" },
-      { feature: "Reverse distribution", them: "Limited", us: "Yes — credit recovery + destruction" },
+      { feature: "Reverse distribution", them: "Limited", us: "Yes — DEA-registered destruction" },
       { feature: "Documentation", them: "Available", us: "Certificate of Destruction on every order" },
     ],
     edges: [
@@ -111,12 +111,12 @@ const ALL_COMPETITORS: Competitor[] = [
       { feature: "Contract", them: "Varies", us: "None" },
       { feature: "Self-serve shop", them: "Limited", us: "Full storefront — buy in minutes" },
       { feature: "Controlled / DEA", them: "Available", us: "DEA-registered destruction, Form 41/222" },
-      { feature: "Reverse distribution", them: "Not a focus", us: "Yes — recover manufacturer credit" },
+      { feature: "Reverse distribution", them: "Not a focus", us: "Yes — DEA-registered destruction" },
     ],
     edges: [
       "See the price and buy online — no quote form required.",
       "DEA-registered certified destruction with Form 41/222, not just pickup.",
-      "Reverse distribution to recover credit on returnable stock.",
+      "DEA-registered reverse distributor: we destroy, with the paperwork done for you.",
     ],
     faqs: [
       { q: "What's the main difference from MedPro Disposal?", a: "Transparency and breadth: we publish every price and sell kits self-serve, and we add DEA-registered controlled-substance destruction and reverse distribution as core services rather than referrals." },
@@ -207,43 +207,43 @@ const ALL_COMPETITORS: Competitor[] = [
     rows: [
       { feature: "Certified destruction", them: "No (deactivate & discard)", us: "Yes — DEA-registered + Certificate of Destruction" },
       { feature: "Mail-back", them: "No", us: "Yes — every stream" },
-      { feature: "Reverse distribution", them: "No", us: "Yes" },
+      { feature: "Reverse distribution", them: "No", us: "Yes — DEA-registered destruction" },
       { feature: "Other streams", them: "Medication only", us: "All 8 regulated streams" },
       { feature: "Documentation", them: "Limited", us: "COD + Form 41/222 where required" },
     ],
     edges: [
       "A Certificate of Destruction (and Form 41/222) that deactivation-and-trash can't provide.",
-      "Reverse distribution to recover credit on returnable stock.",
+      "DEA-registered reverse distributor: controlled substances destroyed, paperwork done for you.",
       "One vendor for medication AND every other regulated stream.",
     ],
     faqs: [
-      { q: "Isn't deactivation the same as destruction?", a: "No. Deactivation renders a drug non-retrievable at the point of use so it can be discarded, which is appropriate for many settings. Certified destruction adds documented, DEA-registered final destruction with a Certificate of Destruction — the proof an auditor or DEA registrant needs. We offer both." },
+      { q: "Isn't deactivation the same as destruction?", a: "No. Deactivation renders a drug non-retrievable at the point of use so it can be discarded, which is appropriate for many settings. Certified destruction adds documented, DEA-registered final destruction with a Certificate of Destruction — the proof an auditor or DEA registrant needs. That certified destruction is what we do." },
     ],
   },
   {
     slug: "reverse-distributor-alternative",
     name: "traditional reverse distributors",
     kind: "pharmaceutical returns specialists",
-    metaTitle: "Reverse Distributor Alternative — Returns + Destruction + Every Stream",
-    metaDesc: "An alternative to traditional reverse distributors (Inmar, Pharma Logistics, and others): recover manufacturer credit AND get DEA-registered destruction, mail-back, and every regulated stream from one transparent, self-serve vendor.",
+    metaTitle: "Reverse Distributor Alternative — DEA-Registered Destruction, Every Stream",
+    metaDesc: "An alternative to traditional reverse distributors (Inmar, Pharma Logistics, and others): keep your returns company for credit and send the rest to a DEA-registered destruction company with mail-back, every regulated stream and published prices.",
     h1: "A one-vendor reverse distributor alternative",
-    lead: "Traditional reverse distributors process pharmaceutical returns for credit — but that's usually all they do, through a B2B, quote-based relationship. Easy Rx Cycle is a DEA-registered reverse distributor that also handles certified destruction of what isn't creditable and every other regulated waste stream, with published pricing and a self-serve shop.",
+    lead: "Traditional reverse distributors process pharmaceutical returns for credit — but that's usually all they do, through a B2B, quote-based relationship. Easy Rx Cycle is a DEA-registered reverse distributor that does destruction only: we don't process returns for credit. If you already use a returns company, keep them; we destroy everything they won't take and every other regulated waste stream, with published pricing and a self-serve shop.",
     theirModel: "Reverse-distribution specialists (such as Inmar and Pharma Logistics) process returnable pharmaceuticals for manufacturer credit and destroy the rest, typically as a B2B, contract/quote service.",
     rows: [
-      { feature: "Manufacturer credit", them: "Yes (core service)", us: "Yes" },
+      { feature: "Manufacturer credit", them: "Yes (core service)", us: "No — destruction only (keep your returns vendor)" },
       { feature: "Certified destruction", them: "Yes", us: "Yes — DEA-registered + COD" },
       { feature: "Other waste streams", them: "Pharma returns only", us: "All 8 regulated streams" },
       { feature: "Mail-back / self-serve", them: "B2B / quote", us: "Published prices + self-serve shop" },
-      { feature: "Best for", them: "Large-volume returns", us: "Returns + full disposal, any size" },
+      { feature: "Best for", them: "Large-volume returns", us: "Destruction of every stream, any size" },
     ],
     edges: [
-      "Recover credit on returnable stock AND compliantly destroy the rest.",
-      "One vendor for reverse distribution and every other regulated stream.",
+      "Keep your returns company for credit; we destroy everything else.",
+      "One vendor for DEA-registered destruction and every other regulated stream.",
       "Published pricing and a self-serve shop, not a quote-only relationship.",
     ],
     faqs: [
-      { q: "Do you recover manufacturer credit like a reverse distributor?", a: "Yes — as a DEA-registered reverse distributor we process returnable, in-date stock for manufacturer credit and compliantly destroy what isn't creditable, with full documentation." },
-      { q: "Why use you instead of a returns-only reverse distributor?", a: "Because you get returns AND disposal from one vendor: reverse distribution, DEA-registered controlled destruction, and every other stream — with transparent pricing instead of a quote-only B2B relationship." },
+      { q: "Do you process returns for manufacturer credit?", a: "No. We are a DEA-registered reverse distributor that destroys. If you use a returns company for credit, keep them; we destroy everything that doesn't qualify, plus every other regulated stream, with full documentation." },
+      { q: "Why use you instead of a returns-only reverse distributor?", a: "Because a returns-only company leaves you to find someone for everything it won't take. We destroy all of it: controlled substances (paperwork done for you), non-creditable stock and every other regulated stream, with transparent pricing instead of a quote-only B2B relationship." },
     ],
   },
   {
@@ -253,7 +253,7 @@ const ALL_COMPETITORS: Competitor[] = [
     metaTitle: "123 Compliant Alternative — Controlled Destruction + Every Stream",
     metaDesc: "Comparing 123 Compliant? Both publish controlled-substance destruction prices. Easy Rx Cycle adds sharps, biohazard, RCRA, and trace chemo — one DEA-registered vendor, no contract.",
     h1: "A full-stream 123 Compliant alternative",
-    lead: "123 Compliant and Easy Rx Cycle are two of the few reverse distributors that publish what controlled-substance destruction costs. If controlled and non-controlled drugs are all you ship, compare the boxes side by side. If you also generate sharps, biohazard, RCRA-hazardous drugs, or trace chemo — or want to deactivate wasted doses on site — Easy Rx Cycle covers all of it from one DEA-registered vendor.",
+    lead: "123 Compliant and Easy Rx Cycle are two of the few reverse distributors that publish what controlled-substance destruction costs. If controlled and non-controlled drugs are all you ship, compare the boxes side by side. If you also generate sharps, biohazard, RCRA-hazardous drugs, or trace chemo — Easy Rx Cycle covers all of it from one DEA-registered vendor.",
     theirModel: "123 Compliant is a self-serve reverse distributor. It publishes destruction box prices (Small $170, Medium $325, Large $468), offers a free USPS sizing pack, and takes controlled substances (Schedules II–V), non-controlled and bulk pharmaceuticals, listed chemicals, and veterinary drugs. It also sells a Sublocade destruction product and runs route service in Arizona.",
     rows: [
       { feature: "Controlled destruction pricing", them: "Published: $170 / $325 / $468 per box", us: `Published: ${CTL_LIST} per kit, sized by weight` },

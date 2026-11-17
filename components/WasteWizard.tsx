@@ -89,7 +89,7 @@ const TREE: Record<string, Node> = {
       container: "Segregated returnable stock, documented",
       rule: "Manufacturer return policies; DEA 21 CFR 1317 if any controlled; EPA Subpart P if hazardous",
       detail:
-        "Unexpired or short-dated, unopened, creditable stock may be worth returning to a reverse distributor for manufacturer credit before you destroy anything. Product outside the window, opened, non-creditable, or hazardous typically moves to destruction instead.",
+        "Unexpired or short-dated, unopened, creditable stock may be worth sending to a returns company for manufacturer credit before you destroy anything (Easy Rx Cycle is destruction only). Product outside the window, opened, non-creditable, or hazardous typically moves to destruction instead.",
       href: "/our-solutions/reverse-distribution/",
       hrefLabel: "Reverse distribution",
     },

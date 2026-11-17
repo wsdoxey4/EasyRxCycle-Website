@@ -141,7 +141,7 @@ export default function Page() {
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction for Schedules II&ndash;V." }} /></a>
               <a className="svc" href="/our-solutions/rcra-hazardous-pharmaceutical-waste/"><h4 dangerouslySetInnerHTML={{ __html: "RCRA hazardous waste" }} /><p dangerouslySetInnerHTML={{ __html: "P-, U-, and D-listed pharmaceutical waste." }} /></a>
-              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover manufacturer credit on returnable Rx." }} /></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "DEA-registered destruction of expired Rx." }} /></a>
             </div>
           </div>
         </section>
@@ -169,7 +169,7 @@ export default function Page() {
               <a className="svc" href="/blog/pharmaceutical-waste-segregation-guide/"><h4>Segregation guide</h4><p>Which drug goes in which container.</p></a>
               <a className="svc" href="/blog/rcra-subpart-p-hazardous-pharmaceutical-waste/"><h4>RCRA Subpart P</h4><p>P/U-listed drugs and the management standard.</p></a>
               <a className="svc" href="/blog/who-regulates-pharmaceutical-waste-dea-epa-osha/"><h4>Who regulates it</h4><p>DEA, EPA, and OSHA — and what each covers.</p></a>
-              <a className="svc" href="/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs/"><h4>Recover credit on expired drugs</h4><p>Reverse distribution for returnable stock.</p></a>
+              <a className="svc" href="/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs/"><h4>The drug return process</h4><p>Credit returns vs. destruction, explained.</p></a>
             </div>
           </div>
         </section>

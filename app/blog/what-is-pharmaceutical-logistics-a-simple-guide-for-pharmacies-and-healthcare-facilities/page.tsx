@@ -81,7 +81,7 @@ export default function Page() {
                 <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
                   <h3>Clean up your pharmaceutical supply chain.</h3>
-                  <p>DEA-compliant removal of expired, returned, and recalled drugs — with reverse distribution, credit recovery, and a Certificate of Destruction.</p>
+                  <p>DEA-compliant removal of expired, returned, and recalled drugs — with reverse distribution and a Certificate of Destruction.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/#quote">Get a quote <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="tel:5019042929">Call 501-904-2929</a>

@@ -11,7 +11,7 @@ import { SITE, abs } from "@/lib/site";
 
 const PATH = "/who-we-serve/chain-pharmacy";
 const TITLE = "Chain Pharmacy Controlled Substance & Rx Disposal | Reverse Distribution";
-const DESC = "Compliant controlled substance, pharmaceutical, and returnable-Rx disposal for chain pharmacies \u2014 DEA-compliant destruction, reverse distribution for credit recovery, and a Certificate of Destruction on every order.";
+const DESC = "Compliant controlled substance, pharmaceutical, and returnable-Rx disposal for chain pharmacies \u2014 DEA-compliant destruction through a registered reverse distributor, and a Certificate of Destruction on every order.";
 
 export const metadata: Metadata = {
   title: TITLE, description: DESC, alternates: { canonical: PATH },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { q: "How do chain pharmacies standardize controlled-substance disposal?", a: "A DEA-registered reverse distributor standardizes Form 222/41 handling, chain-of-custody, and Certificates of Destruction across every store, with centralized documentation." },
-  { q: "Can you recover credit on expired Rx across locations?", a: "Yes \u2014 reverse distribution processes returnable stock for manufacturer credit and compliantly destroys the rest, at each site." },
+  { q: "Do you process returns for manufacturer credit?", a: "No \u2014 we are destruction only. Keep your returns company for credit; we destroy everything else, at each site." },
   { q: "Do you handle RCRA-hazardous drugs?", a: "Yes, segregated and manifested to a permitted facility, separate from non-hazardous and controlled streams." },
   { q: "Is the documentation audit-ready across the chain?", a: "Yes \u2014 Form 222, Form 41, chain-of-custody, and Certificates of Destruction are archived per location for DEA and state audits." },
   { q: "Can you scale to a large store count?", a: "Yes \u2014 the program scales across a chain with consistent forms, pricing, and reporting." },
@@ -53,7 +53,7 @@ export default function Page() {
             <Breadcrumbs items={[{ name: "Who We Serve", href: "/who-we-serve/" }, { name: "Chain pharmacies" }]} />
             <span className="eyebrow">Chain pharmacies</span>
             <h1 className="ph1" dangerouslySetInnerHTML={{ __html: "Controlled & Rx disposal for <span style=\"color:var(--teal)\">chain pharmacies.</span>" }} />
-            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Controlled-substance, pharmaceutical, and returnable-Rx disposal built for chain pharmacies \u2014 DEA-compliant destruction, reverse distribution to recover credit, and a Certificate of Destruction every time, with audit-ready documentation. Standardize disposal, forms, and documentation across every location." }} />
+            <p className="lead" style={{ marginTop: "18px", maxWidth: "62ch" }} dangerouslySetInnerHTML={{ __html: "Controlled-substance, pharmaceutical, and returnable-Rx disposal built for chain pharmacies \u2014 DEA-compliant destruction through a registered reverse distributor, and a Certificate of Destruction every time, with audit-ready documentation. Standardize disposal, forms, and documentation across every location." }} />
             <div className="cta" style={{ display: "flex", gap: "13px", marginTop: "28px", flexWrap: "wrap" }}>
               <a className="btn btn-primary" href="/get-a-quote/?role=Pharmacy%20%28chain%20/%20specialty%20/%20340B%29">Get a quote <span className="ar">→</span></a>
               <a className="btn btn-ghost" href="/build-your-program/?facility=pharmacy">Build a program</a>
@@ -72,7 +72,7 @@ export default function Page() {
           <div className="wrap">
             <div className="shead"><span className="eyebrow">What you deal with</span><h2 dangerouslySetInnerHTML={{ __html: "Tight inventory accountability." }} /><p className="lead" dangerouslySetInnerHTML={{ __html: "Chain pharmacies manage returns, expireds, and controls across many locations \u2014 disposal has to be standardized and documented." }} /></div>
             <ul className="covers">
-              {["Controlled substances (Schedules II\u2013V)", "Expired & unsellable Rx", "Returnable stock for manufacturer credit", "RCRA-hazardous drugs (segregated)", "DEA Form 222 & 41 handled", "Audit-ready documentation"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
+              {["Controlled substances (Schedules II\u2013V)", "Expired & unsellable Rx", "Stock your returns company won't take", "RCRA-hazardous drugs (segregated)", "DEA Form 222 & 41 handled", "Audit-ready documentation"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
             </ul>
           </div>
         </section>
@@ -103,7 +103,7 @@ export default function Page() {
             <div className="grid8" style={{ gridTemplateColumns: "repeat(3,1fr)" }}>
               <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste" }} /><p dangerouslySetInnerHTML={{ __html: "Expired & non-controlled Rx." }} /></a>
               <a className="svc" href="/our-solutions/controlled-substance-destruction/"><h4 dangerouslySetInnerHTML={{ __html: "Controlled substance destruction" }} /><p dangerouslySetInnerHTML={{ __html: "DEA non-retrievable destruction." }} /></a>
-              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Recover credit, destroy the rest." }} /></a>
+              <a className="svc" href="/our-solutions/reverse-distribution/"><h4 dangerouslySetInnerHTML={{ __html: "Reverse distribution" }} /><p dangerouslySetInnerHTML={{ __html: "Destroyed, documented, done." }} /></a>
               <a className="svc" href="/our-solutions/pharmaceutical-waste-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Pharmaceutical waste kits" }} /><p dangerouslySetInnerHTML={{ __html: "Mail-back kits for expired and unused medications." }} /></a>
               <a className="svc" href="/our-solutions/sharps-disposal/"><h4 dangerouslySetInnerHTML={{ __html: "Sharps disposal" }} /><p dangerouslySetInnerHTML={{ __html: "Prepaid mail-back needle & syringe kits." }} /></a>
             </div>
@@ -126,7 +126,7 @@ export default function Page() {
           <div className="wrap" style={{ maxWidth: "820px" }}>
             <div className="shead"><span className="eyebrow">Compliance</span><h2>DEA &amp; EPA compliance for pharmacies.</h2></div>
             <ul className="covers" style={{ marginTop: "22px" }}>
-              {["DEA-registered reverse distribution & destruction", "DEA Form 222 (Schedule II) & Form 41 handled", "RCRA-hazardous drugs segregated & manifested", "Certificate of Destruction + credit records for audits"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
+              {["DEA-registered reverse distribution & destruction", "DEA Form 222 (Schedule II) & Form 41 handled", "RCRA-hazardous drugs segregated & manifested", "Certificate of Destruction for audits"].map((t) => (<li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>))}
             </ul>
           </div>
         </section>
@@ -174,7 +174,7 @@ export default function Page() {
           <div className="wrap">
             <div className="finalcta">
               <div>
-                <h2>Compliant, credit-maximizing Rx disposal.</h2>
+                <h2>Compliant, documented Rx disposal.</h2>
                 <p>Reverse distribution plus controlled and hazardous destruction, fully documented for audits.</p>
                 <div style={{ marginTop: "14px", fontFamily: "Poppins", fontWeight: 600 }}>Talk to a specialist · 501-904-2929</div>
               </div>

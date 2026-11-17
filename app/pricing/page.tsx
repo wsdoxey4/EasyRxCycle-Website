@@ -100,7 +100,7 @@ export default function Page() {
               <div>
                 <div className="shead" style={{ textAlign: "left" }}><span className="eyebrow">Custom quote</span><h2>When we&rsquo;ll size a program for you.</h2></div>
                 <ul className="covers">
-                  {["Scheduled or recurring pickup service", "Higher-volume or multi-site facilities", "Standardized programs across many locations", "Reverse distribution &amp; manufacturer credit recovery", "Specialized or bulk hazardous / chemo streams"].map((t) => (
+                  {["Scheduled or recurring pickup service", "Higher-volume or multi-site facilities", "Standardized programs across many locations", "Reverse distribution (DEA-registered destruction)", "Specialized or bulk hazardous / chemo streams"].map((t) => (
                     <li key={t}>{check}<span dangerouslySetInnerHTML={{ __html: t }} /></li>
                   ))}
                 </ul>

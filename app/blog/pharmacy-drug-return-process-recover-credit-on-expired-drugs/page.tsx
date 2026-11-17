@@ -94,8 +94,8 @@ export default function Page() {
 
                 <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
-                  <h3>Turn expired inventory back into credit.</h3>
-                  <p>DEA-registered reverse distribution recovers manufacturer credit on returnable stock and compliantly destroys the rest — with documentation, and every other waste stream under one roof.</p>
+                  <h3>Get expired inventory destroyed.</h3>
+                  <p>Easy Rx Cycle is destruction only: keep your returns company for credit, and we destroy everything else — with documentation, and every other waste stream under one roof.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/our-solutions/reverse-distribution/">Reverse distribution <span className="ar">→</span></a>
                     <a className="btn btn-outline-w" href="/get-a-quote/">Get a quote</a>

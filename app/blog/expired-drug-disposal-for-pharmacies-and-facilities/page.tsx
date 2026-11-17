@@ -10,7 +10,7 @@ import { fromPrice, money } from "@/lib/shop";
 
 const PATH = "/blog/expired-drug-disposal-for-pharmacies-and-facilities";
 const TITLE = "Expired Drug Disposal for Pharmacies & Facilities";
-const DESC = "How pharmacies and healthcare facilities dispose of expired drugs — the sort that recovers credit, routes controlled and hazardous drugs correctly, and keeps you compliant and documented.";
+const DESC = "How pharmacies and healthcare facilities dispose of expired drugs — the sort that routes returnable, controlled and hazardous drugs correctly, and keeps you compliant and documented.";
 
 export const metadata: Metadata = {
   title: TITLE, description: DESC, alternates: { canonical: PATH },
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "How do you dispose of expired drugs in a facility?", a: "Sort first: send returnable, in-window stock to a reverse distributor for manufacturer credit, then destroy the rest by category — controlled substances to DEA-registered destruction, RCRA-hazardous drugs to hazardous disposal, and the remainder as non-hazardous pharmaceutical waste. Everything is documented with credit records and a Certificate of Destruction." },
-  { q: "Can you get money back for expired drugs?", a: "Often, yes. Returnable expired and short-dated stock within the manufacturer's return window can be processed for credit through a reverse distributor. Product outside the window, opened, or non-returnable is destroyed instead. Sorting returnable from destroy-only is how you recover value on inventory that would otherwise be a total loss." },
+  { q: "How do you dispose of expired drugs in a facility?", a: "Sort first: if you use a returns company, send it returnable, in-window stock for manufacturer credit, then destroy the rest by category — controlled substances to DEA-registered destruction, RCRA-hazardous drugs to hazardous disposal, and the remainder as non-hazardous pharmaceutical waste. Everything is documented with a Certificate of Destruction." },
+  { q: "Can you get money back for expired drugs?", a: "Often, yes. Returnable expired and short-dated stock within the manufacturer's return window can be processed for credit through a returns company. Product outside the window, opened, or non-returnable is destroyed instead. Sorting returnable from destroy-only is how you recover value on inventory that would otherwise be a total loss." },
   { q: "What's the difference between expired drug disposal and just throwing them out?", a: "Expired drugs can't be thrown in the trash or flushed — that's a compliance violation and an environmental hazard. Controlled substances require DEA-documented destruction, hazardous drugs require RCRA disposal, and even non-hazardous drugs require compliant destruction at a permitted facility with documentation." },
   { q: "How should pharmacies handle expired controlled substances?", a: "Expired controlled substances go to a DEA-registered reverse distributor or destruction — with Form 222 for Schedule II transfers, Form 41 for destruction, and non-retrievable destruction. They can never be returned for credit like ordinary stock or discarded in regular waste." },
   { q: "How often should a facility clear expired drugs?", a: "On a regular cadence — monthly or quarterly — so returnable stock doesn't age out of its credit window and expired product doesn't accumulate as a diversion or compliance risk. A recurring mail-back or pickup schedule keeps it routine." },
@@ -59,7 +59,7 @@ export default function Page() {
                   <h4>In this guide</h4>
                   <ol>
                     <li><a href="#sort" dangerouslySetInnerHTML={H("Sort before you destroy")} /></li>
-                    <li><a href="#credit" dangerouslySetInnerHTML={H("Recover credit first")} /></li>
+                    <li><a href="#credit" dangerouslySetInnerHTML={H("Returns for credit come first")} /></li>
                     <li><a href="#route" dangerouslySetInnerHTML={H("Route the rest by type")} /></li>
                     <li><a href="#cadence" dangerouslySetInnerHTML={H("Set a cadence")} /></li>
                   </ol>
@@ -68,8 +68,8 @@ export default function Page() {
                 <h2 id="sort" dangerouslySetInnerHTML={H("Sort before you destroy")} />
                 <p dangerouslySetInnerHTML={H("The whole job is the sort. Expired inventory splits into <strong>returnable</strong> (recover credit) and <strong>destroy-only</strong>, and the destroy-only pile splits again by class &mdash; controlled, RCRA-hazardous, and non-hazardous. Skip the sort and you either throw away money or mis-route a controlled or hazardous drug into the wrong stream.")} />
 
-                <h2 id="credit" dangerouslySetInnerHTML={H("Recover credit first")} />
-                <p dangerouslySetInnerHTML={H("Send returnable, in-window stock to a <a href=\"/our-solutions/reverse-distribution/\">reverse distributor</a> for <a href=\"/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs/\">manufacturer credit</a> before destroying anything. Value walks out the door when returnable inventory is destroyed by default. Product outside the return window, opened, or non-returnable moves to destruction.")} />
+                <h2 id="credit" dangerouslySetInnerHTML={H("Returns for credit come first")} />
+                <p dangerouslySetInnerHTML={H("If you use a returns company, send it returnable, in-window stock for <a href=\"/blog/pharmacy-drug-return-process-recover-credit-on-expired-drugs/\">manufacturer credit</a> before destroying anything. We are destruction only, so this step is with them, not us. Product outside the return window, opened, or non-returnable moves to destruction.")} />
 
                 <h2 id="route" dangerouslySetInnerHTML={H("Route the rest by type")} />
                 <ul>
@@ -85,7 +85,7 @@ export default function Page() {
 
                 <KitCTA cat="pharma" place="end" />
                 <div className="postcta">
-                  <h3>Turn expired inventory into credit and clean documentation.</h3>
+                  <h3>Turn expired inventory into clean documentation.</h3>
                   <p>Reverse distribution for the returnable, compliant destruction for the rest — controlled, hazardous, and non-hazardous, all under one vendor.</p>
                   <div className="b">
                     <a className="btn btn-primary" href="/get-a-quote/">Get a quote <span className="ar">→</span></a>

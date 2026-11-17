@@ -443,37 +443,37 @@ const medication: Stream = {
 };
 
 /* ------------------------------------------------ REVERSE DISTRIBUTION */
-// A national DEA credit/returns service, not a mail-back kit: quote-only CTA,
-// single-column hero (no product), no kit ladder — returns/credit-focused content.
+// DEA-registered reverse distribution = destruction only (11-16: we do NOT process returns for credit).
+// Quote-only CTA, single-column hero (no product), no kit ladder.
 const reverse: Stream = {
   slug: "reverse-distribution",
   name: "Reverse Distribution",
-  eyebrow: "Returns & credit",
+  eyebrow: "DEA-registered destruction",
   guideSlug: "reverse-distribution-guide",
   guideTitle: "The Reverse Distribution Guide",
-  guideBody: "How manufacturer credit works, what's returnable vs. destroy-only, DEA handling for controlled returns, and how any pharmacy recovers value on expired inventory — plus a checklist and FAQ.",
+  guideBody: "What's returnable vs. destroy-only, DEA handling for controlled returns, and how to get expired inventory destroyed with clean records — plus a checklist and FAQ.",
   kitLabel: "Get a quote",
   metaTitle: (s) => `Reverse Distribution in ${s.name}`,
-  metaDesc: (s) => `DEA-registered reverse distribution in ${s.name}. Recover manufacturer credit on returnable Rx and destroy the rest, for ${s.cities[0]} and statewide.`,
+  metaDesc: (s) => `DEA-registered reverse distribution in ${s.name}. Expired and unusable Rx, including controlled substances, destroyed and documented, for ${s.cities[0]} and statewide.`,
   h1: (s) => ({ pre: "Reverse distribution in", accent: `${s.name}.` }),
-  heroLead: (s) => `Recover manufacturer credit on returnable pharmaceuticals and compliantly destroy the rest — for pharmacies and facilities in ${cities(s)} and across ${s.name}. As a DEA-registered reverse distributor, we process returns, handle controlled substances, and document every step.`,
-  takesHeading: (s) => `Every return we process in ${s.name}.`,
-  takesLead: "Returnable stock recovered for credit; the rest destroyed compliantly.",
-  takes: ["Returnable & creditable stock", "Expired & short-dated inventory", "Overstock & discontinued NDCs", "Recalled product", "Manufacturer returns processing", "Non-creditable destruction with a COD"],
-  howHeading: (s) => `How reverse distribution works in ${s.name}.`,
+  heroLead: (s) => `Expired, unusable and controlled pharmaceuticals destroyed by incineration and documented — for pharmacies and facilities in ${cities(s)} and across ${s.name}. We are a DEA-registered reverse distributor that destroys: if you use a returns company for credit, keep them, and send us everything else.`,
+  takesHeading: (s) => `What we destroy in ${s.name}.`,
+  takesLead: "Destruction only, with a Certificate of Destruction on every order.",
+  takes: ["Expired & short-dated inventory", "Controlled substances (Schedules II–V)", "Overstock & discontinued NDCs", "Recalled product", "Stock your returns company won't take", "Destruction with a COD"],
+  howHeading: (s) => `How destruction works in ${s.name}.`,
   steps: (s) => [
-    { h: "Send your returns", p: `Package expired and unwanted inventory from your ${s.cities[0]} or ${s.name} site — we provide the process and documentation.` },
-    { h: "We sort & value", p: "Returnable stock is processed for manufacturer credit; controlled substances are handled under DEA rules." },
-    { h: "You recover credit", p: "Creditable returns are submitted to manufacturers so you recover value on unsellable inventory." },
-    { h: "Destroy the rest", p: "Non-creditable and controlled product is destroyed non-retrievably with a Certificate of Destruction." },
+    { h: "Get a quote", p: `Tell us what you have at your ${s.cities[0]} or ${s.name} site — we quote the same day.` },
+    { h: "We do the paperwork", p: "We prepare the DEA paperwork for controlled substances; you pack and ship." },
+    { h: "Ship it to us", p: "Prepaid shipping or a scheduled pickup, with chain-of-custody records." },
+    { h: "We destroy it", p: "Everything is destroyed non-retrievably by incineration, with a Certificate of Destruction." },
   ],
   compHeading: (s) => `${s.name} & federal returns rules, handled.`,
-  compIntro: (s) => `Reverse distribution recovers value from expired and unsellable pharmaceuticals while keeping disposal compliant. As a DEA-registered reverse distributor, Easy Rx Cycle can accept controlled-substance returns — with DEA Form 222 for Schedule II transfers and Form 41 for destroyed stock — and reports controlled transactions through ARCOS where required. Non-controlled returns follow manufacturer return policies. In ${s.name}, the ${s.name} Board of Pharmacy adds licensing and recordkeeping requirements. Every return is documented, and non-creditable product is destroyed non-retrievably.`,
+  compIntro: (s) => `As a DEA-registered reverse distributor, Easy Rx Cycle accepts controlled substances for destruction — we prepare the DEA paperwork, including Form 41 for destroyed stock — and reports controlled transactions through ARCOS where required. We are destruction only: we don't process manufacturer credit. In ${s.name}, the ${s.name} Board of Pharmacy adds recordkeeping requirements. Everything is documented and destroyed non-retrievably.`,
   compBullets: (s) => [
-    { label: "DEA", text: "registered reverse distributor — Form 222/41, controlled returns" },
+    { label: "DEA", text: "registered reverse distributor — we prepare the DEA forms" },
     { label: "ARCOS", text: "controlled-substance transaction reporting where required" },
-    { label: `${s.name}`, text: "Board of Pharmacy licensing & recordkeeping" },
-    { label: "Credit + COD", text: "manufacturer credit on returnable stock; Certificate of Destruction on the rest" },
+    { label: `${s.name}`, text: "Board of Pharmacy recordkeeping" },
+    { label: "COD", text: "Certificate of Destruction on every order" },
   ],
   serveHeading: (s) => `Built for ${s.name} pharmacies that carry inventory.`,
   serve: [
@@ -485,19 +485,19 @@ const reverse: Stream = {
     { href: "/who-we-serve/", label: "All industries →" },
   ],
   related: (s) => [
-    { href: "/our-solutions/controlled-substance-destruction/" + s.slug + "/", h: `Controlled destruction in ${s.name}`, p: "Non-creditable & controlled destruction." },
+    { href: "/our-solutions/controlled-substance-destruction/" + s.slug + "/", h: `Controlled destruction in ${s.name}`, p: "Schedule II–V destruction, paperwork done for you." },
     { href: "/our-solutions/pharmaceutical-waste-disposal/" + s.slug + "/", h: `Pharmaceutical waste in ${s.name}`, p: "Non-controlled expired medications." },
     { href: `/locations/${s.slug}/`, h: `All services in ${s.name}`, p: "Every waste stream we handle statewide." },
   ],
   faqs: (s) => [
-    { q: `What is reverse distribution in ${s.name}?`, a: `Reverse distribution is the process of returning expired and unsellable pharmaceuticals to recover manufacturer credit, and compliantly destroying what isn't creditable. ${s.name} pharmacies use it to recover value on inventory that would otherwise be a total loss. We serve ${cities(s)} and statewide.` },
-    { q: `How does a ${s.name} pharmacy recover credit on expired Rx?`, a: `Send your expired and short-dated stock to a reverse distributor. Returnable product is processed and submitted to manufacturers for credit under their return policies; the rest is destroyed with documentation. We handle both.` },
-    { q: `Do you handle controlled-substance returns in ${s.name}?`, a: `Yes — as a DEA-registered reverse distributor we accept Schedule I–V returns, with Form 222 for Schedule II transfers and Form 41 for destroyed stock, and ARCOS reporting where required.` },
-    { q: `What isn't creditable?`, a: `Opened, adulterated, or non-returnable product, and most controlled substances, generally can't be returned for credit — but they still must be destroyed compliantly. Our process sorts creditable from destroy-only so nothing is mishandled in ${s.name}.` },
-    { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — we process returns for pharmacies and facilities everywhere in ${s.name}, from ${s.cities[0]} to ${last(s)}.` },
+    { q: `What is reverse distribution in ${s.name}?`, a: `Reverse distribution is how expired and unsellable pharmaceuticals leave a pharmacy: some go back to manufacturers for credit through a returns company, and the rest is destroyed by a DEA-registered reverse distributor. Easy Rx Cycle does the destruction side for ${s.name} pharmacies and facilities in ${cities(s)} and statewide.` },
+    { q: `Do you process returns for manufacturer credit in ${s.name}?`, a: `No. We are destruction only. If you already use a returns company for credit, keep them; send us everything they won't take, plus your controlled substances, and we destroy it with documentation.` },
+    { q: `Do you handle controlled-substance returns in ${s.name}?`, a: `Yes — as a DEA-registered reverse distributor we accept Schedule II–V drugs for destruction. We prepare the DEA paperwork, including Form 41, and report through ARCOS where required.` },
+    { q: `What do you destroy?`, a: `Opened, expired, adulterated, recalled or non-returnable product, and controlled substances. All of it is destroyed non-retrievably with a Certificate of Destruction, so nothing is mishandled in ${s.name}.` },
+    { q: `Do you serve ${s.cities[0]} and the rest of ${s.name}?`, a: `Yes — we destroy pharmaceuticals for pharmacies and facilities everywhere in ${s.name}, from ${s.cities[0]} to ${last(s)}.` },
   ],
-  finalH: (s) => `Recover value on expired inventory in ${s.name}.`,
-  finalP: (s) => `Get a same-day reverse distribution quote for your ${s.name} pharmacy or facility — credit on what's returnable, compliant destruction for the rest.`,
+  finalH: (s) => `Get expired inventory destroyed in ${s.name}.`,
+  finalP: (s) => `Get a same-day reverse distribution quote for your ${s.name} pharmacy or facility — DEA-registered destruction with a Certificate of Destruction.`,
   proofSolution: "reverse-distribution",
 };
 

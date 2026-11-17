@@ -5,13 +5,12 @@ import { SITE, abs } from "@/lib/site";
 const S: TradeShow = {
   slug: "arkansas-stop-overdose-summit", name: "2026 Arkansas Stop Overdose Summit", dates: "Nov 17, 2026", startDate: "2026-11-17", endDate: "2026-11-17",
   venue: "Fort Smith Convention Center", city: "Fort Smith", region: "AR",
-  desc: "Meet Easy Rx Cycle at the 2026 Arkansas Stop Overdose Summit in Fort Smith. Safe, documented medication and controlled-substance disposal — mail-back kits, on-site deactivation and a Certificate of Destruction every time. Scan for 10% off your first order.",
+  desc: "Meet Easy Rx Cycle at the 2026 Arkansas Stop Overdose Summit in Fort Smith. Safe, documented medication and controlled-substance disposal — prepaid mail-back kits and a Certificate of Destruction every time. Scan for 10% off your first order.",
   pitch: "Unused medications left in cabinets are a risk. Stop by the booth to see how clinics, pharmacies and community programs get them destroyed safely and on the record.",
   h2: "Get unused medications out of circulation — safely and on the record.",
   intro: "Easy Rx Cycle is an Arkansas-based, DEA-registered destruction company. We give clinics, pharmacies and community programs a simple way to destroy unused and expired medications, with a Certificate of Destruction for every shipment.",
   covers: [
     "Pharmaceutical waste — mail medications back for documented destruction",
-    "On-site deactivation kits — render medications non-retrievable, no shipping needed",
     "Controlled substances — non-retrievable destruction for DEA registrants",
     "Activated charcoal take-back — return used disposal containers for destruction",
     "Sharps — needles and syringes in approved containers",

@@ -141,7 +141,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "nursing-homes", label: "Nursing home", name: "Nursing homes and long-term care", one: "long-term care facility", estab: "nursing",
     board: (s) => `the ${s.name} health department`, guide: "/resources/nursing-home-waste-disposal-guide/",
-    lead: (s, n) => `Medication and sharps disposal for the ${n} nursing and long-term-care facilities across ${s.name} — on-site deactivation at the nursing station, documented destruction of the full containers, controlled substances and sharps.`,
+    lead: (s, n) => `Medication and sharps disposal for the ${n} nursing and long-term-care facilities across ${s.name} — prepaid mail-back for controlled substances and sharps, and documented destruction of full charcoal disposal containers.`,
     streams: [
       { name: "Full deactivation containers", what: "Used activated-charcoal containers sent back for documented destruction", ...ACR },
       { name: "Controlled substances", what: "Expired and wasted controlled drugs", ...CTL },

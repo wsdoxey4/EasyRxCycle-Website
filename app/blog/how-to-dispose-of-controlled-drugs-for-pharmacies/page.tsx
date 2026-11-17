@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "How do pharmacies dispose of controlled substances?", a: "Through a DEA-registered reverse distributor \u2014 controls are destroyed non-retrievable with Form 222/41 and a Certificate of Destruction, while returnable stock is processed for manufacturer credit." },
-  { q: "Can pharmacies recover credit on expired controlled drugs?", a: "Yes \u2014 reverse distribution sorts returnable stock for credit and compliantly destroys the rest." },
+  { q: "How do pharmacies dispose of controlled substances?", a: "Through a DEA-registered reverse distributor \u2014 controls are destroyed non-retrievably with the DEA paperwork prepared by us and a Certificate of Destruction." },
+  { q: "Do you process returns for manufacturer credit?", a: "No \u2014 we are destruction only. If you use a returns company for credit, keep them; we destroy everything else." },
   { q: "What controlled substances do pharmacies dispose of?", a: "The full range \u2014 Schedule II opioids (oxycodone, hydrocodone, fentanyl), Schedule III (buprenorphine, testosterone), and Schedule IV\u2013V (alprazolam, diazepam, tramadol)." },
-  { q: "Do independent pharmacies get the same service?", a: "Yes \u2014 there are no high-volume minimums; single-location pharmacies get the same compliant, credit-maximizing service as chains." }
+  { q: "Do independent pharmacies get the same service?", a: "Yes \u2014 there are no high-volume minimums; single-location pharmacies get the same compliant service as chains." }
 ];
 
 const jsonLd = {
@@ -55,7 +55,7 @@ export default function Page() {
                 <span className="dot-sep" />
                 <span>Updated Jul 2026</span>
               </div>
-              <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Pharmacies handle the widest range of controlled substances of any facility &mdash; and dispose of expired, returned, and unsellable controls constantly. Here&rsquo;s how pharmacies dispose of controlled drugs compliantly, with credit recovery built in." }} />
+              <p className="article-lead" dangerouslySetInnerHTML={{ __html: "Pharmacies handle the widest range of controlled substances of any facility &mdash; and dispose of expired, returned, and unsellable controls constantly. Here&rsquo;s how pharmacies dispose of controlled drugs compliantly." }} />
 
               <KitCTA cat="controlled" />
               <div className="prose">
@@ -75,14 +75,14 @@ export default function Page() {
             <ul><li dangerouslySetInnerHTML={{ __html: "<strong>Schedule II:</strong> Oxycodone, hydrocodone, fentanyl" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Schedule III:</strong> Buprenorphine, testosterone" }} /><li dangerouslySetInnerHTML={{ __html: "<strong>Schedule IV&ndash;V:</strong> Alprazolam, diazepam, tramadol" }} /></ul>
             <p dangerouslySetInnerHTML={{ __html: "All of these are strictly regulated under federal and state law, and each must be disposed of through a compliant, documented process." }} />
             <h2 id="why" dangerouslySetInnerHTML={{ __html: "Why proper disposal matters" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Improper disposal is a licensure and liability problem, not just paperwork. The risks: DEA fines or license revocation, environmental contamination, drug diversion or theft, and failed audits with criminal exposure. Expired and returned controlled stock has to be destroyed non-retrievable and documented &mdash; and returnable stock should be processed for manufacturer credit, not just trashed." }} />
+            <p dangerouslySetInnerHTML={{ __html: "Improper disposal is a licensure and liability problem, not just paperwork. The risks: DEA fines or license revocation, environmental contamination, drug diversion or theft, and failed audits with criminal exposure. Expired and returned controlled stock has to be destroyed non-retrievable and documented." }} />
             <h2 id="options" dangerouslySetInnerHTML={{ __html: "DEA-compliant disposal options" }} />
             <h3 dangerouslySetInnerHTML={{ __html: "1. Use a DEA-registered reverse distributor (recommended)" }} />
             <p dangerouslySetInnerHTML={{ __html: "The most reliable, compliant option. A <a href=\"/our-solutions/reverse-distribution/\">DEA-registered reverse distributor</a> collects, transports, and destroys your controls &mdash; handling DEA Form 222 for Schedule II, preparing Form 41, tracking chain of custody, and issuing a <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. See our <a href=\"/our-solutions/controlled-substance-destruction/\">controlled substance destruction</a> service." }} />
             <h3 dangerouslySetInnerHTML={{ __html: "2. Mail-back programs" }} />
             <p dangerouslySetInnerHTML={{ __html: "Secure, tamper-evident <a href=\"/shop/controlled-substance-mail-back-kit/\">controlled substance mail-back kits</a> with prepaid shipping &mdash; ideal for lower-volume or distributed sites. Fill it, seal it, ship it; we handle the DEA paperwork." }} />
-            <h3 dangerouslySetInnerHTML={{ __html: "Bonus: reverse distribution for credit" }} />
-            <p dangerouslySetInnerHTML={{ __html: "Pharmacies can recover manufacturer credit on returnable controlled and non-controlled stock through <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> &mdash; not just destroy it." }} />
+            <h3 dangerouslySetInnerHTML={{ __html: "A note on returns for credit" }} />
+            <p dangerouslySetInnerHTML={{ __html: "Some returnable stock can go back to the manufacturer for credit through a returns company. We are destruction only: if you use a returns company, keep them, and send us everything they won&rsquo;t take through our <a href=\"/our-solutions/reverse-distribution/\">reverse distribution</a> service." }} />
             <h2 id="mailback" dangerouslySetInnerHTML={{ __html: "Mail-back kits for small batches" }} />
             <p dangerouslySetInnerHTML={{ __html: "For a handful of expired, damaged or recalled controlled items, our <a href=\"/shop/controlled-substance-mail-back-kit/\">Controlled Substance Mail-Back Kit</a> is the simplest compliant option, priced from " + money(fromPrice("controlled")) + ". Each kit includes a tamper-evident mailer, prepaid return shipping and instructions. We handle the DEA paperwork, complete the Form 41 when we destroy the contents, and send your <a href=\"/resources/certificate-of-destruction/\">Certificate of Destruction</a>. No contract." }} />
             <h2 id="forms" dangerouslySetInnerHTML={{ __html: "The DEA forms you must know" }} />

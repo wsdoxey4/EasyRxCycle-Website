@@ -28,7 +28,7 @@ const groups: Group[] = [
   ]},
   { title: "Controlled & hazardous destruction", sols: [
     { slug: "controlled-substance-destruction", name: "Controlled substance destruction", blurb: "DEA non-retrievable destruction with Form 41 and witnessed logs." },
-    { slug: "reverse-distribution", name: "Pharmaceutical reverse distribution", blurb: "DEA-registered — recover manufacturer credit on returnable Rx." },
+    { slug: "reverse-distribution", name: "Pharmaceutical reverse distribution", blurb: "DEA-registered destruction of expired and controlled Rx." },
     { slug: "rcra-hazardous-pharmaceutical-waste", name: "RCRA hazardous drug disposal", blurb: "P- & U-listed and characteristic hazardous drugs, to EPA standards." },
     { slug: "trace-chemotherapy-waste", name: "Trace chemotherapy waste", blurb: "Yellow-container trace chemo, handled per USP 800." },
   ]},
