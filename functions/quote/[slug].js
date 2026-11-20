@@ -12,6 +12,26 @@ const DEFAULT_INCLUDED = [
   "We handle all of the paperwork, including DEA and waste manifests where they apply.",
   "A Certificate of Destruction for every shipment, for your records.",
 ];
+// The heading names the quote's waste type, from the stream on each catalog line (William 2026-11-20:
+// "say proper waste type"). One stream gets its own name; a mix gets the family name. No streams: the old heading.
+const STREAM_TITLE = {
+  sharps: "Sharps waste destruction",
+  biohazard: "Biohazard waste destruction",
+  "trace-chemo": "Trace chemo waste destruction",
+  controlled: "Controlled substance destruction",
+  rcra: "Hazardous pharmaceutical waste destruction",
+  pharmaceutical: "Pharmaceutical waste destruction",
+  "medication disposal kit": "Medication waste destruction",
+};
+const PHARMA = ["controlled", "rcra", "pharmaceutical", "medication disposal kit"], MEDICAL = ["sharps", "biohazard", "trace-chemo"];
+function wasteTitle(lines) {
+  const s = [...new Set((lines || []).map((l) => l && l.stream).filter((x) => STREAM_TITLE[x]))];
+  if (s.length === 1) return STREAM_TITLE[s[0]];
+  if (s.length && s.every((x) => PHARMA.includes(x))) return "Pharmaceutical waste destruction";
+  if (s.length && s.every((x) => MEDICAL.includes(x))) return "Medical waste destruction";
+  if (s.length) return "Medical and pharmaceutical waste destruction";
+  return "Pharmaceutical waste destruction";
+}
 const fmtDate = (d) => (d ? new Date(String(d).length <= 10 ? d + "T12:00:00Z" : d).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "America/Chicago" }) : "");
 const unitText = (q, u = "") => (Number(q) !== 1 && u && u !== "service" && !/s$/.test(u) ? u + (/x$/.test(u) ? "es" : "s") : u);
 const qtyText = (n) => Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 2 });
@@ -98,7 +118,7 @@ function render(q, client, prep, url) {
     <div class="bar"></div>
     <div class="pad">
       <div class="eyebrow">Service quote</div>
-      <h1>Pharmaceutical waste destruction</h1>
+      <h1>${esc(wasteTitle(lines))}</h1>
       <div class="meta3">
         <div><div class="eyebrow">Prepared for</div><p>${to || "&nbsp;"}</p></div>
         <div><div class="eyebrow">Prepared by</div><p>${by}</p></div>
