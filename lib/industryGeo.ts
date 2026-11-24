@@ -145,6 +145,7 @@ export const INDUSTRIES: Industry[] = [
     streams: [
       { name: "Full deactivation containers", what: "Used activated-charcoal containers sent back for documented destruction", ...ACR },
       { name: "Controlled substances", what: "Expired and wasted controlled drugs", ...CTL },
+      { name: "Expired medications", what: "Residents' expired and unused non-controlled medications", ...PH },
       { name: "Sharps", what: "Insulin pens, needles and lancets", ...SH },
     ],
     notTaken: ["Pathological waste", "Bulk chemotherapy (trace chemo only)", "Inhalers and aerosols"],
@@ -191,7 +192,8 @@ export const INDUSTRIES: Industry[] = [
 
 // Staged indexing (same idea as STREAM_WAVE): build every page, index the industries listed here.
 // Wave A (2026-10-23): dental, veterinary, pharmacies. Add physician-offices, nursing-homes, hospitals after ~2–3 weeks.
-export const INDUSTRY_LIVE = new Set(["dental", "veterinary", "independent-pharmacy"]);
+// Wave B (2026-11-24, William): physician-offices, nursing-homes, hospitals — all industry × state pages indexed.
+export const INDUSTRY_LIVE = new Set(["dental", "veterinary", "independent-pharmacy", "physician-offices", "nursing-homes", "hospitals"]);
 
 export const INDUSTRY_BY_SLUG: Record<string, Industry> = Object.fromEntries(INDUSTRIES.map((i) => [i.slug, i]));
 
